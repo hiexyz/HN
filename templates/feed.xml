@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site_name }}</title>
+    <link>https://example.com/</link>
+    <description>{{ site_tagline }} — {{ heading_date }} {{ slot_label }}</description>
+    <language>ja</language>
+    <lastBuildDate>{{ generated_at }}</lastBuildDate>
+    {% for story in stories %}
+    <item>
+      <title>{{ story.title_ja }}</title>
+      <link>{{ story.url }}</link>
+      <guid isPermaLink="false">hn-{{ story.id }}-{{ heading_date }}-{{ slot_label }}</guid>
+      <description><![CDATA[
+        <p>{{ story.editor_note }}</p>
+        <p>{{ story.summary_ja }}</p>
+        <p><a href="{{ story.hn_url }}">HN スレッド</a></p>
+      ]]></description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

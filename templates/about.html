@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}About — {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-block">
+  <h1>About</h1>
+  <p class="lead">{{ site_name }} は、Hacker News のトップ記事を日本語で素早く把握するための非公式ダイジェストです。</p>
+  <ul class="plain-list">
+    <li>取得元: 公式 Hacker News API</li>
+    <li>更新: JST 7:00 / 12:00 / 23:00（GitHub Actions）</li>
+    <li>内容: 日本語タイトル、一言メモ、コメント要約</li>
+  </ul>
+  <p>本サイトは Y Combinator / Hacker News とは無関係です。</p>
+</section>
+{% endblock %}

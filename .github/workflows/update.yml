@@ -1,0 +1,60 @@
+name: Update HN日報
+
+on:
+  schedule:
+    - cron: "0 22 * * *" # JST 07:00
+    - cron: "0 3 * * *"  # JST 12:00
+    - cron: "0 14 * * *" # JST 23:00
+  workflow_dispatch:
+
+concurrency:
+  group: hn-nippo-update
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Decide slot
+        id: slot
+        run: |
+          HOUR=$(TZ=Asia/Tokyo date +%H)
+          if [ "$HOUR" -ge 6 ] && [ "$HOUR" -lt 10 ]; then
+            echo "value=07" >> "$GITHUB_OUTPUT"
+          elif [ "$HOUR" -ge 10 ] && [ "$HOUR" -lt 16 ]; then
+            echo "value=12" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=23" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate digest
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          SLOT: ${{ steps.slot.outputs.value }}
+        run: python -m scripts.fetch_and_generate --slot "$SLOT"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Update: $(TZ=Asia/Tokyo date +%Y-%m-%d) ${{ steps.slot.outputs.value }}:00"
+          git push
