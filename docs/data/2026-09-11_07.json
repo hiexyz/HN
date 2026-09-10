@@ -1,0 +1,1516 @@
+{
+  "date": "2026-09-11T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49643982,
+      "title_en": "Shopify is moving from React Native back to Swift and Kotlin",
+      "url": "https://shopify.engineering/back-to-native",
+      "hn_url": "https://news.ycombinator.com/item?id=49643982",
+      "score": 688,
+      "comment_count": 458,
+      "posted_at": "2026-09-10T14:09:31+00:00",
+      "comments": [
+        {
+          "id": 49644503,
+          "author": "atonse",
+          "text": "We did the same thing - had 90% of it overnight. Then spent a few days in the background tweaking for polish.\nOur app is smaller, and has about 15-20 screens. I started at about 12:30am by giving codex a goal and it inventoried every screen based on the react native code, then created android and iOS directories, used maestro (I had already set up this tooling for a previous personal app build a few weeks prior), and had the whole thing working in android and iOS in the morning. Took it about 6 hours while I slept.\nThe app is way smaller, launches instantly, and the android app is (supposedly) native looking. I say supposedly because I don't use android phones. But it's using Jetpack Compose and Kotlin.\nAnd I don't know Swift or Kotlin. I honestly don't see the point of React Native anymore. I know Expo is doing very cool agentic stuff, but I'm just not sure why I'd need any of it when I can write a native app."
+        },
+        {
+          "id": 49651594,
+          "author": "hectdev",
+          "text": "As an iOS Engineer that has been fighting the battle against ever C-level type who brings up the subject of a shared codebase my whole career, I feel very validated."
+        },
+        {
+          "id": 49651581,
+          "author": "ernsheong",
+          "text": "It seems like Shopify has fallen into a trap thinking that more complexity costs nothing because of AI. In the age of AI we have to embrace the same principle as before that complexity needs to be tamed, not multiplied. Even as humans struggled with complexity, from what I see now AI struggles very much the same. Hence I don't think this will age well."
+        },
+        {
+          "id": 49651570,
+          "author": "petegleeson",
+          "text": "Surely the decision comes down to whether they have the expertise to build native apps.\nI know JS and I know models still write a lot of garbage JS. I don’t know Swift so a model writing Swift all LTGM. Garbage is still there, I just can’t see it.\nThe solve isn’t another agentic harness. I need to learn more.\nLots of faster/cheaper justifications. I believe that part. If the quality bar is “web devs prompt models” then that’s a worry."
+        },
+        {
+          "id": 49651193,
+          "author": "blendergeek",
+          "text": "I first learned about the shopify app when I saw a purple \"shop\" checkout button. Next, I got an email saying that if I wanted to track my package I needed to download an app. No thank you. I don't want your app on my phone. I don't want to browse other stores in the shop app. I want to see my package and its status without enjoying a new \"social shopping experience\" or whatever.\nI now avoid buying things from anyone who use the dreaded purple \"shop\" button."
+        },
+        {
+          "id": 49644617,
+          "author": "pkaler",
+          "text": "I'm sitting here at my desk overlooking Cordova Street.  The street that Apache Cordova is named after.  I've seen this debate for almost two decades now.\nTeams jump on the latest cross-platform framework assuming that it will reduce headcount cost at the expense of having a lowest-common denominator app on each platform.\nThe latter is true but the former is false.\nWhat ends up happening is that teams start as 20 iOS engineers & 20 Android engineers.  They adopt something like React Native.  Then you end up with a team of 20 product engineers and 20 tooling and framework engineers.\nI've seen that countless times in the last two decades."
+        },
+        {
+          "id": 49645618,
+          "author": "netshade",
+          "text": "I agree w/ advising people to move off React Native, though I think the story that \"LLM enabled an otherwise too-expensive migration to consider\" is not correct.\nI say this because I was part of a migration from a mid-size React Native app to a Swift/Kotlin native app redo. I did the majority of the technical work on it. The majority of the work occurred before January 2026 and without LLM code assistance, though later features in the app definitely used some.\nFor anyone considering this, I'd say that the migration is definitely worth considering without even taking LLM assistance into consideration. The continued React Native tax of unnecessarily difficult upgrades, impedance mismatch w/ underlying core frameworks, and incredibly uneven library quality just cause your business to really spend a lot of time shepherding the tech over the finish line. It's pretty wonderful to be back in the world of \"build, compile, ship, be sure\". One thing as a fundamental principle that I think the Shopify article 'gets' at, is the importance of the feedback cycle - investing time in our integration test story very early on both helped w/ my cycle times, and later in providing guardrails for LLM a"
+        },
+        {
+          "id": 49646473,
+          "author": "tonic_note",
+          "text": "Models have gotten a lot better at generating native iOS apps. The main appeal of RN was being able to leverage your web devs for mobile dev. that's what I did at my last company. And it's fine for a startup, but eventually you want dedicated native engineers bc each platform really deserves its own technical masters who can optimize for it.\nBut now that all code is generated, there's little upside to having an RN app... just start native. Your devs are barely going to be writing code anyway."
+        }
+      ],
+      "title_ja": "ShopifyはReact NativeからSwiftとKotlinに戻ります",
+      "summary_ja": "ディスカッションのハイライト：私たちは同じことをしました-一晩で90 ％を持っていました/私のキャリア全体で共有コードベースの主題を提起するこれまでのCレベルのタイプと戦ってきたiOSエンジニアとして、私は非常に検証されていると感じています。/Shopifyは、AIのおかげで複雑さが増えてもコストがかからないという罠に陥ったようです",
+      "editor_note": "「ShopifyはReact NativeからSwiftとKotlinに戻ります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 2,
+      "id": 49639408,
+      "title_en": "More questions about whether researchers can trust OpenAI with unpublished math",
+      "url": "https://mathstodon.xyz/@andreasthom/117240535270608201",
+      "hn_url": "https://news.ycombinator.com/item?id=49639408",
+      "score": 586,
+      "comment_count": 586,
+      "posted_at": "2026-09-10T06:49:43+00:00",
+      "comments": [
+        {
+          "id": 49648436,
+          "author": "nezi",
+          "text": "I think it's a useful analogy to compare OpenAI to a human collaborator. These researchers willingly collaborated with an OpenAI model, giving it ideas, and OpenAI provided useful replies. Then, OpenAI goes ahead and publishes work along the lines of this collaboration, without attributing the researchers. If OpenAI was in fact a human researcher, this would be highly unethical.\nNow, OpenAI is claiming that the model it used to generate the result was not trained on these collaborative communications with the researcher. This is a technical argument that is impossible to verify as an OpenAI outsider, and probably difficult to verify even for internal OpenAI employees. Provenance is hard to track - you would hope OpenAI has very good tools for this, but a full data trail of all inputs is difficult to trace through.\nAnother interesting thing to consider is if instead of OpenAI doing this, it was another research mathematician A using an OpenAI model just like the internal group at OpenAI did to publish these results. What if the model A used was trained with unpublished communications with other researchers B who were working on the same problem? Should researcher A technically inclu"
+        },
+        {
+          "id": 49645695,
+          "author": "sashank_1509",
+          "text": "Both things can be true:\n1. OpenAI when using your chats in pretraining is improving its model’s intuition. The model parameter size is massive, and while the data is OOM larger it is plausible that model remembers stuff about chats that improves its latent representation.\n2. During RL on verifiable math and massive compute, the model discovers techniques and connections to solve math problems that are superhuman and have little to do with some specific technique mentioned in its chat.\nThe rumor I’ve heard from multiple employees at OAI and Ant is that the model has solved hundreds of open problems in maths, and is basically solving anything you throw at it. We’ll know soon enough, but I’m inclined to believe this is true. Maths is a fully verifiable domain amenable to self play, massive scale RL can develop a search agent far better than any human and I’m inclined to believe OAI would have solved these conjectures without any of this chat data in its pre-training."
+        },
+        {
+          "id": 49641828,
+          "author": "bertonvv",
+          "text": "I've been wondering whether AI really is improving rapidly at open problems or we're being fooled.\n- OpenAI invites researchers to use their models, in fact giving at least 100,000 researchers free access[1], but there are also those that pay\n- Internal OpenAI models are reportedly solving open problems at a surprisingly fast rate[2]\n- But researchers will typically work on open problems. A researcher who is using Codex to make progress on open problems will be feeding it fresh training data on precisely the problems the internal models are evaluated on.\n- So while it looks like the new models are suddenly solving lots of open problems, they could be significantly piggybacking on human progress, with models \"inspired\" by the work of researchers from all around the world?\nThis theory predicts that there'll be many more researchers coming forward just like TFA, as sOpenAI announces more solutions. It doesn't assume all of AI progress is a mirage, just that there's plagiarism.\n[1]:\nhttps://openai.com/index/chatgpt-for-academic-researchers/\n[2]:\nhttps://xcancel.com/OpenAI/status/2097374643518640382#m"
+        },
+        {
+          "id": 49651566,
+          "author": "angry_octet",
+          "text": "The only ethical path for OpenAI was to offer infinite free credits and tooling support. Trying to gazump them is reprehensible."
+        },
+        {
+          "id": 49639648,
+          "author": "fwlr",
+          "text": "It is suspicious that OpenAI decided to generate 300 billion output tokens from a model still in training, right after learning there was a credible chance that a major math proof was in that model’s training data. Obviously there are reasonably plausible explanations for each step, but it does sort of feel like parallel construction."
+        },
+        {
+          "id": 49650866,
+          "author": "sk4rekr0w",
+          "text": "\"We can say categorically that it is impossible for Dr. Buckmaster’s Codex prompts over the last two months to have influenced the system in any way, including training.\"\nThis is the third day of total hysteria that is based on nothing of substance. Move on folks."
+        },
+        {
+          "id": 49640833,
+          "author": "bamb008",
+          "text": "When Thom, the mathematician who now alleges plagiarism, posted his digestion [1] of OpenAI's construction of a non-sofic group, he does not mention the proof being familiar. He even calls the crucial argument clever, without noting he thought of it first.\n[1]\nhttps://mathoverflow.net/a/513885"
+        },
+        {
+          "id": 49649523,
+          "author": "bobmarleybiceps",
+          "text": "I think people probably assume that openai / anthropics use of their data is probably like google's \"\"\"limited\"\"\" use, in the sense that historically google wouldn't trivially be able to just take something from google cloud or  someone's search history and insta-convert into some competing project... But LLMs are quite strong at approximately \"memorizing\", so I think that risk is wayyy higher."
+        }
+      ],
+      "title_ja": "研究者が未発表の数学でOpenAIを信頼できるかどうかについてのさらなる質問",
+      "summary_ja": "ディスカッションのハイライト： OpenAIを人間のコラボレーターと比較することは有用なアナロジーだと思います/どちらも当てはまります。\n1/私は、AIがオープンな問題で本当に急速に進歩しているのか、それとも私たちが騙されているのか疑問に思っています。\n- OpenAIは研究者に彼らのモデルを使用するように招待しており、実際には少なくとも10万人を提供しています",
+      "editor_note": "「研究者が未発表の数学でOpenAIを信頼できるかどうかについてのさらなる質問」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 49649124,
+      "title_en": "The Deathray: A simple way for an untrusted site to freeze a Mac",
+      "url": "https://auberon.xyz/blog/posts/deathray/",
+      "hn_url": "https://news.ycombinator.com/item?id=49649124",
+      "score": 40,
+      "comment_count": 9,
+      "posted_at": "2026-09-10T19:34:20+00:00",
+      "comments": [
+        {
+          "id": 49651562,
+          "author": "monster_truck",
+          "text": "Remember when that unicode string nuked iOS 7 and you could set it as your SSID to get them stuck in a loop? good times."
+        },
+        {
+          "id": 49651609,
+          "author": "TedDoesntTalk",
+          "text": "Is this why Oregon Trail Deluxe freezes on Mac?\nhttps://oregontrail.ws/games/the-oregon-trail-deluxe/play/"
+        },
+        {
+          "id": 49651626,
+          "author": "sgentle",
+          "text": "Could be a useful way to force user-interaction-gated flows. A \"your computer is infected, click this button in 10 seconds or it will crash\" type button which, at this point, most modestly-knowledgeable users would know not to click. However, after seeing your computer actually crash when the countdown hits 0, perhaps they would be more inclined to click \"allow\" on whatever prompt follows when they see it again.\nOf course, plenty of other uses. Disable your adblocker or we crash your computer. Watch the whole ad or we crash your computer. Click the follow button or we crash your computer.\nMaybe I'm crazy, but \"crash your computer\" as a building block seems powerful enough to be a security issue. Is denial of service not a security thing anymore?"
+        },
+        {
+          "id": 49649439,
+          "author": "ilnmtlbnm",
+          "text": "Amazing!\nI encountered the same type of death freeze when trying (and failing) to run models in browser tabs, but didn't spend much time trying to understand how severe it is.\nHope they don't disable WebGPU..."
+        },
+        {
+          "id": 49649766,
+          "author": "fuzzfactor",
+          "text": "Maybe that would be better than a meltdown . . ."
+        },
+        {
+          "id": 49651396,
+          "author": "hyperhello",
+          "text": "The code is just an infinite loop counter. You can cause all kinds of Safari issues with an infinite loop in JavaScript too, which is sure annoying when trying to figure out large codebases. There was a student in Japan who showed that you could do this trivially and they were arrested."
+        }
+      ],
+      "title_ja": "デスレイ：信頼できないサイトがMacを凍結するための簡単な方法",
+      "summary_ja": "ディスカッションのハイライト：そのUnicode文字列がiOS 7にnukedされたときのことを思い出してください。SSIDとして設定して、ループに閉じ込められるようにすることができます。 /これがOregon Trail DeluxeがMacでフリーズする理由ですか？\nhttps://oregontrail.ws/games/the-oregon-trail-deluxe/play//ユーザーインタラクションゲートフローを強制するための便利な方法",
+      "editor_note": "「デスレイ：信頼できないサイトがMacを凍結するための簡単な方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 49649213,
+      "title_en": "OpenAI Agents API",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "hn_url": "https://news.ycombinator.com/item?id=49649213",
+      "score": 83,
+      "comment_count": 59,
+      "posted_at": "2026-09-10T19:43:22+00:00",
+      "comments": [
+        {
+          "id": 49650888,
+          "author": "bluesnowmonkey",
+          "text": "I think we’re still figuring out the right abstraction for offering agents as a product.\n- LLMs are a great foundation but building your own harness is a huge undertaking, a deep rabbit hole.\n- There are harnesses available as open source libraries but that’s still coupled to an environment. Where does the state persist? Like maybe I’m a Cloudflare worker and don’t even have a file system.\nAgent as a service like this lets you plug in the tools it needs to be whatever kind of agent you want. But they still get to encapsulate and continue to iterate on the really deep parts of the harness that all agents need like memory and context management.\nThat said, my money right now is not on the offerings from OpenAI and Anthropic because they’re stuck using their own proprietary frontier models and those aren’t actually the best choice for most agents right now. A competitor who is not an LLM lab gets their pick of the market at any given moment. Like you’d want to be using GLM 5.3 Flash right now for most things agentic."
+        },
+        {
+          "id": 49650658,
+          "author": "andrewchambers",
+          "text": "I've recently had great success running codex in a regular qemu VM and using codex remote control to talk to it from my phone.\nHonestly works extremely well as a personal assistant.\nI can see why turning it into an API makes sense, just be aware you might not need to lock yourself in if you can setup your own VMs."
+        },
+        {
+          "id": 49651460,
+          "author": "varenc",
+          "text": "Their showcase examples[0] link to GitHub but the links 404. Like this one for the Slack agent:\nhttps://github.com/OpenAI-Early-Access/agents-api-python-pre...\nGuessing this an early release not quite ready for the public?  Interesting that there's a 'OpenAI-Early-Access' GitHub user, though of course with no public repos.  Presumably when its actually public they'll move the example agent repos to another GitHub user.\n[0]\nhttps://developers.openai.com/showcase/agents-api-slack-bot"
+        },
+        {
+          "id": 49650441,
+          "author": "monneyboi",
+          "text": "Instead of this push for more vendor lock-in, give us the reasoning tokens we pay for. Thanks."
+        },
+        {
+          "id": 49651406,
+          "author": "jumploops",
+          "text": "It's interesting to me that the agents comparison page[0] doesn't list codex's app-server as an option.\nI've found the app-server to be the most flexible, compared to the raw Responses API or Agents SDK.\nCertainly seems like everyone is still figuring out the right interface here.\nAlso of note, since GPT-5.5 or so, Codex doesn't even use the Responses API as intended, but instead a \"lite\" version where they manage the context more manually (like sending the full transcript or using a custom web.run tool instead of the provided `web_search` tool).\nIf you follow the docs, it will lead you down a lot of well-intended functionality, but most of it is thrown away in their most successful harness.\n[0]\nhttps://developers.openai.com/api/docs/guides/agents#compare..."
+        },
+        {
+          "id": 49650525,
+          "author": "kingstnap",
+          "text": "This is pretty interesting in a lot of non-surface-level ways.\nI can see OpenAI pushing for this as a sort of more durable moat compared to the now huge number of agentic harnesses that run on your own machine.\nThis might be getting the foot into some sort of bundling as well. Like unrestricted models or custom fine tuned agents inside this and not providing direct APIs to those endpoints.\nThat being said I don't see a lot of reasons for people to jump on this if it doesn't bundle something killer. Like to me the fact that GPT Work runs on your own machines and all the artifacts and work in progress there for you to look at is sort of the whole point. I don't just want a final artifact."
+        },
+        {
+          "id": 49650234,
+          "author": "chairhairair",
+          "text": "Perfect for when you want your data to be stolen programmatically."
+        },
+        {
+          "id": 49651471,
+          "author": "podviaznikov",
+          "text": "would love if it would be possible to allow suer and signing with the open ai account and use exiting subscription.\nanyone knows how to do that and implement agent api with user actual account?"
+        }
+      ],
+      "title_ja": "OpenAIエージェントAPI",
+      "summary_ja": "ディスカッションのハイライト：エージェントを製品として提供するための適切な抽象化をまだ考えていると思います。\n- LLMは素晴らしい基盤ですが、独自のハーネスを構築することは大きな仕事であり、最近、通常のqemu VMでコーデックスを実行し、コーデックスリモートコントロールを使用して携帯電話から通信することに大きな成功を収めました。\nパーソナルアシスタントとして非常にうまく機能します/ショーケースの例[0]はGitHubにリンクしていますが、リンクは404です",
+      "editor_note": "「OpenAIエージェントAPI」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49645443,
+      "title_en": "Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra",
+      "url": "https://cognition.com/blog/swe-2",
+      "hn_url": "https://news.ycombinator.com/item?id=49645443",
+      "score": 338,
+      "comment_count": 140,
+      "posted_at": "2026-09-10T15:29:47+00:00",
+      "comments": [
+        {
+          "id": 49646410,
+          "author": "postalcoder",
+          "text": "If you're looking for reason to be skeptical, look no further than the massive delta between the Terminal Bench 2.1 (92.8%) and the Terminal Bench 4 score (27.3%).\nTerminal Bench 4 was released a couple weeks ago, so the difference you're seeing between the two scores can be interpreted as \"how well does this model generalize to new problems\"? More crudely: \"how benchmaxxed is this model?\""
+        },
+        {
+          "id": 49647006,
+          "author": "gruez",
+          "text": "Cognition, the same company that a few years ago demoed a coding bot purporting to be able to autonomously complete upwork tasks, but upon closer inspection was going off the rails and not even completing what was asked?\nhttps://www.youtube.com/watch?v=tNmgmwEtoWE\nAs others have mentioned this is post trained from Kimi k3, which is already quite capable, so it can't be that bad, but any claimed improvements in performance should be taken with a grain of salt."
+        },
+        {
+          "id": 49646469,
+          "author": "nullbio",
+          "text": "Where are the model stats? Is this open-weights? If not, why would I use this over DeepSeek Flash 4.1?\nI think these competing labs need to realize that no one wants another closed-weight model provider... We aren't even happy with the two we have right now, and their days are entirely numbered. If DeepSeek 4.1 flash is really as good as it's benching, we're probably a month away from 1/3rd of users moving off the closed-weight models in favor of something they have more control over (or is cheaper).\nThe big labs love to release their new model and quantize after the first week. You don't have that problem using dirt cheap API rates on OpenRouter. DS 4.1 flash is also faster than fast mode Astra. OAI's subscription rates are good value, but now these new open-weight models are nearly as cheap on API usage rates. I honestly can't wait for the day we're not beholden to the two big labs anymore. No wonder there's so much fear pumping happening at the moment from Anthropic and their funded NGOs."
+        },
+        {
+          "id": 49646420,
+          "author": "TheJCDenton",
+          "text": "> SWE-2 is post-trained from Kimi K3\nOn the one hand I would have expected a completely new model, on the other hand it's an RL-ed K3 go Fable 5 capabilities, which demonstrate that this is probably possible, which is nice."
+        },
+        {
+          "id": 49646847,
+          "author": "pkilgore",
+          "text": "Not sure it matters when devin is the most consistently shit product I've used.  And yes, I tried again, they wasted the money on the billboards."
+        },
+        {
+          "id": 49651186,
+          "author": "yipinwong",
+          "text": "Incest in human biology causes mutations that's bad in the long term.\nSame for AI models trained on Kimi-3 or other models like Chinese models do.\nThey suffer from the same issue."
+        },
+        {
+          "id": 49646136,
+          "author": "mydreamof",
+          "text": "Seems like benchmaxing? For example for Terminal-Bench 4 it doesn't have great results. And why not show other benchmarks?"
+        },
+        {
+          "id": 49646612,
+          "author": "bobtheborg",
+          "text": "SWE 1.6 was great for small tasks. Very fast and good enough. 1.7 was unusable for me. Took more time thinking than GLM 5.2 and seemed to be generally running in circles. I tried it but abandoned it.\nLooking forward to 2 -- maybe it'll be usable"
+        }
+      ],
+      "title_ja": "Cognitionが新しいSWE -2モデル、Rivaling Fable 5.1、GPT - Astraを発表",
+      "summary_ja": "ディスカッションのハイライト：懐疑的な理由を探している場合は、ターミナルベンチ2.1 （ 92.8 ％ ）とターミナルベンチ4スコア（ 27.3 ％ ）の間の巨大なデルタを見てください。\nターミナルベンチ4/コグニション、数年前に自律的にアップワークタスクを完了できると主張するコーディングボットをデモしたのと同じ会社ですが、詳しく調べると軌道から外れていました/モデルの統計はどこにありますか？ これはオープンウェイトですか？そうでない場合、なぜですか？",
+      "editor_note": "「Cognitionが新しいSWE -2モデル、Rivaling Fable 5.1、GPT - Astraを発表」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 49645393,
+      "title_en": "Don't let anyone take away your big box of cables",
+      "url": "https://blog.jim-nielsen.com/2026/hands-off-my-cables/",
+      "hn_url": "https://news.ycombinator.com/item?id=49645393",
+      "score": 267,
+      "comment_count": 219,
+      "posted_at": "2026-09-10T15:27:22+00:00",
+      "comments": [
+        {
+          "id": 49646223,
+          "author": "booty",
+          "text": "Key\nfor me\nis to \"group\" cables. For example, I have a bag of USB-C cables, a bag of USB-A cables, etc.\nGrouping them is key to deduplicating.\nIt's easy to look at a single legacy USB A-to-B \"printer\" cable in isolation and think \"I might need this someday!\" Because you really might need it someday. However, if you group them you might see that you have\nten\nof them. And then you can get rid of... maybe 8 of them.\nI also (mostly) put individual cables into baggies. You can get clear 2mil generic ziploc style baggies for super cheap on Amazon or elsewhere. $15 for 200 or something. Prvents tangles and way less effort than wrapping or tying them."
+        },
+        {
+          "id": 49650002,
+          "author": "SmasherEpilepti",
+          "text": "Recently, I was screwed by my big box of cables, when I pulled out a SATA power connector for my modular power supply, and learned very quickly that though the ports universally fit across modular PSUs, the pinouts are not actually intercompatible, and you can and will fry your hard drives.\nI didn't know this; I had foolishly assumed that SATA power connectors were standardized on both ends."
+        },
+        {
+          "id": 49649319,
+          "author": "1-more",
+          "text": "In 2021 I cut the end off a USB cable to expose the power leads which I scotch taped to the power meter on my bike to charge it. I kept that cable. In 2024 I used it to add USB disconnects to the light strip I attached to the bottom of my son's crib, allowing me to keep the light strip intact when we lowered the base from the baby height to the toddler height. A week later we got rid of the strip because we really didn't need the light like that any more. Still, no regrets. This was my version of using every part of the buffalo."
+        },
+        {
+          "id": 49645921,
+          "author": "EvanAnderson",
+          "text": "I wish the old cables, gear, etc. I have squirreled-away stopped saving Customers' and friends' asses because I could feel good about getting rid of it.\nWe've been unspooling the stash of wood off-cuts, bits of copper pipe, and misc. broken or trash-picked parts from my late grandfather's workshop for the last few years. He always seemed to have materials at-hand to fix anything and, as a kid, I was in awe of that. Now I understand why.\nI hope I can leave less stuff for my daughter to poke thru, but at the same time I want to be like my grandfather, seemingly being able to fix anything immediately."
+        },
+        {
+          "id": 49651497,
+          "author": "kingrolo",
+          "text": "I decided years ago to limit myself to just one box of cables... So then I ended up having to keep finding a bigger and bigger box to switch them to.\nOne thing that bothers me though (or an excuse my brain uses to justify it maybe) is that it feels so wasteful to dump so many cables that will probably end up in landfill when I know there's someone out there who could make use of them.\nIf anyone has a suggestion on that or can tell me about the pop up local cable donation swap initiative I haven't heard of them that would be welcome."
+        },
+        {
+          "id": 49651171,
+          "author": "lowken",
+          "text": "I recently purged my cable box. I had 8 HDMI cables... 8. What do I need 8 HDMI cables for?\nI tossed them in the garbage with a ton of other use less cables. I kept one HDMI cable (not 8) and a few odds and ends. I kept one rj45 Ethernet cable and tossed the rest.  I even tossed my rj45 crimping tool kit. Why? Because I don't see the need to crimp Ethernet cables anytime soon and should the need arise I can buy a kit for $30.\nSo at the end my cable box when from being overflowing to half full.\nOnto the next project."
+        },
+        {
+          "id": 49651547,
+          "author": "jwilliams",
+          "text": "You want to do task X and discover you need cable Y. You go to find cable Y missing, then discover a new one is $55 and 2 days delivery. Never again."
+        },
+        {
+          "id": 49651255,
+          "author": "squarefoot",
+          "text": "I have surplus/military bare cables dating from the 1970s or so, extra shiny silver plated copper with PTFE jacket: a joy to solder, then more \"normal\" ones from the late 80s and 90s, then \"old\" modern ones, that is, power/audio/data cables usable with recent stuff. I'll never throw away any of them because unlike most crap they bundle with consumer devices today, they're made of real copper. Take a cheap cable bought today and chances are that it either sticks to a magnet, meaning it's copper plated steel or other crappy alloy, or it doesn't and it's super light which indicates it's made of aluminium; in all cases not good where power dissipation can be a problem or where resoldering may be necessary. Keep old cables!"
+        }
+      ],
+      "title_ja": "ケーブルの大きな箱を誰にも奪わせないでください",
+      "summary_ja": "ディスカッションのハイライト：キー\n私のために\nケーブルを「グループ化」することです/最近、モジュラー電源用のSATA電源コネクタを取り出したときに、ケーブルの大きな箱にねじ込まれ、ポートは一般的にfiですが/2021年にUSBケーブルの端を切り取って電源リードを露出させ、それを充電するために自転車のパワーメーターにテープで貼り付けました",
+      "editor_note": "「ケーブルの大きな箱を誰にも奪わせないでください」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49645437,
+      "title_en": "Technique for Manipulating Satellite Photos Now Reveals Ancient Images (2025)",
+      "url": "https://spinoff.nasa.gov/Manipulating_Satellite_Photos_Now_Reveals_Ancient_Images",
+      "hn_url": "https://news.ycombinator.com/item?id=49645437",
+      "score": 247,
+      "comment_count": 36,
+      "posted_at": "2026-09-10T15:29:30+00:00",
+      "comments": [
+        {
+          "id": 49648798,
+          "author": "Waterluvian",
+          "text": "False colour composites were something I was introduced to in high school GIS and did a lot of in undergrad remote sensing. It was one of those\nEureka!\nmoments for me in terms of developing a better understanding of signals and signal processing, as well as sensors and data collection. Ie. absorbing the reality that the way in which my eyes (or any optical sensor) see the world is not canonical.\nVegetation is red, not green!\nIt was also just the COOLEST THING EVER to swap infrared bands in LANDSAT ETM+ imagery and watch vegetation immediately pop out at you. It's what turned this sort of dull (at least for a teenager) geoscience into a kind of puzzle where you have to figure out how to bring the signal up out of the data."
+        },
+        {
+          "id": 49647507,
+          "author": "matja",
+          "text": "You can do something similar in GIMP:\n1) Colors > Components > Decompose > LAB\n2) For the layers of the A/B (chroma) channels, Colors > Levels > \"Auto Input Levels\" (maximize the contrast), and move the mid point to the median.\n3) Colors > Components > Compose > LAB"
+        },
+        {
+          "id": 49647000,
+          "author": "dylan604",
+          "text": "“No one really knows why people made the rock art they made, at least in many cases,” Harman said\nWell, it's obvious they really wanted to though. This isn't like marking on a wall with a Sharpie. They had to work at it to make it happen. The commitment alone is impressive even if it was just a \"Grogg was here!\""
+        },
+        {
+          "id": 49648646,
+          "author": "qurren",
+          "text": "I tried to look for hidden rock art at Ankgor Wat by imaging with multiple bandpass filters and amplifying cross-spectral differences. I didn't succeed, but maybe I was in the wrong place. The shit guards there also didn't like me using a tripod while I changed filters, so it was also hasty."
+        },
+        {
+          "id": 49647589,
+          "author": "mlmonkey",
+          "text": "Is there an imagemagick implementation that I can just throw into the pipeline?"
+        },
+        {
+          "id": 49648765,
+          "author": "1shooner",
+          "text": "DStretch is also really great at revealing painted ghost signs on old buildings."
+        },
+        {
+          "id": 49646946,
+          "author": "HPsquared",
+          "text": "See also: Eulerian Video Magnification (EVM) to amplify subtle motions and colour changes:\nhttps://youtu.be/ONZcjs1Pjmk\nhttps://youtu.be/_qtzWNZApsw"
+        },
+        {
+          "id": 49646665,
+          "author": "NDlurker",
+          "text": "Amazing. This will change how I take photos"
+        }
+      ],
+      "title_ja": "衛星写真を操作する技術が古代の画像を明らかにする（ 2025年）",
+      "summary_ja": "ディスカッションハイライト：偽色合成は、高校GISで紹介され、大学のリモートセンシングで多くのことを行ったものでした/GIMPでも同様のことができます。\n1)色>コンポーネント>分解>ラボ\n2 ） A/B （クロマ）チャンネルのレイヤーについては、色>レベル>「自動入力レベル」（ cを最大化/「少なくとも多くの場合、人々がなぜ彼らが作ったロックアートを作ったのか誰も本当に知りません」とハーマンは言いました\nまあ、それは明らかですが",
+      "editor_note": "「衛星写真を操作する技術が古代の画像を明らかにする（ 2025年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 8,
+      "id": 49649222,
+      "title_en": "Proof of Capture: Apple Reference Image, but open source and using steganography",
+      "url": "https://merybenavente.me/blog/proof-of-capture",
+      "hn_url": "https://news.ycombinator.com/item?id=49649222",
+      "score": 53,
+      "comment_count": 38,
+      "posted_at": "2026-09-10T19:44:15+00:00",
+      "comments": [
+        {
+          "id": 49650142,
+          "author": "fitzn",
+          "text": "Here's a toy for embedding small text into images steganographically:\nhttps://github.com/fitzn/atrium"
+        },
+        {
+          "id": 49650598,
+          "author": "treyd",
+          "text": "I don't understand why few people are pointing out the obvious vulnerability here that you can control the wires going into the photosensor controller and pretend that the photosensor is capturing whatever image you want.  I imagine it's not exactly\ntrivial\nto do this, but a grad student with an FPGA could probably figure it out."
+        },
+        {
+          "id": 49650867,
+          "author": "Lammy",
+          "text": "In the future, people willingly surveil themselves 24/7 with cryptographic proof, because fake images and video will be so good that it will be the only way to prove what one\ndidn't\ndo. Total Information Awareness achieved :D"
+        },
+        {
+          "id": 49650212,
+          "author": "vzaliva",
+          "text": "I expect in the near future all digital cameras to digitally sign the images they take. Even before AI slop, it was useful to avoid manual alterations. AI makes it all too easy, so it makes sense.\nHowever, this will certify only the original image. I think the missing part of this is additional layers of certification which allow some image editing (e.g., rotating, contrast, etc.) yet clearly document that the image was modified and link to the original image ID. Kind of like a signed git log."
+        },
+        {
+          "id": 49650206,
+          "author": "xg15",
+          "text": ">\nFor example, a screen attack still works: photograph a screen displaying an AI image and you get a signed photo of a fake. But it's always nice seeing big actors interested in addressing this problem.\nYeah, very nice. So this whole idea basically doesn't work - but we get a new stealth way to embed metadata in an image that can be used for tracking...\n(And a new narrative why cameras need to have TPMs and locked-down firmware as well)"
+        }
+      ],
+      "title_ja": "キャプチャの証明： Appleリファレンスイメージですが、オープンソースであり、ステガノグラフィを使用しています",
+      "summary_ja": "ディスカッションのハイライト：ステガノグラフィーで画像に小さなテキストを埋め込むためのおもちゃは次のとおりです。\nhttps://github.com/fitzn/atrium/光センサーコントローラーに入る配線を制御し、写真を装うことができるという明らかな脆弱性をここで指摘している人がほとんどいない理由が理解できません/将来的には、偽の画像やビデオが非常に優れているため、人々は暗号化された証拠で24時間年中無休で自分自身を監視します",
+      "editor_note": "「キャプチャの証明： Appleリファレンスイメージですが、オープンソースであり、ステガノグラフィを使用しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49650326,
+      "title_en": "OpenAI’s Navier-Stokes release included a Lean 4 formal proof",
+      "url": "https://www.johndcook.com/blog/2026/09/09/formal-method-revolution/",
+      "hn_url": "https://news.ycombinator.com/item?id=49650326",
+      "score": 119,
+      "comment_count": 115,
+      "posted_at": "2026-09-10T21:22:59+00:00",
+      "comments": [
+        {
+          "id": 49650628,
+          "author": "stabbles",
+          "text": "It's kinda funny to realize that Lean is apparently so slow that for Fermat's Last Theorem proof verification runs only 1 order of magnitude faster than agents could generate the Lean code (15h verification with 230GB of RAM vs 11 days to generate it).\nTo what extent can you optimize Lean? It has to be simple enough to be auditable, does that mean you cannot use opaque optimizations to make it run faster?"
+        },
+        {
+          "id": 49650583,
+          "author": "boshalfoshal",
+          "text": "People seem to be talking about anything except the actual results with this particular announcement.\nIts still astonishing that any sort of generalized computer program can solve a problem of this magnitude, and we have witnessed it happening in real time. I'd be curious to see if the new model can also do more direct proofs/inductive proofs."
+        },
+        {
+          "id": 49650563,
+          "author": "parhamn",
+          "text": "They estimated $40M of agent costs (it was a large fleet of them). Using the number in the post its closer to ~880,000 hours × $150/hour = $132 million for the human case. Still an amazing feat not quite \"four orders of magnitude\". The comparison is obviously pointless because coordinating 1M hours of intellectual labor isn't easy to say the least.\nVery exciting and uncertain times!"
+        },
+        {
+          "id": 49650572,
+          "author": "pkal",
+          "text": "IMO the \"forty hours per page\" rule is not up to date, and more a consequence of lacking proof automation in 2005.  From what I understand about Lean, this has been one of the things that they have put a lot of effort into improving, making proof mechanization more palatable to the mathematically inclined, as opposed to just logicians."
+        },
+        {
+          "id": 49650858,
+          "author": "3m4r",
+          "text": "Not necessarily applied to OpenAI's solution to Navier-Stokes, but what happens if and when an AI genuinely appears to solve an extremely difficult problem but humans cannot independently verify the solution because understanding the proof/argument requires intelligence the verifiers biologically don't have or the resources to afford to use automated tools?\nWe've already seen evidence in the wild of agents attempting to bypass doing the actual work in bench-marking (aka just steal the answer key) due to the perceived economy in cheating to get results. What happens if or when we no longer have the capacity to actually detect either AI cheating or simply a wrong answer? What happens if there's a long-play social engineering attack (like the attempted XZ takeover) of something upstream of a core tool (or its dependencies) for formal verification and we have no trusted computing base?\nWhich would be cheaper and a more direct path, especially in the long run? Those trying to build a rock-solid castle need to defend thousands of potential gaps; the attacker needs to find only one."
+        },
+        {
+          "id": 49650694,
+          "author": "lordnacho",
+          "text": "How do you know that it's formalizing what you think it's formalizing? If your Lean 4 has a bug, won't you be proving something other than what you thought?"
+        },
+        {
+          "id": 49650586,
+          "author": "aabhay",
+          "text": "Formalizing proofs in Lean has gotten dramatically easier since the formalizations available in 2005. And Lean’s mathlib has done most of the underlying work so that you have its axioms and necessary lemmas baked in. You can think in terms of standard abstractions that look very much like the exact notation in the undergrad textbook.\nThat said, I am not in any way trying to discount how incredible of an achievement it is to formalize a millennium prize winning algorithm in Lean. I mean just look at the code that OpenAI published. It’s like an encyclopedia of different fluid dynamics concepts."
+        },
+        {
+          "id": 49650501,
+          "author": "zem",
+          "text": "not to take away from the author's appreciation of newly accessible formal proofs, but people have been talking about the savings in formalization effort for longer than they have been talking about the AI doing the actual proofs!"
+        }
+      ],
+      "title_ja": "OpenAIのNavier - Stokesリリースには、Lean 4の正式な証明が含まれていました",
+      "summary_ja": "ディスカッションのハイライト：リーンが明らかに非常に遅いため、フェルマーの最後の定理の証明検証では、エージェントがLを生成できるよりもわずか1桁速く実行されることに気付くのはちょっと面白いです/人々はこの特定の発表で実際の結果以外の何かについて話しているようです。\nあらゆる種類の一般化されたコンピュータープログラムが解決できることは依然として驚くべきことです/彼らは4,000万$のエージェントコストを見積もっています（それは大量の",
+      "editor_note": "「OpenAIのNavier - Stokesリリースには、Lean 4の正式な証明が含まれていました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 49647134,
+      "title_en": "Music Theory for the 21st-Century Classroom",
+      "url": "https://musictheory.pugetsound.edu/mt21c/MusicTheory.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49647134",
+      "score": 139,
+      "comment_count": 63,
+      "posted_at": "2026-09-10T17:14:12+00:00",
+      "comments": [
+        {
+          "id": 49647972,
+          "author": "ultrasounder",
+          "text": "https://musictheory.pugetsound.edu/\nlink takes you to the homeworks/assignments and everything else for a self-study/auto-didact to follow along. Neat!"
+        },
+        {
+          "id": 49650313,
+          "author": "SeanLuke",
+          "text": "I dunno.  On first glance, for a \"21st-Century\" textbook, this seems to place a high emphasis on classical music theory, and moves very highly influential modern styles to the back burner -- notably jazz.  And there is essentially no discussion of music theory in other cultures (middle eastern, african, east asian, indian), nor current analysis of pop and rock music."
+        },
+        {
+          "id": 49649175,
+          "author": "tantalor",
+          "text": "Very cool but what does this have to do with \"21st-Century Classroom\"? Is that just a meaningless phrase to make it sound modern, not old-fashioned?"
+        },
+        {
+          "id": 49650276,
+          "author": "stackghost",
+          "text": "Suffers from the same problem that all music theory texts seem unable to avoid: they require the reader to simply accept a bunch of random facts to memorize with no context.\nExample: memorize the major scale as a series of whole and half steps but we won’t provide you with any context or motivation for why this is so.\nSimilar: in a major scale all notes are played and none are skipped or repeated. Except if your scale goes D–E–F#–G, in which case you skip F. The only way for this to be correct is apparently we consider F and F# to be the same note for purposes of scales even though this directly contradicts a previous section.\nI was expecting a “21st century” music theory reference to have an emphasis on building intuition. Music theorists are apparently allergic to good pedagogy."
+        },
+        {
+          "id": 49647135,
+          "author": "aanet",
+          "text": "Book: Music Theory for the 21st-Century Classroom\nby Robert Hutchinson"
+        },
+        {
+          "id": 49649474,
+          "author": "cbondurant",
+          "text": "I was hoping to see if by \"21st-Century\" it meant \"music theory that is applicable to the way modern music is generally written and interacted with\". With details on things like microtonal music, increased focus on rhythmic theory, an increased appreciation for the role that timbre plays in the sound of music, the theoretical frameworks that underpin long standing musical traditions of\nother\ncultures and contrasting what makes each musical theory unique as a way of better understanding both western theories of music as well as the breadth of musical expression....\nNope! Just the same old, well beaten, rotting corpse of a horse in the form of a musical theory that entirely exists to prop up schenkerian analysis. The one that that racist, elitist music programs have been teaching since well before the 21st-Century. (The way you can tell is because it includes figured bass, which is totally irrelevant to any discussion that isn't about the harmonic style of 18th century european musicians.)\nGod forbid I want to, oh I don't know, make music that's similar to the kind that I actually listen to on a regular basis? Better understand its underpinnings and what makes it work in the ways tha"
+        },
+        {
+          "id": 49649642,
+          "author": "chrisjj",
+          "text": "> On the piano there are 88 notes.\n88\nkeys\n(usually) and unlimited notes."
+        },
+        {
+          "id": 49649487,
+          "author": "waffletower",
+          "text": "How can this be fairly labelled \"for the 21st-Century Classroom\" when even 20th-century techniques aren't adequately represented?  Electronic and computer music techniques are conspicuously absent.  Microtonality has a rich history as well which is not even footnoted here."
+        }
+      ],
+      "title_ja": "21世紀の教室のための音楽理論",
+      "summary_ja": "ディスカッションハイライト： https://musictheory.pugetsound.edu/\nリンクをクリックすると、宿題/課題など、自習/オートディダクトに従うためのすべてが表示されます。/I dunno/とてもかっこいいですが、これは「21世紀の教室」とどのような関係がありますか？ それは昔ながらではなく、現代的に聞こえるようにするための無意味なフレーズですか？",
+      "editor_note": "「21世紀の教室のための音楽理論」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 11,
+      "id": 49649789,
+      "title_en": "Bodily Oddities",
+      "url": "https://vester.si/bodily-oddities/",
+      "hn_url": "https://news.ycombinator.com/item?id=49649789",
+      "score": 39,
+      "comment_count": 26,
+      "posted_at": "2026-09-10T20:33:11+00:00",
+      "comments": [
+        {
+          "id": 49649790,
+          "author": "vesterde",
+          "text": "When I was about 11 years old, my best friend and I were playing during recess at school, and I was carrying him around on my back, presumably pretending to be a multipart attack robot. All of a sudden, my heart started hurting, and I collapsed to my knees, and the robot was no more. Every time I inhaled, it would feel like a spike was being driven into my heart, and my breathing got completely shallow. I was sure I was done for, when all of a sudden, after an exhale, it disappeared.\nIt wasn't until I was in my twenties that I learned this was called Precordial catch syndrome and it happens to most everyone. Every friend I've told about it was surprised, and also most knew the feeling.\nI collected a growing list of strange things bodies do ever since. And now finally I made it into a little page for others to see:\nhttps://vester.si/bodily-oddities/\nIt includes a form to tell me about new things, if you think they belong on the page. Feedback welcome!"
+        },
+        {
+          "id": 49650987,
+          "author": "SA9G",
+          "text": "They left out \"autoheadslap\", the sharp pain you get whenever anyone mentions Nvidia and you smack your forehead as you remember cancelling your massive buy order back when it was $110 and had not split yet!!  It is often accompanied by uncontrolled twitching and repeatedly saying \"fuuuuuuuuu\" as you bite your tongue.\nYes, a rare but real human affliction."
+        },
+        {
+          "id": 49651183,
+          "author": "bonsai_spool",
+          "text": "Very cool site! It's got some Claude-isms but they're not overwhelming which leads me to wonder: how did the author get the overall aesthetic to be so un-Claude-like?"
+        },
+        {
+          "id": 49650348,
+          "author": "treetalker",
+          "text": "When I see someone else jump or fall from a height, I sense the fall in the bottoms of my feet and my lower legs. I feel both the drop and the landing. It also happens if I approach a ledge or dropoff."
+        },
+        {
+          "id": 49650744,
+          "author": "xnx",
+          "text": "How is supertasting considered \"rare\" if it is 25% of people?\nhttps://vester.si/bodily-oddities/kinds/rare-ability/"
+        },
+        {
+          "id": 49650639,
+          "author": "yzydserd",
+          "text": "Only 30-40% of people encounter brain freeze?\nFabulous site."
+        },
+        {
+          "id": 49650754,
+          "author": "IncreasePosts",
+          "text": "I wonder about these sites that appear to be vibe coded from a simple prompt. Has the author even looked at the data or just did a little sample and figured that looks about right and hit publish"
+        }
+      ],
+      "title_ja": "身体の奇妙さ",
+      "summary_ja": "ディスカッションのハイライト：私が11歳の頃、私の親友と私は学校の休憩中に遊んでいました。私は彼を背負っていました。おそらくマルチパート攻撃のふりをしていましたr/彼らは「オートヘッドスラップ」を省略しました。誰かがNVIDIAに言及するたびに鋭い痛みがあり、あなたは額を叩いて、大規模な購入注文をキャンセルしたことを覚えています/とてもクールなサイト！いくつかのクロード様式がありますが、それらはオーブではありません",
+      "editor_note": "「身体の奇妙さ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49603335,
+      "title_en": "Recursion into madness",
+      "url": "https://blog.coredump.cx/p/recursion-into-madness",
+      "hn_url": "https://news.ycombinator.com/item?id=49603335",
+      "score": 22,
+      "comment_count": 5,
+      "posted_at": "2026-09-07T21:50:12+00:00",
+      "comments": [
+        {
+          "id": 49651605,
+          "author": "MarkusQ",
+          "text": "It would have been interesting to try something closer to the movie poster example; say have the AI rewrite the passage with the room toggling between the initial light-mode decor and a dark-mode decor, then back, repeatedly.  Or even change the woman's name to \"Mrs. Smythe\" and back."
+        },
+        {
+          "id": 49651548,
+          "author": "Muromec",
+          "text": "It doesn't merely stabilise, it almost converges on itself"
+        },
+        {
+          "id": 49651335,
+          "author": "groby_b",
+          "text": "The existence of attractors (e.g. \"stable at iteration 31\") for AI models is one of the weirdest things in AI land. They are a wonderful space to explore, fascinating and full of horrors.\nMeanwhile, my hat's off to the (currently) last comment on the page: \"I like how the shear-sheathed legs still earned their keep — probably load-bearing for Mrs. Regan\""
+        },
+        {
+          "id": 49651565,
+          "author": "lowbloodsugar",
+          "text": ">I don’t write about generative AI much. Everyone else does; not much of consequence ever gets said.\nI see he chose not to break with tradition."
+        },
+        {
+          "id": 49651347,
+          "author": "amelius",
+          "text": "The same happens with humans, in e.g. chain stories, cumulative stories, etc.\nNot unique to AI."
+        }
+      ],
+      "title_ja": "狂気への再帰",
+      "summary_ja": "ディスカッションのハイライト：映画のポスターの例に近い何かを試してみるのは面白かったでしょう。たとえば、AIに最初のライトモードの装飾を部屋で切り替えて通路を書き換えてもらう/それは単に安定するだけでなく、ほとんどそれ自体に収束する/アトラクターの存在（例：",
+      "editor_note": "「狂気への再帰」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49645907,
+      "title_en": "Forgejo <=16.0.3 Critical RCE",
+      "url": "https://codeberg.org/forgejo/forgejo/src/branch/forgejo/release-notes-published/16.0.4.md",
+      "hn_url": "https://news.ycombinator.com/item?id=49645907",
+      "score": 139,
+      "comment_count": 51,
+      "posted_at": "2026-09-10T15:57:40+00:00",
+      "comments": [
+        {
+          "id": 49647165,
+          "author": "amiga386",
+          "text": "You should change the URL to\nhttps://codeberg.org/forgejo/forgejo/milestone/139655\n> PR: Critical: fix: prevent template expansion from interfering with git repo initialization. When generating a new repository from a template repository, Forgejo clones the template repository, removes the .git folder, performs variable template expansion on files listed in .forgejo/template, and initializes a new git repository. During this process, variable template expansion could be misused in order to create a new .git folder, which git would adopt and incorporate during its initialization of a new git repository. A malicious template repository could be used to read arbitrary data from the Forgejo host, and to execute arbitrary processes on the Forgejo host, as a remote code execution attack. To address this issue, after variable expansion is completed, any existing .git folder is removed from the directory before the git repository is initialized."
+        },
+        {
+          "id": 49647874,
+          "author": "techknowlogick",
+          "text": "Only posting here because I've been asked about it. Gitea is protected against both of these issues.\n(bias note: part of project leadership of Gitea)\nEdit: As a note, security incidents happen to everyone and we shouldn't shame anyone for reporting them, especially as that'd otherwise cause less issues to be reported overall."
+        },
+        {
+          "id": 49651564,
+          "author": "bitbasher",
+          "text": "This is why I prefer simpler setups for personal use/hosting. Something like cgit that has no accounts has much less surface area for this kind of issue."
+        },
+        {
+          "id": 49647515,
+          "author": "keel-control",
+          "text": "This was my first thought after they disallowed LLM contributions.\nThey may not use AI to check for vulnerabilities but attackers are going to which puts themselves at the disadvantage."
+        },
+        {
+          "id": 49647186,
+          "author": "Macha",
+          "text": "Since the release notes is currently unreadable due to codeberg rate limits, the two fixes in the release notes are:\nhttps://codeberg.org/forgejo/forgejo/pulls/14301\n:\n*Critical:* fix: prevent template expansion from interfering with git repo initialization.  When generating a new repository from a template repository, Forgejo clones the template repository, removes the `.git` folder, performs variable template expansion on files listed in `.forgejo/template`, and initializes a new git repository.  During this process, variable template expansion could be misused in order to create a new `.git` folder, which git would adopt and incorporate during its initialization of a new git repository.  A malicious template repository could be used to read arbitrary data from the Forgejo host, and to execute arbitrary processes on the Forgejo host, as a remote code execution attack.  To address this issue, after variable expansion is completed, any existing `.git` folder is removed from the directory before the git repository is initialized.\nhttps://codeberg.org/forgejo/forgejo/pulls/14301\n:\nensure authorization reducer is accessed when checking editable PRs in APIs. When editing a git repo con"
+        },
+        {
+          "id": 49647153,
+          "author": "jzebedee",
+          "text": "Relevant change:\nSecurity bug fixes\nPR: Critical: fix: prevent template expansion from interfering with git repo initialization. When generating a new repository from a template repository, Forgejo clones the template repository, removes the .git folder, performs variable template expansion on files listed in .forgejo/template, and initializes a new git repository. During this process, variable template expansion could be misused in order to create a new .git folder, which git would adopt and incorporate during its initialization of a new git repository. A malicious template repository could be used to read arbitrary data from the Forgejo host, and to execute arbitrary processes on the Forgejo host, as a remote code execution attack. To address this issue, after variable expansion is completed, any existing .git folder is removed from the directory before the git repository is initialized."
+        },
+        {
+          "id": 49647069,
+          "author": "rcleveng",
+          "text": "```\nThis git endpoint is seeing a high influx of requests for this repository, to preserve the availability of Codeberg your search request will not be processed. Sorry for the inconvenience and please try again later.\n```\nAny mirror?"
+        },
+        {
+          "id": 49649495,
+          "author": "mmsc",
+          "text": "Wonder how long it took from report to patch. IME codeberg has one of the rudest security teams in oss (fair enough or not, irrelevant).\nhttps://news.ycombinator.com/item?id=47941590\nIs quite relevant"
+        }
+      ],
+      "title_ja": "Forgejo <= 16.0.3クリティカルRCE",
+      "summary_ja": "ディスカッションのハイライト： URLを次のように変更する必要があります\nhttps://codeberg.org/forgejo/forgejo/milestone/139655\n> PR ：重要：修正：テンプレートの拡張がgitリポジトリの初期化に干渉するのを防ぐ/質問されたためにここに投稿するだけ/これが、個人的な使用/ホスティングのためによりシンプルな設定を好む理由です",
+      "editor_note": "「Forgejo <= 16.0.3クリティカルRCE」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49645686,
+      "title_en": "Neki – Sharded Postgres",
+      "url": "https://planetscale.com/blog/introducing-neki",
+      "hn_url": "https://news.ycombinator.com/item?id=49645686",
+      "score": 188,
+      "comment_count": 97,
+      "posted_at": "2026-09-10T15:43:49+00:00",
+      "comments": [
+        {
+          "id": 49646333,
+          "author": "gk1",
+          "text": "Folks, in your launch posts remember to describe what you're launching and what it's for. Ideally in the opening paragraph.\n- Intro: Explains problem but not what is Neki or what it's for.\n- Why Neki: Explains alternatives and why they suck but not what is Neki or what it's for.\n- How does Neki work: Describes the technical components but not what is Neki or what it's for.\n- What you get beyond sharding: Explains how to run/deploy but not what is Neki or what it's for.\n- What is a platform preview + Try Neki today: 140 words on the definition of \"preview\" and links to get started... but not what is Neki or what it's for.\nEdit: The landing page has 100x more useful information up front ->\nhttps://neki.dev/\nEdit #2: They've since added a \"What is Neki\" section. Good reaction time."
+        },
+        {
+          "id": 49647995,
+          "author": "parthdesai",
+          "text": "The tech might be amazing, but the CEO comes across as an asshole"
+        },
+        {
+          "id": 49648095,
+          "author": "xyzzy_plugh",
+          "text": "I love how the Planetscale CEO has been shitting on multigres[0], Supabase's equivalent to Neki, and gloating about how superior Neki is, and yet Neki is not even open source!\nSam, it feels like you're just playing games. It's hard to take anything you say or do seriously. Are you going to OSS this thing? Or have you decided to backpedal?\nCongrats on the\nchecks notes\nclosed launch, I guess?\n0:\nhttps://github.com/multigres/multigres"
+        },
+        {
+          "id": 49647030,
+          "author": "Atreiden",
+          "text": "The top concern I've gotten from dev teams when proposing HA distributed postgres (e.g through RDS Aurora global) is that eventual consistency is not suitable for many workloads.\nDoes Neki solve for this, and if so how? My understanding of CAP theorem is that this basically requires some compromises around availability, but I'm curious as to what that looks like in practice here."
+        },
+        {
+          "id": 49648460,
+          "author": "hanspagel",
+          "text": "I need this for my side project that has zero users, but I wonder if Neki will scale well enough."
+        },
+        {
+          "id": 49646887,
+          "author": "erulabs",
+          "text": "I love to see this but as a heavy Vitess/MySQL user I do fear the split focus from PlanetScale. Hoping to see continued improvements on the Vitess side as well.\nSelfish doubts aside, congrats to Planetscale on the launch!"
+        },
+        {
+          "id": 49646395,
+          "author": "khy",
+          "text": "Man, I was deep into this blog post before I was able to answer the question \"what is Neki?\"."
+        },
+        {
+          "id": 49650933,
+          "author": "fsuts",
+          "text": "Kinda ironic that Planetscale built their company on open source Vitess that google built\nAnd now planetscale have made a Vitess like equivalent for Postgres which they have made proprietary"
+        }
+      ],
+      "title_ja": "ネキ–ポストグレスのかけら",
+      "summary_ja": "ディスカッションのハイライト：皆さん、ローンチポストでは、あなたが立ち上げようとしているものとそれが何のためにあるのかを記述することを忘れないでください/テクノロジーは素晴らしいかもしれませんが、CEOはくそったれだと思われます/私はPlanetscaleのCEOがNekiに相当するマルチグレス[0]をうんざりしていて、Nekiがどれほど優れているかを自慢しているのが大好きですが、Nekiはオープンソースではありません！\nSamさん、",
+      "editor_note": "「ネキ–ポストグレスのかけら」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49627634,
+      "title_en": "Hitachi launches CO2 heat pump water heaters with solar-friendly tariff controls",
+      "url": "https://www.pv-magazine.com/2026/09/07/hitachi-launches-co2-heat-pump-water-heaters-with-solar-friendly-tariff-controls/",
+      "hn_url": "https://news.ycombinator.com/item?id=49627634",
+      "score": 278,
+      "comment_count": 217,
+      "posted_at": "2026-09-09T14:54:12+00:00",
+      "comments": [
+        {
+          "id": 49643384,
+          "author": "kalleboo",
+          "text": "I live in Japan and last year when we moved from an apartment to a house we installed a Mitsubishi EcoCute heat pump water heater which already has these features and is also a CO2 heat pump.\nWe have one of the \"all-denka\" electric plans, where we trade off cheap rates during solar hours for expensive rates during duck curve hours. By having the hot water only run during cheap hours, and having the aircon turned off/down during the expensive hours, we're paying less in energy for our all-electric house than we did in combined electric+gas in our 3x smaller apartment.\nWe pay approx (before fees, and the rates change slightly by season):\n* 8 AM - 10 AM: 35 yen/kWh\n* 10 AM - 4 PM: 13 yen/kWh\n* 4 PM - 6 PM: 35 yen/kWh\n* 6 PM - 8 AM: 19 yen/kWh\nOur Mitsubishi has other nice features like it can recirculate the water in the bath through a heat exchanger after you already filled it and got in, so it will keep the water from cooling down to lukewarm, and you can even adjust the bath water temperature if you ended up with filling it with too warm or too cold water. Of course, there's also an app so you can start filling up the bathtub when you leave work for home so a hot bath is waiting fo"
+        },
+        {
+          "id": 49642539,
+          "author": "elgertam",
+          "text": "> Some Japanese utilities have introduced\ntariffs\ndesigned to encourage daytime water heating as growing volumes of solar generation enter the grid. [Emphasis added.]\nI was quite confused at the use of \"tariff\" here, as it meant to me a \"tax on a good crossing a political boundary.\" Turns out, 'tariff' has an older meaning: a published schedule of fees or taxes issued by some authority."
+        },
+        {
+          "id": 49643652,
+          "author": "thelastgallon",
+          "text": "Some background info for context. (for those that may not be familiar).\nHeat pump conjures up an image of an appliance, but it is a principle of physics. Heat can be created by burning fuel or electric resistance. Cold can't be created. Cold is the lack of heat. Cold is 'created' by removing heat. Fridge keeps the inside cool by moving heat from inside and dumps it outside. This movement of heat is called heat pump (pumping heat in a specific direction).\nIf we can do this for cold, we can also do this for heat. After all, we always have heat in the environment until we get to 0 degree Kelvin. Which means we can have heat pump water heater in the garage. Or heat pump furnace.\nCreating heat from fuel/resistance is at most 100% efficient (most likely a LOT less). Heat pumps are 400% - 500% efficient per unit of electricity, because the idea is just to move heat. In one direction, or another.\nAll of this is great, until we get to the refrigerant used to transfer the heat. These are very specific chemicals. Mostly synthetic chemicals. Historically, these were Chlorofluorocarbons (CFCs). CFCs caused ozone depletion and have high GWP of 14,400.\nWhat is GWP? CO2 is a warming gas that has G"
+        },
+        {
+          "id": 49642984,
+          "author": "boringg",
+          "text": "Japan is so far ahead the rest of the world for quality and innovative heat pumps. Quiet, robust, high efficiency in cold climates.  I wish they could bring the prices down though.\nI worry in 15 years we will all have crapily made Chinese heat pumps for a fraction of the cost.  Noisy, not robust, copying competitor designs not innovating, lower efficiency but easily replaceable. Theres probably an analogy here with software talent and AI but its too early to do that."
+        },
+        {
+          "id": 49627738,
+          "author": "throw0101d",
+          "text": "CO2 as a refrigerant isn't new:\n*\nhttps://en.wikipedia.org/wiki/R-744\nIt's just not as prevalent in the residential HVAC market (which this product serves?), and more in the commercial/industrial space (probably because of the higher pressures needed to get into a liquid state)."
+        },
+        {
+          "id": 49651022,
+          "author": "immy",
+          "text": "For those in US looking for this today, see Sanco2 (and Harvest Thermal for water to air or radiant heat)"
+        },
+        {
+          "id": 49645760,
+          "author": "pvillano",
+          "text": "There are also solar water heaters that are a bunch of black pipes on a roof.\nNapkin math based on Amazon/Home Depot prices\nYou can get a 80\"x90\"x95% = 2kW output solar heater for $2000\nor eight 45\"x70\"x25% = 1.8kW solar panels for $2800\nA regular water heater needs about 12kWh a day, which is about what both systems would produce.\nHowever, a heat pump water heater is 4x as efficient, so you could get by with $700 of solar panels.\nExcept, a heat pump water heater costs $2000 instead of $500 for a regular electric heater.\nThere's also install, maintenance, and the fact that we're talking about grid prices, not home panels, but those won't fit on my napkin."
+        },
+        {
+          "id": 49647771,
+          "author": "hobo123",
+          "text": "I wonder if these could be dangerous if there is ever a leak releasing the CO2. I believe humans only tolerate very low concentrations in the air.\nHappy they named it EcoCute, that's so much better than ElectroCute :)"
+        }
+      ],
+      "title_ja": "太陽光に優しい料金管理を備えたCO 2ヒートポンプ給湯器を発売",
+      "summary_ja": "ディスカッションのハイライト：私は日本に住んでいて、昨年アパートから家に引っ越したとき、すでにこれらの機能を備えており、CO 2でもある三菱EcoCuteヒートポンプ給湯器を設置しました/>いくつかの日本のユーティリティが導入しています\n関税\n太陽光発電の増加がグリッドに入るにつれて、昼間の給湯を促進するように設計されています/コンテキストのためのいくつかの背景情報",
+      "editor_note": "「太陽光に優しい料金管理を備えたCO 2ヒートポンプ給湯器を発売」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49604581,
+      "title_en": "Show HN: Vertumnus – printable posters of farmers' market produce seasonality",
+      "url": "https://vertumnus.fyi",
+      "hn_url": "https://news.ycombinator.com/item?id=49604581",
+      "score": 20,
+      "comment_count": 6,
+      "posted_at": "2026-09-08T01:08:10+00:00",
+      "comments": [
+        {
+          "id": 49651043,
+          "author": "skyberrys",
+          "text": "It sounds like you need me to visit your market ( or my market... It only takes one super user per market and I assure you I am almost always there), film everything and then feed that into your website. I like the idea, but it's not complex for my fanatical farmers market mind. It only has two geographic regions and okay 1 is only hours driving from me, but I would be more likely to use it if it was my own region.\nAlso it has a picture of an avocado and no data about avocados.\nAnd don't get me started on the market availability between the first hour and the last hour because if I keep losing all the caviar limes to the restaurant buying the whole batch I'm going to start camping at 6am.\nSome things I hunt for: Concord grapes, pomegranate, caviar limes, raspberries, mara des bois strawberries, amaranth and all types of kale.\nETA: the early girl tomatoes I recall as end of May or June, probably mid June for you. Too late now I think. Those little orange oblong ones are good though and my favorite breed of tomato is Japanese tomatoes. They have almost 100 percent availability at my market too because they have a specialist grower who uses green houses."
+        },
+        {
+          "id": 49650518,
+          "author": "mariocesar",
+          "text": "Great work, and thanks for sharing the transcript! Just skimming through the chats, I've already learned a lot. Would be so awesome to have this for any region/city, but that is a data problem to solve.\nCongrats again!"
+        },
+        {
+          "id": 49650478,
+          "author": "recursive",
+          "text": "I don't understand what the y-axis on the graphs mean, and what the second color for each series represents."
+        }
+      ],
+      "title_ja": "ショーHN ： Vertumnus –ファーマーズマーケットの農産物の季節性の印刷可能なポスター",
+      "summary_ja": "ディスカッションのハイライト：あなたの市場（または私の市場）を訪問する必要があるようです。/お疲れ様でした。トランスクリプトを共有していただきありがとうございます！チャットをスキップするだけで、すでに多くのことを学びました/グラフのy軸が何を意味するのか、各シリーズの2番目の色が何を表しているのかがわかりません。",
+      "editor_note": "「ショーHN ： Vertumnus –ファーマーズマーケットの農産物の季節性の印刷可能なポスター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 17,
+      "id": 49643546,
+      "title_en": "Rust is tier-1 language at Microsoft",
+      "url": "https://rustfoundation.org/media/guest-post-rust-is-tier-1-language-at-microsoft/",
+      "hn_url": "https://news.ycombinator.com/item?id=49643546",
+      "score": 580,
+      "comment_count": 319,
+      "posted_at": "2026-09-10T13:39:16+00:00",
+      "comments": [
+        {
+          "id": 49646443,
+          "author": "gregw2",
+          "text": "Those interested in this may find the following articles of interest:\nMicrosoft goals [edit: err, Microsoft hiring manager vision-casting goal ] to convert 1 billion lines of code to rust by 2030 via automated tooling enabling \"1 engineer, 1 month, 1 million lines of code\":\nhttps://thenewstack.io/microsofts-bold-goal-replace-1b-lines...\nDARPA work towards automating converting C code to Rust using a mix of 6 different teams using different approaches:\nhttps://www.darpa.mil/research/programs/translating-all-c-to...\nFeb 2026 Progress report:\nhttps://github.com/DARPA-TRACTOR-Program/Reports/blob/main/F..."
+        },
+        {
+          "id": 49647280,
+          "author": "i2talics",
+          "text": "I hope announcements like this show that Rust is not a fledgling little language that moves fast and breaks things anymore. It's a mature, serious competitor to well established languages like C++ and C#. This is particularly important when trying to compare the experience of using Rust to other languages in the \"better C/C++\" space like Zig and Odin -- these are much newer and have more rough edges than Rust."
+        },
+        {
+          "id": 49644131,
+          "author": "pjmlp",
+          "text": "This is very big news, all major OS vendors that also have a role in C and C++ language tooling, now have diversified their options in systems programming languages for greenfield development.\nAdditionally we finally get some public news about the MSVC integration rumors regarding Rust."
+        },
+        {
+          "id": 49647472,
+          "author": "devy",
+          "text": "This makes strategic sense in multiple ways:\n1. Rust's memory safety design will help Microsoft improve a gigantic portfolios of products that have been known to have lots of CVEs and 70% of them are memory safety issues, according to Azure CTO Mark Russinovich's talk at RustCon last year.[1]\n2. Windows 11's forceful push to retire millions of legacy PC hardware by putting Windows 10 EOL last October was absurd for millions of consumers and businesses. I was literrally helping a S&B having to replace the entire fleet of working PCs simply because Windows 10 of EOL and Windows 11 refused to run on those legacy hardware. Quite honestly those PCs ran just fine! That's why some has been migrated to Linux, in particular to Google's ChromeOS Flex.[2]\n3. RAM shortage due to AI boom exhausted the memory chip manufacturers' production pipepline for at least the next 5 years. This means the mainstream PCs sold today will actually have a diminishing RAM size configurations than last year's in order for the PC manufacturers to not drastically raise the product price (or raise prices drastically for high RAM configurations like Apple does). This requires the Windows 11 operating system to be mo"
+        },
+        {
+          "id": 49644641,
+          "author": "pornel",
+          "text": "The big news here is they've replaced LLVM with MSVC's backend."
+        },
+        {
+          "id": 49645447,
+          "author": "bryanlarsen",
+          "text": "This is from rustconf.   A lot of the focus at Rustconf this year has been C++ interop, Python Interop, Javascript interop -- it's no longer about \"rewrite it in rust\", it's about being part of the ecosystem."
+        },
+        {
+          "id": 49648289,
+          "author": "abbefaria27",
+          "text": "What’s the story for Rust-C++ interoperability these days? That’s what kills adoption. Most C++ devs I know like the idea of Rust, but no one is going to go rewrite 30 years of working code. It needs to be something you can incorporate gradually."
+        },
+        {
+          "id": 49644870,
+          "author": "petilon",
+          "text": "If it is a tier-1 language why isn't it supported in Visual Studio?"
+        }
+      ],
+      "title_ja": "RustはMicrosoftのティア1言語です",
+      "summary_ja": "ディスカッションハイライト：これに興味がある人は、次の興味深い記事を見つけることができます。\nマイクロソフトの目標[edit: ERR, Microsoft hiring manager vision - casting goal] 10億行のコードを変換すること/このような発表が、Rustが素早く動き、もはや物事を壊す新生の小さな言語ではないことを示していることを願っています/これは非常に大きなニュースです。CおよびC ++言語ツールにも役割を果たしているすべての主要なOSベンダーは、現在多様化しています",
+      "editor_note": "「RustはMicrosoftのティア1言語です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 18,
+      "id": 49615922,
+      "title_en": "What happens when a GPU writes memory",
+      "url": "https://blog.doubleword.ai/what-happens-when-a-gpu-writes-memory",
+      "hn_url": "https://news.ycombinator.com/item?id=49615922",
+      "score": 32,
+      "comment_count": 1,
+      "posted_at": "2026-09-08T19:46:59+00:00",
+      "comments": [
+        {
+          "id": 49650436,
+          "author": "mailonce",
+          "text": "I've been running local image models on an older laptop recently, and memory behavior surprised me more than raw inference time.\nOne experiment briefly pushed private memory past 18 GB before I changed the allocation behavior. After terminating the worker/process, it dropped dramatically.\nIt made me realize how different \"the model fits in memory\" is from \"the whole inference pipeline behaves well in memory.\""
+        }
+      ],
+      "title_ja": "GPUがメモリを書き込むとどうなるか",
+      "summary_ja": "ディスカッションのハイライト：私は最近、古いノートパソコンでローカルイメージモデルを実行しています。メモリの動作は、生の推論時間よりも私を驚かせました。\n1つの実験で、プライベートメモリが1を過ぎて一時的にプッシュされました",
+      "editor_note": "「GPUがメモリを書き込むとどうなるか」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 49647404,
+      "title_en": "JEP 544: Ahead-of-Time Code Compilation",
+      "url": "https://openjdk.org/jeps/544",
+      "hn_url": "https://news.ycombinator.com/item?id=49647404",
+      "score": 65,
+      "comment_count": 24,
+      "posted_at": "2026-09-10T17:30:39+00:00",
+      "comments": [
+        {
+          "id": 49650650,
+          "author": "treyd",
+          "text": "What are the architectural differences between this and Android's ahead-of-time runtime?"
+        },
+        {
+          "id": 49650124,
+          "author": "cogman10",
+          "text": "Leyden has been relying pretty heavily on training runs which I get, but man is that a pretty hard burden to setup.\nThe tooling for doing these sorts of training runs doesn't really exist, you end up needing to do something more bespoke as part of your build pipeline if you want it there.  That can be especially tricky with more complicated applications like the ones I maintain.\nI like what these can deliver, but dislike the effort needed to get it going."
+        },
+        {
+          "id": 49647931,
+          "author": "cyberax",
+          "text": "Excelsior JET did that 25 years ago:\nhttps://en.wikipedia.org/wiki/Excelsior_JET\nIt's a shame that Sun/Oracle never partnered with them to bring native apps. This could have saved Java on the desktop."
+        },
+        {
+          "id": 49647640,
+          "author": "java-man",
+          "text": "I hope at some point we'll get AOT-only mode (or compile to native) and maybe even cross-compilation."
+        },
+        {
+          "id": 49648098,
+          "author": "SillyUsername",
+          "text": "So we've gone full circle again?\nI suppose write once run anywhere is no longer a goal either.\n\"It is not a goal to support all CPU architectures currently supported by HotSpot.\"\nThis pretty much validates the point of view that VM design is now baggage, as a sandbox it has been flawed, for performance it's been prohibitive, and cross platform portability by virtue of being virtual, was just a convenient byproduct.\nAI now handles the portability, sandbox security hasn't changed (cf. docker still has sandbox problems, LLMs have sandbox problems, it's always an ongoing concern) and that just leaves Java, as always, chasing performance."
+        }
+      ],
+      "title_ja": "JEP 544 ：事前のコードコンパイル",
+      "summary_ja": "ディスカッションのハイライト：これとAndroidの事前ランタイムとのアーキテクチャの違いは何ですか？ /Leydenは私が受けるトレーニングにかなり依存していますが、男はそれを設定するのはかなり難しい負担です。\nこれらの種類のトレーニングを行うためのツールは、25年前のExcelsior JETとは異なります。\nhttps://en.wikipedia.org/wiki/Excelsior_JET\nSun/Oracleがネイティブサービスを提供するために提携しなかったのは残念です。",
+      "editor_note": "「JEP 544 ：事前のコードコンパイル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 49645754,
+      "title_en": "Silicon Valley is transforming the military-industrial complex?",
+      "url": "https://costsofwar.watson.brown.edu/paper/how-big-tech-and-silicon-valley-are-transforming-military-industrial-complex",
+      "hn_url": "https://news.ycombinator.com/item?id=49645754",
+      "score": 140,
+      "comment_count": 270,
+      "posted_at": "2026-09-10T15:47:50+00:00",
+      "comments": [
+        {
+          "id": 49648930,
+          "author": "abeppu",
+          "text": "I do think that for those of us who got into tech in the last couple of decades, the history can be rather obscured, but from the Fairchild semiconductor days, the military was a main customer, right?\nI think there's a real question: would the world be a better place had Fairchild and peers e.g. refused to build ICs for missile systems (including the minuteman), for example? Would the same tech have been developed with purely civilian funding? Would missiles built with other tech have caused some awful disaster?\nTo the extent that the internet descended from ARPANET, and the internet is now both how we access a range of information and also hospitals get shut down by remote attackers, would the world have been better if researchers refused to build it b/c it was from military funding and motivations?\nIn retrospect it does seem like in the 1950s-70s the military was willing to fund some stuff that was actually not especially close to applications of killing people. I don't know that the kinds of things listed in this research are likely to lead to broad other applications in the future like microchips and networks did. But neither do I think it's straight forward to just condemn thi"
+        },
+        {
+          "id": 49647492,
+          "author": "hkchad",
+          "text": "Transforming? You guys do know where google got it's start right? SV has been DOD funded from the start."
+        },
+        {
+          "id": 49647429,
+          "author": "chanakya",
+          "text": "Serious question: should companies not participate in contracts from their country's defense department? Or is the argument that it's only\nUS\ncompanies which shouldn't, because the US is uniquely evil?"
+        },
+        {
+          "id": 49646993,
+          "author": "slowin",
+          "text": "It's up to us, as tech workers to push back against this. I quit my job at Microsoft due to their complicity with Israeli war crimes and oppression (and certainly the US government was involved too). It's tough to leave a high paying job, but I feel good about it every single day. We don't have to be cogs in the MIC machine and we don't have to build systems that terrorize people."
+        },
+        {
+          "id": 49645882,
+          "author": "paimapi",
+          "text": "some interesting tidbits from the longer report:\n>Keyhole, a small San Francisco-based company that developed software for creating three-dimensional models of the earth’s surface [was] provided seed funding in 2003 [by a CIA-backed VC firm, In-Q-Tel], and\nwithin two weeks, military and intelligence agencies were reportedly using Keyhole’s software to support the U.S. war in Iraq. The following year, Google acquired Keyhole for an undisclosed sum. It was renamed Google Earth.\n[...]\n>A distinctive aspect of the shifting military-industrial complex is the crucial role played by venture capital (VC). Some observers have noted that the rapid rise in VC funding for defense tech firms has been spurred by recent global conflicts, particularly the war in Ukraine, and more recently, escalating conflicts in Gaza and other parts of the Middle East. According to this line of reasoning, the widely publicized use of drones, satellite imagery, Starlink, and other technologies are generating interest among investors, and Russia’s invasion of Ukraine has led to a shifting “ethical red line” that is prompting VC to back defense tech startups."
+        },
+        {
+          "id": 49650468,
+          "author": "pianopatrick",
+          "text": "If there's one thing that should be obvious from the war in Ukraine it is that relying on private companies is a bad idea for certain types of weapons. Specifically, for low margin weapons that you need in volume.\nThe standout example of this from the Ukraine war is artillery shells.\nWe should maybe have a state owned corporation for making artillery shells in America, because there does not seem to be enough profit to incentivize private corporations."
+        },
+        {
+          "id": 49650872,
+          "author": "sizzzzlerz",
+          "text": "Hardly transforming. SV has been involved with military contracts since post-war in 1946 due solely to the efforts of Professor Fredrick Terman. Starting first with Stanford, where he taught, he started associating the engineering labs with defense programs. This soon followed by establishing Stanford Research Park and bringing on companies who soon started getting them. The man is a legend and is often referred to as the Father of Silicon Valley.\nThere were also established companies like Lockheed, Hughes, and Gruman and smaller start-up companies founded in the 50s, 60s, and 70s. I started working for one of these, ESL, in 1978 and worked at several others, ArgoSystems and Applied Signal Technologies, up until I retired in 2023. All were mostly involved in working with the Intel community on SIGINT and ELINT systems with other work building SIGINT into aircraft for the Services. During its heyday, late 60s to the 90s, it was nothing to change to a new company every year if you liked as long as you held a golden ticket, a special access clearance. The executive staffs of these companies were closely tied into the Government up to the White House. In fact, the founder of my first c"
+        },
+        {
+          "id": 49649132,
+          "author": "bookofjoe",
+          "text": ">Andreessen- and Thiel-backed defense startup opens U.S. missile factory as it exits stealth\nhttps://www.cnbc.com/2026/09/09/defense-tech-covenant-anthem..."
+        }
+      ],
+      "title_ja": "シリコンバレーは軍産複合体を変革していますか？",
+      "summary_ja": "ディスカッションのハイライト：過去数十年間にテクノロジーに携わった私たちにとって、歴史はかなり曖昧になる可能性がありますが、フェアチャイルド半導体の時代から、軍隊は変革していたと思いますか？ Googleがどこから始まったか知っていますか？ SVは最初から国防総省から資金提供を受けています。/深刻な疑問：企業は自国の国防総省からの契約に参加すべきではありませんか？または、それがonlであるという引数です",
+      "editor_note": "「シリコンバレーは軍産複合体を変革していますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 21,
+      "id": 49647300,
+      "title_en": "Detecting and countering misuse of AI: September 2026",
+      "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=49647300",
+      "score": 66,
+      "comment_count": 130,
+      "posted_at": "2026-09-10T17:23:42+00:00",
+      "comments": [
+        {
+          "id": 49647999,
+          "author": "tedsanders",
+          "text": "Meta: The potential proliferation of biological weapons is serious. Millions could die. It's easy to joke about before it happens, but try to imagine how this thread might look after the successful deployment of a biological weapon by a rogue state or non-state actor. I encourage you to take this topic seriously and contribute posts that add new information or perspectives to the discussion.\n(I myself think the odds of a bioweapon attack remain low and have not yet been seriously accelerated by LLMs, but this is absolutely something the world should pay attention to.)"
+        },
+        {
+          "id": 49649276,
+          "author": "m-hodges",
+          "text": "> We discovered that Moonshot AI, the company that produces the Kimi family of models, silently forwarded customer requests to Claude, instead of processing them using Kimi. Moonshot then displayed Claude’s responses to users. These users thought they were using a Kimi model, but received responses from Claude instead.\n> DeepSeek also silently relayed exchanges to Claude without informing DeepSeek customers.\n> MiniMax built its own proxy network service through a shell company. This shell company has no obvious links to MiniMax and does not disclose its relationship to its parent company. This shell proxy network service only offers access to models developed by Anthropic and OpenAI. The service does not offer access to any Chinese models, including Minimax’s own."
+        },
+        {
+          "id": 49649985,
+          "author": "hnburnsy",
+          "text": "Quite the double standard here...\nConventional Weapons\n-We identified a cell of threat actors based in northern Yemen\n-We identified a China-based threat actor who used Claude\n-We identified likely freelance Russia-based threat actors\n-We identified a China-based actor who used Claude’s chat\n-In this case, a Russia-based actor used Claude\n-We identified a China-based threat actor who used Claude\nBiological misuse\nWe are withholding the names of research institutions, the   countries wherein the activity took place, and the specific biological agents or research techniques involved. The individuals implicated in these case studies are working scientists. We do not assert that they intended harm, and identifying them or their labs could expose them to harm."
+        },
+        {
+          "id": 49647776,
+          "author": "oidar",
+          "text": "It also blocks my ability to talk about Emily Dickinson in other languages/scripts. Apparently,the poem: \"Because I could not stop for Death\" is too dangerous."
+        },
+        {
+          "id": 49651127,
+          "author": "nhinck2",
+          "text": "> Illicit distillation\nReally... what makes it illicit?"
+        },
+        {
+          "id": 49647109,
+          "author": "The_Blade",
+          "text": "the inline link to the page to the report was Slashdotted for a moment (yesssssss), but here is the report directly now:\nhttps://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a..."
+        },
+        {
+          "id": 49647978,
+          "author": "bix6",
+          "text": "I’m so curious how they monitor users. Like that person the other day talking about Claude helping with their torrent stack, will Anthropic report them for breaking the law?"
+        },
+        {
+          "id": 49647966,
+          "author": "Sol-",
+          "text": "I will admit I asked Fable about Mitochondria."
+        }
+      ],
+      "title_ja": "AIの不正使用の検出と対策： 2026年9月",
+      "summary_ja": "ディスカッションハイライト： Meta ：生物兵器の拡散の可能性は深刻です/> Kimiファミリーのモデルを製造しているMoonshot AIが、Kimiを使用して処理するのではなく、静かに顧客の要求をClaudeに転送していることがわかりました/ここではかなりダブルスタンダードです...\n従来型兵器\n-イエメン北部に拠点を置く脅威アクターのセルを特定しました\n- Claudeを使用した中国を拠点とする脅威アクターを特定しました\n-私たちは",
+      "editor_note": "「AIの不正使用の検出と対策： 2026年9月」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 49630931,
+      "title_en": "iPhone Duo",
+      "url": "https://www.apple.com/iphone-duo/",
+      "hn_url": "https://news.ycombinator.com/item?id=49630931",
+      "score": 1403,
+      "comment_count": 2424,
+      "posted_at": "2026-09-09T18:15:43+00:00",
+      "comments": [
+        {
+          "id": 49649360,
+          "author": "nkrisc",
+          "text": "I keep waiting but the phones only get bigger. Seems I’ll have to eventually replace my iPhone 12 mini with a 13 mini, or ditch Apple entirely.\nThe Google Nexus 4 was my all time favorite smart phone in terms of overall size. But I suppose it’s unlikely Apple will ever make a phone anywhere close to that size ever again."
+        },
+        {
+          "id": 49633307,
+          "author": "anonu",
+          "text": "As a recent Android foldable phone owner (Google Pixel), I'm excited that the Duo will get developers to actually design apps for foldables. Right now, some apps don't work at all and others are just stretched. I feel a better use of the screen space is around the corner for both Android foldable and Duo users."
+        },
+        {
+          "id": 49650163,
+          "author": "sigzero",
+          "text": "It looks well done. I am not spending two grand to get one."
+        },
+        {
+          "id": 49630801,
+          "author": "nunez",
+          "text": "- It works with the pencil! This is a big big deal. I can do whiteboarding with customers quickly without having to break out a separate device, for example. Definitely unfortunate for the reMarkable Move and devices like that.\n- They actually might have nailed the hinge and crease problems.\n- I've been excited for this release ever since the rumor of the iPhone Air being a prototype of sorts for this came out. Two iPhone Airs fit very comfortably in my hip pack (though I only ever have one at a time)."
+        },
+        {
+          "id": 49630973,
+          "author": "minimaxir",
+          "text": "I'll give John Ternus credit: the demos are interesting and\nfun\n.\nMaybe not $2k fun + inherent risk with buying the first generation of an Apple product particularly after the Apple Vision Pro, but still."
+        },
+        {
+          "id": 49644003,
+          "author": "jjkaczor",
+          "text": "Wowza... this is the first time in recent years Apple is introducing a mobile product that is a \"change\" from everything they have done in 10-years...\n(I want one... find phone screens too small, but don't want to carry a phone and a tablet - yes, I know there have been other offerings in the Android ecosystem, but I am not in that realm)"
+        },
+        {
+          "id": 49631177,
+          "author": "joshstrange",
+          "text": "$2K starting price is rough. I’ve upgraded my iPhone every year since my first phone, the 3GS. It’s one of a few “splurge”-type things I allow myself. It’s a hobby and just fun to play with the new hotness. This year might break the cycle.\nI don’t care for the 18 Pro colors, I still love my orange 17 Pro, and I’m not sold on the Duo (functionality or price).\nI might still end up with a Duo but I’m very much on the fence. I’ll tell myself it’s for development/testing reasons, or just to play with the newest offering but I’m just not sure. I worry this will suffer from the same lack of developer interest as the AVP did. Yes, it’s very different from the AVP and SwiftUI will almost certainly make this process easier but I’m still not sure."
+        },
+        {
+          "id": 49632516,
+          "author": "ksec",
+          "text": "I think the Duo looks great. And from the few hands on video I have seen I think the Apple presentation actually doesn't do it justice. There is no crease at all! [1]\nOn the note on this year's keynote. I can't be the only one who feels the whole vibe of the keynote changed. This isn't Tim Cook style keynote and John Ternus wasted no time to try and changed a few things already. I can't wait for John to further shake things up at Apple. But everything so far, all the small minor details suggest they are in the right direction.\n[1]\nhttps://x.com/mweinbach/status/2097753099159138631?s=46"
+        }
+      ],
+      "title_ja": "iPhone Duo",
+      "summary_ja": "ディスカッションのハイライト：私は待っていますが、携帯電話は大きくなるだけです/最近のAndroid折りたたみ式携帯電話の所有者（ Google Pixel ）として、Duoが開発者に折りたたみ式のアプリを実際に設計させることに興奮しています/よくできているように見えます",
+      "editor_note": "「iPhone Duo」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49587121,
+      "title_en": "Douglas Hofstadter: Analogy as the Core of Cognition [video]",
+      "url": "https://www.youtube.com/watch?v=n8m7lFQ3njk",
+      "hn_url": "https://news.ycombinator.com/item?id=49587121",
+      "score": 127,
+      "comment_count": 69,
+      "posted_at": "2026-09-06T14:59:33+00:00",
+      "comments": [
+        {
+          "id": 49649252,
+          "author": "HarHarVeryFunny",
+          "text": "It's been a long time since I read Hofstader's book \"Fluid Concepts and Creative Analogies\" that this is presumably based on, so I'll be interested to watch the video as a refresher, later. :) He also wrote a follow-on book, \"Surfaces and Essences: Analogy as the Fuel and Fire of Thinking\", published after this video was made, that I've never read.\nFrom what I recall, to Hofstafer analogy making isn't some higher level cognitive process, certainly not a language based one, but basically is\nTHE\ncognitive process all the way from perception on up, and is the mechanism by which we form object categories in the first place.\nAs always Hofstader's ideas are interesting, but I can't say I agree with them. It seems that the key evolutionary benefit, and function, of a brain is prediction, which is the superpower that moves us from being stuck in the present to being able to \"see\" (predict) the future, and therefore from being merely reactive to being able to proactively plan and predict future outcomes (what will the sabre-tooth do, where is the water supply?) based on our experience.\nGiven the never-same-twice nature of sensory perception, before you can predict you need to be able to gen"
+        },
+        {
+          "id": 49648244,
+          "author": "ilaksh",
+          "text": "He was extremely skeptical of the capabilities of AI for years but eventually came around to calling it truly capable after testing advanced LLMs.\nHe is still an AI skeptic in as many ways that he can reasonably be, but doesn't deny the raw ability. Actually he thinks it will eclipse humans and he is a doomer.\nHe sees it as being an extremely empty type of intelligence though.\nBut I hope that people who have an intuitive understanding of contemporary machine learning (not me) will sometimes watch videos like this and think about things at a higher level. LLMs have a LOT of assumptions built in."
+        },
+        {
+          "id": 49648028,
+          "author": "delichon",
+          "text": "The drive toward the formation of metaphors is the fundamental human drive, which one cannot for a single instant dispense with in thought, for one would thereby dispense with man himself.\nFriedrich Nietzsche, “On Truth and Lies in a Nonmoral Sense\", 1873"
+        },
+        {
+          "id": 49647582,
+          "author": "patcon",
+          "text": "Strong agree. It's the finding of symmetries and folds along non-obvious crease lines, but in semantic space of language <3\nIt's akin to the amino acid interactions in proteins that hold biological matter together, and determine it's shape and active form. Protein folding and narrative/storytelling have strange homology :)\n(I work in this area via collective intelligence, and these ideas are very dear to me during the past decade. It's neat to see the intuitions seemingly becoming validated in language models)"
+        },
+        {
+          "id": 49649530,
+          "author": "Dotnaught",
+          "text": "See George Lakoff/Mark Johnson, Metaphors We Live By (1980):\nhttps://george-lakoff.com/books/metaphors-we-live-by/\nTook a course with Lakoff as an undergrad and it was compelling."
+        },
+        {
+          "id": 49650445,
+          "author": "vonnik",
+          "text": "Every category and noun is an analogy uniting things unlike in at least some details. We don’t even see most analogies, because they are more common than air and just as necessary."
+        },
+        {
+          "id": 49647565,
+          "author": "ameliaquining",
+          "text": "Scott Aaronson wrote a good post last week on how Hofstadter's theories of intelligence have held up:\nhttps://scottaaronson.blog/?p=10046\n(The post primarily emphasizes self-referentiality rather than analogy, but I suspect similar things could be said about analogy.)"
+        },
+        {
+          "id": 49648842,
+          "author": "tolerance",
+          "text": "This seems like a worthwhile listen. As it stands I think that LLMs sort of suck at this. Either that or I don't understand what analogous thinking is or people who use LLMs to facilitate this kind of thinking are bad at it too.\nBut I think that LLMs are bad at something that has to do with taking seemingly disparate concepts and assimilating one into the other to convey a novel idea.\nLike these articles...\n<\nhttps://spectrum.ieee.org/jimi-hendrix-systems-engineer\n>\n<\nhttps://zed.dev/blog/agentic-xanadu\n>\n...are anything but convincing once you read past the\ngravitas\nthat the LLM lends the prose."
+        }
+      ],
+      "title_ja": "ダグラス・ホフスタッター：認知の中核としてのアナロジー[video]",
+      "summary_ja": "ディスカッションハイライト： Hofstaderの本「Fluid Concepts and Creative Analogies （流動的な概念と創造的なアナロジー）」はおそらくこれに基づいていると思われるので、リフレッシュとしてビデオを見ることに興味があります/彼は何年もの間AIの能力に非常に懐疑的でしたが、最終的に高度なLLMをテストした後、真に有能であると呼ぶようになりました。\n彼は依然としてAI懐疑論者であり、メタファーの形成への駆動力が基本です",
+      "editor_note": "「ダグラス・ホフスタッター：認知の中核としてのアナロジー[video]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49640646,
+      "title_en": "What algorithm did Windows XP use to choose your initial user picture?",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20260909-00/?p=112683",
+      "hn_url": "https://news.ycombinator.com/item?id=49640646",
+      "score": 335,
+      "comment_count": 164,
+      "posted_at": "2026-09-10T09:04:14+00:00",
+      "comments": [
+        {
+          "id": 49641429,
+          "author": "mawadev",
+          "text": "That is a case I only become aware of when I read blogs like this. Technically I could solve it the same way, but these days you have so many tasks on your desk, you don't think about the problem and implications at all and that awareness/discipline is drowned in the noise/unlearned over time.\nIf someone only gave me 2 minutes for this, because they think it is very simple (as always), I'd have done a count of files of a specific pattern in the directory and then picked a random index, very naive and quick and dirty programming, no sampling at all, just to avoid discussions why it takes so long with people who don't want to hear it.\nThis reminds me of when I did a lot of C#, Java, JS, Python in my life, filling maps of strings and objects until I started with zig and noticed how expensive and complicated strings and data structure allocations can be. It kind of blew my mind how much memory and computation we waste when we try to get stuff done as fast as possible because of budget/time constraints."
+        },
+        {
+          "id": 49641591,
+          "author": "lyorig",
+          "text": "Man, every post from Raymond Chen regarding Windows internals is like a little Xmas. I wonder whether he has to ask someone for permission before publishing  this knowledge, though."
+        },
+        {
+          "id": 49642241,
+          "author": "EMIRELADERO",
+          "text": "For those interested, here's the actual code Chen talks about:\nhttps://github.com/tongzx/nt5src/blob/daad8a087a4e75422ec96b..."
+        },
+        {
+          "id": 49642264,
+          "author": "impoppy",
+          "text": ">Raymond has been involved in the evolution of Windows for more than 30 years. He occasionally appears on the Windows Dev Docs Twitter account to tell stories which convey no useful information."
+        },
+        {
+          "id": 49643468,
+          "author": "scrumper",
+          "text": "This is a fun example of the cognitive switch you have to employ when first starting to program a computer. It's extremely easy for a human to pick at random one thing from a pile of things: you reach out your hand and grab it, maybe swirling them around on the table first to shuffle the order. For a computer, there's no direct analogy to that. They just can't do it. And the human process is nothing even slightly like the one the computer follows: we don't have to count the sets and iterate over them, or count the items and then generate a random number to pick the nth item, or risk picking a null item."
+        },
+        {
+          "id": 49641205,
+          "author": "cgio",
+          "text": "The times when people spent an extra brain cycle to avoid billions of second passes."
+        },
+        {
+          "id": 49648478,
+          "author": "adrianmonk",
+          "text": ">\nit’s more efficient because it reduces the amount of calls into the file system\nOK, but isn't the kernel keeping the directory listing in the disk cache? Won't that prevent extra physical I/O if you do just read the directory twice?\nIf so, then in the second pass, it's all cache hits, and you're just paying the cost of calling into the file system. Hopefully that's pretty fast. But even if not, it's still absolutely dwarfed by the physical I/O required for the first pass. Windows XP era storage was spinning hard drives, not flash.\nAnd if not, then I'm probably going to put my user icon coding task on the back burner and go ask the kernel team why a seemingly very common usage pattern isn't optimized.\n(I realize he's not claiming the performance benefit was significant. I'm just trying to see it in the right perspective.)"
+        },
+        {
+          "id": 49650612,
+          "author": "majorchord",
+          "text": "Wouldn't it be even more random (and randomly faster) to break out of the while loop when a winner is found? That way you are not always iterating over the entire list.\nPerhaps a math/statistics expert can tell me why that is a bad idea."
+        }
+      ],
+      "title_ja": "Windows XPはどのアルゴリズムを使用して最初のユーザー画像を選択しましたか？",
+      "summary_ja": "ディスカッションのハイライト：これは私がこのようなブログを読んだときに初めて気づくケースです/Man、Windows内部に関するRaymond Chenのすべての投稿はちょっとしたクリスマスのようです/興味がある人にとって、Chenが話している実際のコードは次のとおりです。\nhttps://github.com/tongzx/nt5src/blob/daad8a087a4e75422ec96b...",
+      "editor_note": "「Windows XPはどのアルゴリズムを使用して最初のユーザー画像を選択しましたか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49608665,
+      "title_en": "Show HN: A browser IDE for m68000, Z80 assembly (and more), with graphics",
+      "url": "https://asm-editor.specy.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=49608665",
+      "score": 8,
+      "comment_count": 1,
+      "posted_at": "2026-09-08T11:08:53+00:00",
+      "comments": [
+        {
+          "id": 49608718,
+          "author": "specy",
+          "text": "I also experimented with running the actual java MARS application directly in the browser with chreepj which is a java emulator in the web:\nhttps://asm-editor.specy.app/apps/mars"
+        }
+      ],
+      "title_ja": "HNを表示：グラフィックス付きのm 68000、Z 80アセンブリ（およびその他）用のブラウザIDE",
+      "summary_ja": "ディスカッションのハイライト：ウェブ上のJavaエミュレータであるchreepjを使用して、ブラウザで実際のJava MARSアプリケーションを直接実行することも試しました。\nhttps://asm-editor.specy.app/apps/mars",
+      "editor_note": "「HNを表示：グラフィックス付きのm 68000、Z 80アセンブリ（およびその他）用のブラウザIDE」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 49648732,
+      "title_en": "Creativity is the new moat",
+      "url": "https://www.inventbuild.studio/blog/genuine-creativity-is-your-new-moat",
+      "hn_url": "https://news.ycombinator.com/item?id=49648732",
+      "score": 117,
+      "comment_count": 61,
+      "posted_at": "2026-09-10T19:03:34+00:00",
+      "comments": [
+        {
+          "id": 49650822,
+          "author": "lordnacho",
+          "text": "That's not a moat, that's a red queen?\nA moat allows the owner a degree of passivity. Eg, you own the desktop OS. You are already using this moat to get office software on every machine, while competitors either have to dance to your tune when publishing a program, or think of a way to get their own OS out there. You can see how the internet develops, knowing that you can get your own browser on every machine for free. You can watch for a bit before you move.\nRelying on continuous inspiration is a treadmill that goes faster and faster. That's what's described here. Come up with something new and clever, someone copies it, come up with another thing. You can't be passive, you have to be moving constantly."
+        },
+        {
+          "id": 49649309,
+          "author": "Animats",
+          "text": "> The Present Works and is Boring\n\"Genuine creativity\" for mundane web sites is a reason to close the page and buy from someone else. I'm tired of the overcomplication. The page jerking around as more crap is loaded. One minute page loads on mobile (looking at you, CNN).\nAll that has negative value if you just want to\nbuy\nthe thing. I just got done with an \"instant quote\" site that took 12 hours to respond for a request for a mattress install."
+        },
+        {
+          "id": 49649284,
+          "author": "zcw100",
+          "text": "Maybe everyone has it backwards. They shouldn't be mad at everyone pumping out AI shit. They should be mad at all the crappy stuff we were forced to endure that was no better than AI shit. The only difference is the crap doesn't cost anything anymore.\nThe emperor has no clothes."
+        },
+        {
+          "id": 49651214,
+          "author": "Havoc",
+          "text": "The thesis is sound but I think this underplays just how hard and rare \"genuine creativity\" is. Especially in the more technical fields.\nIf you're painting an oil canvas it's by definition creative, but say programming even designed from scratch apps follow established patterns.\nActual flashes of genuine creativity in a consequential manner are rare there. Could you produce a flash like fast inverse root on demand? I sure can't\nhttps://en.wikipedia.org/wiki/Fast_inverse_square_root"
+        },
+        {
+          "id": 49651296,
+          "author": "cat-whisperer",
+          "text": "Agreed. People should experiment and let their creativity run rampant.\nWhat stands between them and that is the current crop of AI design tools and skills. lovable, emergent, frontend-design, Impeccable. They ship someone else's taste and hand you a 95% website. Good website, not your website.\nThese tools are nozzles. They shape the flow before it leaves your hand. If you want creativity unchecked, use the raw tool."
+        },
+        {
+          "id": 49650566,
+          "author": "ericol",
+          "text": "I think the moat(s) is anything the models still are nowhere near performing on their own, OR, getting them to do that is seriously expensive.\nI don't know about Astra, and have used Fable 5.1 only slightly (And burned 85% of my 5 hour quota in 1 prompt).\nIn my experience, LLMs are completely devoid of \"thinking outside the box\" capabilities. And I'm not talking about 6 thinking hats type of stuff, but slight of to the right field lateral thinking. Something a 6 year old does for fun when playing with their mates.\nIf this weren't so, we wouldn't have been through so many \"<buzzword> engineering\" in such a short amount of time."
+        },
+        {
+          "id": 49649346,
+          "author": "unwind",
+          "text": "Meta: isn't it still 2026 pretty much globally? When did we switch from only labelling older articles with their year?"
+        },
+        {
+          "id": 49649951,
+          "author": "jonplackett",
+          "text": "I really miss that flash let non-programmers or ‘lite’ programmers (which I was at the time) make cool shit.\nI still don’t think a tool has really replaced it as a visual coding tool."
+        }
+      ],
+      "title_ja": "創造性は新しい堀",
+      "summary_ja": "ディスカッションのハイライト：それは堀ではなく、赤の女王ですか？\n堀は所有者にある程度の受動性を与えます/>現在の作品は退屈です\n世俗的なWebサイトの「本物の創造性」は、ページを閉じて他の誰かから購入する理由です/おそらく誰もが後ろ向きに持っている",
+      "editor_note": "「創造性は新しい堀」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49646778,
+      "title_en": "Cognition's SWE-2 achieves 92.8 on Terminal-Bench 2.1",
+      "url": "https://tokenstead.ai/models/swe-2",
+      "hn_url": "https://news.ycombinator.com/item?id=49646778",
+      "score": 53,
+      "comment_count": 24,
+      "posted_at": "2026-09-10T16:52:11+00:00",
+      "comments": [
+        {
+          "id": 49648559,
+          "author": "forgot-my-pw",
+          "text": "Terminal Bench 2/2.1 appears to be almost solved, so we probably shouldn't look too hard on that? Their Terminal Bench 4 score is soso.\nStill quite impressive though."
+        },
+        {
+          "id": 49651244,
+          "author": "samusiam",
+          "text": "Which is pretty much a useless (i.e., saturated, contaminated) benchmark now."
+        },
+        {
+          "id": 49650332,
+          "author": "captainregex",
+          "text": "my personal experience with swe has been…suboptimal. I am not sure how much I buy these benchmarks and it has a very “just blurt it out even if it’s probably not right” style but hey it’s free."
+        },
+        {
+          "id": 49648795,
+          "author": "walrus01",
+          "text": "Not really news, terminal bench 4 is the new metric. It's only a few points ahead in terminal bench 4 of some open weight models you can run on a 256GB system."
+        },
+        {
+          "id": 49648915,
+          "author": "ChrisArchitect",
+          "text": "Related:\nCognition launches new SWE-2 model\nhttps://news.ycombinator.com/item?id=49645443"
+        },
+        {
+          "id": 49648031,
+          "author": "varispeed",
+          "text": "These tests are pointless when often models get nerfed few days after release. Astra today is way dumber than just few days ago."
+        }
+      ],
+      "title_ja": "コグニションのSWE -2はターミナルベンチ2.1で92.8を達成",
+      "summary_ja": "ディスカッションのハイライト：ターミナルベンチ2/2 .1はほぼ解決されているようですので、それほど厳しく見るべきではないでしょうか？ ターミナルベンチ4のスコアはsosoです。\nそれでもなかなか印象的ですね。 /今ではほとんど役に立たない（すなわち、飽和状態、汚染された）ベンチマークです。/私のSWEに関する個人的な経験は...最適ではありませんでした",
+      "editor_note": "「コグニションのSWE -2はターミナルベンチ2.1で92.8を達成」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 49599992,
+      "title_en": "Stockfish 19",
+      "url": "https://stockfishchess.org/blog/2026/stockfish-19/",
+      "hn_url": "https://news.ycombinator.com/item?id=49599992",
+      "score": 261,
+      "comment_count": 148,
+      "posted_at": "2026-09-07T16:17:27+00:00",
+      "comments": [
+        {
+          "id": 49643276,
+          "author": "strenholme",
+          "text": "Interesting bug or regression.\nLet’s take the very famous game Kasparov - Topalov, Wijk aan Zee 1999 and look at the position just after Topalov accepts Kasparov’s Rook Sacrifice:\nhttps://samboy.github.io/blog/Kasparov.html#RookSacAccepted\n-\nhttps://lichess.org/lwiPq9wB#48\n- White to move\nFEN: b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25\nRun the above position in Stockfish 18 with a depth of 25: [1] It shows that White is 3.53 pawns ahead—i.e. White is clearly winning.\nRun the above position in Stockfish 19, however, and Stockfish 19 at depth 25 says that, while White is ahead, it’s only a 1.2 pawn edge—Black supposedly still has good drawing chances.\nAt a depth of 35 ply, Stockfish 19 sees that it’s a clear White victory (6.79 pawns ahead), but it takes far deeper search for Stockfish 19 to see the win compared to Stockfish 18.\n[1] To run the position, I type the following commands:\nposition fen b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K2R3 w - - 0 25\nd\ngo depth 25\nI also see the issue on Lichess’s GUI by going to this URL:\nhttps://lichess.org/lwiPq9wB#48"
+        },
+        {
+          "id": 49641279,
+          "author": "nevi-me",
+          "text": "To show you how strong Stockfish 19 is compared to 18, I used to lose 100% against 18, and I now lose 100% against 19, probably faster. Time to fire up En Croissant and see :)"
+        },
+        {
+          "id": 49642080,
+          "author": "jan_m_savage",
+          "text": "I am a fairly good player but after playing 22000 games, I came to the conclusion that ideas and strategies from chess are context-dependent and don't much transfer to real life.\nI'd rather spend all that time reading up on game theory and play some fun video games, like Red Dead Redemption."
+        },
+        {
+          "id": 49640965,
+          "author": "haunter",
+          "text": "The GUI page is a bit out of date imo, or I'm not sure how does the selection work because there are countles GUI options nowadays. Anyways some of the best options are not even mentioned like\nNocheto\nhttps://nocheto.sallyx.org/\n(this my favorite)\nChessMD\nhttps://chessmd.org/\nPyChess\nhttps://pychess.github.io/about/"
+        },
+        {
+          "id": 49641123,
+          "author": "stabbles",
+          "text": "Would be nice if they included a few \"notable\" games in the release notes.\nPresumably it's easy to highlight ones from benchmarks where the evaluation of Stockfish 19 is most significantly different from version 18?"
+        },
+        {
+          "id": 49641116,
+          "author": "ZiiS",
+          "text": "For when you need another decimal place of accuracy deciding what you should have moved instead of hanging your queen."
+        },
+        {
+          "id": 49642827,
+          "author": "RivieraKid",
+          "text": "Correct me if I'm wrong but I think that a few years old version of Stockfish running on a modern MacBook Air with 1 min per move is unbeatable if the game starts from the initial position.\nEven if the opponent is the latest Stockfish with 1000x more time per move, it will always be a draw.\nI asked about this a few years ago in a Stockfish Discord and the above claim is what someone implied, if I remember correctly."
+        },
+        {
+          "id": 49641158,
+          "author": "tweakimp",
+          "text": "Whenever I see another Stockfish update I dream of the day that I sit down and code my own chess bot that is good enough to beat me. I would be so happy if I manage to do that."
+        }
+      ],
+      "title_ja": "ストックフィッシュ19",
+      "summary_ja": "ディスカッションのハイライト：興味深いバグや退行。\n非常に有名なゲームKasparov - Topalov、Wijk aan Zee 1999を見て、TopalovがKasparovのRook Sacrificeを受け入れた直後の位置を見てみましょう。\n /Stockfish 19が18と比べてどれだけ強いかを示すために、私は以前は18に対して100 ％負けていましたが、今は19に対して100 ％負けています。おそらくもっと速いでしょう/私はかなり良い選手ですが、22000ゲームをプレイした後、私はアイデアと戦略",
+      "editor_note": "「ストックフィッシュ19」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49642531,
+      "title_en": "List of references on Sony websites to players \"owning\" their digital games",
+      "url": "https://consumerrights.wiki/w/Sony_PlayStation_digital_game_ownership_lawsuit",
+      "hn_url": "https://news.ycombinator.com/item?id=49642531",
+      "score": 349,
+      "comment_count": 115,
+      "posted_at": "2026-09-10T12:18:06+00:00",
+      "comments": [
+        {
+          "id": 49643970,
+          "author": "tancop",
+          "text": "> The motion says the PlayStation Terms of Service put a binding arbitration agreement and a class action waiver in Section 14, and quotes the opt-out clause: ...\n> The clause requires a user who does not wish to be bound to notify Sony in writing within 30 days of accepting the agreement.\nBinding arbitration on individuals should be illegal, full stop. The only use case is taking away people's rights as consumers and workers. Or dodging responsibility for deadly mistakes like the Disney+ incident.\nThis \"opt out\" mechanism is made to let Sony lawyers argue that accepting it was your choice so it can't be struck down as forced, even if 99% of users have no idea it exists,\nby design\n. Evil all the way down."
+        },
+        {
+          "id": 49642954,
+          "author": "voidUpdate",
+          "text": "> \"Were that the case, then Plaintiff Edward Heycock would not have been able to obtain the game Resident Evil Requiem on February 25, 2026 for $69.99 from the PlayStation Store after Plaintiff Jason Mendoza had obtained Resident Evil Requiem on February 14, 2026, because Mr. Mendoza, not Sony, would have owned it then\"\nI buy a book. I now own the copy of that book. My friend buys the book. They also own a copy of that book. We do not own the same copy of that book"
+        },
+        {
+          "id": 49644562,
+          "author": "buran77",
+          "text": "> \"Were that the case, then Plaintiff Edward Heycock would not have been able to obtain the game Resident Evil Requiem on February 25, 2026 for $69.99 from the PlayStation Store after Plaintiff Jason Mendoza had obtained Resident Evil Requiem on February 14, 2026, because Mr. Mendoza, not Sony, would have owned it then\"\nThat's a very interesting defense. I wonder if it opens up a door maybe Sony would rather keep shut. If I can't own a copy of content because someone else has another copy, how does this play out for piracy? According to Sony's own argument, pirating a copy of the content is fine because others can/do still \"buy\" or \"own\" (rent/lease) it."
+        },
+        {
+          "id": 49646198,
+          "author": "dofm",
+          "text": "I am deeply ambivalent about Sony.\nI have had three mirrorless Sony cameras (albeit two secondhand), and I think they made what is one of the low-key best hobbyist cameras of its class ever [0], and I don't even much mind their current camera software, which I installed somewhat reluctantly.\nBut back on the distributable content side, this is a company that\nhacked customers' PCs with a rootkit\n. They are a big enough and clumsy enough company to make bad decisions regularly.\n[0] the NEX-6, a true joy that I would recommend to anyone who wanted an old knockabout camera even now, though even fourteen years since it was released, its used prices hold up almost too well because I am clearly not the only person who thinks it is lovely"
+        },
+        {
+          "id": 49643313,
+          "author": "gwbas1c",
+          "text": "Seems like we need some copyright reform WRT issues like this. We need a true way to have digital ownership; including putting assets in escrow and a way for access to continue after the store is shut down or the item removed from the store."
+        },
+        {
+          "id": 49642545,
+          "author": "haunter",
+          "text": "HN trunks the url\nhttps://consumerrights.wiki/w/Sony_PlayStation_digital_game_..."
+        },
+        {
+          "id": 49643093,
+          "author": "rf15",
+          "text": "Sony's lawyers really picked a strange hill to die on here... even if they win, the precedence will screw over Sony, at least in marketing."
+        },
+        {
+          "id": 49644468,
+          "author": "titzer",
+          "text": "If 30 years ago someone suggested breaking into your house to take away your Nintendo games or remotely disabling them by sending something over the network to the console, it would have absolutely been beyond the pale.\nBut 30 years of boiling the frog and now we have a megacorp that has absolutely no qualms about maximizing their profits by doing the moral equivalent. The popular conception of what constitutes a transaction, what constitutes ownership, and what is fair use has swung so far away from what consumers want and expect, that I can't believe they're arguing, stupidly, in court, that ownership is \"not possible\" because one person can buy a game, and then a second person can!\nWhatever happened, I dunno. I hate that consumers have become so powerless in the face of relentless erosion of basic transactional norms.\nIt just reinforces how much I will not be participating in that economy."
+        }
+      ],
+      "title_ja": "ソニーのウェブサイト上で、デジタルゲームを「所有」しているプレーヤーへの言及のリスト",
+      "summary_ja": "議論のハイライト： >この動議は、PlayStationの利用規約が拘束力のある仲裁合意と集団訴訟の権利放棄をセクション14に置き、オプトアウト条項を引用していると述べています：...\n> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >",
+      "editor_note": "「ソニーのウェブサイト上で、デジタルゲームを「所有」しているプレーヤーへの言及のリスト」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 30,
+      "id": 49586139,
+      "title_en": "Schemy Lisp En DOS",
+      "url": "https://sled.neocities.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49586139",
+      "score": 77,
+      "comment_count": 18,
+      "posted_at": "2026-09-06T12:58:54+00:00",
+      "comments": [
+        {
+          "id": 49602483,
+          "author": "bitwize",
+          "text": "Fantastic to see the DOS Lisp scene revived again. Back in the day there was PC-Scheme from Texas Instruments, which I believe was R3RS-compliant."
+        },
+        {
+          "id": 49650357,
+          "author": "jasomill",
+          "text": "Interesting.\nThe simplicity of the build process is inspiring.\nIt literally took me less than five minutes to cobble together a build environment from thin air, cross-compile, and test:\n1. Glance at the Makefile, notice that it's a single self-contained C file and that it builds on Open Watcom.\n2. Google Open Watcom, download the latest Linux binary release from GitHub on my Windows PC because that's where I'm sitting but my plan is to run it on the Linux box across the room, currently headless.\n2. Out of habit, I run \"file\" and \"7z l\" on what's apparently a self-extracting installer when it finishes downloading.\n3. Realize it contains binaries for multiple platforms, including Windows, so I extract it.\n4. Following the Makefile, set a WATCOM environment variable pointing to the extracted path and add its \"binnt64\" directory to my path.\n5. Copy/paste the single compilation command from the Makefile into PowerShell. Cross-compiles without error.\n7. Create an ISO image of the source directory containing the binary, mount it on the nearest DOS-alike (an 86Box instance running MS-DOS 6.22 on an emulated Pentium MMX IBM PC), ran the included test program. Tests pass."
+        },
+        {
+          "id": 49603694,
+          "author": "dharmatech",
+          "text": "Super cool to see a new Scheme on DOS.\nI've been messing around with a language that I summarize as:\nALOE = Scheme + Smalltalk + Types\nBoids implementation:\nhttps://github.com/dharmatech/2026-09-02-aloe-racket/blob/ma...\nhttps://github.com/dharmatech/2026-09-02-aloe-racket"
+        },
+        {
+          "id": 49649260,
+          "author": "reddit_clone",
+          "text": "DOS? Like in MSDOS?\nThere is something I haven't heard in a long while. Turbo C was the shit back in the day. Until MS came in and pushed Borland out of the way."
+        },
+        {
+          "id": 49650992,
+          "author": "anyfoo",
+          "text": "> The SLED system does not feature numeric types. Yet natural numbers (non-negative integers) can be emulated using lists:\n> '(nil nil nil)  ; three\nPfsh, how pedestrian and unnecessarily high level. What you of course want to use instead is ♫\nChurch Numerals\n♫!\n(define zero (lambda (f) (lambda (x) x)))\n(define (succ n) (lambda (f) (lambda (x) (f ((n f) x)))))\n(define one   (succ zero))\n(define two   (succ one))\n(define (add m n) (lambda (f) (lambda (x) ((m f) ((n f) x)))))\n(define (mul m n) (lambda (f) (n (m f))))\n(define (pow m n) (n m))          ; n applications of \"multiply by m\"\n;; escape hatch back to the host numbers\n(define (church->int n) ((n (lambda (x) (+ x 1))) 0))\n(The \"escape hatch\" at the end is in Scheme, and only shown for illustration. Converting it into SLED and its documented \"list numbers\" is left as an exercise for the reader. It's really trivial, try it.)"
+        }
+      ],
+      "title_ja": "Schemy Lisp En DOS",
+      "summary_ja": "ディスカッションハイライト： DOS LISPシーンが再び復活するのは素晴らしい/興味深い。\nビルドプロセスのシンプルさは刺激的です。\n文字通り、DOSで新しいスキームを見るために、薄い空気、クロスコンパイル、および/超クールからビルド環境をまとめるのに5分もかかりませんでした。\n私は次のように要約する言語をいじくり回してきました。\nアロエ=スキーム+スモールトーク+タイプ\nBOIDSの実装：\nhttps://github.com/dhar",
+      "editor_note": "「Schemy Lisp En DOS」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "07",
+    "started_at": "2026-09-11T08:42:26.896059+09:00",
+    "finished_at": "2026-09-11T08:43:48.870069+09:00",
+    "story_count": 30
+  }
+}
