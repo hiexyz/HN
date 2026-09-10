@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — HN日報</title>
+  <meta name="description" content="Hacker News のトップ記事を日本語タイトル・要約付きで毎日更新">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="HN日報" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">本文へ</a>
+
+  <header class="topbar">
+    <a class="brand" href="/index.html">HN日報</a>
+    <nav class="nav" aria-label="主要">
+      <a href="/index.html">最新</a>
+      <a href="/archive/index.html">アーカイブ</a>
+      <a href="/about.html">About</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    
+<section class="page-block">
+  <h1>About</h1>
+  <p class="lead">HN日報 は、Hacker News のトップ記事を日本語で素早く把握するための非公式ダイジェストです。</p>
+  <ul class="plain-list">
+    <li>取得元: 公式 Hacker News API</li>
+    <li>更新: JST 7:00 / 12:00 / 23:00（GitHub Actions）</li>
+    <li>内容: 日本語タイトル、一言メモ、コメント要約</li>
+  </ul>
+  <p>本サイトは Y Combinator / Hacker News とは無関係です。</p>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>HN日報 — 非公式の日本語ダイジェスト。データは Hacker News API から取得しています。</p>
+    <p class="muted">生成: 2026-09-10T08:59:54.612821+09:00</p>
+  </footer>
+
+  <script>
+    (() => {
+      const nodes = document.querySelectorAll("[data-posted-at]");
+      const fmt = new Intl.RelativeTimeFormat("ja", { numeric: "auto" });
+      const now = Date.now();
+      for (const el of nodes) {
+        const t = Date.parse(el.getAttribute("data-posted-at") || "");
+        if (!Number.isFinite(t)) continue;
+        const diffSec = Math.round((t - now) / 1000);
+        const abs = Math.abs(diffSec);
+        let value = diffSec;
+        let unit = "second";
+        if (abs >= 86400) { value = Math.round(diffSec / 86400); unit = "day"; }
+        else if (abs >= 3600) { value = Math.round(diffSec / 3600); unit = "hour"; }
+        else if (abs >= 60) { value = Math.round(diffSec / 60); unit = "minute"; }
+        el.textContent = fmt.format(value, unit);
+      }
+    })();
+  </script>
+</body>
+</html>

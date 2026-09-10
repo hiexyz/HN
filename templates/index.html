@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}{{ site_name }} — {{ heading_date }} {{ slot_label }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="hero-brand">{{ site_name }}</p>
+  <h1 class="hero-title">Hacker News を、日本語でさっと追う</h1>
+  <p class="hero-lead">トップ記事の日本語タイトル・一言メモ・コメント要約を、1日3回お届けします。</p>
+  <div class="hero-actions">
+    <a class="btn primary" href="#stories">最新のまとめを読む</a>
+    <a class="btn ghost" href="/feed.xml">RSS</a>
+  </div>
+</section>
+
+<section class="snapshot-meta" aria-label="取得情報">
+  <h2 class="snapshot-heading">
+    {% if is_home %}最新{% else %}アーカイブ{% endif %}:
+    {{ heading_date }}
+    <span class="slot">{{ slot_label }} 取得</span>
+  </h2>
+</section>
+
+<section id="stories" class="stories">
+  {% if stories %}
+    {% set top = stories[0] %}
+    <article class="lead-story" id="story-{{ top.rank }}">
+      <div class="rank">#{{ top.rank }}</div>
+      <p class="category">{{ top.category }}</p>
+      <h3 class="story-title">
+        <a href="{{ top.url }}" target="_blank" rel="noopener">{{ top.title_ja }}</a>
+      </h3>
+      <p class="title-en">{{ top.title_en }}</p>
+      <div class="meta">
+        <span>▲ {{ top.score }}</span>
+        <span>コメント {{ top.comment_count }}</span>
+        <span data-posted-at="{{ top.posted_at }}"></span>
+        <a href="{{ top.hn_url }}" target="_blank" rel="noopener">HN</a>
+      </div>
+      {% if top.editor_note %}<p class="note">{{ top.editor_note }}</p>{% endif %}
+      {% if top.summary_ja %}
+      <div class="summary">
+        <h4>コメント要約</h4>
+        <p>{{ top.summary_ja }}</p>
+      </div>
+      {% endif %}
+    </article>
+
+    <ol class="story-list" start="2">
+      {% for story in stories[1:] %}
+      <li class="story" id="story-{{ story.rank }}">
+        <div class="rank">#{{ story.rank }}</div>
+        <div class="body">
+          <p class="category">{{ story.category }}</p>
+          <h3 class="story-title">
+            <a href="{{ story.url }}" target="_blank" rel="noopener">{{ story.title_ja }}</a>
+          </h3>
+          <p class="title-en">{{ story.title_en }}</p>
+          <div class="meta">
+            <span>▲ {{ story.score }}</span>
+            <span>コメント {{ story.comment_count }}</span>
+            <span data-posted-at="{{ story.posted_at }}"></span>
+            <a href="{{ story.hn_url }}" target="_blank" rel="noopener">HN</a>
+          </div>
+          {% if story.editor_note %}<p class="note">{{ story.editor_note }}</p>{% endif %}
+          {% if story.summary_ja %}
+          <details class="summary-fold">
+            <summary>コメント要約</summary>
+            <p>{{ story.summary_ja }}</p>
+          </details>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p>まだ記事がありません。</p>
+  {% endif %}
+</section>
+{% endblock %}

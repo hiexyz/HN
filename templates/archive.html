@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}アーカイブ — {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-block">
+  <h1>アーカイブ</h1>
+  <p class="lead">過去の取得スナップショットです。</p>
+  {% if archives %}
+  <ul class="archive-list">
+    {% for item in archives %}
+    <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>まだアーカイブがありません。</p>
+  {% endif %}
+</section>
+{% endblock %}
