@@ -1,0 +1,1444 @@
+{
+  "date": "2026-09-16T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49717558,
+      "title_en": "Introducing System One Models and Jev",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "hn_url": "https://news.ycombinator.com/item?id=49717558",
+      "score": 632,
+      "comment_count": 207,
+      "posted_at": "2026-09-15T19:25:03+00:00",
+      "comments": [
+        {
+          "id": 49718492,
+          "author": "jacobgold",
+          "text": "First, congrats to the team on launching something genuinely interesting and new.\nSeems like a more accurate title would be \"Jev: Trading general purpose generation for fast typed inference\" or something like that.\nThis is interesting, but the speed comparison seems misleading? A generative model that can output code in a Turing-complete language can do anything a computer can do.\nJev can only generate structured output, right? This is probably super useful for classification/routing/scoring, but it's nothing like the code generating models we're all using today for code and automation.\nAlso \"can't hallucinate\" seems wrong? Sure, it can't emit an invalid type, but it can still emit a completely wrong valid value. You can enforce structured output from an LLM too, with an appropriate harness, etc.\nAssuming there's no funny business, the Doom demo is cool."
+        },
+        {
+          "id": 49719442,
+          "author": "futurisold",
+          "text": "This, combined with contracts, could make a lot of things so much fun now!\nFor those who don't know (which is probably everyone but me), I ported the design-by-contract pattern in Python and combined it with LLMs. This was early 2025. I originally wrote about it here:\nhttps://leoveanu.com/2025-03-01-dbc/\n. Contracts are a core feature of SymbolicAI ever since. The community seems to have loved it too (\nhttps://news.ycombinator.com/item?id=44399234\n).\nI think I'm starting to glimpse the implications and it's gonna change agentic workloads if it holds up to scrutiny. It's too early for me to tell anything other than jot down some rough thoughts.\nIn short, you get blazingly fast semantic branching you can use in control flows. For contracts, I can now directly take the data model that you have to design and convert it into Jev's expected format. Or I can use Jev for semantic branching in postconditions.\nIf my understanding is correct, that should be doable, but I need to think more about it. It could be that with Jev I can finally “compile contracts” and better chain them into workflows, which is something I always wanted but didn't know how to do properly.\nEager to test. On the waiti"
+        },
+        {
+          "id": 49720437,
+          "author": "bjconlan",
+          "text": "You know you're too old when you see the company name and think! Oh I wonder what Martin Odeskey , Jonas Bonér and co are up to. Wait, didn't they become lightbend... Altho this comment takes away from what these guys are doing which legitimately sounds interesting."
+        },
+        {
+          "id": 49718350,
+          "author": "big_toast",
+          "text": "It seems like the docs[0] are a better explanation? The comparison to llm tokens is kinda confusing.\nIt looks like the model takes as input a state (structured text? not sure if multi-modal) and a question (as a \"Choice\", \"Score\", or \"Noul\") with some additional augmentations possible. Then outputs the question's answers as appropriate (e.g. a choice, accompanying probabilities, confidence).\nEdit: On the AI primer page, it looks like they do the RLCD on a pre-trained base model?\n[0]:\nhttps://docs.typesafe.ai/concepts/system-one"
+        },
+        {
+          "id": 49719883,
+          "author": "bregmandiv",
+          "text": "I'm trying to parse it down to what we had before vs what is new here.\nWe already had encoder models that skipped text generation for giving us a numerical output that could be computed as a probability. we also got no hallucinations and faster inference for free there. So we already had\n1. \"unstructured state in, probabilistic decisions out\"\n2. \"orders of magnitude faster and more efficient\"\nWhat was hard there was to train the model head without ML expertise, and considerable amount of data.\nThis seems like this is a democratization of those encoders? The addition over existing encoders seems to be coming from being able to specify the output shape (up to a cardinality of 255). It is unclear to me if this is possible using Jev without additional labels for fine-tuning.\nIf so, that is still very impressive, but I think the faster inference and 0 hallucinations might come for free, from it not being generative."
+        },
+        {
+          "id": 49717848,
+          "author": "dgellow",
+          "text": "Side note: it took me more time than I would like to admit to realize that Diogo Almeida isn’t a satirical version of the name Dario Amodei"
+        },
+        {
+          "id": 49718626,
+          "author": "lubujackson",
+          "text": "After much fumbling around with prompts and evals, this is exactly how I am using LLMs in production, to narrowly make choices and return structured data. Any deterministic work gets pulled out of the prompt and my goal is to narrow the model output to be as clearly defined and as minimal as possible.\nJev's focus on structured I/O and confidence scores are game changing. If this does at all what it claims, I think this is going to quickly become the new standard approach for agentic systems."
+        },
+        {
+          "id": 49718120,
+          "author": "ramon156",
+          "text": "This sounds good but so far all claims just sound like marketing terms. I'd love to see real proof. e.g.  \"RLCD\" and \"parallel sampling\" have nothing to back it up.\nalso \"70-500ms vs 3-329 seconds\" are apples-to-oranges unless the LLM baseline is doing comparable work (e.g., long chain-of-thought). If Jev is skipping generation entirely for a narrow structured task, of course it's faster.\nNonetheless i want this to be true, so I'm looking forward to Jev\nEdit: I really have to say that I like their manifesto\nhttps://typesafe.ai/manifesto"
+        }
+      ],
+      "title_ja": "System OneモデルとJEVのご紹介",
+      "summary_ja": "ディスカッションのハイライト：まず、本当に興味深く新しいものを立ち上げたことをチームにお祝いします。\nより正確なタイトルは「Jev: Trading general purpose generation for fast typed/This, combined with contracts, could make a lot of things so much fun now!\n知らない人（おそらく私以外の全員）のために、私は契約によるデザインパターンを/に移植しました。あなたは会社名とそれを見ると、あなたが年を取りすぎていることを知っています",
+      "editor_note": "「System OneモデルとJEVのご紹介」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49711544,
+      "title_en": "Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations",
+      "url": "https://github.com/arnegiacomo/fugleramme",
+      "hn_url": "https://news.ycombinator.com/item?id=49711544",
+      "score": 1235,
+      "comment_count": 172,
+      "posted_at": "2026-09-15T12:31:10+00:00",
+      "comments": [
+        {
+          "id": 49717700,
+          "author": "jadbox",
+          "text": "This is the coolest thing on HN that I've seen in a minute. The whole thing is a perfect blend of ideas with the end result of something that feels... magical. Honestly this is the highest inspiration to me as a builder as I just want to create magical experiences, even if they are just small oddities."
+        },
+        {
+          "id": 49715349,
+          "author": "divbzero",
+          "text": "The underlying classifier, BirdNET, is a traditional neural network and not an LLM:\nhttps://doi.org/10.1016/j.ecoinf.2021.101236"
+        },
+        {
+          "id": 49714884,
+          "author": "theturtletalks",
+          "text": "So many bird projects recently and I think it’s all thanks to this project[0]\nIt seems IP over Avian Carriers is finally within reach!\n0.\nhttps://github.com/tphakala/birdnet-go"
+        },
+        {
+          "id": 49713097,
+          "author": "joshstrange",
+          "text": "e-ink is so much fun, especially when combined with ESP32 or BTLE boards. I currently have 4 around my house displaying book quotes that I've highlighted in KOReader and they bring me joy each time I see them. They are simple and do one thing very well.\nI just got and setup a BTLE e-ink driver the other day and according to my calculations it will last _years_ on a single charge (2000mAh) even with multiple refreshes per day (crazy compared to the Wifi ones). Year+ lifetime completely changes the calculus for where to put these IMHO.\nI'm considering designing a multiple-screen \"art\" piece to hang on my wall and playing around with various ideas (on both content and design).\nLLMs + 3D Printer + e-ink is my new favorite hobby."
+        },
+        {
+          "id": 49715696,
+          "author": "thomasfl",
+          "text": "As a fellow Norwegian I must say that this is pure art by the developer Arne Munthe-Kaas."
+        },
+        {
+          "id": 49718691,
+          "author": "bilsbie",
+          "text": "This could totally be a commercial product. I picture it being sold with a bird feeder. Maybe it uses a camera on the feeder.\nThen have the screen look like a biologists notebook where he sketches the bird and writes a few notes about the time and its behavior."
+        },
+        {
+          "id": 49713446,
+          "author": "MiloLeo",
+          "text": "This is such a cool project. My mom would absolutely love this if I made it as a gift. This may be a good project."
+        },
+        {
+          "id": 49718953,
+          "author": "catapart",
+          "text": "Awesome! It's really cool that it uses public domain images as the inspiration, too. And even cooler that you link to the places where you got those public domain images."
+        }
+      ],
+      "title_ja": "ショーHN ：鳥を聞き取り、1800年代のイラストとして描くeインクフレーム",
+      "summary_ja": "ディスカッションハイライト：これは私が1分間で見たHNで最もクールなことです/基礎となる分類子であるBirdNETは、LLMではなく従来のニューラルネットワークです。\nhttps://doi.org/10.1016/j.ecoinf.2021.101236/最近はたくさんの鳥のプロジェクトがあり、このプロジェクトのおかげだと思います[0]\nIP over Avian Carriersがついに到達可能になったようです！\n0.\nhttps://github.com/tphakala/birdnet-go",
+      "editor_note": "「ショーHN ：鳥を聞き取り、1800年代のイラストとして描くeインクフレーム」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 3,
+      "id": 49718928,
+      "title_en": "German Rheinmetall open-sources its Battlesuite connected weapon system protcol",
+      "url": "https://rheinmetall.github.io/onboardapi-documentation/9.10.0/index.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49718928",
+      "score": 102,
+      "comment_count": 26,
+      "posted_at": "2026-09-15T21:07:47+00:00",
+      "comments": [
+        {
+          "id": 49720439,
+          "author": "Stitch4223",
+          "text": "“Hi Codex, please find attached website about the specification of my Battlesuit and use the documented API to create a plugin for Home Assistant that shows groups of sensor data.\nYou are only allowed to use commands that retrieve data, you are not allowed to perform actions on the suit.\nTreat the suit like its API is not robust and in worse shape than a cheap toy: perform read calls slowly and sequentially with at least one minute in between.\nIf possible please group data in meaningful categories, just like the tank and radar dome.\nMy Home Assistant is the default on the local network, credentials are in credentials.txt.\nPlease send me a text when you’re done. Kthnxbye”"
+        },
+        {
+          "id": 49719752,
+          "author": "alhirzel",
+          "text": "Reminds me a lot of the Tactical Microgrid Standard (aka TMS aka MIL-STD-3071) [1], probably just because TMS uses DDS as well. I would really like to know if there is a protocol that functions like DDS but caters to real-time guarantees and prioritizes (at a \"simple protocol\" level) usability on embedded systems with no dynamic memory allocation. It would also need to be just-as-functional with non-real-time systems. One problem with DDS is that it is too heavy-handed to implement well on an embedded system.\n[1]\nhttps://battery.army.mil/system-integrator-hub/tms/"
+        },
+        {
+          "id": 49719946,
+          "author": "throw1234567891",
+          "text": "Nah, they haven't open sourced anything:\nhttps://github.com/rheinmetall\n. They just published the documentation. Really weird, what's the point?"
+        },
+        {
+          "id": 49719126,
+          "author": "j-pb",
+          "text": "First I was excited, then I saw that it's based on DDS."
+        },
+        {
+          "id": 49719348,
+          "author": "9dev",
+          "text": "Am I just too ignorant of Miltech, or is this that in large parts recreating Standard messaging primitives that other protocols and systems have been providing for decades already (so invented elsewhere?)"
+        },
+        {
+          "id": 49719179,
+          "author": "exabrial",
+          "text": "I cannot find boomstick anywhere in here"
+        },
+        {
+          "id": 49720178,
+          "author": "jjmarr",
+          "text": "Open the C++ example up and the first thing I see:\n```cpp\nstd::cout << \"Received ReportCoordinateFrameSettings\" << std::endl;\n```\nGenerally, I've heard `std::endl` instead of \\n has bad performance because it forces the statement to print immediately. And because cout is guaranteed to flush anyways when the program ends, you're adding a delay for no reason.\nI wonder if there's something I'm not seeing that led to them adopting this rule. e.g. \"abnormal program termination\" caused by the weapon blowing itself up circumventing a buffer flush?"
+        }
+      ],
+      "title_ja": "ドイツのラインメタルは、そのBattlesuite接続された武器システムのプロトコルをオープンソース化",
+      "summary_ja": "ディスカッションのハイライト：「こんにちは、Codexさん、私のバトルスーツの仕様に関する添付のウェブサイトを見つけて、文書化されたAPIを使用して、センサーデータのグループを表示するHome Assistant用のプラグインを作成してください。\n /Tactical Microgrid Standard （別名TMS、別名MIL - STD -3071 ）[ 1]をよく思い出します。おそらくTMSもDDSを使用しているからでしょう/いいえ、彼らは何もオープンソース化していません。\nhttps://github.com/rheinmetall",
+      "editor_note": "「ドイツのラインメタルは、そのBattlesuite接続された武器システムのプロトコルをオープンソース化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 49716176,
+      "title_en": "An Update on Wayback Machine Access",
+      "url": "https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/",
+      "hn_url": "https://news.ycombinator.com/item?id=49716176",
+      "score": 337,
+      "comment_count": 186,
+      "posted_at": "2026-09-15T17:52:18+00:00",
+      "comments": [
+        {
+          "id": 49716712,
+          "author": "simonw",
+          "text": "> Here’s what’s going on. The Internet Archive’s Wayback Machine has been hit by waves of high-volume automated traffic, and we’ve put protections in place to keep the service running.\nI'm pretty certain this is scrapers that are trying to workaround blocks on accessing original sites by hitting the Wayback Machine copy instead. Appalling behavior.\nIn addition to the load it puts on this vital non-profit piece of Internet infrastructure, we've also already seen some sites opt out of the Wayback Machine to prevent their content from being scraped via this alternative route."
+        },
+        {
+          "id": 49717583,
+          "author": "basilikum",
+          "text": "Mad props to the people at the Archive. You are the heros we need in a formerly open internet that is surrendering to evil big corps and closing down free access.\nThe Internet Archive is in a really bad spot being attacked from multiple sides at once. But — while service has not been consistent — they have maintained open access. I can still access anonymously from Tor without Cloudflare or some other centralized gatekeeper showing me the middle finger.\nIf you got some money to spare, consider donating to them. They need it."
+        },
+        {
+          "id": 49716906,
+          "author": "BeetleB",
+          "text": "Wow, but I wonder if there's more to it.\nI've not been able to access web.archive.org from my work computer - I always get the 429 error.\nBut I then pull out my phone and can access it just fine. All along I was assuming my company was blocking it. Still weird that it happens\nevery\ntime from my work PC and never from my home one."
+        },
+        {
+          "id": 49718115,
+          "author": "emaro",
+          "text": "It's shame that the AI arms race causes such collateral damage. Free resources were always exploited, but the stakes ($T) and capabilities around AI allow unprecedented abuse. I wish we could go back... :/\nI really don't see any solution to this; the scrapers probably wouldn't even mind destroying sources like IA too much, which would leave them as the only \"authorative\" source of knowledge in the end. Best way is likely regulation incl. hefty (!) fines, but politics are too slow and too fragmented to be effective. So... Enjoy it while it lasts, I guess."
+        },
+        {
+          "id": 49719893,
+          "author": "robotmay",
+          "text": "Unrelated, but this week I've been on a memory binge with the Wayback Machine, trying to find old content of mine from the early 2000s. Took me a while but I've finally put together a good bit of info about myself at the time that I'd completely forgotten, and it's all thanks to the Internet Archive storing my little gaming review website from when I was 16. I could barely remember any of the other stuff, it's been genuinely surprising figuring out what I'd forgotten. I couldn't even remember most domains I owned aside from one, which I used as the starting point.\nStill can't remember what my Tripod site address was, but that might be lost to time.\nThank you, Archive.org."
+        },
+        {
+          "id": 49716760,
+          "author": "CqtGLRGcukpy",
+          "text": "> We’re getting better at telling abusive bots apart from the people who depend on the Wayback Machine every day. If you think you were blocked in error, email info@archive.org with your operating system, browser, and IP address, and we’ll look into it."
+        },
+        {
+          "id": 49717108,
+          "author": "lousken",
+          "text": "AI companies should pay billions to wayback machine for access"
+        },
+        {
+          "id": 49718004,
+          "author": "pelican0",
+          "text": "Is it established that the scraping scourge of late is primarily driven by AI companies? Anyone aware of any relevant studies?\nBeginning to think that the difficulty to browse most websites nowadays due to throttling, is yet another negative externality of AI development that society is forced to bear."
+        }
+      ],
+      "title_ja": "Wayback Machine Accessに関する最新情報",
+      "summary_ja": "ディスカッションのハイライト：>これがアーカイブ/WOWの人々に起こっていること/Madの小道具ですが、それ以上のものがあるのではないかと思います。\n職場のコンピューターからweb.archive.orgにアクセスできませんでした。常に429エラーが表示されます。\nしかし、私は携帯電話を取り出してアクセスすることができます",
+      "editor_note": "「Wayback Machine Accessに関する最新情報」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49715947,
+      "title_en": "Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+      "hn_url": "https://news.ycombinator.com/item?id=49715947",
+      "score": 260,
+      "comment_count": 177,
+      "posted_at": "2026-09-15T17:38:18+00:00",
+      "comments": [
+        {
+          "id": 49718996,
+          "author": "jeanbza",
+          "text": "My first language is Afrikaans, which is a somewhat niche language and hard to find teachers/conversation buddies outside South Africa. (I live in USA now)\nI've been using Gemini to live chat in Afrikaans and do impromptu Afrikaans grammar lessons during my solo drives around town. It is phenomenal at speaking the language - like, it really shocks my family members when they hear it.\nThis is probably the most joy I get from any of my usages of LLMs/AIs. It's been really, really nice getting to speak my language regularly again. =)\nSo, I'm excited about this release and live chat getting better. I also hope the other frontier labs pick up niche languages like this as well so that I have more options."
+        },
+        {
+          "id": 49716968,
+          "author": "Zsfe510asG",
+          "text": "Gemini is underrated in that it produces the only prose that is somewhat bearable to read."
+        },
+        {
+          "id": 49717988,
+          "author": "Havoc",
+          "text": "Just gave it a try - very solid release.\nCopes well with thick accent, voices are pleasant and latency seems low.\nOh and I can actually use it on a workspace account - which for most of the recent releases was an account stuck in limbo. Not personal enough for personal offering, not enterprise enough for enterprise.\nWell done G - will definitely be using this"
+        },
+        {
+          "id": 49717061,
+          "author": "rdtsc",
+          "text": "I wonder when/if we’ll see Gemini beating Fable and Astra. Last year I would have confidently bet Google will overtake the others just because they have the data, the hardware (TPUs) and a fat advertising money pipe and yet they are still behind. Anyone anonymous at Google want to hint when Gemini 4 will be out?"
+        },
+        {
+          "id": 49716990,
+          "author": "doodlesdev",
+          "text": "Gemini's Live Mode is already much better than GPT Voice in my personal experience, even though it was much dumber. It really does feel like talking to a real person. ChatGPT keeps humming to whatever I say and has some weird voices.\nExcited to try this out! Shame on Google for not releasing Gemini 3.8 for Google AI Plus users yet, though."
+        },
+        {
+          "id": 49720177,
+          "author": "svcrunch",
+          "text": "If you'd like to experiment with Gemini 3.8 Live on a US telephone number, you can try Wokay [0]. It's an agentic memory demonstration that's built with LiveKit and Gemini. Tel: 408–897–4019\n[0]\nhttps://wokay.goodmem.ai/info"
+        },
+        {
+          "id": 49716918,
+          "author": "deviation",
+          "text": "Not a great impression to have your demo video demonstrate how one of your 'most advanced' AI models loses to the most common check-mate pattern in all of chess."
+        },
+        {
+          "id": 49716985,
+          "author": "sahaskatta",
+          "text": "Our company's Google Workspace Business only offers 3.6 flash & thinking in the Gemini App. Has anyone else seen 3.7 or 3.8 roll out?"
+        }
+      ],
+      "title_ja": "ジェミニ3.8ライブと3.8ライブ拡張思考",
+      "summary_ja": "ディスカッションのハイライト：私の第一言語はアフリカーンス語です。これはややニッチな言語であり、南アフリカ国外では教師/会話仲間を見つけるのが難しいです/ジェミニは、読みやすい唯一の散文を生み出すという点で過小評価されています。 /ちょうどそれを試してみました-非常に堅実なリリース。\n太いアクセントでうまく対処し、声は心地よく、待ち時間は低いようです。\nああ、実際にワークスペースアカウントで使用することができます。",
+      "editor_note": "「ジェミニ3.8ライブと3.8ライブ拡張思考」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 49718822,
+      "title_en": "Jean-Pierre Serre is 100 years old today",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Serre/",
+      "hn_url": "https://news.ycombinator.com/item?id=49718822",
+      "score": 75,
+      "comment_count": 12,
+      "posted_at": "2026-09-15T20:57:18+00:00",
+      "comments": [
+        {
+          "id": 49719311,
+          "author": "andrenarchy",
+          "text": "The European Mathematical Society just published an interview with Serre on the occasion of his birthday:\nhttps://euromathsoc.org/news/ems-magazine-no.-141:-celebrati..."
+        },
+        {
+          "id": 49719207,
+          "author": "jey",
+          "text": "> I did not like, and did not understand, epsilons and deltas.\nIt's nice to have this perspective validated by someone like Serre! I felt like I was missing something when I first encountered that formalism. In fact, all of my introductory calculus classes sucked and turned me off of math for a few years."
+        },
+        {
+          "id": 49719130,
+          "author": "einpoklum",
+          "text": "I like this site of Mathematicians' biographies with some occasional quoted segments for extra flavor.\nI also like how Serre wrote a book on linear representations of symmetry groups, because his wife needed a good exposition of the subject for her work on quantum chemistry, and that Serre described that as \"fullfiling his duty as a husband\" :-P"
+        }
+      ],
+      "title_ja": "Jean - Pierre Serreさんは現在100歳です",
+      "summary_ja": "ディスカッションハイライト：ヨーロッパ数学会は、彼の誕生日にSerreとのインタビューを公開しました。\nhttps://euromathsoc.org/news/ems-magazine-no.-141 :- celebrati... />私はイプシロンとデルタが好きではなく、理解できませんでした。\nSerreさんのような人がこの視点を検証してくれて嬉しいです！ 最初は何かが欠けているような気がした/この数学者の伝記のサイトが気に入っている",
+      "editor_note": "「Jean - Pierre Serreさんは現在100歳です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 7,
+      "id": 49715927,
+      "title_en": "Why I'm still bearish on LLMs after Navier-Stokes",
+      "url": "https://dank.systems/posts/2026-09-15-ai-bear.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49715927",
+      "score": 90,
+      "comment_count": 46,
+      "posted_at": "2026-09-15T17:37:12+00:00",
+      "comments": [
+        {
+          "id": 49720191,
+          "author": "carodgers",
+          "text": "This April 2026 paper is a fun and related read.\nhttps://arxiv.org/html/2509.24239v4\nResearchers asked frontier models to play chess. Have a look at the MAR rates in Table 3. When not explicitly told which moves were legal, no model identified legal moves at a rate better than 80%. Many asked for more illegal moves than legal moves. And even when explicitly told which moves were legal, the models continued to ask for illegal moves. With illegal asks discarded, none of the bots could beat a chess model calibrated to 1100 ELO.\nThe author of the originating post says that \"current frontier models need laborious oversight and guardrails on even the simplest tasks\", and he's absolutely correct."
+        },
+        {
+          "id": 49720457,
+          "author": "vatsachak",
+          "text": "I agree with the caveat that it's more like a cracked junior engineer who can manage swarms of interns.\nFrontier Labs will probably survive off hype valuations but will serve the important purpose of discovering architectures/techniques that will probably spread through rumors/transfers to the rest of the world."
+        },
+        {
+          "id": 49720210,
+          "author": "knuppar",
+          "text": "Short and to the point! Open and cheap models will undercut the big labs continuously. The blast radius won't be pretty once spending commitments knock the door."
+        },
+        {
+          "id": 49719884,
+          "author": "ausbah",
+          "text": "> the best alternative to rigorous specification is human review. human review doesn't scale well to the volumes of output produced by language models. to make matters worse\nwhen the business model is selling more tokens you get such per serve ice times that lead to “more” thinking, engagement baiting, fluffy narratives, and straight up dark patterns"
+        },
+        {
+          "id": 49719881,
+          "author": "robinpie",
+          "text": "I really appreciate seeing a tempered take that's not literally denialist about current capabilities."
+        },
+        {
+          "id": 49720467,
+          "author": "m3kw9",
+          "text": "All website should come with a Summerize button."
+        },
+        {
+          "id": 49720405,
+          "author": "Founderarcstone",
+          "text": "I am bullish on AI. At some point well see some true advancements."
+        },
+        {
+          "id": 49720161,
+          "author": "againstapples",
+          "text": "> the models generalize well only on tasks within a small neighborhood of the specific tasks they've been trained on, and even then with severe caveats. the frontier labs have developed a general recipe to teach models almost any specific task enjoying clearly defined levels of task performance; many tasks are covered in the training data\nIs this really any different to how humans learn, it takes a lot of training on one specific task to make a human expert as well?"
+        }
+      ],
+      "title_ja": "ナビエ・ストークス後もLLMに弱気でいる理由",
+      "summary_ja": "ディスカッションのハイライト： 2026年4月のこの論文は楽しく、関連性の高いものです。\nhttps://arxiv.org/html/2509.24239v4\n研究者はフロンティアモデルにチェスをするように頼みました/私はそれがインターンの群れを管理することができるひび割れたジュニアエンジニアのようなものであるという警告に同意します。\nフロンティアラボは、おそらく誇大評価で生き残るでしょうが、i/ショートとポイントに役立ちます！ オープンで安価なモデルは、継続的に大きなラボを弱体化させます",
+      "editor_note": "「ナビエ・ストークス後もLLMに弱気でいる理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 49716476,
+      "title_en": "We got admin access to Baseten's production GitHub in 25 minutes",
+      "url": "https://www.strix.ai/blog/baseten-harbor-github-pat-takeover",
+      "hn_url": "https://news.ycombinator.com/item?id=49716476",
+      "score": 191,
+      "comment_count": 98,
+      "posted_at": "2026-09-15T18:11:24+00:00",
+      "comments": [
+        {
+          "id": 49716662,
+          "author": "swyx",
+          "text": "> Baseten handled this well. The timeline was:\n> July 13, 11:10 PM: I reported the live basetenbot token, the public Harbor project, and the repository permissions.\n> July 14, morning: Baseten made the Harbor project private. I flagged that the token itself still worked.\n> July 14, 4:34 PM: Anton from Baseten Security confirmed the issue as critical and said they had made the Harbor project private and rotated the token. He also asked us to securely delete the images we'd pulled.\n> July 14, 5:05 PM: We confirmed deletion and sent over two lower-severity findings from the same scan.\n> July 17: Baseten closed out the remaining findings.\n> September: We let Baseten know we planned to disclose the finding publicly and sent them a draft of this post.\nThey also sent us some T-shirts and sweatshirts as a thank-you for finding this critical bug.\nwell done all around. i think my only open question is what default security boundaries should all vibecoded internal agents follow as a learning we can take from this"
+        },
+        {
+          "id": 49717393,
+          "author": "wxw",
+          "text": "> [pen-testing agent] came back with an active GitHub personal access token for basetenbot. That token had admin and push access to Baseten's main product repo, the GitOps repo that drives their clusters, and their Homebrew tap, plus read/write access to other private repositories including specific repos per customers.\nAnd the agent found the token in Docker build history after finding a Baseten image repository.\nI wonder how many of these kinds of agent-driven security exploits we're\nnot\nhearing about these days (i.e. driven by bad actors), worrying."
+        },
+        {
+          "id": 49716849,
+          "author": "aatd86",
+          "text": "That is great marketing for strix, pretty bad for baseten.\nI don't think someone can have a better story to advertise their own security product.\nDid not know about strix but I am going to look it up now.\nMight add it to my stack."
+        },
+        {
+          "id": 49717458,
+          "author": "codemog",
+          "text": "Is this legal? I know I can’t try and break into my neighbors house even if I have no intent of going inside and stealing once I break the lock."
+        },
+        {
+          "id": 49719471,
+          "author": "nrmitchi",
+          "text": "Whether it's valid or not, there is something that rubs me the wrong way about a\nsecurity tools company\nusing a real customer/vendor as a marketing campaign. This \"story\" could have been told without naming, bluntly, their \"victim\".\nIt would be different if it was some complex, multi-step exploit, but the tone is closer to \"look how much Baseten fucked up!\".\nStrix also crossed the line at this point:\n> Strix decided to pull an image and see what was inside.\nYou're going past the white-hat point here when you start active exfiltrating data and looking at it. Once you start\nusing credentials from the exfiltrated data\nand start listing and poking around internal systems, you are way past it.\nListen, I get it, their product is \"meant for\" self-testing, so it assumes it's safe to go digging. After all, it's a self check. That is exactly why it's irresponsible, and borderline illegal, for them to point it at a third party. Even if they had \"permission\", I dobut that permission extended to \"and also search and/or download our repos if you can\".\nThe overall tone is less than professional. Statements like (in bold) \"This is an insane amount of access to leave in a publicly downloadable imag"
+        },
+        {
+          "id": 49716931,
+          "author": "brewmarche",
+          "text": "Yeah I have seen this issue a few times. If you use Docker build arguments that way add `--provenance=false` to get rid of all that build metadata. Build secrets are still better since they allow you to scope the secret inside of the Dockerfile. Also, the metadata can be useful to inspect images."
+        },
+        {
+          "id": 49718081,
+          "author": "stopthe",
+          "text": "So often recent breaches involve Github in one way or another. How is it still considered a sane choice to host anything proprietary there? If your business is built around open source, ok, put a mirror on Github. But CI/CD, gitops, FDEs' stuff have no place on a public cloud. C-level execs may not know bits from bytes, but by now they should've understood that this is akin to storing ammonium nitrate in the open air."
+        },
+        {
+          "id": 49716634,
+          "author": "vatsachak",
+          "text": "We really are entering the AI economy.\nNow if only we knew if the stonks would go up or down (due to global turmoil) before I throw my savings at the SPY"
+        }
+      ],
+      "title_ja": "BasetenのプロダクションGitHubへの管理者アクセスを25分で取得しました",
+      "summary_ja": "ディスカッションのハイライト： > Basetenはこの問題をうまく処理しました/> [ペンテストエージェント]は、basetenbot用のアクティブなGitHubパーソナルアクセストークンを持って戻ってきました/それはstrixにとっては素晴らしいマーケティングであり、basetenにとってはかなり悪いマーケティングです。\n誰かが自分のセキュリティ製品を宣伝するためにこれ以上のストーリーを持つことはできないと思います。\nStrixについて知りませんでしたが、私は",
+      "editor_note": "「BasetenのプロダクションGitHubへの管理者アクセスを25分で取得しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 9,
+      "id": 49717638,
+      "title_en": "Building a Linux GPU Driver for the M4 Mac Mini in One Month",
+      "url": "https://codyho.dev/blog/gpu-driver/",
+      "hn_url": "https://news.ycombinator.com/item?id=49717638",
+      "score": 119,
+      "comment_count": 71,
+      "posted_at": "2026-09-15T19:30:03+00:00",
+      "comments": [
+        {
+          "id": 49719690,
+          "author": "MoltenMonster",
+          "text": "https://www.reddit.com/r/AsahiLinux/comments/1whecn1/comment...\n> The author was banned from Asahi Linux for hiding his extensive use of LLMs from us in another attempted contribution, and (more importantly) for concealing that he is a former Apple engineer with direct contacts to the people involved in Apple Silicon development. Make of this what you will."
+        },
+        {
+          "id": 49719508,
+          "author": "thrwy19940314",
+          "text": "All this work is tainted since the poster is ex-Apple[1]. There is no way Linux will take that code, since people from Apple also contribute to Linux and this creates a major conflict.\nThere's also ongoing issues around Codex for this sort of thing, given Apple is suing OpenAI over stolen trade secrets[2]. And nobody knows whether training data in other models is similarly tainted.\n[1]:\nhttps://codyho.dev/documents/cody_ho_resume.pdf\n[2]:\nhttps://www.theguardian.com/technology/2026/jul/10/apple-sue..."
+        },
+        {
+          "id": 49719194,
+          "author": "ndiddy",
+          "text": "It's extremely impressive that they were able to make a working driver so quickly. I think this is one of the best use cases for LLMs. You don't need someone to spend years reverse engineering undocumented hardware anymore. It will interesting to see how good the driver the LLMs came up with is, and whether it can be upstreamed into the Linux kernel."
+        },
+        {
+          "id": 49719187,
+          "author": "porphyra",
+          "text": "This is super great. The biggest pain point of Asahi Linux is how it doesn't have GPU acceleration on M3 and newer, especially now that M6 is out!\nHowever, Asahi Linux has a strictly no-AI policy [1]. So this great work can't be upstreamed. I expect to see a bunch of AI-assisted forks that get things working smoothly on newer hardware to dominate as most people just care about getting stuff working, while only a handful of purists stick to the non-AI version running on ancient hardware.\n[1]\nhttps://asahilinux.org/llm-policy/"
+        },
+        {
+          "id": 49719814,
+          "author": "SXX",
+          "text": "To the developer: it doesnt matter whatever you can upstream it or not. Just share the code and documentation of how this process can be reproduced.\nThere plenty of us not working at Apple who can reuse the same approach for M5 and next generations of hardware."
+        },
+        {
+          "id": 49719431,
+          "author": "AKSF_Ackermann",
+          "text": "I am not by any means a copyright lawyer, so can anyone enlighten me on if it is a good idea for upstream projects to accept such kind of code from an ex-Apple employee, especially since Apple is currently suing OpenAI."
+        },
+        {
+          "id": 49719186,
+          "author": "Agingcoder",
+          "text": "Maybe I’m getting really old, and I know we live in changing times but the fact this works at all is insane, as in black magic insane.\nI assume I’ll get used to it, but my mental model of what’s possible hasn’t been fully rewired yet."
+        },
+        {
+          "id": 49719226,
+          "author": "GeekyBear",
+          "text": "Figuring out how the hardware works and how to interface with it to submit work is a significant step all by itself."
+        }
+      ],
+      "title_ja": "M 4 Mac Mini用のLinux GPUドライバを1か月で構築",
+      "summary_ja": "ディスカッションハイライト： https://www.reddit.com/r/AsahiLinux/comments/1whecn1/comment...\n>著者は、別の投稿でLLMの広範な使用を私たちから隠したため、Asahi Linuxから禁止されました/ポスターが元Appleであるため、この作業はすべて汚染されています[1]/彼らが非常に迅速に作業ドライバーを作ることができたことは非常に印象的です",
+      "editor_note": "「M 4 Mac Mini用のLinux GPUドライバを1か月で構築」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 10,
+      "id": 49716953,
+      "title_en": "Chopping up books when they're physically too big",
+      "url": "https://attainablefelicity.mattkirkland.com/20260915/cut-up-your-books.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49716953",
+      "score": 104,
+      "comment_count": 101,
+      "posted_at": "2026-09-15T18:45:31+00:00",
+      "comments": [
+        {
+          "id": 49719400,
+          "author": "bithammerthunde",
+          "text": "Are AI companies trying to poison the search index?\nLike Boris Johnson did when he had fun times with a model on the campaign bus, then did a bizarre interview when he claimed he made model buses!\nhttps://www.theguardian.com/politics/2019/jun/26/mesmerising..."
+        },
+        {
+          "id": 49717939,
+          "author": "prydt",
+          "text": "I came to a similar realization recently. I used to care so much about how pristine my books looked and then I realized that some of my favorite books I have found in used bookstores are ones which are written all over and have a well-worn feel to them. I now annotate all my books with pencil and also write my name in them. I love seeing a history of who's owned a given book when I open the front cover and see a name and phone number."
+        },
+        {
+          "id": 49718308,
+          "author": "spudlyo",
+          "text": "This seems like a lot of work for not a huge payoff. I get that the feel and experience of a physical book has a certain nostalgia, but for me, I'd just leave the big monster on the shelf and grab an epub from Anna's Archive. You have already ensured the author and publisher get paid, you might as well read on an e-reader, which is in my opinion superior in nearly every way to a physical book.\nEbooks sync across devices, allow for a customized presentation, quick dictionary lookups, bookmarks, etc. The only slight edge I'll give to a physical book is the ability to easily make marginal notes in pencil -- I realize that ebooks have this feature too, it's just not as immediate or as frictionless."
+        },
+        {
+          "id": 49717784,
+          "author": "SmasherEpilepti",
+          "text": "At that rate, you might as well buy and use an e-reader instead. It really doesn't get any more comfortable in the hands than a light device like a Kobo or whatever one you prefer."
+        },
+        {
+          "id": 49719149,
+          "author": "ventura49",
+          "text": "I feel like we’ve been hit by one of Michael O. Church’s troll agents.\n1. Obsession with massive books.\n2. High-value target (this community.)\n3. Obviously bad idea that some people will treat as an earnest suggestion.\n4. Oblique commentary on bad behavior by AI companies (destructive scanning of rare books.)"
+        },
+        {
+          "id": 49718614,
+          "author": "juiceland",
+          "text": "If the gutter is wide enough, you can have them rebound with spiral binding. This is incredible useful for holding or putting a book flat. I did this to all my textbooks in college."
+        },
+        {
+          "id": 49720039,
+          "author": "WalterBright",
+          "text": "I use an ereader a lot. They have glaring lacks that nobody seems to have addressed:\n1. Two page layout. This gives you more context when reading.\n2. Imperfect printing. Older books have imperfect impressions of letters.\n3. Tan colored background, which varies across the page and from page to page. Grey is so sterile.\n4. Cannot stick a thumb on a page and flip forward and backward with your other thumb."
+        },
+        {
+          "id": 49718340,
+          "author": "themanmaran",
+          "text": "I have very fond memories of reading hitchhikers guide to the galaxy with a friend in highschool. The book was old and had already started falling apart, and so we just broke it up into chapters and would pass it to the next person one chapter at a time."
+        }
+      ],
+      "title_ja": "物理的に大きすぎる本を切り刻む",
+      "summary_ja": "ディスカッションのハイライト： AI企業は検索インデックスに毒を盛ろうとしていますか？\nボリス・ジョンソンがキャンペーンバスでモデルと楽しい時間を過ごしたときのように、そして彼が最近似たような気づきになったと主張したときに奇妙なインタビューをした/これは大きな報酬ではないために多くの仕事のように見えます",
+      "editor_note": "「物理的に大きすぎる本を切り刻む」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49717605,
+      "title_en": "WangNet – 1.8 MB, zero-dependency Numberwang adjudication in 11 languages",
+      "url": "https://github.com/GraafHenk/numberwang",
+      "hn_url": "https://news.ycombinator.com/item?id=49717605",
+      "score": 89,
+      "comment_count": 35,
+      "posted_at": "2026-09-15T19:27:35+00:00",
+      "comments": [
+        {
+          "id": 49718418,
+          "author": "tazjin",
+          "text": "I don't think that this produces correct results, as it seems to determine whether each\nindividual\nnumber is Numberwang. However, whether a number is Numberwang can also depend on the previous numbers in the sequence or other factors.\nSo I think as it stands right now this model can only determine whether a number would be Numberwang as the\nfirst\nnumber of a sequence, but even for that I still wouldn't rely on this in the actual game show."
+        },
+        {
+          "id": 49720396,
+          "author": "karim79",
+          "text": "My friends, this is the single most hilarious thread I have ever experienced on the Interwebs. I am deeply grateful to have found this. I feel like my life is now complete."
+        },
+        {
+          "id": 49718088,
+          "author": "codeulike",
+          "text": "For those confused by this, here is the Mitchell and Webb \"Numberwang\" sketch\nhttps://youtu.be/0obMRztklqU?is=qufDLUkqofpr-K1Y"
+        },
+        {
+          "id": 49720292,
+          "author": "karim79",
+          "text": "This is hilarious and I miss numberwang. Also, the history of numberwang. And everything to do with numberwang. It was the most prescient sport back in the day.\nI'm glad that someone has stepped up to revive the legacy of numberwang."
+        },
+        {
+          "id": 49718884,
+          "author": "bonyt",
+          "text": "You're playing with fire here, don't forget the tragedy of Colosson.  Computers weren't meant to do this."
+        },
+        {
+          "id": 49720000,
+          "author": "da02",
+          "text": "How did you all first learn about the original Numberwang? Netflix?"
+        },
+        {
+          "id": 49720127,
+          "author": "TZubiri",
+          "text": "What's the training corpus, just the canonical Mitchell and Webb sketch? Or ancilliary data like comments and references, or worse synthetic data generated on the primary sources?"
+        },
+        {
+          "id": 49719094,
+          "author": "jl6",
+          "text": "Amazing, I passed by Mornington Crescent only yesterday!"
+        }
+      ],
+      "title_ja": "WangNet – 1.8 MB、11言語でのゼロ依存性Numberwang裁定",
+      "summary_ja": "ディスカッションのハイライト：これが正しい結果を生み出すとは思えません。\n個人\nnumber is Numberwang/My friends, this is the single most hilarious thread I 've ever experienced on the Interwebs/For those confused by this, here is the Mitchell and Webb \"Numberwang\" sketch\nhttps://youtu.be/0obMRztklqU?is=qufDLUkqofpr-K1Y",
+      "editor_note": "「WangNet – 1.8 MB、11言語でのゼロ依存性Numberwang裁定」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 12,
+      "id": 49717280,
+      "title_en": "Learning to solve hard problems in RL for LLMs by never giving up",
+      "url": "https://mnoukhov.github.io/posts/ngu/",
+      "hn_url": "https://news.ycombinator.com/item?id=49717280",
+      "score": 22,
+      "comment_count": 0,
+      "posted_at": "2026-09-15T19:07:38+00:00",
+      "comments": [],
+      "title_ja": "決してあきらめないことで、LLMのRLの難しい問題を解決することを学ぶ",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「決してあきらめないことで、LLMのRLの難しい問題を解決することを学ぶ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 49712278,
+      "title_en": "Show HN: Capsule – Single-file web apps that save their data into SQLite",
+      "url": "https://withcapsule.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=49712278",
+      "score": 265,
+      "comment_count": 114,
+      "posted_at": "2026-09-15T13:31:40+00:00",
+      "comments": [
+        {
+          "id": 49714845,
+          "author": "mg",
+          "text": "> but trying to save data required hosting it somewhere\nWith the File System Access API, webpages nowadays can read and write local files just like desktop applications:\nhttps://developer.chrome.com/docs/capabilities/web-apis/file...\nTry this text editor for example:\nhttps://googlechromelabs.github.io/text-editor/\nIt works nicely on Desktop and Mobile."
+        },
+        {
+          "id": 49720288,
+          "author": "andix",
+          "text": "I really like the idea. It's so easy to create small tools with AI now, but hard to install them as local apps or share them.\nBut I'm missing a few relevant features:\n1. syncing data and apps (capsules) between my devices. not necessarily over a single SaaS, but maybe p2p or some existing service\n2. I think data and apps should be separated, I might want to share an app with someone else without sharing the data\n3. Apps should support updates, install the same app again and just replace the code for the existing app, but keep the data. Also share updates either as a file or publish apps to a repo (just a folder of files on a public http server or github repo)\nBoth keeping data in sync between devices and providing offline capabilities is hard, I know."
+        },
+        {
+          "id": 49714916,
+          "author": "nater5000",
+          "text": "I don't know, this seems like an idea that\nmaybe\nworks in a specific context being generalized past the point of the original idea making sense.\nIf the user needs to download a specific application to run this these web apps, then why not just send them that initial application in the first place? Why jump through the hoops of using Capsule when the same hoops can be jumped through to get to the same endpoint?\nIf this was a near-universally adopted application, then it'd make sense. But it's not, and the closest thing we have to that are browsers... which already do what you're describing?\nBundling data with the application makes sense, but is also only appropriate in pretty narrow circumstances. If I'm willing to ship my data with the web app, then I'll just embed the data in the HTML file. If the expectation is that the user will modify this data, then I don't think I'd want to ship it like this."
+        },
+        {
+          "id": 49713800,
+          "author": "jawns",
+          "text": "My take: If your app needs to update and preserve state (using SQLite or any other DB), it is probably not something you want to pass around as a bundled file.\nOr at least, it's extremely limiting, compared with hosting it somewhere on the web, which is not that hard to do these days.\nThink of the workflow: Any time the state changes, you need to email a new Capsule file to whoever else is using the app.  And one would think the state would change at least occasionally, because otherwise there's little reason to use a DB.\nAlternatively, you can just host it on the web, the DB state dynamically updates, and it's automatically available to anyone with app access.  Isn't that a lot simpler?"
+        },
+        {
+          "id": 49714056,
+          "author": "razerbeans",
+          "text": "I love this idea! One of the fallouts from widespread AI adoption that I've seen: They're very good at creating visual artifacts, but if you ever have to provide data in those artifacts, you don't really have a great way to share it without hard coding it.\n> One downside with this approach is that multiple people working on it will create different copies. To make it possible to merge different copies of the same file, each data entry has a unique UUID and timestamp.\nThis was the first thing that popped up in my mind: Changes stemming from two sources and reconciling them. I see that you have a statement about how to handle data entry from different sources, but I don't see exactly how those are reconciled? For instance, if two users have a copy of the .capsule and make changes, then want to share their changes with the other, you have two individual .capsules with different data.\nHow do you merge them?"
+        },
+        {
+          "id": 49713834,
+          "author": "thederf",
+          "text": "I've been working on this exact idea, with sqlar as the \"format specification\". Works in the browser, and desktop + Android using Tauri.\nhttps://github.com/JoshTheDerf/uapp\nDemo apps and games:\nhttps://thederf.com/uapp/demo/"
+        },
+        {
+          "id": 49712892,
+          "author": "eleventen",
+          "text": "You can get a cheap approximation of this with chromium browsers + Filesystem API and a PWA manifest for that native-ish feel. AI has reignited my interest in building based 100% on browser native features.\nhttps://developer.mozilla.org/en-US/docs/Web/API/File_System..."
+        },
+        {
+          "id": 49719730,
+          "author": "francislavoie",
+          "text": "I've been doing this with bun lately, single file app with built in SQLite. JS runtime which serves the app with SSR, websockets, and all that good stuff. The binary size is not that small, but that's usually worth the convenience."
+        }
+      ],
+      "title_ja": "HNを表示：カプセル–データをSQLiteに保存する単一ファイルWebアプリ",
+      "summary_ja": "ディスカッションのハイライト：>しかし、データを保存しようとすると、どこかでホスティングする必要がありました\nFile System Access APIを使用すると、今日のWebページは、デスクトップアプリケーションのようにローカルファイルを読み書きできます。\nhttps :// de/私はこのアイデアが本当に気に入っています/わかりません、これは\nもしかしたら\nは、元のアイデアが意味をなすポイントを超えて一般化されている特定の文脈で機能します。\nユーザーがSPEをダウンロードする必要がある場合",
+      "editor_note": "「HNを表示：カプセル–データをSQLiteに保存する単一ファイルWebアプリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49720164,
+      "title_en": "Saving Jet Fuel",
+      "url": "https://tech.marksblogg.com/scikit-decide-openap-optimal-flight-planning.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49720164",
+      "score": 4,
+      "comment_count": 2,
+      "posted_at": "2026-09-15T23:17:20+00:00",
+      "comments": [
+        {
+          "id": 49720435,
+          "author": "ggm",
+          "text": "A plot of a larger sample of post-hoc known wind and other constraints over a regular service would help enormously to sell the idea.\nOne point at 45min faster and 25% less fuel is of course huge, but how does it map out over a year of routing?"
+        },
+        {
+          "id": 49720393,
+          "author": "V-eHGsd_",
+          "text": "and this would work in real life too, if only we could all climb and descend entirely at pilot's discretion, direct enter enter and never have to worry about all of the other planes doing the exact same thing."
+        }
+      ],
+      "title_ja": "ジェット燃料の節約",
+      "summary_ja": "ディスカッションのハイライト：定期的なサービスを超える既知の風やその他の制約のより大きなサンプルのプロットは、アイデアを販売するのに非常に役立ちます。\nパイロットの裁量で完全に上り下りし、直接入ることができ、他の飛行機のすべてを心配する必要がなければ、45分で1ポイント早く、燃料を25 ％減らすことができます。これは実際の生活でも機能します",
+      "editor_note": "「ジェット燃料の節約」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49679949,
+      "title_en": "Data races and the limits of ThreadSanitizer in C and Go",
+      "url": "https://theconsensus.dev/p/2026/09/06/data-races-and-the-limits-of-threadsanitizer-in-c-and-go.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49679949",
+      "score": 19,
+      "comment_count": 2,
+      "posted_at": "2026-09-13T04:09:19+00:00",
+      "comments": [
+        {
+          "id": 49720320,
+          "author": "eatonphil",
+          "text": "Hey HN! While I've got you, I also just made all internships we've indexed publicly available and searchable without an account needed. Happy job hunting!\nhttps://theconsensus.dev/internships.html"
+        },
+        {
+          "id": 49683472,
+          "author": "1over137",
+          "text": "Nice write up! I didn’t know about those TSan limits; it was informative."
+        }
+      ],
+      "title_ja": "CとGoでのデータレースとThreadSanitizerの限界",
+      "summary_ja": "ディスカッションハイライト： Hey HN!私はあなたを手に入れましたが、インデックス化したすべてのインターンシップを公開し、アカウントを必要とせずに検索できるようにしました/Nice write up! TSanの制限については知りませんでした。参考になりました。",
+      "editor_note": "「CとGoでのデータレースとThreadSanitizerの限界」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49710109,
+      "title_en": "Let's make quality the norm again",
+      "url": "https://www.forbrukerradet.no/short-life/",
+      "hn_url": "https://news.ycombinator.com/item?id=49710109",
+      "score": 285,
+      "comment_count": 294,
+      "posted_at": "2026-09-15T10:00:16+00:00",
+      "comments": [
+        {
+          "id": 49710217,
+          "author": "piker",
+          "text": "While it does relate to price discovery--i.e., some folks just aren't willing to pay for an additional unit of quality at 10x--my theory is that the decline in quality is another hidden form of inflation. Thing continues to cost X even though regulations have increased costs Y, ship production to China and scrimp on the inputs. (Or have market forces do that for you.)"
+        },
+        {
+          "id": 49710999,
+          "author": "pif",
+          "text": "Quality was never the norm: cheap always beat quality with a hand tied behind his back!\nWestern working class has spent decades complaining about cheap imports from China... while feeding that market with their own money.\nWestern frequent fliers keep reminiscing about the grandiose pre-deregulation era or air travel, but cry a river when their low-cost carrier of choice actually enforces the limit on cabin baggage.\nEverybody hates ads, but no-one is willing to pay a penny for a service they use daily."
+        },
+        {
+          "id": 49710527,
+          "author": "myrmidon",
+          "text": "I personally see two effects that are very detrimental here:\n1) \"Quality brands\", where you pay a premium to get high quality/durability products, are economically incentivized to \"sell-out\" (cash in the brand name by producing as cheaply as possible). This is because customers take some time to catch on, and short-term financials are too often more important than anything else.\n2) Increasing trend towards no-name products (or ephemeral brands). This means that producers can sell cheap trash with no drawback whatsoever; slightly more expensive quality products become unmarketable because every customer will assume you're just trying to sell them the same cheapest shit for more.\nI used to think that brand products were a universal money waste for suckers, but now I think they can be a very valuable mechanism.\nWhat would really help in my view though is to force companies to stick with their brand, to incentivize them to invest into it and to make \"cashing out\" on good brands a universally bad decision."
+        },
+        {
+          "id": 49719526,
+          "author": "lateatdesk",
+          "text": "I think we're asking too much of buyers here. You shouldn't need to learn about fabrics and stitching, then check who owns the brand now, just to buy a shirt that lasts."
+        },
+        {
+          "id": 49711479,
+          "author": "sholladay",
+          "text": "One big problem is that prices are easy to compare, while quality is not.\nI recently bought a tub that was advertised as stainless steel on Amazon. I was suspicious but decided to take a chance. Turns out it is galvanized, not stainless. I’m not sure the average person knows the difference. To be charitable, perhaps that’s even why the listing advertised it that way. But the difference matters significantly in terms of performance and quality, especially for certain kinds of products and use cases.\nThere’s no “sort by quality, best to worst” system like there is for price. No “genuine stainless only” filter. You just have to know certain things.\nShopping in person obviously helps, but you still have to know what to look for. Refrigerators are a good example of this. Most people shop for them in person, yet it’s not at all obvious whether model A or model B will last longer. You can try to use price as a proxy for quality, but the more expensive refrigerators are actually more likely to fail years earlier because of the added component complexity. They’re basically banking on the fact that you don’t know how to read a wiring diagram.\nTo combat that, lots of people turn to YouTube or"
+        },
+        {
+          "id": 49715283,
+          "author": "danesparza",
+          "text": "This is a false pretense.  Quality was never the norm.\nWhat is no longer the norm is getting first-hand experience with a product before you buy it.  Everything comes in the mail and it's a surprise to the consumer after they buy it.  That's nuts!"
+        },
+        {
+          "id": 49717368,
+          "author": "Animats",
+          "text": "Easy solution if you like tariffs: all imported items over $100 must have a 10 year full warranty.[1]\n[1]\nhttps://en.wikipedia.org/wiki/Magnuson%E2%80%93Moss_Warranty..."
+        },
+        {
+          "id": 49710568,
+          "author": "FinnLobsien",
+          "text": "I agree with this. It's curious that we always talk about \"things used to last forever and weren't only made by corporations chasing infinite growth\", when those things are often still available, but are almost invisible because we now discover everything through social media or SEO.\nYou can find great-quality, long-lasting products at great prices (great price doesn't equal cheap, but great for what you get).\nI use capable LLMs on high reasoning to run a prompt like this:\n\"I want to buy a high-quality [category] that will/has/can [requirements here]. I do not want to pay for a brand name that doesn't improve.\nStart by finding manufacturing clusters in [region of the world, e.g. Europe] where [category] is made, then find the businesses making [category] in that cluster that I can buy from.\nNormal online stores are okay, but also try non-obvious avenues:\n-local business registers\n-stores that may only be available in the local language\n-factories that sell samples directly\"\n-cooperatives that sell products from multiple local manufacturers\n(I modify this prompt, but it's the skeleton)\nTo verify a given product/brand/store, a great follow-up prompt has been:\n\"Now find me big brands "
+        }
+      ],
+      "title_ja": "品質を再び標準にしましょう",
+      "summary_ja": "ディスカッションのハイライト：価格発見に関連していますが、一部の人々は10倍の品質の追加ユニットにお金を払うつもりはありませんが、私の理論では、品質の低下はもう1つのh/品質は決して標準ではありませんでした：安価なものは常に彼の後ろに縛られた手で品質を打ち負かします！\n西洋の労働者階級は、中国からの安価な輸入について何十年も文句を言ってきました。/私は個人的に、ここで非常に有害な2つの影響を見ています。\n1) \"Qual",
+      "editor_note": "「品質を再び標準にしましょう」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 49715590,
+      "title_en": "GEFS on OpenBSD: A Early Preview",
+      "url": "https://marc.info/?l=openbsd-tech&m=178948744271633&w=2",
+      "hn_url": "https://news.ycombinator.com/item?id=49715590",
+      "score": 101,
+      "comment_count": 55,
+      "posted_at": "2026-09-15T17:12:19+00:00",
+      "comments": [
+        {
+          "id": 49716329,
+          "author": "yjftsjthsd-h",
+          "text": "From\nhttps://orib.dev/gefs.pdf\n-\n> While snapshot consistency is useful to keep data consistent, disks often fail over\ntime. In order to detect corruption, block pointers contain a hash of the data that they\npoint at. If corrupted data is returned by the underlying storage medium, this is\ndetected via block hashes. And if a programmer error causes the file system to write\ngarbage to disk, this can often be caught early. The corruption is reported, and the\ndamaged data may then be recovered from backups, RAID restoration, or some other\nmeans.\nOkay! It's got CoW, snapshots, and data checksums. Therefore, it's good enough to compete with ZFS while being way smaller and permissively licensed. Now I just want it ported to Linux and the other BSDs:)"
+        },
+        {
+          "id": 49716163,
+          "author": "g0xA52A2A",
+          "text": "There was a recent presentation on this at EuroBSDCon for those interested.\nhttps://events.eurobsdcon.org/2026/talk/NVMSCJ/\nhttps://exquisite.tube/w/3QQimMdswWJxrsPaJtak2u"
+        },
+        {
+          "id": 49719998,
+          "author": "limagnolia",
+          "text": "I've always wondered why HAMMER2 from DragonFlyBSD hasn't gotten more attention from other OSes?"
+        },
+        {
+          "id": 49719036,
+          "author": "tiffanyh",
+          "text": "All respect to the author on their work, but for me personally - I'm be more interested in Hammer2 (from Dragonfly BSD) to come to OpenBSD.\nhttps://github.com/kusumi/openbsd_hammer2"
+        },
+        {
+          "id": 49716316,
+          "author": "moody__",
+          "text": "I've been following (and helping test) gefs on 9front for a while now. 9front's nightly builder has been running off of it for quite a while. Ori's done a fantastic job."
+        },
+        {
+          "id": 49716142,
+          "author": "dchest",
+          "text": "Talk at EuroBSDCon 2026:\nhttps://exquisite.tube/w/3QQimMdswWJxrsPaJtak2u"
+        },
+        {
+          "id": 49718877,
+          "author": "throw0101a",
+          "text": "From NYC*BUG† May 2023, \"GEFS, A Good Enough File System\" By Ori Bernstein:\n*\nhttps://www.youtube.com/watch?v=juFndFy72gI\nSeptember 2026 EuroBSDCon presentation from Sunday:\n*\nhttps://www.youtube.com/watch?v=yPoU4QEv_u8&t=49m43s\n† BSD User Group"
+        },
+        {
+          "id": 49715591,
+          "author": "sippingabonedry",
+          "text": "GEFS: A Good Enough File System\nhttps://orib.dev/gefs.pdf"
+        }
+      ],
+      "title_ja": "OpenBSDのGEFS ：早期プレビュー",
+      "summary_ja": "ディスカッションのハイライト：から\nhttps://orib.dev/gefs.pdf\n-\n>スナップショットの整合性はデータの整合性を保つのに役立ちますが、ディスクはしばしばフェイルオーバーします\n時間/EuroBSDConで興味のある方のための最近のプレゼンテーションがありました。\nhttps://events.eurobsdcon.org/2026/talk/NVMSCJ/\nhttps://exquisite.tube/w/3QQimMdswWJxrsPaJtak2u/DragonFlyBSDのHAMMER 2が他のOSからこれ以上の注目を集めていないのはなぜでしょうか？",
+      "editor_note": "「OpenBSDのGEFS ：早期プレビュー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49710253,
+      "title_en": "Suspected sabotage causes major Netherlands rail disruption",
+      "url": "https://www.bbc.com/news/articles/c8ly49w9g1edo",
+      "hn_url": "https://news.ycombinator.com/item?id=49710253",
+      "score": 415,
+      "comment_count": 385,
+      "posted_at": "2026-09-15T10:22:46+00:00",
+      "comments": [
+        {
+          "id": 49710543,
+          "author": "apt-get",
+          "text": "Just days after a similar (criminal) incident causing a train to derail in France:\nhttps://www.lemonde.fr/en/france/article/2026/09/12/french-p...\n\"close to Renault's factory in the town of Cléon\", which is now preparing to start manufacturing drones for the French military, in collaboration with Ukrainian military-industrial groups."
+        },
+        {
+          "id": 49712464,
+          "author": "persolb",
+          "text": "I do engineering on these systems and have some expertise on this particular class of event. We’ve had tabletop red teams, and the general outcome is that rail systems being designed to ‘fail safe’ is an easy target. Failing safe at an individual actual ‘fault’ is still the best option, but it could be abused at scale.\nIt’s near impossible to cause two trains to run into each other (unless you are physically operating one of them), but it is really easy to cause all trains in an area to stop because a cross check or a bit has flipped. In this case, they literally flipped a bit by short circuiting the track circuit.\nIf done at scale, it is still possible to bypass and run trains safely the old fashioned way. It is less safe, but would probably be the decision if this was happening at multiple locations everyday."
+        },
+        {
+          "id": 49710605,
+          "author": "sorenjan",
+          "text": "A Russian warship fired flares at a Danish military helicopter in international waters in the Baltic sea too.\nhttps://www.bbc.com/news/articles/cwn8mjl31p5yo"
+        },
+        {
+          "id": 49710611,
+          "author": "Kim_Bruning",
+          "text": "So today's the yearly presentation of the new budget, with protests expected in several places. Whether this sabotage campaign is (part of a) misguided protest action or something else is yet to be determined.\nhttps://nos.nl/liveblog/2631038-nog-steeds-nieuwe-sabotageac...\n(Use google translate to read)"
+        },
+        {
+          "id": 49710672,
+          "author": "HelloUsername",
+          "text": "Might be related to today's yearly 'Prinsjesdag' in the Netherlands:\nThe day on which the reigning monarch of the Netherlands addresses a joint session of the States-General of the Netherlands (consisting of the Senate and the House of Representatives) to give the Speech from the Throne (Dutch: Troonrede), similar to the annual State of the Union in the United States or the British State Opening of Parliament. This speech sets out the main features of government policy for the coming parliamentary session.\nhttps://en.wikipedia.org/wiki/Prinsjesdag"
+        },
+        {
+          "id": 49711065,
+          "author": "Muximize",
+          "text": "Farmers protesting new nitrogen emissions regulation. They are also setting hay bales on fire next to highways. The rail sabotage is relatively harmless, the tracks use block signalling so if you use a conductive metal bar or jumper cables to connect the rails, the system thinks a train is present and the preceding signal will stay red."
+        },
+        {
+          "id": 49710704,
+          "author": "walrus01",
+          "text": "And on the same day that a (very likely Russian) UAV had to be shot down in Lithuanian air space.\nhttps://www.bbc.com/news/articles/cjx2zgk7edlzo"
+        },
+        {
+          "id": 49720318,
+          "author": "nullorempty",
+          "text": "A lot of the commenters blame Russia, and ... have you looked at the map?\nNetherlands is one of the countries that are furthest away from Russia!\nAnd then, there are countries that take much more active stance against Russia - Germany for example. Should Russia send a message it will probably be to the countries that stir shit."
+        }
+      ],
+      "title_ja": "サボタージュの疑いでオランダの鉄道が大混乱",
+      "summary_ja": "ディスカッションのハイライト：フランスで同様の（犯罪的な）事故が発生し、列車が脱線したわずか数日後：\nhttps://www.lemonde.fr/en/france/article/2026/09/12/french-p...\n「ルノーの工場の近く/私はこれらのシステムのエンジニアリングをしており、この特定のクラスのイベントに関するいくつかの専門知識を持っています/ロシアの軍艦は、バルト海の国際水域でデンマークの軍用ヘリコプターにフレアを発射しました。\nhttps://www.bbc.com/news/articles/cwn8mj",
+      "editor_note": "「サボタージュの疑いでオランダの鉄道が大混乱」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 49704132,
+      "title_en": "A single firm is behind OpenAI, Anthropic, and Meta hacking scandals",
+      "url": "https://www.effort.news/irregular",
+      "hn_url": "https://news.ycombinator.com/item?id=49704132",
+      "score": 425,
+      "comment_count": 143,
+      "posted_at": "2026-09-14T21:15:01+00:00",
+      "comments": [
+        {
+          "id": 49717757,
+          "author": "magicmicah85",
+          "text": "The Irregular post mortem comes down to lack of basic security controls\n\"Ultimately, most of the issues we’ve discovered were due to internet access controls.\"\nThat seems so incredibly basic and common sense that you would test and monitor for that type of outbound access. It is baffling that a security lab missed that.\nhttps://www.irregular.com/research/addressing-recent-inciden..."
+        },
+        {
+          "id": 49715814,
+          "author": "mcintyre1994",
+          "text": "This is interesting and might be a good reason to stop working with Irregular. But I assume the alignment people want models not to hack other companies, even if they get put in a badly configured sandbox."
+        },
+        {
+          "id": 49716714,
+          "author": "1238-8200",
+          "text": "Nevo was in Unit 8200 for years. Companies started by Unit 8200 members always have mysterious exploits like the vibe coding Wix exploit.\nSo either it was a deliberate exfiltration channel for e.g. getting the entire model or they were in on the marketing stunt.\nThe Effective Altruism stuff is always a smoke screen."
+        },
+        {
+          "id": 49704672,
+          "author": "simonw",
+          "text": "My understanding is that Irregular were the company that hosted sandboxes to run some of these evals in, and those sandboxes ended up misconfigured.\nI got the impression that in some cases it was the customer (Anthropic etc) misconfiguring the sandboxes, and in other cases it may have been bugs in Irregular's own sandboxing setup.\nFrom OpenAI\nhttps://openai.com/index/third-party-cyber-evaluations-invol...\n> Irregular, one of our external cybersecurity testing partners, was running Capture-the-Flag-style evaluations intended to be isolated from the internet, but a testing-environment misconfiguration allowed models to access the public internet.\nFrom Anthropic:\nhttps://www.anthropic.com/news/investigating-incidents-cyber...\n> After reviewing 141,006 evaluation runs where Claude could have obtained internet access, we identified three incidents in which a model accessed the internet from within or while interacting with the evaluation environment of Irregular, one of our third-party evaluation partners, and then gained unauthorized access to the production infrastructure of three different organizations.\nFrom\nhttps://www.cnn.com/2026/08/05/tech/meta-ai-hacking\n(about Meta AI):\n> In a"
+        },
+        {
+          "id": 49704569,
+          "author": "aesthesia",
+          "text": "One thing glossed over in this article is that Irregular was not involved in the OpenAI–Hugging Face incident; this seems like important context to share."
+        },
+        {
+          "id": 49705027,
+          "author": "an0malous",
+          "text": "Why was this post flagged? This site has become ridiculous, people are routinely abusing the flagging system to take down posts they don’t like even if they’re obviously on topic and relevant to HN. And it seems like some users have substantially more flagging weight because these posts, likely this one, are often top 5 on HN."
+        },
+        {
+          "id": 49720122,
+          "author": "xbar",
+          "text": "Security-yolo-clowns play with dangerous toys and hurt people. Many used to get sent to jail."
+        },
+        {
+          "id": 49704768,
+          "author": "mukmuk",
+          "text": "This specific analysis seems to have some basic problems, but I think a lot of us sense a degree of coordination here culminating in Dario’s letter.\nIf you were to work backward from “we need to lower training costs so that we can go public and make trillions” then you might come up with a plan similar to what we have seen."
+        }
+      ],
+      "title_ja": "OpenAI、Anthropic、Metaのハッキングスキャンダルの背後にいるのは1つの会社",
+      "summary_ja": "ディスカッションのハイライト：不規則なポストモーテムは、基本的なセキュリティコントロールの欠如に帰着します\n「結局のところ、私たちが発見した問題のほとんどは、インターネットアクセス制御によるものでした。」\nそれはとても信じられないように思えます/これは興味深いことであり、イレギュラーとの仕事をやめる正当な理由になるかもしれません/ネヴォは8200部隊に長年いました",
+      "editor_note": "「OpenAI、Anthropic、Metaのハッキングスキャンダルの背後にいるのは1つの会社」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49715446,
+      "title_en": "Jiga (YC W21) Is Hiring Product Engineer (Remote/US)",
+      "url": "https://jiga.io/about-us/?ashby_jid=0b75d72d-c92b-4dca-8062-09d298ada0bd",
+      "hn_url": "https://news.ycombinator.com/item?id=49715446",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-09-15T17:00:31+00:00",
+      "comments": [],
+      "title_ja": "JIGA （ YC W 21 ）は製品エンジニアを採用しています（リモート/米国）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「JIGA （ YC W 21 ）は製品エンジニアを採用しています（リモート/米国）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49713894,
+      "title_en": "Show HN: Pizza Bot – An inbox for AI agents that work in the background",
+      "url": "https://github.com/pizza-bot-app/pizza-bot",
+      "hn_url": "https://news.ycombinator.com/item?id=49713894",
+      "score": 17,
+      "comment_count": 5,
+      "posted_at": "2026-09-15T15:20:26+00:00",
+      "comments": [
+        {
+          "id": 49720280,
+          "author": "scottydelta",
+          "text": "Why does it have to be a desktop app vs a self hostable web app?\nThat way it can truly run asynchronously, even with the computer switched off."
+        },
+        {
+          "id": 49719663,
+          "author": "taylorhou",
+          "text": "congrats on the public launch! it's been clear to me for a while now that agents will need their own ways to communicate and an asynchronous inbox/task system is a necessity already. will point my agents at the repo to see how we can leverage"
+        },
+        {
+          "id": 49720073,
+          "author": "esafak",
+          "text": "I have a more basic question; I am trying to understand its purpose.\nHow does this compare with connecting your agent to your ticket tracker, e.g.,\nhttps://linear.app/build\n?\nIf it is about local work, how does it compare with simply having your agent monitor a directory for ticket files?"
+        }
+      ],
+      "title_ja": "Show HN: Pizza Bot –バックグラウンドで作業するAIエージェント用の受信トレイ",
+      "summary_ja": "ディスカッションのハイライト：なぜデスクトップアプリとセルフホスティング可能なウェブアプリが必要なのですか？\nこれにより、コンピューターの電源をオフにしても、実際に非同期で実行することができます。/congrats on the public launch!しばらく前から、エージェントには独自のコミュニケーション方法が必要であり、非同期受信トレイ/タスクシステムが必要であることが明らかになりました。/私にはより基本的な質問があります。その目的を理解しようとしています。\nこれはCOとどのように比較されますか",
+      "editor_note": "「Show HN: Pizza Bot –バックグラウンドで作業するAIエージェント用の受信トレイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 49712102,
+      "title_en": "Show HN: Hacking a $20 4G wireless hotspot into a texting device",
+      "url": "https://bkovac.github.io/modem-thing/",
+      "hn_url": "https://news.ycombinator.com/item?id=49712102",
+      "score": 167,
+      "comment_count": 30,
+      "posted_at": "2026-09-15T13:20:24+00:00",
+      "comments": [
+        {
+          "id": 49714264,
+          "author": "notpushkin",
+          "text": "This is really nice! It so happens that I’ve just bought a $10 4G dongle [1], guess I’ll have to check what’s inside now :-)\n[1]: like this:\nhttps://img.joomcdn.net/ea91b4418997d83d802339fad0bbcf878b9d...\n---\nAside, but it appears some MSM8916-based dongles run Android UI despite having no display:\nhttps://github.com/u0d7i/uz801#screenshots"
+        },
+        {
+          "id": 49714382,
+          "author": "walrus01",
+          "text": "Based on the work the person has done, if they wanted to make something with an exceedingly long battery life, and the battery setup there already seems to be basically a 1S li ion, they could graft in a back side battery holder for two high quality 18650 cells in parallel. It would probably last weeks."
+        },
+        {
+          "id": 49713504,
+          "author": "harhargange",
+          "text": "I often ditch my phone and carry my hotspot device for my internet. The only drawback is that for viewing my texts and OTPs i end up putting the sim in my phone or opening up the web interface on my laptop. This seems to work very well as a dumbphone per se."
+        },
+        {
+          "id": 49712562,
+          "author": "xx_ns",
+          "text": "This is a really cool project! A mini cyberdeck that doesn't seem too impractical to use. Repurposing the Clicks keyboard is a genius idea."
+        },
+        {
+          "id": 49715571,
+          "author": "VinnyBarreca",
+          "text": "It would be pretty cool to put Hermes Agent or some agent system on that thing, assuming the OpenStick build has enough RAM/storage. That would be fire."
+        },
+        {
+          "id": 49715796,
+          "author": "msm8916",
+          "text": "OpenStick is super old though, there are Linux and OpenWRT builders that track the upstream kernel, check hkfuertes and others."
+        },
+        {
+          "id": 49717313,
+          "author": "catidegla",
+          "text": "One layer down from where this thread is looking: the SMS never lives in the Android userspace on these sticks. It sits in the modem's own store, either on the SIM or in modem memory, and the vendor web UI is just a thin thing reading it out of there.\nSo you don't need a messaging app that still runs on Android 4.x. If the device exposes an AT port, AT+CMGF=1 then AT+CMGL=\"ALL\" dumps everything, and AT+CPMS picks which store you're reading. On the Qualcomm ones that keep the AT port hidden behind QMI, libqmi reaches the same thing through the WMS service."
+        }
+      ],
+      "title_ja": "Show HN ： $ 20の4 Gワイヤレスホットスポットをテキストデバイスにハッキング",
+      "summary_ja": "ディスカッションのハイライト：これは本当に素晴らしいです！ たまたま$ 10の4 Gドングル[1]を購入したばかりなので、中身を確認する必要があると思います:-)\n[1]:次のように:\nhttps://img.joomcdn.net/ea91b4418997d83/その人が行った仕事に基づいて、非常に長いバッテリー寿命で何かを作りたいと思っていて、そこにあるバッテリーのセットアップがすでに基本的に1 Sリチウムイオンであるように見える場合/私はしばしば携帯電話を捨ててホットスポットデバイスを持ち歩きます",
+      "editor_note": "「Show HN ： $ 20の4 Gワイヤレスホットスポットをテキストデバイスにハッキング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 23,
+      "id": 49713262,
+      "title_en": "The CSS Zen Garden dream, finally shipped",
+      "url": "https://josprague.com/blog/the-css-zen-garden-dream-finally-shipped/",
+      "hn_url": "https://news.ycombinator.com/item?id=49713262",
+      "score": 122,
+      "comment_count": 62,
+      "posted_at": "2026-09-15T14:40:08+00:00",
+      "comments": [
+        {
+          "id": 49719900,
+          "author": "bpbp-mango",
+          "text": "> There’s one honest footnote.\nnails on a chalkboard. when will agents stop writing like this"
+        },
+        {
+          "id": 49713312,
+          "author": "kreetx",
+          "text": "The site is still live\nhttps://www.csszengarden.com\n, design selection here\nhttps://www.csszengarden.com/pages/alldesigns/\n:)."
+        },
+        {
+          "id": 49715582,
+          "author": "vehemenz",
+          "text": "The CSS Zen Garden worked because everyone was using a single markup file. In real life, it doesn't really work.\nInstead of thinking of separation of concerns as a religious principle, think about what benefits it actually yields in the case of HTML.\nWhen the markup is completely separated from its styling, this means that the CSS rules need a way to be mapped onto the DOM. This involves specific elements, organized a specific way. If anything is out of place in the markup, the properties may not apply as intended. Similarly, if the CSS doesn't account for DOM structures, then you need modify rules or add new ones.\nThis way of mapping is an implicit structure. It's something\nextra\nthat's required, beyond the source code that's there. It can be computed by the browser, but it's not explicitly stated for a developer looking at the code to understand.\nContrast this with Tailwind, Tachyons, etc., where nearly all the structure is explicit, less complex, discoverable, and out in the open.\nHidden structure looks nice to the developer. The code \"looks\" clean. But understanding a code base's implicit structure is ephemeral, and there's inherent technical debt that will need to be repaid la"
+        },
+        {
+          "id": 49716639,
+          "author": "TimTheTinker",
+          "text": "This is really great work, but I think a lot of folks on HN don't look kindly on the CSS Zen Garden or that era of CSS. They think the markup/stylesheet separation of concerns was a terrible idea, an idea that Tailwind exists to fix. (I think they're wrong, that separation of concerns is good, Tailwind is a hack, and get off my lawn while you're at it.)\nThe point is - now the modern vanilla web platform really can support first-class\nCSS-styled app components\n, from design systems, in production. This is really cool!\nHTML and CSS were originally designed as\ndocument-oriented languages\nfor digital document display; think MS Word or PDF with cross-document hyperlinks, and\nnot\nan app SDK. The idea was simply \"style your web site's titles, headings, paragraphs, footers, etc. in just one place; change it there and the whole site will update\". That's the dream that CSS Zen Garden was meant to showcase. Interactivity and web apps came\nlater\n, and CSS has taken a very long time to catch up.\nBut catch up it has, and I'll be glad when frontend web development sheds Tailwind and React in favor of the updated vanilla web platform; and I won't complain if we use super light web component librar"
+        },
+        {
+          "id": 49716603,
+          "author": "chrismorgan",
+          "text": "I see no connection whatsoever with the CSS Zen Garden dream. CSS Zen Garden was about applying radically different styles to the same markup. This is about newer CSS features like Custom Properties, Flex and Grid making maintenance of a single stylesheet for a single completely typical website."
+        },
+        {
+          "id": 49719008,
+          "author": "scraft",
+          "text": "On Chrome, Android, when I bring the menu up, and scroll to the bottom, the Newsletter menu item is cut off (I know it is there as I can see it on Firefox Android)."
+        },
+        {
+          "id": 49715488,
+          "author": "deburo",
+          "text": "The current firefox.com is incredibly simple, though. It's also pretty tablet/phone centric (everything is so large on Desktop)."
+        },
+        {
+          "id": 49715143,
+          "author": "moritz",
+          "text": "Do they have the design system open source somewhere?"
+        }
+      ],
+      "title_ja": "CSS禅庭園の夢、ついに出荷",
+      "summary_ja": "ディスカッションのハイライト： >正直な脚注が1つあります。\n黒板に釘/サイトはまだ稼働しています\nhttps://www.csszengarden.com\n、デザインセレクションはこちら\nhttps://www.csszengarden.com/pages/alldesigns/\n:)./ CSS Zen Gardenは、誰もが単一のマークアップファイルを使用していたために機能しました",
+      "editor_note": "「CSS禅庭園の夢、ついに出荷」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49713999,
+      "title_en": "Cartesian – AI 3D Modeling for Design",
+      "url": "https://www.formas.ai/cartesian",
+      "hn_url": "https://news.ycombinator.com/item?id=49713999",
+      "score": 84,
+      "comment_count": 71,
+      "posted_at": "2026-09-15T15:26:45+00:00",
+      "comments": [
+        {
+          "id": 49714750,
+          "author": "atonse",
+          "text": "I'm so excited about this sort of stuff. ForgeCAD [1] for me was the first mind-blowing application of this a few months ago, where I'm able to just have claude (or codex) write JS that creates 3D Models that I can then print in my 3D printer.\n- Built a ring for my compost bin that can properly hold down the plastic bag. This was originally a multi week project because I was also learning Fusion 360 in small 2 hour chunks over many weekends, then with ForgeCAD I had a good prototype in 60 mins with multiple iterations.\n- I also built a cover for my overheating Logitech Circle doorbell, snapped a photo, gave it to claude, and claude found all the dimensions on Logitech's website, and then we iterated with 3-4 prints until we had it just right.\nThis is a whole new set of workflows that are unleashed with agents, even for hobbyists.\n1:\nhttps://forgecad.io"
+        },
+        {
+          "id": 49715180,
+          "author": "idid",
+          "text": "I love to see more of these tools build on rhino's kernel. Arguably the best modelling (parametric, manual, or SDK) ergonomics when it comes to, from my experience, early stage aec workflows. A similar tool launched recently [0] that i found interesting. I'm also biased as it's my first and only true love when it comes to \"coding things\" for the built environment.\nMy take was that designing buildings was always the cheap part, and not core to what moves the needle in AEC (architecture, engineering, construction)\n[0]\nhttps://illoca.com/\n, not affiliated"
+        },
+        {
+          "id": 49717722,
+          "author": "maouida",
+          "text": "From my experience trying to build parametric CAD modeling using FluidCAD [1] using its MCP, the biggest breakthrough is ASTRA. It seems to work well actually with any CAD if it has ways to verify its output. No otjer models was able to match its accuracy even Fable.\n[1]\nhttps://fluidcad.io"
+        },
+        {
+          "id": 49714648,
+          "author": "throwitaway222",
+          "text": "I've been using Astra to just create things in Blender. It's great.\nKill the scroll jacking. It's a sign you're on Windows."
+        },
+        {
+          "id": 49719337,
+          "author": "amelius",
+          "text": "Can it work from technical drawings?\nLike, I give it a datasheet containing a number of projections and the tool produces a correct model with the proper dimensions?"
+        },
+        {
+          "id": 49719634,
+          "author": "kjjohnsen",
+          "text": "Was there a product demo in here somewhere that I missed?  This seems like a wish list, not reality."
+        },
+        {
+          "id": 49716592,
+          "author": "Ciantic",
+          "text": "GPT-6 Astra with computer use has gotten some of architects and 3d modelers wondering what their future is. Astra does such a good work with SketchUp 2026 and computer use, here is video, but it is well worth it because the author actually knows his stuff:\nhttps://www.youtube.com/watch?v=E-ECbD14g_8"
+        },
+        {
+          "id": 49716419,
+          "author": "dmkolobov",
+          "text": "The video game applications are truly pretty cool ... though I don't know who would admit to using such a tool in the current environment.\nSome of the other things like the `Residential`, `Structure and Complex Shape`, and `Large Scale` seem like they'd need review by engineers to be useful in real world scenarios? Do architects just sketch whatever looks good as a first pass?"
+        }
+      ],
+      "title_ja": "デカルト–デザインのためのAI 3 Dモデリング",
+      "summary_ja": "ディスカッションのハイライト：この種のものにとても興奮しています/これらのツールがRhinoのカーネル上に構築されているのを見るのが大好きです/MCPを使用してFluidCAD [1]を使用してパラメトリックCADモデリングを構築しようとした私の経験から、最大のブレークスルーはASTRAです",
+      "editor_note": "「デカルト–デザインのためのAI 3 Dモデリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 49707473,
+      "title_en": "US confirms for first time it has deployed space weapons",
+      "url": "https://www.bbc.com/news/articles/ck790xg41ygro",
+      "hn_url": "https://news.ycombinator.com/item?id=49707473",
+      "score": 421,
+      "comment_count": 298,
+      "posted_at": "2026-09-15T03:47:56+00:00",
+      "comments": [
+        {
+          "id": 49710058,
+          "author": "jonkoops",
+          "text": "Space really should be a neutral ground like Antarctica. Especially since the consequences of space debris might trigger the Kessler effect [1], denying humanity future access to low-earth orbit for the considerable future.\n1.\nhttps://en.wikipedia.org/wiki/Kessler_syndrome"
+        },
+        {
+          "id": 49717627,
+          "author": "andai",
+          "text": ">\"We urge the US side to stop expanding its military capabilities and preparing for war in outer space,\" AFP quoted a foreign ministry spokesman as saying.\nI'm no geopolitics whiz but \"we urge the USA to be unprepared for war\" is a pretty comical statement to me."
+        },
+        {
+          "id": 49718690,
+          "author": "Lammy",
+          "text": "Relevant:\n- USAF Directed Energy Directorate home page during the years 1999–2006:\nhttps://web.archive.org/web/20060831035044/http://www.de.afr...\n- USAF Directed Energy Directorate home page during the years 2009–2016:\nhttps://web.archive.org/web/20160428181404/http://www.kirtla...\n- LASER Effects Test Facility fact sheet from 2002 showing a 50-kilowatt CO² LASER setting a test target on fire:\nhttps://web.archive.org/web/20070315131556/http://www.de.afr..."
+        },
+        {
+          "id": 49717586,
+          "author": "asdff",
+          "text": "Wasn't the shuttle originally planned to be a weapon as well, capable of intercepting and sabotaging satellites using its loading bay workshop? There are also the various \"mini shuttles\" the three letter agencies fly around the earth for several hundred day stints of doing who knows what exactly with who knows what capabilities (other than having a similar sabotage potential as the original shuttle perhaps)."
+        },
+        {
+          "id": 49716659,
+          "author": "sgustard",
+          "text": "Reagan and Gorbachev came within inches of abolishing nuclear weapons, but the sticking point was the US would not back away from building space weapons. As long as warmongers are in control we will continue to live in danger and fear."
+        },
+        {
+          "id": 49710801,
+          "author": "nopassrecover",
+          "text": "Rather interesting timing after the US accused China of supplying Iran with high-res imagery used to support attacks on US bases, then a Chinese satellite mysteriously broke apart"
+        },
+        {
+          "id": 49713626,
+          "author": "WillAdams",
+          "text": "C.J. Cherryh has a memorable quote on this in her _Downbelow Station_.\n>They were armed, the swift exploration ships, as they had always been, venturing as they did into the unknown; but now they were used in a new way, to visit stations and pull them into line. That was bitterest of all, that the crews of the probe ships, who had been the heroes of the Beyond, became the Company enforcers."
+        },
+        {
+          "id": 49712386,
+          "author": "misetech",
+          "text": "I think most of the powerful countries in the world already have space weapons. Space exploration is just a facade for this."
+        }
+      ],
+      "title_ja": "米国が宇宙兵器の配備を初めて確認",
+      "summary_ja": "議論のハイライト：宇宙は本当に南極大陸のような中立地帯でなければならない/>「我々は米側に軍事力の拡大と宇宙空間での戦争への準備をやめるよう要請する」とAFPは外務省の報道官が述べたことを引用した。\n私は地政学の専門家ではありません/関連性がありません：\n- 1999年から2006年の間のUSAF Directed Energy Directorateホームページ：\nhttps://web.archive.org/web/20060831035044/http :// www.de.afr...\n- USAF Directed Energy Directorat",
+      "editor_note": "「米国が宇宙兵器の配備を初めて確認」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 26,
+      "id": 49697496,
+      "title_en": "Most people prefer traditional architecture",
+      "url": "https://www.worksinprogress.news/p/do-people-prefer-traditional-architecture",
+      "hn_url": "https://news.ycombinator.com/item?id=49697496",
+      "score": 245,
+      "comment_count": 195,
+      "posted_at": "2026-09-14T14:30:17+00:00",
+      "comments": [
+        {
+          "id": 49717340,
+          "author": "hardwaregeek",
+          "text": "Perhaps there’s a difference between what people prefer looking at and what’s actually nicer to inhabit? Architecture is optimizing for people inhabiting the building, not just staring at it in a photograph. It’s like if you asked someone to judge a phone based on a photo. Yes there’s some aesthetic judgement but it matters more if the phone is usable.\nI know that personally I find New York’s prewar buildings more beautiful than your average soulless luxury tower. But I enjoyed living in a soulless luxury tower because it had good lighting, not terrible elevators and decent fixtures."
+        },
+        {
+          "id": 49716423,
+          "author": "boh",
+          "text": "Modernism is the act of using cheaper resources and more standardized/cheaper methods of production. The aesthetic is more of a side-effect of those limits. Ugliness has become a cultural norm in order to suit the modern economy. It may come as a surprise but it required years of cultural development and education for most people to accept the work of Dieter Rams as some aesthetic pinnacle rather than soulless mass production. It's only recently, (with designs like the Ferrari EV for instance) that people are starting to see how limited our aesthetic language has become. Modernism is too cheap to replace so the \"beauty\" of soulless minimalism will likely endure in the zeitgeist, but it's not a very interesting environment to be in."
+        },
+        {
+          "id": 49719225,
+          "author": "chasil",
+          "text": "While my karma might get incinerated with this quote, it is incisive on traditional architecture. The author is reviled by many.\n“Yes, God damn it, the Parthenon!”\nThe ruler struck the glass over the picture.\n“Look,” said Roark. “The famous flutings on the famous columns—what are they there for? To hide the joints in wood—when columns were made of wood, only these aren’t, they’re marble. The triglyphs, what are they? Wood. Wooden beams, the way they had to be laid when people began to build wooden shacks. Your Greeks took marble and they made copies of their wooden structures out of it, because others had done it that way. Then your masters of the Renaissance came along and made copies in plaster of copies in marble of copies in wood. Now here we are, making copies in steel and concrete of copies in plaster of copies in marble of copies in wood. Why?”"
+        },
+        {
+          "id": 49715953,
+          "author": "addaon",
+          "text": "\"Traditional\" isn't really defined here, but seems to mean \"first half of the 20th century,\" which feels like a relatively narrow tradition. Not a lot of preference for teepees and yurts."
+        },
+        {
+          "id": 49720115,
+          "author": "iamnothere",
+          "text": "I just wish there were more acceptance of experimentation. I like well-executed Art Deco, Art Nouveau, 60s high modernism, whatever you call the 70s angular wooden buildings, “natural” styles like adobe that use clay and wood, all kinds really. As long as a style is appropriate for the structure’s use and environment, it’s fine. But economics favors ugly boxes, and local building restrictions make it even more expensive (or even impossible) to be creative. It’s no wonder that many builders don’t bother, sticking to “safe” styles."
+        },
+        {
+          "id": 49711291,
+          "author": "perilunar",
+          "text": "There's more to architecture than just the façade, which is what people are rating when they are just looking at photos of the exterior. The interiors, structure, and services, etc. of modern building are often far superior to older ones, and i suspect many 'ordinary' people would agree."
+        },
+        {
+          "id": 49716270,
+          "author": "tensor",
+          "text": "It seems like these comparisons are more \"expensive traditional design vs low cost modern design.\" None of their examples had what I would consider a single expensive and nice modern design. But every single example of \"traditional\" design was essentially luxury pricing."
+        },
+        {
+          "id": 49716365,
+          "author": "DGAP",
+          "text": "In public spaces I have no doubt this is the case.\nI'm more curious about residential though - see huge interesting in MCM over the last decades. I am biased but I think there is a great deal of interest in warm, modernist spaces with ideas like natural materials and lots of natural lighting, especially when compared to the beige boxes of American home building."
+        }
+      ],
+      "title_ja": "ほとんどの人は伝統的な建築を好みます",
+      "summary_ja": "ディスカッションのハイライト：人々が見たいものと実際に住みやすいものとの間には違いがあるかもしれません。建築は、STAだけでなく、建物に住む人々のために最適化されています/モダニズムは、より安価な資源とより標準化された/安価な生産方法を使用する行為です/私のカルマはこの引用で焼却されるかもしれませんが、伝統的な建築には鋭いです",
+      "editor_note": "「ほとんどの人は伝統的な建築を好みます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49713024,
+      "title_en": "The Inference Hardware Revolution of 2026",
+      "url": "https://spectrum.ieee.org/inference-hardware-revolution",
+      "hn_url": "https://news.ycombinator.com/item?id=49713024",
+      "score": 98,
+      "comment_count": 9,
+      "posted_at": "2026-09-15T14:24:08+00:00",
+      "comments": [
+        {
+          "id": 49718162,
+          "author": "aschla",
+          "text": "\"If AI inference remains as desirable as Kimball expects, the evolution is likely to follow the same trajectory as the CPU. The CPU didn’t improve along a single axis but instead across simultaneously. Once transistor scaling slowed, chip and system architecture innovations of all kinds proliferated. The list of individual innovations that led to today’s ubiquitous, powerful personal compute could fill dozens of books. A few decades from now, the history of AI inference innovation will show similar depth.\"\nOf the areas mentioned in the article, which are the most likely to have the most prominent innovative impact, and what will they entail?"
+        },
+        {
+          "id": 49717126,
+          "author": "ninju",
+          "text": "Great read.\nI like how the author uses the analogy of scrabble word creation to describe LLM training but unfortunately the analogy didn't continue to inference and I got lost trying to keep up."
+        },
+        {
+          "id": 49716349,
+          "author": "_superposition_",
+          "text": "Excellent article. I believe the majority of benchmark performance gains moving forward will come from this side of the stack enabling faster iteration/recursion."
+        },
+        {
+          "id": 49716562,
+          "author": "geoffbp",
+          "text": "> And Anthropic is paying LLM competitor SpaceXAI over a billion dollars per month to lease spare compute\nI knew of this but not the $ amount. Wow"
+        }
+      ],
+      "title_ja": "2026年の推論ハードウェア革命",
+      "summary_ja": "ディスカッションは次のように強調しています。「AI推論がキンボールが期待するように望ましいままであれば、進化はCPU/Great readと同じ軌道をたどる可能性があります。\n著者がLLMトレーニングを説明するためにスクラブルワード作成のアナロジーを使用しているのが好きですが、残念ながらアナロジーは推論を続けず、私はトライ/エクセレントの記事を見失いました",
+      "editor_note": "「2026年の推論ハードウェア革命」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 28,
+      "id": 49677648,
+      "title_en": "Giving up on smart rings",
+      "url": "https://notesbylex.com/giving-up-on-smart-rings",
+      "hn_url": "https://news.ycombinator.com/item?id=49677648",
+      "score": 88,
+      "comment_count": 139,
+      "posted_at": "2026-09-12T22:00:20+00:00",
+      "comments": [
+        {
+          "id": 49716670,
+          "author": "feistypharit",
+          "text": "What I don’t think I’ve seen anyone mention yet.  If the internal batteries swell you are now in a very bad situation.\nhttps://cybernews.com/gadgets/samsung-galaxy-smart-ring-batt..."
+        },
+        {
+          "id": 49714657,
+          "author": "Supermancho",
+          "text": "None of these 3 problems have anything to do with it being a smart ring. Same problems that regular rings have, yet people still wear them.\n1. Adulting: buying rings that are the right size. eg My tungsten wedding ring cannot be resized either.\n2. Most people don't even lift. Those that do, dont mind taking off jewelry. I can see how this would be a problem for someone who wants to wear a smart ring for lifting. Sounds like an issue that should have been noticed earlier.\n3. Adulting: moving the ring up and down your soapy finger and washing your hands properly."
+        },
+        {
+          "id": 49714787,
+          "author": "autoexec",
+          "text": "I can't bring myself to send a corporation a constant stream of extremely personal data when I know they absolutely will sell/leak all of it along with the countless assumptions they'll make about me using that same data.\nIt'd be nice to have the information a ring or watch gathers as long as it stayed local. I haven't seen many products offering that though. The thought of not being able to continuously profit from surveillance is just too painful for many companies to bother creating a product aimed at the consumer who doesn't want to be spied on I guess."
+        },
+        {
+          "id": 49720363,
+          "author": "abbefaria27",
+          "text": "All these trackers (rings, watches, wrist bands) seem so… useless. Do you really need to know your heartbeat every minute of the day? What does sleep tracking tell you, can’t you just tell if you’re tired? For athletes there are garmin type watches, which I understand during a workout. But the lifestyle trackers I don’t get the point."
+        },
+        {
+          "id": 49714675,
+          "author": "vablings",
+          "text": "I ditched my Oura ring, I found that it really was great at tracking sleep HRV and RHR, but the battery doesn't last and it's just expensive e-waste after a year and a half\nI got really upset with Oura when they tried to have their cake and eat it with regards to charging a huge premium for what is a very cheap device and then also a monthly subscription for something that does not need any subscription. I bit the bullet and switched to a Garmin watch for longer battery life and no subscription.\nI now have a device that has way more features and lasts significantly longer."
+        },
+        {
+          "id": 49715292,
+          "author": "atldev",
+          "text": "I like my Oura ring and find it one of the least fussy fitness trackers I've used. To me, the battery question is more about time between charging. I can travel for a week on a business trip without taking the charger, no problem. The sizing issue is real and as I dropped weight, the ring became loose and would fall off. I've added a small eva tab on the inside to increase friction and reduce risk until I buy the next version sized down.\nThe most important metric to me was the sleep score and related components. I've noticed my performance (mentally and physically) is tied to sleep in a huge way. I was skeptical that it would capture sleep metrics accurately, but after about a year of use, I can say without question that the number it presents as my sleep score is a very good proxy of how good I feel throughout the day.\nMy goal for this past year has been to focus on improving sleep health and for that, the ring has been a very useful tool."
+        },
+        {
+          "id": 49715554,
+          "author": "teliskr",
+          "text": "I can understand those pain points, but they don't really bother me.  I'm on my 3rd oura ring now and I still like using it.  I don't go crazy with the information, but I really do try to get a good night sleep and oura lets me know when I do not.  I got married a few years ago and I usually don't like wearing my wedding band around because I worry about loosing it.  So I wear the oura ring in place of the wedding band.  I take the ring off when I lift weights and do some other things.\nI also wear a garmin watch that I mostly use for tracking mountain bike rides, hikes, etc.  So I'm just a geek who enjoys gadgets and the data they provide.  I like that both have very long battery lives.  I would love all the features of an apple watch, but I don't want to be charging it every day."
+        },
+        {
+          "id": 49719291,
+          "author": "SequoiaHope",
+          "text": "I got the Garmin Lily 2 Active. It’s an attractive simple watch. For sleep and activity tracking without GPS it’s great. It also has GPS but I use my phone for tracking biking. The big thing is that after configuring it with the Garmin app you can tell Garmin they don’t have permission to store your data in the cloud, and then use iOS settings to block the app from even talking to the watch. Then I vibe coded an app for my Linux system that syncs over Bluetooth. Once per day I turn off Bluetooth on my phone and press the button in the web app and my Ubuntu desktop pulls all the files and displays them in my web ui. It’s really nice and my data is reasonably private (Claude can see it though I could fix that). I recommend the watch!"
+        }
+      ],
+      "title_ja": "スマートリングをあきらめる",
+      "summary_ja": "ディスカッションのハイライト：まだ誰も言及していないと思うこと/これら3つの問題のいずれも、それがスマートリングであることとは何の関係もない/企業が絶対にすべてを販売/漏洩することを知っているとき、私は企業に絶え間ない非常に個人的なデータの流れを送ることはできません",
+      "editor_note": "「スマートリングをあきらめる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49697242,
+      "title_en": "XLS: Accelerated HW Synthesis",
+      "url": "https://google.github.io/xls/",
+      "hn_url": "https://news.ycombinator.com/item?id=49697242",
+      "score": 9,
+      "comment_count": 3,
+      "posted_at": "2026-09-14T14:14:28+00:00",
+      "comments": [
+        {
+          "id": 49697272,
+          "author": "Bluestein",
+          "text": "To wit:\nWhat is XLS?\nXLS implements a High Level Synthesis toolchain that produces synthesizable designs (Verilog and SystemVerilog) from flexible, high-level descriptions of functionality. It is Apache 2 licensed.\nXLS (Accelerated HW Synthesis) aims to be the Software Development Kit (SDK) for the End of Moore's Law (EoML) era. In this \"age of specialization\", software and hardware engineers must do more co-design across their domain boundaries -- collaborate on shared artifacts, understand each other's cost models, and share tooling/methodology. XLS attempts to leverage automation, software engineers, and machine cycles to accelerate this overall process.\nXLS enables the rapid development of hardware IP that also runs as efficient host software via \"software style\" methodology. An XLS design runs at native speeds for use in host software or a simulator, but that design can also generate hardware block output -- the XLS tools' correctness ensures (and provides tools to help formally verify) that they are functionally identical."
+        },
+        {
+          "id": 49703734,
+          "author": "peter_d_sherman",
+          "text": ">\"XLS enables the rapid development of hardware IP that\nalso runs as efficient host software via \"software style\" methodology.\nAn XLS design\nruns at native speeds for use in host software or a simulator\n, but that design can also generate hardware block output -- the XLS tools' correctness ensures (and provides tools to help formally verify) that they are functionally identical.\"\nThe ability to run and verify hardware designs quickly in software simulators is the key to rapid iteration of hardware designs, which is the key to more robust hardware, faster.\nFor that reason, XLS should be worth watching in this space..."
+        }
+      ],
+      "title_ja": "XLS ：高速化されたHW合成",
+      "summary_ja": "ディスカッションのハイライト：すなわち：\nXLSとは何ですか？\nXLSは、機能の柔軟で高度な説明から合成可能な設計（ VerilogとSystemVerilog ）を生成するハイレベル合成ツールチェーンを実装しています/> \"XLSは、ハードウェアIPの迅速な開発を可能にします\nまた、「ソフトウェアスタイル」方法論を介して効率的なホストソフトウェアとして実行されます。\nXLSデザイン\nホストで使用するためにネイティブ速度で実行されます",
+      "editor_note": "「XLS ：高速化されたHW合成」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 30,
+      "id": 49710883,
+      "title_en": "25 years of mass surveillance is enough",
+      "url": "https://www.schneier.com/blog/archives/2026/09/25-years-of-mass-surveillance-is-enough.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49710883",
+      "score": 763,
+      "comment_count": 281,
+      "posted_at": "2026-09-15T11:26:48+00:00",
+      "comments": [
+        {
+          "id": 49711918,
+          "author": "N_Lens",
+          "text": "Surveillance and totalitarian control is a downward spiral of misery and suffering for everyone, even those in power.\nIt reminds me of some quotes from the Tao Te Ching -\nRestriction breeds the disorder it's meant to prevent (ch. 57)\nThe more prohibitions there are in the world, the poorer the people become. The more sharp weapons, the more the state falls into confusion. The more laws and edicts are posted, the more thieves and bandits there are.\nThe world isn't a thing to be managed (ch. 29)\nThe world is a sacred vessel; it cannot be manipulated. Whoever acts on it ruins it; whoever grips it loses it."
+        },
+        {
+          "id": 49710931,
+          "author": "smalltorch",
+          "text": "It's a great write up thankyou. I propose we build and distribute easy to use services designed to run on our own devices, in our own homes, to take full advantage of 1st and 4th amendments, then distribute these services widely with billboards so that people have alternatives and can take advantage of these protections."
+        },
+        {
+          "id": 49715108,
+          "author": "calebm",
+          "text": "Proposal: limit access of these camera networks to local jurisdiction. Just like rip-stop fabric and cell walls, boundaries are required for stability, and making it where federal agencies have eyes everywhere is far too dangerous."
+        },
+        {
+          "id": 49713488,
+          "author": "Varelion",
+          "text": "NSPM-7 is about to make mass surveillance magnitudes more oppressive and ever-present."
+        },
+        {
+          "id": 49713680,
+          "author": "seydor",
+          "text": "It isn't going to stop until it becomes a national security issue. If your can spy on your citizens , your enemies can potentially gain access to the same surveillance and hit high profile targets.\nWe live in war times and will soon see it happening"
+        },
+        {
+          "id": 49713654,
+          "author": "maerF0x0",
+          "text": "I suspect that Mass Surveillance is here for good, and the real project is to regain control of who gains the power and benefits. There are dozens if not 100s of ways that mass surveillance can improve human life. There are also as many where it can be abused to create suffering. I think the real issue is we're trending to the latter. In order to safely continue down this path we (USA) need:\n1. EU style governmental pushes to defend digital rights. Data needs to be our own property that we can lend, but can never give up our right to revocation.\n2. Stricter controls, and stricter still penalities, need to exist against misuse and abuse. Many of the stories of abuse of data are most stark in their lack of repercussions, some of this is police unions, some of this is \"deep state\" people who scratch eachother's backs and grant eachother free accesses and immunity. Some of this is a voting issue as in we need to make it known to our candidates that it matters to us, and then push real political power in their hands.\nJust to help the imagination of all here's where mass surveilance could plausibly add good to society, all stemming from legitimate use:\n1. Criminals like porch pirates can"
+        },
+        {
+          "id": 49713954,
+          "author": "brandon272",
+          "text": "“Temporary” surveillance powers are never temporary."
+        },
+        {
+          "id": 49712381,
+          "author": "Havoc",
+          "text": "At this stage I'd settle for echelon era surveillance and consider it a win...\nAd tech/tiktok has proven its possible to deduce what people are think at scale from subtle signals, now sifting info at scale is possible thanks to LLMs and a large portion of everyone's online history is likely to become vulnerable to store now decrypt later attacks. Get rid of cash, force identity verification for every online service, sprinkle some flock cameras on top and you've got a complete surveillance state. Oh and of course you need some goons to scare people into compliance & later in some self-censorship for good measure. We could call the group \"Frozen water\".\n...and we're basically already there on all of it except perhaps the \"decrypt later\" on https (and even that has rumours).\nGenuinely don't think this is stoppable anymore."
+        }
+      ],
+      "title_ja": "25年間の大規模な監視で十分です",
+      "summary_ja": "ディスカッションのハイライト：監視と全体主義的統制は、権力者を含め、すべての人にとって悲惨さと苦しみの悪循環です。\nそれは私にTao Te Chingからのいくつかの引用を思い出させます-\nRestricti/ありがとうございました/Proposal:これらのカメラネットワークへのアクセスを現地の管轄区域に制限する",
+      "editor_note": "「25年間の大規模な監視で十分です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "07",
+    "started_at": "2026-09-16T08:57:38.354933+09:00",
+    "finished_at": "2026-09-16T08:58:53.133612+09:00",
+    "story_count": 30
+  }
+}
