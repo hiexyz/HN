@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ site_name }}{% endblock %}</title>
   <meta name="description" content="{% block description %}Hacker News のトップ記事を日本語タイトル・要約付きで毎日更新{% endblock %}">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="alternate" type="application/rss+xml" title="{{ site_name }}" href="/feed.xml">
+  <link rel="icon" href="{{ base_url }}assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site_name }}" href="{{ base_url }}feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="{{ base_url }}assets/style.css">
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
   <a class="skip-link" href="#main">本文へ</a>
 
   <header class="topbar">
-    <a class="brand" href="/index.html">{{ site_name }}</a>
+    <a class="brand" href="{{ base_url }}index.html">{{ site_name }}</a>
     <nav class="nav" aria-label="主要">
-      <a href="/index.html">最新</a>
-      <a href="/archive/index.html">アーカイブ</a>
-      <a href="/about.html">About</a>
-      <a href="/feed.xml">RSS</a>
+      <a href="{{ base_url }}index.html">最新</a>
+      <a href="{{ base_url }}archive/index.html">アーカイブ</a>
+      <a href="{{ base_url }}about.html">About</a>
+      <a href="{{ base_url }}feed.xml">RSS</a>
     </nav>
   </header>
 

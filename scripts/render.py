@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -20,6 +21,23 @@ def _env() -> Environment:
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=select_autoescape(["html", "xml"]),
     )
+
+
+def base_url() -> str:
+    """Path prefix the site is served from, e.g. "/" locally or "/HN/" on GitHub Pages."""
+    raw = os.getenv("SITE_BASE_URL", "/").strip() or "/"
+    if not raw.startswith("/"):
+        raw = f"/{raw}"
+    if not raw.endswith("/"):
+        raw = f"{raw}/"
+    return raw
+
+
+def site_url() -> str:
+    raw = os.getenv("SITE_URL", "").strip()
+    if not raw:
+        return base_url()
+    return raw if raw.endswith("/") else f"{raw}/"
 
 
 def slot_label(slot: str) -> str:
@@ -46,6 +64,7 @@ def ensure_dirs() -> None:
 
 def list_archives() -> list[dict[str, str]]:
     archives: list[dict[str, str]] = []
+    base = base_url()
     for path in sorted((DOCS / "data").glob("*.json"), reverse=True):
         stem = path.stem  # YYYY-MM-DD_HH
         if "_" not in stem:
@@ -54,7 +73,7 @@ def list_archives() -> list[dict[str, str]]:
         archives.append(
             {
                 "stem": stem,
-                "href": f"/archive/{stem}.html",
+                "href": f"{base}archive/{stem}.html",
                 "label": f"{date_part} {slot}:00",
             }
         )
@@ -77,6 +96,7 @@ def render_site(payload: dict, slot: str) -> None:
     date_iso = payload.get("date") or datetime.now(JST).isoformat()
     heading_date = format_jst_heading(date_iso, slot)
     context = {
+        "base_url": base_url(),
         "site_name": "HN日報",
         "site_tagline": "Hacker News を、日本語でさっと追う",
         "stories": payload.get("stories") or [],
@@ -98,6 +118,7 @@ def render_site(payload: dict, slot: str) -> None:
     (DOCS / "archive" / f"{stem}.html").write_text(archive_html, encoding="utf-8")
 
     archive_index = env.get_template("archive.html").render(
+        base_url=context["base_url"],
         site_name="HN日報",
         archives=archives,
         generated_at=context["generated_at"],
@@ -105,12 +126,14 @@ def render_site(payload: dict, slot: str) -> None:
     (DOCS / "archive" / "index.html").write_text(archive_index, encoding="utf-8")
 
     about = env.get_template("about.html").render(
+        base_url=context["base_url"],
         site_name="HN日報",
         generated_at=context["generated_at"],
     )
     (DOCS / "about.html").write_text(about, encoding="utf-8")
 
     feed = env.get_template("feed.xml").render(
+        site_url=site_url(),
         site_name="HN日報",
         site_tagline=context["site_tagline"],
         stories=context["stories"][:20],
