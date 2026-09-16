@@ -1,0 +1,1464 @@
+{
+  "date": "2026-09-17T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49729000,
+      "title_en": "Small Programming Tricks",
+      "url": "https://will-keleher.com/posts/small-programming-tricks-matter/",
+      "hn_url": "https://news.ycombinator.com/item?id=49729000",
+      "score": 132,
+      "comment_count": 80,
+      "posted_at": "2026-09-16T15:56:47+00:00",
+      "comments": [
+        {
+          "id": 49730584,
+          "author": "phforms",
+          "text": "The thing with a lot of these tricks is that you have to get into the habit of using them. I knew `Ctrl+r` for history since I learned about the command line. I even have a nice shell integration with fzf. But I still used the up/down arrow keys for years or scrolled up when I was looking for a previous command, because I never remembered the shortcut and just took the path of least resistance to find something.\nUsually what I do is writing these tricks down to a document that is easily accessible at a place where I know that I will look for when failing to remember them. I have a directory of docs where I write stuff like this down by language/tool/etc., so I can quickly look it up without having to search the internet. But I also have to actively remind myself that these things exist whenever I have a problem, stop me from just doing the inefficient thing."
+        },
+        {
+          "id": 49729790,
+          "author": "kccqzy",
+          "text": "A lot more tricks can be learned from just watching AI work. Instead of allowing AI to work autonomously, go back to the old days where you manually approve every command the AI runs. Just recently while doing performance optimization work, I found Opus using the `perf` command in ways I didn’t know possible. Just give AI a real task and carefully read what commands are used by the AI to solve the problem; most likely the AI uses a trick or two that you didn’t know existed."
+        },
+        {
+          "id": 49730638,
+          "author": "rf15",
+          "text": "> You can SELECT without a FROM\nwelllll that depends entirely on the DB Software you're using. A certain IBM product certainly has opinions on this."
+        },
+        {
+          "id": 49730345,
+          "author": "gnoack",
+          "text": "I can recommend\nhttps://www.oreilly.com/library/view/unix-power-tools/059600...\nThe \"Unix Power Tools\" book is an excellent source for Unix and shell usage tricks"
+        },
+        {
+          "id": 49729680,
+          "author": "cachvico",
+          "text": "I find myself using ctrl-r less and less as I make sure that anything of value that I work out goes into a Makefile or the app tooling, for me this is the basis of the dev-ops approach to work (make sure everything is scripted, not worked out on the fly)."
+        },
+        {
+          "id": 49729432,
+          "author": "overflowy",
+          "text": "If you want to level up your Zsh history experience, I built zhist[1] specifically for that. It uses fzf underneath, but provides considerably more context than simply using fzf. There's a demo video in the README.\n[1]\nhttps://github.com/overflowy/zhist"
+        },
+        {
+          "id": 49729495,
+          "author": "NegativeLatency",
+          "text": "> At a previous company, I shared a trick on slack every day with the engineering team, both technical and company-specific, and folks found them pretty useful.\nI would find that annoying, however to not be seen as a jerk I wouldn't say anything."
+        },
+        {
+          "id": 49730231,
+          "author": "disinterred",
+          "text": "The most useful shell trick I've used to date is mapping the 'cd' command to 'zoxide', which is a more powerful version of cd that remembers folders you've been to."
+        }
+      ],
+      "title_ja": "小さなプログラミングのコツ",
+      "summary_ja": "ディスカッションハイライト：これらのトリックの多くは、それらを使用する習慣を身につけなければならないということです/AIの仕事を見ているだけでより多くのトリックを学ぶことができます/>\n使用しているDBソフトウェアに完全に依存するwelllll",
+      "editor_note": "「小さなプログラミングのコツ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 49726955,
+      "title_en": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds",
+      "url": "https://arxiv.org/abs/2609.14858",
+      "hn_url": "https://news.ycombinator.com/item?id=49726955",
+      "score": 115,
+      "comment_count": 36,
+      "posted_at": "2026-09-16T13:44:40+00:00",
+      "comments": [
+        {
+          "id": 49729522,
+          "author": "eggbrain",
+          "text": "Perhaps I'm not understanding it correctly, but here's my take on what the paper is doing.\nImagine you have a problem you want to solve (let's say, identify an OCR'd handwritten character, e.g. the MNIST Dataset). You tell 3 agents \"Hey, each of you take a stab at getting really good at recognizing characters from this dataset. You can take 10 refinement steps to continue to improve \". You can't give each agent unlimited steps of course, because you have a finite amount of compute.\nSo each agent goes off, and by the end, Agent 1 got to 90% accuracy, Agent 2 got to 80% accuracy, and Agent 3 got to 89% accuracy. Agent 1 wins, of course.\nBut then you look at the refinement steps, and after 2 steps, Agent 1 was _already at_ 90% accuracy. So the agent spent the next 8 steps basically not moving at all. Agent 3 on the other hand, perhaps was continuously climbing in accuracy at every refinement step, but hit step 10 and had to stop.\nNow because you recorded every step from every agent, you know what you'd do differently next time -- you'd not allocate as many steps to Agent 1, and give Agent 3 more steps, because perhaps that might result in Agent 3 coming up with a better answer.\nFrom m"
+        },
+        {
+          "id": 49730568,
+          "author": "bob1029",
+          "text": "There is no way this could be reasonably framed as RSI.\nThis iterative, online optimization of an\nexploration policy\nis not recursively intelligent in any way. It simply reallocates the available computational resources to more promising (hopefully) parts of the search space as system conditions change over time."
+        },
+        {
+          "id": 49727821,
+          "author": "rybosworld",
+          "text": "Unless I'm misunderstanding, calling this RSI seems misleading?\nThis looks like an optimization of current training methods, and a good one, but not \"RSI\" in the sense of a system that can perpetually improve itself forever."
+        },
+        {
+          "id": 49730663,
+          "author": "bbor",
+          "text": "ctrl+f 'safe'\nctrl+f 'danger'\nYup, we're all gonna die :("
+        },
+        {
+          "id": 49730359,
+          "author": "dmcrespo",
+          "text": "Calling this paper \"Dream\" seems a bit speculative to me. The idea is interesting and reminded me somewhat of karpathy's work at\nhttps://github.com/karpathy/autoresearch"
+        },
+        {
+          "id": 49730200,
+          "author": "Tycho",
+          "text": "I don’t really understand this. Some real examples would help. Making a “simulator” out of a bunch of historic states does not tell me enough."
+        },
+        {
+          "id": 49728856,
+          "author": "ahmedhossamdev",
+          "text": "The replay simulator from history for off-policy eval is clever - avoids expensive rollouts. Curious how they prevent the policy from overfitting to already-discovered branches and going stale as the search space expands?"
+        },
+        {
+          "id": 49730452,
+          "author": "jonbaer",
+          "text": "Have Sutton and Barto chimed in on \"RSI\" yet? Does anyone know?"
+        }
+      ],
+      "title_ja": "Dream - RSI ：進化する世界による再帰的自己改善",
+      "summary_ja": "ディスカッションのハイライト：私はそれを正しく理解していないかもしれませんが、論文が何をしているのかについての私の見解は次のとおりです。\n解決したい問題があると想像してください（例えば、OCRの手書きのチャットを特定してください/これをRSIとして合理的に枠に入れることはできません。\nこの反復的なオンライン最適化は\n探査方針\n再帰的インテリジェントではありません/私が誤解していない限り、これをRSIと呼ぶのは誤解を招くようですか？\nこれは次のように見えます",
+      "editor_note": "「Dream - RSI ：進化する世界による再帰的自己改善」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 49723408,
+      "title_en": "Mistral X Mozilla: Private, Multilingual AI Browsing",
+      "url": "https://mistral.ai/news/mistral-x-mozilla/",
+      "hn_url": "https://news.ycombinator.com/item?id=49723408",
+      "score": 402,
+      "comment_count": 141,
+      "posted_at": "2026-09-16T08:08:57+00:00",
+      "comments": [
+        {
+          "id": 49724318,
+          "author": "peri-cl",
+          "text": "This is an excellent use case for completely local, small model inference, yet for inexplicable reasons Mozilla wants to normalize uploading your entire private browsing history to a cloud.\nThese (Mistral's and Mozilla's) marketing pages aren't candid enough to clearly explain the difference between local and cloud inference, and that they're asking you to consent to enabling the latter. I'd call that the bare minimum of ethics. If you're in a position of authority over your less technical users, you are ethically obligated to give them the full picture of what are you doing and why they should consent.\n(Aside to any Mozilla people who might be reading HN, your page here[0] has an oversight, it advertises this model as \"Mistral Small 4\" but the hyperlink is to OpenAI's model card for gpt-oss-120b).\n[0]\nhttps://support.mozilla.org/en-US/kb/smart-window-models"
+        },
+        {
+          "id": 49726352,
+          "author": "mattstir",
+          "text": "It's interesting to see Firefox attempt to create slightly more privacy-focused cloud inference infra (assuming you can trust that they adhere to their own policies and don't have bugs, and that their partners adhere to their contractual obligations and don't have bugs). Unfortunately that's still a lot of trust that's pretty much impossible for the end-user to verify, but at least it's something? Arguably it's better than the alternative of directly trusting AI companies that have shown absolutely no regard for other laws like copyright, but the marketing of this as ultra-private still leaves a bad taste. I wish this announcement clarified the cloud aspects directly instead of needing to browse through two layers of links to find how it actually works on a privacy notice."
+        },
+        {
+          "id": 49724287,
+          "author": "sourcecodeplz",
+          "text": "Seems like what Chrome has with the default built-in Gemini Nano model.\nHey at least \"some\" news/things from Mistral. Seems like ages ago when they launched vibe-code.\n> Powers context-aware search, page summaries, and memory retrieval across browser tabs.\n> Live in France and North America, with launches in the UK and Germany planned for later this year.\n> Built on a zero data retention policy; conversations are not saved on Mozilla’s servers by default.\n> Models are fine-tuned on regional languages, dialects, and local nuances to provide native-feeling responses.\n> Extends Mistral’s open-weight AI models directly to consumer web browsing alongside its enterprise offerings."
+        },
+        {
+          "id": 49725294,
+          "author": "mixcocam",
+          "text": "Would be very cool if you could type a long query and the model would just build an advanced google search query using what you typed. You could even ship a tiny model in the browser itself that does that.\nSomething like: \"blog posts which talk about using sending emails to yourself as a notes taking mechanism\".\nThe output could look like: \"note taking\" OR \"notes\" (\"emailing yourself\" OR \"email to myself\" OR \"email yourself\") (inurl:blog OR inurl:posts OR site:medium.com OR site:substack.com)"
+        },
+        {
+          "id": 49728777,
+          "author": "dwedge",
+          "text": "These are two companies that seem to be slipping in ethics recently. I'd prefer this over a chrome and openai offering, but I no longer trust these two to necessarily do the right thing regarding privacy"
+        },
+        {
+          "id": 49724206,
+          "author": "RicDan",
+          "text": "This sounds great, will have to try it out. Interested in the business value they gain from this, as this appears to be free.\nI guess for mistral it's great marketing material.\nEdit: Quite interested in the differences of local optimizations... that does allow for specific sensorship, but alas that's already possible in a more direct, reliable way."
+        },
+        {
+          "id": 49730633,
+          "author": "einpoklum",
+          "text": "\"Mozilla\" and \"private\" are two phrases that don't go well together, these days."
+        },
+        {
+          "id": 49727771,
+          "author": "syntaxing",
+          "text": "It’s not obvious but you can use this with your own local (or any) models.\nhttps://support.mozilla.org/en-US/kb/smart-window-byom"
+        }
+      ],
+      "title_ja": "Mistral X Mozilla ：プライベート、多言語AIブラウジング",
+      "summary_ja": "ディスカッションのハイライト：これは完全にローカルで小さなモデル推論の優れたユースケースですが、Mozillaがプライベートブラウジング履歴全体のアップロードを正規化したいと考えている理由/Firefoxがよりプライバシーに焦点を当てたクラウド推論を作成しようとしているのを見るのは興味深いことです（彼らが独自のポリシーを遵守しており、デフォルトの組み込みGemini Nを持っていないことを信頼できると仮定します/Chromeが持っているもののように見えます",
+      "editor_note": "「Mistral X Mozilla ：プライベート、多言語AIブラウジング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 49710903,
+      "title_en": "Tell the speakers that you liked their talks",
+      "url": "https://ohhelloana.blog/tell-the-speakers/",
+      "hn_url": "https://news.ycombinator.com/item?id=49710903",
+      "score": 140,
+      "comment_count": 35,
+      "posted_at": "2026-09-15T11:28:19+00:00",
+      "comments": [
+        {
+          "id": 49728882,
+          "author": "ynac",
+          "text": "I once gave a short talk at Harvard.  Nearly didn't because I was so intimidated by the crowd.  Got through it, hardly able to read the room because of my internal dialogue of focusing on the content, and also convinced I was a fraud. Then I realized I went over my time limit by almost 50%.  When it was over, my emotions were such a mess I logically thought I should try to cry or scream to let off the overwhelming negative energy I had built up.  It was one unreal bucket of feelings after another.  As I collected my clip board and bag, I walked to the side of the hall where I was sure I had seen an exit, someone dodged in front of me and put their hand out and introduced themselves and started asking questions about the talk.  Took her card and suddenly there was another.  It wasn't until maybe the fourth person when I realized there was a line of at least twenty people.  Yeah, stop and say hi.  Even with critical questions, complaints.  Making a connection with other people is one of the most important things we can do."
+        },
+        {
+          "id": 49729230,
+          "author": "nate",
+          "text": "On the flip of this. For those getting started at their first speaking things, don't freak out when you look over the audience and feel like zero people are registering that you are even using real words :) . I've been on stage a lot: speaking, improv, plays, stuff. And there are countless times you'll actually be able to make some eye contact with the audiecnce if there aren't too bright of a stage light, and you will just see stone cold expressions staring back at you. And you will wonder if words are still coming out of your mouth. :) It happens. The human connection you get with a one on one encounter that your body kind of expects when you talk. Them nodding, or any expression whatsoever often goes completely absent in a speakers setting.\nThat's why \"open with a joke\" is so useful. It's not really for them! It's for you!. If you can hear a laugh from your audience, YOU start to chill out. Your body is like \"ah. the mic is actually on, and I'm not having a stroke\".\nAnother useful tip, if the scenario allows, try to hang out by the front row before your talk and chat someone up. That's who you want to then make eye contact with often during your talk. Their expression will be or"
+        },
+        {
+          "id": 49728768,
+          "author": "dofm",
+          "text": "Tell the speakers\nwhy\nyou liked their talks! And ask them about things you didn't understand.\nSame with bands. \"Loved your set\" is one thing, \"loved your set\" because \"it reminded me of…\"/\"made me feel…\" is another.\nThe other week I said to a singer/songwriter that I had enjoyed her full band set the day before and that her guitarist had a really surprisingly dirty guitar sound, and she said \"I know! and from such a clean-looking gentleman! I'll tell him that, he'll love it\". We then chatted about how her music was (for philosophical reasons) not \"guitar solo\" territory but how inventive and supportive his playing was in that context and I said how well I thought she'd woven it all together.\nThe energy you bring to putting yourself in front of a crowd really in any context, whether professional or entertainment, formal/informal, planned/improvised, you take in part from the feedback from previous attempts; it's difficult to do it otherwise."
+        },
+        {
+          "id": 49728399,
+          "author": "jlev1",
+          "text": "Very true! It’s a funny dynamic where audience members are sometimes intimidated to approach speakers, while the speaker themselves really wishes people would approach them (and is worried about what it means if nobody does)."
+        },
+        {
+          "id": 49728407,
+          "author": "sevenseacat",
+          "text": "I'm giving my first conference talk in a few weeks.\nI'm hoping it makes people want to talk to me so I don't end up sitting alone during breaks! I have not managed to experience the mythical hallway track that everyone raves about...\n(Another speaker said they're bringing stickers to bribe people - shit why didn't I think of that)"
+        },
+        {
+          "id": 49729615,
+          "author": "themightyquinn",
+          "text": "Someone echoed a similar sentiment but in general I think people get great satisfaction and pride out of being told their work is good. When I worked in the food service industry nothing made me happier than hearing someone genuinely enjoyed the meal. It’s left such a lasting impression that anytime I enjoy a coffee, meal, etc I try to look the person in the eyes an earnestly say “hey this was really good.” If you don’t do this a lot you may be surprised to see just how happy this makes the person working. It doesn’t matter if they made the food or served it or even just worked the register."
+        },
+        {
+          "id": 49729701,
+          "author": "andai",
+          "text": "I realized recently, of the thousands of blog posts I've read, videos I've watched, books I've read, I only reached out to the creators a handful of times.\nAnd my friends are often surprised by me reaching out to strangers, so I seem to be unusually\nextroverted\nin this regard.\nWhich implies that there could be thousands of people out there whose lives I've affected (for better or worse!), and I'll never know. If only a fraction of a percent of them get back to me. Then that's just how it works."
+        },
+        {
+          "id": 49729357,
+          "author": "rurp",
+          "text": "Beyond speakers, this is great advice for anyone whose public work you appreciate that isn't a major celebrity. I've sent questions and compliments to creators of all kinds of work I enjoy and more often than not gotten a genuinely thoughtful and appreciative response back. It could be a small website creator, a researcher in a field outside my own, an author, or an open source project maintainer.\nMy sense is that not many people do this and anyone who is not mega-famous rarely hears from strangers who like their work."
+        }
+      ],
+      "title_ja": "スピーカーに講演が気に入ったことを伝える",
+      "summary_ja": "ディスカッションのハイライト：私はかつてハーバード大学で短い講演をしたことがあります/これをひっくり返して/スピーカーに伝える\nwhy\n彼らの話が気に入りました！ あなたが理解していなかったことについて尋ねてください。\nバンドと同じ",
+      "editor_note": "「スピーカーに講演が気に入ったことを伝える」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49717558,
+      "title_en": "Introducing System One Models and Jev",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "hn_url": "https://news.ycombinator.com/item?id=49717558",
+      "score": 1728,
+      "comment_count": 463,
+      "posted_at": "2026-09-15T19:25:03+00:00",
+      "comments": [
+        {
+          "id": 49718492,
+          "author": "jacobgold",
+          "text": "First, congrats to the team on launching something genuinely interesting and new.\nSeems like a more accurate title would be \"Jev: Trading general purpose generation for fast typed inference\" or something like that.\nThis is interesting, but the speed comparison seems misleading? A generative model that can output code in a Turing-complete language can do anything a computer can do.\nJev can only generate structured output, right? This is probably super useful for classification/routing/scoring, but it's nothing like the code generating models we're all using today for code and automation.\nAlso \"can't hallucinate\" seems wrong? Sure, it can't emit an invalid type, but it can still emit a completely wrong valid value. You can enforce structured output from an LLM too, with an appropriate harness, etc.\nAssuming there's no funny business, the Doom demo is cool."
+        },
+        {
+          "id": 49730626,
+          "author": "boutell",
+          "text": "I wonder how many choices you can give this thing in multiple choice response mode. I'm guessing you could give it enough choices to produce Turing complete programs one symbol at a time when running in a loop, or to hold a conversation when given a vocabulary as the choices. It would be particularly hilarious to just let it choose the next ASCII character of output in a loop.\nMy guess is that due to its design there is no support for prompt caching, as there would normally be no reason for it. So the performance of my idea would probably be appalling as every step in the loop would reevaluate every input and output token. But it would be interesting to see the outcome."
+        },
+        {
+          "id": 49721150,
+          "author": "cfowles",
+          "text": "Wasn't really till seeing this home assistant demo they have (\nhttps://www.loom.com/share/18c4dbcf8db546dfb2d7f2ef018e78e4\n) that the value really clicked for me.\nSeems really cool."
+        },
+        {
+          "id": 49723461,
+          "author": "vintermann",
+          "text": "> Structured outputs slot into ordinary software as fuzzy decision rules: classify, route, score, extract, or branch where hand-written logic is too brittle.\nOh, I have one of those use cases, matching people in genealogy trees. You can ask all sorts of questions: do the names match? Do they match within some edit distance? Do they match according to soundex/ metaphone rules (which are themselves a ginormous set of rules for letters and letter combinations which may or may not result in the same sounds, hand-coded as a huge if tree by a linguist not a programmer)? What about their relatives, do they match by the same rules? Should we incorporate domain knowledge about local naming customs? Etc etc.\nI pointed a coding agent to this problem, and it aggressively started coming up with complex scoring rules and testing them against real datasets. Which led to sort-of acceptable results, but it still missed lots of cases which were obvious to a human, and had false positives which were obvious to a human. Which I could trade off, and slightly improve, with more back and forth with the coding agent.\nPointing a good LLM to all the information about two people, would of course give great r"
+        },
+        {
+          "id": 49719442,
+          "author": "futurisold",
+          "text": "This, combined with contracts, could make a lot of things so much fun now!\nFor those who don't know (which is probably everyone but me), I ported the design-by-contract pattern in Python and combined it with LLMs. This was early 2025. I originally wrote about it here:\nhttps://leoveanu.com/2025-03-01-dbc/\n. Contracts are a core feature of SymbolicAI ever since. The community seems to have loved it too (\nhttps://news.ycombinator.com/item?id=44399234\n).\nI think I'm starting to glimpse the implications and it's gonna change agentic workloads if it holds up to scrutiny. It's too early for me to tell anything other than jot down some rough thoughts.\nIn short, you get blazingly fast semantic branching you can use in control flows. For contracts, I can now directly take the data model that you have to design and convert it into Jev's expected format. Or I can use Jev for semantic branching in postconditions.\nIf my understanding is correct, that should be doable, but I need to think more about it. It could be that with Jev I can finally “compile contracts” and better chain them into workflows, which is something I always wanted but didn't know how to do properly.\nEager to test. On the waiti"
+        },
+        {
+          "id": 49720612,
+          "author": "maltalex",
+          "text": "This is a very promising idea - a model that takes arbitrary text input (which can be a complex json), plus a set of questions (yes/no, multiple-choice, or score) and quickly (milliseconds) and cheaply ($0.042/MTok) answers those questions.\nUnfortunately, none of this is explained in the announcement, but the documentation [0] is pretty good.\n[0]:\nhttps://docs.typesafe.ai/concepts/how-to-build-with-system-o..."
+        },
+        {
+          "id": 49718350,
+          "author": "big_toast",
+          "text": "It seems like the docs[0] are a better explanation? The comparison to llm tokens is kinda confusing.\nIt looks like the model takes as input a state (structured text? not sure if multi-modal) and a question (as a \"Choice\", \"Score\", or \"Noul\") with some additional augmentations possible. Then outputs the question's answers as appropriate (e.g. a choice, accompanying probabilities, confidence).\nEdit: On the AI primer page, it looks like they do the RLCD on a pre-trained base model?\n[0]:\nhttps://docs.typesafe.ai/concepts/system-one"
+        },
+        {
+          "id": 49718291,
+          "author": "skerit",
+          "text": "So in theory you could feed it incomplete text, and then ask it for the probabilities of what the next character could be?"
+        }
+      ],
+      "title_ja": "System OneモデルとJEVのご紹介",
+      "summary_ja": "ディスカッションのハイライト：まず、本当に興味深く新しいものを立ち上げたことをチームにお祝いします。\nより正確なタイトルは「Jev: Trading general purpose generation for fast typed/I wonder how many choices you can give this thing in multiple choice response mode/Wasn 't really until seeing this home assistant demo they have (\nhttps://www.loom.com/share/18c4dbcf8db546dfb2d7f2ef018e78e4 \n） 値が本当にクリックされたのは",
+      "editor_note": "「System OneモデルとJEVのご紹介」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 49729412,
+      "title_en": "Claude Cowork and chat are now one Claude",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "hn_url": "https://news.ycombinator.com/item?id=49729412",
+      "score": 73,
+      "comment_count": 97,
+      "posted_at": "2026-09-16T16:26:25+00:00",
+      "comments": [
+        {
+          "id": 49729868,
+          "author": "Sherveen",
+          "text": "People keep asking for this w/ Codex, too, and I really regret that both labs seem inclined to listen.\nIf you ask a thinking/research type question in 'Chat' versus 'Work' mode in these products -- say, something complex about politics, or do a multiturn business strategy, or want to work thru a new concept, you get\nvery\ndifferent answers.\nThe harness, steering, etc. in the chat/reasoning products is\nso much better\nfor this type of question (that doesn't require code as a primary substrate).\nEven as someone who mainlines like, 7 coding agents at all times, I regret that productivity fever will mean the regression of think-first-act-later AI UX."
+        },
+        {
+          "id": 49729873,
+          "author": "royal__",
+          "text": "These kinds of updates always have this romantic scenario of someone having Claude develop a presentation or something on their way to work between multiple devices, which actually feels a little sad and does not align with what happens in my life at all."
+        },
+        {
+          "id": 49729897,
+          "author": "petcat",
+          "text": "Nobody really knows how to product-ize any of these LLM interfaces beyond just chat.\nThey don't want a traditional UI with buttons and forms and labels because they want the interface to be \"chat\".  The problem is that \"chat\" is tedious.  And the turn-based, linear nature of the chat interaction model makes it even more tedious and unproductive."
+        },
+        {
+          "id": 49729983,
+          "author": "adrithmetiqa",
+          "text": "Most normal users have no idea whether to choose chat or cowork.  This makes sense for 95% of customers."
+        },
+        {
+          "id": 49729833,
+          "author": "leohonexus",
+          "text": "To Anthropic: I hope you don't merge Claude Code and chat, I like keeping their memory separate."
+        },
+        {
+          "id": 49729846,
+          "author": "throwaway2027",
+          "text": "I'm starting to explore alternative options because Claude has become an awful value proposition. Any suggestions?"
+        },
+        {
+          "id": 49730108,
+          "author": "felixrieseberg",
+          "text": "Hi, this is my team! Happy to answer any questions.\nThere's a lot in this launch, but the core idea is to simplify the product while giving users access to more capabilities. You no longer need to know ahead of time how much work a conversation might involve. If you're at your computer, Claude can use your local files and apps. If you close your laptop, Claude can keep working on its own computer.\nThis launch also lets you use Claude Design, Claude Docs, and Claude Slides directly from conversations. That's possible because we made Artifacts much more powerful: whenever Claude makes you an app, website, design system, or anything else, it can deploy an artifact with multiplayer features and databases.\nAs many of you probably know from your own work, giving users more power while making the experience simpler is really, really hard. It took many iterations to get to this version. We're far from done, but I expect people will be able to do much more while having to think about it less."
+        },
+        {
+          "id": 49730425,
+          "author": "chenster",
+          "text": "That's the natural outcome. AI will eventually collapse into a single, universal entry point, much like Google Search became the default gateway for the web."
+        }
+      ],
+      "title_ja": "Claude CoworkとチャットがClaudeの1つになりました",
+      "summary_ja": "ディスカッションのハイライト：人々はコーデックスでもこれを求め続けています。私は両方のラボが耳を傾けているように見えることを本当に後悔しています。\n「チャット」モードと「仕事」モードで思考/リサーチタイプの質問をする場合/これらの種類のアップデートでは、クロードが複数のデバイス間でプレゼンテーションや何かを開発するというロマンチックなシナリオが常にあります。実際には/誰もこれらのLLMインターのいずれかを製品化する方法を知りません",
+      "editor_note": "「Claude CoworkとチャットがClaudeの1つになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49711544,
+      "title_en": "Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations",
+      "url": "https://github.com/arnegiacomo/fugleramme",
+      "hn_url": "https://news.ycombinator.com/item?id=49711544",
+      "score": 1895,
+      "comment_count": 224,
+      "posted_at": "2026-09-15T12:31:10+00:00",
+      "comments": [
+        {
+          "id": 49717700,
+          "author": "jadbox",
+          "text": "This is the coolest thing on HN that I've seen in a minute. The whole thing is a perfect blend of ideas with the end result of something that feels... magical. Honestly this is the highest inspiration to me as a builder as I just want to create magical experiences, even if they are just small oddities."
+        },
+        {
+          "id": 49715349,
+          "author": "divbzero",
+          "text": "The underlying classifier, BirdNET, is a traditional neural network and not an LLM:\nhttps://doi.org/10.1016/j.ecoinf.2021.101236"
+        },
+        {
+          "id": 49713097,
+          "author": "joshstrange",
+          "text": "e-ink is so much fun, especially when combined with ESP32 or BTLE boards. I currently have 4 around my house displaying book quotes that I've highlighted in KOReader and they bring me joy each time I see them. They are simple and do one thing very well.\nI just got and setup a BTLE e-ink driver the other day and according to my calculations it will last _years_ on a single charge (2000mAh) even with multiple refreshes per day (crazy compared to the Wifi ones). Year+ lifetime completely changes the calculus for where to put these IMHO.\nI'm considering designing a multiple-screen \"art\" piece to hang on my wall and playing around with various ideas (on both content and design).\nLLMs + 3D Printer + e-ink is my new favorite hobby."
+        },
+        {
+          "id": 49714884,
+          "author": "theturtletalks",
+          "text": "So many bird projects recently and I think it’s all thanks to this project[0]\nIt seems IP over Avian Carriers is finally within reach!\n0.\nhttps://github.com/tphakala/birdnet-go"
+        },
+        {
+          "id": 49730213,
+          "author": "pauleibye",
+          "text": "I think this is a cool idea but I would never want ai generated art on my wall."
+        },
+        {
+          "id": 49715696,
+          "author": "thomasfl",
+          "text": "As a fellow Norwegian I must say that this is pure art by the developer Arne Munthe-Kaas."
+        },
+        {
+          "id": 49713446,
+          "author": "MiloLeo",
+          "text": "This is such a cool project. My mom would absolutely love this if I made it as a gift. This may be a good project."
+        },
+        {
+          "id": 49714603,
+          "author": "mandycult",
+          "text": "This is the sweetest thing I've seen in a long time :')"
+        }
+      ],
+      "title_ja": "ショーHN ：鳥を聞き取り、1800年代のイラストとして描くeインクフレーム",
+      "summary_ja": "ディスカッションハイライト：これは私が1分間で見たHNで最もクールなことです/基礎となる分類子であるBirdNETは、LLMではなく従来のニューラルネットワークです。\nhttps://doi.org/10.1016/j.ecoinf.2021.101236/e - inkは、特にESP 32またはBTLEボードと組み合わせるととても楽しいです",
+      "editor_note": "「ショーHN ：鳥を聞き取り、1800年代のイラストとして描くeインクフレーム」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 49712185,
+      "title_en": "How big are factorials?",
+      "url": "https://eli.thegreenplace.net/2026/how-big-are-factorials/",
+      "hn_url": "https://news.ycombinator.com/item?id=49712185",
+      "score": 45,
+      "comment_count": 14,
+      "posted_at": "2026-09-15T13:25:38+00:00",
+      "comments": [
+        {
+          "id": 49728170,
+          "author": "ninju",
+          "text": "The author's casual mention of 52! at the opening of the article triggered an OLD webpage that I saw many years ago\nhttps://czep.net/weblog/52cards.html\nAnyone know how to determine the age of this page (it's got be at least 20yrs old)"
+        },
+        {
+          "id": 49729119,
+          "author": "abetusk",
+          "text": "lg(n!) grows roughly as (n lg n). Constants matter, of course, but to that's the rough estimate.\nAs an aside, if you take numbers from 0 to (n-1) in an array, there are n! configurations, so representing each configuration or differentiating each configuration take n lg n bits. So, in some sense, taking a mapping that's able to differentiate the input state to map to the ordered state takes at least O(n lg n) time, the standard runtime of a basic sorting algorithm.\nAny additional assumptions (n larger than maximum element, distribution of elements) helps reduce this."
+        },
+        {
+          "id": 49727662,
+          "author": "movpasd",
+          "text": "Stirling's approximation is also used a lot in statistical mechanics, because you often have to calculate logs of state space sizes, which means lots of combinatorics and thus lots of factorials. Plus it's continuous so you can do calculus."
+        },
+        {
+          "id": 49728559,
+          "author": "Sharlin",
+          "text": "A quick and dirty approximation of the number of digits in n! is n lg n, which approximates n! from above, via the inequality\n1 * 2 * … * n ≤ n * … * n.\n(This approximation should be familiar to many from an algorithmics class.)\nFor a tighter bound, use n lg n - n/2, or a better approximation of ln 10 in place of 1/2 if you wish. This comes from Stirling's approximation which notes that\nln n! = n ln n - n + O(ln n)."
+        },
+        {
+          "id": 49727624,
+          "author": "pagade",
+          "text": "Reminds me of: Professor asked us to find the biggest factorial using C programming language. And then using LISP. You can imagine our surprise."
+        },
+        {
+          "id": 49719543,
+          "author": "brudgers",
+          "text": "Factorial (n) for n > 24 is greater than 10^n."
+        }
+      ],
+      "title_ja": "階乗はどのくらいの大きさですか？",
+      "summary_ja": "ディスカッションハイライト：記事の冒頭で筆者がカジュアルに52!と言及したことで、何年も前に見た古いウェブページがトリガーされました\nhttps://czep.net/weblog/52cards.html\n/lg (n!)を決定する方法を知っている人は誰でも、(n lg n)とほぼ同じように成長します/スターリングの近似は統計力学でもよく使用されます。これは、状態空間サイズのログを計算する必要があるためです。これは、多くの組み合わせを意味し、したがって多くの",
+      "editor_note": "「階乗はどのくらいの大きさですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49721322,
+      "title_en": "Apple Reference Image: A New Approach for Verified Photography",
+      "url": "https://security.apple.com/blog/apple-reference-image/",
+      "hn_url": "https://news.ycombinator.com/item?id=49721322",
+      "score": 449,
+      "comment_count": 296,
+      "posted_at": "2026-09-16T02:07:31+00:00",
+      "comments": [
+        {
+          "id": 49722362,
+          "author": "tgsovlerkhgsel",
+          "text": "This is really clever from Apple. The journalist use case is just the PR story. This will be really useful for identity verification and insurance apps, and has the potential to shift from \"you need a smartphone to be able to live normally\" to \"you need an iPhone to be able to live normally\".\nThere are already plenty of insurances that require you to submit claims through a smartphone app that tries to essentially do this by capturing sensor metadata etc. - those don't need to be nation-state resilient, just Joe the Crackhead Insurance Scammer resilient, so this works. Likewise, more and more things online require identity verification (either officially or disguised as age verification).\nEdit: And while \"a nation state actor can spoof this\" is a problem for the journalism use case, the insurance/ID verification use cases are\nperfectly fine\nwith anything that raises the bar but could be bypassed with enough effort. Also, the journalism use case suffers from the same fundamental issue all of these use cases suffer from: People will \"verify\" the picture by looking at the repost of a screenshot of the verification UI, not by verifying the original themselves."
+        },
+        {
+          "id": 49721602,
+          "author": "tristanj",
+          "text": "Apple doesn't address the modified photo replay situation, where you take a picture of an already edited image.\nPhotoshop / AI-gen an image -> display on a high-resolution monitor -> photograph the monitor with iPhone 18 Pro -> valid Apple Reference image.\nTo get valid reference photos, you can go to the actual physical location, put the iPhone/monitor in a cardboard box to block external light, then photograph the monitor. Paint the inside of the box using Vantablack (stopping reflections) and cover the LiDAR projector with tape.\nI can't wait to see Apple Verified™ photos of UFOs flying over the Golden Gate Bridge."
+        },
+        {
+          "id": 49722593,
+          "author": "modeless",
+          "text": "This is so insanely complex and requires placing trust in the correctness of so many pieces, many of them closed-source. And uploading every verified \"developed\" image to Apple's servers. And giving up full control of the software and hardware you \"own\". All to achieve a goal of \"verifying\" photons, which is only a part of the real problem of verifying the truth of an event that was photographed.\nI hope that companies and governments don't start forcing us to use this stuff by requiring it for their services."
+        },
+        {
+          "id": 49722052,
+          "author": "akersten",
+          "text": "The fundamental issue isn't technical. It's that people will see the \"certified real\" tag and just take the image for face value of whatever narrative someone wants to convey. They'll see the \"Real Photo, Verified by Apple\" and their brain will short circuit [0]\nI don't think we should have this, for that reason alone (but many others too).\n[0]:\nhttps://imgur.com/fVPkpuQ"
+        },
+        {
+          "id": 49723274,
+          "author": "rickdeckard",
+          "text": "To me the weakest spot of this whole endeavor is how this will create false confidence in a story just because the accompanying images pass Apple's verification.\nLike with the Watch Ultra (attacking the diving-watch market with the sheer volume-scale of selling the development to\neveryone\nbuying a Watch Ultra), Apple is attacking the trusted-imaging market with the same strategy.\nOkay, fine. Will work for sure, this will disrupt the trusted-imaging market and moreover make Apple a service-provider in this industry (with the ramp-up cost paid by customers buying iPhones for entirely different purposes).\nBut creating this impression and media-buzz that Apple is now verifying more than just the digital authenticity of an image may shift the public scrutiny of MANY media/online statements:\nThere is a risk that random claims (and propaganda) will be given more credibility in the public eye just because they came with images that were confirmed to be \"taken like this on an iPhone\""
+        },
+        {
+          "id": 49722807,
+          "author": "jeroenhd",
+          "text": "That's a lot of words to say \"we re-invented C2PA but made worse by getting our servers involved somehow\".\nLike with C2PA, the entire thing hinges on nobody being able to dump keys or trick the TPM into signing arbitrary image data. The timestamping server is a nice idea (though I don't see why they can't just use a normal timestamping server, I guess to keep control over the protocol) but it doesn't solve the fundamental problem that defeated C2PA."
+        },
+        {
+          "id": 49729597,
+          "author": "NeoByte",
+          "text": "Canon tried this 20 years ago with DSLRs. Nikon had an authentication system. Both were broken. The keys ended up on Pastebin. Apple's hardware security is better, but history suggests this is a temporary advantage. The real question is whether the system will be revoked when (not if) it's broken, and whether Apple will have the guts to retroactively invalidate millions of \"verified' photos\""
+        },
+        {
+          "id": 49723006,
+          "author": "RandomGerm4n",
+          "text": "This approach assumes that the smartphone in question is not under the user’s control. That should generally not be the case. When I buy a device, I have the right to install whatever I want on it and to make the camera sensors believe whatever I want. If something cannot be implemented securely under these circumstances, it’s not a good idea, and other solutions are needed. I once tested a video identification system for a company that the manufacturer claimed was absolutely secure. All it took was rooting the smartphone and bypassing the root detection. After that, you could play any pre recorded video, which would then be recognized as camera input. Under those conditions, it was easy to manipulate a video so that a company employee would consider it real enough to verify the test subject.\nIt’s simply not technically possible to verify the authenticity of the camera input with 100% certainty. Pretending that it is possible only creates problems. Then someone fakes evidence, but all the normies who have no clue about technology assume that it must be real. You see this with AI detectors too they recognize random texts as generated, yet an unbelievable number of people believe the"
+        }
+      ],
+      "title_ja": "Appleリファレンス画像：認証済み写真の新しいアプローチ",
+      "summary_ja": "ディスカッションのハイライト：これはApple/Appleがすでに編集された画像の写真を撮るという変更された写真のリプレイ状況に対処していないことから、非常に賢明です。\nPhotoshop/AI - gen an image -> display on a high resolution monitor/This is so insanely complex and requires trusting in the correctness of so many pieces, many of them closed - source",
+      "editor_note": "「Appleリファレンス画像：認証済み写真の新しいアプローチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 10,
+      "id": 49717298,
+      "title_en": "The Siberian Ice Maiden and the Scythian World",
+      "url": "https://patrickwyman.substack.com/p/the-siberian-ice-maiden-and-the-scythian",
+      "hn_url": "https://news.ycombinator.com/item?id=49717298",
+      "score": 8,
+      "comment_count": 0,
+      "posted_at": "2026-09-15T19:09:09+00:00",
+      "comments": [],
+      "title_ja": "シベリアの氷の乙女とスキタイの世界",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「シベリアの氷の乙女とスキタイの世界」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49726586,
+      "title_en": "Hackers Got Inside a Flock Camera",
+      "url": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+      "hn_url": "https://news.ycombinator.com/item?id=49726586",
+      "score": 307,
+      "comment_count": 149,
+      "posted_at": "2026-09-16T13:18:47+00:00",
+      "comments": [
+        {
+          "id": 49729194,
+          "author": "vayup",
+          "text": "If you want to know what a \"Vulnerability Disclosure Policy\" (VDP) would look like if its main purpose is to claim we have VDP and create an appearance of responsible security posture, but not really to learn about vulnerabilities - read Flock's VDP.\nThey sincerely welcome your vulnerability disclosures, except in cases where you have to \"interact\" with the device/service or download its data. Other than that TINY carveout, everything is okay.\nOh, if the vuln about configuration and hardening \"preferences\" like SSL/TSL - Sorry, not interested.\nAnd also, infrastructure vulnerabilities like DNS config - no no, try harder.\nI know what you're thinking..ha ha...but we are good guys. You can still report vulnerabilities in the above categories, but the onus is on you to convince us that we should care about them. It is only fair.\nhttps://www.flocksafety.com/legal/vulnerability-disclosure-p..."
+        },
+        {
+          "id": 49728986,
+          "author": "killbot5000",
+          "text": "This is pure laziness aka “reduced time to market” on the part of Flock.\nIt takes time and effort to think through proper secure boot architecture and to implement key management in a way that doesn’t kill developer productivity.\nTheir product managers, though, should have realized that setting these up in unsecured public spaces means that their threat model really does include local physical access to everything.\nUsing off the shelf hardware and software stacks all but guarantees attackers have tools at their fingertips to exploit said physical access.\nGiven all the recent exploits hitting the kernel, there’s a good chance that there exists an exploitable over-the-air vulnerability present in their WiFi/bluetooth stack, too."
+        },
+        {
+          "id": 49727235,
+          "author": "drfloyd51",
+          "text": "So… all that data is literally there for any unauthorized person to walk up and take it.\nIt’s not even suitably encrypted on device?\nZero trust in anything Flock says."
+        },
+        {
+          "id": 49726646,
+          "author": "driverdan",
+          "text": "This reporting was done in collaboration with 404media. Here's the discussion for 404's article:\nhttps://news.ycombinator.com/item?id=49726577\nDistributed Denial of Secrets has published the partition images:\nhttps://ddosecrets.org/article/flock-alpr-camera"
+        },
+        {
+          "id": 49727757,
+          "author": "petcat",
+          "text": "> According to our analysis, the camera’s logs recorded about 21 days of activity across several periods. During those windows, the device photographed roughly 50,200 vehicles and generated about 1.6 million images. On a typical day, it logged around 3,300 vehicles, with a high of 4,454.\nHas there been any report about which state this camera was recovered in?  New Hampshire has a strict 3 minute rule for non-hit plate data before the captured images and records must be deleted [1].\n[1] (N.H. Rev. Stat. § 261:75-b) requires ALPR systems to delete non-hit plate data within 3 minutes"
+        },
+        {
+          "id": 49729257,
+          "author": "inanutshellus",
+          "text": "Curious how/why all this negative attention is focused directly on the Flock brand (current example notwithstanding)?\nSeems like if I were a competitor of Flock I'd be pretty happy right now and all this negative press is making them artificially cheap to buyout right now.\nMotorola/Vigilant, Rekor, Leonardo/ELSAG, and Axon are huge companies making mint off the same thing and no once in 20 years have I seen this level of attention... not on the overarching issue of surveillance-state-ing, but of one particular company."
+        },
+        {
+          "id": 49730032,
+          "author": "Grimeton",
+          "text": "All these cameras do is pre-select the images that are worthy uploading. Everything else happens at Flock.\nThat's why they don't give anything about the camera's security.\nThe images are all from a public place, so no privacy expectations and what's theworst that could happen? Someone uploads their cat images or the pr0n collection?\nAi figures that one out rather quickly."
+        },
+        {
+          "id": 49727778,
+          "author": "writtenone",
+          "text": "A friend in China built a Flock overlay network that sends live video and audio from ~100 cameras near me to an AWS server for processing and search."
+        }
+      ],
+      "title_ja": "Hackers Got Inside a Flock Camera",
+      "summary_ja": "ディスカッションのハイライト：「脆弱性開示ポリシー」（ VDP ）の主な目的がVDPを所有していると主張し、責任あるセキュリティポストの外観を作成することである場合、「脆弱性開示ポリシー」（ VDP ）がどのようなものになるかを知りたい場合/これは純粋な怠惰であり、Flock側の「市場投入までの時間の短縮」です。\n適切な安全なブートアーキテクチャを検討し、鍵管理i/Soを実装するには時間と労力がかかります。",
+      "editor_note": "「Hackers Got Inside a Flock Camera」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 12,
+      "id": 49728733,
+      "title_en": "Can we stop with the uptime percentages?",
+      "url": "https://blog.jim-nielsen.com/2026/stop-with-the-uptime-percentage/",
+      "hn_url": "https://news.ycombinator.com/item?id=49728733",
+      "score": 74,
+      "comment_count": 58,
+      "posted_at": "2026-09-16T15:40:04+00:00",
+      "comments": [
+        {
+          "id": 49730516,
+          "author": "hdgvhicv",
+          "text": "I’ve worked in systems which at worse have had three nines for years, but I’ve also worked in systems where five nines is a failure.\nThis attitude of modern tech claiming 98% is good just doesn’t work in the old tech acceptance. We had individual components fail all the time. We’re still looking at a 230ms outage to a branch office last week caused by a power failure combined with a badly plumbed power distribution.\nModern software people don’t consider 230ms to be an outage. Glad they don’t work in electricity.\n(The failure we had was only on the services we guarentee at 99.1%, our lowest sla. After that there’s 99.95 and 99.999.\n(In reality we reach five nines year after year on even the lowest levels, but there are major concerns like “large bomb in data centre” which could cause some of our less critical units to drop way more than 5 minutes a year."
+        },
+        {
+          "id": 49729513,
+          "author": "proxysna",
+          "text": "Wider audience started to use status pages because the service unreliability became so much more noticeable than before and not the other way around. I never had to use a status page for bear blog or protonmail because i never had and issue with it or just i never noticed.\nI am now _required_ to consult status page of github, circleci or MS services etc because i need to know why a build is not passing, why i cannot open a repo, why is my work stalling.\nPercentages matter, it is just so much more obvious why they matter when it comes down to important pieces of the internet like github. And i highly doubt the number of 12 hours in the last month. MS has been downplaying the issues they have with GH performance for a while now and i don't think it is time to start to believe them yet. Maintaining these pieces of infrastructure is responsibility and a burden.\nOverall i would be careful with \"nonlinear significance of numbers near 100%\" we are talking gh being well into the 90's this year and one number that infra people are also often being reminded about is that \"1% is 3.5 days\".\nThings are tough for gh people and i feel for them but they are not a startup or a underdog of some sort"
+        },
+        {
+          "id": 49729213,
+          "author": "hx8",
+          "text": "> We say something like:\n> GitHub Actions: 12 hours affected in the last 30 days (98.31% uptime).\nThis is trying to shine the most favorable possible light onto a deteriorating situation.  It doesn't take away from the fact that most businesses have measurable missed revenue in downtime.  Customers that shop somewhere else, ads that were never severed, leads that grew a little colder.  12 hours of downed GitHub results in millions of dollars of lost developer productivity that was externalized by Microsoft to other companies.\nWe shouldn't be trying to spin downtime as \"just a few hours a month.\"  Those hours cost real dollars."
+        },
+        {
+          "id": 49729332,
+          "author": "teraflop",
+          "text": "Separately from how you present the number, the very concept of \"uptime\" as a single number is a bit muddy in the context of a distributed system, where different components can be differently available for different users.\nAlso, 0.1% downtime in the form of a 45-minute outage per month is very different from 0.1% of requests failing in brief bursts. You often see downtime reported as \"increased error rates\" which is so vague as to be meaningless.\nGoogle's \"windowed user-uptime\" attempts to deal with this a bit better, by exposing different views of the data instead of trying to condense uptime into a single number:\nhttps://www.usenix.org/system/files/nsdi20-paper-hauer.pdf"
+        },
+        {
+          "id": 49729170,
+          "author": "runjake",
+          "text": "I don't really care about percentages, either. But for some industries, the difference between \"two 9s\" and \"five 9s\" can be millions of dollars, so that's why they're published that way to the customer."
+        },
+        {
+          "id": 49730209,
+          "author": "pluc",
+          "text": "We've stopped with our caring about quality and understanding so I don't see why we'd keep caring about reliability and availability. How are you going to pinpoint performance issues when you have no idea how your app works?\nPoint the AI at your logs, tell it to fix things, rinse and repeat. It's faster than debugging, and fast is good."
+        },
+        {
+          "id": 49730317,
+          "author": "jdauriemma",
+          "text": "I think this idea is objectively good, but practically hazardous.  \"Four nines\" is a meme at this point, and it's a helpful one: a commonly understood gold standard.  Few people know that translates to roughly 4 minutes and 19 seconds of downtime per month.  Since service quality is degrading, I fear that changing the way we express those uptime might also unintentionally provide convenient cover to reset expectations, e.g. 10 minutes of downtime is the new norm for reliability.  Or 30 minutes.  I don't think we should yield the Overton Window, so to speak, to this."
+        },
+        {
+          "id": 49729546,
+          "author": "dmurray",
+          "text": "I usually tell people you don't need as much reliability as you think.\nThree nines reliability is great for most purposes. 8 hours downtime a year.\nIf your system produces money at a constant rate, it captures 99.9% of the available money. Even two nines or one nine might be pretty good on that basis, when the alternative is spending 2x or 10x as much - let's build another unreliable system with that money that captures some other independent market opportunity.\nPoor reliability is a problem where you need to chain many systems together, or where the cost of a single failure is very large compared to a success. Or - as happens commonly because of load - if your periods of unreliability are correlated with periods of maximum opportunity, like an e-commerce site failing on Black Friday or a trading system failing when the market is most busy. But if you don't have one of those cases, evaluate whether investing in reliability is actually worth it to you.\nGitHub is an example where two nines of reliability ought to be OK. The argument against it is that it's bad marketing to have an unreliable service, especially one aimed at software engineers. And if GitHub is largely a marketing pla"
+        }
+      ],
+      "title_ja": "稼働時間のパーセンテージで止めることはできますか？",
+      "summary_ja": "ディスカッションのハイライト：私は最悪の場合、長年にわたって3つの9を持つシステムで働いてきましたが、5つの9が失敗するシステムでも働いてきました。\n98 ％がゴーであると主張する現代のテクノロジーのこの態度/サービスの信頼性が以前よりもはるかに顕著になったため、より多くのオーディエンスがステータスページを使用し始めました。その逆ではありません/>次のようなことを言います。\n> GitHubアクション：過去30日間に影響を受けた12時間（ 98.31 ％アップティ",
+      "editor_note": "「稼働時間のパーセンテージで止めることはできますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49724927,
+      "title_en": "The Google Play app review process now regularly takes longer than a week",
+      "url": "https://gultsch.social/@daniel/117280438824908947",
+      "hn_url": "https://news.ycombinator.com/item?id=49724927",
+      "score": 280,
+      "comment_count": 260,
+      "posted_at": "2026-09-16T11:19:11+00:00",
+      "comments": [
+        {
+          "id": 49726697,
+          "author": "greysonp",
+          "text": "With Signal, the biggest issue we have is that review times are extremely inconsistent. Sometimes it's 4 hours, sometimes it's 5 days, and there's no visibility as to why. Our working theory is that there's automated and manual queues, and occasionally, for whatever reason, we fall into the manual queue. But when you work on an app that has weekly updates, randomly getting hit with a review time of several days really throws off your groove. And it can obviously be terrible for moments where you're fixing a critical issue."
+        },
+        {
+          "id": 49726372,
+          "author": "abricq",
+          "text": "By the way, the same is happening for the Apple Store.\nTheir review process is advocated as usually within 24 hours (\nand heavily advertised by Apple as such, see\nhttps://developer.apple.com/distribute/app-review/\n) and it is taking now much longer.\nIn the last month, I had to go through the review process twice, and twice I needed to contact them personally after waiting for 1 week of waiting. It did however helped, after every human contact I was reviewed within a few hours.\nI got this explanation from them...\n> We are currently experiencing a higher-than-normal amount of inquiries and have been unable to respond in the time frame that we would prefer. During these periods of high volume, the app review time will take longer than average, and we cannot currently provide a concrete timeline for when your specific app(s) will be finished with the process\nI'm guessing, AI slots invading the store."
+        },
+        {
+          "id": 49726755,
+          "author": "davidmurdoch",
+          "text": "I'm partly to blame. I accidentally ran an illegal unregulated money transference service over Google Play.\nIt let users cash out their Google Play Credits for real cash, which I automatically wired them.\nSomeone then hacked in to a major bookstore chain, stole piles of Google Play Gift cards, activated them using their access, and used my app to get cash for them.\nLuckily, the whole thing blew up on me before I got in serious trouble, rightfully so, and the app was removed by Google, then an investigation followed. A ton of copycat apps popped up immediately after, then a few months months later Google announced their app review process."
+        },
+        {
+          "id": 49728625,
+          "author": "IvanK_net",
+          "text": "My tool is used by 1 million people a day\nhttps://www.photopea.com\nThis is the reason I never made a mobile version and all mobile users use it in a browser.\nThe biggest problem (bug) with this approach is that iOS limits the RAM usage to 2 GB per website. I have to tell many of my users to ditch their $1000 iPads and get a used $150 Macbook for better experience.\nI think Apple does it on purpose\nhttps://bugs.webkit.org/show_bug.cgi?id=268816"
+        },
+        {
+          "id": 49727549,
+          "author": "bbx",
+          "text": "I just released a game [1] on both iOS and Android.\nThe Google Play process is more thorough. There are a lot of steps and you need to clear them one by one. This means waiting several days between each step. The Play Console dashboard is quite well documented to be honest but can be overwhelming. The main obstacle is that you need to find at least 12 testers to play your game for 2 weeks straight. I ended up paying a service to test my app.\nOn iOS, the process is a bit more obscure. It's fairly easy to submit an app, but then you don't really know what's happening. You can only see a status like \"Pending review\". And then one day, you are approved.\nOverall, the iOS process felt easier for me. As long as your build succeeds and you provide the correct information, your game can be live within a week. The Android process took more than a month in total.\n[1]\nhttps://jgthms.com/hopera/"
+        },
+        {
+          "id": 49725564,
+          "author": "david_allison",
+          "text": "AnkiDroid (~17 years old) submitted our latest alpha on Sept 03, 2026, 4:40 am. Still pending review."
+        },
+        {
+          "id": 49725658,
+          "author": "fhub",
+          "text": "Some reviews are clearly automated, some get a light human review, and some involve a human really looking hard. New apps seem to get a more rigorous human review for their first 2-4 submissions. Or at least humans looking over automated test screenshots etc. One reviewer apparently only looked at screenshots because they missed something that would be blindingly obvious on the prior screen if they did it themselves.\nThe explosion in LLM app development has clearly created a bottleneck at the human review steps. Not only delays but much more “dumb” rejections from likely over-stressed humans."
+        },
+        {
+          "id": 49725954,
+          "author": "pastk",
+          "text": "Yeap latest CoMaps update took ~16 days to review (the longest wait for us so far) and two support tickets (submitted first after ~9 days and got \"we have expedited it\", 5 days later still in review, so submitted one more ticket).\nBefore that we had a hotfix update (a very small change) and still it took longer than a week and a support ticket (after which it had been approved in a day)..."
+        }
+      ],
+      "title_ja": "Google Playアプリのレビュープロセスに通常1週間以上かかるようになりました",
+      "summary_ja": "ディスカッションハイライト： Signalで私たちが抱えている最大の問題は、レビュー時間が非常に一貫していないことです。ところで、Apple Storeでも同じことが起こっています。\nレビュープロセスは通常24時間以内に推奨されます(\nappleが大々的に宣伝しているように、\nhttps :// developer/私は部分的に責任があります",
+      "editor_note": "「Google Playアプリのレビュープロセスに通常1週間以上かかるようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49727659,
+      "title_en": "The DeepMind Institute",
+      "url": "https://institute.deepmind.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49727659",
+      "score": 32,
+      "comment_count": 4,
+      "posted_at": "2026-09-16T14:32:11+00:00",
+      "comments": [
+        {
+          "id": 49730459,
+          "author": "nsagent",
+          "text": "They are simply looking to steer AI policy discussions. It's basically an in-house think tank. It has all the trappings, especially with ominous prognostications like:\nToday’s AI systems have impressive capabilities and the rapid pace of innovation suggests we’re now approaching artificial general intelligence (AGI), a system that exhibits all the cognitive capabilities of the human brain.\nNot sure we are anywhere close to\nall\nthe cognitive capabilities of the human brain... not even a severely lobotomized one."
+        },
+        {
+          "id": 49730170,
+          "author": "ipsum2",
+          "text": "Tl;DR: It's not a new organization, or non-profit institute. It's a Substack/blog.\n>\nDMI is a platform for researchers and thinkers from across Google DeepMind, Google, and the wider global research community to work on and publish creative, deeply informed ideas about a world with AGI. They will not always agree, and they will likely change their minds, as more data and information comes to light at the fast-moving frontier. We created this institute precisely because broad-based intellectual discussion and debate are required to arrive at a consensus about how to address the challenges and opportunities we face as a society."
+        }
+      ],
+      "title_ja": "ディープマインド・インスティテュート",
+      "summary_ja": "ディスカッションのハイライト：彼らは単にAIポリシーの議論を誘導しようとしています/Tl; DR ：それは新しい組織でも非営利団体でもありません",
+      "editor_note": "「ディープマインド・インスティテュート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49729228,
+      "title_en": "This Code Is CRAP (2011)",
+      "url": "https://testing.googleblog.com/2011/02/this-code-is-crap.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49729228",
+      "score": 54,
+      "comment_count": 39,
+      "posted_at": "2026-09-16T16:13:55+00:00",
+      "comments": [
+        {
+          "id": 49729366,
+          "author": "huurtehoog",
+          "text": "Title is editorialized. Original: \"This code is CRAP\" referring to code in review as Change Risk Anti Pattern.\nAlso, (2011)"
+        },
+        {
+          "id": 49729750,
+          "author": "almondfestival",
+          "text": "I'm sure this method has evolved and/or been supplanted over the last 15 years, but one thing that struck me reading this is how much the dynamics of unit test coverage have changed in recent history, with AI-generated commits containing 10x as many unit tests (many of them kind of silly and tautological) as in the olden days. Gonna need to update some of those coefficients in their CRAP1 formula... Or maybe test coverage has/will become too noisy a parameter to use at all."
+        },
+        {
+          "id": 49730078,
+          "author": "onionisafruit",
+          "text": "I've seen a couple of tools to calculate the CRAP score. I haven't used them in anger though.\nFor Rust there's\nhttps://crates.io/crates/cargo-crap\n, and for Go there's\nhttps://padiazg.github.io/go-crap/"
+        },
+        {
+          "id": 49729938,
+          "author": "bluGill",
+          "text": "A measure is only good if I take action on it and in turn make things better.  There are a lot of things that are easy to measure, but there is no useful action I should take on the measure."
+        },
+        {
+          "id": 49729514,
+          "author": "aomix",
+          "text": "I have a goal to make the codebase at work cargo-crap compliant and enforce it with CI. I let an agent run overnight with it once and the diff touched like 40% of our codebase which is untenable for a single merge. So for now I’m doing it piecemeal as the opportunity presents itself."
+        },
+        {
+          "id": 49729410,
+          "author": "richardbarosky",
+          "text": "The pendulum has swung too far in the direction of class, function, cyclomatic complexity (and here, CRAP) and similar idiotic metrics.\nThis reminds me of a talk Sandi Metz did called \"All the Little Things\" where she covers the Gilded Rose kata. In the talk, she reworks her solution until there's almost nothing left showing the essence of the problem being solved.\nThe cyclomatic complexity metric is touted at each step as a proxy for goodness of design and removal of complexity. However, a weakness of the measure itself is that it doesn't account for the control flow indirection that happens through OO method dispatch itself.\nAt the same time, Kevlin Henney's talk called \"Gilding the Rose\" takes the same kata and arrives at a far more sane solution he works up to and reveals at the end.\nShort functions used to be hot. Uncle Bob used to proselytize \"The first rule of functions is that they should be short. The second rule of functions is that they should be shorter than that.\" Now emphasizing the benefits of longer functions is pretty trendy.\nhttps://github.com/johnousterhout/aposd-vs-clean-code\nThis industry is pretty idiotic sometimes ¯\\_(ツ)_/¯"
+        },
+        {
+          "id": 49729413,
+          "author": "Anonyneko",
+          "text": ">Note: This post is rated PG-13 for use of a mild expletive. If you are likely to be offended by the repeated use a word commonly heard in elementary school playgrounds, please don’t read any further.\nMild as this ironic passive aggressiveness is, can't imagine something like this in modern sterile corporate messaging."
+        },
+        {
+          "id": 49729895,
+          "author": "Founderarcstone",
+          "text": "Every time I see a software update I cringe inside."
+        }
+      ],
+      "title_ja": "このコードはくだらない（ 2011年）",
+      "summary_ja": "ディスカッションのハイライト：タイトルが編集されている/この方法は過去15年間で進化および/または置き換えられたと確信していますが、これを読んで驚いたのは、ユニットテストカバレッジのダイナミクスがどれほど変化しているか/くだらないスコアを計算するためのツールをいくつか見てきました",
+      "editor_note": "「このコードはくだらない（ 2011年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49726343,
+      "title_en": "Show HN: How Stale Is Your AI? Release age and training cutoff for 20 models",
+      "url": "https://stale.jock.pl/",
+      "hn_url": "https://news.ycombinator.com/item?id=49726343",
+      "score": 40,
+      "comment_count": 27,
+      "posted_at": "2026-09-16T13:01:52+00:00",
+      "comments": [
+        {
+          "id": 49727773,
+          "author": "gjskngnf",
+          "text": "I remember when the US captured Venezuelan president Maduro, and when I posed a prompt related to this, the model said that’s pure fiction. I told it to double check. Still didn’t want to entertain the idea. It only acquiesced when I specifically directed it to check Reuters.  I haven’t noticed this problem in months. Model cutoff seems to be less of a problem these days."
+        },
+        {
+          "id": 49727334,
+          "author": "jasonjmcghee",
+          "text": "It still matters, but in the age of good reasoning, tool use, and web search, this is much less of a problem than it used to be."
+        },
+        {
+          "id": 49727251,
+          "author": "ryanschaefer",
+          "text": "Do people prefer the new flat style LLMs are producing? I don’t mind it as much as the gradient theme they were pumping out previously."
+        },
+        {
+          "id": 49727871,
+          "author": "VCFundedGenYer",
+          "text": "I remember running the docker container for ollama and its knowledge cutoff is somewhere in 2023 still. That's unacceptable."
+        },
+        {
+          "id": 49727800,
+          "author": "speedping",
+          "text": "Pre-AI internet data is like pre-war steel\nThe slop would multiply if we keep feeding it to new models in a loop"
+        },
+        {
+          "id": 49727419,
+          "author": "delichon",
+          "text": "After Trump's last inauguration, ChatGPT would still tell me that Biden was President of the US. I understand that the training cutoff was before Biden dropped out. But it knew, or should have known, the current date and that there had been an election since its last update, but it didn't qualify the answer. When I asked it to search the web, it got it right. The moral I took away was to always ask for the search whenever I ask about current events. I do that so routinely that I wouldn't know if this problem has been fixed. I suppose that failing to update my priors per individual model release is a form of bigotry against a widely hated class."
+        },
+        {
+          "id": 49727797,
+          "author": "j45",
+          "text": "Depending on the use case certain models very well remain as or more reliable for certain tasks."
+        }
+      ],
+      "title_ja": "Show HN ：あなたのAIはどのくらい古くなっていますか？ 20モデルのリリース年齢とトレーニングカットオフ",
+      "summary_ja": "議論のハイライト：私は、米国がベネズエラのマドゥロ大統領を捕まえたときのことを覚えています。私がこれに関連するプロンプトを提示したとき、モデルはそれは純粋なフィクションだと言いました/それはまだ重要ですが、良い推論、ツールの使用、およびWeb検索の時代では、これは以前よりもはるかに問題ではありません。/人々は、新しいフラットスタイルのLLMが生産しているものを好みますか？前に出していたグラデーションのテーマほど気にしていません。",
+      "editor_note": "「Show HN ：あなたのAIはどのくらい古くなっていますか？ 20モデルのリリース年齢とトレーニングカットオフ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 49716176,
+      "title_en": "An update on Wayback Machine access",
+      "url": "https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/",
+      "hn_url": "https://news.ycombinator.com/item?id=49716176",
+      "score": 654,
+      "comment_count": 340,
+      "posted_at": "2026-09-15T17:52:18+00:00",
+      "comments": [
+        {
+          "id": 49716712,
+          "author": "simonw",
+          "text": "> Here’s what’s going on. The Internet Archive’s Wayback Machine has been hit by waves of high-volume automated traffic, and we’ve put protections in place to keep the service running.\nI'm pretty certain this is scrapers that are trying to workaround blocks on accessing original sites by hitting the Wayback Machine copy instead. Appalling behavior.\nIn addition to the load it puts on this vital non-profit piece of Internet infrastructure, we've also already seen some sites opt out of the Wayback Machine to prevent their content from being scraped via this alternative route."
+        },
+        {
+          "id": 49730682,
+          "author": "cranberryjoe",
+          "text": "Weird that a library is restricting free access to other libraries wanting to preserve history. I guess it’s not a library after all."
+        },
+        {
+          "id": 49717583,
+          "author": "basilikum",
+          "text": "Mad props to the people at the Archive. You are the heros we need in a formerly open internet that is surrendering to evil big corps and closing down free access.\nThe Internet Archive is in a really bad spot being attacked from multiple sides at once. But — while service has not been consistent — they have maintained open access. I can still access anonymously from Tor without Cloudflare or some other centralized gatekeeper showing me the middle finger.\nIf you got some money to spare, consider donating to them. They need it."
+        },
+        {
+          "id": 49719893,
+          "author": "robotmay",
+          "text": "Unrelated, but this week I've been on a memory binge with the Wayback Machine, trying to find old content of mine from the early 2000s. Took me a while but I've finally put together a good bit of info about myself at the time that I'd completely forgotten, and it's all thanks to the Internet Archive storing my little gaming review website from when I was 16. I could barely remember any of the other stuff, it's been genuinely surprising figuring out what I'd forgotten. I couldn't even remember most domains I owned aside from one, which I used as the starting point.\nStill can't remember what my Tripod site address was, but that might be lost to time.\nThank you, Archive.org."
+        },
+        {
+          "id": 49722367,
+          "author": "userbinator",
+          "text": "The Internet Archive’s Wayback Machine has been hit by waves of high-volume automated traffic\nThank you for not immediately blaming it on \"AI bots\". I suspect there's some entity manufacturing consent for strong identity/age verification/sanctioned-browser-OS \"walled garden\" Internet, and these random DDoSes are part of that.\nI knew something was up when a few alternative YouTube front-ends I use suddenly put up the 'nubis and complained about the high volumes of traffic they were getting flooded with; of course someone actually going after that data would be aiming their \"AI bots\" at YouTube directly instead of trying to suck it through a tiny little-known proxy-site, so it really strained the credibility of the argument."
+        },
+        {
+          "id": 49716906,
+          "author": "BeetleB",
+          "text": "Wow, but I wonder if there's more to it.\nI've not been able to access web.archive.org from my work computer - I always get the 429 error.\nBut I then pull out my phone and can access it just fine. All along I was assuming my company was blocking it. Still weird that it happens\nevery\ntime from my work PC and never from my home one."
+        },
+        {
+          "id": 49716935,
+          "author": "timpera",
+          "text": "I really appreciate the Archive team's efforts to make the Wayback Machine more responsive, and have donated a few times to support them.\nUnfortunately, the restrictions have been way too strict for the last few months: from my residential IP, simply moving the mouse on the calendar for a specific URL is enough to get stuck on 429 error messages for a while; and from corporate ISPs (for example, on airport WiFi), you often can't access the WM at all. I hope they'll find a way to relax those."
+        },
+        {
+          "id": 49728783,
+          "author": "GaryBluto",
+          "text": "I've been doing a bit of (very careful to be polite) scraping of Wayback to get archives of now-offline sites, so I hope this won't cause any significant issues for me. I\ndid\ncontact them beforehand to request a direct copy of the sites/networks required (which I believe they offered at some point) but unfortunately received no reply."
+        }
+      ],
+      "title_ja": "Wayback Machineへのアクセスに関する最新情報",
+      "summary_ja": "ディスカッションのハイライト：>ここで何が起こっているのか/図書館が歴史を保存したい他の図書館への無料アクセスを制限しているのは奇妙です/アーカイブの人々へのMadの小道具",
+      "editor_note": "「Wayback Machineへのアクセスに関する最新情報」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49725541,
+      "title_en": "Kyber (YC W23) Is Hiring a Forward Deployed Engineer",
+      "url": "https://www.ycombinator.com/companies/kyber/jobs/eturrAR-forward-deployed-engineer",
+      "hn_url": "https://news.ycombinator.com/item?id=49725541",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-09-16T12:01:09+00:00",
+      "comments": [],
+      "title_ja": "Kyber (YC W 23)がフォワードデプロイされたエンジニアを採用しています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Kyber (YC W 23)がフォワードデプロイされたエンジニアを採用しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49726350,
+      "title_en": "Scaling Golang CI by Replacing actions/setup-go",
+      "url": "https://www.cloudx.ai/posts/setup-go",
+      "hn_url": "https://news.ycombinator.com/item?id=49726350",
+      "score": 51,
+      "comment_count": 8,
+      "posted_at": "2026-09-16T13:02:14+00:00",
+      "comments": [
+        {
+          "id": 49730672,
+          "author": "wannabe44",
+          "text": "I always advocate having custom-built docker images for CI, periodically refreshed for security fixes. CI should not run more than few seconds over the standard time to run the same thing from a dev machine.\nHowever, other people around me are fine with apt installs and pip installs from global mirrors in every CI run. So I may be just autistic."
+        },
+        {
+          "id": 49730547,
+          "author": "lukasschwab",
+          "text": "There are some good off-cuts that didn't make the official post, but which might be of interest to HN!\nIt only gets a brief mention, but the cache-pruning change was an interesting one. Cache accretion happens in the default actions/setup-go too, but dramatically increasing the number of cache-writes for cloudx-io/setup-go made it an actual issue.\nAs the cache grows, so does the time it takes to load it from GitHub's actions cache... and that grows until it's a significant time-suck in CI. We prune with basic mark-and-sweep.\nDigging deeper, the pluggable `GOCACHEPROG` (introduced in Go 1.24) is a really useful tool. Shimming the normal cache logic for measurement, for example. In theory this should also be attractive for remote caching."
+        },
+        {
+          "id": 49728337,
+          "author": "JyB",
+          "text": "Have you considered submitting an upstream patch to the widely used actions/setup-go as well?"
+        },
+        {
+          "id": 49726428,
+          "author": "peterldowns",
+          "text": "Hey everyone, one of the authors here. This is a \"small\" improvement that has saved us a LOT of developer time over the last few months. It's actually quite crazy to me that the default actions/setup-go simply does not work well if you want to have more than one golang action running at the same time.\nThe blogpost has a lot of technical details, but you can also just read the code and try it yourself:\nhttps://github.com/cloudx-io/setup-go"
+        },
+        {
+          "id": 49728987,
+          "author": "tonymet",
+          "text": "CI is expensive, and often a blocker for critical releases (e.g. patching a production issue).  Every second saved is a relief.\nI’ve long wondered why setup-go was so slow and expensive it’s great to see improvements made."
+        }
+      ],
+      "title_ja": "アクション/セットアップを置き換えることでGolang CIを拡張する",
+      "summary_ja": "ディスカッションのハイライト：私は常にCI用にカスタムビルドのドッカーイメージを持ち、セキュリティ修正のために定期的に更新することを提唱しています/公式の投稿をしなかったいくつかの良いオフカットがありますが、それはHNにとって興味深いかもしれません！\nほんの少しだけ言及されますが、キャッシュのプルーニングの変更は興味深いものでした/広く使用されているアクション/セットアップにもアップストリームパッチを提出することを検討しましたか？",
+      "editor_note": "「アクション/セットアップを置き換えることでGolang CIを拡張する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49725356,
+      "title_en": "Original Sony PlayStation 2 security chip 'broken wide open' after 26 years",
+      "url": "https://www.tomshardware.com/video-games/playstation/26-year-old-sony-ps2-security-chip-broken-wide-open-after-four-years-of-effort-reverse-engineering-enthusiast-successfully-unlocks-cxp102064-mechacon-chip",
+      "hn_url": "https://news.ycombinator.com/item?id=49725356",
+      "score": 202,
+      "comment_count": 59,
+      "posted_at": "2026-09-16T11:49:40+00:00",
+      "comments": [
+        {
+          "id": 49728132,
+          "author": "uyjulian",
+          "text": "Hello! I'm one of the people involved in reverse engineering the MechaCon. Please take note of the following:\n* It is already possible to run backup/copied discs entirely using software methods (from memory card, HDD, or DVD video player exploit), and in the case of the 50k series and newer (Dragon MechaCon), can use the \"force unlock\" patch that does not require any patches to copied discs.\n* The dumps, alone, does not give enough information to create an \"\"\"hardware\"\"\" ODE (optical drive emulator). However, it is possible to make a modchip that replaces the MechaCon, relying on the DSP to continue to read discs.\n* The current method to dump the ROM used in the SPC970 requires lots of writing to NVRAM.\n* These dumps will eventually be useful for full-system low level emulation, as MagicGate and KELF/KIRX security goes through it.\n* These dumps are useful for vulnability searching, which can allow functionality to MechaPwn (code execution on MechaCon, unlocking security e.g. set disc type and max LBN) or TonyHax (unlocking PS1 mode to read any disc, on SPC970 based MechaCons and all PS1 MechaCons).\n* The contents of game discs (except those that use DNAS online authentication) are "
+        },
+        {
+          "id": 49726436,
+          "author": "ethagnawl",
+          "text": "> Some of the reverse engineering tricks utilized by DiscoStarslayer include chemically decapping the CXP102064 to expose the die, then using microscopes and optical dumping skills to analyze the silicon chip circuitry. In this case, a lucky break during the hacking apparently uncovered an exploit that provided a method whereby the chip’s data could be extracted through software.\nThis is next level commitment to the cause.\nAlso, I can totally imagine their reaction when they discovered the exploit and realized they could put down the ... chemicals. XD"
+        },
+        {
+          "id": 49726882,
+          "author": "dzdt",
+          "text": "This article seems to be completely based on the X post by the reverse engineer DiscoStarSlayer :\nhttps://x.com/DiscoStarslayer/status/2099132300390744320\n.\nThat post reads \"After 4 years of effort, I'm happy to announce that one of the final secrets of the PS2 has been broken wide open!\nIt's been a long process of decapping, optical dumping, and now at last a software solution.\nThank you Libby for finding the exploit from our dirty optical dumps!\"\nYesterday DiscoStarSlayer also promised details are coming: \"Will share full write-up on how we got here soon!\""
+        },
+        {
+          "id": 49725897,
+          "author": "criddell",
+          "text": "This will be great for preservation of PS2 games. Well done!\nIt seems like preservation of games for later consoles is a lost cause. If I pull out my PS5 30 years from now and pop in my Cyberpunk 2077 disk to play, I'm going to have a barely playable game.\nIt's better than nothing, I suppose, but I won't be able to re-play the excellent version that I played through last year."
+        },
+        {
+          "id": 49727453,
+          "author": "WhiteDawn",
+          "text": "Looks like they also wrote a Ghidra Decompiler for the ISA\nhttps://github.com/DiscoStarslayer/ghidra-spc970"
+        },
+        {
+          "id": 49726233,
+          "author": "mzs",
+          "text": "https://github.com/spc970-dumper-union/spc970-dumps-public"
+        },
+        {
+          "id": 49726269,
+          "author": "hn1rig3rak",
+          "text": "Yeah, and day-one patches only exist while the servers do. Archive the PKGs."
+        },
+        {
+          "id": 49727785,
+          "author": "AdmiralAsshat",
+          "text": "What's the practical benefit of this? Will it allow us to reverse-engineer the BIOS so that PS2 emulators can ship with a working one rather than forcing end-users to \"procure\" a proprietary BIOS blob?"
+        }
+      ],
+      "title_ja": "26年ぶりのオリジナルSony PlayStation 2セキュリティチップ「BROKEN WIDE OPEN」",
+      "summary_ja": "ディスカッションのハイライト：こんにちは！私はメカコンのリバースエンジニアリングに携わっている人の一人です/> DiscoStarslayerが利用するリバースエンジニアリングのトリックには、CXP 102064を化学的にキャッピングしてダイを露出させ、顕微鏡と光学ダンプのスキルを使用することが含まれます/この記事は、リバースエンジニアのDiscoStarSlayerによるXポストに完全に基づいているようです。\nhttps://x.com/DiscoStarslayer/status/2099132300390744320\n.\nその投稿r",
+      "editor_note": "「26年ぶりのオリジナルSony PlayStation 2セキュリティチップ「BROKEN WIDE OPEN」」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 21,
+      "id": 49730239,
+      "title_en": "ER visits for gambling disorders doubled after expanded online gambling market",
+      "url": "https://temertymedicine.utoronto.ca/news/emergency-room-visits-gambling-disorders-nearly-doubled-after-expanded-online-gambling-market",
+      "hn_url": "https://news.ycombinator.com/item?id=49730239",
+      "score": 11,
+      "comment_count": 1,
+      "posted_at": "2026-09-16T17:27:37+00:00",
+      "comments": [
+        {
+          "id": 49730666,
+          "author": "BugsJustFindMe",
+          "text": "> \"Emergency room visits for gambling disorders\"\nHuh?\n> \"More than 70 per cent of gambling disorder emergency department visits involved another mental health condition or heavy substance use and almost one-third of the visits led to hospital admission.\"\nI assume they mean that these emergency visits were for things like drug overdoses and psychotic episodes, not for the gambling disorders themselves. What a strange way of writing this up."
+        }
+      ],
+      "title_ja": "オンラインギャンブル市場が拡大した後、ギャンブル障害のER訪問は倍増しました",
+      "summary_ja": "ディスカッションハイライト：>「ギャンブル障害の救急外来受診」\nえ？\n>「ギャンブル障害の救急部門への訪問の70 ％以上が、別の精神的健康状態または重度の症状を伴いました。",
+      "editor_note": "「オンラインギャンブル市場が拡大した後、ギャンブル障害のER訪問は倍増しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 22,
+      "id": 49710201,
+      "title_en": "Measuring Gauss-Seidel loop-carried dependency and fixing it via loop unrolling",
+      "url": "https://loiseaujc.github.io/posts/blog-title/make_gauss_seidel_great_again.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49710201",
+      "score": 18,
+      "comment_count": 5,
+      "posted_at": "2026-09-15T10:14:29+00:00",
+      "comments": [
+        {
+          "id": 49730308,
+          "author": "classified",
+          "text": "What language is that, and what does `0.25_dp` mean?"
+        },
+        {
+          "id": 49729980,
+          "author": "qoez",
+          "text": "This article might be good but I always get scared when they use AI art for the header bc I wont know if I'm reading AI slop until i've invested a good amount of time into the article so I just avoid it all together."
+        }
+      ],
+      "title_ja": "Gauss - Seidelループ伝達依存性の測定とループ展開による修正",
+      "summary_ja": "ディスカッションのハイライト：それはどのような言語であり、「0.25_dp」は何を意味しますか？/この記事は良いかもしれませんが、ヘッダーにAIアートを使用するといつも怖くなります。bc私がアーティにかなりの時間を費やすまで、AIスロップを読んでいるかどうかはわかりません",
+      "editor_note": "「Gauss - Seidelループ伝達依存性の測定とループ展開による修正」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
+      "id": 49727592,
+      "title_en": "Anatomy of a Texture",
+      "url": "https://agentlien.github.io/texture/",
+      "hn_url": "https://news.ycombinator.com/item?id=49727592",
+      "score": 27,
+      "comment_count": 4,
+      "posted_at": "2026-09-16T14:28:28+00:00",
+      "comments": [
+        {
+          "id": 49727593,
+          "author": "Agentlien",
+          "text": "I just uploaded a new article describing how a modern video game texture is stored in graphics memory, why it's done this way, and how it may differ between platforms.\nIt is called Anatomy of a Texture."
+        },
+        {
+          "id": 49729209,
+          "author": "taylor-tg",
+          "text": "Really enjoyed this, refreshing to read something passionate and hand written. I had no idea how much complexity existed in something as innocuous as handling textures between platforms.\nAlso pretty cool getting a glimpse into the work 505 does helping developers get their games in front of more people. I had no idea 505 was the publisher[0] for so many recognizable titles.\n[0]\nhttps://en.wikipedia.org/wiki/List_of_505_video_games"
+        },
+        {
+          "id": 49728938,
+          "author": "doormatt",
+          "text": "Fantastic read!  Not even a hint of LLMisms."
+        }
+      ],
+      "title_ja": "テクスチャの解剖学",
+      "summary_ja": "ディスカッションのハイライト：モダンなビデオゲームのテクスチャがグラフィックスメモリにどのように保存されているか、なぜこのように保存されているのか、プラットフォーム間でどのように異なるのかを説明する新しい記事をアップロードしました。\nそれはと呼ばれています/本当にこれを楽しんでいます、情熱的で手書きのものを読むのはさわやかです/素晴らしい読書！  LLMismsのヒントもありません。",
+      "editor_note": "「テクスチャの解剖学」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 24,
+      "id": 49724488,
+      "title_en": "Salesforce Global Outage",
+      "url": "https://status.salesforce.com/products/all",
+      "hn_url": "https://news.ycombinator.com/item?id=49724488",
+      "score": 233,
+      "comment_count": 138,
+      "posted_at": "2026-09-16T10:37:08+00:00",
+      "comments": [
+        {
+          "id": 49726985,
+          "author": "stmw",
+          "text": "Despite all of the snark here, in my experience Salesforce SRE team is quite competent. The engineering challenges of running a large PaaS - not just with own apps, but with millions of customer-written apps running on it - are quite interesting, and sadly things happen. The status page makes sense to actual customers, it's the particular \"pods\" where a given service runs."
+        },
+        {
+          "id": 49725742,
+          "author": "raffraffraff",
+          "text": "Have you tried turning it off and then on again?\n> We're no longer pursuing restarts as a path to remediation.\nOh you have"
+        },
+        {
+          "id": 49726077,
+          "author": "mergy",
+          "text": "Unplanned outage timing is never good but this is really not good.\nhttps://www.salesforce.com/dreamforce/\nSept 15-17"
+        },
+        {
+          "id": 49726093,
+          "author": "fhub",
+          "text": "Cause: Legacy Salesforce login service got into a resource-exhaustion cascade.\nFix: Rolling some unspecified fix they proved in testing out over the fleet seemingly very slowly (After their earlier attempts to roll something out faster failed).\nDetails at\nhttps://status.salesforce.com/incidents/20004433"
+        },
+        {
+          "id": 49724763,
+          "author": "cyberpunk",
+          "text": "That status page is the most salesforce thing ever.\nScroll down. >_<"
+        },
+        {
+          "id": 49726673,
+          "author": "electroweak",
+          "text": "At this point OpenAI really ought to let us know when they're testing again."
+        },
+        {
+          "id": 49725219,
+          "author": "chasd00",
+          "text": "You can click on any of the instances and then the service that is down to read the updates. It’s not 100% clear but some sort of issue with a “legacy login service”. The latest updates say a fix is rolling out."
+        },
+        {
+          "id": 49725075,
+          "author": "AmazingTurtle",
+          "text": "You better bet someone started their agents with a prompt \"Make a salesforce clone but with 100% uptime\""
+        }
+      ],
+      "title_ja": "Salesforceグローバル機能停止",
+      "summary_ja": "ディスカッションのハイライト：ここでのすべての悩みにもかかわらず、私の経験では、Salesforce SREチームは非常に有能です/あなたはそれをオフにしてから再びオンにしてみましたか？\n>私たちはもはや修復への道として再起動を追求していません。\nああ、予定外の停電のタイミングは決して良いことではありませんが、これは本当に良くありません。\nhttps://www.salesforce.com/dreamforce/\n9月15日～ 17日",
+      "editor_note": "「Salesforceグローバル機能停止」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49693971,
+      "title_en": "Show HN: I made a flight simulator, except you're just a passenger",
+      "url": "https://inflightsimulator.com",
+      "hn_url": "https://news.ycombinator.com/item?id=49693971",
+      "score": 347,
+      "comment_count": 192,
+      "posted_at": "2026-09-14T09:08:56+00:00",
+      "comments": [
+        {
+          "id": 49727150,
+          "author": "phugoid",
+          "text": "This really made my day!  I was a flight simulator engineer for 20 years and it brings back fond memories of a project I worked on.\nSimulating the passenger cabin is important for crew evacuation trainers.  Those are large, lifelike fuselage sections that you put on a hydraulic motion platform and run flight/crash/evac training scenarios.\nTo get a realistic out-the-window view, the trainers I worked on had a PC monitor behind each window opening.  We used FlightGear in a master-slave setup: the master node simulates physics and feeds accelerations to the hydraulic platform, and the slave nodes generate out-the-window visuals for each window."
+        },
+        {
+          "id": 49722636,
+          "author": "drayfield",
+          "text": "Or you could check out the non-vibe coded Airplane Mode from 2020:\nhttps://store.steampowered.com/app/931310/Airplane_Mode/"
+        },
+        {
+          "id": 49723953,
+          "author": "LukaD",
+          "text": "Wow, this is so unbelievably unoptimized. The sound of my computer fans makes it so immersive.\nThe shadow map is being rendered twice with 300+ draw calls and 1M+ triangles. Full resolution GTAO is probably even more expensive with a lot of fetches per texel. I'm sure there are a ton of low hanging optimization fruits and I'm confident claude et. al can fix all those issues, but if you don't know where to look and never profile the app then you get a vibe coded unoptimized mess."
+        },
+        {
+          "id": 49726438,
+          "author": "donkey_brains",
+          "text": "It's missing a few elements for realism:\n- Passengers on either side of you taking both your armrests\n- Continually crying baby seated just in front of you\n- Person behind you coughing without covering mouth every 2 minutes\n- Kids fighting for control of a tablet across the aisle from you\n- Tiny cans of Coke"
+        },
+        {
+          "id": 49730627,
+          "author": "bennetthilberg",
+          "text": "I can immediately tell it’s got that Astra art style"
+        },
+        {
+          "id": 49694914,
+          "author": "lejeanvaljean",
+          "text": "You know what? I had fear of flying. I did a training with a pilot in a simulator, but it was in the cockpit. I don't have fear of flying in a simulator or in the cockpit. I have fear of flying as a passenger, I'm sit in a chair. That's what I would have liked during my training. I told that to Air France and they did not understand but this might seriously be useful."
+        },
+        {
+          "id": 49730235,
+          "author": "tantalor",
+          "text": "\"Seatbelt cannot be unfasted during takeoff\"\nNot very realistic, is it?\nThe rules of the simulation and the rules of the flight crew are different things. The simulation should let me do anything I could do on a real flight. Including the consequences for breaking a rule."
+        },
+        {
+          "id": 49730481,
+          "author": "_menelaus",
+          "text": "This is hilarious. Going back in to play some more chess while I fly to Siberia"
+        }
+      ],
+      "title_ja": "ショーHN ：あなたがただの乗客であることを除いて、私はフライトシミュレータを作りました",
+      "summary_ja": "ディスカッションのハイライト：これは本当に私の一日を作りました！  私は20年間フライトシミュレータエンジニアをしていましたが、それは私が取り組んだプロジェクトの思い出を思い出させてくれます。\n乗客キャビンのシミュレーションは、2020年以降の非バイブコード化された飛行機モードを確認することができます。\nhttps://store.steampowered.com/app/931310/Airplane_Mode//これは信じられないほど最適化されていません",
+      "editor_note": "「ショーHN ：あなたがただの乗客であることを除いて、私はフライトシミュレータを作りました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 49715947,
+      "title_en": "Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+      "hn_url": "https://news.ycombinator.com/item?id=49715947",
+      "score": 475,
+      "comment_count": 314,
+      "posted_at": "2026-09-15T17:38:18+00:00",
+      "comments": [
+        {
+          "id": 49718996,
+          "author": "jeanbza",
+          "text": "My first language is Afrikaans, which is a somewhat niche language and hard to find teachers/conversation buddies outside South Africa. (I live in USA now)\nI've been using Gemini to live chat in Afrikaans and do impromptu Afrikaans grammar lessons during my solo drives around town. It is phenomenal at speaking the language - like, it really shocks my family members when they hear it.\nThis is probably the most joy I get from any of my usages of LLMs/AIs. It's been really, really nice getting to speak my language regularly again. =)\nSo, I'm excited about this release and live chat getting better. I also hope the other frontier labs pick up niche languages like this as well so that I have more options."
+        },
+        {
+          "id": 49717988,
+          "author": "Havoc",
+          "text": "Just gave it a try - very solid release.\nCopes well with thick accent, voices are pleasant and latency seems low.\nOh and I can actually use it on a workspace account - which for most of the recent releases was an account stuck in limbo. Not personal enough for personal offering, not enterprise enough for enterprise.\nWell done G - will definitely be using this"
+        },
+        {
+          "id": 49722066,
+          "author": "galkk",
+          "text": "I don’t understand good experiences people are having with Gemini. It’s the only model that sometimes loses/forgets context in literally next message. Plus feeding unasked product links to responses."
+        },
+        {
+          "id": 49717061,
+          "author": "rdtsc",
+          "text": "I wonder when/if we’ll see Gemini beating Fable and Astra. Last year I would have confidently bet Google will overtake the others just because they have the data, the hardware (TPUs) and a fat advertising money pipe and yet they are still behind. Anyone anonymous at Google want to hint when Gemini 4 will be out?"
+        },
+        {
+          "id": 49716968,
+          "author": "Zsfe510asG",
+          "text": "Gemini is underrated in that it produces the only prose that is somewhat bearable to read."
+        },
+        {
+          "id": 49716918,
+          "author": "deviation",
+          "text": "Not a great impression to have your demo video demonstrate how one of your 'most advanced' AI models loses to the most common check-mate pattern in all of chess."
+        },
+        {
+          "id": 49716990,
+          "author": "doodlesdev",
+          "text": "Gemini's Live Mode is already much better than GPT Voice in my personal experience, even though it was much dumber. It really does feel like talking to a real person. ChatGPT keeps humming to whatever I say and has some weird voices.\nExcited to try this out! Shame on Google for not releasing Gemini 3.8 for Google AI Plus users yet, though."
+        },
+        {
+          "id": 49718250,
+          "author": "stranded22",
+          "text": "Google need to allow saving history and exclude it as training data. I will not use it seriously until this is resolved."
+        }
+      ],
+      "title_ja": "ジェミニ3.8ライブと3.8ライブ拡張思考",
+      "summary_ja": "ディスカッションのハイライト：私の最初の言語はアフリカーンス語です。これはややニッチな言語であり、南アフリカ国外では教師/会話仲間を見つけるのが難しいです/ちょうど試してみました-非常に堅実なリリースです。\n太いアクセントでうまく対処し、声は心地よく、待ち時間は低いようです。\nああ、実際にワークスペースアカウントで使用することができます-月/私は人々がGeminiで持っている良い経験を理解していません",
+      "editor_note": "「ジェミニ3.8ライブと3.8ライブ拡張思考」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 49705944,
+      "title_en": "Doing Everyone Else's Job",
+      "url": "https://yosefk.com/blog/doing-everyone-elses-job.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49705944",
+      "score": 180,
+      "comment_count": 86,
+      "posted_at": "2026-09-15T00:01:31+00:00",
+      "comments": [
+        {
+          "id": 49727872,
+          "author": "maerF0x0",
+          "text": "> and most managers fail to punish at least some of these slow learners of theirs\nFalse, they punish by not crediting that work as work.\nGlue work, keeping things tidy, dealing with that annoyance that everyone else has been able to get away with suffering through (and ignoring), all of this will be worth approximately 0 at performance review time because your time is a zerosum game that is traded off with highly visible, political, and otherwise rewardable work.\nIt's been my experience that in larger companies you generally have to play in the framework.(I'd roughly draw the line at 1000+ employees), at quite small companies (or as a self employed / entrepreneur, roughly <200 employees) you should follow the path of highest EROI on your efforts regardless of who's job it is. In the gap you have to read the culture and management."
+        },
+        {
+          "id": 49723712,
+          "author": "ChrisMarshallNY",
+          "text": "I worked for a Japanese corporation, and a big part of their HR policy, was to move staff around the company. It was usually in 1- or 2-year stints (people would spend their entire careers at the company, so they could do this). Eventually, they would end up doing longer stints, where they would specialize.\nThey would couple this with things like standardized coding and documentation styles, common tools, etc. Training on these standards was a regular thing for all staff.\nThe idea was that they could rapidly move experienced staff around. It also helped staff to understand how their work was applied in an integrated system (having “blinders” on, is a fairly typical issue, with dedicated employees).\nIt generally worked, but relied on their particular culture, and introduced a fairly significant amount of overhead and rigidity to the system. It would also mean that it takes a long time to cultivate experts.\nPersonally, I’ve always enjoyed learning new stuff (still do). I actually enjoy taking on projects that I don’t know how to do. I wrote about it here:\nhttps://littlegreenviper.com/miscellany/thats-not-what-ships..."
+        },
+        {
+          "id": 49726842,
+          "author": "Aurornis",
+          "text": "> If a manager doesn’t actually manage anything, this is fine as long as you can go to his people and effectively manage them\n> but you can usually find people in his org who’ll work with you, on the theory that they’re supposed to.\nIn 100% of the cases where someone has tried this on me, both as the manager and the naive employee, the real reason was that they didn’t care about what the manager/employee was supposed to be doing. They were looking for easy targets who could be abused to do their team’s work. Most of the “manager doesn’t manage anything” accusations came from other teams who weren’t even trying to understand what other managers or teams did. If the other manager or team wasn’t actively working for them in some capacity, they thought the manager wasn’t doing anything.\n> It’s true that many of them have long figured out that they’re really supposed to follow orders passed down the hierarchy and do nothing else, even if everything around them is on fire. But some never figure this out, and most managers fail to punish at least some of these slow learners of theirs, so they’re yours to work with.\nThe most generous interpretation is that this is taken idle employees and "
+        },
+        {
+          "id": 49724096,
+          "author": "dmurray",
+          "text": "One of the things I hate about my current job is that it's impossible to do this.\nEverything is locked behind multiple layers of permissions. It takes weeks to get the correct permissions set up even for my actual job (which I see any time changing roles here, or when onboarding new hires). Getting the permissions to jump in and improve some other part of the system that I don't officially own - even though I might get granted them if I ask nicely, because nobody knows who is actually meant to have what permissions - is so much higher friction than asking the \"right\" person."
+        },
+        {
+          "id": 49722871,
+          "author": "RevEng",
+          "text": "I disagree with the centralization thought. I'm working on a project to create a central AI platform for a very large corporation. As you can imagine, such a large company already has several different platforms made by different branches within it. Each branch has something they are relatively happy with. But corporate sees this redundancy as waste, so they want to consolidate it into one.\nThe problem with one is the same with any other single source: you are stuck with whatever they offer on whatever timelines they provide. You are sharing this with a hundred thousand other people, so it's not tailored to your use case, but either made as generic as possible, or full of irrelevant features. Both of these cases make it worse for you.\nI have often made in house libraries either based on or completely replacing a free equivalent because the free one doesn't meet our needs and has extra complications we don't need. Yes, it comes with its costs, but sometimes it's worth it for something that genuinely meets your needs.\nBy forcing everybody to use the same common platform, you are either forcing them to work around the mismatch between the platform and their needs, or your are forcing "
+        },
+        {
+          "id": 49722817,
+          "author": "cik",
+          "text": "I tend to apply this to myself, within an organization (as opposed to those who like to generically try it all - fair enough). I've always been an enormous fan of touring the organization. Whether I join as a dev, or an exec, I always make it a point to spend some time with product, with support, and with marketing. It ends up providing me a unique vantage point. I encourage others to do the same, and when I 'control' onboarding, make it part of the process.\nIt's literally the fastest way to have someone get up to speed with the customer profile and product. They can play with it whilst listening in to support calls (if a thing). They can learn about pain points and \"hard edges\" that as developers we don't always come across."
+        },
+        {
+          "id": 49722448,
+          "author": "exmadscientist",
+          "text": "The other powerful thing about being able to do everyone else's job is that you, personally, gain a lot of leverage, and in a lot of different ways. Someone else needs a favor? You probably know how to deliver. Something's on fire? You probably know what to do next, or at least who to call, no matter what's on fire today. Someone isn't budging on something? You might not have any bigger of a lever than anyone else, but you probably know exactly where to position yours, and exactly what it'll do when you apply a bit of force.\nIt's useful.\nAnd then there's times like getting to charge your client $300/hour to drop stuff off at FedEx. Because\nyou can do that\nand\nyou're here\nand\nyou'll get it done right\n-- no one needs to explain the idiosyncracies of this particular deadline or package contents; you've got it.\nEven if that's not normally a senior consultant's job."
+        },
+        {
+          "id": 49726162,
+          "author": "randusername",
+          "text": "> I believe that not only do 20% of the people do 80% of the work, but that all this work only achieves its ultimate goals thanks to the <5% of the people who do stuff that someone else is supposed to do, but won't, for reasons which are perfectly legitimate in the organization's view of reality, even though the cumulative effect of such legitimate reasons is the certain death of the whole place.\nI don't know that I've ever felt so validated by a HN submission.\nI am definitely one of those suckers that does extra work others will not do. It isn't altruistic, I just can't motivate myself to work at all if my tasks are stupid. The problem is that at any sufficiently large organization many of the tasks are stupid because hardly anyone is on the same page."
+        }
+      ],
+      "title_ja": "他のみんなの仕事をする",
+      "summary_ja": "ディスカッションのハイライト：>ほとんどのマネージャーは、これらの遅い学習者の少なくとも一部を罰することができません\n間違っています。彼らはその仕事を仕事とみなさないことで罰します。\n接着作業、物事をきちんと保ち、機知を持って対処する/私は日本の企業で働いていましたが、人事方針の大部分は、社内のスタッフを移動させることでした/>マネージャーが実際に何も管理していない場合、あなたが彼の人に行って効果的に管理できる限り、これは問題ありません\n>しかし、y",
+      "editor_note": "「他のみんなの仕事をする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49715927,
+      "title_en": "Why I'm still bearish on LLMs after Navier-Stokes",
+      "url": "https://dank.systems/posts/2026-09-15-ai-bear.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49715927",
+      "score": 405,
+      "comment_count": 522,
+      "posted_at": "2026-09-15T17:37:12+00:00",
+      "comments": [
+        {
+          "id": 49728674,
+          "author": "plaidfuji",
+          "text": "This is the most grounded and coherent take I’ve seen on the actual realizable value of LLMs.. pretty much since they came out.\n> the classes of firms that can accept the use of fully autonomous LLMs are few, by my count just three:\n1. those who can accept failure cheaply: firms that would otherwise hire interns, firms involved in rapid prototyping work, etc.\n2. those who need done a small set of narrowly defined tasks with existing clear guardrails: repetitive physical labor in a controlled environment, call center and customer service chat work, etc.\n3. those that can accept or already do by nature the costs of rigorous specification and validation: chip design, drug discovery, and other domains where failure on deployment is an existential concern.\nthe first two classes are price sensitive and arguably don't need the jump in reasoning quality you see going from cheap to frontier models. most of these firms will be best served by open models running on cheap hardware, perhaps even locally at the site of use. for the first and third classes, the type of fuzzy combinatorial search that has produced headline results in mathematics and security research seems more sensitive to agenti"
+        },
+        {
+          "id": 49720191,
+          "author": "carodgers",
+          "text": "This April 2026 paper is a fun and related read.\nhttps://arxiv.org/html/2509.24239v4\nResearchers asked frontier models to play chess. Have a look at the MAR rates in Table 3. When not explicitly told which moves were legal, no model identified legal moves at a rate better than 80%. Many asked for more illegal moves than legal moves. And even when explicitly told which moves were legal, the models continued to ask for illegal moves. With illegal asks discarded, none of the bots could beat a chess model calibrated to 1100 ELO.\nThe author of the originating post says that \"current frontier models need laborious oversight and guardrails on even the simplest tasks\", and he's absolutely correct."
+        },
+        {
+          "id": 49726884,
+          "author": "lissom",
+          "text": "Navier-Stokes is a well defined problem, or \"a hard technical problem\".  Most problems in the business world lack a good definition and tacit knowledge is required to solve them.  As far as I've seen, AI lacks any kind of tacit knowledge, strategic thinking, etc what so ever.\nTake a customer service person, that as soon as AI agents replaced was hacked.  Lots of tacit knowledge, that wasn't measured, or even probably in the job description, until AI agents had none and the gap was taken advantage of.  Gap is probably a poor word here as it implies not a chasm, which could very well be the case.\nYour analysis was excellent but short on one front, AI has endurance on it's side.  Looking at the N-S solution, OpenAI had 10,000+ instances that kept trying around the clock.   Assembling a human team to do that would require a lot of effort.  Though, that society collectively choose not to, perhaps tells how valuable it really is (i.e. it's now easy to launch a Manhattan Project level of effort).  So maybe it can also be said that AI is also good at marshaling resources."
+        },
+        {
+          "id": 49723161,
+          "author": "yshklarov",
+          "text": "Great article, but the lack of sentence capitalization makes it unnecessarily difficult to read.\nApologies if this comment is off-topic, but it really is quite egregious, and since the article was submitted by the author I presume they are open to the feedback."
+        },
+        {
+          "id": 49720632,
+          "author": "keeda",
+          "text": "The premise in the very first point seems off:\n> the frontier labs are priced according to the narrative that they have produced or will in the very near future produce a fully automated drop-in replacement for most knowledge workers...\nEven assuming this is how the AI companies are being valued (they're not), the numbers are off.\nThe \"value\" of most knowledge workers -- based on what enterprises currently pay for them -- is $50 - 70 trillion annually. It's reasonable to assume that if AI drop-in-replaced all those knowledge workers, AI companies could credibly charge somewhere in that order of magnitude, because that's what the market is already bearing.\nSo if their hypothetical revenues are double-digit trillions and valuations are some multiple of that, the entire AI industry would be valued at double-digit trillions at the least.\nYet cumulatively the industry (the frontier labs + the SWAG estimate of the AI parts of all the other players) are valued at, say, ~6 - 7 trillion? Which seems like a fair approximation of how much knowledge work they can currently automate."
+        },
+        {
+          "id": 49721087,
+          "author": "bluegatty",
+          "text": "\"are priced according to the narrative that they have produced or will in the very near future produce a fully automated drop-in replacement for most knowledge workers, \"\nNo, they're really not.\nThey're priced in a way that would imply AI will be universal form of compute, alongside traditional deterministic systems - which it will be.\nAnd that they will capture most of that ... which they won't.\nThe Frontier Labs are a very bad buy at a high price, but that partly has to do with wacky pricing, but actually mostly has to do with their relatively weak place in the value chain.\nThe money is going to Nvidia, who have the most powerful position.\nA bit like how a retailer can take all the margins of some innovative product, if they own the channel.\nAI is over-hyped, the Frontier Labs are over priced - but AI is here to stay, and will grow. Not like Skynet, but like a new form of compute. And it will take it's time, and the profits will be reaped by those with the power."
+        },
+        {
+          "id": 49730581,
+          "author": "kajumix",
+          "text": "Is reward hacking really as unsolvable as they claim?"
+        },
+        {
+          "id": 49720100,
+          "author": "randomImmigrant",
+          "text": "I think bearish on LLMs for automation, and bullish for LLM+human experts in specific fields, is about the right expectation for current architectures.\nApart from issues with task generalization, or perhaps related to it, is the fact that LLMs have real trouble with timekeeping, and cannot estimate the real world time it will take them to do things very well. This plus the memory issues make dreams of long horizon agents, that could plausibly handle changing specifications, quite implausible with current architectures.\nIn narrow domains with more deterministic outputs though, this is less of an issue, and we see multiple agents succeed much better.\nThe fusion of that capacity, with humans in the loop able to better direct such agents and act as their temporal tethers, is where I think the real action will be for a while at least."
+        }
+      ],
+      "title_ja": "ナビエ・ストークス後もLLMに弱気でいる理由",
+      "summary_ja": "ディスカッションのハイライト：これは、LLMの実際の実現可能な価値について、これまで見てきた中で最も根拠があり、一貫性のある見解です。 /この2026年4月の論文は、楽しくて関連性のある読み物です。\nhttps://arxiv.org/html/2509.24239v4\n研究者は、フロンティアモデルにチェスをするように依頼しました/Navier - Stokesは明確に定義された問題、または「困難な技術的問題」です",
+      "editor_note": "「ナビエ・ストークス後もLLMに弱気でいる理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 49694035,
+      "title_en": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
+      "url": "https://arxiv.org/abs/2511.07885",
+      "hn_url": "https://news.ycombinator.com/item?id=49694035",
+      "score": 137,
+      "comment_count": 46,
+      "posted_at": "2026-09-14T09:16:39+00:00",
+      "comments": [
+        {
+          "id": 49724921,
+          "author": "jmiskovic",
+          "text": "Incredibly important research. We've reached the point where local LLMs are good enough! It takes less time for local model to take the first action on your task than it does for Claude to validate your login, put you into queue and start issuing the commands. Local models are persistent and 100% predictable unlike any cloud offering. It's better for the power system for the demand to be distributed. During the winter time the GPU also doubles as a 300W in-house heater. Not to mention avoiding personal data collection and re-selling."
+        },
+        {
+          "id": 49727051,
+          "author": "surprisetalk",
+          "text": "I rather like this paper, but I think it is generous to say their benchmarks measure \"intelligence\".\n[0]\nhttps://arxiv.org/pdf/1911.01547\nWe have no dang clue what intelligence is, nor how to measure it.\n[1]\nhttps://taylor.town/crowpower"
+        },
+        {
+          "id": 49728730,
+          "author": "WASDx",
+          "text": "I tried calculating historical \"intelligence per cost\" recently but stopped when I realized intelligence is not linear. For any meaningful \"x per y\" you can just double \"y\" if you have a half as efficient system to get the same result but so-called intelligence doesn't work like that."
+        },
+        {
+          "id": 49725993,
+          "author": "scottcha",
+          "text": "Very cool paper and some interesting things for local serving.  Though its a little apples-to-oranges we do publish live energy stats for all models on our service here\nhttps://portal.neuralwatt.com/energy-pricing\nin case you are interested in what this looks like on the cloud side.  FWIW DSV4.1 flash is really getting popular due to its IPW.\nSome of the items like model routing, if you do it per request instead of per session, can break down on the cloud from an energy and cost POV since one of the best things you can do for both is to maintain the KV cache which both reduces time component of energy and the quite expensive prefill energy.\nI am keen on the future where we have local/cloud hybrid serving which is cache aware.  I do think that could be the best use of energy resources for AI."
+        },
+        {
+          "id": 49728197,
+          "author": "djb_hackernews",
+          "text": "ok now let's do some math to calculate the current levels of daily intelligence to calculate how much power we need to replace 10% of it with AI. Never mind new use cases or approaching human replacement. My guess is it is a few orders of magnitude more power than we produce today."
+        },
+        {
+          "id": 49728311,
+          "author": "polotics",
+          "text": "Did I miss something or does this article not bother to indicate how much RAM their M4-Max had?"
+        },
+        {
+          "id": 49725159,
+          "author": "Havoc",
+          "text": "Saw some measurements on SBC NPUs (3588) and that did seem to have a decent win on power over CPU...but also a perplexity loss relative to CPU so think this will prove quite hard to reliably quantify in practice."
+        },
+        {
+          "id": 49724341,
+          "author": "api",
+          "text": "Unless I misread it, are they saying local GPUs use less energy?\nThat’s surprising, almost unbelievable, due to batching. Local is usually not batched."
+        }
+      ],
+      "title_ja": "ワットあたりのインテリジェンス：ローカルAIのインテリジェンス効率の測定",
+      "summary_ja": "ディスカッションハイライト：信じられないほど重要な研究/私はこの論文が好きですが、彼らのベンチマークが「知性」を測定すると言うのは寛大だと思います。\n[0]\nhttps://arxiv.org/pdf/1911.01547\nインテリジェンスが何であるかわからない/私は最近、過去の「コストあたりのインテリジェンス」を計算しようとしましたが、インテリジェンスが線形ではないことに気づいたときに停止しました",
+      "editor_note": "「ワットあたりのインテリジェンス：ローカルAIのインテリジェンス効率の測定」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 49725800,
+      "title_en": "DeepSeek v4.1 Flash Is Now Our Best Hacking Model",
+      "url": "https://enclave.ai/blog/deepseek-v41-flash-is-now-our-best-hacking-model",
+      "hn_url": "https://news.ycombinator.com/item?id=49725800",
+      "score": 121,
+      "comment_count": 46,
+      "posted_at": "2026-09-16T12:19:55+00:00",
+      "comments": [
+        {
+          "id": 49729673,
+          "author": "habosa",
+          "text": "DeepSeek models have such good benchmark performance, amazing pricing, and the team over there seems to be widely considered impressive.\nI just haven't found them to be very good? I've had a ton more success with the GLM models (since 5.2 anyway). Maybe I'm just holding it wrong, DS models seem to get stuck in loops or tell me nonsense. GLM feels like budget Claude."
+        },
+        {
+          "id": 49730270,
+          "author": "gertlabs",
+          "text": "We ran v4.1 Flash through our evaluations and found it to be smarter and faster than V4 Flash, with a commensurate price bump. Some notes:\n- Because it's a heavy reasoner, it sits near Gemini 3.7 Flash on the Pareto front (not as cheap as the price suggests in practice).\n- Closer than expected to the top open weights models (GLM 5.3 and Kimi K3) in agentic coding, at lower cost.\n- Chinese models have always been strong iterators in an agentic harness. This model is no different, reaching an average percentile ~20% higher when given a harness vs a one-shot solution. That one-shot fluid intelligence is what makes a model feel smart, though, and typically results in fewer attempts/tokens to solve a problem, and American frontier models are still far ahead in that department.\nThe new architecture is interesting. It puts pricing between their old Flash and Pro lineups, suggesting they might be abandoning their super-cheap flash models (which weren't that fast due to heavy reasoning) and their pro models (which sort of flopped and weren't consistently better than their flash models, despite the size/cost) and shipping a strong intermediate that competes with the Gemini Flash series.\nData"
+        },
+        {
+          "id": 49728334,
+          "author": "TuxSH",
+          "text": "I find this - or perhaps the title - a bit surprising.\nI've benchmarked GLM 5.3 and DSv4.1-F on my fully-annotated decomp of the Nintendo 3DS's kernel, which I have a good mental understanding of, tasking them to find vulns and other bugs (in Max mode w/ subagents). GLM 5.3 founds almost all the vulns in 30min for $22, while DS only found one vuln for $2 in 40min.\nPerhaps DS works better where targets have low-hanging fruits than can be found fast?"
+        },
+        {
+          "id": 49728579,
+          "author": "jrflo",
+          "text": "Seems pretty bold to claim deepseek is the \"best hacking model\" while providing zero comparisons to other models..."
+        },
+        {
+          "id": 49729906,
+          "author": "fra",
+          "text": "Interesting result, but the writing is very poor."
+        },
+        {
+          "id": 49729664,
+          "author": "Art9681",
+          "text": "As opposed to what? Is enclave.ai signed up for GPT Cyber or Glasswing?"
+        },
+        {
+          "id": 49728851,
+          "author": "wg0",
+          "text": "DeepSeek is underrated. Basically all Chinese models are good enough for day to day coding at this point.\nThe 2 trillion dollar ROI on anthropic alone?\nGood luck with that."
+        },
+        {
+          "id": 49728095,
+          "author": "fwip",
+          "text": "Edit: Comment deleted - no longer useful."
+        }
+      ],
+      "title_ja": "DeepSeek v4.1 Flashが最高のハッキングモデルに",
+      "summary_ja": "ディスカッションのハイライト： DeepSeekモデルは非常に優れたベンチマークパフォーマンス、驚くべき価格設定を備えており、そこにいるチームは広く印象的であると考えられているようです。\n私は彼らが非常に優れていることを見つけていないだけですか？  /私たちは評価を通してv4.1 Flashを実行し、それがV 4 Flashよりもスマートで高速であり、それに見合った価格上昇があることを発見しました/私はこれ（またはおそらくタイトル）が少し驚くべきことだと思います。\n完全にアノテーションされたデータでGLM 5.3とDSv4.1-Fをベンチマークしました",
+      "editor_note": "「DeepSeek v4.1 Flashが最高のハッキングモデルに」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "23",
+    "started_at": "2026-09-17T03:02:08.014088+09:00",
+    "finished_at": "2026-09-17T03:03:26.541371+09:00",
+    "story_count": 30
+  }
+}
