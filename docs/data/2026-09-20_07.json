@@ -1,0 +1,1459 @@
+{
+  "date": "2026-09-20T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49770293,
+      "title_en": "How Hacker News ranking works: scoring, controversy, and penalties (2013)",
+      "url": "https://www.righto.com/2013/11/how-hacker-news-ranking-really-works.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49770293",
+      "score": 83,
+      "comment_count": 42,
+      "posted_at": "2026-09-19T21:30:59+00:00",
+      "comments": [
+        {
+          "id": 49770965,
+          "author": "kens",
+          "text": "Author here. I don't know why this popped up 13 years later, but hi :-)"
+        },
+        {
+          "id": 49770881,
+          "author": "compiler-guy",
+          "text": "Not sure when it started, but the second chance pool has moderators putting stories that didn’t get much attention when they were submitted directly on the front page.\nThere may be some survivor bias here, but second-chance stories seem very front-page sticky to me. At least those I have recognized."
+        },
+        {
+          "id": 49770845,
+          "author": "Liftyee",
+          "text": "The penalties are interesting. It shows that the design goal is not to maximise interactions otherwise \"controversial\" posts should stay up. Still though, I wonder what's the point of deranking said posts. Minimise the potential for a flame war to hit critical mass? Stop people from perceiving HN as an argument-filled forum?"
+        },
+        {
+          "id": 49771049,
+          "author": "PreciousH",
+          "text": "weird that posts with lots of comments are also penalized though, the `controversy` reasoning is not solid enough for me."
+        },
+        {
+          "id": 49771097,
+          "author": "syngrog66",
+          "text": "I concluded long ago that voting rings are active here, along with paid/inauthentic upvote farms."
+        },
+        {
+          "id": 49770759,
+          "author": "tptacek",
+          "text": "Presumably this has gotten way, way more complicated in the last 13 years."
+        },
+        {
+          "id": 49770861,
+          "author": "anon_cow1111",
+          "text": "Personally the first HN algorithm anecdote I really noticed was when the \"stop destroying videogames' petition hit the front page a couple years ago. In the first hour it got a modest ~100 votes and comments with some organic discussion, so pretty typical for a good HN post. In the next hour it was dead and buried several hundred posts down.\nI don't want to be a tinfoil hatter here, but I think certain industries have a lot more influence over this site than most people realize."
+        },
+        {
+          "id": 49770867,
+          "author": "NiklasKoehler",
+          "text": "The part of this I always forget is how lazily the ranking is applied. HN does not rescore the list on every page load. A story is rescored when someone upvotes it, and separately one story out of the top 50 gets picked at random every thirty seconds and rescored. Pages cache for another ninety seconds on top of that.\nSo the front page is never a clean rendering of the formula. A story that stops getting votes can sit at the wrong position for minutes at a time.\nWhich is also why the penalty figures in the post are ranges rather than numbers. Shirriff is inferring them from stories ranked lower than their raw score implies, and a story that simply has not been rescored recently looks exactly the same from outside. He lists that as one of his sources of error, along with neighboring stories carrying their own penalties."
+        }
+      ],
+      "title_ja": "ハッカーニュースのランキングの仕組み：スコアリング、論争、ペナルティ（ 2013年）",
+      "summary_ja": "ディスカッションのハイライト：投稿者はこちら/いつ始まったのかわかりませんが、セカンドチャンスプールにはモデレーターがいて、フロントページに直接投稿されたときにあまり注目されなかったストーリーを掲載しています。\nあるかもしれない/ペナルティが面白い",
+      "editor_note": "「ハッカーニュースのランキングの仕組み：スコアリング、論争、ペナルティ（ 2013年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 2,
+      "id": 49765348,
+      "title_en": "I built non-autoregressive decision models with RL a year ago",
+      "url": "https://laya.convaiinnovations.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49765348",
+      "score": 1052,
+      "comment_count": 244,
+      "posted_at": "2026-09-19T10:46:58+00:00",
+      "comments": [
+        {
+          "id": 49769116,
+          "author": "johnfn",
+          "text": "It’s a tale as old as time — people don’t understand that marketing and branding are just as important, if not more so, than the product. Jev is exceptionally-well branded. Anyone can look at the webpage and understand it, and the implications, instantly.\nOPs “marketing” is a single post on Reddit titled “ Predicting sales conversion probability from conversations using pure Reinforcement Learning”. Can you understand what that means? I can’t, and I consider myself reasonably technical. Is it obvious it has the same implications as Jev? Again, no idea. And it was just a single post on a subreddit that I don’t even browse! I see people on this thread saying “Jev is just BERT”. Sure, and Dropbox is just a ftp account mounted with curlftpfs!\nI do feel bad for the author for finding something cool and being unable to brand it. But the full definition of “product” INCLUDES being able to coherently communicate it. In some sense the branding is just as much the “breakthrough” as the model."
+        },
+        {
+          "id": 49767192,
+          "author": "prometheus1992",
+          "text": "I think the main gripe that people had with Jev and Typesafe was the language used when they launched. To me personally it seemed like a parody/con/shady at first.\n\"Breakthrough\", \"our research went in another direction\" , \"Two years in stealth\", \"System One thinking model\", \"Jev can't hallucinate\", \"RLCD\",\"We are doing very cool stuff, but we will have to hire you to tell you\", - these are some of the things that they said on their website on the launch blog.\nI had used versions of bert to achieve the same functionality years ago. But to me it seems like they were able to trick the VCs with \"can't hallucinate\" etc.\nTo the above author, kudos for sharing your work and making it open. Something like this shouldn't be closed in the first place when it has been available for so many years"
+        },
+        {
+          "id": 49765997,
+          "author": "Oras",
+          "text": "I played around with Jev last night and did it for classification tasks that I used Gemini 2.5 flash lite with.\nIt’s a bit faster and bit cheaper, but this is compared to LLM. The consistency was nice to see, BUT, as someone who trained NLP models prior to LLMs, it’s just BERT with more data. I can see why people would want ready made one shot classifier, and I can see the value of sending multiple classifier in one call, but I wouldn’t call it breakthrough. And I believe many labs will replicate it in no time and might have it as part of their harness.\nI see it as a wake up call for the tech community to go back to basics for most tasks instead of relying solely on generic LLMs."
+        },
+        {
+          "id": 49771131,
+          "author": "whywhywhywhy",
+          "text": "\"if you build it they will come\" is a lie, marketing and branding matter and whats funny is often the biggest proponents of \"if you build it\" don't even realize the things they see going viral are marketed to them, they extremely naively think it got traction simply because it was good and they \"built the right thing\", not true."
+        },
+        {
+          "id": 49766861,
+          "author": "dcow",
+          "text": "I can understand why the author feels bitter but it still feels juvenile to me. Certainly both Jev and Laya are based on the research of countless prior papers and academics. Diogo decided to build a product out of the concept. The author  didn't. Publishing research papers and model weights is probably part of the problem--it feels academic. If you look at the author's profile they focus on applying AI to healthcare. Not selling general AI type safety to AI pilled companies and devs. There's a big difference there. Whether that's good or bad you can argue all day. But for the author to expect otherwise is pretty weird. I do applaud them for not stewing too much on it and trying to do something about it, though."
+        },
+        {
+          "id": 49766495,
+          "author": "kamranjon",
+          "text": "It is really interesting to see this claim, because i thought the current theory was that typesafe actually repackaged the work from GLiNER[1] - which does seem to be a closer match, and their original paper[2] predates yours by several years. Curious if you had heard of it before? It is also open source[3] and I think also has some good usage.\n[1]\nhttps://arxiv.org/abs/2507.18546\n[2]\nhttps://arxiv.org/abs/2311.08526\n[3]\nhttps://github.com/fastino-ai/GLiNER2"
+        },
+        {
+          "id": 49766581,
+          "author": "hmokiguess",
+          "text": "I think the biggest lesson with Jev was the one of communication and understanding for the broader audience, sometimes a lot about innovating involves repeating yourself and translating your own thoughts to an intended audience.\nClassical machine learning has been, for the most part, and just by the nature of science, behind academic terms and difficult to engage with as a product.\nJev did really well with coining up “System One” models and defining a standard application interface plus core primitives that landed in the current paradigm of software development.\nI think it’s sort of like how Cursor reinvented autocomplete back then as a different UX and suddenly everyone was just using it because of how easy the bar was to understanding it.\nLastly, timing is everything. Just as Cursor had a first mover advantage, despite ML Ops being a thing for a while, they managed to encapsulate the concept behind a “System One” black box that fits the existing mental model for building software and shipping a data contract in the right point in time where the cost of tokens has been an important metric to watch."
+        },
+        {
+          "id": 49766844,
+          "author": "wren6991",
+          "text": "We've all seen \"this meeting could have been an email\"; now get ready for \"this VC-backed firm could have been a single arXiv preprint.\"\nI don't want to be too dismissive of Jev, but building technology in stealth for two years just doesn't make sense to me when the capabilities are so easily replicated. These are strange times, where the incentive to do public research and the incentive to develop in private are both being eroded."
+        }
+      ],
+      "title_ja": "私は1年前にRLを使用して非自動回帰的意思決定モデルを構築しました",
+      "summary_ja": "ディスカッションのハイライト：それは時間と同じくらい古い話です—人々はマーケティングとブランディングが製品よりも重要であることを理解していません/人々がJevとTypesafeで抱いていた主な不満は、彼らが立ち上げたときに使用された言語だったと思います/私は昨夜Jevと遊び、Gemini 2.5 Flash Liteを使用した分類タスクのためにそれを行いました。\n少し速く、少し安いですが、これはLLMと比較しています",
+      "editor_note": "「私は1年前にRLを使用して非自動回帰的意思決定モデルを構築しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 49764791,
+      "title_en": "AI-generated posters don’t have to be horrible",
+      "url": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49764791",
+      "score": 1319,
+      "comment_count": 729,
+      "posted_at": "2026-09-19T09:20:58+00:00",
+      "comments": [
+        {
+          "id": 49765646,
+          "author": "ajjenkins",
+          "text": "A lot of people in the comments say that the supposedly better examples in the article are still “horrible” because they can tell they’re AI and point to things that the AI did “wrong” and a human artist would do better.\nThat may be true if you’re working with a top of the line artist, but in my experience the average freelance designer online is significantly worse than AI. I’ve worked with dozens of budget friendly designers on Fiverr and consistently get way worse results than I’ve gotten from AI models. Will a great human designer produce better output than an AI? Maybe, but a small local event or business probably won’t have the budget to hire them or know where to find them. It’s cheaper, faster and easier to use AI to generate something that’s good enough for their purposes.\nPeople also point out all the little flaws in the “good” examples and cite them as obvious tells that they were AI generated. I think it would be interesting to see if people could reliably distinguish between AI generated flyers and human made flyers. Sure, sometimes it’s obvious like when the AI adds those weird, cartoony people. But if the model is told not to create designs like that and stick to the"
+        },
+        {
+          "id": 49765461,
+          "author": "vova_hn2",
+          "text": "I find it kinda funny that even \"smartest\", most capable models often have a very hard time going beyond surface-level, top-of-mind associations, when faced with creative tasks.\nOf course\n, a \"Japanese Minimal Poster\" has a sakura and a stylized flag of Japan, duh\nA human designer would probably think that \"Japan -> sakura\" and \"Japan -> Japanese flag\" are way too obvious, too banal, too stereotypical, and, most importantly\ntoo boring\n. And then they would probably sit for a while and try to think of something fresher and less clichéd.\nBut AI has absolutely no problem with going with the cheesiest, most overused trope."
+        },
+        {
+          "id": 49765120,
+          "author": "JSR_FDED",
+          "text": "It’s not complicated - the default style signals low effort. Why should I get excited about the village fete if the organizers put in the barest minimum of effort?\nBut there’s another reason it drives people crazy - it’s low effort trying to present as high effort. If the sign was simple Comic Sans then it would at least be charmingly honest."
+        },
+        {
+          "id": 49765539,
+          "author": "mrob",
+          "text": "The only ones that aren't horrible manage that because they're so bland there's nothing to go wrong. Look at an example with some detail, the \"Now please make one in the style of a 90s drum n bass gig flyer, with early 3D/fractal computer imagery\" poster.\nAt the top of the page we have a deformed wireframe sphere. A wireframe sphere is stylistically appropriate, but the incorrect rendering is not. The \"CGI\" aesthetic requires obviously computer generated lines, which in the 90s meant accurate and regular lines.\nNext we have a messed-up stellated polyhedron, and a messed-up dot pattern. These also fail for the same reason. The main 3D rendering is also obviously broken, as are many other small details.\nBut the biggest failure is the complete misunderstanding of the culture. 90s DnB was absolutely not about \"good vibes\". The smiley face logo is completely inappropriate; that's associated with late 80s/early 90s rave culture, pre-DnB era. 90s DnB was much darker and edgier in tone. The scene was almost exclusively male, and it maintained a aggressive vibe carried over from jungle.\nA 90s DnB event would never advertise \"bringing communities together\". Audiences would be repelled by suc"
+        },
+        {
+          "id": 49766341,
+          "author": "jstummbillig",
+          "text": "Ach, idk. On average people have horrible design aesthetics, yet are now so arrogant about it, because they imagine their a newly found ability to spot design generated with AI equates to them being able to spot bad design.\nNo, you silly geese. What you are able to spot is somebody using AI\npoorly\n. That's not you developing taste. It's the equivalent of being able to tell something is photoshopped because somebody used a default brush poorly, or masked something poorly and then confounding using Photoshop with using Photoshop poorly.\nYou have absolutely no way of telling when a good designer created something entirely using AI (unless they are fine with you knowing that) and that has always been true."
+        },
+        {
+          "id": 49771043,
+          "author": "zahlman",
+          "text": "It used to be that all the available art generation systems would make mistakes on text, making the letters into weirdly shaped non-letter blobs and/or having strange typos all over the place (that were probably from getting the letter-shapes confused rather than not knowing how to spell words).\nHow exactly did that get fixed? It seems like suddenly they can consistently produce correct text with sharp borders, even with various \"special effects\" on the letters, as if they'd been actually graphic-designed in rather than \"painted\" with the same techniques as the rest of the image. Is there actually some kind of system that does tool calls and superimposes text on a base?"
+        },
+        {
+          "id": 49770285,
+          "author": "Animats",
+          "text": "There's a similar problem with AI-generated video, but it's in the time dimension. There's a huge genre of Asian vertical dramas, and now about 17,000 a day are being cranked out by AI systems. But there are maybe ten major plots. \"Lost daughter of rich family comes home\" appears over and over. There are longer videos where the plot gets lost. I was watching one where it seemed like the \"save the world\" goal scrolled off the history buffer and the hero was off on side quest after side quest with the main goal forgotten.\nThis probably comes from a lack of intermediate level structure. To make a good dramatic story, you usually start from a plot summary, add character sheets, develop a plot, then a storyboard, then detail the storyboard. That way, you end up at the desired end. If you just let LLM-based systems free run, they go on forever, which is real life but bad entertainment. Unless the goal is a soap opera.\nThere's good stuff out there, from people who can plot."
+        },
+        {
+          "id": 49766484,
+          "author": "psion",
+          "text": "I work in a copy-print center where we take orders for business card, posters, flyers, invitations, and all sorts like that.  Lately, I have been getting more and more AI generated artwork for these flyers and business cards, and they are not sized correctly.  I can tell it's AI generated not from style, layout, or even hallucinations, but just the size.  The background are a full color, the customer insists that it's the right size, but I have to tell them that if I print what they gave me, there is going to be large white borders on the sides, tops, or all around.  I have had to explain to too many customers that AI doesn't know what an inch really is, as the reference images it has are different sizes.  AI flyers could be the best design ever, but it will never be sized properly and will still piss off the print employee.\nAnd I have found that if you are paying for an AI service to get these generic, wrong sized designs, you could have spent just as much going on Fiverr and gotten something that doesn't need to get a full style revision."
+        }
+      ],
+      "title_ja": "AI生成のポスターは恐ろしいものである必要はありません",
+      "summary_ja": "ディスカッションのハイライト：コメントの中で多くの人が、記事の中でより良いと思われる例はまだ「恐ろしい」と言っています。なぜなら、彼らは自分たちがAIであると判断し、AIがやったことを指摘することができるからです。「最も賢い」、最も有能なモデルでさえ、創造的なタスクに直面したときに、表面レベルのトップ・オブ・マインドの関連付けを超えることが非常に困難であることがよくあります。\nOf/It's not complex - default style signals low effort",
+      "editor_note": "「AI生成のポスターは恐ろしいものである必要はありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 49769676,
+      "title_en": "Measure internet censorship. Contribute to the largest open dataset",
+      "url": "https://ooni.org/install",
+      "hn_url": "https://news.ycombinator.com/item?id=49769676",
+      "score": 74,
+      "comment_count": 39,
+      "posted_at": "2026-09-19T20:00:59+00:00",
+      "comments": [
+        {
+          "id": 49770539,
+          "author": "walrus01",
+          "text": "For everyone in this thread saying \"but the platforms!\", I don't disagree with you. Extensive censorship exists. But I don't believe that's the intended purpose of this tool and the metrics it collects. It doesn't measure censorship at what we would call layers 4-7 in the OSI model. It's concerned with IP reachability and layer 3. It collects valid data for that purpose."
+        },
+        {
+          "id": 49769900,
+          "author": "howunfortunate",
+          "text": "Hmm.\nI'd wager the vast majority of internet censorship is\nwithin platform\n, like that done by Reddit mods.\nThe most egregious example I've seen in my lifetime was when old Twitter decided to censor a NYPost article, down to blocking sharing in\nDMs\n.\nIt seems that type of example is entirely missed here. Is there any attempt to capture that signal?"
+        },
+        {
+          "id": 49770532,
+          "author": "1e1a",
+          "text": "Would be cool if it also measured the latency and throughput across many different protocols to detect deviations from net neutrality."
+        },
+        {
+          "id": 49770181,
+          "author": "sandeepkd",
+          "text": "I really wonder if anyone installs it on their machine. May be I am one off but I am Hearing about this for first time, don't recognize any of their partners."
+        },
+        {
+          "id": 49769996,
+          "author": "piskov",
+          "text": "> Measure the speed and performance of your network with the NDT test\nThis is very much in line with the likes of pokemon go, wiki landmark projects and what have you (those are nice things to have for autonomous drones/missiles to navigate only with vision when gps/cellular/starlink is actively blocked).\n—\nRussia banned stuff like speedtest because things like that may help “map” the network, aid NSA to model malware propagation, etc.\nNot that this should matter when you have cisco, dell, nokia hardware, but it won’t hurt either.\n—\nI mean come on, some nuts even willingly install stuff like this:\nhttps://atlas.ripe.net/"
+        },
+        {
+          "id": 49769896,
+          "author": "like_any_other",
+          "text": "The most pervasive censorship is who and what social media companies decide to block or suppress. Even in places like China. It's deliberately harder to measure, but any censorship measurement that omits it is like measuring war casualties, but ignoring those on the front lines."
+        }
+      ],
+      "title_ja": "インターネット検閲を測定します。最大のオープンデータセットに貢献します",
+      "summary_ja": "ディスカッションのハイライト：このスレッドに参加している全員が「プラットフォーム以外は！」と言えるようになりました。、私はあなた/うーんに同意しません。\nインターネット検閲の大部分は\nプラットフォーム内\nRedditのモッドが行ったようなものです。\n私が生涯で見た中で最も驚くべき例は、ネット中立性からの逸脱を検出するために、多くの異なるプロトコルにわたってレイテンシとスループットを測定した場合、古いTwitter/がクールであることでした。",
+      "editor_note": "「インターネット検閲を測定します。最大のオープンデータセットに貢献します」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49766966,
+      "title_en": "Brood War Bench",
+      "url": "https://bw.swerdlow.dev/report",
+      "hn_url": "https://news.ycombinator.com/item?id=49766966",
+      "score": 119,
+      "comment_count": 62,
+      "posted_at": "2026-09-19T14:44:02+00:00",
+      "comments": [
+        {
+          "id": 49769869,
+          "author": "pelagicAustral",
+          "text": "Unrelated to the benchmark...\nI love StarCraft. I started playing it right from the beginning, most of my friends right now are from that era. I literally met people that have spread to almost every continent when I was in my early teens. We played at internet cafes and did not have access to the internet, that was priced differently...\nI miss those days so much.\nEverybody was from a different background back then, and nobody was anything other than a guy that plays StaCraft at the cybercafe... And now, we are in our 40's and I know Math teachers, history teachers, oil rig operators, software programmers, professional gamers, lawyers and more... hahah So crazy to think about it... and I know them, we talk, what a world."
+        },
+        {
+          "id": 49770880,
+          "author": "mcteamster",
+          "text": "I love this. Funnily enough StarCraft has influenced how I approach AI at a meta level\nProtoss: powerful and expensive frontier coding agents you directly micromanage for the toughest tasks\nTerran: versatile team comps of dedicated agent roles you can delegate well-defined tasks to\nZerg: massive swarms of specialist custom agents inside your apps that you evolve and optimise for speed and cost\nKnowing every faction has its strengths and weaknesses helps me decide which tools to use for the job."
+        },
+        {
+          "id": 49770169,
+          "author": "AntiRush",
+          "text": "Back in 2010, during the early days of bwapi, there was a Brood War AI tournament held by the Expressive Intelligence Studio at UC Santa Cruz. It's interesting to see how different the approaches were back then, vs this or Deepmind's SC2 work.\nhttps://web.archive.org/web/20091124210529/http://eis.ucsc.e...\nThere's a great contemporary Ars Technica piece by a competitor:\nhttps://arstechnica.com/gaming/2011/01/skynet-meets-the-swar...\nAs an undergrad I did a project using genetic programming. It was not very successful, but it was a lot of fun.\nhttps://tomisin.space/archive/starcraft-genetic-programming/"
+        },
+        {
+          "id": 49769947,
+          "author": "faeyanpiraat",
+          "text": "There is currently a bot beating everyone on the ladder. Just watched it today on Artosiscasts yt channel."
+        },
+        {
+          "id": 49769906,
+          "author": "GodelNumbering",
+          "text": "A friend of mine created GoBench[1][2] that evaluates LLMs on 9×9 Go using KataGo opponents as Elo anchors, you see real capability differences there, like Astra Max substantially leading all other models. I think strategy is a generally interesting area to evaluate LLMs on\n[1]\nhttps://rolandgao.com/blog/gobench/\n[2]\nhttps://rolandgao.com/gobench.pdf"
+        },
+        {
+          "id": 49770103,
+          "author": "tweakimp",
+          "text": "If you want to see human written bots in action or compete in the bot ladder yourself, try\nhttps://aiarena.net/"
+        },
+        {
+          "id": 49769917,
+          "author": "gadtfly",
+          "text": "Did it play by looking at screenshots and sending clicks, or was there other mediation/symbolization?\nIt sounds like it might have been actually played in real time, which would be very important to distinguish.\nI have recently seen other harnesses letting agents play real-time games in what seems like discrete time slices, turning eg Portal into something turn-based\nhttps://www.youtube.com/watch?v=ruuGXFAmiOE"
+        },
+        {
+          "id": 49770158,
+          "author": "minimal_action",
+          "text": "I think we're on the early days of games you connect with your agent to. Human + AI units one versus the other. Like knights with their horses. Not sure which is the horse.."
+        }
+      ],
+      "title_ja": "ブルード・ウォーベンチ",
+      "summary_ja": "ディスカッションハイライト：ベンチマークとは関係ありません...\n私はスタークラフトが大好きです/これが大好きです/2010年、bwapiの初期に、カリフォルニア大学サンタクルーズ校の表現力豊かなインテリジェンススタジオが開催したブルードウォーAIトーナメントがありました",
+      "editor_note": "「ブルード・ウォーベンチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49770362,
+      "title_en": "Mayday Mysteries",
+      "url": "http://www.maydaymystery.org/mayday/",
+      "hn_url": "https://news.ycombinator.com/item?id=49770362",
+      "score": 21,
+      "comment_count": 3,
+      "posted_at": "2026-09-19T21:43:09+00:00",
+      "comments": [
+        {
+          "id": 49770567,
+          "author": "rm445",
+          "text": "So... someone has been posting cryptic adverts annually from 1981 through 2026, which together constitute logic puzzles and obscure references.\nThe main thing I think is quite cool, besides the sheer persistence, is that anyone noticed and there's a community following this. Everyone has stuff going on in their lives, this seems so obscure that you'd almost expect people to shrug and ignore."
+        },
+        {
+          "id": 49770653,
+          "author": "readthenotes1",
+          "text": "It looks a lot like what one of my schizophrenic relatives does"
+        }
+      ],
+      "title_ja": "メイデイ・ミステリー",
+      "summary_ja": "ディスカッションハイライト：だから../私の統合失調症の親戚の一人がやっていることによく似ています",
+      "editor_note": "「メイデイ・ミステリー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49743934,
+      "title_en": "Compiler-style optimization for drawing via Skia",
+      "url": "https://arxiv.org/abs/2603.23696",
+      "hn_url": "https://news.ycombinator.com/item?id=49743934",
+      "score": 50,
+      "comment_count": 12,
+      "posted_at": "2026-09-17T17:30:38+00:00",
+      "comments": [
+        {
+          "id": 49770728,
+          "author": "eigenblake",
+          "text": "Wow! This is exciting. I have speculated that this would be possible. Since I've been learning about databases and dynamic db query optimization, it struck me as surprising that we didn't have similar things for more of our computational universe. Now that this is here, it makes me wonder what else we can optimize in using the same high level techniques.\nThe more you know about what you want to do ahead of time, the more optimally you can reorder your sequence of steps to give a better-than-naive solution. It makes me think about all software in terms of these abstract computation graphs and makes me wonder what else we can optimize automatically.\nOf course, we do absolutely do need a formal model here, so we know what edits are possible, the same way db engines have relational algebra as their backing model. But this whole thing makes me feel like manual software optimization is soon to fall to AI. And I'm thinking that includes good-old-fashion AI first, not second, to LLM's. But I'm sure LLMs would be useful here too, especially for the formalization."
+        },
+        {
+          "id": 49770393,
+          "author": "mtklein",
+          "text": "As a former Skia contrib, this is cool as heck to read.  It's exactly the sort of optimization work we had in mind when we wrote that SkRecord system, and I'm pleased that you were able to make use of nanobench.  Back in those days we had just a few small optimizations that we could apply, mostly trying to eliminate unnecessary saveLayer() calls.  Very cool to see it done in a modern way with Lean."
+        },
+        {
+          "id": 49770608,
+          "author": "ahartmetz",
+          "text": "I've done something similar for DBus deserialization. It turns out that  I stumbled upon something called fixed-point optimization for loops (in DBus: arrays), similar to what the JVM does according to Cliff Click's very interesting talks. It was pretty fun to write basically a toy optimizer that is even useful. As a friend said, it's probably overdesigned, but it was fun and it\ndoes\nyield code with not much left to improve. Well, except for embarrassingly optimizable types such as arrays of fixed-length elements.\nWe will probably see more such things as the consequences of the end of the free performance lunch play out. Hardware and software will specialize more, plenty of interesting work to do."
+        },
+        {
+          "id": 49770874,
+          "author": "pavpanchekha",
+          "text": "Hi folks! Last author here, happy to answer questions, very surprised to see this on HN. We had a blast working on this. Let me add that the Skia team at Google was super supportive, met with us many times to explain a lot of stuff.\nI had the idea for this project years ago while writing Web Browser Engineering with Chris Harrelson (see\nhttps://browser.engineering/\n). Then a few years ago I made a first attempt at this project with Yuvaraj (\nhttps://droidkid.github.io/\n), but for various reasons we never got very far. I restarted the project with Bhargav (\nhttps://bhargavkk.com/\n) about a year ago, and focused much more seriously on the semantics of Skia itself, which made progress much more rapid. Still, I was, frankly, shocked by how good the results are."
+        },
+        {
+          "id": 49770421,
+          "author": "vardump",
+          "text": "I wonder if same could be done to games. How much unnecessary work are modern games submitting to the GPU?"
+        },
+        {
+          "id": 49770643,
+          "author": "mohamedkoubaa",
+          "text": "I do something related in my gpu library. After a few frames if the push constants don't change I compile the shaders in the background with them defined out by the preprocessor to reduce the size of the shader program (kind of like a branch predictor). I also store the entire pipeline in a graph data structure that I partition into segments that let me fuse and split kernels (though I hadn't implemented those optimizations yet). In my mind one issue with these GPU accelerated programs is that there isnt a runtime with the right level of information about the overall program to do compiler style optimizations, especially for complex programs.\n(The library is called goldy, and until I spend some time on it the readme and docs are sadly LLM generated)"
+        }
+      ],
+      "title_ja": "Skiaを介した描画のためのコンパイラスタイルの最適化",
+      "summary_ja": "ディスカッションのハイライト：うわー！これはエキサイティングです/元Skiaの貢献者として、これは読むのがクールです/DBusの逆シリアル化に似たことをしました",
+      "editor_note": "「Skiaを介した描画のためのコンパイラスタイルの最適化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 49770256,
+      "title_en": "You can defeat the Dream Devourer from Chrono Trigger using an int overflow",
+      "url": "https://chrono.fandom.com/wiki/Dream_Devourer",
+      "hn_url": "https://news.ycombinator.com/item?id=49770256",
+      "score": 23,
+      "comment_count": 10,
+      "posted_at": "2026-09-19T21:25:29+00:00",
+      "comments": [
+        {
+          "id": 49770944,
+          "author": "falsaberN1",
+          "text": "I don't want Chrono Cross-contamination in my trigger, thanks.\nChrono Cross is a very interesting game on its own but it's a terrible sequel that is remarkably spiteful to its senior. (The thing with FATE and Robo, the Porre thing, the fate of Crono and co., it's a terrible fanfic made canon).\nTrigger only worked because of Toriyama gathering the all-star staff (look up the interview with Torishima giving the details). Cross was out of his hands and it shows."
+        },
+        {
+          "id": 49770998,
+          "author": "acbart",
+          "text": "There's a live music concert for Chrono Trigger playing right now. That game had one of the best soundtracks of all time."
+        },
+        {
+          "id": 49770871,
+          "author": "nubinetwork",
+          "text": "The elixir glitch works on a lot of bosses..."
+        },
+        {
+          "id": 49770321,
+          "author": "Founderarcstone",
+          "text": "One of the best games ever made very cool you made this."
+        },
+        {
+          "id": 49770746,
+          "author": "sph",
+          "text": "Yet another downside of using ‘safe’ languages. You don’t get cool stuff like this."
+        }
+      ],
+      "title_ja": "INTオーバーフローを使用して、クロノトリガーから夢の貪食者を倒すことができます",
+      "summary_ja": "ディスカッションのハイライト：クロノの交差汚染を引き金にしたくありません。ありがとうございます。\nクロノクロスはそれ自体は非常に面白いゲームですが、それはその先輩に著しく悪意のある恐ろしい続編です/クロノトリガーのためのライブ音楽コンサートが今演奏されています/エリクサーグリッチは多くのボスに作用します...",
+      "editor_note": "「INTオーバーフローを使用して、クロノトリガーから夢の貪食者を倒すことができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49763697,
+      "title_en": "Two parallel neural ectoderm progenitors contribute to the developing brain",
+      "url": "https://med.stanford.edu/news/all-news/2026/09/two-separate-brains.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49763697",
+      "score": 603,
+      "comment_count": 234,
+      "posted_at": "2026-09-19T05:48:50+00:00",
+      "comments": [
+        {
+          "id": 49764176,
+          "author": "ksenzee",
+          "text": "The really exciting thing in this article is that this research led them to a new technique for growing brain stem cells in vitro, which has been very difficult until now. If that isn't being oversold, it's big news. That's going to make future research into diseases like ALS a lot easier."
+        },
+        {
+          "id": 49766703,
+          "author": "Alien1Being",
+          "text": "The actual research says something far less clickworthy. Are Stanford's PR dribbles now created by LLMs ?\n\"Two parallel neural ectoderm progenitors contribute to the developing brain\nAbstract\nWhen and how different brain regions diversify from one another remains unresolved.\nDoes a common neural ectoderm progenitor generate the entire brain? Or do multiple neural ectoderm progenitors exist, each restricted to form specific brain regions?\nHere our lineage tracing studies of mouse embryos support the latter model. Two parallel brain progenitors emerge simultaneously during gastrulation: anterior neural ectoderm (forebrain/midbrain progenitor) and posterior neural ectoderm (hindbrain progenitor). Differentiation of human pluripotent stem cells into anterior or posterior neural ectoderm-like cells revealed these were lineage committed to forebrain/midbrain versus hindbrain fates, respectively. They harbored diverging chromatin landscapes foreshadowing future forebrain/midbrain versus hindbrain identities. We further differentiated human pluripotent stem cells into hindbrain rhombomere 5/6-specific motor neurons, which were hitherto difficult to generate in vitro.\nHence, we postulate th"
+        },
+        {
+          "id": 49763753,
+          "author": "k310",
+          "text": "bioRxiv preprint July 2025 [0]\nThe copyright holder for this preprint is the author/funder, who has granted bioRxiv a license to display the preprint in perpetuity. It is made available under a CC-BY 4.0 International license.\n[0]\nhttps://www.biorxiv.org/content/10.1101/2025.07.02.662771v2\nPDF is free to download."
+        },
+        {
+          "id": 49768771,
+          "author": "HarHarVeryFunny",
+          "text": "I've just being doing some googling to try to understand this research better.\nIt seems that it's been known for a while that more primitive animals have/had functionally distinct front (sensory) and rear (motor + autonomic) neural systems, with different genes (Otx, Gbx) associated with each. In 2003 it was shown that an extant species, acorn worms, have this front/sensory, rear/motor neural division, assumed to date back to the pre-chordates.\nIn vertebrates we also see this association of Otx gene expression in the fore/midbrain and Gbx in the hindbrain, but it had been assumed that these \"two halves\" of the brain had fused long ago... What this new research shows is that this fusion only happens during development of the embryo, which seems to be a fairly common phenomena \"Ontogeny recapitulates phylogeny\" whereby embryonic development follows the same steps as evolution (e.g. human embryo also has a tail, chicken embryo has teeth).\nOf course the front/sensory and rear/motor neural systems aren't totally isolated, since the sensory signals serve to steer the motor programs running in the back, and our brain still follows this primitive division of functionality."
+        },
+        {
+          "id": 49764503,
+          "author": "Perenti",
+          "text": "All the comments I see are about is it two organs, or a composite organ.\nSurely the interesting thing is the ability to grow hindbrain cells in vitreo.  That's what's potentially going to lead to the cure of lots of things, not whether 1=2."
+        },
+        {
+          "id": 49764455,
+          "author": "meindnoch",
+          "text": "Fun fact: 80% of the brain's neurons are in the cerebellum, not the cortex.\nIn other words: only <20% of pur neuron budget goes to higher cognition (thinking, language, seeing, hearing). 80% is spent on motor skills."
+        },
+        {
+          "id": 49763884,
+          "author": "bethekind",
+          "text": "> They identified two different brain progenitor cells. One, which expresses a gene called Otx2, is destined to become the forebrain and midbrain. The other, which expresses a gene called Gbx2, is committed to forming the hindbrain. They showed that these two cell populations never overlap; they are mutually exclusive from the earliest stages of development.\nVery cool. Never thought the brain could have two completely different ancestors"
+        },
+        {
+          "id": 49764300,
+          "author": "jabagawee",
+          "text": "> The new research finding shows that the human brain consists of two ancient nervous systems cleverly packaged together — a more primitive part that regulates our hearts’ beating, our breathing and other functions, and another that makes us distinctly human, capable of poetry, mathematics and wondering about our own origins.\nI'm not sure the actual article in Nature Neuroscience [1] actually says that. I remember \"Your Brain Is Not an Onion With a Tiny Reptile Inside\" [2] from a few years ago, but I'm not sure where the dissonance comes from: my own misunderstanding, the press release using a popular but flawed model to communicate with laymen, or these two articles being in direct contradiction with each other?\n[1]:\nhttps://www.nature.com/articles/s41593-026-02433-7\n[2]:\nhttps://journals.sagepub.com/doi/10.1177/0963721420917687"
+        }
+      ],
+      "title_ja": "2つの平行神経外胚葉前駆細胞が脳の発達に寄与しています",
+      "summary_ja": "ディスカッションハイライト：この記事で本当にエキサイティングなことは、この研究が今まで非常に困難だったin vitroで脳幹細胞を成長させるための新しい技術に彼らを導いたことです/実際の研究では、クリック価値がはるかに低い/bioRxivプレプリント2025年7月[0]\nこのプレプリントの著作権所有者は著者/資金提供者であり、bioRxivにプレプリントを永久に表示するライセンスを付与しています",
+      "editor_note": "「2つの平行神経外胚葉前駆細胞が脳の発達に寄与しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 49731996,
+      "title_en": "Deodands put a price on objects that caused death",
+      "url": "https://daily.jstor.org/how-the-railways-killed-a-medieval-law/",
+      "hn_url": "https://news.ycombinator.com/item?id=49731996",
+      "score": 33,
+      "comment_count": 12,
+      "posted_at": "2026-09-16T19:51:23+00:00",
+      "comments": [
+        {
+          "id": 49769965,
+          "author": "A_D_E_P_T",
+          "text": "The article belabors the point a little bit.  A deodand was any inanimate object directly linked to a human fatality -- from a runaway cart to a falling branch -- and it was usually condemned and destroyed.  (Or surrendered to the King and then sold, depending.)\nThere was often some hair-splitting involved, but the law of deodands was on the books for hundreds of years in England, and it reflects still older Greek and Hebrew laws where inanimate objects that killed people were cast out or destroyed.\nThe railways did contribute to the end of the custom.  But this is\nnot\nsimply because rail equipment was too expensive to seize or condemn.  Richard Posner, in\nThe Problems of Jurisprudence\n, notes:\n>\n[The law of deodands] eventually became dysfunctional but, as Holmes explained, the old law turned out to have a new use. The victim of a maritime accident may encounter great difficulty in trying to obtain legal redress\ndirectly against the owner of the ship that did the harm, because the\nowner may live far away, quite possibly in a foreign jurisdiction. By\nanalogy to the law of deodands, why not treat the ship itself as the\nwrongdoer, and hence let the victim sue the ship in the first po"
+        },
+        {
+          "id": 49770218,
+          "author": "zrobotics",
+          "text": "This is only tangentially on-topic, but the opening anecdote about the floor collapse immediately reminded me of the Erfurt latrine disaster. If you aren't already familiar, count yourself as one of today's lucky 10k people:\nhttps://en.wikipedia.org/wiki/Erfurt_latrine_disaster"
+        },
+        {
+          "id": 49770716,
+          "author": "59percentmore",
+          "text": ">What would a medieval jury do, tasked to rule on an AI encouraging suicide or murder?\nAn interesting conundrum. Is the maker of the AI considered to have been practicing magic and summoning a demon? The user? What's the movable chattel object in this case?"
+        },
+        {
+          "id": 49769962,
+          "author": "buildsjets",
+          "text": "Fundament: an archaic or formal term for the buttocks/anus.\nYer welcome."
+        }
+      ],
+      "title_ja": "デオダンズは死を引き起こした物体に値段をつける",
+      "summary_ja": "ディスカッションのハイライト：記事は要点を少し強調しています/これはトピックに接するだけですが、床の崩壊に関する冒頭の逸話はすぐにエルフルトの便所の災害を思い起こさせました/>中世の陪審員は、自殺や殺人を助長するAIを裁くために何をするでしょうか？\n興味深い難問",
+      "editor_note": "「デオダンズは死を引き起こした物体に値段をつける」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49767564,
+      "title_en": "Show HN: CUA-S1 – A System One Model for Computer Use",
+      "url": "https://github.com/trycua/cua",
+      "hn_url": "https://news.ycombinator.com/item?id=49767564",
+      "score": 56,
+      "comment_count": 8,
+      "posted_at": "2026-09-19T15:52:51+00:00",
+      "comments": [
+        {
+          "id": 49771158,
+          "author": "krismarker6",
+          "text": "Computer-use evaluation is dominated by task success rates, and success rates hide everything interesting. Two runs can both finish the task while one of them opened three wrong apps first, re-read its own plan twice, and burned 40 extra steps. For system-one-style models, step economy is the real\ndeployment question — what the agent did between start and success is the data most evals throw away."
+        },
+        {
+          "id": 49769966,
+          "author": "AM1010101",
+          "text": "Would the idea be to have many specialist models (forms, wikipedia, final cut, etc) and have a parent model choose which is best (potentially also a specialist model for selecting specialist models) with the idea an llm would give a larger goal and trigger this cascade of specialists to quickly do the task?"
+        },
+        {
+          "id": 49769462,
+          "author": "badatnames",
+          "text": "Please give us a hyper general cookie consent popup dismissal add-on :)"
+        },
+        {
+          "id": 49770350,
+          "author": "hbarka",
+          "text": "I read the nod to Typesafe Jev. Are you implying use of RLCD or still RLHF?"
+        },
+        {
+          "id": 49769972,
+          "author": "Axsuul",
+          "text": "Are we able to use CUA to build a system similar to Grok Bot?"
+        }
+      ],
+      "title_ja": "HNを表示： CUA – S 1 -コンピュータ使用のためのシステムワンモデル",
+      "summary_ja": "ディスカッションのハイライト：コンピュータ使用の評価はタスクの成功率に支配されており、成功率は興味深いことをすべて隠します/多くの専門モデル（フォーム、ウィキペディア、ファイナルカットなど）を持ち、親モデルに最適なものを選択させることを考えますか（選択するための専門モデルの可能性もあります/ハイパー一般的なCookie同意ポップアップアドオンをお知らせください:)",
+      "editor_note": "「HNを表示： CUA – S 1 -コンピュータ使用のためのシステムワンモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 49754194,
+      "title_en": "UFO Series Home Page: \"UFO\" TV Series from 1970",
+      "url": "https://ufoseries.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49754194",
+      "score": 45,
+      "comment_count": 28,
+      "posted_at": "2026-09-18T13:35:05+00:00",
+      "comments": [
+        {
+          "id": 49770174,
+          "author": "rootbear",
+          "text": "I rewatched this series a few years ago and was surprised that it held up as well as it did. Yes, lots of sexism, but not untypical for that time. Like Star Trek, it had women in authority roles, but also in sexy outfits, so a bit of a mixed bag. They also got handsome Michael Billington out of his shirt a few times, which I found quite interesting for reasons that didn't become clear to me until some years later :)\nSpace:1999 started as a sequel to this series, set ten years later, on a greatly expanded Moonbase. They eventually abandoned that connection.\nThe opening credits theme music and editing are just brilliant."
+        },
+        {
+          "id": 49770750,
+          "author": "WarOnPrivacy",
+          "text": "My kids enjoyed UFO S01E01 (the pilot?) but never got into the series. They really like Space 1999 however.\nI've found it useful to use my kids as a barometer of what bits of culture have persevered (as opposed to whatever ancient thing I still like).\nBarney Miller:  Lasts\nBlazing Saddles: Didn't age as well as I thought.\nI put on Magnificent Seven (1960) last night and had an audience pretty quick."
+        },
+        {
+          "id": 49770940,
+          "author": "themadturk",
+          "text": "I lapped this up eagerly when it was first syndicated in the US, I was in high school at the time. It wasn't until a few years later that I saw Doppelgänger, probably the first time it was on TV.\nI was actually introduced to Gerry and Sylvia Anderson as a much younger kid, when I saw Fireball XL-5 on Saturday morning TV. But I missed Thunderbirds until I was an adult!"
+        },
+        {
+          "id": 49770143,
+          "author": "jmbwell",
+          "text": "I just watched through this over the summer. It’s a fascinating specimen of a show. I am highly confident much of the Austin Powers aesthetic is borrowed from this, from the featureless suit coats to the everyone-is-mad-sexy to the swinging soundtrack.\nIt’s a Gerry Anderson production, so lots of great Thunderbirds-style miniatures too. And wild cars. All the action sequences have the delightful feel of an eight year old playing with toys. In fact a lot of it seems to have a fun child’s-idea aspect. “And it’s part submarine and part fighter jet! And they slide down chutes into the cockpit! And his office is a secret elevator! And all the grownups are doing computer things! And to get a whiskey you push a whiskey button! And the whole thing is under a movie studio!”\nBut god yes, Stryker’s family story is\nharsh\n. Way overbearing the trope that he’s such a powerful dedicated man keeping the world safe that his utterly neglected family has to suffer so badly. Particularly when much of the time, he’s standing around the office smoking and drinking and asking the nearest woman to go fetch him some coffee. You thought you were getting a show about high tech futuristic alien defense. Well,"
+        },
+        {
+          "id": 49770902,
+          "author": "dofm",
+          "text": "For UK readers: all of UFO is available on the itvX player.\nSo is\nFireball XL5\n! (And\nTerrahawks\n,\nSpace Precinct\netc.)\nAlso\nThe Secret Service\nbut after one episode of Unwinisms you will probably have had enough."
+        },
+        {
+          "id": 49770198,
+          "author": "shoo",
+          "text": "Apparently, this UFO series was one of the influences that went into the 1994 game UFO: Enemy Unknown (X-COM)."
+        },
+        {
+          "id": 49770817,
+          "author": "dofm",
+          "text": "\"Mindbender\" is a brilliant episode.\n\"A Question Of Priorities\" is quite dark.\n\"Reflections In The Water\" is pretty cool, too."
+        },
+        {
+          "id": 49770467,
+          "author": "drfuchs",
+          "text": "Let's keep this pertinent to Hacker News: The nicely intoned computer voice of SID on UFO was way more advanced than the clunky monotone of the Star Trek TOS ship's computer."
+        }
+      ],
+      "title_ja": "UFOシリーズのホームページ： 1970年の「UFO」テレビシリーズ",
+      "summary_ja": "ディスカッションハイライト：数年前にこのシリーズを再視聴しましたが、それがうまく機能していたことに驚きました/私の子供たちはUFO S 01 E 01 （パイロット？ ）を楽しんでいましたが、シリーズに参加することはありませんでした/米国で最初にシンジケートされたとき、私は熱心にこれをラップアップしました。当時私は高校生でした",
+      "editor_note": "「UFOシリーズのホームページ： 1970年の「UFO」テレビシリーズ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49769405,
+      "title_en": "ZK-JPEG: Zero-Knowledge Image Editing and Compression",
+      "url": "https://eprint.iacr.org/2026/2039",
+      "hn_url": "https://news.ycombinator.com/item?id=49769405",
+      "score": 46,
+      "comment_count": 7,
+      "posted_at": "2026-09-19T19:23:23+00:00",
+      "comments": [
+        {
+          "id": 49771129,
+          "author": "AmazingEveryDay",
+          "text": "I'm trying to think of recent real-world examples where the reality of the photo was of major importance. Photographs just don't seem to have the same significance, even as potential verification of their realness becomes more achievable."
+        },
+        {
+          "id": 49770212,
+          "author": "jamienk",
+          "text": "Hasn't this crossed over into being a philosophical question? You want to attest to reality or provenance. But then you start making lists of \"acceptable\" changes: file format; compression; color-correction; size; taking \"medium\" into account... It then slowly slides into \"average human perceptibility\"; \"irrelevant details\"; keeping the \"spirit\" of the image intact; judging the intention or motive of the user or of the viewer; aligning the image with \"values\"; appropriate/legal use... etc. Not sure what the end-game is?\nWe are trying to make images in the AI era be as reliable as they were pre-AI? But they were not reliable pre-AI, it was just more difficult to intentionally doctor them."
+        },
+        {
+          "id": 49770261,
+          "author": "mvid",
+          "text": "Tie this into the Apple/Android/Sony/Leica signed photos, and you get provenance from capture to publish"
+        },
+        {
+          "id": 49769925,
+          "author": "Retr0id",
+          "text": "Interesting work.\n> our tool can verify a large family of image transformations\nIs this family large enough to transform real image A into arbitrary fake image B?\n> ZK-JPEG can merge transparent or translucent layers into an image, useful for placing visual watermarks,\ncreating double exposures, or merging visual layers, potentially AI generated over portions of the image. In\nour tool, the transparent layer is revealed, but anything beneath an opaque portion of the layer becomes\nsecret. Note that in the case of an AI generated layer, the layer itself is revealed, minimizing the dishonesty\nin using generative AI (but not minimizing the dishonesty of stealing artwork to train the AI)\nSeems like the answer to my question is \"yes\", so you have to carefully inspect the transformations to see if they look legit. (The parenthetical was a surprising inclusion in an academic context)"
+        }
+      ],
+      "title_ja": "ZK - JPEG ：ゼロ知識画像編集と圧縮",
+      "summary_ja": "ディスカッションのハイライト：写真の現実が非常に重要であった最近の現実世界の例を考えようとしています/これは哲学的な質問になっていませんか？現実または出所を証明したい/これをApple/Android/Sony/Leicaの署名付き写真に結び付け、キャプチャから公開まで出所を取得します",
+      "editor_note": "「ZK - JPEG ：ゼロ知識画像編集と圧縮」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49769944,
+      "title_en": "English: A vs. An",
+      "url": "https://www.redblobgames.com/blog/2026-09-16-english-a-vs-an/",
+      "hn_url": "https://news.ycombinator.com/item?id=49769944",
+      "score": 98,
+      "comment_count": 110,
+      "posted_at": "2026-09-19T20:41:26+00:00",
+      "comments": [
+        {
+          "id": 49770764,
+          "author": "hbn",
+          "text": "A funny quirk of English I never noticed until I started learning Spanish:\nIn Spanish, to say for example, \"he is a doctor,\" you would say \"él es médico.\" Which more literally translates to \"he is doctor,\" which feels unintuitive coming from English. Spanish DOES have an equivalent for \"a\" - \"un/una\", so the natural thing for an English speaker to say would be \"él es UN médico\", but I understand that to be awkward/unnatural.\nBut then I realized, when you say the same sentence in plural - \"they are doctors\" - you don't have an article. You don't say \"they are some doctors\" (I had to Google, apparently \"some\" isn't an article anyway?)\nSo Spanish ends up more consistent - Singular: \"Él es médico.\" Plural: \"Ellos son medicos.\"\nUnlike English - Singular: \"He is a doctor.\" Plural: \"They are doctors.\""
+        },
+        {
+          "id": 49770575,
+          "author": "abraxas",
+          "text": "What gets me as a non-native speaker far more than \"a vs an\" is the \"a vs the\" conundrum. I still don't quite get when something needs to be \"indefinite\" and I've been speaking English for close to forty years. My native tongue lacks articles altogether and it's soo bloody hard I feel hopeless I'll ever master them fully."
+        },
+        {
+          "id": 49771006,
+          "author": "shagie",
+          "text": "It's avoiding two distinct vowel sounds in succession.\nConsider other variations of this rule.\nIn French, one would say \"l'hôpital\" rather than \"le hôpital\" because the 'h' is an aspirated breath (try saying \"a aspirated\" rather than \"an aspirated\") leading to an initial vowel sound.\nIn Irish, the word for father is \"athair\".  To say \"her father\" it becomes \"a hathair\"\nhttps://en.wikipedia.org/wiki/Prothesis_(linguistics)\nIn Turkish, it can be seen with araba (car).  \"I saw the car\" -> \"Arabayı gördüm.\" (note the 'y' to avoid two vowels).  Book is kitap and \"I saw the book\" is \"Kitabı gördüm.\" Which doesn't need the additional consonant sound between the final sound and the \"ı\".\nWhatever language you speak, it likely has some form of this rule.\nAnd other languages have the quirk too (like the \"a unicorn\" or \"a university\").  For example, in French there's l’hôtel and l'hôpital.  But if you've got the hedge... it's la haie... or even more egregiously, the marmoset is le ouistiti."
+        },
+        {
+          "id": 49770811,
+          "author": "dearjames",
+          "text": "This reminds me of the multiple AI videos out there that I have to involuntarily listen to because people hate using earphones/headphones. They just start off like \"The man/woman blah blah blah\", and my poor brain is always noting that's bad English/grammar or whatever because What man/woman are you talking about? Where did he/she come from in this story that you just started telling?"
+        },
+        {
+          "id": 49771085,
+          "author": "jonplackett",
+          "text": "A while ago I made an algorithm to swap the gender in fairy stories.\n(Genderswappedstories.com)\nAnd I found another English weirdness trying to swap between his/him and her/hers.\nHim always swaps to her\nEg it was him - it was her\nBut his can swap to her or hers\nIt is his -> it is hers\nIt is his thing -> it is her thing.\nAnd her can also swap to him or his\nIt was her -> it was him\nIt was her thing -> it was his thing\nAnd hers always swaps to his.\nSo hers and him are the only completely predictable - and they don’t even mean the same thing!\nI had to write a very in-depth algorithm to work out the type of words surrounding the words - if they are nouns, adjectives etc - in each sentence to correctly guess the swaps. But even after that some were unpredictable due to word order keeping the important words apart. all I could do 100% reliably was to flag the ones that might be ambiguous to check. Of course now I could just get an LLM to check it!\nCan anyone explain why this happens?"
+        },
+        {
+          "id": 49770595,
+          "author": "throwawayk7h",
+          "text": "I'm always curious why sometimes I pronounce\nthe\nas /ðə/ (\"thuh\") and sometimes as /ði/ (\"thee\"). I don't really know what governs this but I expect it's the presence of a vowel at the start of the following word. However, only some vowels. Does anyone have an answer?"
+        },
+        {
+          "id": 49771063,
+          "author": "kstrauser",
+          "text": "Confession: Whenever I hear an American say \"an historic...\", pronouncing the \"h\", I roll my eyes at the pretense. That's the only word I think I've ever heard someone swap in \"an\" for \"a\" before a pronounced consonant.\nNow, if they used the British-style \"an 'istoric event\", that's fine. In American we\ndon't\npronounce the \"h\" in \"herb\", so someone here saying \"an herb garden\" would follow the rule correctly and sound normal.\nBut \"history\" with the full \"h\"? To me it screams \"this person memorizes without understanding\", or at least \"this person desperately wants to sound posh but fails\". It's the verbal equivalent of wearing a polo shirt with a giant logo, imagining if a tiny one is fancy, then an enormous one must surely be\nexactly\nwhat rich people would wear."
+        },
+        {
+          "id": 49770864,
+          "author": "loloquwowndueo",
+          "text": "> for some words, we use an. For example, an apple.\nThe rule is fairly simple as it was taught to me - if the word (apple) begins with a vowel sound, use “an” to avoid cacophony. Same way one uses “o” (means “or” in Spanish) but “u” if the next word begins with a vowel.\nWhat matters is the sound though, not the character - so it’s not as trivial to algorithmize. Eg. A hammock, an hour."
+        }
+      ],
+      "title_ja": "英語： A vs. An",
+      "summary_ja": "ディスカッションのハイライト：スペイン語を勉強するまで気づかなかった英語の面白い癖：\nたとえば、スペイン語で「彼は医者です」と言うと、「él es médico」と言います。 「a vs an」よりもはるかにネイティブスピーカーとして私を惹きつけるのは、「a vs the」の難問です。連続して2つの異なる母音を避けています。\nこのルールの他のバリエーションを検討してください。\nフランス語では、「le hôpit」ではなく「l 'hôpital」と言います",
+      "editor_note": "「英語： A vs. An」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 15,
+      "id": 49767242,
+      "title_en": "The Lamentable Later Life of Lemmings",
+      "url": "https://www.filfre.net/2026/09/the-lamentable-later-life-of-lemmings/",
+      "hn_url": "https://news.ycombinator.com/item?id=49767242",
+      "score": 4,
+      "comment_count": 1,
+      "posted_at": "2026-09-19T15:17:12+00:00",
+      "comments": [],
+      "title_ja": "レミングスの嘆かわしい晩年",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「レミングスの嘆かわしい晩年」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49758736,
+      "title_en": "Android 17 is the first since 3.x to add new APIs without releasing to the AOSP",
+      "url": "https://grapheneos.social/@GrapheneOS/117282080803799576",
+      "hn_url": "https://news.ycombinator.com/item?id=49758736",
+      "score": 1109,
+      "comment_count": 647,
+      "posted_at": "2026-09-18T19:03:09+00:00",
+      "comments": [
+        {
+          "id": 49759227,
+          "author": "wps",
+          "text": "The amount of roadblocks Google is putting up for GrapheneOS is just ridiculous. None of their decisions make any sense, from the delayed source patches upstream, to the embargos, attestation issues, etc. Google simply regrets android being open source."
+        },
+        {
+          "id": 49759896,
+          "author": "bri3d",
+          "text": "So, the real thing that's happening here is:\n* Google drop \"real\" Android source-code updates to OEMs _and_ the public every half.\n* But they ship four Pixel updates, including documentation + SDKs.\n* Now they added new APIs in a Pixel-only update.\n* Google also drop security update backports to \"trusted\" OEMs monthly (which GrapheneOS have had access to for years).\nSo, there are now Pixel-exclusive app features on the Pixel SDK version which isn't available to OEMs - but, it's highly unlikely any app developer would actually depend on these new APIs, since Pixel marketshare is tiny to begin with. This in essence just makes Pixels a weird beta-testing device for what will come out a quarter later to \"normal\" devices, which is sort of an odd business decision, but also a weird thing to get really mad about, in my opinion (I do see what GrapheneOS are trying to do, with having OEMs saber-rattle about not getting features on the same cadence as Pixels, it just doesn't resonate very loudly for me).\nHowever, the API headline seems to bury a deeper lede; in the thread, GrapheneOS also claim that the quarterly Pixel releases contain security content which is not appearing in the monthly b"
+        },
+        {
+          "id": 49761997,
+          "author": "publlus_enigma",
+          "text": "As someone who went through similar challenges with Google making it impossibly hard for BlackBerry to provide an Android runtime on BBOS10, and now running GrapheneOS, I trust Google exactly zero to do the right thing by any open source project it stewards. Combined with their other practices, and lack of ongoing support for their commercial offerings, means that my perception of them is irreparably damaged and I minimise my usage of their products as much as practicably possible."
+        },
+        {
+          "id": 49759761,
+          "author": "largbae",
+          "text": "Alright AI maximalists, what's the estimated token budget to remove the Google dependency?\nGrapheneOS has the bootable AOSP and will have Google-alternative device support.\nWe probably need an equivalent to Play Services, app signing/porting/publishing tools.\nWith these in hand could we talk Valve into providing the scalable alternative to the play store?"
+        },
+        {
+          "id": 49763135,
+          "author": "hacker_homie",
+          "text": "I'm so glad we stopped microsoft from shipping a browser with their OS in the 90s, <sarcasm/>.\nRegulate them! that is the only way.\nTheir should be a path for an AOSP build to be just as privileged as a google signed build."
+        },
+        {
+          "id": 49759420,
+          "author": "Ajedi32",
+          "text": "Important details further down:\nhttps://grapheneos.social/@GrapheneOS/117282129725629495\nSo it seems like the problem isn't that the new API is Pixel exclusive, but that the first and third quarterly release patches each year are Pixel exclusive?"
+        },
+        {
+          "id": 49759660,
+          "author": "barbazoo",
+          "text": "I'm on GrapheneOS and I will never go back to Google Android or iOS. The amount of control you get is just liberating. I hope Google doesn't crush them."
+        },
+        {
+          "id": 49759705,
+          "author": "natterangell",
+          "text": "I get the sense Android is going the way of MacOS and Darwin. At some point Google will release something non-free end users experience as an absolutely integral part of OS, and it won't be possible to continue as an equivalent alternative. AOSP will still be free and underlying the whole thing, but slowly rot away as anything more than a code base."
+        }
+      ],
+      "title_ja": "Android 17は、AOSPにリリースせずに新しいAPIを追加する3.x以降で初めて",
+      "summary_ja": "ディスカッションのハイライト： GoogleがGrapheneOSに課している障害の量はばかげています/それで、ここで起こっている本当のことは次のとおりです。\n* Googleは、「本当の」Androidソースコードのアップデートを半分ごとにOEMと一般に公開しています。\n*しかし、彼らはDOCを含む4つのPixelアップデートを出荷します/Googleと同様の課題を経験した人物として、BlackBerryがBBOS 10でAndroidランタイムを提供することを不可能に困難にし、現在はGraphを実行しています",
+      "editor_note": "「Android 17は、AOSPにリリースせずに新しいAPIを追加する3.x以降で初めて」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 17,
+      "id": 49735010,
+      "title_en": "Suzanne Ciani's Buchla Cookbook",
+      "url": "https://echo.orpheusinstituut.be/article/suzannes-buchla-cookbook",
+      "hn_url": "https://news.ycombinator.com/item?id=49735010",
+      "score": 54,
+      "comment_count": 21,
+      "posted_at": "2026-09-17T00:39:39+00:00",
+      "comments": [
+        {
+          "id": 49770296,
+          "author": "outofpaper",
+          "text": "This is an amazing resource, whether you're into hardware modular synths or virtual ones like VCV Rack and Cardinal. Read, learn, enjoy, and play.\nP.S. I'll always remember first discovering Suzanne Ciani while watching 321 Contact as a child:\nhttps://www.youtube.com/watch?v=vJiTDhOTamo"
+        },
+        {
+          "id": 49771057,
+          "author": "ChickeNES",
+          "text": "I really should revive the Minimoog clone I built senior year of HS/first year of college..."
+        },
+        {
+          "id": 49769528,
+          "author": "harmoni-pet",
+          "text": "Tiptop Audio has a collaboration with Buchla where they're making eurorack versions of most of the classic models. Some would be very good starter modules.\nhttps://tiptopaudio.com/buchla/"
+        },
+        {
+          "id": 49769539,
+          "author": "consumer451",
+          "text": "I own non-modular synths, but I have never owned modular voltage-controlled hardware. However, I have had a lot of fun playing with Bespoke Synth. It has a much lower barrier to entry than VCV Rack imho.\nIf you are wondering what everyone is talking about in this thread, please check it out:\nhttps://github.com/BespokeSynth/BespokeSynth"
+        },
+        {
+          "id": 49769164,
+          "author": "glimshe",
+          "text": "Modular synths are very cool, but it's a bit like a swimming pool: it's great when someone close to you deals with the grind so you can just enjoy it.\nI talked myself out investing in modulars because I know I'll never have the patience to deal with the wires when all I want is to play. Big respect for those who can do it!"
+        },
+        {
+          "id": 49770493,
+          "author": "nickthegreek",
+          "text": "if someone wanted to get into this kinda stuff and keep it under $600 USD, is there an entryway path or is not worth it at that level?"
+        },
+        {
+          "id": 49769566,
+          "author": "wyager",
+          "text": "I have a probably ~$20k modular rack. It's a lot of fun to experiment with, but the fact that you don't have patch save/recall really slashes the utility.\nDoing everything in a DAW is the most practical from a \"business\" standpoint, but it's way less amenable to creative exploration. You really have to know what you want already.\nThe practical compromise that works best for me is a well-designed hardware realtime synth. You have access to a small fraction of the design space of modular, but a higher fraction of the accessible design space sounds good, and you of course have patch save/recall.\nRecently what I've been doing is creating modular patches, driving them with MIDI, and recording the output into my Elektron Tonverk using their on-device multisample recording. You can record samples at a bunch of different pitch/velocity pairs and save them into a multisample file."
+        }
+      ],
+      "title_ja": "Suzanne CianiのBuchla Cookbook",
+      "summary_ja": "ディスカッションのハイライト：これは素晴らしいリソースです。ハードウェアモジュラーシンセでも、VCVラックやカーディナルなどの仮想シンセでも、私がHSのシニアイヤー/大学1年生を作ったMinimoogクローンを復活させるべきです.../Tiptop AudioはBuchlaとコラボレーションしており、彼らはほとんどのクラシックモデルのeurorackバージョンを作っています",
+      "editor_note": "「Suzanne CianiのBuchla Cookbook」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 18,
+      "id": 49766611,
+      "title_en": "Tin: full-text search for Postgres",
+      "url": "https://planetscale.com/blog/introducing-tin",
+      "hn_url": "https://news.ycombinator.com/item?id=49766611",
+      "score": 179,
+      "comment_count": 70,
+      "posted_at": "2026-09-19T13:52:06+00:00",
+      "comments": [
+        {
+          "id": 49767392,
+          "author": "andrenotgiant",
+          "text": "I think what we're seeing with every database company providing new full-text search capabilities is an example of AI coding productivity showing up in the real world.\nIt started with paradeDB and pg_search\nhttps://www.paradedb.com/blog/introducing-search\nTimescale has pg_textsearch\nhttps://github.com/timescale/pg_textsearch\nNeon and Databricks have Lakebase Search\nhttps://docs.databricks.com/aws/en/oltp/projects/lakebase-se...\nNow PlanetScale.\nAFAIK all of these are implementations of the BM25 algorithm. You can just tell an agent to read about BM25 and implement it in your system of choice. Cool to see. Seems like there's still a lot of juice to be squeezed out of how it's architected and integrated into each system, but you can't help but wonder if this will lead to aggressive commodification"
+        },
+        {
+          "id": 49766812,
+          "author": "Tiberium",
+          "text": "If anyone's curious -\nhttps://planetscale.com/docs/postgres/search/get-started#loc...\n:\nThey're not providing a local extension with the same performance at the time - it's only offered on their cloud services.\nThe local version\nhttps://github.com/planetscale/lead\nis mainly just for testing the syntax, it doesn't have the same perf characteristics."
+        },
+        {
+          "id": 49768190,
+          "author": "tannhaeuser",
+          "text": "Postgres does have pg_fts (tsvector/tsquery/tsrank) which is a quite sophisticated full text search package integrated with functional indexing and query optimization. Why would I use something vibecoded that isn't part of core Postgres instead?"
+        },
+        {
+          "id": 49767954,
+          "author": "groundzeros2015",
+          "text": "Please read the Postgres manual. It has incredible built-in search capability."
+        },
+        {
+          "id": 49767662,
+          "author": "usernametaken29",
+          "text": "Interestingly enough SQLites FTS supports Lucene queries out of the box with great performance characteristics. IIRC only writes become pretty slow after a while.\nI’ve always wondered what exactly would prevent PostgreSQL from strapping that implementation into its own database. My experience with ts_query hasn’t been particularly rosy. It can be better than LIKE but only marginally so and at the cost of insane index sizes…\nIf this extension becomes open source and we can test it out in the real world I’m sure there’s a sweet spot"
+        },
+        {
+          "id": 49769778,
+          "author": "Doohickey-d",
+          "text": "There's another aspect which none of the FTS search solutions for Postgres do well in my opinion: multi-language support.\nFor example this one: it doesn't mention support for CJK languages (meaning tokenization for e.g. Chinese will resolve to one token per character, which will technically work and give results, but is inefficient). Also word stemming (databases -> database) is also missing as far as I can see, so the kind of queries where you'd expect related words to show up will be missing. Just doing case-folding and accent-folding is a bit of a functional but bruteforce solution.\nIdeally I'd want something that supports:\n- language aware tokenization, with ability to define the language per record.  Including stemming, etc. And have useful predefined configuration for common  languages (e.g. the Postgres built in one is missing many languages).\n- CJK support, tokenizing at word boundaries.\n- Optional accent- and case-folding.\nMost solutions just seem to assume English content, I have not found anything that does all of this yet."
+        },
+        {
+          "id": 49766882,
+          "author": "bob1029",
+          "text": "I struggle with FTS inside SQL (SQLite and MSSQL). There is often a fairly significant impedance mismatch between the relational concerns and how the documents need to be stored.\nI've always preferred to use SQL as the system of record and then build/maintain an external Lucene index. Do we think these integral FTS capabilities are at the point where a hybrid architecture doesn't make sense anymore? How much customization exists in this provider?"
+        },
+        {
+          "id": 49767933,
+          "author": "aroman",
+          "text": "I want to try Planetscale... but we're addicted to (and totally dependent on) Neon's branching model. They really got us hooked on that!"
+        }
+      ],
+      "title_ja": "TIN ： Postgresの全文検索",
+      "summary_ja": "ディスカッションのハイライト：新しい全文検索機能を提供するすべてのデータベース会社で見られていることは、現実世界に現れるAIコーディングの生産性の例だと思います。\nそれは誰かが好奇心旺盛で始まった-\nhttps://planetscale.com/docs/postgres/search/get-started#loc...\n:\nその時点では同じパフォーマンスのローカル拡張機能を提供していません。/Postgresにはpg_fts (tsvector/tsquery/tsrank)しかありません。",
+      "editor_note": "「TIN ： Postgresの全文検索」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49720143,
+      "title_en": "The Secret Life of Circuits",
+      "url": "https://blog.coredump.cx/p/the-secret-life-of-circuits-is-here",
+      "hn_url": "https://news.ycombinator.com/item?id=49720143",
+      "score": 278,
+      "comment_count": 71,
+      "posted_at": "2026-09-15T23:15:05+00:00",
+      "comments": [
+        {
+          "id": 49767570,
+          "author": "philsnow",
+          "text": "A couple clicks through to older lcamtuf posts and I came across this in the \"what is electricity\" post:\n> Once again, we don’t have a satisfying explanation why. We know that these quantum numbers correspond to standing-wave solutions of a three-dimensional wave function that we pulled out of thin air. We also know that the model works better than any alternatives. But we don’t know what any of it really means — or if it means anything.\nIt is so refreshing to see this explicated thus;  physics textbooks are generally coy about \"know\nthis\nfor now, and there will be deeper insights available later\" but they typically never level with readers and say \"we don't know\"."
+        },
+        {
+          "id": 49767163,
+          "author": "tzs",
+          "text": "I see some discussion of which books are good for people with various levels of electronics knowledge. I'd like to add one that I've never seen mentioned here: Agarwal and Lang's \"Foundations of Analog and Digital Electronics\".\nThis was the book used by MIT in 2007 for the first course in the EE and CS programs. It is that year's course that is on their Open Courseware platform [1], and the readings list there links to a full PDF of the book.\n(Edit: click the book title on the readings page, not the \"View e-book version\" link. See my response to groos' comment below for details).\nThis is not a link to a pirated copy BTW. Agarwal is a pioneer in the open-education movement and the authors intentionally arranged for an open access PDF.\nThe lecture videos on Open Courseware are very good too.\n[1]\nhttps://ocw.mit.edu/courses/6-002-circuits-and-electronics-s..."
+        },
+        {
+          "id": 49768433,
+          "author": "davb",
+          "text": "This book looks like it’s targeted squarely at people like me!\nI’ve been a software engineer for the last couple of decades and I’ve tinkered with microcontrollers as a hobby but always been limited by my lack of electronics knowledge - very much trial and error to get a project far enough to be able to focus on the firmware (which is more my domain). I want to bridge the knowledge gap there.\nMy only formal electronics education was first year introduction to analog and digital circuits module at university two decades ago, led by a lecturer who assumed students had a huge corpus of pre-existing knowledge (and who I now suspect would have preferred to be supervising his PhD students and conducting research but had to make up the teaching hours - which I do understand).\nI will definitely pick up a copy. However, Amazon UK (to avoid the NoStarch UPS shipping cost of $24) won’t get it to me until November. I’m excited to receive it."
+        },
+        {
+          "id": 49768284,
+          "author": "triilman",
+          "text": "I am from software engineer background and how I learn Circuit is just watching the best 3 video from \"Captive Aire\" channel:\n1.\nhttps://youtu.be/pDELW2pIvWw?si=BNsURdXrGLlaAfF3\n(Digital Electronic)\n2.\nhttps://youtu.be/RG3eljmqyq4?si=Pnbvf6P6HbFcIa1v\n(Alternating Current, Motors, & control)\n3.\nhttps://youtu.be/nYuVSG89vg0?si=Oe3ZdJojS7T_iGxK\n(Electric Basic Made is Easy), and\nthe episode of \"Nand to Tetris\""
+        },
+        {
+          "id": 49765650,
+          "author": "gadrev",
+          "text": "If you're ordering from Europe, be sure to check if it's available in your local Amazon page first, I almost got slapped with like a 50% shipping/import charges because I went straight to the main link (the US amazon). The ones that have it are listed in the blog post."
+        },
+        {
+          "id": 49765201,
+          "author": "yu3zhou4",
+          "text": "Michał Zalewski (the author of this book) is goated. His book Silence on the Wire was very inspiring to me and the techniques he described often come to my mind years after reading the book"
+        },
+        {
+          "id": 49765145,
+          "author": "hermitcrab",
+          "text": "I like the 'certified clank free' logo. It that a standard thing now?"
+        },
+        {
+          "id": 49722017,
+          "author": "ChuckMcM",
+          "text": "This is a much better introduction to circuits than most. You actually get a bit of depth rather than a cookbook of \"do this to get that\" sort of prose."
+        }
+      ],
+      "title_ja": "サーキットの秘密の生活",
+      "summary_ja": "ディスカッションのハイライト：以前のlcamtufの投稿をクリックすると、「電気とは何か」の投稿でこれに気付きました。\n>繰り返しますが、なぜか満足のいく説明がありません/どの本がさまざまなレベルのエレクトロニクス知識を持つ人々に適しているかについての議論があります/この本は私のような人々を対象としているようです！\n私は過去数十年間ソフトウェアエンジニアをしており、マイクロコントロールを",
+      "editor_note": "「サーキットの秘密の生活」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 49768220,
+      "title_en": "Supabase (YC S20) Is Hiring for OrioleDB",
+      "url": "https://supabase.link/orioledbjob",
+      "hn_url": "https://news.ycombinator.com/item?id=49768220",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-09-19T17:01:30+00:00",
+      "comments": [],
+      "title_ja": "Supabase (YC S 20)がOrioleDBに採用",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Supabase (YC S 20)がOrioleDBに採用」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49742697,
+      "title_en": "New evidence for hidden chambers beyond Tutankhamun's tomb",
+      "url": "https://www.nature.com/articles/d41586-026-02621-2",
+      "hn_url": "https://news.ycombinator.com/item?id=49742697",
+      "score": 95,
+      "comment_count": 38,
+      "posted_at": "2026-09-17T15:58:31+00:00",
+      "comments": [
+        {
+          "id": 49768416,
+          "author": "jamwise",
+          "text": "The 10 year old inside me is so incredibly excited. My actual 10 year old self was obsessed with tombs and ancient Egypt. I remember a whole summer I couldn't stop thinking about and talking about the \"Sphinx on the face of Mars\". Thankfully these days I have friends, but I have been rewatching all of Stargate so this is very timely."
+        },
+        {
+          "id": 49745466,
+          "author": "wildzzz",
+          "text": "Makes sense, the king dies unexpectedly, you need a tomb real quick. It probably takes years to dig these tombs and that's assuming you've found a suitable place to dig. You pick an existing tomb of a less popular ruler, wall of some sections (but maybe leave the artifacts?), renovate the new main chamber for him, and put a new name out front.\nIt's like those dilapidated buildings in NYC where the ground floor is some store but everything upstairs is basically uninhabitable decay. The store makes enough rental income to justify not renovating the upper floors into something actually usable."
+        },
+        {
+          "id": 49768521,
+          "author": "GolfPopper",
+          "text": "So they're saying there's one tomb, that seems very real, that conceals a hidden entrance to another, larger tomb complex?\nOkay, sure, explore away. But I'm not coming along, and if you find any jeweled skulls\ndon't touch them\n."
+        },
+        {
+          "id": 49768853,
+          "author": "skiing_crawling",
+          "text": "this would have been a fun headline 20 years ago but as technology has improved, it's getting more and more absurd that we don't just have multiple datasets from different imaging methods of the whole entire structure."
+        },
+        {
+          "id": 49767999,
+          "author": "crustyoldhuman",
+          "text": "I feel like I see this headline ever 2 months. it's like cancer research. lots of fluff, never any progress. then you get the alien people saying it's cuz they're hiding aliens. i'm exhausted."
+        },
+        {
+          "id": 49768863,
+          "author": "ViktorRay",
+          "text": "I have fond memories of reading National Geographic magazine growing up. I remember they had memorable issues with King Tut. And Ancient Egypt in general. Made me fall in love with learning about Ancient Egypt.\nAnyone else here have fond memories of reading those old National Geographic issues?"
+        },
+        {
+          "id": 49768196,
+          "author": "odyssey7",
+          "text": "What is the physical limitation that prevents a very big metal detector from telling us if there’s gold or other signatures?"
+        }
+      ],
+      "title_ja": "ツタンカーメンの墓の向こうに隠された部屋の新たな証拠",
+      "summary_ja": "ディスカッションのハイライト：私の中の10歳の子供は信じられないほど興奮しています/理にかなっています、王様は予期せず亡くなりました、あなたは本当にすぐに墓を必要としています/それで、彼らは1つの墓があると言っています、それは非常に現実のように見えます、それは別の、より大きな墓の複合体への隠された入り口を隠していますか？\nわかりました、もちろんです、遠くを探索してください",
+      "editor_note": "「ツタンカーメンの墓の向こうに隠された部屋の新たな証拠」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49763987,
+      "title_en": "GPT-6 Astra Solves a WWI German Radio Cipher",
+      "url": "https://www.prinzai.com/p/gpt-6-astra-solves-a-wwi-german-radio",
+      "hn_url": "https://news.ycombinator.com/item?id=49763987",
+      "score": 360,
+      "comment_count": 166,
+      "posted_at": "2026-09-19T06:41:44+00:00",
+      "comments": [
+        {
+          "id": 49766756,
+          "author": "aaymeloglu",
+          "text": "Agents just eat these things. After last week's HN post about Cyphral Distich, I pointed Astra and Fable at some unsolved ciphers just to see whether some joker who knew nothing about the field could get the same results, and sure enough there's plenty of low hanging fruit.\nhttps://aaymeloglu.github.io/unsolved-ciphers/\nBut I got nothing on Daniel Bordeau, who in the past week seems to have built himself a whole code breaking factory!\nhttps://dbourdeau.github.io/cyphersolver/index.html"
+        },
+        {
+          "id": 49766836,
+          "author": "grey-area",
+          "text": "Using an existing published key, which people hadn’t tried because the message was sent before the key was supposed to be used.\nThis headline is misleading."
+        },
+        {
+          "id": 49764233,
+          "author": "iltk",
+          "text": "Can the ships logs be found on the internet? If so, the model could've manufactured a fake key and corresponding message. I think this is unlikely but should probably still be considered."
+        },
+        {
+          "id": 49766403,
+          "author": "davidmurdoch",
+          "text": "\"You can't hide secrets from the future\" - MC Frontalot"
+        },
+        {
+          "id": 49764472,
+          "author": "donatj",
+          "text": "And here I am using it to generate crappy text summaries of work."
+        },
+        {
+          "id": 49770921,
+          "author": "percentcer",
+          "text": "opsec is when you summarize the contents of a document into a word and then use that word as the encryption key for that same document"
+        },
+        {
+          "id": 49764525,
+          "author": "sehw",
+          "text": "Or, it found a human that solved it in the dataset and stole the solution."
+        },
+        {
+          "id": 49765708,
+          "author": "adverbly",
+          "text": "I'm no crypto expert at all but isn't TRUPPENVERSCHIEBUNG an actual word?\nGoogle says it translates to \"troops shift\"\nIf so, I don't understand how this was difficult at all... Can't you just do a dictionary attack and then check if the resulting phrase forms a sentence?\nI don't understand how this couldn't be done by someone in their house with access to a computer and a German dictionary.\nMaybe I'm messing something? Was the rearranging of the letters random in some non-deterministic way that wasn't known up front?"
+        }
+      ],
+      "title_ja": "GPT -6 Astraが第一次世界大戦のドイツのラジオ暗号を解く",
+      "summary_ja": "ディスカッションのハイライト：エージェントはこれらのものを食べるだけです/既存の公開されたキーを使用していますが、メッセージはキーが使用される前に送信されたため、ユーザーは試していませんでした。\nこの見出しは誤解を招くものです。 /船のログはインターネットで見つけることができますか？ その場合、モデルは偽のキーと対応するメッセージを製造していた可能性があります",
+      "editor_note": "「GPT -6 Astraが第一次世界大戦のドイツのラジオ暗号を解く」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
+      "id": 49756121,
+      "title_en": "Black Holes or Black Hole Stars? Astronomers Spar over 'Little Red Dots'",
+      "url": "https://www.quantamagazine.org/black-holes-or-black-hole-stars-astronomers-spar-over-webb-telescopes-little-red-dots-20260914/",
+      "hn_url": "https://news.ycombinator.com/item?id=49756121",
+      "score": 85,
+      "comment_count": 44,
+      "posted_at": "2026-09-18T15:47:14+00:00",
+      "comments": [
+        {
+          "id": 49766955,
+          "author": "jahnu",
+          "text": "One thing worth noting is our popular notion of what a star seems to be is quite different from what astronomers have.\nOne example, Canis Majoris has a radius of about 1420 solar radii. But its mass is roughly\n17±8 times the mass of the Sun and therefore an average density of 5.33 to 8.38 mg/m3. “It is over 100.000 times less dense than Earth’s atmosphere at sea level.”\nhttps://en.wikipedia.org/wiki/VY_Canis_Majoris\nhttps://nineplanets.org/vy-canis-majoris/"
+        },
+        {
+          "id": 49767804,
+          "author": "benji-york",
+          "text": "Any decent human being would have called these Black Hole Suns."
+        },
+        {
+          "id": 49770641,
+          "author": "joebig",
+          "text": "Wouldn't objects this ancient (following in the wake of the big bang, essentially) be redshifted anyway, on account of cosmological expansion?"
+        },
+        {
+          "id": 49767795,
+          "author": "JumpCrisscross",
+          "text": "Is there an experiment that could resolve this? Literally resolve these objects better, or otherwise distinguish between these hypotheses?\nIs there anything behind these objects they could lens?"
+        },
+        {
+          "id": 49769691,
+          "author": "itsalwaysgood",
+          "text": "Perhaps they are somehow related to the elusive white hole: exit points of black holes.\nFuel for a Big Bang, if you can imagine. A universe within itself.\nThe article says they're sucking up gas though so I don't know. The arrow of time is weird. It would feel elegant to me, but I'm way out of my league.\nThe imagined scenario only works if you picture all black holes 'twisting time' towards its beginning.\nSort of like recursion, or a tesseract, where there's one beginning and many endings."
+        },
+        {
+          "id": 49767806,
+          "author": "ck2",
+          "text": "Dr. Becky take:\nhttps://www.youtube.com/watch?v=KuTVjuXu7uE\nPBS Space Time:\nhttps://www.youtube.com/watch?v=FMdrD_jcYgE\nlove those channels"
+        },
+        {
+          "id": 49766730,
+          "author": "debo_",
+          "text": "Soundgarden was apparently prophetic with their hit song \"Black Hole Sun.\""
+        }
+      ],
+      "title_ja": "ブラックホールまたはブラックホールスター？天文学者が「小さな赤い点」をめぐって争う",
+      "summary_ja": "ディスカッションのハイライト：注目に値することの1つは、星が何であるかという私たちの一般的な概念は、天文学者が持っているものとはかなり異なっているということです。\n一例として、カニス・マジョリスの半径は約1420太陽r/まともな人間なら誰でもこれらのブラックホール太陽と呼ぶでしょう。 /この古代の物体（本質的にビッグバンの後に続く）は、宇宙論的な拡大のためにとにかく赤方偏移しないだろうか？",
+      "editor_note": "「ブラックホールまたはブラックホールスター？天文学者が「小さな赤い点」をめぐって争う」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49763296,
+      "title_en": "San Francisco Onion Futures Company",
+      "url": "https://onionfutures.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49763296",
+      "score": 367,
+      "comment_count": 153,
+      "posted_at": "2026-09-19T04:23:30+00:00",
+      "comments": [
+        {
+          "id": 49763378,
+          "author": "cwal37",
+          "text": "For those who don’t know:\nhttps://en.wikipedia.org/wiki/Onion_Futures_Act\n(which also banned box office receipt futures)\nA fun thing is to go on FRED and make a graph with prices from onions and, say, corn to see the differences in volatility."
+        },
+        {
+          "id": 49763373,
+          "author": "Barbing",
+          "text": "> FAQ\n>Is this legal?\n>Yes, to the best of our knowledge. 7 U.S. Code § 13-1 prohibits \"contract[s] for the sale of [...] onions for future delivery [...] on or subject to the rules of any board of trade in the United States.\" The San Francisco Onion Futures Company is not a board of trade, defined as an \"organized exchange or other trading facility\". We sell contracts privately to individual buyers, and do not operate any exchange or secondary market.\nPerformance art against that law?\nAlso November onions are an absolute steal compared to the adjacent months!"
+        },
+        {
+          "id": 49763554,
+          "author": "haakon",
+          "text": "Since this may be a legal gray area, they should host it on a Tor onion site."
+        },
+        {
+          "id": 49764037,
+          "author": "envoked",
+          "text": "For those unfamiliar, there's an excellent Planet Money episode on how trading onion futures got banned in the 50s.\nhttps://www.npr.org/sections/money/2015/10/14/448718171/epis..."
+        },
+        {
+          "id": 49763513,
+          "author": "shoo",
+          "text": "US Department of Agriculture publishes a national potato & onion report (issued daily!):\nhttps://www.ams.usda.gov/mnreports/fvdidnop.pdf\nReaders may wish to skip ahead to page 4, where onions are discussed."
+        },
+        {
+          "id": 49770443,
+          "author": "Tossrock",
+          "text": "Laying the groundwork for The Onion Knight, no doubt:\nhttps://www.astralcodexten.com/p/the-onion-knight"
+        },
+        {
+          "id": 49763509,
+          "author": "mimorigasaka",
+          "text": "The people behind this are a real (if silly) student organization at UChicago and Northwestern campaigning for the legalization of onion futures trading. Sometimes they will aggressively hand out free onions to passerby on campus. It's quite entertaining.\nThey have a website also:\nhttps://onionfutures.org"
+        },
+        {
+          "id": 49763597,
+          "author": "Reason077",
+          "text": "Are these contract prices really \"per onion\"? Or are they actually per pound or per kg? Up to $9.39 seems very expensive if it's really the price for a single onion.\nI thought maybe they're some sort of special exotic onion variety, but I don't see anything to suggest that."
+        }
+      ],
+      "title_ja": "サンフランシスコ・オニオン・フューチャーズ・カンパニー",
+      "summary_ja": "ディスカッションのハイライト：知らない人のために：\nhttps://en.wikipedia.org/wiki/Onion_Futures_Act\n（興行収入先物も禁止）\n面白いのは、FREDに行って、料金のグラフを作成することですf />よくある質問\n>これは合法ですか？\n>はい、私たちの知る限りでは/これは法的なグレーゾーンである可能性があるため、Torの玉ねぎサイトでホストする必要があります。",
+      "editor_note": "「サンフランシスコ・オニオン・フューチャーズ・カンパニー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49767937,
+      "title_en": "I think you should almost never use AI to write",
+      "url": "https://erichgrunewald.substack.com/p/why-you-should-almost-never-use-ai",
+      "hn_url": "https://news.ycombinator.com/item?id=49767937",
+      "score": 197,
+      "comment_count": 112,
+      "posted_at": "2026-09-19T16:35:24+00:00",
+      "comments": [
+        {
+          "id": 49768541,
+          "author": "patrickmay",
+          "text": "From TFA:  \"Eric Schwitzgebel writes that . . . There’s a huge cognitive difference between nodding along while reading something and actually productively generating a text. Two reasons: First, once the text is on the page, it’s easy to passively let the approximate word suffice, rather than thinking about word choice in the same effortful, active way we do when generating prose de novo. Second, as I suggested above, I doubt that human beings, even experts, have a good sense of all the factors that shape word choice -- everything they’re being sensitive to. You would have phrased it slightly differently, and even if you don’t know that, or why, a different signal is sent and received.\"\nThis is the best articulation I've seen of why simply reviewing and copy-editing does not provide remotely the same value as writing from scratch.  I spent a considerable amount of time over the past two weeks reviewing and improving a work document that was the output of an LLM.  Given the number of people involved and the final level of effort, I'm firmly convinced that writing it manually would have been faster and resulted in a higher quality product.  Getting the wording right matters."
+        },
+        {
+          "id": 49768646,
+          "author": "jameshart",
+          "text": "Use AI to write things\nfor you to read\nthat you wish\nsomeone else had written\n. ‘Give me a summary of the research on this topic’; ‘Write a report on this data to help me make a decision’. ‘Take this transcript of a meeting and write me the email it could have been’.\nDon’t use AI to write things that you are producing for\nsomeone else\nto consume."
+        },
+        {
+          "id": 49770684,
+          "author": "foobarbecue",
+          "text": "It blows my mind that anyone would ever use an LLM to write, if communication is their goal.\nLLM writing takes your prompt and adds stuff you didn't write, burying your meaning and making it harder for the reader to get your message.\nWay more effective to just publish the prompt.\nOf course, it's great if you're just trying to fill space or satisfy demands of a bullshit job."
+        },
+        {
+          "id": 49771064,
+          "author": "wdutch",
+          "text": "One way I use AI to help me write that I've not seen anyone else talk about is this: I'll say \"give me multiple versions of saying xyz\". I'll almost never use any of what it outputs verbatim, but seeing it said in different ways helps me clarify how I'd prefer to approach writing it."
+        },
+        {
+          "id": 49768564,
+          "author": "rectang",
+          "text": "Instead of asking AI to write something substansive for you, ask it to\ncritique\nyour writing.  Then use your own judgement as to which bits of advice to follow and which to ignore.\nThe LLM will always give you a full rewrite — don't use it.  It always does too much, and persuading it to tone it down is a constant battle."
+        },
+        {
+          "id": 49768414,
+          "author": "alas44",
+          "text": "\"AI writing is vague and wrong in hard-to-notice ways\"\nThis one felt to me, at work I lost a lot of time re-reading and correcting AI prose that was launched to \"summarize\" a collective white paper, and where subtlety and nuance disappeared in ways that harmed the initial ideas/arguments I was writing about, but in sneaky ways."
+        },
+        {
+          "id": 49768794,
+          "author": "vanschelven",
+          "text": "I can't help but think that some of the arguments here apply equally well to writing _code_ as they to to other substantive writings.\nWriting code is thinking, AI code is often vague and wrong in hard-to-notice ways, and the (human) reader of code is the one that pays the cost for this later.\nThe cost/benefit analysis may still work out differently for code though..."
+        },
+        {
+          "id": 49770914,
+          "author": "grogers",
+          "text": "Is editing really any less 'thinking' than writing the original copy? I don't use LLMs to generate prose but I can compare to writing code. Let's say I use an LLM to write code to some specification. After it meets the spec I go over everything with a fine-toothed comb - tweaking things to a style I like better, rewriting pieces or interfaces that I think would be better a different way, etc. Is the final work product any different than if I wrote it from scratch without absolutely any LLM use? Personally I would say no, if I do enough editing to be perfectly satisfied with it then it's the exact same output in the end."
+        }
+      ],
+      "title_ja": "ほとんどAIを使って書くべきではないと思います",
+      "summary_ja": "ディスカッションハイライト： TFAから：「Eric Schwitzgebel氏は次のように書いています/AIを使って物事を書く\nあなたが読むことができるように\nあなたが望むこと\n他の誰かが書いた\n /コミュニケーションが目標であれば、誰もがLLMを使って書くことになるというのは、私の心を打ちのめされます。\nLLMライティングはあなたのプロンプトを取って、あなたが書いていないものを追加し、あなたの意味を埋めて",
+      "editor_note": "「ほとんどAIを使って書くべきではないと思います」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 49747070,
+      "title_en": "How to Write with an LLM",
+      "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
+      "hn_url": "https://news.ycombinator.com/item?id=49747070",
+      "score": 618,
+      "comment_count": 372,
+      "posted_at": "2026-09-17T21:48:38+00:00",
+      "comments": [
+        {
+          "id": 49753666,
+          "author": "semiquaver",
+          "text": "This would sound insane to me from two years ago but I have recently started insisting on writing all my own commit messages and pull request descriptions. I do usually have an agent review them for factual accuracy, but not rephrase them.\nIt slows things down a bit, but in the best possible way. It has helped immensely to improve the depth of my understanding of the agent-generated code. When agents are doing everything its way too easy to “skim” diffs and not really absorb them.\nI always prided myself on my technical writing, and commit messages and PRs were a great place to hone that skill. I found that I missed it and my work is better now I’ve reclaimed that part of my old job back."
+        },
+        {
+          "id": 49747773,
+          "author": "S-E-P",
+          "text": "I fear in the future people will read even less because of how often people cheap out and use AI to write.\nI know the author of this article tells you never to use a single word it suggests, however I still, while reading, am checking for any amount of AI used.\nThis makes reading less enjoyable, and even a bit stressful.\nIf you can't spend the time to write it, why should anyone read it?\nEverything I post is from my own finger tips, only to get a reply from someone using a bot.  I'm tired."
+        },
+        {
+          "id": 49748194,
+          "author": "thombles",
+          "text": "Even if you don't want style advice from an LLM (I generally don't, not for blogging), for a technical blogger \"please check this post for factual accuracy\" is a good way to not look like an idiot. Often it complains about hyperbole, which I tend to ignore since there's no point blogging unless you have some firm opinions, but on at least one occasion it pointed me towards some documentation that undermined my entire post - and led to a much better one a week later once I'd processed and applied that new information. Thanks, LLM."
+        },
+        {
+          "id": 49752333,
+          "author": "nirava",
+          "text": "I've found the only good way to write with LLMs is to absolutely not use it for the first few drafts, the using it as a tool to list specific kinds of problems in text (word repetition, unnatural hard to read sentences etc) and approaching those points with caution and skepticism. Even copy pasting a single sentence, I've found, is a slippery slope."
+        },
+        {
+          "id": 49757059,
+          "author": "in_absentia",
+          "text": "I sort of agree, but I also think the advice here is circular. To look at the style suggestions produced by an LLM and decide that you agree with some of them in spirit, but want to put it in your own words,\nyou already need how to know how to write well\n.\nIn other words, you need to read a style manual or two, and you need to read and have opinions about other people's work. You must have taste. Otherwise, you can't really distinguish between good and bad advice. You'll anchor to the suggestions made by the LLM and it will turn your writing into LLMese. I guess that works - it sure gets clicks on HN - but it won't be your voice anymore.\nThere's still value in getting a second pair of eyes on what you write. But here's another cool trick that gives you a similar benefit: just let it stew. Go for a walk, grab a lunch. Re-read what you wrote. You'll be surprised."
+        },
+        {
+          "id": 49756422,
+          "author": "ashton314",
+          "text": "Step one: open up the LLM\nStep two: close the LLM\nStep three: pick up a pen and write\nWriting with LLMs is a great way to make yourself stupid:\nhttps://lambdaland.org/posts/2026-08-07-ai-writing-stupid/\nI'm glad the OP acknowledges that you have to have to do the writing yourself—though they say this more as a means to avoid getting pegged as having used an LLM, whereas I see the problem as being cognitive surrender."
+        },
+        {
+          "id": 49753182,
+          "author": "Eddy_Viscosity2",
+          "text": "\"LLM paragraph will register to much of your audience not as writing but as output\"\nThe best advice for writing for other humans is: don't use LLMs.\nIf you're writing for machines, liking coding, then fine go for it. If you're writing for processes with formal highly structured content like manuals, specifications, form content, procedures, information, that sort of thing, then also ok to use LLMS. But if you're writing for a human mind to ingest and extract meaning from, then LLMs are poison."
+        },
+        {
+          "id": 49748533,
+          "author": "Retr0id",
+          "text": "> Present the original and new writing to the model and ask it which is better.\nLLMs have absolutely terrible taste when it comes to writing. I don't find their feedback useful at all, beyond trivial spelling/grammar mistakes, which you don't really need an LLM for in the first place.\nProofreading is all you need.\nEdit: I do sometimes ask an LLM for a fact-check, though."
+        }
+      ],
+      "title_ja": "LLMで書く方法",
+      "summary_ja": "ディスカッションのハイライト：これは2年前から私には狂っているように聞こえますが、私は最近、自分のコミットメッセージとプルリクエストの説明をすべて書くことを主張し始めました/人々が安くなり、AIを使用して書く頻度が高いため、将来的に人々が読むことがさらに少なくなるのではないかと心配しています。\nこの記事の著者は、決して単語を使用しないように言っていることを知っています/たとえあなたがLLMからのスタイルアドバイスを望んでいなくても（私は一般的にそうではありません、ブログのためではありません）、",
+      "editor_note": "「LLMで書く方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 49754785,
+      "title_en": "Cloudflare Quick Tunnels",
+      "url": "https://try.cloudflare.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49754785",
+      "score": 809,
+      "comment_count": 308,
+      "posted_at": "2026-09-18T14:18:41+00:00",
+      "comments": [
+        {
+          "id": 49761235,
+          "author": "noname120",
+          "text": "Cloudflare Quick Tunnels have existed for more than 5 years (yes, including the anonymous quick tunnels). I copy-pasted the url of the HN link in archive.org, see for yourself:\nhttps://web.archive.org/web/20211202005430/http://try.cloudf...\nIs a new vibe-coded landing page for a 5-year old product really worthy of being on the front page nowadays? There should at least be a [2021] in the title."
+        },
+        {
+          "id": 49756985,
+          "author": "TIPSIO",
+          "text": "My wife and I have a mobile group/shared bot system where we can make mini apps and collab.\nAnything from baby stuff, groceries, shopping, planning, wine tracker app, simple/fun/useful data things, etc…\nWe have Tailscale on our phones and can instantly and privately see without deployment or anything crazy via our secure VPN.\nThink shared Claude Artifacts that don’t live @ Anthropic.\nTried to first do this with Cloudflare Tunnels (because I love Cloudflare), but between the broken dashboard side of Zero Trust and nightmare of Warp… it was basically impossible to setup. I guess that’s all super enterprise,  which seems to be very anti-Cloudflare philosophically to not be able to self do things.\nWill check out Quick Tunnels but I think it’s missing the bigger integration offerings Tailscale has/does still."
+        },
+        {
+          "id": 49757199,
+          "author": "adamfeldman",
+          "text": "Cloudflare doesn't really seem to care about their tunnel product. \"cloudflared service install broken on macOS\" since 2021:\nhttps://github.com/cloudflare/cloudflared/issues/327"
+        },
+        {
+          "id": 49756239,
+          "author": "rplnt",
+          "text": "Are we in an age where no one even bothers to open the product pages they generate? The first subtitle with the font color almost matching the background. Or it's even worse that a human looked at it and said \"yep, that's OK\"?"
+        },
+        {
+          "id": 49755662,
+          "author": "kincl",
+          "text": "Is this their version of\nhttps://tailscale.com/tailcat\n? I can't tell if you need to auth\nedit: yeah, it says no account creation, neat!"
+        },
+        {
+          "id": 49757437,
+          "author": "skhameneh",
+          "text": "There's a number of comments already about how this page looks vibe coded, I'd add that I'm actually shocked at how much this looks like the output of a one-shot prompt.  It's not so much that an LLM was used, but a callout on just how generic this page is.  How much iteration went into this?  At surface it looks like nearly no iteration.\nEdit: Well, they just re-vibed it.  Went from the most generic Claude 4.6 era to today’s models, quality wise.\nI wish I had saved a copy of the original, because it would have taken me actual solid effort to make a page that generic out of an LLM."
+        },
+        {
+          "id": 49756300,
+          "author": "israrkhan",
+          "text": "For someone looking for an opensource solutions, following is an awesome resource for tunnelling\nhttps://github.com/anderspitman/awesome-tunneling\nI have played around with frp, bore and ngrok."
+        },
+        {
+          "id": 49755700,
+          "author": "aliasxneo",
+          "text": "Tunneling was something that recently fell out of the work I've been doing [1]. I've used Cloudflare Tunnels before but I just have low trust with them recently with how big they are getting. All of these nice things come at the cost of pushing _a lot_ of traffic through their systems.\n[1]:\nhttps://dntls.substack.com/p/the-new-internet"
+        }
+      ],
+      "title_ja": "Cloudflareクイックトンネル",
+      "summary_ja": "ディスカッションのハイライト： Cloudflareクイックトンネルは5年以上存在しています（はい、匿名のクイックトンネルを含みます）/私の妻と私は、ミニアプリやコラボレーションを作成できるモバイルグループ/共有ボットシステムを持っています。\nベビー用品、食料品、買い物、計画、ワイントラッカーアプリ、シンプル/楽しい/私たち/Cloudflareは、トンネル製品をあまり気にしていないようです",
+      "editor_note": "「Cloudflareクイックトンネル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49745049,
+      "title_en": "Adventures in Microcontroller Circuit Debugging",
+      "url": "https://www.bigmessowires.com/2026/08/30/adventures-in-microcontroller-circuit-debugging/",
+      "hn_url": "https://news.ycombinator.com/item?id=49745049",
+      "score": 31,
+      "comment_count": 8,
+      "posted_at": "2026-09-17T19:00:40+00:00",
+      "comments": [
+        {
+          "id": 49768600,
+          "author": "in_absentia",
+          "text": "I wonder if the author is right; using a slightly wrong capacitor for the clock (keeping in mind that they're usually +/- 10% or worse from the factory) may produce a different oscillation speed, but usually not an outright failure. These chips accept a pretty wide range of clock frequencies.\nAnd in the comments, they note:\n\"I replaced the 18pF capacitors on one of the non-working boards with 10pF capacitors, but it still doesn’t boot or respond to the debugger. That surprised me – I thought that was the answer! It was a rush rework job and I made a bit of a mess of it, including accidentally desoldering and reinstalling the crystal, so I’ll try again later with another board. But it appears that the capacitor value may not have been the issue after all. Either 10pF is a bad value, or it’s the crystal itself that’s at fault, or I’ve failed somewhere in my troubleshooting reasoning. Hmm.\"\nIn my experience, mystery stability problems are often caused by capacitors, but of a different kind: decoupling capacitors on the power supply pins. If there's not enough of them to keep up with the noise originating from motors or digital switching, I'd expect that exact issue. Intermittent \"impo"
+        },
+        {
+          "id": 49771013,
+          "author": "kosma",
+          "text": "I've had the same happen with a production run, except the crystals were from the same manufacturer and the same part number, just different batch. It was fun to track down."
+        },
+        {
+          "id": 49770356,
+          "author": "mrlambchop",
+          "text": "Not an electrical engineer, but I was 2 sentences in when I declared to myself \"its the external clock source\" and then a physical shudder as I remembered how many times a contract manufacturer has used some aging crystal or third party component src and not updated the matching capacitors, causing very similar issues on projects I've worked on in the past. The very very worst is the aging xtals - a warm wind can make them work for an undetermined amount of time, which is bad if the factory is running warm around 26C or so and you end up shipping the batch to Europe where its early winter..."
+        },
+        {
+          "id": 49769907,
+          "author": "Neywiny",
+          "text": "When I got to my current workplace I was surprised to see we always, invariably (unless it's really impossible with the chip) use an oscillator not a crystal. But every time I see one of these posts I think about the difference in cost for us relative to the math of capacitance and debugging, it's just not worth it. And of course the first board I worked that we basically built to print and had a crystal integral to the design... They got the capacitance wrong and it didn't go."
+        },
+        {
+          "id": 49769773,
+          "author": "XRG",
+          "text": "Heh, when I read the symptoms:\n“Some exhibited “haunted” behavior, seemingly jumping to random sections of the mcu program code, outputting messages on the display that made no sense given the context.\nOne of them appeared to work in slow motion, with LED blinking and display updates noticeably more sluggish than normal,”\nmy first thought was that it smelled like a clock issue.\nSome of the nastier issues I have had the pleasure to debug included (a) traces that had microcracks which affected analog readings when the PCB heated up after prolonged usage (QC issue from the PCB fab) and (b) a (suspected) ESD strike that gradually took out several components in the weeks following as I was investigating the device while new problems kept popping up. Marginally stable composite amplifiers have also caused some headaches over the years.\nHardware really is hard."
+        }
+      ],
+      "title_ja": "マイクロコントローラ回路のデバッグの冒険",
+      "summary_ja": "ディスカッションのハイライト：著者が正しいかどうか疑問に思います。時計にわずかに間違ったコンデンサを使用すると（通常、工場から+/- 10 ％またはそれ以下であることに注意してください）、異なるoscが生成される可能性があります/クリスタルが同じメーカーと同じ部品番号からのものであり、バッチが異なるだけであることを除いて、生産実行で同じことが起こりました/電気エンジニアではありませんが、私が自分自身に「その外部」と宣言したときは2文でした",
+      "editor_note": "「マイクロコントローラ回路のデバッグの冒険」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49768921,
+      "title_en": "Microsoft director: AI scraping 'the largest theft of labor in human history'",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit",
+      "hn_url": "https://news.ycombinator.com/item?id=49768921",
+      "score": 99,
+      "comment_count": 28,
+      "posted_at": "2026-09-19T18:21:30+00:00",
+      "comments": [
+        {
+          "id": 49770561,
+          "author": "adamddev1",
+          "text": "I wrote something original in a language learning grammar online. I coined a term to describe something about how a certain language with negative language functions.\nI tried talking to an LLM about it and sure and enough, it had scraped it and learned to use that terminology and explanation that I made up. I asked the LLM, \"Where did that concept/term come from, who made it up?\" It did a bunch of searching and tried to site a whole bunch of other sources which did NOT contain the terms of the explanation I had written. It simply would not cite or mention my source. It kept parroting my material semi-correctly and hiding the source. By any other actor that would be an egregious act of sloppiness, dishonesty, and plagiarism.\nGenerative AI is speed-running a widespread corruption of truth. I do not believe any of the gains are worth this."
+        },
+        {
+          "id": 49770486,
+          "author": "buzer",
+          "text": "Discussion from yesterday (811 comments):\nhttps://news.ycombinator.com/item?id=49752056"
+        },
+        {
+          "id": 49769591,
+          "author": "muchdoubt",
+          "text": "Only to be topped by the massive amount of IP that Copilot is possibly secretly harvesting at present. We already believe OpenAI/Anthropic are doing it, what’s to stop Microsoft from attempting to improve their competitive advantage by surreptitiously using their role as a MiTM between end user Corporations and Model servers."
+        },
+        {
+          "id": 49770190,
+          "author": "hagbard_c",
+          "text": "Here's a Bible verse this Microsoft individual should acquaint himself with:\nhttps://www.biblegateway.com/verse/en/Matthew%207%3A5\nWhether religious or not, the verse applies to anyone and everyone making such statements from the position of companies like Microsoft. I'll quite the KJV version 'cause that one lends itself well to situations like these. Read it with a booming thunder-loaded voice:\nAnd why beholdest thou the mote that is in thy brother's eye, but considerest not the beam that is in thine own eye?\nOr how wilt thou say to thy brother, Let me pull out the mote out of thine eye; and, behold, a beam is in thine own eye?\nThou hypocrite, first cast out the beam out of thine own eye; and then shalt thou see clearly to cast out the mote out of thy brother's eye."
+        },
+        {
+          "id": 49769507,
+          "author": "fxtentacle",
+          "text": "if he “had been made aware that OpenAI has scraped and trained on information that was behind a paywall,” the company would have required OpenAI “to retrain its models.”\n... yeah, sure."
+        },
+        {
+          "id": 49770050,
+          "author": "Razengan",
+          "text": "Oh let's talk about sins of Microsoft since the 1980s, shall we?"
+        },
+        {
+          "id": 49769891,
+          "author": "bdcravens",
+          "text": "Presumably someone was paid when the content was created. So it's not really the labor that's being stolen, but the future value of the deliverable.\nI'm pretty sure any of the eras of slavery throughout human history is more of an actual theft of labor."
+        }
+      ],
+      "title_ja": "マイクロソフトのディレクター： AIスクレイピング「人類史上最大の労働窃盗」",
+      "summary_ja": "ディスカッションのハイライト：オンラインの言語学習文法でオリジナルのものを書いた/昨日のディスカッション（ 811件のコメント） ：\nhttps://news.ycombinator.com/item?id=49752056/Copilotが現在ひそかに収穫している可能性のある膨大な量のIPによってのみトップされています",
+      "editor_note": "「マイクロソフトのディレクター： AIスクレイピング「人類史上最大の労働窃盗」」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 49763928,
+      "title_en": "If math is more than proof, we need to better celebrate the rest of it",
+      "url": "https://terrytao.wordpress.com/2026/09/18/if-math-is-more-than-proof-we-need-to-better-celebrate-the-rest-of-it/",
+      "hn_url": "https://news.ycombinator.com/item?id=49763928",
+      "score": 299,
+      "comment_count": 231,
+      "posted_at": "2026-09-19T06:28:02+00:00",
+      "comments": [
+        {
+          "id": 49764168,
+          "author": "ForgotMyUUID",
+          "text": "I’m reminded of that famous debate between Poincaré and Hilbert at the International Congress of Mathematicians in Paris in 1900. It was then that everyone decided to follow Hilbert’s path, and proof came to be valued more than intuition. I think modern math at school and at applied university kind of lost this intuitive part. I try to teach my students that mathematics is, first and foremost, a very precise language of communication. It’s sometimes amusing to ask those who don’t like math to do without it entirely, just to see how much harder it becomes to describe the things around them. Second thing I tell them, formulas are the essence of mechanisms in their purest form. And in this form, they’re much easier to grasp and mentally manipulate. It always amused me, after taking a mechanics course, to imagine that for any formula, you could visualize a mechanism or process that implements it. And third thing, I suppose, the ability to verify one’s own statements as proof. Although, of course, mathematicians would probably tear me apart here for my heresy:sorry, I’m not a mathematician, but an engineer. You can make mistakes by using incorrect assumptions, but at some point, analysi"
+        },
+        {
+          "id": 49764672,
+          "author": "sweezyjeezy",
+          "text": "The math field is confronting something that coders have been dealing with for a few years now, only far more violently. Today's moat for software seems to be that AI can automate tasks but not a full job (yet). But for a large proportion of mathematicians, doing these tasks really was _the_ job. It's the bit they wanted to do, and if they completed a sufficiently difficult set of tasks, they got tenure. Now this model is failing, they frantically need to pivot the role of humans to save their profession from funding cuts.\nI remember when \"writing code was never the point\" became a mantra here. There was truth in it, but removing the coding has certainly taken away a lot of the texture of the work and enjoyment of the craft. Many of us feel this loss as we tech-lead teams of agents as our source of income. I am not optimistic the mathematics pivot is going to work, but I'm certain that most will be depressed with the outcome even if they succeed.\nWe are all staring at the same existential dread, just seeing it unfold slower. We're being told that utopia is to be obsolete, and that is a jarring idea to contend with."
+        },
+        {
+          "id": 49765048,
+          "author": "youoy",
+          "text": "Part of the controversy here is that now the skill advantage that some Field Medalist had is much narrower. The fact that fields medals have an age limit implies that it favors brain power over understanding. And that was the guiding light award of the community. So i find it \"funny\" (and natural) when they are offended by AI.\nThat is the main \"crisis\" of mathematics.\nIn my opinion there has never been a better time to be a mathematitian, and there has never been a better time to be a software builder.\nBut there has never been a worst time to have the need to prove your economic value as a mathematitian or software developer alone. Because \"understanding\" is not something you can prove in one afternoon, its something that you prove with a life."
+        },
+        {
+          "id": 49766394,
+          "author": "contubernio",
+          "text": "I'm a professional mathematician. Today I proved what for me is a very solid theorem. It's something I had thought about for a few years. With a few weeks of serious use of AI I've found a proof that I am currently trying to write up, but which appears correct. The change in the workflow is enormous, but so is what one can do if one has clear what to do and how to do it."
+        },
+        {
+          "id": 49770325,
+          "author": "udbhavs",
+          "text": "I was about to link the \"discovery fiction\" article [0] by Michael Nielsen, but halfway through saw Grant mention it as an inspiration. It's one of my favorite styles of writing that lets you settle into a cozy read of a narrative around a problem while slowly exposing you to the rigor and nuances of tackling it. It's definitely deserving of a public index of some sort, like one of those \"Awesome X\" list repositories on GitHub, because I think it's a valuable style that deserves to be curated.\n[0]:\nhttps://michaelnotebook.com/df/index.html"
+        },
+        {
+          "id": 49767428,
+          "author": "daxfohl",
+          "text": "I find myself less worried about it than at first. I think what we'll see are that some things are low-hanging fruit and can be solved just by tireless search. Maybe half the millennium and other such high-visibility problems will fall this way.\nOthers, I think, will be beyond both human\nand\nAI. And so what then? Mathematicians just throw in the towel and say it's not worth trying? Of course not. We will continue that pursuit, and as we do, new ideas will arise and new problems will need to be solved. It's math. There is no end.\nIt's easy to look at the current landscape and see AI ticking off solutions to problems and imagine that soon there will be nothing left. Machines replaced the need for much manual labor, but they also established a basis for an economy that provides the opportunity for\nmore\nlabor. This is the situation with math now. It will take some getting used to. There will be little-to-none pencil-to-paper working out of problems anymore, but there will always be work to do, things to solve, curiosities to unravel. And it will still be professional mathematicians who are the ones most capable of directing that effort. Because, if nothing else, they're the ones whose "
+        },
+        {
+          "id": 49764099,
+          "author": "random3",
+          "text": "While I understand and emphatically with Tao's concern I'm afraid it's missing the forest from the trees. Unless you can make a claim that AI will never be able to perform intellectually at the same level as any human at a much lower cost, there's an outstanding utility problem that remains unaddressed.\nSure enough, the AI may not have taste or goals, or many human traits, but that's irrelevant to the much thornier (and much broader than mathematics or even academia) question related to who's getting paid how much and for what."
+        },
+        {
+          "id": 49764520,
+          "author": "accurrent",
+          "text": "One thing that concerns me from all this is \"understanding\" is very important to human progress. The fact it took 400 years to crack Fermat's theorem resulted in a lot of \"Side Quests\". These side quests helped grow other fields (for instance elliptical cryptography). Im concerned with AI that we will loose these side quests."
+        }
+      ],
+      "title_ja": "数学が証拠以上のものである場合は、残りの部分をよりよく祝う必要があります",
+      "summary_ja": "ディスカッションのハイライト： 1900年にパリで開催された国際数学者会議でのポアンカレとヒルベルトの有名な議論を思い出します/数学分野は、数年前からコーダーが扱ってきた何かに直面していますが、はるかに暴力的です/ここでの論争の一部は、いくつかのフィールドメダリストが持っていたスキルの利点がはるかに狭いということです",
+      "editor_note": "「数学が証拠以上のものである場合は、残りの部分をよりよく祝う必要があります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "07",
+    "started_at": "2026-09-20T08:53:19.836589+09:00",
+    "finished_at": "2026-09-20T08:54:29.469035+09:00",
+    "story_count": 30
+  }
+}
