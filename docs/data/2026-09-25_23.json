@@ -1,0 +1,1038 @@
+{
+  "date": "2026-09-25T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49831968,
+      "title_en": "F-Droid 2.0",
+      "url": "https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49831968",
+      "score": 430,
+      "comment_count": 119,
+      "posted_at": "2026-09-24T15:26:12+00:00",
+      "comments": [
+        {
+          "id": 49832443,
+          "author": "silverbluep",
+          "text": "I have been using droid-ify on GrapheneOS for a few years now; because F-Droid ui is terrible, and the privilege extention has been such a pain to configure and get working without issues on my previous lineageOS phone. Happy to see this major overhaul; and i'm glad the FPE is being phased out."
+        },
+        {
+          "id": 49834628,
+          "author": "AdmiralAsshat",
+          "text": "I hope the new redesign makes the store easier to navigate on TVs. It's a nightmare trying to install/update apps on F-Droid on either my Nvidia Shield Pro or my Onn 4K TV using the tv remote. The cursor gets lost all the time and it's often impossible to see what option is currently in focus when you click Ok on the remote."
+        },
+        {
+          "id": 49832601,
+          "author": "jjice",
+          "text": "What does the future of something like F-Droid look like once Google does their lock down next year?"
+        },
+        {
+          "id": 49833608,
+          "author": "temphaaa",
+          "text": "Can someone recommend a good F/OSS ebook reader on F-Droid? The existing ones I have tested have too many knobs and options and are not really user-friendly.... My wife started to get into reading, but I could not get her to get out of the Kindle/Play Books ecosystem because of the user-friendliness and easy synchronisation across devices that Kindle gives."
+        },
+        {
+          "id": 49832643,
+          "author": "rom1v",
+          "text": "In addition to F-Droid on the device, I'd love an F-Droid \"package manager client\" on a computer, that allows installing apps on an Android device via adb:\n# update repo lists\nfdr update\n# upgrade all apps on the connected device\nfdr upgrade\n# search packages\nfdr search vlc  # lists org.videolan.vlc\n# install on the device\nfdr install org.mozilla.firefox\n# download the apk\nfdr download org.mozilla.firefox\n# uninstall\nfdr uninstall org.mozilla.firefox\nOf course, all operations would verify the signatures first."
+        },
+        {
+          "id": 49832486,
+          "author": "aorth",
+          "text": "Cool! Unfortunately I switched to Obtanium a year or so ago. I get all my apps from GitHub releases straight from the developers now."
+        },
+        {
+          "id": 49834615,
+          "author": "1970-01-01",
+          "text": "Fitting, as there really are only 2.0 trustworthy app stores for Android."
+        },
+        {
+          "id": 49832308,
+          "author": "outadoc",
+          "text": "Very cool, the visual redesign was very much needed and I had been using Droid-ify for a while because of this. I'll switch back to the official app, congrats to the contributors!"
+        }
+      ],
+      "title_ja": "F - Droid 2.0",
+      "summary_ja": "ディスカッションのハイライト：私は数年前からGrapheneOSでdroid -ifyを使用しています。F - Droid uiはひどく、特権の拡張が設定しなくても動作するのは非常に苦労しているため/新しい再設計により、テレビでのストアのナビゲートが容易になることを願っています/来年Googleがロックダウンを行うと、F - Droidのようなものの将来はどうなりますか？",
+      "editor_note": "「F - Droid 2.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 49833867,
+      "title_en": "Show HN: Whiteboard (YC W26) – An open-source IDE for thoughtful software design",
+      "url": "https://github.com/devdotfast/whiteboard",
+      "hn_url": "https://news.ycombinator.com/item?id=49833867",
+      "score": 58,
+      "comment_count": 9,
+      "posted_at": "2026-09-24T17:21:36+00:00",
+      "comments": [
+        {
+          "id": 49834714,
+          "author": "2001zhaozhao",
+          "text": "This is definitely getting at least some things right about how we work with agents today, specifically that we often work at the architecture level, and we need a better alternative to the current Plan Mode offered by coding agents to efficiently architect software at a high level, which is more visual and offers better back-and-forth incrementation with the agent than simply \"reject final plan with X message\".\nFrom the website demos i definitely think this is a clean interface, although I don't know how much better this is compared to some simple custom Mermaid format, which the agent can write as artifact files and present to users. Zooming out, this app seems like 1 feature (a tiny slice of a bigger app) rather than an entire product.\nAlso, I don't know if asking the agent to write specific code changes into the plan is a good idea. I think maybe that a \"plan -> approve -> write code\" would let the agent write higher quality code than \"plan which contains code -> approve\". But maybe you can make it work when combined with some specific prompting marking the code as clearly work-in-progress and subject to change, and that the agent should surface any changed bits relative to the"
+        },
+        {
+          "id": 49834543,
+          "author": "bbor",
+          "text": "Oh WOW, cool to see a technique that'll be everywhere in 12 months (the fake pen drawing animations + streaming diagrams as they're produced) first be announced. Do we still do \"First!\" comments, y'all?\nThis all looks really solid. That said, two remarks:\n1. The integration with OS LSPs is quite fun and commendable. Is it possible that the diagrams might get their own LSP, someday? Or is better just staying as direct TS callsites?\n2. The choice of the word \"IDE\" seems like it might get you in trouble, given the small \"cannot edit files\" detail. Any comments on the decision there, as opposed to, say... \"brainstorming tool\"? Or hell, \"[architectonic] harness\"?\n3. The psuedocode \"semantic diff\" thing is an incredible idea, wow. Props there.\n4. This language kinda concerns me: \"how the requirements that you set were implemented\". In my highly-arbitrary development flow, it ideally goes `idea -> spec/reqs -> plan -> test -> impl -> eval -> land -> review`, and this kind of tool seems explicitly targeted towards just the second and third with some partial coverage of their neighbors on either side. More concretely: by adding implementation, don't you lose a powerful specificity selling p"
+        },
+        {
+          "id": 49834622,
+          "author": "nthypes",
+          "text": "Vibe-coded landing pages are an instant “no thanks” for me."
+        }
+      ],
+      "title_ja": "Show HN: Whiteboard (YC W 26) –思慮深いソフトウェア設計のためのオープンソースIDE",
+      "summary_ja": "ディスカッションのハイライト：これは間違いなく、今日のエージェントとの連携方法について少なくともいくつかのことを正しくしています。特に、私たちはアーキテクチャレベルで作業することが多いため、12か月以内にどこにでもあるテクニック（偽のペン描画アニメーション+ストリーミングダイアグラムが生成される）が最初に発表される/Vibeコード化されたランディングページは、私にとって即座に「いいえ」です。",
+      "editor_note": "「Show HN: Whiteboard (YC W 26) –思慮深いソフトウェア設計のためのオープンソースIDE」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 3,
+      "id": 49800085,
+      "title_en": "Fearless SIMD v1.0",
+      "url": "https://linebender.org/blog/fearless-simd-1-0/",
+      "hn_url": "https://news.ycombinator.com/item?id=49800085",
+      "score": 23,
+      "comment_count": 3,
+      "posted_at": "2026-09-22T12:23:37+00:00",
+      "comments": [
+        {
+          "id": 49834505,
+          "author": "dang",
+          "text": "Related. Others?\nTowards fearless SIMD, 7 years later\n-\nhttps://news.ycombinator.com/item?id=43519823\n- March 2025 (175 comments)\nTowards fearless SIMD\n-\nhttps://news.ycombinator.com/item?id=18293209\n- Oct 2018 (81 comments)"
+        }
+      ],
+      "title_ja": "Fearless SIMD v1.0",
+      "summary_ja": "ディスカッションのハイライト：関連",
+      "editor_note": "「Fearless SIMD v1.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 49830606,
+      "title_en": "Google’s Project Suncatcher to put ML infrastructure in space",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/",
+      "hn_url": "https://news.ycombinator.com/item?id=49830606",
+      "score": 25,
+      "comment_count": 29,
+      "posted_at": "2026-09-24T13:53:29+00:00",
+      "comments": [
+        {
+          "id": 49834746,
+          "author": "helsinkiandrew",
+          "text": "> Announced last year, Project Suncatcher is a long-term, research moonshot exploring whether space could one day host scalable machine learning infrastructure\nIt’s very confusing to have a project related to space called a moonshot project."
+        },
+        {
+          "id": 49833004,
+          "author": "zactato",
+          "text": "How are they solving the heat dissipation issues?"
+        },
+        {
+          "id": 49832021,
+          "author": "GMoromisato",
+          "text": "If data centers in space end up being economically viable, then I don't see how anyone can catch SpaceX. They are ten years ahead in both launch capability and satellite manufacturing."
+        },
+        {
+          "id": 49834676,
+          "author": "ForHackernews",
+          "text": "lowkey insane that it will end up cheaper to shoot your datacenter into space than get it past the county board permitting process."
+        },
+        {
+          "id": 49830356,
+          "author": "10xDev",
+          "text": "And just like that Elon Musk shifted the overton window away from \"unthinkable\" on yet another topic."
+        }
+      ],
+      "title_ja": "GoogleのProject SuncatcherがMLインフラストラクチャを宇宙に投入",
+      "summary_ja": "ディスカッションのハイライト：>昨年発表されたプロジェクトSuncatcherは、宇宙がいつかスケーラブルな機械学習インフラストラクチャをホストできるかどうかを探る長期的な研究ムーンショットです\n非常に混乱します/放熱の問題をどのように解決していますか？ /宇宙のデータセンターが経済的に実行可能になった場合、誰もSpaceXをキャッチすることはできません",
+      "editor_note": "「GoogleのProject SuncatcherがMLインフラストラクチャを宇宙に投入」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49828731,
+      "title_en": "Two-tier encryption in the UK",
+      "url": "https://macanorak.com/two-tier-encryption-in-the-uk/",
+      "hn_url": "https://news.ycombinator.com/item?id=49828731",
+      "score": 289,
+      "comment_count": 279,
+      "posted_at": "2026-09-24T10:39:19+00:00",
+      "comments": [
+        {
+          "id": 49834699,
+          "author": "spr-alex",
+          "text": "\"Withdrawing ADP in the UK did not affect the 14 iCloud categories that were already end-to-end encrypted by default, including iCloud Keychain and Health. ADP increases the total from 14 to 23 categories. For UK users without ADP, the additional categories (iCloud Backup, Photos, Notes, iCloud Drive and so on) revert to Standard Data Protection. ↩\n\"\nUnfortunately this first phrase is not strictly true in the sense that UK customers have their e2ee secrets exposed under common use cases, without requiring a passcode. My copresenter and I published some research at DEF CON 34 this year showing how the e2ee data is particularly vulnerable when ADP is off. Overall, people that do not work with extraction capabilities are currently over-estimating the strength of apple's e2ee and encryption in general. The platform security whitepaper documentation is insufficient on transparency and there are a number of best practices Apple is not following to better meet the e2ee claims they currently advertise."
+        },
+        {
+          "id": 49830574,
+          "author": "egorfine",
+          "text": "I genuinely believe that in 2015 Apple had the balls to resist and today they don't.\nI am judging by a simple fact, that \"please confirm your age\" screen is now mandatory during the iPhone setup in all countries, and in some it's behind a KYC. I have a strong opinion that\nthis is insane\n. And once they let the foot in the door - there is no closing it."
+        },
+        {
+          "id": 49830336,
+          "author": "failbuffer",
+          "text": "No need to speculate that the UK government \"might\" one day become the bad guys: they already arrest over 30 people a day for speech that offends the prevailing political orthodoxy.\n[1]\nhttps://www.forbes.com/sites/steveforbes/2025/09/09/people-a..."
+        },
+        {
+          "id": 49830921,
+          "author": "palmotea",
+          "text": "> Faced with a legal order that would have required it to change the security architecture on which ADP depended, Apple found a third option: stop offering the feature that made this dilemma exist in the first place. It reverted affected UK iCloud data to Standard Data Protection, where Apple does hold the keys and can respond to lawful legal procress (except the baseline categories that stay end-to-end encrypted either way). This satisfied the underlying legal requirement without ever building a ‘backdoor’.\nMaybe Apple should withdraw all encryption support from all UK government accounts? The Prime Minister can use a Huawei or some chunky thing from a military contractor."
+        },
+        {
+          "id": 49834671,
+          "author": "puppycodes",
+          "text": "The UK's hostility to privacy is legendary.\nUsed to live there now I don't even want to visit."
+        },
+        {
+          "id": 49834506,
+          "author": "Grimeton",
+          "text": ">. It reverted affected UK iCloud data to Standard Data Protection, where Apple does hold the keys and can respond to lawful legal procress (except the baseline categories that stay end-to-end encrypted either way). This satisfied the underlying legal requirement without ever building a ‘backdoor’.\nAh, just like that.\nOf course something that is just possible in the public eye, after a lot of public scrutiny and for all accounts at once.\nA single account, in secret? IMPOSSIBLE!\nThey never needed to build a backdoor....\nYeah I read the next few paragraphs and I've seen the turn off button...."
+        },
+        {
+          "id": 49830909,
+          "author": "Hasz",
+          "text": "A non-trivial reason I bought a fairly closed device (macbook) was that Tim Cook, at least publicly, told the FBI to get bent when asked to create a backdoor. Exactly what I want to see, a fight in court.\nI would hope to see Apple pull out of the UK market over this, and certainly to stop selling Apple devices to the UK government and to remove the UK government entities from Apple services."
+        },
+        {
+          "id": 49829691,
+          "author": "codedokode",
+          "text": "Interesting, the government can demand creating a backdoor and doesn't let anyone tell about it. Basically, outlawing E2EE."
+        }
+      ],
+      "title_ja": "英国での2階層暗号化",
+      "summary_ja": "ディスカッションのハイライト：「英国でのADPの撤退は、iCloud KeychainやHealthなど、既にエンドツーエンドで暗号化されている14のiCloudカテゴリに影響を与えませんでした。私は2015年にAppleが抵抗する勇気を持っていたと本当に信じていますが、今日はそうではありません。\n単純な事実から判断しています。「年齢を確認してください」画面は、英国政府がいつか悪者になるかもしれないと推測する必要はありません。",
+      "editor_note": "「英国での2階層暗号化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49832938,
+      "title_en": "Why is the liver so weirdly regenerative?",
+      "url": "https://dynomight.substack.com/p/liver",
+      "hn_url": "https://news.ycombinator.com/item?id=49832938",
+      "score": 16,
+      "comment_count": 10,
+      "posted_at": "2026-09-24T16:23:00+00:00",
+      "comments": [
+        {
+          "id": 49833779,
+          "author": "schnuri",
+          "text": "I am in awe about how wonderfully engineered by evolution the body is. E.g., what we are able to do with it and how it heals itself when we have an injury. Sure, many people would not live long without external intervention, but many others would. I still want to see the robot that can survive 80 active years without maintenance."
+        },
+        {
+          "id": 49833922,
+          "author": "amluto",
+          "text": "The lack of heart cancer might be more complex than the OP imagines:\nhttps://www.science.org/content/blog-post/no-heart-cancer-th..."
+        },
+        {
+          "id": 49834042,
+          "author": "card_zero",
+          "text": "> Evolution decided the good outweighed the bad, and I expect that evolution was right.\nWe can expect evolution to do the right thing\nfor the genes\n. Not for us."
+        },
+        {
+          "id": 49834039,
+          "author": "bbor",
+          "text": "I greatly resent having to be a biological organism and subject to all the poor engineering and design decisions that entails.\nThe first word of that sentence implies its absurdity quite beautifully. She resents, therefor she is.\nAnd then this:\nBrains. After you reach adulthood, neurons don’t divide. If some of your neurons die—which happens every day—then they’re gone. If you get a brain injury, the other neurons will try to “learn around” the injury, but the neurons themselves are never replaced.\nWe need more neuroscience in schools! This summary is technically correct ofc, but to imply that the brain is missing some obviously-better option is absurd. We're\nmeat\nthat\nthinks\n, y'all; it's far from crap."
+        }
+      ],
+      "title_ja": "なぜ肝臓はそんなに奇妙に再生しているのでしょうか？",
+      "summary_ja": "ディスカッションのハイライト：私は、体が進化によってどれほど素晴らしく設計されているか/心臓がんの欠如は、OPが想像するよりも複雑かもしれないことに畏敬の念を抱いています。\nhttps://www.science.org/content/blog-post/no-heart-cancer-th... />進化は良いことが悪いことを上回ると判断し、進化が正しいと期待しています。\n私たちは進化が正しいことをすることを期待することができます\n遺伝子のために",
+      "editor_note": "「なぜ肝臓はそんなに奇妙に再生しているのでしょうか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49823568,
+      "title_en": "Toyota is taking the Corolla electric",
+      "url": "https://electrek.co/2026/09/23/toyota-best-selling-corolla-electric/",
+      "hn_url": "https://news.ycombinator.com/item?id=49823568",
+      "score": 73,
+      "comment_count": 55,
+      "posted_at": "2026-09-23T22:37:28+00:00",
+      "comments": [
+        {
+          "id": 49834517,
+          "author": "apparent",
+          "text": "I was surprised to read the headline because this is going in a different direction than most car companies. For example, VW, Ford, GM, and others have been axing electric vehicles that they started selling a few years ago. They discovered that most people who wanted EVs had already purchased them, and the rest of the market wasn't interested enough to pay the price premium.\nThen I read the key quote and realized that Toyota isn't transforming the Corolla into an electric vehicle. They're simply going to offer an electric option. That's much less of an interesting headline, which explains why it wasn't chosen.\n> “Whether it’s a battery EV, plug-in hybrid, hybrid, or internal combustion engine vehicle―whatever the power source―let’s make good-looking cars that everyone will want to drive!” Toyota’s CEO said at the Japan Mobility Show."
+        },
+        {
+          "id": 49834655,
+          "author": "doublepg23",
+          "text": "I picked up a '25 Subaru Solterra (rebadged Toyota bz4X) for a decent lease deal and while I'm surprised how little I think about the EV parts the \"car parts\" are dreadful.\nI really need to do a write-up on the dichotomy of EV things being good (charger works, no real battery QC issues, it's a RAV4-but-EV) while all of the shared ICE parts (anything in the software stack) are riddled with bugs or head-scratching defaults.\nOverall, a fine car for me, but (as much as I do not like El*n) Telsa is so significantly beyond their offerings it's hard to overstate."
+        },
+        {
+          "id": 49834479,
+          "author": "zacharycohn",
+          "text": "Ugh. I saw the headline and I was hoping it would be an entry-level, low cost, highly analogue, \"looks just like a normal car but electric\" car."
+        },
+        {
+          "id": 49834692,
+          "author": "runeks",
+          "text": "> With over 57 million sold worldwide since it went on sale in 1966, the Toyota Corolla is widely considered the best-selling vehicle to date.\nIs it or is it not the best-selling vehicle to date? Should be pretty simple to determine."
+        },
+        {
+          "id": 49824771,
+          "author": "paimapi",
+          "text": "and all it took was two decades and millions of spend in anti-EV lobbying before they finally gave in, huh\n(also kind of wild to me that an EV focused blog wouldn't mention this a single time since Toyota is (was?) arguably one of the staunchest and most stubborn anti-EV manufacturers out there)"
+        },
+        {
+          "id": 49834286,
+          "author": "dzonga",
+          "text": "why don't Japanese auto-makers embrace the super+ hybrid that was embraced by Chinese auto makers. having electric motors and a small engine to constantly charge / drive the motors.\nJapanese auto makers are already good at hybrid power trains, small engines.\nsurely extended range vehicles - 1000km+/700mi+ shouldn't be limited to Chinese brands only."
+        },
+        {
+          "id": 49826560,
+          "author": "WokeUp420",
+          "text": "The hybrid already gets 55mpg and the batteries are dirt cheap."
+        },
+        {
+          "id": 49834378,
+          "author": "__natty__",
+          "text": "> The Japanese automaker is planning a drastic overhaul, including a sleek new design, high-tech interior, and updated platform.\nOh please no! I loved the old boring interiors with analog components"
+        }
+      ],
+      "title_ja": "トヨタはカローラエレクトリックを",
+      "summary_ja": "ディスカッションハイライト：これはほとんどの自動車会社とは異なる方向に進んでいるため、見出しを読んで驚きました/私はまともなリース契約のために'25スバルソルテラ（トヨタbz 4 Xのリバッジ）を拾いましたが、EV部品についてほとんど考えていませんが、「車の部品」はひどいです。\nI reall/Ugh",
+      "editor_note": "「トヨタはカローラエレクトリックを」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 49815370,
+      "title_en": "WaveDigger: Dig into wireless signals to discover their physical locations",
+      "url": "https://github.com/christianrowlands/wavedigger",
+      "hn_url": "https://news.ycombinator.com/item?id=49815370",
+      "score": 44,
+      "comment_count": 6,
+      "posted_at": "2026-09-23T12:57:07+00:00",
+      "comments": [
+        {
+          "id": 49834476,
+          "author": "luma",
+          "text": "Looks like an open version of SkyHook from way back in 2003:\nhttps://en.wikipedia.org/wiki/Skyhook_Wireless\nFor a while they had a paid program, I had a Windows Mobile app I could run with an external GPS dongle that would record wifi APs and location, upload to skyhook, who would occasionally cut me a check for my trouble.  I made tens of dollars!"
+        },
+        {
+          "id": 49833963,
+          "author": "drnick1",
+          "text": "I started rotating my BSSID weekly after I learned Apple and Google abused it to track the location of people and devices.\nPermanent hardware or software IDs, such as the Windows GUID or machine-id on Linux (systemd) are inevitably abused for surveillance sooner or later."
+        },
+        {
+          "id": 49833330,
+          "author": "oulipo",
+          "text": "Interesting, wondering why Apple doesn't restrict the queries to its server using a certificate that would be pinned on the devices, etc, so at least you would need a legit iPhone/Mac to be able to do a query?"
+        },
+        {
+          "id": 49832804,
+          "author": "doublerabbit",
+          "text": "Cool. This'll go nicely with my hackslab and tinfoil hat upgrade."
+        }
+      ],
+      "title_ja": "WaveDigger ：ワイヤレス信号を掘り下げて物理的な場所を発見",
+      "summary_ja": "ディスカッションハイライト： 2003年のSkyHookのオープンバージョンのようです。\nhttps://en.wikipedia.org/wiki/Skyhook_Wireless\nしばらくの間、彼らは有料プログラムを持っていましたが、AppleとGoogleが人やデバイスの位置を追跡するためにそれを悪用したことを知った後、毎週BSSIDをローテーションすることができた/私はWindows Mobileアプリを持っていました。\nWindows G/Interestingなどの恒久的なハードウェアまたはソフトウェアIDは、Appleがクエリを制限しない理由を不思議に思っています",
+      "editor_note": "「WaveDigger ：ワイヤレス信号を掘り下げて物理的な場所を発見」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 9,
+      "id": 49831098,
+      "title_en": "Forging 1024-bit RSA signatures in nearly SNFS time [pdf]",
+      "url": "https://eprint.iacr.org/2026/2131.pdf",
+      "hn_url": "https://news.ycombinator.com/item?id=49831098",
+      "score": 7,
+      "comment_count": 0,
+      "posted_at": "2026-09-24T14:26:32+00:00",
+      "comments": [],
+      "title_ja": "ほぼSNFS時間で1024ビットRSAシグネチャを偽造[pdf]",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「ほぼSNFS時間で1024ビットRSAシグネチャを偽造[pdf]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 49792652,
+      "title_en": "The forgotten battle of East Lansing",
+      "url": "https://eastlansinginfo.news/the-forgotten-battle-of-east-lansing/",
+      "hn_url": "https://news.ycombinator.com/item?id=49792652",
+      "score": 12,
+      "comment_count": 0,
+      "posted_at": "2026-09-21T20:07:08+00:00",
+      "comments": [],
+      "title_ja": "忘れ去られたイースト・ランシングの戦い",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「忘れ去られたイースト・ランシングの戦い」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49828385,
+      "title_en": "Nokia Design Archive (2025)",
+      "url": "https://repo.aalto.fi/index.php?name=SO_b66a9391-dcf8-4399-8e87-611f84c3fc4c",
+      "hn_url": "https://news.ycombinator.com/item?id=49828385",
+      "score": 179,
+      "comment_count": 96,
+      "posted_at": "2026-09-24T09:49:33+00:00",
+      "comments": [
+        {
+          "id": 49829091,
+          "author": "haritha-j",
+          "text": "I don't think Nokia deserves all this hate. Sure, they made mistakes, but it wasn't entirely unfeasible to assume that the mobile phone market had matured in terms of features, and the next big thing was going to be \"phones as fashion statements.\" When you think about it, prior to the phone, everything people carried on them everyday was some sort of fashion statement. Clothes, glasses, jewllery, watches, handbags, backpacks etc. I think they assumed that the phone was like the watch; peaked functionally, but room to grow in terms of form."
+        },
+        {
+          "id": 49834542,
+          "author": "scosman",
+          "text": "https://repo.aalto.fi/uncategorized/IO_379caba7-7356-4d84-8b..."
+        },
+        {
+          "id": 49828576,
+          "author": "ddudas",
+          "text": "I think it's funny how most of the pictures are about people doing usual things (talking with friends physically present, having dinner, having a meeting, etc.) and there is also a phone in their hand, like it's nothing. It feels weird to see people doing something on the phone while also being so present in other activities, and also interesting that some photos from 90' nailed it how it will be in the the 20'"
+        },
+        {
+          "id": 49828573,
+          "author": "martin_balsam",
+          "text": "Opened a random one:\nhttps://repo.aalto.fi/uncategorized/IO_b81c4b91-a275-40b5-9b...\nthird slide..."
+        },
+        {
+          "id": 49830290,
+          "author": "girvo",
+          "text": "I miss my Nokia N9 so much. As far as I’m concerned it (with Meego) was the best phone ever made, with an awesome design that the OS itself was built  around: the curved pillow shape of the screen was used for the core gestures that you used to operate it\nAhead of its time, IMO. I wonder how Jolla is gong these days."
+        },
+        {
+          "id": 49830894,
+          "author": "frangonf",
+          "text": "> Strategy2 : Maslow’s_Media Scenario’s\nMedia for a purpose. ‘Need to Know’ Media. Media not only for Entertainment.\nForeground and Background – I am in control when I can see and access simultaneous media.\nRoutine and Rituals – I have sensible devices that respond to my daily rhythms.\nForecasting and Broadcasting – I can ‘anticipate the future’, future needs and responsibilities.\n> Strategy 3: Media_Passions Scenario’s\nBehaviour Passion Experience\nProduct categories and communication strategies defined by media passions\nBehavioral passions:\nI’m Social and Share – Focus is Sociability\nI Consume - Immersive consumption\nI Organize – Media management\nI Collect and Mix – Low threshold creativity\n> Trans_Life is a project sponsored by the Nokia Multimedia Business Group, to investigate the convergence and integration of multi media products, and develop scenarios visualizing new use patterns and new product propositions for the near future\nhttps://repo.aalto.fi/uncategorized/IO_3a24c0ae-8f52-4cf4-a7..."
+        },
+        {
+          "id": 49829675,
+          "author": "andrelaszlo",
+          "text": "The captions are pretty great:\n\"Image of a man holding a woman and a phone.\""
+        },
+        {
+          "id": 49830781,
+          "author": "100percentjake",
+          "text": "Still have fond memories of my Nokia Lumia 925. The combination of an OS based around a pure black background and that beautiful AMOLED display put it a solid class above anything my peers had at the time, and I loved Windows Phone 8.1's implementation of the Metro UI after drooling over a friend's Zune several years prior. Shame that Snapchat killed Windows Phone."
+        }
+      ],
+      "title_ja": "ノキアデザインアーカイブ（ 2025年）",
+      "summary_ja": "ディスカッションのハイライト： Nokiaはこのような憎しみに値しないと思います/https://repo.aalto.fi/uncategorized/IO_379caba7-7356-4d84-8b.../ほとんどの写真は、人々が普段のこと（物理的に存在する友人と話す、夕食を取る、会議をするなど）をしていることについてのものであり、面白いと思います",
+      "editor_note": "「ノキアデザインアーカイブ（ 2025年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49794824,
+      "title_en": "Motor Characterization for Small Running Robots (2016)",
+      "url": "https://robot-daycare.com/posts/2016-01-06-motor-characterization-for-small-running-robots/",
+      "hn_url": "https://news.ycombinator.com/item?id=49794824",
+      "score": 10,
+      "comment_count": 0,
+      "posted_at": "2026-09-21T23:27:31+00:00",
+      "comments": [],
+      "title_ja": "小型走行ロボットのモーター特性評価（ 2016年）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「小型走行ロボットのモーター特性評価（ 2016年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49823738,
+      "title_en": "Show HN: Make cursed fonts like Times New Bastard",
+      "url": "https://bastardica.mitpit.com",
+      "hn_url": "https://news.ycombinator.com/item?id=49823738",
+      "score": 9,
+      "comment_count": 1,
+      "posted_at": "2026-09-23T22:53:28+00:00",
+      "comments": [
+        {
+          "id": 49826860,
+          "author": "mock-possum",
+          "text": "Whoa this is really cool. Wish I had an excuse to use it for something… hmmm."
+        }
+      ],
+      "title_ja": "HNを表示： Times New Bastardのような呪われたフォントを作成する",
+      "summary_ja": "ディスカッションのハイライト：これは本当にクールです",
+      "editor_note": "「HNを表示： Times New Bastardのような呪われたフォントを作成する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49787759,
+      "title_en": "Book review: Is parallel programming hard, and, if so, what can you do about it?",
+      "url": "https://ahelwer.ca/post/2026-09-21-concurrency-textbook/",
+      "hn_url": "https://news.ycombinator.com/item?id=49787759",
+      "score": 13,
+      "comment_count": 0,
+      "posted_at": "2026-09-21T14:30:00+00:00",
+      "comments": [],
+      "title_ja": "書評：並列プログラミングは難しいですか？もしそうなら、あなたはそれについて何ができますか？",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「書評：並列プログラミングは難しいですか？もしそうなら、あなたはそれについて何ができますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 15,
+      "id": 49793957,
+      "title_en": "Security auditing in the age of (good enough) AI",
+      "url": "https://blog.trailofbits.com/2026/09/18/auditing-in-the-age-of-good-enough-ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=49793957",
+      "score": 7,
+      "comment_count": 0,
+      "posted_at": "2026-09-21T21:53:01+00:00",
+      "comments": [],
+      "title_ja": "（十分に良い） AIの時代のセキュリティ監査",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「（十分に良い） AIの時代のセキュリティ監査」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 49832406,
+      "title_en": "GitHub has not removed malicious imitation software after 3 weeks",
+      "url": "https://successfulsoftware.net/2026/09/24/github-has-not-removed-malicious-imitation-software-after-3-weeks/",
+      "hn_url": "https://news.ycombinator.com/item?id=49832406",
+      "score": 156,
+      "comment_count": 62,
+      "posted_at": "2026-09-24T15:50:26+00:00",
+      "comments": [
+        {
+          "id": 49833128,
+          "author": "hermitcrab",
+          "text": "Author of the post here. Github finally took the offending page down approximately 10 minutes after the post appeared on the front page of HN. Total coincidence. I'm sure!\nMoral of the story. If you want even the most basic level of support from Github, you need to get on the front page of HN first.\nAnd it seems they are able to do things very quickly, when they want to. Bastards."
+        },
+        {
+          "id": 49834447,
+          "author": "nixgeek",
+          "text": "I see OP edited their post claiming getting to HN's front helped.\nI think the likelihood GitHub did something within 10 minutes of a post appearing on HN's front page is approximately zero.\nNobody in GitHub Trust & Safety is sat there watching HN.\nAn executive or communications professional who might have heard it got on HN, or seen it appear in a tool monitoring Microsoft and GitHub's mentions across the internet, and who then flagged the post, Trust & Safety would probably spend *more than 10 minutes* noticing the email or Teams message, then trying to find the right ticket internally. Then after locating the ticket you still have to investigate the facts, discuss, and click buttons to ban/delete the user.\nIt's (much) more likely this sat in a queue until someone got to it and the timing of it being on HN is a complete coincidence."
+        },
+        {
+          "id": 49833873,
+          "author": "OCTAGRAM",
+          "text": "I recently found \"free\" version of Lossless Scaling on GitHub. The release installer is definitely malware. It took GitHub 3 days to shutdown malware distribution. Category of my ticket was malware report, not copyright infringe"
+        },
+        {
+          "id": 49834064,
+          "author": "wingerlang",
+          "text": "If GitHub staff is still reading this thread, maybe you can take down\nhttps://screenmemory.github.io/\nas well. I reported it 4 weeks ago, ticket ID 4703161"
+        },
+        {
+          "id": 49833469,
+          "author": "Havoc",
+          "text": "They’re presumably too busy with keeping availability above nine sixes"
+        },
+        {
+          "id": 49834263,
+          "author": "bananamogul",
+          "text": "Three weeks?  Try almost three years:\nhttps://lowendbox.com/blog/will-github-ever-remove-this-null..."
+        },
+        {
+          "id": 49833066,
+          "author": "joshuat",
+          "text": "Not exactly the same, but I've noticed a pretty sizable uptick in the number of spam/scam PR comments being left on GitHub (and a longer delay before they're removed after report).\nNot the worst thing in the world, they're easy to spot, but I'd like to see GitHub invest more time in protecting their users from falling victim to these bad actors."
+        },
+        {
+          "id": 49834055,
+          "author": "msalihb",
+          "text": "I found a page that serving e-books I've purchased on github. It is a bit bad feeling"
+        }
+      ],
+      "title_ja": "GitHubは3週間後に悪意のある模倣ソフトウェアを削除していない",
+      "summary_ja": "ディスカッションのハイライト：こちらの投稿の著者/OPがHNのフロントに行くのに役立ったと主張する投稿を編集したことがわかります。\nHNのフロントページに投稿されてから10分以内にGitHubが何かをした可能性はおおよそあると思います/最近GitHubでLossless Scalingの「無料」バージョンを見つけました",
+      "editor_note": "「GitHubは3週間後に悪意のある模倣ソフトウェアを削除していない」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 17,
+      "id": 49794336,
+      "title_en": "B5-BJ2 – Ice Cream Barges – Concrete Ship Constructors (2023)",
+      "url": "https://thecretefleet.com/blog/f/b5-bj2---ice-cream-barges---concrete-ship-constructors",
+      "hn_url": "https://news.ycombinator.com/item?id=49794336",
+      "score": 16,
+      "comment_count": 4,
+      "posted_at": "2026-09-21T22:31:35+00:00",
+      "comments": [
+        {
+          "id": 49834617,
+          "author": "guyzero",
+          "text": "I'm curious how they got the raw material to them. You can't make 5 tons of ice cream a day out of thin air. Were they shipped premixed sugar & milk or did they get straight raw ingredients and mix them onsite? I feel like the refrigeration capabilities are a pretty small part of the supply chain required to actually produce ice cream. Did they get a floating milk tanker to stop by every few days? Were they loaded on shore and just made do with what they had until the next port call?"
+        },
+        {
+          "id": 49834124,
+          "author": "ceejayoz",
+          "text": "There's a (likely apocryphal) story of a Japanese official realizing they'd lost the war when these showed up, as it indicated a level of spare industrial capacity and logistics while Japanese troops were struggling to stay fed at all."
+        },
+        {
+          "id": 49833663,
+          "author": "gwbas1c",
+          "text": "> It used a combination of pumped brine, and Freon Gas, which is a non-combustible gas, still used today as a refrigerant in air conditioning applications.\nFreon (from then) is generally illegal to use today, as it depletes ozone. As a trademark, the name is often applied to newer refrigerants."
+        },
+        {
+          "id": 49834097,
+          "author": "WorldPeas",
+          "text": "this website is a marvel, the fact that there are over 100 year old concrete ships still floating makes me wonder if there are concrete or nonmetallic ships still being constructed today for secondary purposes like carrying garbage or as bridges"
+        }
+      ],
+      "title_ja": "B 5 – BJ 2 –アイスクリームバージ–コンクリート造船(2023)",
+      "summary_ja": "ディスカッションのハイライト：彼らはどのようにして原材料を手に入れたのか興味があります/これらが現れたときに戦争に負けたことに気づいた日本の役人の（おそらく偽りの）話があります。それは予備の産業能力と物流のレベルを示していましたWH />それは汲み上げられたブラインと不燃性ガスであるフロンガスの組み合わせを使用していましたが、今日でも空調用途で冷媒として使用されています。\nフロン（当時から）は",
+      "editor_note": "「B 5 – BJ 2 –アイスクリームバージ–コンクリート造船(2023)」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49832231,
+      "title_en": "Experiencing writing at our recent Chinese calligraphy workshop",
+      "url": "https://viewsproject.wordpress.com/2026/09/06/chinese-calligraphy-workshop/",
+      "hn_url": "https://news.ycombinator.com/item?id=49832231",
+      "score": 13,
+      "comment_count": 1,
+      "posted_at": "2026-09-24T15:40:03+00:00",
+      "comments": [
+        {
+          "id": 49833757,
+          "author": "markus_zhang",
+          "text": "Oh that was some nice writing! I have always wanted to learn calligraphy myself."
+        }
+      ],
+      "title_ja": "最近の中国の書道ワークショップで執筆体験",
+      "summary_ja": "ディスカッションのハイライト：素晴らしい文章でしたね！私はずっと書道を自分で学びたいと思っていました。",
+      "editor_note": "「最近の中国の書道ワークショップで執筆体験」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49821438,
+      "title_en": "Show HN: AgentRun: DSL to turn agents into workflows",
+      "url": "https://github.com/Parcha-ai/agentrun",
+      "hn_url": "https://news.ycombinator.com/item?id=49821438",
+      "score": 13,
+      "comment_count": 0,
+      "posted_at": "2026-09-23T19:42:58+00:00",
+      "comments": [],
+      "title_ja": "HN: AgentRun: DSLを表示してエージェントをワークフローに変換",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「HN: AgentRun: DSLを表示してエージェントをワークフローに変換」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49823582,
+      "title_en": "Linux support is coming to Snapdragon X2 series",
+      "url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
+      "hn_url": "https://news.ycombinator.com/item?id=49823582",
+      "score": 582,
+      "comment_count": 244,
+      "posted_at": "2026-09-23T22:38:16+00:00",
+      "comments": [
+        {
+          "id": 49825947,
+          "author": "hurricanepootis",
+          "text": "I hope Qualcomm upstreams all the device tree kernel level stuff to Linux for every laptop model. One of the things I don't like about Arm Laptops is—for example—how even if a SoC is supported upstream, if the manufacturer does not upload a device tree for their device, then you're cooked.\nI read that while these Snapdragon laptops do technically have UEFI + ACPI, the information they provide is not useful for Linux and is more coupled with Qualcomm's proprietary drivers on Windows. Therefore, device trees are needed on Linux (I could be wrong about the first part)."
+        },
+        {
+          "id": 49824444,
+          "author": "modeless",
+          "text": "I think a lot of people don't realize the level of performance Qualcomm has reached with these. This is the closest competition to Apple's M series that we have, for the laptop form factor at least. They are better than Intel and AMD's best. I'd love to buy an X2 laptop with Linux preinstalled and supported."
+        },
+        {
+          "id": 49824329,
+          "author": "brynet",
+          "text": "OpenBSD developer Tobias Heider (tobhe@) has already committed the first pieces of OpenBSD/arm64 support for these Qualcomm Snapdragon X2 Elite laptops.\n\"This gets USB, keyboard and touchpad working in ACPI mode on the HP Elitebook X G2q.\"\nhttps://marc.info/?l=openbsd-cvs&m=178891082169317&w=2\nTobias (who also works for Canonical) recently demoed Ubuntu on mastodon and confirmed ARM EL2 works, meaning KVM support unlike previous generations.\nbsd.network/@tobhe/117122761215052773\n(I'd love to get my hands on one of these X2 Elite machines, hmu qcom.)"
+        },
+        {
+          "id": 49825792,
+          "author": "Hasz",
+          "text": "Give me something that is 80% as efficient, 80% as good hw as the apple m-series but runs Debian (or Ubuntu) and I am happy to pay apple+ prices for pure linux experience. I say this as someone who just bought a new m5 machine. I have seen framework/sys76 but never pulled trigger.\nI don't\nreally\ncare about raw performance, just want long battery life, decent screen, and a *nix environment to work in. 99% of workload is going to be on a remote machine anyways."
+        },
+        {
+          "id": 49824350,
+          "author": "extraduder_ire",
+          "text": "In case anyone else is wondering what they mean by linux support;\n> We're upstreaming core drivers for Snapdragon X2 Series — including the Hexagon NPU and Adreno GPU — to open the door to developers and partners.\nGlad this isn't going to be some semi-proprietary thing like support for chromebooks. Hopefully it continues."
+        },
+        {
+          "id": 49825388,
+          "author": "blinkingled",
+          "text": "> this work is focused on laptops with Snapdragon X2 Series. It does not currently cover desktop form factors, earlier Snapdragon X platforms, or other development boards. Readiness also varies by OEM design and Snapdragon X2 Series variant.\nSo same ARM BS as usual - AMD and Intel x64 are still the kings when it comes to out the door Linux support.\nI'll buy a ARM PC when I can swap its motherboard CPU and GPU to a newer gen and my existing Linux install boots up without having to flash a new bootloader and custom vendor kernel with proprietary GPU blob."
+        },
+        {
+          "id": 49824691,
+          "author": "sharktheone",
+          "text": "I think this is huge. I thought about getting one of these chips a long time ago, but linux support was just a breaker. I ended up sticking to my current laptop and getting a macbook some years after\nThe \"original\" X Elite was also supposed to get good linux support but it unfortunately never happened.\nSo hopefully the X2 will actually happen!"
+        },
+        {
+          "id": 49824374,
+          "author": "nr378",
+          "text": "This is great news - the Snapdragon X2 Elite Extreme X2E-96-100 isn't too far off the Apple M5 Pro.\n[1]\nhttps://browser.geekbench.com/processors/snapdragon-x2-elite...\n[2]\nhttps://browser.geekbench.com/macs/macbook-pro-14-inch-2026-..."
+        }
+      ],
+      "title_ja": "Snapdragon X 2シリーズにLinuxサポートが登場",
+      "summary_ja": "ディスカッションのハイライト：クアルコムがすべてのノートパソコンモデルのLinuxにすべてのデバイスツリーカーネルレベルのものをアップストリームすることを願っています/多くの人々は、これらの/OpenBSD開発者Tobias Heider （ tobhe @）がすでにこれらのクアルコムSnapdragon X 2 EliteノートパソコンのOpenBSD/arm 64サポートの最初の部分をコミットしていることでクアルコムが到達したパフォーマンスレベルに気づいていないと思います。\n\"これはUSB、キーボード、",
+      "editor_note": "「Snapdragon X 2シリーズにLinuxサポートが登場」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 21,
+      "id": 49828120,
+      "title_en": "Search – A small, fast WebKit browser for macOS",
+      "url": "https://github.com/driceroland/Search",
+      "hn_url": "https://news.ycombinator.com/item?id=49828120",
+      "score": 37,
+      "comment_count": 0,
+      "posted_at": "2026-09-24T09:11:52+00:00",
+      "comments": [],
+      "title_ja": "検索– macOS用の小型で高速なWebKitブラウザ",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「検索– macOS用の小型で高速なWebKitブラウザ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 22,
+      "id": 49805344,
+      "title_en": "My Weird New Hobby: Wandering Around Tokyo on Google Maps",
+      "url": "https://ahmedhossamdev.com/writing/my-weird-new-hobby-wandering-around-tokyo/",
+      "hn_url": "https://news.ycombinator.com/item?id=49805344",
+      "score": 16,
+      "comment_count": 6,
+      "posted_at": "2026-09-22T17:49:46+00:00",
+      "comments": [
+        {
+          "id": 49824828,
+          "author": "EvanAnderson",
+          "text": "I appreciate this hobby.\nI've visited San Francsico a few times but haven't been since 2007.\nAt one point, back in about 2013 or 2014, I got a little bit obsessed with the Hetch Hetchy aqueduct. It started innocently enough (reading an article about the Pulgas Water Temple), and I ended up spending many evenings in bed using Google Earth and Google Maps street view to trace the route of the aqueduct and look at the things around it. Where the pipes run under cities it's easy to see their \"mark\" on the land (since no permanent structures are permitted to be built above them). Following them up into the mountains was fun, too.\nA few years later I got into looking at abandoned rail lines in the Midwest and spent evenings \"flying\" the routes of old railroads. They're similar to the aqueduct insofar as you can see the \"scar\" they've left on the (and in the oddly-shaped parcels of land left after they were sold-off)."
+        },
+        {
+          "id": 49834570,
+          "author": "sbarre",
+          "text": "I've done this in Google Earth VR, and it's very fun.  You can get down to basically street view, but everything is very blocky and blurry..\nOr you can stay at \"Godzilla scale\" and walk around the city with buildings the (relative) size of appliances or furniture..  NYC is kind of fun that way.\nIf you are somewhere that you've been in real life, it's uncanny how familiar it still seems even at low res..\nFor somewhere you haven't been, or are planning on going, it can give you a sense of scale/scope/direction that is quite nice."
+        },
+        {
+          "id": 49834544,
+          "author": "sixothree",
+          "text": "I watch a lot of videos of people just exploring Tokyo and other cities on foot. Good stuff."
+        },
+        {
+          "id": 49834618,
+          "author": "applfanboysbgon",
+          "text": "This is also a very practical way to narrow down candidates for where to live. Both what city you want to live in, and where in the city. Before considering renting I always take a virtual walk to the nearest train station, the nearest grocery, etc. If you're going to be commuting to a school or an office, view your entire route there. Nothing beats actually going there in person, of course; this isn't how you should make a final decision. But it's pretty easy to rule out places you can tell you'd rather not live at."
+        }
+      ],
+      "title_ja": "私の奇妙な新しい趣味： Googleマップで東京をさまよう",
+      "summary_ja": "ディスカッションのハイライト：私はこの趣味に感謝しています。\nサンフランシスコには何度か行ったことがありますが、2007年以降は行っていません。\n2013年か2014年頃のある時点で、私はGoogle Earth VRでこれをやったHetchに少し夢中になりました。とても楽しいです。東京や他の都市を歩いて探索している人々のビデオをたくさん見ています。",
+      "editor_note": "「私の奇妙な新しい趣味： Googleマップで東京をさまよう」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49821835,
+      "title_en": "Geothermal heat map of US hot springs",
+      "url": "https://www.soakingsprings.com/hot-springs/geothermal-map",
+      "hn_url": "https://news.ycombinator.com/item?id=49821835",
+      "score": 17,
+      "comment_count": 4,
+      "posted_at": "2026-09-23T20:12:10+00:00",
+      "comments": [
+        {
+          "id": 49830485,
+          "author": "Ccecil",
+          "text": "Be sure to double/triple check before going.\nMore than one of these listed was clearly on private property but the listing had no mention.\nQuinn hot springs [1] in Montana being one.  It is listed as \"roadside\" with \"camping nearby\" but in reality it is a paid resort on private property.\n[1]\nhttps://glaciermt.com/listing/quinns-hot-springs-resort"
+        },
+        {
+          "id": 49834639,
+          "author": "latchkey",
+          "text": "Thanks to the DOGE/Trump goverment cutbacks, the previous government listed data was pulled offline. I've got a full copy of the data (much of it is out of date), but I haven't had the time to build a site and put it online. Might get around to it at some point. I'll probably reach out to the guy running the site and see if he wants the data.\nhttps://www.reddit.com/r/HotSpringsWest/comments/1jwc8ga/nce..."
+        },
+        {
+          "id": 49827131,
+          "author": "metalman",
+          "text": "ok, now do the rest of the world, and add layers for cold springs, artesian sources, mineral waters, salt, other, and drop it on OSM\nbest one I ever saw(was in) was somewhere in\noregon, inland , vast vocanic pumice plains with pine trees, and an intensly cold spiring comming up in a head pond strong enough to create a big dome of water you can swim into and freeze your ass of, and then get out in a hot desert.\nour planet has a bunch of awsome and decidedly odd features, which luckily have not ALL been exploited , comodified, and privatized."
+        }
+      ],
+      "title_ja": "米国の温泉地熱地図",
+      "summary_ja": "ディスカッションのハイライト：出発前に必ずダブル/トリプルチェックを行ってください。\n記載されているリスティングのうち、1件以上は明らかに私有地にありましたが、リスティングには言及されていませんでした。\nモンタナ州のクイン温泉[1]がオンになっている/ドージェ/トランプ政府の削減のおかげで、以前の政府リストのデータはオフラインにされました/OK、今では世界の他の地域で、冷たい温泉、自流源、ミネラルウォーター、塩、その他の層を追加し、OSMにドロップします\nベストワン",
+      "editor_note": "「米国の温泉地熱地図」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49825642,
+      "title_en": "Ideas on modernizing the open-source desktop",
+      "url": "https://lwn.net/SubscriberLink/1095425/2d9f411252325784/",
+      "hn_url": "https://news.ycombinator.com/item?id=49825642",
+      "score": 345,
+      "comment_count": 425,
+      "posted_at": "2026-09-24T02:52:09+00:00",
+      "comments": [
+        {
+          "id": 49830535,
+          "author": "Roark66",
+          "text": "I too am in the \"it's done, it works well, don't mess with it\" camp.\nI've tested everything. Xfce, tiling window managers, kde. Eventually I settled on Gnome, but I incorporate few \"tiling features\". Such as keystroke changing workspaces on one monitor and the second monitor always showing the same few \"always on\" apps.\nI always have my terminal with tmux full screen on workspace 1. My Web browser on no 2. My IDE on 4 and my password manager on 9. Then if I watch a video it's always on 3, if I do graphics work it's always on 5 and so on.\nI use ctrl-super-number to switch workspaces. If I need to move current window it's ctrl-shift-super-number.\nOn a work windows mashine I use the exa t same keys thanks to AutoHotkey software. So I have the exact same work flow on Linux and Windows. The only difference is on Windows workspace 1 is WSL terminal.\nIve been working like this for years. Select copy and paste works fine with left/right mouse button.\nI have all my widgets I need showing the temperatures, what my pc and network are doing.\nWhy would I want to change anything?"
+        },
+        {
+          "id": 49828336,
+          "author": "Telaneo",
+          "text": "We could do well with change on the desktop, but very little of the change I've seen during the past 10+ years is actually benefiting the user. Even on Linux, the changes happening are stuff like bugfixes and reducing jank; small incremental improvements that have already been done, but are just getting their final round of polish.\nAll the other changes I see are just shuffling around the UI, which doesn't really help anyone. And even newer features are either so marginal as to not matter, or can't be trusted to stick around. Why bother to learn a new UI, when all that does is get you back to square 1, and it might not even stick around? I'd be much more interested in tweaking my DE if I could be confident in knowing that those tweaks will persist and not cause other problems down the line, but I have no such assurance.\nI don't blame the casuals for hating UI updates. I myself went to Linux to get a more cohesive and stable experience. If we're going to make changes, we need to not break workflows that already exist. New features and workflows need to either not be in the way for established users, or opt-in until they're established and known good. Doing anything else is user host"
+        },
+        {
+          "id": 49829432,
+          "author": "flaburgan",
+          "text": "In the end, using any device is all about doing actions (the simplest being reading/viewing, but also editing etc.) on data. Now the biggest difference between desktop and mobile is that the first one is (was?) file oriented while the second one is software (application) oriented.\nEdit a document, listen to a music, on desktop you would historically navigate to where the file is, then open it with the program of your choice. On mobile, you would almost never do that, you would first open the app and from it select the file you want to interact with.\nThis is changing a lot how you are organizing the way you work. On desktop, it is easy to put related files of different types in the same folder, for example you organize your birthday, you can have the list of the invited people in a excel file with their number, a subfolder with the songs you want to play, some pictures of the venue, a text files with notes and etc. It is not natural at all to organize things like that on mobile. Android and iOS are hiding the files as much as they can. (This is not the case on Ubuntu Touch for example). And it becomes the responsibility of the app to organize the files it can open. This has a big im"
+        },
+        {
+          "id": 49829023,
+          "author": "frumiousirc",
+          "text": "The meta problem with all this desktop UX design discussion is that it's not actually very problem driven.\nMany of us solve our UI problems and we land into our own happy minima.\nMany of the UX \"solutions\" are either invented problems or not my problems or worse, grinding some anti-me agenda.\nLike many, a lot of my UX improvements have been to simplify the UI.  Tiling, with just a few windows per virtual desktop in herbstluftwm: kitty, emacs, browser and some rare transient application (usually PDF or image viewer).\nThe idea in the screen shot horrifies me.  Why would I buy an expensive high pixel monitor just to use only 10% of it to display a single window?  Why would I want to waste CPU to animate the migration of a full window to a single button icon (another example given)?\nThese UI \"innovations\" are great for movie props but do they actually help in reality?  Not that I see.  The \"stagnation\" of UI to me is more a plateau.  Anything truly new must be driven by new \"I\", no input/output channels between user and computer.\nThe one interesting idea I saw in the article was Lifestreams.  I think storage and recall is something that needs improvement and new ideas because for me th"
+        },
+        {
+          "id": 49833697,
+          "author": "GMoromisato",
+          "text": "I think we need a more radical change: dissolve apps into the operating system.\nMany of my frustrations today come from the sharp line between apps and OS. Apps have custom storage formats, custom UIs, and custom settings, and that makes it difficult for a user to deal with their data holistically. Even something as trivial as searching across all my data is not a solved problem, and that's because every app has a different way of representing data.\nBut what is an app? An app is just a UX/UI on top of a data model with domain-specific rules for transforming that data. What if we could decompose those pieces: the UX is just a custom control; the data model can be represented by a standard database; the domain-specific rules can be a headless component.\nThe decomposition gives the user more control: all my data is in a standard database. I can drive headless components via script or agents. And I can compose my UX based on my preferences instead of how the app decided to package it."
+        },
+        {
+          "id": 49826633,
+          "author": "probably_wrong",
+          "text": "For me it was a major revelation when it was pointed out that, for someone who doesn't want his desktop changed, I did install all sorts of crazy things when I was starting with Linux (Compiz plugins, anyone?). And while Gnome 3 pushed me into Mate, it wasn't because it was\ndifferent\nbut rather because it was\nbad\n. So I'm excited about someone trying something new, particularly someone who realizes that the Desktop is not a tablet.\nHere's an idea that I believe I read in HN as \"the original purpose of the desktop\": add a Desktop Manager that manages which icons are on your desktop and makes it easy to switch.\nThe desktop is kind of weird, in the sense that it's prime real estate but, at the same time, there's an expectation that you shouldn't put too much stuff there, and then it ends up cluttered anyway. I think it's worth trying a stronger separation between \"Desktop\" and any other regular folder, emphasizing that the Desktop is where you place links to the files you need right now, but with a mechanism to clear it completely (without losing data) and another to switch which icons you see right now, kind of like browser tab groups. That way, when you're working on a project you p"
+        },
+        {
+          "id": 49827692,
+          "author": "maufl",
+          "text": "Man, there have been so many cool ideas for  the Linux desktop in the past, and somehow none of them worked out or were polished into a usable state. Some things I remember:\n* I think at one point Canonical tried to have a cool personal data sync with Ubuntu One using CouchDB which would have synced all your data between devices directly, not using a cloud?\n* KDE 4 tired to have everything be a plasmoid (widget)? You could drag contacts to your desktop? But now we mostly have panels and tray popups again\n* Similar, things like Evolution data server or Akonadi or Telepathy which promised to implement the \"backend\" for services like email, calendar and chat once and then you could integrate custom UIs into many apps and places in the desktop with a synchronized view (chat with a contact in your email programm? write a calendar appointment from you chat app that your friend sent you?)\n* Maemo on the N900 had one contact list which served both SMS, Skype and XMPP and starting a chat using any one of those would get you to the same app/interface, same for the call, all happening in a single interface.\nThat is really the direction of \"UX\" I'm interested in. Not so much about where to dis"
+        },
+        {
+          "id": 49826542,
+          "author": "WCSTombs",
+          "text": ">\nThe final, particularly strong, objection from the tech community is \"don't touch my stuff\". People get angry when they have worked hard to get their desktop environment just as they like it and something changes to disrupt that.\nYeah, this can be a little extreme, and I feel we can benefit from being a little more open to trying new things.\nThe part about designing specifically for large displays and widescreen monitors was interesting. We can also reverse it, though: right now I'm away from home, and I only have this old laptop which is mostly great but has a shitty touchpad as the mouse, and I have to think this must be really common. However, this situation seems to be completely ignored by all desktop UX design. We seem to be pretty good at coming up with ways to use the mouse in our programs, but when the mouse is hard to control and unreliable, it causes pain. I guess I can use ratpoison or something, but that seems to be giving up too much.\nRegarding the AI going deep into the filesystem and organizing my data...I'm extremely skeptical of inserting any kind of inherent unpredictability into how I interact with the computer. Giving a command or input should produce a well-"
+        }
+      ],
+      "title_ja": "オープンソースのデスクトップをモダナイズするアイデア",
+      "summary_ja": "ディスカッションのハイライト：私も「終わった、うまくいった、台無しにしない」キャンプにいます。\n私はすべてをテストしました/デスクトップでの変更でうまくいくことができましたが、過去10年以上にわたって見てきた変更のほとんどが実際にユーザーに利益をもたらしていません/結局のところ、どのデバイスを使用しても、データに対してアクション（最も簡単なのは読み取り/表示、編集など）を実行することです",
+      "editor_note": "「オープンソースのデスクトップをモダナイズするアイデア」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49804359,
+      "title_en": "Show HN: Treepeat – Code similarity detection using Tree-sitter",
+      "url": "https://github.com/dsummersl/treepeat",
+      "hn_url": "https://news.ycombinator.com/item?id=49804359",
+      "score": 6,
+      "comment_count": 0,
+      "posted_at": "2026-09-22T16:53:25+00:00",
+      "comments": [],
+      "title_ja": "HNを表示：ツリーピート-ツリーシッターを使用したコード類似性検出",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「HNを表示：ツリーピート-ツリーシッターを使用したコード類似性検出」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 26,
+      "id": 49818031,
+      "title_en": "The science of Monkey Island: can grog dissolve a metal mug that fast?",
+      "url": "https://jgeekstudies.org/2026/09/23/the-science-of-monkey-island-can-grog-actually-dissolve-a-metal-mug-that-fast/",
+      "hn_url": "https://news.ycombinator.com/item?id=49818031",
+      "score": 105,
+      "comment_count": 22,
+      "posted_at": "2026-09-23T15:55:57+00:00",
+      "comments": [
+        {
+          "id": 49834576,
+          "author": "shermantanktop",
+          "text": "There should be a name for this phenomenon: geeking out about an overly literal interpretation of how a technical topic is presented, made by an artist/creator a long time ago who likely didn't intend to satisfy such a literal understanding.\nIt's like retconning... retgeeking?"
+        },
+        {
+          "id": 49832488,
+          "author": "buildsjets",
+          "text": "If the grog contained enough mercury, it would dissolve the pewter mug. Mercury also eats thru solid aluminum pretty quickly."
+        },
+        {
+          "id": 49832312,
+          "author": "Lucasoato",
+          "text": "If a tree falls in the forest and no one is around to hear it, what color is the tree?"
+        },
+        {
+          "id": 49833875,
+          "author": "herodoturtle",
+          "text": "> we use the apparent rate of mug deterioration to estimate the proton supply required by a simplified corrosion model\nDamn I love HN."
+        },
+        {
+          "id": 49832886,
+          "author": "KellyCriterion",
+          "text": "In MI1, the only annoying part was that \"wood forest path\" thingy in the beginning (when being in the village), and later on the world wasnt pretty anymore when being on Le Chucks Island"
+        },
+        {
+          "id": 49832131,
+          "author": "roschdal",
+          "text": "Monkey Island is the best adventure game."
+        },
+        {
+          "id": 49832995,
+          "author": "js8",
+          "text": "Clearly, it only works in-game because SCUMM, the mysterious ingredient, is installed alongside the game. :-)"
+        },
+        {
+          "id": 49832884,
+          "author": "snvzz",
+          "text": "This is what the so-called Frontier is all about.\nThese models sure are put to good use."
+        }
+      ],
+      "title_ja": "モンキーアイランドの科学：グロッグはそんなに早く金属製のマグカップを溶かすことができますか？",
+      "summary_ja": "ディスカッションのハイライト：この現象には名前があるはずです。技術的なトピックがどのように提示されているかについて、ずっと前にアーティスト/クリエイターが作ったもので、グロッグに十分な水銀が含まれていると、ピューターマグが溶けてしまいます/木が森に落ちて誰も聞こえない場合、その木は何色ですか？",
+      "editor_note": "「モンキーアイランドの科学：グロッグはそんなに早く金属製のマグカップを溶かすことができますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49831220,
+      "title_en": "Apple iPhone 4 “Antennagate” Q&A (2010) [video]",
+      "url": "https://www.youtube.com/watch?v=BiN5ERktXz0",
+      "hn_url": "https://news.ycombinator.com/item?id=49831220",
+      "score": 23,
+      "comment_count": 14,
+      "posted_at": "2026-09-24T14:35:13+00:00",
+      "comments": [
+        {
+          "id": 49834627,
+          "author": "stouset",
+          "text": "I loved watching this, and it really cements for me how out of touch with reality the common antennagate narrative was.\nEverything about this Q&A was thoughtful, well-meaning, and heavily considered. And it's true: while the iPhone 4 had ways it could be better, it wasn't materially worse than any of the other phones of its era. A recall would have been ridiculous because that would have required them to have a fix for something the industry at large hadn't yet solved.\nAnd they were extremely measured in their response. If you're unhappy with your cell reception, they were happy to give you a case to improve the situation, no questions asked. If you still weren't happy, they had (and had had, and continue to have) one of the best return policies in the industry. They wanted to you to be happy with your purchase, and if you weren't, they wanted you to be able to get a phone you would be happy with.\nSteve Jobs may have been a terrible person in many ways, but one of the good things about him absolutely was his unfailing commitment to his customers."
+        },
+        {
+          "id": 49832202,
+          "author": "wil421",
+          "text": "My iPhone 4 was like the Nokia of iPhones. Mine lasted forever and I think it was my longest lasting one. I had it for 5 years, I knew people who had it until 3G was being phased out and they had to switch.\nI always use a case on every phone and never had a single issue with the 4."
+        },
+        {
+          "id": 49832301,
+          "author": "nozzlegear",
+          "text": "It's fascinating how Jobs isn't afraid to pause and wait while he thinks about his answer (07:00, 20:00). He doesn't have that habit most have of babbling to fill dead air. It makes him sound a lot more authentic/less rehearsed."
+        },
+        {
+          "id": 49834555,
+          "author": "mrweasel",
+          "text": "One of the issues with the iPhone 4 was that holding it in your left hand caused problems for the antenna. The iPhone Duo seems to indicate that Apple still don't actually believe that left handed people exists."
+        }
+      ],
+      "title_ja": "Apple iPhone 4「アンテナゲート」Q&A （ 2010年）[ビデオ]",
+      "summary_ja": "ディスカッションのハイライト：私はこれを見るのが大好きで、一般的なアンテナゲートナラティブが現実からどれほど外れていたかを本当に強調しています。\nこのQ&Aについてのすべては思慮深く、善意的であり、/My iPhone 4はiPhoneのNokiaのようなものでした/ジョブズが自分の答えを考えている間に一時停止して待つことを恐れないのは魅力的です（ 07:00、20:00 ）",
+      "editor_note": "「Apple iPhone 4「アンテナゲート」Q&A （ 2010年）[ビデオ]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49823664,
+      "title_en": "ArXiv receives multiyear commitments to support it as an independent nonprofit",
+      "url": "https://blog.arxiv.org/2026/09/23/arxiv-receives-multiyear-investment/",
+      "hn_url": "https://news.ycombinator.com/item?id=49823664",
+      "score": 293,
+      "comment_count": 38,
+      "posted_at": "2026-09-23T22:45:49+00:00",
+      "comments": [
+        {
+          "id": 49832975,
+          "author": "jamienk",
+          "text": "Did we completely write off the \"web of trust\" as a workable system? Where you exchange keys with people and co-sign each others keys and then trust keys signed by them. This would be an alt to \"algorithms\" and also a way to \"subscribe\" to things that got vetted by trusted people or orgs. I kind of do this with uBlock Origin, where they curate a (very complex) list of ads (but without the key signing). Orgs could vet and publish lists of arXiv papers and I'd be subscribed to that. This could also be the source of my social media feed (friends of friends, etc).\nI remember in the early days of PGP this was put forward as a vision. I remember the various key-holding systems (that were hard to use). I did a key-party with my brother and his friend in the '90s.\nWhy did this fail?"
+        },
+        {
+          "id": 49824661,
+          "author": "edot",
+          "text": "Tom Dietterich (Editor in Chief at arXiv) posted on LinkedIn the other day that they’re having trouble keeping up with the onslaught of AI-generated papers. Lots of suggestions in the comments but no magic bullets.\nIt’s ironic that the LLMs which benefit so much from reading arXiv papers of yore are now being used to pollute it. Personally if I see a single author post 2023, I assume it’s junk, especially if they’re not from an actual research institution. Not all solo independent researchers are phonies but … many phonies are solo independent researchers.\nOpenReview is okay but even some of the reviewers are apparently using LLMs or just hardly reading."
+        },
+        {
+          "id": 49828566,
+          "author": "aurareturn",
+          "text": "Are they doing to do something about authors using Arxiv to publish propaganda/opinion pieces but presented as research?\nArXiv gives the appearance of scientific credibility that a blog post wouldn't have so I'm seeing the platform get abused.\nExample:\nhttps://news.ycombinator.com/item?id=49580164"
+        },
+        {
+          "id": 49825268,
+          "author": "networkOne",
+          "text": "Sorely, sorely needed.\nHow is science to evolve if good research requires $49 a pop to view?\nAnd what amazes me is that these authors have undeniably stood on the shoulders of giants in order to create their research."
+        },
+        {
+          "id": 49827520,
+          "author": "perdy",
+          "text": "Published there in August, from a company rather than a university. Without arXiv we'd have had a blog post and nothing citable."
+        },
+        {
+          "id": 49824641,
+          "author": "upupupandaway",
+          "text": "Asking earnestly: is ArXiv a valuable resource? I used it few years back when finishing my (late) Master's, but also saw a lot of crap published there (primarily for promotion/visa purposes) so it kind of took the shine out of the service for me."
+        }
+      ],
+      "title_ja": "ArXivは、独立した非営利団体としてサポートするための複数年のコミットメントを受けています",
+      "summary_ja": "ディスカッションのハイライト：実行可能なシステムとして「信頼のウェブ」を完全に無効にしましたか？人々と鍵を交換し、お互いに鍵に共同署名し、彼らが署名した鍵を信頼する場所/Tom Dietterich （ arXivの編集長）が先日LinkedInに投稿した、AIが生成した論文の猛攻撃に追いつくのに苦労していること/彼らはArxivを使用してプロパガンダ/意見記事を公開する著者に対して何かをするためにしていますが、",
+      "editor_note": "「ArXivは、独立した非営利団体としてサポートするための複数年のコミットメントを受けています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49802661,
+      "title_en": "RAM: the forgotten history (2024)",
+      "url": "https://blog.coredump.cx/p/memory-the-forgotten-history",
+      "hn_url": "https://news.ycombinator.com/item?id=49802661",
+      "score": 101,
+      "comment_count": 4,
+      "posted_at": "2026-09-22T15:12:17+00:00",
+      "comments": [
+        {
+          "id": 49830192,
+          "author": "myself248",
+          "text": "An unsung benefit of core memory's non-volatility is that, decades later, forgotten core stacks discovered in storage might still retain whatever data they held when they were powered off.\nYou just only get one chance to read it.\nI'm not aware of any good writeups of such discoveries, though."
+        }
+      ],
+      "title_ja": "RAM ：忘れられた歴史（ 2024年）",
+      "summary_ja": "ディスカッションハイライト：コアメモリの不揮発性の知られざる利点は、数十年後、ストレージで発見された忘れられたコアスタックが、電源供給時に保持していたデータをまだ保持している可能性があることです。",
+      "editor_note": "「RAM ：忘れられた歴史（ 2024年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 30,
+      "id": 49799306,
+      "title_en": "When the Debugger Lies",
+      "url": "https://danielmangum.com/posts/when-the-debugger-lies/",
+      "hn_url": "https://news.ycombinator.com/item?id=49799306",
+      "score": 60,
+      "comment_count": 17,
+      "posted_at": "2026-09-22T11:02:43+00:00",
+      "comments": [
+        {
+          "id": 49833124,
+          "author": "pletnes",
+          "text": "Reminds me of the time when visual studio would show one value of a variable, but print would show a different one. Never trusted VS again after that."
+        },
+        {
+          "id": 49833577,
+          "author": "sharktheone",
+          "text": "Debuggers can lie pretty often. Especially if you are just doing things with ASM. I had some issues with V8 debugging and the debugger just saying that a function got called which for sure wasn't. Even with the option that V8 should emit gdb info :/"
+        },
+        {
+          "id": 49805601,
+          "author": "Loren_SL",
+          "text": "Nice writeup.  WinDbg has the same stale-cache trap on live Windows targets."
+        },
+        {
+          "id": 49830294,
+          "author": "zavec",
+          "text": "Very cool! I love reading about details like this."
+        },
+        {
+          "id": 49830248,
+          "author": "LoganDark",
+          "text": "Once upon a time I had to figure out an issue where I forgot a `return` statement at the end of a non-`void` function, so the C++ compiler happily omitted both RETs for some reason and let the program go straight into illegal instructions. That was fun to debug (not fun, I practically had to single-step through the entire program) because every time this happened the debugger was incredibly confused about what the fuck was going on and nothing made any sense."
+        }
+      ],
+      "title_ja": "デバッガーが嘘をつくとき",
+      "summary_ja": "ディスカッションのハイライト：ビジュアルスタジオが変数の1つの値を表示するが、印刷物は別の値を表示する場合を思い出させる/デバッガーはかなり頻繁に嘘をつく/素晴らしい書き込み",
+      "editor_note": "「デバッガーが嘘をつくとき」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 22,
+    "slot": "23",
+    "started_at": "2026-09-25T03:20:43.143530+09:00",
+    "finished_at": "2026-09-25T03:21:54.707895+09:00",
+    "story_count": 30
+  }
+}
