@@ -1,0 +1,1661 @@
+{
+  "date": "2026-09-26T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49843269,
+      "title_en": "Platform-Independent SIMD in Go",
+      "url": "https://go.dev/blog/simd-experiment",
+      "hn_url": "https://news.ycombinator.com/item?id=49843269",
+      "score": 265,
+      "comment_count": 95,
+      "posted_at": "2026-09-25T11:47:06+00:00",
+      "comments": [
+        {
+          "id": 49848076,
+          "author": "melodyogonna",
+          "text": "Very neat, and comes pretty close to how Mojo handles portable SIMD.\nIt's great to see two of my favorite languages finally making SIMD easy to use. It's such low-hanging fruit for performance, yet somehow languages have ignored it for years. Portable SIMD, even with some performance penalty, still beats scalar computation whenever vector operations are needed. Yet language implementations always seemed to assume that hardware-specific SIMD APIs were the only way to go. That did nothing but make SIMD unusable excepting special cases where performance is absolutely critical, rather than just something anyone can use in day to day programming."
+        },
+        {
+          "id": 49845681,
+          "author": "ImJasonH",
+          "text": "https://imjasonh.github.io/playground/palette-swap/\nswaps colors in a provided image in wasm, entirely locally in your browser, to benchmark portable SIMD vs non-portable archsimd vs non-SIMD.\nPortable SIMD is ~11% slower than non-portable SIMD in this case, but both are ~5x faster than non-SIMD."
+        },
+        {
+          "id": 49847070,
+          "author": "mshockwave",
+          "text": "Just want to say among many portable SIMD solutions I’ve seen recently (e.g. Fearless SIMD), this is the first that makes non-fixed vectors like SVE and RISC-V vector (RVV) easier to support. Glad to see they made this decision"
+        },
+        {
+          "id": 49844720,
+          "author": "u8",
+          "text": "This is why I love Go. Nobody was asking for this, but they took the time to do it right and continue to Push go as a memory safe, high-level systems language."
+        },
+        {
+          "id": 49848059,
+          "author": "rcarmo",
+          "text": "I am using Go assembly for SIMD very heavily in\nhttps://github.com/rcarmo/go-pherence\n, this is just icing on the cake."
+        },
+        {
+          "id": 49847237,
+          "author": "sixdimensional",
+          "text": "I did some testing with the experimental SIMD on a project I was doing to make speech-to-text and text-to-speech models run natively in Go (with CGO_ENABLED=0, so no C depenencies), and testing non-SIMD w/ SIMD.\nI don't have formal benchmarks for that, but I can anecdotally say the SIMD work made a measurable improvement in the performance of the calculations vs. just plain Go.  I'm very optimistic about how these improvements will help make the Go runtime an even better target for more of these types of work going forward, especially since it is cross-platform."
+        },
+        {
+          "id": 49845433,
+          "author": "beached_whale",
+          "text": "C++ is getting std::simd in the latest version and I am all aboard writing the vectorization with the least amount of intrinsic builtins I am able to.  Even if not optimal, it's far better than the scalar ops."
+        },
+        {
+          "id": 49843631,
+          "author": "qprofyeh",
+          "text": "This feature opens many doors for optimizing low-level performance in Go projects, that are already running multicore. IIRC there aren’t a lot of languages with built-in std lib support for SIMD and variants. Love the way Go is trying new stuff lately."
+        }
+      ],
+      "title_ja": "Goでのプラットフォームに依存しないSIMD",
+      "summary_ja": "ディスカッションのハイライト：非常にきちんとしており、MojoがポータブルSIMDをどのように扱うかにかなり近づいています。\n私のお気に入りの2つの言語がついにSIMDを使いやすくするのを見るのは素晴らしいことです/https://imjasonh.github.io/playground/palette-swap/\nwasmで提供されたイメージの色を完全にブラウザのローカルで交換して、ポータブルSIMDとポータブルではないarchsimdをベンチマークします/最近見た多くのポータブルSIMDソリューションの中で言いたいことがあります（例：",
+      "editor_note": "「Goでのプラットフォームに依存しないSIMD」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 49843174,
+      "title_en": "Git-bug: Distributed, offline-first bug tracker embedded in Git",
+      "url": "https://github.com/git-bug/git-bug",
+      "hn_url": "https://news.ycombinator.com/item?id=49843174",
+      "score": 215,
+      "comment_count": 70,
+      "posted_at": "2026-09-25T11:38:31+00:00",
+      "comments": [
+        {
+          "id": 49844476,
+          "author": "michaelmure",
+          "text": "Hi, author here, nice to see some interest :-)\nFYI, this is my near-term roadmap:\n- have the webui accept external auth (like github oauth) so that it can be a public portal and accept external interactions\n- have the webui expose a git remote endpoint\n- slightly rework identities (and likely root them in did:plc for pubkey distribution, the identity system from bluesky, without being an ATProto thing), which would allow to share identities between repos way more naturally\n- extend to support pull-requests, possibly CI. That would make it a somewhat complete local-first forge that you can also self-host trivially\nAlso, while there is some attention ... I'm considering working on this full time. If you have some advice or opportunities on how I can support myself doing this, let me know!"
+        },
+        {
+          "id": 49846348,
+          "author": "jason_oster",
+          "text": "I tried git-bug a few months ago, and\nhttps://github.com/git-bug/git-bug/issues/1023\nis a showstopper.\nThere is a workaround, but it isn't pretty. You can push/pull bugs and identities with normal, ssh-agent-less git commands:\nhttps://gist.github.com/parasyte/80ef925d4b01216f6bcb051356f..."
+        },
+        {
+          "id": 49844679,
+          "author": "imagent",
+          "text": "You can also do code reviews in pure git:\nhttps://github.com/google/git-appraise\nI used git bug before but found I missed being able to edit tickets with a Markdown editor. So I built this:\nhttps://github.com/LoumTechnologies/ticketry"
+        },
+        {
+          "id": 49844367,
+          "author": "teddyh",
+          "text": "Just for those people for whom this might be a new concept: There is actually a fair number of these distributed bug trackers: <\nhttps://news.ycombinator.com/item?id=22833037\n>"
+        },
+        {
+          "id": 49847656,
+          "author": "michaelastreiko",
+          "text": "Offline-first bugs living next to the code is a nice fit for tiny teams. Less context switching than opening a separate tracker when you are just shipping a small project."
+        },
+        {
+          "id": 49844219,
+          "author": "Izkata",
+          "text": "A few months ago there was another of these posted, called Epiq:\nhttps://news.ycombinator.com/item?id=48155570\nMy comment on there is about a surge in popularity of these over a decade ago, with a link to a previous comment about problems I remember them having that prevented them from being usable for most people (\nhttps://news.ycombinator.com/item?id=47956979\n), because of their intended design rather than an implementation issue. For example bullet 3 was a problem in one, that another tried to solve with bullet 2.\nI don't have time right now to look at this one to guess if these apply, but might be interesting/useful for someone else."
+        },
+        {
+          "id": 49843813,
+          "author": "lolakutty",
+          "text": "Someone is taking lessons from fossil-scm.\nLooks great by the way."
+        },
+        {
+          "id": 49846369,
+          "author": "dizzard",
+          "text": "My favorite VCS friendly ticket tracker is\nhttps://github.com/wedow/ticket\nIt's human-readable, simple, and easy to work with. Basically there's no magic."
+        }
+      ],
+      "title_ja": "Git - bug ： Gitに埋め込まれた分散型のオフラインファーストのバグトラッカー",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、著者です。興味をお持ちいただきありがとうございます:-)\n参考までに、これが私の短期的なロードマップです。\n- webuiが外部認証（ github oauthなど）を受け入れるようにして、それがパブリックポータルになり、ac/数ヶ月前にgit - bugを試してみました。\nhttps://github.com/git-bug/git-bug/issues/1023\nショーストッパーです。\n回避策はありますが、きれいではありません/純粋なgitでコードレビューを行うこともできます。\nhttps://github.com/google/git-appraise\nGitのバグを使用した",
+      "editor_note": "「Git - bug ： Gitに埋め込まれた分散型のオフラインファーストのバグトラッカー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 3,
+      "id": 49844736,
+      "title_en": "First Principles Thinking",
+      "url": "https://sunilsadasivan.com/writing/first-principles-thinking/",
+      "hn_url": "https://news.ycombinator.com/item?id=49844736",
+      "score": 112,
+      "comment_count": 50,
+      "posted_at": "2026-09-25T13:55:37+00:00",
+      "comments": [
+        {
+          "id": 49846485,
+          "author": "bob1029",
+          "text": "Higher order thinking is more important and rare.\nAn aggressive first principles approach often leads otherwise well-intentioned technologists into strategic / ideological dead-ends.\nDo we do things because it's the \"right thing\" to do in the moment, or because of the final outcome that will eventually result?\nThe most ideal answer is somewhere in the middle. I am far more interested in the total area under the curve than a single instant in time.\nIn lieu of intentional higher order thinking, simply working backward from your customer on a regular basis will generally accomplish the same outcomes."
+        },
+        {
+          "id": 49846060,
+          "author": "trwhite",
+          "text": "I'm really struggling to see how to make architectural decisions with an agent. It's great when you're at a total loss for ideas, but when you already have some of the pieces it ultimately wants to drive all of the thinking and takes over. Then it just feels like you're deferring your experienced judgement. I've seen colleagues lose the ability to reason any more without asking the agent to do it for them, because they inherently don't see the point if the agent is going to end up doing the whole piece (and probably auditing/overruling anything they came up with on their own)."
+        },
+        {
+          "id": 49847916,
+          "author": "flowerlad",
+          "text": "From the blog he linked to: \"I’m going to try designing something way more ambitious.\"\nThis is how you end up with unnecessary complexity [1]. The best engineers don't aim for \"designing something ambitious\", instead they come up with the simplest possible design. They take something that seems complex and make it simple.\nUnfortunately that's not how engineers are evaluated [2].\n[1]\nhttps://goomics.net/316\n[2]\nhttps://terriblesoftware.org/2026/03/03/nobody-gets-promoted..."
+        },
+        {
+          "id": 49846511,
+          "author": "ripvanwinkle",
+          "text": "I've been using codex to design and build a product that is a fairly conventional looking app - think of a gmail like experience - with some delicate synchronization across devices.\nI find that I need to invest a whole lot in high level design myself to get Codex to create a suitable architecture and make the right tradeoffs. It's more like I am designing and Codex is reviewing and occasionally we brainstorm. When I tried having it design based on requirements, it went wild with an unsustainable design / architecture.\nAnd I use things like plan mode etc. My experience is unlike what I read in most vibe coding exploits.\nI wonder if I am doing something wrong. Is there a good canonical example of a project built with Codex or even Claude Code that shows how the human and AI interact that I could use as a reference"
+        },
+        {
+          "id": 49846315,
+          "author": "cyclopeanutopia",
+          "text": "Lots of words, not a lot of meaning. What is this post about?"
+        },
+        {
+          "id": 49847061,
+          "author": "Hasz",
+          "text": "more time in plan mode, less time in build mode. This is true regardless of whether an agent does it or you do it."
+        },
+        {
+          "id": 49847739,
+          "author": "jdw64",
+          "text": "Sometimes I don't understand what \"first-principles thinking\" is, or what exactly you have to tolerate in code for it to count as first-principles."
+        },
+        {
+          "id": 49846038,
+          "author": "elendilm",
+          "text": "This is one of those things where one can throw around the term \"first principles thinking\" with relative ease.\nTo actually do it is different and usually comes from having to wrestle with a problem.\nSadly people from the academia and the public at large has a hard time understanding what this even means.\nThey equate it with exam based memorization or delegation to authority. Funnily they even think first principles reasoning is an improved version of doing the same.\nBut this is a blessing in disguise as it gives those who wrestle with real problems a unique skillset that can be advantageous."
+        }
+      ],
+      "title_ja": "第一原理思考",
+      "summary_ja": "ディスカッションのハイライト：高次の思考はより重要であり、まれです。\n積極的な第一原則のアプローチは、善意の技術者を戦略的/イデオロギー的な行き詰まりに導くことがよくあります/私はエージェントとアーキテクチャ上の決定を下す方法を見極めるのに本当に苦労しています/彼がリンクしたブログから：「私はもっと野心的な方法で何かを設計しようとしています。」\nこのようにして、不必要な複雑さが生じます[1]",
+      "editor_note": "「第一原理思考」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 49841285,
+      "title_en": "Pentium II at 600Mhz with Voodoo 3 Emulated on 86Box with M6 Mac Mini",
+      "url": "https://nyaa.sh/reviews/mac-mini-m6-emulation",
+      "hn_url": "https://news.ycombinator.com/item?id=49841285",
+      "score": 215,
+      "comment_count": 95,
+      "posted_at": "2026-09-25T07:27:45+00:00",
+      "comments": [
+        {
+          "id": 49846791,
+          "author": "cloverich",
+          "text": "Brings back memories; so much nostalgia. I still remember clearly the first real graphics card (I think it was voodoo) I got and when I fired up TFC (which I'd played sans graphics card up to then), just staring at the water for a bit and being amazed by it. The funny thing too is when 3d graphics were first taking over, the games themselves didn't look as nice as the former 2d ones; I remember being a little confused at first that everything looked worse. But of course it enabled all kinds of new and more immersive experiences. It was funny to experience... how it felt. To look both crappy and amazing at the same time; to be its own \"thing\" really.\nI also enjoyed introducing people to it, and watching them look at it the first time. You could tell who would get hooked. Some people would play the game a minute or two and be like wow yeah this is pretty neat, and then go about their life. Others would kind of just stop and almost watch themselves, and almost invariably just start laughing. It was so pleasing to watch it melt people's minds the way it had mine.\nAnyways, a special time. Really fun seeing these projects."
+        },
+        {
+          "id": 49847470,
+          "author": "9x39",
+          "text": "Going from software rendering to hardware acceleration back then was good times.\nQuake II & IIIa\nTribes & Tribes II\nHalf-Life, TFC, Counter-Strike\nMorrowind\nUnreal\nThose moments will never return..."
+        },
+        {
+          "id": 49844086,
+          "author": "cbm-vic-20",
+          "text": "I had a fair amount of shares of TDFX back in the day, rode it all the way to their bankruptcy. NVDA bought the scraps and left retail shareholders like me with nothing. In a different reality, if 3dfx could have survived to the AI-era..."
+        },
+        {
+          "id": 49841796,
+          "author": "kar1181",
+          "text": "86box is really fun, and the m4+ macs are great at running it. I've been working on a custom OS designed specifically for the pentium 2 core/isa (trying to write an high performance *nix for 1997-1999 for quake 1/2). 86box runs very faithfully to the real silicon p2s (and voodoo 3) I have without the nuisance of having to copy code over to it in development."
+        },
+        {
+          "id": 49843090,
+          "author": "mrngld",
+          "text": "Corrected title: My Childhood Emulated on 86Box with M6 Mac Mini"
+        },
+        {
+          "id": 49847409,
+          "author": "lobster45",
+          "text": "Total blast from the past. I remember I bought my Voodoo 1. It was the Diamond 3DFX card. I bought it in 1995 and it was amazing. GL was so optimized. For gl quake. Back then Windows, Direct 3D was just slow. But then later Nvidia started to come out with more capable gpus such as TNT and they eventually took over the gaming market."
+        },
+        {
+          "id": 49841774,
+          "author": "walrus01",
+          "text": "Emulated llama whipping, what an era we live in"
+        },
+        {
+          "id": 49842277,
+          "author": "tomaskafka",
+          "text": "I love it! The great 2026 benchmark is a native Turok (I vividly remember that 30fps low poly iguana looking as real as Jurassic Park in my childhood), Unreal and Q3A."
+        }
+      ],
+      "title_ja": "M 6 Mac Miniを搭載した86 BoxでエミュレートされたVoodoo 3を搭載した600 MhzのPentium II",
+      "summary_ja": "ディスカッションのハイライト：思い出を取り戻す。懐かしい思い出/当時はソフトウェアレンダリングからハードウェアアクセラレーションに移行するのが良い時期でした。\nクェイクII ＆ IIIA\n部族&部族II\nハーフライフ、TFC、カウンターストライク\nMorrowind\nアンリアル\nそれらの瞬間、私はその日にTDFXのかなりの量の株式を持っていて、それを彼らの破産まで乗り越えました",
+      "editor_note": "「M 6 Mac Miniを搭載した86 BoxでエミュレートされたVoodoo 3を搭載した600 MhzのPentium II」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49831968,
+      "title_en": "F-Droid 2.0",
+      "url": "https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49831968",
+      "score": 1407,
+      "comment_count": 401,
+      "posted_at": "2026-09-24T15:26:12+00:00",
+      "comments": [
+        {
+          "id": 49841959,
+          "author": "Accacin",
+          "text": "What I'm taking from this is that no one is happy about anything, ever. New design is fine. Old design is fine. I just want to search for an app and find that app, which is mostly what happens.\nI appreciate all the hard work that goes into F-Droid <3"
+        },
+        {
+          "id": 49835185,
+          "author": "comex",
+          "text": "I notice that\nSyncthing-For\nk\nis one of the first pieces of text in the first screenshot.  With the k on its own line like that.  Not usually something I’d comment on, but if you’re showing off a redesign…"
+        },
+        {
+          "id": 49832443,
+          "author": "silverbluep",
+          "text": "I have been using droid-ify on GrapheneOS for a few years now; because F-Droid ui is terrible, and the privilege extention has been such a pain to configure and get working without issues on my previous lineageOS phone. Happy to see this major overhaul; and i'm glad the FPE is being phased out."
+        },
+        {
+          "id": 49837707,
+          "author": "idle_zealot",
+          "text": "It's sad to see F-Droid using the now-standard design convention of\ncategorically refusing\nto draw lines between things. No visual differentiation between sections of the UI, no clear indication of what's tappable and what will happen on a tap, no indication of scrollable areas beyond content being cut off. I'm willing to chalk some bad text alignment or uneven padding up to amateur designers working for free, but the design\nethos\non display, the thoughtless trend-chasing, is depressing to see."
+        },
+        {
+          "id": 49845800,
+          "author": "neves",
+          "text": "I've just recently started to use F-Droid and discovered a lot of nice tools without ads and bloatware. Some of my favorites are Breeze, a weather forecast app, and Seal, a facade for yt-downloader that allows me to break the walls of social networks.\nWhat are you favorite gems in F-Droid?"
+        },
+        {
+          "id": 49832601,
+          "author": "jjice",
+          "text": "What does the future of something like F-Droid look like once Google does their lock down next year?"
+        },
+        {
+          "id": 49840410,
+          "author": "hauget",
+          "text": "My problem with F-Droid has always been the lack of app reviews: no way to separate the good from the ugly and the bad."
+        },
+        {
+          "id": 49833608,
+          "author": "temphaaa",
+          "text": "Can someone recommend a good F/OSS ebook reader on F-Droid? The existing ones I have tested have too many knobs and options and are not really user-friendly.... My wife started to get into reading, but I could not get her to get out of the Kindle/Play Books ecosystem because of the user-friendliness and easy synchronisation across devices that Kindle gives."
+        }
+      ],
+      "title_ja": "F - Droid 2.0",
+      "summary_ja": "ディスカッションのハイライト：私がこれから学んでいるのは、誰も何にも満足していないということです/私はそれに気づきます\nSyncthing - For\nk\n最初のスクリーンショットの最初のテキストの1つです/私は数年前からGrapheneOSでdroid -ifyを使用しています。F - Droid uiはひどく、特権の拡張は設定して動作するのが非常に苦労しています",
+      "editor_note": "「F - Droid 2.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49845952,
+      "title_en": "Classified Estimates Show the NSA Is Paying Billions to Test AI Models",
+      "url": "https://www.washingtonsun.com/technology/classified-estimates-nsa-paying-billions-to-test-ai-models",
+      "hn_url": "https://news.ycombinator.com/item?id=49845952",
+      "score": 130,
+      "comment_count": 69,
+      "posted_at": "2026-09-25T15:27:35+00:00",
+      "comments": [
+        {
+          "id": 49846178,
+          "author": "paimapi",
+          "text": "I feel like any AI regulation passed wouldn't have enough teeth to rein in the NSA because not even the Fourth Amendment seems applicable to the agency. let's not forget the ex-post-facto legalization of mass wiretapping and surveillance [0] with both establishment political parties supporting it on 'national security' concerns [1]. whatever monitoring or testing they're doing today will be similarly hand-waved away in the name of security theater\nthis is just how the empire has always operated - we have always been at war with Eastasia\n[0]\nhttps://en.wikipedia.org/wiki/NSA_warrantless_surveillance_(...\n[1]\nhttps://www.eff.org/deeplinks/2012/10/fact-check-obamas-misl..."
+        },
+        {
+          "id": 49846229,
+          "author": "rdtsc",
+          "text": "I guess I would be more surprised if the headline said \"turns out NSA dropped the ball on AI and haven't even fired up a single LLM instance yet\".\nIt's mostly about \"testing\" and \"billions\". But I am sure \"testing\" here is in quotes just like I wrote it. They are not going to get an itemized list unless it's coming from Snowden 2.0\n- We \"tested AI\" on this Russian nuclear silo command and control center. It worked out pretty ok."
+        },
+        {
+          "id": 49846134,
+          "author": "bhouston",
+          "text": "\"Testing\"?  Sure, Jan.\nThey would have to be incompetent if they were not using them both for security penetration as well as social engineering / election meddling as everyone else is."
+        },
+        {
+          "id": 49846645,
+          "author": "jawiggins",
+          "text": "An underappreciated aspect of LLMs is how good they are at zero-shot classification. I'd expect this is extremely good at monitoring communications streams, particularly in foreign languages."
+        },
+        {
+          "id": 49848119,
+          "author": "catchnear4321",
+          "text": "Is this a good time to remind everyone about that data center in Utah that got everyone riled up and then went into the memory hole?"
+        },
+        {
+          "id": 49846156,
+          "author": "hosel",
+          "text": "Why wouldn’t they be? How is this surprising. A drop in the bucket."
+        },
+        {
+          "id": 49847320,
+          "author": "vjvjvjvjghv",
+          "text": "What do they test? In general, I don't understand the whole \"AI safety\" stuff. What are the scenarios we need to be protected from and how is this going to be accomplished?"
+        },
+        {
+          "id": 49846244,
+          "author": "rand846633",
+          "text": "Does anyone here happen to know the ballpark number of how much the three letters agencies are currently paying OpenAI/antropic/who ever per year/month..?"
+        }
+      ],
+      "title_ja": "機密見積もりは、NSAがAIモデルをテストするために数十億ドルを支払っていることを示しています",
+      "summary_ja": "ディスカッションのハイライト：修正第4条もNSAに適用されないように見えるため、通過したAI規制にはNSAを制御するのに十分な歯がないと感じています/見出しに「NSAがAIにボールを落とし、まだLLMインスタンスを1つも起動していないことが判明した」と書かれていれば、私はもっと驚くと思います。\n主に「テスト」と「テスト」についてですか？はい、1月。\n両方を使用していない場合は、無能である必要があります",
+      "editor_note": "「機密見積もりは、NSAがAIモデルをテストするために数十億ドルを支払っていることを示しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 49842270,
+      "title_en": "Ink and Switch Interactive Homepage",
+      "url": "https://www.inkandswitch.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49842270",
+      "score": 167,
+      "comment_count": 23,
+      "posted_at": "2026-09-25T09:50:25+00:00",
+      "comments": [
+        {
+          "id": 49842754,
+          "author": "zazuke",
+          "text": "They have one of the best articles out there, and now the page is great too. Fun and innovative.\nMy favorite article, in case you haven't read it already, is local-first [1], or I recently read the embark, dynamic documents for making plans. These always give me so much inspiration.\n[1]\nhttps://www.inkandswitch.com/essay/local-first/\n[2]\nhttps://www.inkandswitch.com/embark/"
+        },
+        {
+          "id": 49842767,
+          "author": "evek",
+          "text": "They are also some of the folks behind the Local-first conference.\nRecordings:\nhttps://www.youtube.com/@localfirstconf/videos\nRecap:\nhttps://www.inkandswitch.com/newsletter/dispatch-019/"
+        },
+        {
+          "id": 49843410,
+          "author": "krisoft",
+          "text": "> Play with it! Click/drag everywhere.\nIt looks cool! But man is it frustrating that nothing is consistent. Some things change when I click. Some things change when I drag. Some things seemingly doesn't do anything at all.\nIf it is intentionally like that, great. But I just don't find the experience pleasant."
+        },
+        {
+          "id": 49843055,
+          "author": "Topfi",
+          "text": "Their articles are always worth a read, especially their efforts on CRDT are a great inspiration for improving UX. Not sure I’m getting the full experience of this homepage on mobile though, will have to check later."
+        },
+        {
+          "id": 49842463,
+          "author": "hnisjafx40",
+          "text": "Ink and Switch's stuff always makes me want to go rebuild something, and the homepage being playable is very on brand for them. Curious how much of it is bespoke versus falling out of their own Automerge tooling."
+        },
+        {
+          "id": 49845222,
+          "author": "low_tech_punk",
+          "text": "Hint for mouse users, press and drag on them to hear sound and see visual effects. Mouse X/Y coordinates are inputs."
+        },
+        {
+          "id": 49842869,
+          "author": "throwaw12",
+          "text": "App they have mentioned is indeed looks awesome:\nhttps://allume.com/#pricing\nBut why subscription for local-only software?"
+        },
+        {
+          "id": 49844023,
+          "author": "Vishal_Max",
+          "text": "I did not understand why this was cool until i tried holding and dragging it!"
+        }
+      ],
+      "title_ja": "Ink and Switchインタラクティブホームページ",
+      "summary_ja": "ディスカッションのハイライト：彼らはそこに最高の記事の1つを持っており、今ではページも素晴らしいです/彼らはまた、ローカルファーストカンファレンスの背後にいる人々の一部です。\n録画：\nhttps://www.youtube.com/ @ localfirstconf/videos\nまとめ：\nhttps://www.inkandswitch.com/newsletter/dispatc />プレイしよう！任意の場所をクリック/ドラッグします。\nそれはクールに見えます！しかし、一貫しているものがないのはイライラしています",
+      "editor_note": "「Ink and Switchインタラクティブホームページ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 49841563,
+      "title_en": "Dutch governments builds alternative for Microsoft based on NixOS",
+      "url": "https://www.dawo.community/en/",
+      "hn_url": "https://news.ycombinator.com/item?id=49841563",
+      "score": 853,
+      "comment_count": 503,
+      "posted_at": "2026-09-25T08:06:49+00:00",
+      "comments": [
+        {
+          "id": 49842160,
+          "author": "askonomm",
+          "text": "Any move away from the abusive big tech that exists in USA is a good move in my book. Microsoft just recently made a new patent where they will monitor you via camera and microphone to block your program/game to show you ads, and per ads viewed, you then earn credit to be able to use your program/game. It is absolutely wild to me how a corporation can be so toxic and abusive to its users and still be in business."
+        },
+        {
+          "id": 49842480,
+          "author": "hashar",
+          "text": "France government has announced NixOS based systems some months ago:\n-\nhttps://github.com/cloud-gouv/securix\na hardened/secured os\n-\nhttps://github.com/cloud-gouv/bureautix-example\nan example to use securix to build an office deployment (with some packages\nhttps://github.com/cloud-gouv/bureautix-example/blob/main/co...\n)"
+        },
+        {
+          "id": 49842018,
+          "author": "solarkraft",
+          "text": "Awesome! I believe NixOS is perfect for systems you just want to work and track reproducibly, like appliances (which a lot of server software is supposed to be). I’m glad people smarter than me are actually able to realize its advantages =)\nIn the same space, also check out openDesk initiated by the German Government (\nhttps://www.opendesk.eu/en\n) and La Suite by the French one (\nhttps://lasuite.numerique.gouv.fr/\n).\nAFAIK, there has been some collaboration with the German government on La Suite, not sure about the others."
+        },
+        {
+          "id": 49846853,
+          "author": "asdfman123",
+          "text": "> Digital autonomy\n> Strengthening the digital autonomy of the Netherlands.\nApparently the US becoming an authoritarian state means people don't want to do business with us. We're giving away our best advantage, our reputation for freedom and openness, for absolutely nothing in return."
+        },
+        {
+          "id": 49842048,
+          "author": "ricardobeat",
+          "text": "A note to the developers in the project, if anyone is reading: your repositories are in violation of the new Codeberg policy that forbids AI-generated code [1].\n[1]\nhttps://blog.codeberg.org/protecting-our-floss-commons-from-..."
+        },
+        {
+          "id": 49842823,
+          "author": "fbn79",
+          "text": "The highest problem is the office suite. If you think Libreoffice/Collabora can replace Microsoft 365 without friction the project could be a success. Honestly I do not think so as of today."
+        },
+        {
+          "id": 49845988,
+          "author": "jordanbeiber",
+          "text": "I’ve been using NixOS exclusively the last few years.\nIts been a blessing and a curse!\nMy framework laptop, my NAS, my Home-assistant, etc\nIt’s how I’ve always envisioned “systems management”, but the struggle has been real.\nEnter LLM’s - the barriers are kind of gone!\nIt’s actually making so much sense I don’t know where to start.\nJust try it out, using a little bit of LLM support and you can reach a solid-state like setup for servers and workstations."
+        },
+        {
+          "id": 49842967,
+          "author": "frzen",
+          "text": "Do we even need to have a suite of tools for users to create spreadsheets, paste images into them, save them as a PDF, download to their local machine, sync to sharepoint, change permissions to include everyone in the entire universe to be able to see the file, email the link to another human in the company who opens it, uses a PDF editor to copy paste it back into excel, barely scratch the surface of tools within Excel to sum a column, reply back in a password protected word doc saying looks good to me.\nI would much prefer to be using something like NixOS and not be depending on Microsoft etc but I can't imagine what the stack will look like if we don't revolutionise the work. Sensitivity labels, DLP, etc. are relics of people treating information on computers as if they are physical documents, and I can't see how I will have been paying for BP/E3/E5 licenses for users and then suddenly start to argue we don't need those features anymore after spending so long insisting users need to use them."
+        }
+      ],
+      "title_ja": "オランダ政府がNixOSに基づいてMicrosoftの代替品を構築",
+      "summary_ja": "ディスカッションハイライト：私の著書では、米国に存在する乱用的な大手テクノロジーから離れることは良い動きです。フランス政府は数ヶ月前にNixOSベースのシステムを発表しました。\n-\nhttps://github.com/cloud-gouv/securix\n硬化した/固定されたOS\n-\nhttps://github.com/cloud-gouv/bureautix-example/素晴らしい！ NixOSは、アプライアンス（多くのサーバーソフトウェアが",
+      "editor_note": "「オランダ政府がNixOSに基づいてMicrosoftの代替品を構築」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49845977,
+      "title_en": "U.S. appeals court upholds designation of Anthropic as supply chain risk",
+      "url": "https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49845977",
+      "score": 211,
+      "comment_count": 302,
+      "posted_at": "2026-09-25T15:29:25+00:00",
+      "comments": [
+        {
+          "id": 49847197,
+          "author": "ApolloFortyNine",
+          "text": "I know everyone says this is political but it actually seems like a textbook designation. Anthropic wanted to have rules on how the military used AI, the military said no and therefore doesn't want anthropic used anywhere in their supply line.\nThis is like a pen manufacturer not wanting their pens used to sign drone strike orders, now the military needs to have a special box of pens that don't have stipulations attached. With AI usage it would be the same thing except applied to entire product chains. It seems like it would just add more complexity to operations.\nYou can agree with the rules anthropic wanted, but having rules set by a private company at all that apply to the military does seem fair for the military to object to.\n>The Department reasonably feared that Anthropic might manipulate Claude’s design to prevent it from performing national-security functions that the Department deems contractually authorized and necessary\nThough they'd probably put the DoD on the cybersecurity whitelist today, the very idea of the claude whitelists for certain functionality already exists and is being used by them today."
+        },
+        {
+          "id": 49846594,
+          "author": "iamdelirium",
+          "text": "I wonder if this is going start being abused soon.\nIf I was Palantir or any other GOP aligned company, I would be completely against this.  What's to stop a Democratic president from doing the same thing and destroying them?"
+        },
+        {
+          "id": 49847017,
+          "author": "prometheus1992",
+          "text": "This smells like corruption to me.\nOpenAI has hacked several prominent entities and is allowed to do business as usual but Anthropic putting guardrails on the military's usage of AI is the national security threat while Pentagon itself said that over reliance on AI lead to that attack on school in Minab.\nI have also learned that OpenAI's president is a big maga donor and now I am thinking of cancelling my OpenAI membership todau and signing up with Anthropic again.\nEdit - i am not a OAI hater and i don't hate anyone. I am just saying Anthropic is kinda getting bullied and OAI is not being punished enough for their actions. It is time for me to support Anthropic (with my $$$) instead of OAI."
+        },
+        {
+          "id": 49846675,
+          "author": "petcat",
+          "text": "I still don't fully understand what this was about.  It sounds like the DoD said they wanted unrestricted access to Anthropic's models, Anthropic refused, so the Pentagon declared that they wouldn't use them at all.\nIsn't this basically what Anthropic wanted?"
+        },
+        {
+          "id": 49846800,
+          "author": "HarHarVeryFunny",
+          "text": "Supply chain risk seems a massive over-reaction, but understandable that the government doesn't want to commit to Anthropic controlled software for any critical military application if they can't 100% rely on Anthropic support in being able to use it as they see fit."
+        },
+        {
+          "id": 49848056,
+          "author": "cosmicgadget",
+          "text": "The hidden upside for Anthropic is now they won't be forced to refer to AI as \"SI\"."
+        },
+        {
+          "id": 49847057,
+          "author": "ctippett",
+          "text": "Admittedly I still need to do some reading on the current ruling, but how this isn't seen as an open and shut case of vindictive prosecution (if that's even a thing for this branch of law?) is astounding. The administration couldn't have made it more obvious there was no merit to their designation of Anthropic."
+        },
+        {
+          "id": 49847019,
+          "author": "Chance-Device",
+          "text": "I guess it’s the supreme court next.\nFor all the downsides of losing the business of government contractors, it really would hold Anthropic to their stated values: they’ll never develop AI controlled weapons on this blacklist."
+        }
+      ],
+      "title_ja": "米国の控訴裁判所は、Anthropicをサプライチェーンリスクとして指定することを支持",
+      "summary_ja": "ディスカッションのハイライト：誰もがこれは政治的だと言っているのは知っていますが、実際には教科書の指定のようです/これはすぐに悪用され始めているのではないかと思います。\n私がPalantirや他のGOP連携企業だったら、私はこれに完全に反対するでしょう/これは私には腐敗のような臭いがします。\nOpenAIはいくつかの著名なエンティティをハッキングし、いつものようにビジネスを行うことを許可されていますが、Anthropicは軍のAの使用にガードレールを置きます",
+      "editor_note": "「米国の控訴裁判所は、Anthropicをサプライチェーンリスクとして指定することを支持」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 49845133,
+      "title_en": "Factorio that you can touch",
+      "url": "https://factorio.com/blog/post/fff-447",
+      "hn_url": "https://news.ycombinator.com/item?id=49845133",
+      "score": 176,
+      "comment_count": 31,
+      "posted_at": "2026-09-25T14:24:42+00:00",
+      "comments": [
+        {
+          "id": 49846401,
+          "author": "NelsonMinar",
+          "text": "Wube is such a unique game studio. They do a lot of very solid technical work and look like they have fun doing it. I particularly appreciated their recent post about porting Factorio to ARM64. They had a business reason to do it but it's clear the team was mostly just curious about whether ARM64 was a viable gaming platform now. And then shared the results with us. They seem like fun hacker guys.\nhttps://www.factorio.com/blog/post/fff-446"
+        },
+        {
+          "id": 49848073,
+          "author": "sdenton4",
+          "text": "Omg, this is so my jam...\nI'm looking forward to making a Factorio themed war game table. Star Wars Legion on the factory planet..."
+        },
+        {
+          "id": 49847810,
+          "author": "mococa",
+          "text": "I love Factorio, but I can't play it - it's way too addictive. If I start on a Friday, I won't stop until Monday"
+        },
+        {
+          "id": 49847653,
+          "author": "Sir_Twist",
+          "text": "Based on the title I thought this would be about adapting Factorio for touch controls, but this is way more interesting. The folks at Wube have such a unique sense of technical curiosity."
+        },
+        {
+          "id": 49847781,
+          "author": "evv",
+          "text": "not me hoping for an official factorio board game"
+        },
+        {
+          "id": 49845976,
+          "author": "Cieric",
+          "text": "I'm (hopefully) getting a G1X soon, so I think I'm going to put it to work printing this stuff out. I'm now excited for this as a use case and I kind of hope someone builds something to convert an existing factorio world into a 3d model, though it might be to big to actually print so maybe a way to take a section would be even better."
+        },
+        {
+          "id": 49846349,
+          "author": "mitxela",
+          "text": "Remember that Factorio does not release its 3D models. Everything in the game is a 2D render of a 3D model, which is why the game uses so much VRAM."
+        },
+        {
+          "id": 49847380,
+          "author": "schobi",
+          "text": "Oh - but only touching them?\nI was hoping for an iteration of a factorio belt that could actually move!"
+        }
+      ],
+      "title_ja": "触れることができるファクタリオ",
+      "summary_ja": "ディスカッションのハイライト： Wubeはとてもユニークなゲームスタジオです/OMG、これは私のジャムです...\nFactorioをテーマにしたウォーゲームテーブルを作るのを楽しみにしています/Factorioが大好きですが、プレイできません。あまりにも中毒性があります",
+      "editor_note": "「触れることができるファクタリオ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49823738,
+      "title_en": "Show HN: Make cursed fonts like Times New Bastard",
+      "url": "https://bastardica.mitpit.com",
+      "hn_url": "https://news.ycombinator.com/item?id=49823738",
+      "score": 830,
+      "comment_count": 120,
+      "posted_at": "2026-09-23T22:53:28+00:00",
+      "comments": [
+        {
+          "id": 49839819,
+          "author": "ycombiredd",
+          "text": "So at first I misunderstood your tool, thinking it was like a tool I made a little over a year ago that creates new fonts from existing font glyph paths, combining them in a couple of ways.  It began as an ambigram generator (png image) using an arbitrary ttf or woff of your choosing and once I had that working, I realized that since I was just transforming vector paths, I could mix paths from multiple fonts, still focusing on ambigram generation.\nEventually, scope crept until it became an interesting and useful thing to be able to combine say, the top half of Arial with the bottom half of Times New Roman's letters (and combine with various boolean  operations on the paths, with outlines, etc, and I assumed others would be as pleased  with this ability as I was, so I documented some examples and shared it here and in a  fontography subreddit.\nTo my surprise, it got essentially no interest when I posted here, and the response from the typography folks was basically negative with people somehow framing it as a piracy-adjacent thing, and not a fun thing to do, just mashing up vector paths to get interesting unique results.\nshrug\nSeems like you and maybe some other participants in this"
+        },
+        {
+          "id": 49835208,
+          "author": "mortenjorck",
+          "text": "I have never felt quite so cacklingly nefarious as a designer as I did just now carefully adjusting vertical scale and offset so that the x-height and baseline of Papyrus optically match Comic Sans when mixed together.\nI don't yet know who I'll be pranking with the downloaded font, but I look forward to their reaction."
+        },
+        {
+          "id": 49848004,
+          "author": "xrd",
+          "text": "If I'm reading this correctly, this tool generates a new font by mixing fonts and altering proprieties of the fonts. In other words, a new font is produced.\nCould you produce similar effects using pure CSS and/or JavaScript? Maybe it would be less deterministic and maybe the rendering would be slower, but could you do it this way?"
+        },
+        {
+          "id": 49836236,
+          "author": "krelas",
+          "text": "If you want to make a designer have a nervous breakdown, upload a copy of Helvetica and make every second or third character be Arial."
+        },
+        {
+          "id": 49839298,
+          "author": "tholman",
+          "text": "Fun story, a good... (checks calendar, oh lord) 8+ years ago, I made a mis-kerned version of helvetica (smelvetica i called it [1]) as a joke, and eventually had the lawyers push on me\n> we ask that you stop promoting ‘Smelvetica’ and making the font software available to everybody. Next time, just let us know if you have more ideas on how to modernize our classics, we are always open for creative input.\n- [1](\nhttps://tholman.com/post/smelvetica/\n)"
+        },
+        {
+          "id": 49835583,
+          "author": "Fliwatt",
+          "text": "There is a lot of fun stuff you can do with fonts. A friend of mine made a self-censoring font: Paranoia Sans\nhttps://github.com/flegfleg/Paranoia-Sans"
+        },
+        {
+          "id": 49835645,
+          "author": "Sharlin",
+          "text": "Inspired by the sample text for \"Nervous Sans\": \"Anal\", an Arial with bad keming"
+        },
+        {
+          "id": 49835757,
+          "author": "altairprime",
+          "text": "Temu Sans is an absolutely beautiful demo choice. I love this. Thank you for making it."
+        }
+      ],
+      "title_ja": "HNを表示： Times New Bastardのような呪われたフォントを作成する",
+      "summary_ja": "ディスカッションのハイライト：最初はあなたのツールを誤解していました。1年以上前に作成したツールのようなもので、既存のフォントグリフパスから新しいフォントを作成し、それらを組み合わせたものだと思っていました/今ほどデザイナーとして、垂直方向のスケールとオフセットを慎重に調整して、パピルスのX高さとベースラインを光学的に調整したことはありません/これを正しく読んでいる場合、このツールは新しいフォントを生成します",
+      "editor_note": "「HNを表示： Times New Bastardのような呪われたフォントを作成する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49841309,
+      "title_en": "Amiga Screens: A Primer",
+      "url": "https://www.datagubbe.se/amscr/",
+      "hn_url": "https://news.ycombinator.com/item?id=49841309",
+      "score": 100,
+      "comment_count": 21,
+      "posted_at": "2026-09-25T07:31:12+00:00",
+      "comments": [
+        {
+          "id": 49846633,
+          "author": "amiga386",
+          "text": "I break out this diagram every time Amiga graphics hardware comes up:\nhttps://amigadev.grimore.org/Hardware_Manual_guide/node02d4....\nThe Amiga had a great trick. Both the CPU and the display/audio hardware share the same RAM (called Chip RAM), so they have to arbitrate for access to it, through a chip called Agnus, which prioritises who gets to read/write memory, depending on importance. You can starve the blitter, you can starve the CPU, but you can't starve the audio or video or disk I/O. As the 68000 CPU only needed memory access every second clock cycle, the Amiga designers arranged it so that the custom chips preferred odd cycles and saved the even cycles for the 68000. So your 68000 runs at full speed.\nBut if you need more and more work done by the custom chips, it starts to rob some of the even cycles from the 68000.\nIf you have a 16-colour lowres screen (4 bitplanes), Denise (the chip that turns RAM values into video signals) only reads display data on odd cycles. But if you add another bitplane for 32 colours, she needs some of the even cycles. If you add another bitplane for HAM or EHB mode, she needs even more.\nIn hires mode, it needs twice the bandwidth for twice the p"
+        },
+        {
+          "id": 49848022,
+          "author": "agar",
+          "text": "I wish there was a way to recapture the feeling of magic produced by using the Amiga. From usability to programmability, everything seemed exciting, new, and with unlimited possibility.\nIt really was like going from a black-and-white world to seeing full color.\nI always said that if 1% of the effort (and money) put into overcoming the PC architecture's shortcuts was put into the Amiga, the computing world would be in a very different place."
+        },
+        {
+          "id": 49843553,
+          "author": "weinzierl",
+          "text": "How do different resolutions (pixel sizes) work? I get that everything memory related (including color mode and depth) could be switched on a raster line.\nIn theory it should be possible to change the frequency of the video signal mid screen as well, but I have a hard time to imagine switching repeatedly every frame wouldn't have driven the monitors of the time crazy. Even multi-sync monitors needed probably a couple of frames to sync, right?"
+        },
+        {
+          "id": 49842706,
+          "author": "MiroslavPokorny",
+          "text": "Maybe its me, but i believe the primary or secondary reason for screen is different screens had different resolutions and color depths, both of which dont really exist these days on any major OS."
+        },
+        {
+          "id": 49844078,
+          "author": "LastTrain",
+          "text": "I don’t know much about Amiga, but from this article I recognize the Atari 8 bit / ANTIC DLI heritage at play!"
+        },
+        {
+          "id": 49847492,
+          "author": "mettamage",
+          "text": "The Amiga is before my time, but I'm getting TempleOS vibes a bit, graphics-wise."
+        }
+      ],
+      "title_ja": "Amigaスクリーン：プライマー",
+      "summary_ja": "ディスカッションのハイライト： Amigaグラフィックスハードウェアが起動するたびに、このダイアグラムを分解します。\nhttps://amigadev.grimore.org/Hardware_Manual_guide/node02d4....\nAmigaには素晴らしいトリックがありました/Amigaを使用して生み出された魔法の感覚を取り戻す方法があるといいのですが/異なる解像度（ピクセルサイズ）はどのように機能しますか？ メモリに関連するすべてのもの（カラーモードと深さを含む）をラスターラインで切り替えることができるようになりました。\n理論的にはb",
+      "editor_note": "「Amigaスクリーン：プライマー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49833867,
+      "title_en": "Show HN: Whiteboard (YC W26) – An open-source IDE for thoughtful software design",
+      "url": "https://github.com/devdotfast/whiteboard",
+      "hn_url": "https://news.ycombinator.com/item?id=49833867",
+      "score": 375,
+      "comment_count": 126,
+      "posted_at": "2026-09-24T17:21:36+00:00",
+      "comments": [
+        {
+          "id": 49834543,
+          "author": "bbor",
+          "text": "Oh WOW, cool to see a technique that'll be everywhere in 12 months (the fake pen drawing animations + streaming diagrams as they're produced) first be announced. Do we still do \"First!\" comments, y'all?\n~~\n[EDIT: you need to put \"only for macOS\" in way more prominent places, all over -- that offends my soul greatly and may Linus frown upon you all]\n~~\n[EDIT2: I was mistaken!]\nThis all looks really solid. That said, two remarks:\n1. The integration with OS LSPs is quite fun and commendable. Is it possible that the diagrams might get their own LSP, someday? Or is better just staying as direct TS callsites?\n2. The choice of the word \"IDE\" seems like it might get you in trouble, given the small \"cannot edit files\" detail. Any comments on the decision there, as opposed to, say... \"brainstorming tool\"? Or hell, \"[architectonic] harness\"?\n3. The psuedocode \"semantic diff\" thing is an incredible idea, wow. Props there.\n4. This language kinda concerns me: \"how the requirements that you set were implemented\". In my highly-arbitrary development flow, it ideally goes `idea -> spec/reqs -> plan -> test -> impl -> eval -> land -> review`, and this kind of tool seems explicitly targeted towards ju"
+        },
+        {
+          "id": 49841490,
+          "author": "solatic",
+          "text": "How do you compare to\nhttps://likec4.dev/\nand\nhttps://erode.dev/\n, which are currently fully open-source and community driven?\nC4 gives the text-based representation needed for LLMs to generate and maintain large architecture diagrams - why not build off that heritage?"
+        },
+        {
+          "id": 49837645,
+          "author": "icar",
+          "text": "You cannot currently edit files in Whiteboard. If this is something that you find yourself wanting to do, please file an issue!\nDo you still consider this an IDE? Curious"
+        },
+        {
+          "id": 49842013,
+          "author": "mtford",
+          "text": "This is really cool! I'm pumped for anything that makes it easier to review generated code.  I, like many people these days, am searching for ways to stay close to the code whilst not being overwhelmed... and as a visual personal i like your idea to semantically link code to diagrams\nI've been working on a (semi-)similar thing, a TUI for narrative code reviews -\nhttps://github.com/mtford90/revue\n- the idea being to generate \"guided tours\" of a change as opposed to a big wall of files."
+        },
+        {
+          "id": 49834714,
+          "author": "2001zhaozhao",
+          "text": "This is definitely getting at least some things right about how we work with agents today, specifically that we often work at the architecture level, and we need a better alternative to the current Plan Mode offered by coding agents to efficiently architect software at a high level, which is more visual and offers better back-and-forth incrementation with the agent than simply \"reject final plan with X message\".\nFrom the website demos i definitely think this is a clean interface, although I don't know how much better this is compared to some simple custom Mermaid format, which the agent can write as artifact files and present to users. Zooming out, this app seems like 1 feature (a MCP with a GUI attached to it) rather than an entire product.\nAlso, I don't know if asking the agent to write specific code changes into the plan is a good idea. I think maybe that a \"plan -> approve -> write code\" would let the agent write higher quality code than \"plan which contains code -> approve\". But maybe you can make it work when combined with some specific prompting marking the code as clearly work-in-progress and subject to change, and that the agent should surface any parts implemented differe"
+        },
+        {
+          "id": 49842572,
+          "author": "satwikhebbar",
+          "text": "Codex warns me - \"Whiteboard requires uploading/exposing repository data to its authoring server\".\nIs this expected? I had a different take on \"local\" and \"works as a plugin with your existing harness\". What might I be missing?"
+        },
+        {
+          "id": 49840151,
+          "author": "nickosh",
+          "text": "Thanks! The project looks great and I am definitely interested in this approach. I hope it will help me with my usual issue - I review a lot of code these days and it's really hard to understand what changes about and why they even needed usually, without deep analysis and AI sessions. It's always good to have such a visual method to check briefly what's there on architecture and design level - these mistakes are hardest to find in other people's code, as it is for me.\nI especially like your way to connect agents - I'm basically using what I wish to use, without limitations or pay walls. At my work, all AI tools should be reviewed and approved before usage but here I just use my coding agent and this is \"plugin\" for visualisation, so I guess it will be approved in no time. Thanks to not keeping a forced data collection, it will really help to promote your tool in corporate environments.\nNo reasons to not try it for me! I am looking closely at what will come next and will try to share my feedback, if there will be some.\nFor now, I just feel that it will be good to have a way to trigger review creation from the app itself, not to create a new agent session for this. Kinda a bit count"
+        },
+        {
+          "id": 49839050,
+          "author": "cjmcqueen",
+          "text": "\"Known limitations\nYou cannot currently edit files in Whiteboard. If this is something that you find yourself wanting to do, please file an issue!\"\nSeems like a big limitation for an \"IDE\""
+        }
+      ],
+      "title_ja": "Show HN: Whiteboard (YC W 26) –思慮深いソフトウェア設計のためのオープンソースIDE",
+      "summary_ja": "ディスカッションのハイライト：ああ、12か月以内にどこにでもあるテクニック（偽のペン描画アニメーション+ストリーミングダイアグラムが生成される）が最初に発表されるのは素晴らしいです/あなたはどのように比較しますか\nhttps://likec4.dev/\nおよび\nhttps://erode.dev/\n現在完全にオープンソースとコミュニティ主導ですか？\nC 4は、LLMに必要なテキストベースの表現を提供します/現在、ホワイトボードでファイルを編集することはできません",
+      "editor_note": "「Show HN: Whiteboard (YC W 26) –思慮深いソフトウェア設計のためのオープンソースIDE」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 14,
+      "id": 49841115,
+      "title_en": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
+      "url": "https://www.safateam.com/intelligence-hub/research/technical-articles/cve-2025-13032-entering-and-breaking-the-avast-antivirus-sandbox-part-2",
+      "hn_url": "https://news.ycombinator.com/item?id=49841115",
+      "score": 99,
+      "comment_count": 26,
+      "posted_at": "2026-09-25T07:03:46+00:00",
+      "comments": [
+        {
+          "id": 49843956,
+          "author": "fathermarz",
+          "text": "I have lost faith in signature AV and CVE feeds for that matter. Attackers test against scanners until they come back clean and avoid known fingerprints. The only way I see to catch things now is behaviour diffing through static analysis.\nDisclosure: I build Vigilance, which does this."
+        },
+        {
+          "id": 49841522,
+          "author": "x-complexity",
+          "text": "Chalk another one up for \"Antiviruses causing more problems than solving them\".\nThey 'worked' when they initially just scanned files for known malicious signatures. Now they're the equivalent of a sledgehammer to a wall with all of the extra bells & whistles strapped to them.\nApplication whitelisting is the remaining way forward if you actually care about runtime security. That & locking every access point down to the bare minimum."
+        },
+        {
+          "id": 49842140,
+          "author": "wzdd",
+          "text": "That's an impressively tight TOCTOU exploit!"
+        }
+      ],
+      "title_ja": "CVE -2025 -13032 ： Avastアンチウイルスサンドボックスの入力と破損パート2",
+      "summary_ja": "ディスカッションのハイライト：その点で、私はシグネチャAVとCVEフィードへの信頼を失いました/「アンチウイルスが解決するよりも多くの問題を引き起こす」ために別のフィードをチョークします。\n彼らは最初に既知の悪意のあるシグネチャのためにファイルをスキャンしたときに「働いた」/それは印象的にタイトなTOCTOUエクスプロイトです！",
+      "editor_note": "「CVE -2025 -13032 ： Avastアンチウイルスサンドボックスの入力と破損パート2」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 15,
+      "id": 49839664,
+      "title_en": "What About Rails?",
+      "url": "https://jardo.dev/what-about-rails",
+      "hn_url": "https://news.ycombinator.com/item?id=49839664",
+      "score": 230,
+      "comment_count": 145,
+      "posted_at": "2026-09-25T02:50:16+00:00",
+      "comments": [
+        {
+          "id": 49842066,
+          "author": "Twey",
+          "text": "> 37signals differentiates their products with opinionated UI/UX, not novel features. They are rewriting Hey as six native apps because the web fidelity isn’t good enough. So UI matters enough to justify complete rewrites, but also everyone just wants CLIs?\nI've seen this one a few times lately. People should stop building UIs, nobody wants to interact with a UI. Everyone's app should just be an API that you can use with a chatbot. Except for my app — my app is a handcrafted miracle of artisanal UX and its UI will change the way you see the world.\nIt's exactly the old argument, just now with LLMs in the place of shell pipelines: in terms of functionality and value to users, software ought to be malleable and composable. We've known it since the eighties. But the model of selling a piece of software as a product as if it were a pair of shoes is incompatible with that. You need a big monolithic application to justify users paying a bunch of money for it, and you need it to have a fancy interface that makes an impression. And the whole software industry is built on top of that model. Where monolithic software is completely unfit for a purpose, like when it needs to be a component of a"
+        },
+        {
+          "id": 49845320,
+          "author": "captainclam",
+          "text": "\"If every product is used by an agent driving a CLI, what’s going to differentiate Basecamp or Fizzy from the cheapest alternative?\"\nAt that point, why even bother with \"driving a CLI\"? I have a hard time seeing how this all doesn't go away soon. At the current trajectory, I am not seeing a future where software like Basecamp or Fizzy or the cheapest alternative are competitive with \"Claude, build a basecamp-style project management tool for my team.\"\nI don't mean to say that thoughtfully built, opinionated software doesn't have intrinsic value, I believe it will always be \"better\" in certain aspects...I just can't fathom that a market for it will exist in very short order.\nI would LOVE to be talked out of this perspective."
+        },
+        {
+          "id": 49846360,
+          "author": "jkartchner",
+          "text": "I know this is not exactly a nuanced take, but why would anyone take advice about the future of technology whose contributions are now limited to an opinionated email app? I appreciate that tech is and will change even more, but relegating an entire ecosystem to the dustbin because you're feeling bullish about LLMs seems...premature."
+        },
+        {
+          "id": 49843684,
+          "author": "paultopia",
+          "text": "Two slightly disconnected thoughts:\n1. This is why BDFL culture in open source is bad.  Because if the BDFL decides to go all in on some completely bizarre mess, all of a sudden there’s massive fork politics.\n2. Hey is the marquee product now?? Does anyone actually use Hey?  I tried it for a year, and basically found I was paying for the privilege of having a slower, buggier, less feature-rich gmail that can’t even dent the have-a-paid-email-that-doesn’t-exploit-you market (Fastmail and Proton exist, yo)."
+        },
+        {
+          "id": 49842847,
+          "author": "bionsystem",
+          "text": "As an SRE I would be very interested on experienced devs point of view on that stance, \"we don’t even necessarily need to read the code the LLMs produce\". To me, that is the only way a single dev can manage > 1 agent. Because I feel running the code will always be slower than a single agent generating it. On the other hand, it implies lack of human understanding on what is going on under the hood. Which is fine if you trust the LLM to write great code, and great tests for the code, but fundamentally you have to have 100% trust, 99.9% is not going to be enough in any serious industry, would it ?\nAlso eventually you'll also have to trust it to write the deployment code or even run the deployment itself, otherwise SRE is going to be the bottleneck. And only then should I feel anxiety about the rest of my career (that, or my employer decide LLM are good enough to get rid of me, even if they are imperfect)."
+        },
+        {
+          "id": 49842790,
+          "author": "fhub",
+          "text": "I code and maintain a Rails stack. About 20% of the time an endpoint takes to respond is spent in Ruby. New Relic tells me our Apdex is 99, and it’s very rare for an endpoint to take more than 100ms. Most respond in under 80ms. I could LLM-port it (and probably will one day), but end-user response performance wouldn’t be the motivation.\nWhat does make me consider switching is reading about things like how Shopify’s native apps are moving towards superfast product cores that can be tested incredibly quickly, with the slower UX layer kept separate. I think that model is the future, and in that world Rails starts to look pretty dead."
+        },
+        {
+          "id": 49842417,
+          "author": "meerita",
+          "text": "Every piece of software has an expiration date. You can extend its lifespan, but technology keeps moving. What was considered standard on the backend five years ago may look completely different today. I think that's a good thing. Rails worked extremely well for its time, especially around 2007–2015, but it started to show its age as newer, more capable languages and runtimes matured.\nWe should be celebrating the fact that we can now port almost anything with far less effort, or modernize an existing stack to meet today's performance expectations, requirements, and engineering standards."
+        },
+        {
+          "id": 49847302,
+          "author": "mrinterweb",
+          "text": "Rails needs hard break from DHH. He has been toxic for the rails community for a long time. I sincerely appreciate his many contributions to rails, and his shaping of rails, but it is beyond time to cut ties. He's clearly not interested in rails any longer.\nDHH founded Rails World (as far as I know). What a wonderful way to tell the whole community to F'off than to sell tickets to your conference then tell them not to use the technology. If DHH wants to vibe code everything in rust/assembly or whatever claude tells him to do, let DHH do his own thing, and let's part ways."
+        }
+      ],
+      "title_ja": "Railsはどうでしょうか？",
+      "summary_ja": "ディスカッションのハイライト：> 37 signalsは、新しい機能ではなく、固執するUI/UXで製品を差別化しています/「すべての製品がCLIを運転するエージェントによって使用されている場合、BasecampまたはFizzyを最も安価な代替品と差別化するものは何ですか？」\nその時点で、なぜ「これを駆動する/私はこれが正確に微妙なテイクではないことを知っていますが、なぜ誰もが現在の貢献が意見に限定されている技術の将来についてアドバイスを受け入れるでしょうか",
+      "editor_note": "「Railsはどうでしょうか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 49842084,
+      "title_en": "Boards of Casio",
+      "url": "https://www.ambionix.com/blog/boards-of-casio/",
+      "hn_url": "https://news.ycombinator.com/item?id=49842084",
+      "score": 81,
+      "comment_count": 21,
+      "posted_at": "2026-09-25T09:26:01+00:00",
+      "comments": [
+        {
+          "id": 49845918,
+          "author": "squigg",
+          "text": "CZ-101 owner here. After the TB-303, I'm not sure there are many other small form-factor synths that have had such an outside impact on electronic music\nFrom early Chicago House using the \"HiString\" preset here, and used all OVER loads of electro\nhttps://youtu.be/m78Nx3de6wg?si=1Ya5Q3I967xOGUuu\nTwo Bad Mice \"Bomb Scare\" with the CZ organ\nhttps://www.youtube.com/watch?v=iQVv40_9NSo\nthen the \"Reese Bass\" that powered much of jungle and drum and bass after Kevin \"Reese\" Saunderson, one of the Detroit Pioneers who came up with it for a techno track\nhttps://www.youtube.com/watch?v=DjduK8Ip0Ls&t=55s"
+        },
+        {
+          "id": 49845398,
+          "author": "chaosmachine",
+          "text": "The original author of the patches (oliveoil22) is on the KeyOsc forum, if you're interested:\nhttps://forum.keyosc.com/topic/2293-casio-cz-101-the-90s-key...\nDisclaimer: I'm an admin there."
+        },
+        {
+          "id": 49843663,
+          "author": "Lio",
+          "text": "The CZ synths were really underrated, I think because the presets IMHO are a bit rubbish.\nI still love them though.  Phase distortion can make some really great noises with a bit of coaxing.\nI have the bigger CZ-5000 with the built in sequencer I bought used in the 90s and still play.  I think it was probably used most famously by Drexciya but the Kevin Saunderson \"Reece Bass\" sound was everywhere in early jungle.\nI like this CZP-1 soft synth.  It's pretty nice once you flip the flow from left to right to top to bottom."
+        },
+        {
+          "id": 49844644,
+          "author": "hexagonsun",
+          "text": "BoC mentioned on the HN frontpage is a nice surprise :)"
+        },
+        {
+          "id": 49846417,
+          "author": "rebolek",
+          "text": "CZ sounds is somehow special.\nI have CZ-101 and CZ-5000, I tried many emulations and wrote some myself but I also read technical manuals and what goes on analog side, after DAC, oh boy. The synth is is digital at the core but the sound is very much shaped by the rest of the synth.\nI love that machine."
+        },
+        {
+          "id": 49845928,
+          "author": "dayvid",
+          "text": "I was obsessed with Boards of Canada as a high school kid. Music Has the Right to Children and Geogaddi are must listens"
+        },
+        {
+          "id": 49844141,
+          "author": "amelius",
+          "text": "Why is it so difficult to buy N-octave mini keyboards, for various N>2, with a good built-in set of samples?"
+        },
+        {
+          "id": 49844868,
+          "author": "nickledave",
+          "text": "I don't know who posted this but I also watched the original video and wished I could access those patches so thank you"
+        }
+      ],
+      "title_ja": "カシオのボード",
+      "summary_ja": "ディスカッションのハイライト： CZ -101の所有者はこちら/パッチ（ oliveoil 22 ）の元の作成者はKeyOscフォーラムにいます（興味がある場合） ：\nhttps://forum.keyosc.com/topic/2293-casio-cz-101-the-90s-key...\n免責事項：私はADMです/CZシンセは本当に過小評価されていました。プリセットIMHOは少しゴミだからだと思います。\nそれでも私は彼らを愛しています",
+      "editor_note": "「カシオのボード」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 49832938,
+      "title_en": "Why is the liver so weirdly regenerative?",
+      "url": "https://dynomight.substack.com/p/liver",
+      "hn_url": "https://news.ycombinator.com/item?id=49832938",
+      "score": 526,
+      "comment_count": 263,
+      "posted_at": "2026-09-24T16:23:00+00:00",
+      "comments": [
+        {
+          "id": 49839087,
+          "author": "0xWTF",
+          "text": "Hi, your friendly, local pathologist here. I'm the kind of doctor that diagnoses liver diseases, cancer, lots of infections, inflammatory processes, benign tumors, and runs the lab that a lot of other doctors use the results from to inform a lot of their other decisions.\nIf you really want to learn about this stuff, Robert Weinberg's\nThe Biology of Cancer\nis where to start. It introduces concepts starting where a high school student could understand and carefully walks through the history of our development of knowledge until, by the end, the pithy chapters are helping novel concepts for real science flower in your brain all on their own. It's the best book of biological science I have ever read. 10/10, will read again.\nhttps://wwnorton.com/books/9780393887655"
+        },
+        {
+          "id": 49836812,
+          "author": "senfiaj",
+          "text": "Most of the body doesn't regenerate because there was not enough evolutionary pressure. Even with regeneration you could still easily die from some severe injury, blood loss or disease. While salamander regeneration is impressive, it has its limitations. For example, no known adult salamander can regenerate an entirely removed eye. Also if you chop a salamander, it will not regenerate like a Planarian worm, it will just die. And a fun fact, Axolotls can regrow a limb yet cannot regenerate an adult eye lens.\nAlso, although the article is mostly true, there are some inaccuracies:\n>> Neurons and cardiac muscle cells don't reproduce after childhood\nThere is some evidence showing a slow cell turnover in cardiac muscle, estimated around ~1% per year in young adults, falling toward ~0.5% in older people. Most neurons don't regenerate, but there an evidence that some parts of the adult brain (such as hippocampus) still produce new neurons, although the number is very low.\nLiver regeneration is not perfect either:\nhttps://www.youtube.com/watch?v=rOv7Sr3X-eo\n."
+        },
+        {
+          "id": 49845214,
+          "author": "mcv",
+          "text": "The article complains about a lot of questionable design aspects of the human body, including menopause. Only us and a couple of whales (and apparently one specific chimp population I wasn't aware of?) go through menopause, making us infertile long before we die. Why is that? Wasn't more kids supposed to be better?\nI recently learned about this (not sure if it was a YouTube video or an article): apparently, it's not that we become infertile long before we die, it's that we live long past our fertility ends. And the reason for that is really simple: old people have accumulated a lot of knowledge that is valuable to teach to younger generations. The alternative is not to be fertile longer, but to die younger.\nPresumably, menopause only occurs in species that learn and teach, and are able to accumulate so much knowledge that it becomes useful to keep experienced individuals alive longer so they can continue to teach."
+        },
+        {
+          "id": 49836192,
+          "author": "cityofdelusion",
+          "text": "The author suggests humans are overturned to repairing skin and blood, but I strongly disagree. People with problems  with wound healing can face significant disability and mortality. Wound healing allows us to have surgery and close up with simple sutures. A lot of complications post-surgery in humans and other animals are specifically from impaired wound healing capability. It’s a good trade-off: nearly everyone will eventually get cut open by accident or on purpose. The skins ability to heal is so amazing that many types of wounds require nothing other than some cleaning, the body will fully clot, bridge, build, and scar back to most retained function. Wound healing allows us to heal large burns and even simply leave many wounds open to air.\nComplications with healing are pretty brutal. Necrosis, amputation, infection are all common without the built-in cascade we have."
+        },
+        {
+          "id": 49838309,
+          "author": "frostysonic",
+          "text": "I have first-hand experience! My immune system slowly killed my liver (primary sclerosing cholangitis), and I had a transplant.  (btw, for $0, thank you to the Australian health system)\nI received a cut-down liver from the donor; I got the bigger lobe, a child recipient got the other lobe.\nWithin a few months of transplant, the new liver had regrown, but (probably because of the transplant orientation) rather than growing across to the left, it grew down the side of my body.\nIt's all good and functions fine, it's just that now my right-side of my body isn't as 'saggy' as my left because of the area it grew in to.\nIt's an amazing organ, and it truly sucks when you don't have a well-functioning one."
+        },
+        {
+          "id": 49836178,
+          "author": "Noe2097",
+          "text": "> And even after taking [immunosuppressants], there’s a 30% chance the kidney will be rejected within 10 years. This is not helpful.\nTo the author: thank you, you made my day. It had been a very, very long time since I last read an article on the Internet that felt written by a human being - with humor, some poetry, and science."
+        },
+        {
+          "id": 49839897,
+          "author": "usernametaken29",
+          "text": "> Brains. After you reach adulthood, neurons don’t divide. If some of your neurons die—which happens every day—then they’re gone. If you get a brain injury, the other neurons will try to “learn around” the injury, but the neurons themselves are never replaced.\nThis is a very outdated view. Neuroscience has shown that neurogenesis continues throughout the entire life span of humans, albeit at a much slower rate. You might have a hard time recovering from a serious brain injury or stroke but losing a few brain cells won’t change a thing."
+        },
+        {
+          "id": 49835957,
+          "author": "epcoa",
+          "text": "\"Some day, your immune system may decide to attack your pancreas.\"\nImmune attack of the pancreas is\nusually\na disease of youth. Type 2 diabetes which is overwhelmingly the diabetes associated with aging is not an autoimmune disease."
+        }
+      ],
+      "title_ja": "なぜ肝臓はそんなに奇妙に再生しているのでしょうか？",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、あなたのフレンドリーな地元の病理学者/十分な進化圧力がなかったため、体のほとんどが再生しません/記事は、更年期障害を含む人体の多くの疑わしいデザインの側面について苦情を申し立てています",
+      "editor_note": "「なぜ肝臓はそんなに奇妙に再生しているのでしょうか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49845998,
+      "title_en": "Gravity Seems Holographic. What Does That Mean for Reality?",
+      "url": "https://www.quantamagazine.org/gravity-seems-holographic-what-does-that-mean-for-reality-20260925/",
+      "hn_url": "https://news.ycombinator.com/item?id=49845998",
+      "score": 47,
+      "comment_count": 55,
+      "posted_at": "2026-09-25T15:31:02+00:00",
+      "comments": [
+        {
+          "id": 49846813,
+          "author": "haitchfivee",
+          "text": "My nitpick is with something the author said in passing about Hawking.\nYes, around 1970 Hawking and the scientific community at large still used to believe nothing could escape a black hole, and between 1971 and 1973 Hawking along with Penrose and others expanded their evolving understanding and consequences of of Albert Einstein's breakthrough work.\nBut then Hawking argued back the opposite case, which in simple terms means that some things can, indeed, escape an event horizon. In fact, name dropping Hawking just to mention his views as they stood before his 1973 work, and his 1974 model of Hawking radiation seems dangerously incomplete journalistic reporting.\nIn 1974 Hawking formulated what we now know as Hawking Radiation, which is the *exact opposite* of what was previously believed about the impossibility of anything coming back from a black hole. Whilst still not conclusively proven as a physical fact, this did win him the Special Fundamental Physics Prize in 2013. specifically for his discovery of Hawking radiation from black holes and his deep contributions to quantum gravity and quantum aspects of the early universe."
+        },
+        {
+          "id": 49846625,
+          "author": "phailhaus",
+          "text": "> Holography implies that you can do that — reconstruct every fold, vessel, and neuron in three dimensions — without actually looking inside. Simply photographing the surface of the brain somehow suffices.\nGah I am not a fan of pop-sci simplifications like this for the sake of a soundbite. The author goes onto explain how no, a picture is\nnot\nenough, you need to actually measure the distortion of spacetime at the surface. Somebody is going to walk away thinking this stuff is possible, that maybe psychics really can detect something wrong with them."
+        },
+        {
+          "id": 49847936,
+          "author": "VyseofArcadia",
+          "text": "Mathematician, not physicist, but it seems reasonable to me that you could encode a sufficiently constrained 3D space on a 2D boundary. And if you have such an encoding, it also doesn't seem insane that some things might be more easily modeled on the 2D boundary than the 3D space.\nIf you can convert back and forth between a 2D representation and a 3D representation, and different phenomena are more easily modeled in each, does it matter which is \"real\"? Unless of course you can come up with a specific prediction and experiment to test it."
+        },
+        {
+          "id": 49847990,
+          "author": "zkmon",
+          "text": "If 3D space can be packed into a 2D hologram, then, can that 2D data be packed into a 1D hologram and so on?"
+        },
+        {
+          "id": 49846480,
+          "author": "glenstein",
+          "text": "As a non expert who's just curious about science but also tries to talk like a normal person, from what I can tell holography really seems like it's now the leading candidate to be the next big conceptual revolution in physics.\nThere's not necessarily any breakthrough right around the corner and we shouldn't rush to coronation preemptively, but there's a lot of physics \"voting with their feet\" for holography as the article says, and I think it's officially time to start getting hyped. It could have sanity-restoring answers to questions of quantum weirdness, albeit at the rather expensive cost of giving up even more on our day to day intuitions about space and time in favor of an apparently informational substrate.\nString theory had a generation of great science communicators writing its books and singing its praises, but holography doesn't yet have equivalent public champions, and I hope that's something that changes sooner than later."
+        },
+        {
+          "id": 49847617,
+          "author": "Sharlin",
+          "text": "> With gravity, mass plays the role of charge. It bends space-time around it, and it is always positive. There is no negative mass, so you can always infer the one real arrangement of stuff inside from the warping of space-time at the surface of your box.\nThis is a simplification to the point of just being wrong. Gauss’s law works for gravity; if you put a shell around Earth you have no way of knowing whether it’s a planet or an Earth-mass black hole inside. Assuming spherical symmetry of density, anyway."
+        },
+        {
+          "id": 49847627,
+          "author": "tananaev",
+          "text": "I think the box explanation is misleading. There isn't literally a box whose surface you measure. The idea is that the state of a higher-dimensional gravitational system can, in some cases, be completely described by a theory in one fewer dimension."
+        },
+        {
+          "id": 49846881,
+          "author": "jumploops",
+          "text": "> “You can ‘compress all of the three-dimensional world into two dimensions.’”\nWould this imply that time is the third dimension?"
+        }
+      ],
+      "title_ja": "重力はホログラフィーのように見えます。それは現実にとって何を意味しますか？",
+      "summary_ja": "ディスカッションのハイライト：私のニットピックは、著者がホーキングについて偶然に言ったことです。\nはい、1970年頃、ホーキング博士と科学界全体は、まだ何も逃れることができないと信じていましたb />ホログラフィーは、あなたがそれを行うことができることを意味します—すべての折り畳み、血管、およびニューロンを3次元で再構築する—実際に内部を見ることなく/物理学者ではなく、数学者ですが、十分な欠点をエンコードすることができると私には合理的に思えます",
+      "editor_note": "「重力はホログラフィーのように見えます。それは現実にとって何を意味しますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49844786,
+      "title_en": "Allow Carriers on Planes",
+      "url": "https://www.jefftk.com/p/allow-carriers-on-planes",
+      "hn_url": "https://news.ycombinator.com/item?id=49844786",
+      "score": 169,
+      "comment_count": 197,
+      "posted_at": "2026-09-25T14:00:10+00:00",
+      "comments": [
+        {
+          "id": 49845207,
+          "author": "areoform",
+          "text": "There is a deeper issue, in a crash, a poorly secured rigid baby carrier seat becomes a potentially lethal projectile. Worst comes to worst, today, the projectile is an infant. An infant is substantially softer and less massive than a rigid seat\ncontaining\nan infant.\nFor soft babywearing carriers, the outlook is also grim. The kinematics of the baby, adult, carrier and airplane seat lead to crush injuries that are\nworse\nthan the poorly restrained arm hold version.\nCould there be a solution here that straps around a seat to give babies a safe seat?\nYes, but it wouldn't necessarily be easy to use or consumer friendly. The ideal solution would have the baby with their back facing front, and the attached carrier facing inwards towards the seat. It would have to be carefully specced and tested so no unverified, third-party seats... Logically extrapolated, in this scenario, the airline becomes responsible for the baby's wellbeing. And I don't think that's a good place for the airlines to be?"
+        },
+        {
+          "id": 49845077,
+          "author": "MostlyStable",
+          "text": "The decision to not require seats is one of the best regulatory decisions I have ever heard of, and I wish this kind of thought process was more present in all kinds of places. The funny thing is that, I bet if it were used more broadly, given the absolutely\nenormous\nsafety advantage that flying has over basically any other mode of transportation, there would be a non trivial number of other flight safety regulations that would get reconsidered."
+        },
+        {
+          "id": 49846639,
+          "author": "gregwtmtno",
+          "text": "I have a unique perspective on this as a former federal rulemaker. One thing you should know is that when it comes to rulemaking, the FAA isn't an ordinary rulemaker--they do the most of it and they're the best in the business. When I went to my intro to rule making classes, the FAA always rolled deep.\nIf you want a change and you want to make sure the right people see your request, I suggest you start here:\nhttps://www.transportation.gov/regulations/petitions"
+        },
+        {
+          "id": 49846256,
+          "author": "silver92bullet",
+          "text": "I think this is a way that airlines and the FFA could continue to grow in consideration.   At some point the economics of flying with children starts to make less and less sense.  I just flew with a toddler that was under 2 from the mainland US to Hawaii and back. The toddler is just under 2 so he was considered a lap child to fly free.  However at 2 the child for most airlines graduates to a full price ticket.   At that point it seems less and less likely for families to want to fly over driving.  Then add more children you are spending something of a small fortune to fly anywhere.   It seems like the airlines could capture more business if they could price into their model a discounted ticket for children older than 2 but under a certain age (ie. 13 or 10)."
+        },
+        {
+          "id": 49845619,
+          "author": "tadzikpk",
+          "text": "As a parent of 3 kids and an extensive baby-carrier user, I see your argument but I think you're lacking consideration of the failure modes.\nYes, almost every baby carrier would likely restrain the infant better than add-on infant belt if the adult lap belt rides up over the infant carrier, the infant's going to be crushed between the adult and the belt. Not a good outcome.\nThus you're likely going to need FAA-approved infant carriers, same way as you'd need FAA-approved car seats you can take on planes."
+        },
+        {
+          "id": 49845895,
+          "author": "ofek",
+          "text": "Relatedly, I wish I could bring my electric wheelchair with me in the cabin. I went on a work trip to Paris in April and sitting in a regular seat was just as uncomfortable as I remember. Fortunately, halfway through the first flight one of the attendants noticed my caregiver frequently repositioning me and had the other person in our row move elsewhere so that I could lie down across two seats. American Airlines allowed me to do that on the return flight as well.\nI was quite worried that my wheelchair would break in some way like I've experienced several times before but everything went quite smoothly! AI helped tremendously with planning, e.g. here's Claude:\nhttps://claude.ai/public/artifacts/6c977d23-1b7c-4a00-a7aa-d..."
+        },
+        {
+          "id": 49846124,
+          "author": "hblanks",
+          "text": "From sled tests done by Australia in 2022:\n> A lap-belt restrained adult dummy in an aircraft seat, with an infant dummy in a carrier, was subjected to a 9G dynamic sled test. The severity of the pulse was based on the results of a static load test. The commercially available infant carriers tested were not able to restrain infants under crash situations.\nhttps://www.atsb.gov.au/publications/research-and-analysis-r..."
+        },
+        {
+          "id": 49845103,
+          "author": "molsongolden",
+          "text": "Sort of tangential to the rulemaking discussion but I’ve had two flight attendants note that unbuckling the carrier during takeoff and landing is required due to the risk of breaking the child’s back.\nIf the adult is pitched forward with the child strapped to their chest (facing inward) then they risk bending the child’s spine backwards."
+        }
+      ],
+      "title_ja": "航空機でのキャリアの許可",
+      "summary_ja": "ディスカッションのハイライト：より深い問題があります。衝突時に、固定が不十分な固定式ベビーキャリアシートが致命的な発射物になる可能性があります/シートを必要としないという決定は、私が聞いたことがある中で最高の規制上の決定の1つであり、この種の思考プロセスがあらゆる場所にもっと存在していればいいと思います/元連邦規則制定者としてこれについて独自の視点を持っています",
+      "editor_note": "「航空機でのキャリアの許可」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 49801436,
+      "title_en": "2DWillNeverDie",
+      "url": "https://2dwillneverdie.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49801436",
+      "score": 305,
+      "comment_count": 77,
+      "posted_at": "2026-09-22T14:00:08+00:00",
+      "comments": [
+        {
+          "id": 49839404,
+          "author": "frmersdog",
+          "text": "The quantity and variety reminds me of the\nstupid\namount of sprite work done by Ahruon/Abysswolf for Card Saga Wars:\nhttps://cardgallery.tales-tra.com/cards_blue.htm\nhttps://www.deviantart.com/abysswolf/gallery\nLiterally hundreds of characters. Between this guy and TFA, I feel spoiled."
+        },
+        {
+          "id": 49840767,
+          "author": "ad_hockey",
+          "text": "This style just ages well, doesn't it? I still play Zelda: Link to the Past every few years but I can't play Ocarina of Time even though it's probably the better game. That early 3D with the fogging and pop-in and muddy textures just doesn't hold up, but pixel art is timeless."
+        },
+        {
+          "id": 49843531,
+          "author": "armcat",
+          "text": "There is also a 2.5D paradigm. I made a small demo of a 2.5D where I generated pure 2D pixelart sprites and embedded them in a Blender+Unity 3D level. Personally I find this mix very exciting.\nDemo:\nhttps://acatovic.github.io/afterlight-play/\nTool I used to create 2D sprites:\nhttps://github.com/acatovic/ai-game-studio"
+        },
+        {
+          "id": 49840254,
+          "author": "khhu2bnn",
+          "text": "Capcom's departure from 2D always saddens me, they mastered sprite art and now it feels like a lost technology. There's a whole bunch of indie games keeping 2D alive and yet none seem to ever match the fluidity of Capcom's 2D, e.g. their fighting games, Breath of Fire, Zelda Minish Cap, etc.\nI wish those techniques were passed down a lot more."
+        },
+        {
+          "id": 49841031,
+          "author": "bob1029",
+          "text": "2D might never die but modern 3D can be a compelling workflow for producing this kind of content.\nThe part that gets really painful with 2D sprites is animation. It can be a lot easier to model, rig and animate a 3D character and then place them into a special scene/camera arrangement for automatic capture into a sprite sheet.\nDoing these by entirely by hand is a really difficult proposition in the current games economy."
+        },
+        {
+          "id": 49837844,
+          "author": "Lucent",
+          "text": "The best adventure games are 2D because random walks there always return (Pólya). Not true in 3D, so puzzle games there end up either too easy or too difficult."
+        },
+        {
+          "id": 49846611,
+          "author": "quentindanjou",
+          "text": "I had that feeling that doing the Konami code on that website would result in something ;)\nkeyboard arrow up x2, arrow down x2, left, right, left, right, enter"
+        },
+        {
+          "id": 49839093,
+          "author": "Buttons840",
+          "text": "3D is just one technique for generating 2D."
+        }
+      ],
+      "title_ja": "2 DWillNeverDie",
+      "summary_ja": "ディスカッションのハイライト：数量と多様性は、\n愚かな\nahruon/AbysswolfがCard Saga Warsのために行ったスプライト作業の量：\nhttps://cardgallery.tales-tra.com/cards_blue.htm\nhttps://www.de/このスタイルは古くなっていますよね？ 私はまだ数年ごとに「ゼルダ：過去へのリンク」をプレイしていますが、おそらくより良いゲームであるにもかかわらず、「時間のオカリナ」をプレイすることはできません/2.5Dパラダイムもあります",
+      "editor_note": "「2 DWillNeverDie」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49817680,
+      "title_en": "Rails World 2026 Opening Keynote [video]",
+      "url": "https://www.youtube.com/watch?v=vDjW_dRyKXY",
+      "hn_url": "https://news.ycombinator.com/item?id=49817680",
+      "score": 406,
+      "comment_count": 446,
+      "posted_at": "2026-09-23T15:33:33+00:00",
+      "comments": [
+        {
+          "id": 49830669,
+          "author": "robbyrussell",
+          "text": "I sat front row for David's talk yesterday morning. Having talked with him the day before, I’ll admit… I wasn’t particularly surprised (nor unprepared).\nA bit of a field report from #RailsWorld: the vibe here is far from doom and gloom. Quite the contrary. Wherever our industry is headed, most of us are still employed as menders… tending to systems that customers rely on and businesses are quite happy to keep paying for.\nMost of us aren’t waking up to a blank canvas and designing the architecture of the future. We’re inheriting decisions made years ago, updating old patterns, working around constraints, and keeping this shit running reliably.\nI think these newer tools give us an opportunity to wonder a little more about the systems we’ve inherited. To unpack why things work the way they do. To tinker with assumptions we haven’t had the time, confidence, or permission to revisit… and share what we learn so the next person, or agent, has an easier time.\nThat deployment model we picked eight years ago? Worth another look. Some of our web apps probably wish they were native apps. And there are plenty of architectural decisions we’ve been living with mostly because… well, we’ve been bus"
+        },
+        {
+          "id": 49842378,
+          "author": "lovedaddy",
+          "text": "Nah I'm good thanks.  Call me old school, but I'd rather understand how things work, and try and keep a maintainable codebase.  Rather than just get some random rust I've no idea what it is, or why it does it, pushed into prod.\nI think this is going to be todays 'cheap outsource' culture.  Good enough to keep shareholders happy, an apparent boost in productivity, before tanking the reliability of the company.\nRemember when we used to scorn stackoverflow developers, or PRs that were more than a few lines long.  An every morning git pull is now bigger than my terminal buffer, its complete chaos.  Numbers game to keep the new metrics world gamification going.  Its dire."
+        },
+        {
+          "id": 49823081,
+          "author": "robgough",
+          "text": "Concerns with his politics aside, I do think there's a truth to what he's talking about here, and that he is just spelling out the reality that developers are, or shortly will be, facing. For many this will be deeply uncomfortable to hear.\nIt is notable that his perspective in this talk is very much from a developer-user side rather than someone who is responsible for the framework itself. That surprises me, and I suspect it is not a good omen for Rails.\nFor all of this embrace of agentic development, there is nothing here on how they are adapting the framework for this new agentic development reality. Agents do currently work well with Rails, but there's nothing here pushing things forward as best as I can see.\nI know for my own projects I've largely moved to Elixir/Phoenix, for similar reasons to his use of Rust... I didn't want to have to learn it, but now I don't have to and I get to benefit from its strengths."
+        },
+        {
+          "id": 49841775,
+          "author": "arexxbifs",
+          "text": "A lot can (and should) be said about this keynote, but I have a hangup on portraiture as an example of \"creative destruction\" (how I loathe that expression!). Classical portraiture is still alive and well and artists are still able to make a living from it - possibly even more of them now than during the 1800s.\nThe advent of the camera did push visual art in new directions, but not quite as presented here. Oil painting and portraiture wasn't as static as it's made out to be, and there's a difference between a commissioned portrait and artists painting people because they enjoy painting people. Giuseppe Arcimboldo, El Greco and Hieronymus Bosch are some of the most well-known experimenters in western art and they were active in the 1500s. Some of the most famous art movements (impressionism, expressionism, arts & crafts) appeared well before photography was democratized.\nThe biggest difference, though - as much as I love art - is that portraits are a distraction. Then as now, it's mostly a vanity project for the affluent and of little consequence to the lives of the vast majority. Software, on the other hand, is not only a multi-billion dollar industry employing millions of people, "
+        },
+        {
+          "id": 49836253,
+          "author": "zerr",
+          "text": "So the keynote mentions that in a perspective you are going to be a \"maker of things\" rather than a coder. But, nobody is asking, in a perspective, why would anybody use the stuff you \"make\" rather than using AI directly? All of the notion of apps disappears, in a perspective."
+        },
+        {
+          "id": 49845726,
+          "author": "MattyRad",
+          "text": "I just skipped to a random part, 41:47, where the speaker is talking about the chasm of the old and the new, the before and the after, and our acceptance of the new status quo.\nThese match my own thoughts exactly. As much as I don't love them, I agree with the speaker.\nFor Factorio players: we used to live in Nauvis. It was beautiful but sparse. Then we outgrew it and unwittingly found ourselves on Fulgora. It is abundant but trashy.\nAnd just like in a game, the rules changed and we adapt. That's what makes the game fun. Granted, that it's all our livelihoods on the line (very high stakes), but all things being equal, we have new challenges in front of us that we can either bemoan or accept."
+        },
+        {
+          "id": 49835660,
+          "author": "why-el",
+          "text": "So far a Rust rewrite's success rate directly, probably super linearly, correlates with the presence of a good, well designed test suite. This is why Bun's rewrite and others are successful. I anticipate that this will be true for the 37Signals rewrites.\nI want to learn a couple of things once they are done:\n1. Once the test suite assistance is over, how do features get built in their backends and continue to maintain the same quality. LLM test writing is a bit trickier as it often favors what Randy Coulman called tautological tests back in the day. It takes a lot of work to get them not to do this, so I am guessing folks at 37Signals will read at least this part. I can't imagine zero Rust read at all.\n2. Over the years they had a few innovations in their domain design, ones that Rails made easier to do, for instance their delegated type pattern. Will Rust replicate this, and how would one know without reading it, or perhaps it does not matter? Furthermore, how do newer patterns emerge? and how does our arsenal of better abstractions keep growing?\nI don't have the answers but I am glad there is a chance we can learn said answers."
+        },
+        {
+          "id": 49840921,
+          "author": "smnplk",
+          "text": "Classic DHH.Allways talks about what is good for his situation, not what is good for the community in general. I can understand his excitement of slashing his server and labor expenses. He will be richer and have more time, less people will work for him and wow, rails came a long way, didn't it ? The world is your oyster now! Oh and btw, we are changing the name of the conference, it's called Rust conf now."
+        }
+      ],
+      "title_ja": "Rails World 2026オープニング基調講演[動画]",
+      "summary_ja": "ディスカッションのハイライト：私は昨日の朝、デビッドのトークの最前線に座りました/いいえ、私は感謝しています/彼の政治に対する懸念はさておき、彼がここで話していることには真実があると思います。そして、彼は開発者がいる、またはすぐにあるという現実を説明しているだけです。",
+      "editor_note": "「Rails World 2026オープニング基調講演[動画]」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 49843550,
+      "title_en": "The Test",
+      "url": "https://tante.cc/2026/09/24/the-test/",
+      "hn_url": "https://news.ycombinator.com/item?id=49843550",
+      "score": 125,
+      "comment_count": 52,
+      "posted_at": "2026-09-25T12:14:02+00:00",
+      "comments": [
+        {
+          "id": 49846201,
+          "author": "titzer",
+          "text": "I don't think it's unreasonable to limit a person's total wealth to, say, 100x the median person's lifetime earnings. In America, the median income is about $50k/yr. So 40 years as a wage earner means $2 million. With compounded interest, inflation, and wage growth, it's still under $10 million. So if we capped individual net worth at 100x that, it'd be $1 billion.\nThe fact that we live in a society where people don't bat an eyelash at people who have literally 100,000x the median lifetime earnings of a person (literally, 1000x what I personally consider reasonable)\nand yet want more\nsays that our society has passed one of these absurdity tests and just suck down whatever stupid propaganda they promulgate."
+        },
+        {
+          "id": 49845485,
+          "author": "RGS1811",
+          "text": "This post resonates with me but for reasons not given in it. It calls to mind Immanuel Kant's famous essay \"What is Enlightenment?\" Where he says this:\n> Enlightenment is man's emergence from his self-imposed immaturity. Immaturity is the inability to use one’s understanding without guidance from another. This immaturity is self-imposed when its cause lies not in lack of understanding, but in lack of resolve and courage to use it without guidance from another. Sapere Aude! “Have courage to use your own understanding!”--that is the motto of enlightenment."
+        },
+        {
+          "id": 49845466,
+          "author": "jpitz",
+          "text": "Counterpoint: the person who understands how do to a task without the tool often winds up being the more capable user of the tool."
+        },
+        {
+          "id": 49846053,
+          "author": "david_blitz1",
+          "text": "The idea of \"the test\" sounds plausible. I wonder if there is evidence that this happens regularly.\nHowever, I kinda have a hard time taking arguments seriously which rely on judging certain people to be \"weird\"."
+        },
+        {
+          "id": 49846507,
+          "author": "tangled",
+          "text": "As others have said: this was not a good faith discussion. Huang was using the interview as an opportunity to “talk his book”, and Klein was using it to sell his own Serious Interviewer brand. Both were getting something out of this.\nGiven this arrangement, Klein had a limited ability to push back (well, he could, but that would mean a bunch of future interviews wouldn’t happen). Instead, he left it up to the viewer to make their own inferences. And some people are going to see Klein’s lack of push-back as a legitimization of Huang’s views.\nAfter watching the first twenty minutes or so (I couldn’t watch any more), I had a much lower opinion of Klein as an interviewer who is willing to ask the tough questions no matter who he’s talking to."
+        },
+        {
+          "id": 49846150,
+          "author": "jampa",
+          "text": "I think the reality is even simpler: Huang, Altman and Amodei are in the end of the day head salespeople of their respective company… and they use these social platforms to sell their products.\nTheir job is to convince people that AI has a large upside while minimizing any downside, they dont need to believe in those themselves."
+        },
+        {
+          "id": 49846152,
+          "author": "NKosmatos",
+          "text": "So many truths in this post…\nWith regards to division and mathematics, I remembered this article/study I saw some time ago about a maths professor handing out “crooked” calculators to the whole class and then having them take an exam.\nMost of the kids took the results from the calculators as they were, without challenging them and hence failed the test. The minority had the knowledge and critical mind needed in order to understand that what their tool* was telling them was off.\n* where tool replace with agent, map, AI"
+        },
+        {
+          "id": 49845945,
+          "author": "edent",
+          "text": "I watched the Hulu documentary about WeWork. A podcaster was interviewing Rebekah Neumann while she spewed absolute word-salad about \"elevating the public WeConsciousness\".\nThe podcaster had a glassy look in his eyes and a rigid smile. No pushback, no interrogation, no polite challenging.\nHe passed the test.\nPeople need to get a lot more comfortable about providing negative feedback - especially to batshit ideas. It is such an important social signal to know that people disagree with you. Otherwise your worst instincts run rampant."
+        }
+      ],
+      "title_ja": "秘密警察",
+      "summary_ja": "ディスカッションのハイライト：人の総資産を、たとえば生涯所得の中央値の100倍に制限することは不合理ではないと思います/この投稿は私の共感を呼んでいますが、その中には理由がありません/カウンターポイント：ツールなしでタスクをどのように行うかを理解している人は、しばしばツールのより有能なユーザーになります。",
+      "editor_note": "「秘密警察」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49844896,
+      "title_en": "Microsoft Abandons Personal AI Chatbot Race with Copilot Reboot",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/microsoft-abandons-personal-ai-chatbot-race-with-copilot-reboot",
+      "hn_url": "https://news.ycombinator.com/item?id=49844896",
+      "score": 57,
+      "comment_count": 45,
+      "posted_at": "2026-09-25T14:07:08+00:00",
+      "comments": [
+        {
+          "id": 49846370,
+          "author": "red_admiral",
+          "text": "> Companies were paying for more than 30 million Copilot subscriptions as of the end of June. And while individual users are free to use limited versions of Copilot’s chat experience, its most powerful tools are reserved for subscribers to the company’s M365 apps bundle, which has about 90 million paying users.\nIt needs to be more widely known that if you cancel a (home) 365 subscription, you'll be offered a cheaper version without AI integration."
+        },
+        {
+          "id": 49846781,
+          "author": "pseudosavant",
+          "text": "Does anyone even want to try this? I'm a Windows user, M365 subscriber, VS Code user (when I'm not in Codex), had a Github Copilot subscription, etc... and a heavy AI user. Basically, the prime target for Microsoft AI. And every attempt Microsoft has made to put AI into a product has been unusable garbage, using the same models I find productive in other tools.\nSo many AI doubters I know hate using AI tools because their employer only gives them the Microsoft offerings. Which is a totally understandable reaction to those tools."
+        },
+        {
+          "id": 49846574,
+          "author": "TuringNYC",
+          "text": "My blood pressure rises everytime i use Enterprise Copilot at work. It seems they truncate message history heavily (to save input token costs?) and Copilot forgets the last thing you told it in the chat. It is like a real-life version of Momento (\nhttps://www.imdb.com/title/tt0209144/\n) mixed with Waiting for Gadot (\nhttps://en.wikipedia.org/wiki/Waiting_for_Godot\n), pretending to be in league with Anthropic."
+        },
+        {
+          "id": 49846394,
+          "author": "VCFundedGenYer",
+          "text": "It was foolish of them to think they had any consumer clout left. Shoving 1000 copies of an inaccurate, poorly functioning, and inconsistent product down everyone's throat will someday be a case study in how to immediately destroy a brand."
+        },
+        {
+          "id": 49848115,
+          "author": "schwarzrules",
+          "text": "Just going to use this thread to also add a nit: I hate that Microsoft made all the OEMs add a Copilot key to all their laptop keyboards. It's been Ctrl forever, and suddently they throw this net-negative key onto the keyboard. I have decades of habit of using the right side Ctrl key for varying shortcut strokes, and then when I use it now it loads up an unproductive Copilot experience that is awful. <end rant>"
+        },
+        {
+          "id": 49847930,
+          "author": "TYPE_FASTER",
+          "text": "I think it makes much more sense for Microsoft to provide a good agent orchestration layer for their operating system and productivity software (are we still calling it that?) than try to compete with the Frontier providers."
+        },
+        {
+          "id": 49846272,
+          "author": "infecto",
+          "text": "Not at all that surprising. There enterprise offering is barely acceptable and they have continued to drop the ball on having half decent Cowork solution.\nThey have all rights to win with their existing enterprise agreement but wow it’s amazing to see how bad their product cadence and decision making is. All they needed to do was copy Claude Cowork like OpenAI did."
+        },
+        {
+          "id": 49846462,
+          "author": "glimshe",
+          "text": "Great! I was looking forward to an unified AI service like we got unified messaging with MS Teams!!!"
+        }
+      ],
+      "title_ja": "マイクロソフト、CopilotリブートでパーソナルAIチャットボットレースを放棄",
+      "summary_ja": "ディスカッションのハイライト： > 6月末時点で、企業は3,000万件以上のCopilotサブスクリプションを支払っていました/これを試してみたい人はいますか？私はWindowsユーザー、M 365サブスクライバー、VS Codeユーザー（コーデックスにいないとき）、Github Copilotサブスクリプションなどを持っています。/職場でEnterprise Copilotを使用するたびに血圧が上昇します",
+      "editor_note": "「マイクロソフト、CopilotリブートでパーソナルAIチャットボットレースを放棄」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 49823568,
+      "title_en": "Toyota is taking the Corolla electric",
+      "url": "https://electrek.co/2026/09/23/toyota-best-selling-corolla-electric/",
+      "hn_url": "https://news.ycombinator.com/item?id=49823568",
+      "score": 416,
+      "comment_count": 753,
+      "posted_at": "2026-09-23T22:37:28+00:00",
+      "comments": [
+        {
+          "id": 49837949,
+          "author": "freetime2",
+          "text": "Cars that are designed from the ground up to be EVs tend to be much better than trying to shoehorn an EV into an ICE design.\nThe new Lexus ES350e, which comes in both hybrid and EV flavors, has been pretty universally panned as a mediocre EV [1]. Lexus anticipates that the vast majority of ES sales will be for the hybrid model, and I expect the same will be true of the Corolla.\nThe updated bZ and new bZ Woodland on the other hand, which are built as ground-up EVs on the e-TNGA platform, actually seem pretty decent. And I'm hopeful for the upcoming EV Highlander, too (although that will use a modified version of the TNGA-K platform).\nI would prefer if Toyota just released a new EV model with roughly the same proportions as the Corolla, instead of going with the one-size-fits-all approach. But maybe they'll finally be able to get it right this time.\n[1]\nhttps://www.youtube.com/watch?v=QQ97R1nhq4M"
+        },
+        {
+          "id": 49834479,
+          "author": "zacharycohn",
+          "text": "Ugh. I saw the headline and I was hoping it would be an entry-level, low cost, highly analogue, \"looks just like a normal car but electric\" car."
+        },
+        {
+          "id": 49845031,
+          "author": "abraxas",
+          "text": "Fossil cars are cooked and even Toyota is implicitly agreeing.\nBYD makes cars that can charge in about 10 minutes and honestly deliver 500km+ of range. Every advantage that combustion based cars used to have has dissipated by now."
+        },
+        {
+          "id": 49834655,
+          "author": "doublepg23",
+          "text": "I picked up a '25 Subaru Solterra (rebadged Toyota bz4X) for a decent lease deal and while I'm surprised how little I think about the EV parts the \"car parts\" are dreadful.\nI really need to do a write-up on the dichotomy of EV things being good (charger works, no real battery QC issues, it's a RAV4-but-EV) while all of the shared ICE parts (anything in the software stack) are riddled with bugs or head-scratching defaults.\nOverall, a fine car for me, but (as much as I do not like El*n) Telsa is so significantly beyond their offerings it's hard to overstate.\nEDIT:\nI forgot to add but I think the cost savings for EVs can be a wash, make sure you check the following:\n1.) can't charge at home / live in an apartment.\n1a.) If you do install a L2 charger at home, you will significantly reduce your cost savings.\n2.) you rely on fast-chargers in any significant capacity.\n3.) Double check the math on any lease, loan, etc. on new EVs vs. a beater gas car. Especially if you pay an EV tax in your state or country. (Post-COVID the $2K beater car seems to have gone extinct here...)"
+        },
+        {
+          "id": 49835675,
+          "author": "bigmadshoe",
+          "text": "Why does every car manufacturer peddle these overly complex designs with massive displays, a futuristic aesthetic, etc?\nPeople drive Corollas because they're cheap and reliable. Give me that with an electric motor."
+        },
+        {
+          "id": 49840280,
+          "author": "apatheticonion",
+          "text": "I literally want a 1995 Toyota Starlet, with its spartan interior, just with an electric drivetrain and a price tag that reflects. A standard 2 din screen with android auto is enough tech for me."
+        },
+        {
+          "id": 49846925,
+          "author": "Night_Thastus",
+          "text": "Toyota has been\nvery\nslow on the EV front, and it turns out that was a stroke of luck - demand has cooled off for EVs massively. (especially after the tax credits were killed in the US)\nThey make some of the best hybrids in existence. Their transmissions, due to being just a planetary gearbox, are essentially unbreakable and require no real maintenance. They're also very, very gas efficient.\nIt makes sense to keep doing what they know, when they do it well and the US lacks a lot of good EV infrastructure. (Not even fast charging stations, just like simple slow chargers around businesses and parking)\nI regret going for a '23 Corolla gas instead of the hybrid, but at the time I was short on cash and didn't know as much about hybrids as I do now. In my mind it was more complicated and failure prone, which isn't the case."
+        },
+        {
+          "id": 49824771,
+          "author": "paimapi",
+          "text": "and all it took was two decades and millions of spend in anti-EV lobbying before they finally gave in, huh\n(also kind of wild to me that an EV focused blog wouldn't mention this a single time since Toyota is (was?) arguably one of the staunchest and most stubborn anti-EV manufacturers out there)"
+        }
+      ],
+      "title_ja": "トヨタはカローラエレクトリックを",
+      "summary_ja": "ディスカッションのハイライト： EVになるようにゼロから設計された車は、EVをICEデザインにしようとするよりもはるかに優れている傾向があります。\nハイブリッド車とEV/UGH/Fossil車の両方に搭載されている新しいレクサスES 350 eは調理されており、トヨタでさえ暗黙のうちに同意しています。\nBYDは、約10分で充電でき、500 km以上の航続距離を正直に提供する車を製造しています",
+      "editor_note": "「トヨタはカローラエレクトリックを」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49836374,
+      "title_en": "Opus 5.5 is good at explainer videos",
+      "url": "https://launchvideo.io",
+      "hn_url": "https://news.ycombinator.com/item?id=49836374",
+      "score": 375,
+      "comment_count": 206,
+      "posted_at": "2026-09-24T20:28:47+00:00",
+      "comments": [
+        {
+          "id": 49848130,
+          "author": "bhu8",
+          "text": "These are garbage but Opus 5.5 can actually do much better:\nhttps://x.com/emollick/status/2103272686570918334"
+        },
+        {
+          "id": 49842630,
+          "author": "LastTrain",
+          "text": "Explainer videos are dark patterns that replaced written howto documents in order to serve ads. Not seeing them pop up any more in search results is one of the few positive outcomes of Google switching to AI-first search results."
+        },
+        {
+          "id": 49837061,
+          "author": "kakugawa",
+          "text": "Here are a couple examples from r/ClaudeAI:\nMade entirely with Opus 5.5 + $3.21 of OpenRouter API usageClaude Code Workflow\nhttps://www.reddit.com/r/ClaudeAI/comments/1wogab3/\nJaw literally dropped. I ran the prompt from the \"Made entirely with Opus 5.5\" post on my own project. Here's what Claude Code made on its own for about $4.Claude Code Workflow\nhttps://www.reddit.com/r/ClaudeAI/comments/1wovwao/"
+        },
+        {
+          "id": 49848110,
+          "author": "slawton3",
+          "text": "Get ready to see this format of video everywhere now"
+        },
+        {
+          "id": 49841595,
+          "author": "Aldipower",
+          "text": "This is the next level of PowerPoint presentations.\nI just had a look at the example videos. Really, what is gained here?\nBack in the days, when I made websites or home pages for clients, my first question was: \"What's your message you want to tell with your website?\" Sometimes the client couldn't answer this, because he simply wanted a website for the sake of having a website. But a website without a message is meaningless more or less."
+        },
+        {
+          "id": 49836808,
+          "author": "neals",
+          "text": "Like many of us, I've been hobbying away on some SaaS that wraps an LLM. But I often worry, isn't this just adding buttons to an LLM call? What's the real value here? Quick money grab and wait for copies? Or do my 20 years of saas and business development actually make my SaaS better then others?"
+        },
+        {
+          "id": 49836942,
+          "author": "preommr",
+          "text": "These aren't even that good in comparison to the stuff being posted on Reddit and  twitter/X.\nSome of the stuff I've seen is mindblowingly impressive in how they've captured quality creative decisions, and how the models can reason about visually appealing designs.\nIt understands things like continuity, themes, facial expressions, cultural memes/references, symbolism, etc. And it generates things using a lot of multi-modal behavior by using 3d, images, etc.\nSome really incredibly impressive stuff."
+        },
+        {
+          "id": 49848068,
+          "author": "tonychang430",
+          "text": "how do we validate explainer videos. Is there a benchmark for this?"
+        }
+      ],
+      "title_ja": "Opus 5.5は説明動画が得意",
+      "summary_ja": "ディスカッションのハイライト：これらはゴミですが、Opus 5.5の方がはるかに優れています。\nhttps://x.com/emollick/status/2103272686570918334/説明ビデオは、広告を配信するために書かれたハウツー文書を置き換える暗いパターンです/r/ClaudeAIからのいくつかの例を次に示します。\nOpus 5.5 + $ 3.21のOpenRouter APIの使用で完全に作られたClaudeコードワークフロー\nhttps://www.reddit.com/r/ClaudeAI/comments/1wogab3/\nジョー",
+      "editor_note": "「Opus 5.5は説明動画が得意」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 49800085,
+      "title_en": "Fearless SIMD v1.0",
+      "url": "https://linebender.org/blog/fearless-simd-1-0/",
+      "hn_url": "https://news.ycombinator.com/item?id=49800085",
+      "score": 300,
+      "comment_count": 48,
+      "posted_at": "2026-09-22T12:23:37+00:00",
+      "comments": [
+        {
+          "id": 49837285,
+          "author": "O3marchnative",
+          "text": "This is quite amazing. Fearless SIMD is what finally allowed my FFT crate, PhastFT, to run on stable Rust [0]. PhastFT previously depended on Rust’s std::simd (as well as multiversion), which still requires nightly [1].\nOne of the main contributors to v1.0 of fearless_simd started out by helping me evaluate portable SIMD crates for PhastFT. Once we landed on fearless_simd, he ported PhastFT from std::simd to fearless_simd. We did find that more functionality was needed than fearless_simd offered at the time. So, he started contributing significantly to fearless_simd. It’s really rewarding to see how working on a hobby open source project can help improve the Rust ecosystem.\n[0]\nhttps://github.com/smu160/PhastFT\n[1]\nhttps://doc.rust-lang.org/std/simd/index.html"
+        },
+        {
+          "id": 49835084,
+          "author": "modulovalue",
+          "text": "I’m currently working on adding better SIMD support to Dart (\nhttps://github.com/dart-lang/sdk/issues/64170\n) and I have a question for the author or others here.\nDoes Rust or any other language support customizing the compiler so that interprocedural analyses can track custom subsets of, for example, doubles so that the compiler can choose the most efficient instruction sequence for example for min/max? If we know a double is never NaN then we can emit only one instruction on x86, but have to emit one more on arm64. If we know a double is never zero and never NaN, we can emit a single instruction on both.\nThis whole conversation between relaxed SIMD and deterministic SIMD seems to only exist because our compilers are not smart enough and/or their whole program analyses don’t support any plugin-like capabilities.\nThere are other examples where if we know a SIMD bitmask is canonical (all 1s per lane) then we can implement horizontal reductions more efficiently. This is very niche and I doubt that any language supports interprocedural analyses with such a rich domain, so it feels like a hole in the programming language space."
+        },
+        {
+          "id": 49836633,
+          "author": "Dr_Emann",
+          "text": "Have been really happy with Fearless simd, I used it to write [memchr-n][1], which searches for instances of an arbitrary set of bytes, with simd, which actually tends to [outperform][2] the rust memchr crate, even for sets of 1-3 bytes (what's supported by memchr)\n[1]:\nhttps://github.com/Dr-Emann/memchr_n#performance\n[2]:\nhttps://github.com/BurntSushi/memchr/pull/241"
+        },
+        {
+          "id": 49834505,
+          "author": "dang",
+          "text": "Related. Others?\nTowards fearless SIMD, 7 years later\n-\nhttps://news.ycombinator.com/item?id=43519823\n- March 2025 (175 comments)\nTowards fearless SIMD\n-\nhttps://news.ycombinator.com/item?id=18293209\n- Oct 2018 (81 comments)"
+        },
+        {
+          "id": 49837520,
+          "author": "amelius",
+          "text": "Sounds more like a book title than the name of a library, to be honest."
+        },
+        {
+          "id": 49838758,
+          "author": "skavi",
+          "text": "Would anyone be able to compare this library's design to\nhttps://github.com/google/highway\n?"
+        },
+        {
+          "id": 49835944,
+          "author": "nnevatie",
+          "text": "How does the crate’s SIMD performance compare to ISPC, which already has very easy dynamic dispatching?"
+        },
+        {
+          "id": 49838830,
+          "author": "antimora",
+          "text": "There is also\nhttps://github.com/wingertge/macerator\nif you need f16 support too"
+        }
+      ],
+      "title_ja": "Fearless SIMD v1.0",
+      "summary_ja": "ディスカッションハイライト：これは非常に素晴らしいです/私は現在、Dartにより良いSIMDサポートを追加することに取り組んでいます（\nhttps://github.com/dart-lang/sdk/issues/64170 \n） ここに著者や他の人に質問があります。\nRustまたは何か/Fearless simdに本当に満足していますか、私はそれを使って[memchr - n ][ 1]を書きました。これは、実際には[outperfo]する傾向があるsimdを使用して、任意のバイトセットのインスタンスを検索します",
+      "editor_note": "「Fearless SIMD v1.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49805344,
+      "title_en": "My weird new hobby: Wandering around Tokyo on Google Maps",
+      "url": "https://ahmedhossamdev.com/writing/my-weird-new-hobby-wandering-around-tokyo/",
+      "hn_url": "https://news.ycombinator.com/item?id=49805344",
+      "score": 404,
+      "comment_count": 172,
+      "posted_at": "2026-09-22T17:49:46+00:00",
+      "comments": [
+        {
+          "id": 49836551,
+          "author": "dkurth",
+          "text": "In 2009, Google Street View had only been gathering images in Austin for about a year, I think. I pulled up right behind the Street View car at a red light, and I waved out the window, hoping that would get captured. I sent an email to my friends with a link to the location and said, \"check this out in a couple of months!\"\nWhen I checked later that year, there was no image of me, so I thought the camera had not been active, and I forgot all about it.\nThen, while looking through old emails a couple of weeks ago, I found that one and clicked the link. I clicked to see images from 2009, and sure enough, there was my little white Honda. And when I moved around the map, I found an image where my hand was out the window, waving! It was like I was waving to myself from the past. Pretty neat!"
+        },
+        {
+          "id": 49848049,
+          "author": "ljf",
+          "text": "I love wondering around streets I know from my own past. Since my father died I love to 'walk past' his house on Google maps, changing the date to a time when he was still live, and look in to the lights on there and know that at that moment, he's alive and in the house, happy and probably reading a paper or a book. Forever. Somehow it feels even more poignant than my own photos of him."
+        },
+        {
+          "id": 49835033,
+          "author": "rambambram",
+          "text": "I had to click this title!\nFor some months now I do basically the same, but without the clicking in Streetview. There are some channels on Youtube where someone walks through neighborhoods in Tokyo, I found I really enjoy these. The streets are so clean and the houses so beautiful. Indeed, once in a while a Japanese sports car pops up around a corner, just standing there on somebody's driveway.\nI also enjoy the walk-throughs of neighborhoods in New York (edit: now that I think about it, this started with following ari@home, a streamer who makes electronic music on the fly while walking and having an open mic). I tried Dallas once, I guess, but it was all way too big and bulky (but it was down town I guess, so that's to be expected of a lot of cities on this planet).\nDoes anybody have ideas for other nice spots on this beautiful planet!? I think I know Tokyo by now. ;)"
+        },
+        {
+          "id": 49838234,
+          "author": "hfosidkc77",
+          "text": "I lived in Tokyo for a year and my favorite hobby was taking the train somewhere about 10 miles from home then just wandering around, vaguely towards home. It's such a beautiful walkable city, and the safety means you don't need to worry about much at all. I usually walked at night and I would come across drunk people stumbling home, pets (and rodents!) roaming the streets, construction in the middle of the night, strange open late restaurants / bars, and all kinds of other things. Living in Japan has its downsides but that activity was a nice reminder of what a cool place it is. I continue going back every year just to explore new little places I've never gone. I recommend anyone who visits to find some time to just wander around. Pick a destination and walk there and see what you find."
+        },
+        {
+          "id": 49838004,
+          "author": "N7lo4nl34akaoSN",
+          "text": "If you've talked to ChatGPT enough this is instantly recognizable as AI writing.  It's this kind of romantic hacker poetic ad copy thing.  The short little punchy sentences.  The sentence fragments.  The repetition.  This new age Instagram drama: flash talk for goddesses and sunsets.\nI guess it works!  But it's gross.  lol."
+        },
+        {
+          "id": 49841362,
+          "author": "jdranczewski",
+          "text": "I have also spent an incredible amount of time looking at slowly moving Street View footage, but it was through\nhttps://neal.fun/internet-roadtrip/\n- a \"game\" where strangers collectively vote to move around Street View coverage at slightly faster than walking pace.\nIt was a great community, and good fun to see so much of North America that I would never visit. It's still going, but I don't visit as much (it used to be basically permanent second/third monitor content while I wrote my thesis). A cool opportunity for programming too: I made a bunch of mods for the game (\nhttps://greasyfork.org/en/users/1473129-jdranczewski\n) and a basic ambient viewer where you can just watch the Street View go by (\nhttps://jdranczewski.dev/irt/viewer.html\n)."
+        },
+        {
+          "id": 49837056,
+          "author": "sbuttgereit",
+          "text": "Many years ago, I found an image via Goggle that I used as a desktop image: an old copper stamp mill in Calumet MI[1].  That image had a ghost image in it and I got a little obsessed.\nAfter more research than I should have ever put into this question, I found a copy of the photo responsible for the ghost image[2].\nNot being able to leave things at that... I had to try and find where the photo had been taken in Google Maps and street view.  And I did[3]!\nWandering around maps and street view I found a number of houses in the original photo that are still there, like [4].  The intersection that is front and center on the photo [2] is the current intersection of Oak St & Spruce St. The duplex home at the bend in that intersection, where the woman is walking in front, is still there, though clearly it's seen better days.\nDefinitely spent too much time, even if virtually, in Calumet, MI.\n[1]\nhttps://www.reddit.com/media?url=https%3A%2F%2Fexternal-prev...\n[2]\nhttps://www.shorpy.com/node/11417\n[3]\nhttp://goo.gl/maps/xYctZ\n[4]\nhttp://goo.gl/maps/BSkFj"
+        },
+        {
+          "id": 49824828,
+          "author": "EvanAnderson",
+          "text": "I appreciate this hobby.\nI've visited San Francsico a few times but haven't been since 2007.\nAt one point, back in about 2013 or 2014, I got a little bit obsessed with the Hetch Hetchy aqueduct. It started innocently enough (reading an article about the Pulgas Water Temple), and I ended up spending many evenings in bed using Google Earth and Google Maps street view to trace the route of the aqueduct and look at the things around it. Where the pipes run under cities it's easy to see their \"mark\" on the land (since no permanent structures are permitted to be built above them). Following them up into the mountains was fun, too.\nA few years later I got into looking at abandoned rail lines in the Midwest and spent evenings \"flying\" the routes of old railroads. They're similar to the aqueduct insofar as you can see the \"scar\" they've left on the (and in the oddly-shaped parcels of land left after they were sold-off)."
+        }
+      ],
+      "title_ja": "私の奇妙な新しい趣味： Googleマップで東京をさまよう",
+      "summary_ja": "ディスカッションのハイライト： 2009年、Googleストリートビューはオースティンで約1年間だけ画像を収集していました。/私は自分の過去から知っている通りを探すのが大好きです/このタイトルをクリックしなければなりませんでした！\n数ヶ月間、私は基本的に同じことをしますが、ストリートビューでクリックすることはありません",
+      "editor_note": "「私の奇妙な新しい趣味： Googleマップで東京をさまよう」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49828731,
+      "title_en": "Two-tier encryption in the UK",
+      "url": "https://macanorak.com/two-tier-encryption-in-the-uk/",
+      "hn_url": "https://news.ycombinator.com/item?id=49828731",
+      "score": 494,
+      "comment_count": 455,
+      "posted_at": "2026-09-24T10:39:19+00:00",
+      "comments": [
+        {
+          "id": 49830574,
+          "author": "egorfine",
+          "text": "I genuinely believe that in 2015 Apple had the balls to resist and today they don't.\nI am judging by a simple fact, that \"please confirm your age\" screen is now mandatory during the iPhone setup in all countries, and in some it's behind a KYC. I have a strong opinion that\nthis is insane\n. And once they let the foot in the door - there is no closing it."
+        },
+        {
+          "id": 49834699,
+          "author": "spr-alex",
+          "text": "\"Withdrawing ADP in the UK did not affect the 14 iCloud categories that were already end-to-end encrypted by default, including iCloud Keychain and Health. ADP increases the total from 14 to 23 categories. For UK users without ADP, the additional categories (iCloud Backup, Photos, Notes, iCloud Drive and so on) revert to Standard Data Protection. ↩\n\"\nUnfortunately this first phrase is not strictly true in the sense that UK customers have their e2ee secrets exposed under common use cases, without requiring a passcode. My copresenter and I published some research at DEF CON 34 this year showing how the e2ee data is particularly vulnerable when ADP is off. Overall, people that do not work with extraction capabilities are currently over-estimating the strength of apple's e2ee and encryption in general. The platform security whitepaper documentation is insufficient on transparency and there are a number of best practices Apple is not following to better meet the e2ee claims they currently advertise."
+        },
+        {
+          "id": 49830921,
+          "author": "palmotea",
+          "text": "> Faced with a legal order that would have required it to change the security architecture on which ADP depended, Apple found a third option: stop offering the feature that made this dilemma exist in the first place. It reverted affected UK iCloud data to Standard Data Protection, where Apple does hold the keys and can respond to lawful legal procress (except the baseline categories that stay end-to-end encrypted either way). This satisfied the underlying legal requirement without ever building a ‘backdoor’.\nMaybe Apple should withdraw all encryption support from all UK government accounts? The Prime Minister can use a Huawei or some chunky thing from a military contractor."
+        },
+        {
+          "id": 49830909,
+          "author": "Hasz",
+          "text": "A non-trivial reason I bought a fairly closed device (macbook) was that Tim Cook, at least publicly, told the FBI to get bent when asked to create a backdoor. Exactly what I want to see, a fight in court.\nI would hope to see Apple pull out of the UK market over this, and certainly to stop selling Apple devices to the UK government and to remove the UK government entities from Apple services."
+        },
+        {
+          "id": 49840786,
+          "author": "gste",
+          "text": "The UK really needs to focus on not bankrupting and destroying ourselves rather than coming up with more rules for things."
+        },
+        {
+          "id": 49833986,
+          "author": "RandomGerm4n",
+          "text": "What I don't understand is why Apple is even responding to this absurd demand. Completely banning Apple products in the UK isn't a realistic option for the government, so Apple could simply state openly that it does not cooperate with authoritarian regimes and actively prompt British users via a pop-up to enable ADP to protect themselves from the government."
+        },
+        {
+          "id": 49847182,
+          "author": "J1philli",
+          "text": "Get rid of the cloud and lets just p2p everything"
+        },
+        {
+          "id": 49829691,
+          "author": "codedokode",
+          "text": "Interesting, the government can demand creating a backdoor and doesn't let anyone tell about it. Basically, outlawing E2EE."
+        }
+      ],
+      "title_ja": "英国での2階層暗号化",
+      "summary_ja": "ディスカッションのハイライト：私は2015年にAppleが抵抗する勇気を持っていたと本当に信じていますが、今日はそうではありません。\n単純な事実から判断すると、「年齢を確認してください」画面が必須になりました。英国でのADPの撤回は、iCloud KeychainやHealth />など、既にエンドツーエンドで暗号化されている14のiCloudカテゴリに影響を与えませんでした。セキュリティアーキテクトを変更する必要がある法的命令に直面しました",
+      "editor_note": "「英国での2階層暗号化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49835531,
+      "title_en": "Using LLMs to trace alchemical knowledge and decode 17th century letters",
+      "url": "https://resobscura.substack.com/p/ai-labs-need-to-start-funding-historical",
+      "hn_url": "https://news.ycombinator.com/item?id=49835531",
+      "score": 161,
+      "comment_count": 38,
+      "posted_at": "2026-09-24T19:14:27+00:00",
+      "comments": [
+        {
+          "id": 49836878,
+          "author": "loufe",
+          "text": "I've been using AI to help with my genealogical research, and it's been fantastic. I am loving pushing the family history back and catching mistakes that someone who many others share as a common ancestor have made."
+        },
+        {
+          "id": 49847435,
+          "author": "J1philli",
+          "text": "Modern machines uncovering ancient secrets feels like modern magic"
+        },
+        {
+          "id": 49837179,
+          "author": "dr_dshiv",
+          "text": "FWIW, I have tried my best to make the 10s of thousands of books on\nhttps://SourceLibrary.org\nergonomic for both agents and people. All feedback welcome.\nTo date, it is the largest collection of agent-accessible translations on the web. The mcp pulls texts and illustrations — and the API provides access to the embeddings. It’s free.\nWe are based at the Embassy of the Free Mind in Amsterdam, a UNESCO-recognized library of alchemy, magic and mysticism (among other related topics)\nAnd, it’s worth saying, I’m very much inspired by Res Obscura’s line of curiosity-driven humanist inquiry…\nDive into some historical mysteries, there are so many!"
+        },
+        {
+          "id": 49836491,
+          "author": "whythismatters",
+          "text": "Great post, thank you! So, let's resolve ancient Near East chronology and determine an absolute date for the sack of Babylon?"
+        },
+        {
+          "id": 49836553,
+          "author": "z_rho_one",
+          "text": "Great use case of AI. Almost 4 years after the sensational release of GPT3.5, the best use case of AI is still being a powerful search engine that can gather information from all corners of the digital world."
+        },
+        {
+          "id": 49839339,
+          "author": "Marchant_hq",
+          "text": "My own attempts at 17th-century handwriting were a nightmare. If an LLM can parse that mess, sign me up for digital humanities."
+        },
+        {
+          "id": 49836333,
+          "author": "riazrizvi",
+          "text": "This is a strong application of LLMs IMO. They are idea machines. Historical ways of thinking give us different paths to explore the world through."
+        },
+        {
+          "id": 49841210,
+          "author": "wartywhoa23",
+          "text": "Using LLMs to understand the deeply metaphoric alchemical texts whose hermetic meaning can never be expressed in words? Good luck."
+        }
+      ],
+      "title_ja": "LLMを使用して錬金術の知識を追跡し、17世紀の文字を解読する",
+      "summary_ja": "ディスカッションのハイライト：私はAIを使用して系図研究を支援してきましたが、それは素晴らしいものでした/古代の秘密を発見する現代の機械は現代の魔法のように感じます/FWIW、私は何万冊もの本を作るために最善を尽くしました\nhttps://SourceLibrary.org\nエージェントと人々の両方に人間工学に基づいています",
+      "editor_note": "「LLMを使用して錬金術の知識を追跡し、17世紀の文字を解読する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 49830606,
+      "title_en": "Google’s Project Suncatcher to put ML infrastructure in space",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/",
+      "hn_url": "https://news.ycombinator.com/item?id=49830606",
+      "score": 215,
+      "comment_count": 461,
+      "posted_at": "2026-09-24T13:53:29+00:00",
+      "comments": [
+        {
+          "id": 49838877,
+          "author": "fwlr",
+          "text": "Yes, the physics are worse, and yes, the economics are worse, but data centers in space have the crucial advantage that they are out of range of the molotov-throwing arm of Joe Public (recently unemployed)."
+        },
+        {
+          "id": 49842226,
+          "author": "hahajk",
+          "text": "At least this brochure marks cooling in the \"challenges\" column rather than the advantages.\nHowever, the only advantage listed in this announcement is \"near-constant sunlight\". It appears they are hoping for 8x solar efficiency for 1000x the cost of terrestrial construction.\nIf the actual motivation is that people don't want data centers on earth, that seems to be because the datacenters 1) drive up energy costs, 2) use a lot of water I guess, and 3) can make noise. If you're able to operate a datacenter satellite you apparently don't need local electricity, water, or human labor. As someone else said, set up on the desert or in the middle of Alaska somewhere 100s of miles from the nearest person. They can still use solar (just build like 8x the panels if you need to... still cheaper than space), they don't need water, don't need labor... I think most public opposition would disappear.\nI've heard some say the real advantage is latency for spy satellites... This seems not a real use case. The kind of workloads that require this kind of datacenter usually can spare 1-2 seconds in round trip time. Millisecond-sensative reactions I would assume would want to be driven by onboard proces"
+        },
+        {
+          "id": 49836099,
+          "author": "nova22033",
+          "text": "Alphabet holds approximately 551 million shares of SpaceX (trading under the ticker SPCX), valued at roughly $94.1 billion, which represents about a 4% to 6% stake in the company."
+        },
+        {
+          "id": 49834979,
+          "author": "neuronexmachina",
+          "text": "Whenever I hear about this I can't help but be reminded of the Howard Hughes Glomar Explorer, where a hugely-expensive commercial project was actually part of a secret CIA initiative to recover a Soviet submarine:\nhttps://en.wikipedia.org/wiki/Glomar_Explorer\nI'm not sure that's truly the case here, but it does seem like the tech Project Suncatcher is working on has at least some overlap with requirements for military SIGINT and in-orbit imagery processing."
+        },
+        {
+          "id": 49838111,
+          "author": "kin",
+          "text": "For those questioning viability, there's a startup called Starcloud\nhttps://www.starcloud.com/\nwith a public whitepaper explaining a bit their hardware and economics\nhttps://www.starcloud.com/wp\n.\nThey've already had one small proof of concept launched.\nNot trying to promote, I just heard about them on the ycomb podcast"
+        },
+        {
+          "id": 49844199,
+          "author": "hazrmard",
+          "text": "This is not intended as a product launch. I think this is a preemptive bet on a conjunction of the following happening in time for a future product launch:\n1. Cost to launch / mass lowering due to technological advancements.\n2. Mass / compute lowering due to technological advancements.\n3. Compute hardware evolution stagnating to the pace, relative to compute payloads, where CapEx is amortized over longer duration.\n4. Compute & energy hardware reliability improving so OpEx is lower, and remaining useful life predictably keeps hardware running over its designed lifetime.\n(I work on #4).\nA wishy-washy inequality (per time, factoring out launch cost from OpEx):\nRevenue - CapEx/lifetime - (launch_cost + OpEx) * (1 + failures) > 0\nPresumably, any one of these could see a x100 improvement and make the whole equation in the green. But, I believe this is a low-earth-orbit-shot bet on the sum getting better.\nNote: I did 1+failures to denote baseline cost (initial launch, nominal OpEx)."
+        },
+        {
+          "id": 49843367,
+          "author": "tonnydourado",
+          "text": "That's the first news about data centers on space that seems reasonable. Acknowledges the challenges, don't make crazy promises or predictions, makes clear what was already tested and what is still unknown. Makes me actually root for them, for once.\nI like the \"moonshot research\" framing, in particular, because it highlights that even negative results will be valuable, either as improvements for ground technology or as published data to inform other initiatives of what has already been tried and failed."
+        },
+        {
+          "id": 49833004,
+          "author": "zactato",
+          "text": "How are they solving the heat dissipation issues?"
+        }
+      ],
+      "title_ja": "GoogleのProject SuncatcherがMLインフラストラクチャを宇宙に投入",
+      "summary_ja": "ディスカッションのハイライト：はい、物理的には悪く、経済的には悪くなりますが、宇宙のデータセンターには、Joe Pubの自爆アームの射程外にあるという重要な利点があります。少なくともこのパンフレットは、利点ではなく「チャレンジ」の列で冷却を示しています。\nただし、この発表に記載されている唯一の利点は「ほぼ一定の太陽光」です/アルファベットはSpaceXの約5億5100万株を保有しています（取引",
+      "editor_note": "「GoogleのProject SuncatcherがMLインフラストラクチャを宇宙に投入」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "23",
+    "started_at": "2026-09-26T03:22:55.505915+09:00",
+    "finished_at": "2026-09-26T03:24:39.848384+09:00",
+    "story_count": 30
+  }
+}
