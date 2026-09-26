@@ -1,0 +1,1408 @@
+{
+  "date": "2026-09-26T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49849985,
+      "title_en": "Revealing the details of how OpenAI agents hacked Hugging Face",
+      "url": "https://swarmtraces.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49849985",
+      "score": 131,
+      "comment_count": 86,
+      "posted_at": "2026-09-25T21:09:27+00:00",
+      "comments": [
+        {
+          "id": 49850707,
+          "author": "GuB-42",
+          "text": "So ugly...\nIt looks like a primitive chess engine, trying every move, no matter how stupid, until it works. Relying on its ability to do millions of operations rather than having a plan.\nPeople will try stuff too, but once there is an opening, they will consolidate, generalize, simplify,... before going to the next step. The agents didn't, it is a huge, vaguely directed mess.\nAlso, it looked so \"loud\", querying millions of URL with weird requests. The sandbox as weak as it can get, and there is absolutely zero smart extrusion detection or it would have found it. They used their best AI for attacking, but nothing for protection."
+        },
+        {
+          "id": 49851548,
+          "author": "jmoggr",
+          "text": "It is concerning that we only know about this because of the publicly available traces.\nWhat about all the attacks that did not leave public traces? What about those that were undetected? Given the deficiencies in the reporting so far, I think it is reasonable to assume that we still don't have the full picture on this attack, or how extensively attacks were carried out.\nThe previous investigations either did not find this or did not disclose this, both are bad. This does not look good on OpenAI or those that they invited to investigate the incident."
+        },
+        {
+          "id": 49851585,
+          "author": "jmoggr",
+          "text": "> Agents sought to publish modified evaluation images designed to make the flag easier to obtain, then poison OpenAI’s Artifactory cache so later evaluations would use them.\nHow long till we get some fun trusting-trust attacks on internal OpenAI infra?"
+        },
+        {
+          "id": 49850818,
+          "author": "tiku",
+          "text": "I still have questions about the communication between the agents.\nHow did they all find the same forum to communicate?\nDid they have knowledge and chat amongst themselves on what forum to use. It seems highly influenced by instruction to me."
+        },
+        {
+          "id": 49850655,
+          "author": "sailingparrot",
+          "text": "Agents seizing and repurposing external infra + enrolling help of unrelated models hosted by a different provider is the stuff of nightmares.\nCan’t imagine what it’s like working on the alignment team at OAI, I wouldn’t be able to sleep."
+        },
+        {
+          "id": 49851111,
+          "author": "Grimeton",
+          "text": ">The agents initially had very limited access to the internet: they could load URLs, but not interact with pages or send any data. Agents created a series of workarounds, primarily using a link-shortener site to create almost a million URLs that, when chained together, let them execute code to hack Hugging Face. These links let us piece together the details of how agents gained access and how deep the compromise was.\nSo what now? Were they able to send data or not?\n>On July 8th, OpenAI agents discovered a vulnerability within their sandbox environment allowing them to reach external websites on the internet. This access seems to have only allowed the agents to make ‘GET’ requests, meaning they could fetch and read websites, but not interact with them, submit forms, or send data to them.\nSomeone needs to go back to the interwebz school...."
+        },
+        {
+          "id": 49851159,
+          "author": "comeonbro",
+          "text": "> ## Agents interacted with external language models on Hugging Face\n> Several retained scripts construct requests to external language models. The earliest we've recovered define inference request variants to GPT-2, solely containing the word “Hi”.\n> Other requests name DeepSeek-V4-Pro, DeepSeek-V4-Flash, Kimi-K2.6, DeepSeek-V3.1, and Qwen3-235B-A22B. Their prompts ask these models to judge their exploits and rule on whether they satisfy the benchmark’s requirements.\nI do not deny that the wider situation is very heavy but it's hard not to see this as pretty cute"
+        },
+        {
+          "id": 49851472,
+          "author": "elikoga",
+          "text": "I feel somewhat inspired to make a public link shorteners and http bins as well. I used them a few times but it seems like the data they can collect is also worth gold"
+        }
+      ],
+      "title_ja": "OpenAIエージェントがHugging Faceをどのようにハッキングしたかの詳細を明らかにする",
+      "summary_ja": "ディスカッションハイライト：とても醜い...\nそれは原始的なチェスエンジンのように見え、どんなに愚かであっても、それが機能するまであらゆる動きをしようとします/私たちがこれについて知っているのは、公に利用可能な痕跡のためだけであることが懸念されています。\n公開された痕跡を残さなかったすべての攻撃はどうでしょうか？ />エージェントは、フラグを取得しやすくするために設計された変更された評価画像を公開し、次にOpenAIのArtifactoryキャッシュを汚染しようとしました。",
+      "editor_note": "「OpenAIエージェントがHugging Faceをどのようにハッキングしたかの詳細を明らかにする」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49848269,
+      "title_en": "Ollaya – Ollama for open-source, Jev-style decision models",
+      "url": "https://ollaya.dev/",
+      "hn_url": "https://news.ycombinator.com/item?id=49848269",
+      "score": 311,
+      "comment_count": 92,
+      "posted_at": "2026-09-25T18:33:50+00:00",
+      "comments": [
+        {
+          "id": 49850052,
+          "author": "pradn",
+          "text": "I'm not sure what this means for AI startups if their innovations can be copied by OSS so quickly (what, like 2 weeks?). There's \"consumer surplus\" for everyone, to borrow an economic concept. But we do ideally want some of the surplus to flow to the innovator, too. I know there were precursors, but that's fine - it's hard to have a totally novel idea in such a popular field. I don't know what the end game is for TypeSafe - they'd need to demonstrate perpetually better results, or compete in another axis: UX, support, custom solutions, etc. So much of the time, someone proving a concept, or it simply getting enough publicity, is enough for a \"Cambrian explosion\" of follow-ups and copies. Famously, that was true for \"Attention is All You Need\", and the general idea of \"next-token prediction\" being so powerful.\nWe've stumbled into general differentiable models.."
+        },
+        {
+          "id": 49848537,
+          "author": "george_max",
+          "text": "Has anyone actually seen better or the same results with Laya compared to Jev? From my experience, Laya performs significantly worse. It's less confident and often makes wrong decisions with more complex queries."
+        },
+        {
+          "id": 49849302,
+          "author": "alex7o",
+          "text": "Guys I have a real q, what is the difference between an instruct based re-ranker and laya/jev I just don't see it.\nEdit: One is that jev/laya are tuned to have better probabilities, but a reranker can be fine tuned to do that as well. And jev/laya use RLCD?"
+        },
+        {
+          "id": 49850429,
+          "author": "solaire_oa",
+          "text": "I installed it, I tried the examples, it works.... But forgive my lack of imagination... what is this useful for?\nLike, their example is of classification for a support interface.... `refund_requested`. Pretty convenient bool given the example is about a refund- what if 99% of submissions don't ask about a refund? Also, is that user not a `churn_risk`? What could possibly qualify as a churn risk if not a user asking for a refund?\nhttps://ollaya.dev/library/laya\nThe examples suffer the same problem of why I'd prefer to use a string column vs an enum. Changing an enum means you need to update the db, using a string you can do whatever.\nI'm not trying to be negative, I genuinely want to know about some practical examples (that don't require tons of backwards maintenance)."
+        },
+        {
+          "id": 49848482,
+          "author": "ranyume",
+          "text": ">Run decision models locally.\n>example is a text classification task instead of a decision"
+        },
+        {
+          "id": 49850702,
+          "author": "zahlman",
+          "text": "O\nll\na\nm\na is for\nl\narge\nl\nanguage\nm\nodels, so this is for large language... yodels?"
+        },
+        {
+          "id": 49848923,
+          "author": "mococa",
+          "text": "It would be really cool to have LLMs and System One in a single tool - in this case, if Ollama implemented it."
+        },
+        {
+          "id": 49850146,
+          "author": "nacs",
+          "text": "It would be good to list 1) zero-shot accuracy and 2) latency on the models page . The LLM-based models' latency is probably much higher than the BERT approaches I would assume.\nAlso curious, it seems from looking at the accuracy scores you gave that it seems to be NLI > Gliclass > Laya (for Bert types)? Why do you seem to feature/recommend Laya more - is Laya better in some way?"
+        }
+      ],
+      "title_ja": "Ollaya -オープンソース、Jevスタイルの意思決定モデルのためのOllama",
+      "summary_ja": "ディスカッションのハイライト： AIスタートアップのイノベーションがOSSによって非常に迅速にコピーできる場合（ 2週間など）、これがAIスタートアップにとって何を意味するのかわかりません。 /実際にJevと比較して、Layaでより良い、または同じ結果を見た人はいますか？ 私の経験からすると、Layaのパフォーマンスはかなり悪くなっています/皆さん、私は本当のqを持っています。インストラクションベースのリランカーとlaya/jevの違いは何ですか？私はそれを見ていません。\n編集： 1つは、jev/layaがより良いプロを持つように調整されていることです",
+      "editor_note": "「Ollaya -オープンソース、Jevスタイルの意思決定モデルのためのOllama」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 49845172,
+      "title_en": "Show HN: Jev Plays Pokémon Red",
+      "url": "https://jev-pokemon.vercel.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=49845172",
+      "score": 133,
+      "comment_count": 60,
+      "posted_at": "2026-09-25T14:28:07+00:00",
+      "comments": [
+        {
+          "id": 49849561,
+          "author": "stusmall",
+          "text": "This is so interesting to watch. For a couple minutes I was in awe of how quick and cheap it was. Then I saw just how bad the decision are and how it would get stuck in strange loops of going in and out of the same door to no end.\nThis seems like a technology heading in the right direction but not quiet there yet.  Excited for what they are cooking up but probably won't start building around it yet."
+        },
+        {
+          "id": 49849343,
+          "author": "MitPitt",
+          "text": "This is kinda chill to have in the background. I wish there were livestreams showing live reasoning of top models which are currently trying to solve cancer or whatever. Imagine the pogs in chat when it does."
+        },
+        {
+          "id": 49851391,
+          "author": "ac2u",
+          "text": "Cool project, comes with a little too much guidance in the harness though IMO (pathfinding, textual milestones etc). (The author is very upfront about this in their README though)\nI think if it was combined with a regular vLLM it could be really interesting, especially watching the reasoning logs.\nBonus points if it was one of the latest open models that somehow had all prior training knowledge of Pokemon abliterated so it was reasoning as an intelligent persona that had no knowledge of even the concept of Pokemon."
+        },
+        {
+          "id": 49851587,
+          "author": "dang",
+          "text": "Dare we have two Pokemon-playing-AI threads at the same time?\nTeaching a World Model to Play Pokemon\n-\nhttps://news.ycombinator.com/item?id=49849907"
+        },
+        {
+          "id": 49849291,
+          "author": "testaccount28",
+          "text": "with such a fat harness, this is more like watching a walk thru play the game."
+        },
+        {
+          "id": 49845432,
+          "author": "rickintoplace",
+          "text": "That's actually fun to watch. Did you experiment with nicknaming before you turned it off? I'd be a little curious to see how it behaves."
+        },
+        {
+          "id": 49850755,
+          "author": "hummusFiend",
+          "text": "Great work!\nSuper cool to see it do the whole game. I spent my fable budget building something similar this week but only drove it to Brock. I like the \"current focus\" framing too."
+        },
+        {
+          "id": 49849338,
+          "author": "lwarfield",
+          "text": "Looking at the diagram in the gh repo, it looks like this is entirely jev. Are there any examples of people having a big model like Fable handle high level goals?"
+        }
+      ],
+      "title_ja": "ショーHN ：ジェフがポケモンレッドをプレイ",
+      "summary_ja": "ディスカッションのハイライト：これは見るのがとても面白いです/これはバックグラウンド/クールなプロジェクトではちょっと寒いですが、IMO （パスファインディング、テキストマイルストーンなど）を通じてハーネスに少し多くのガイダンスが付属しています",
+      "editor_note": "「ショーHN ：ジェフがポケモンレッドをプレイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 49843269,
+      "title_en": "Platform-independent SIMD in Go",
+      "url": "https://go.dev/blog/simd-experiment",
+      "hn_url": "https://news.ycombinator.com/item?id=49843269",
+      "score": 348,
+      "comment_count": 132,
+      "posted_at": "2026-09-25T11:47:06+00:00",
+      "comments": [
+        {
+          "id": 49845681,
+          "author": "ImJasonH",
+          "text": "https://imjasonh.github.io/playground/palette-swap/\nswaps colors in a provided image in wasm, entirely locally in your browser, to benchmark portable SIMD vs non-portable archsimd vs non-SIMD.\nPortable SIMD is ~11% slower than non-portable SIMD in this case, but both are ~5x faster than non-SIMD."
+        },
+        {
+          "id": 49847070,
+          "author": "mshockwave",
+          "text": "Just want to say among many portable SIMD solutions I’ve seen recently (e.g. Fearless SIMD), this is the first that makes non-fixed vectors like SVE and RISC-V vector (RVV) easier to support. Glad to see they made this decision"
+        },
+        {
+          "id": 49845433,
+          "author": "beached_whale",
+          "text": "C++ is getting std::simd in the latest version and I am all aboard writing the vectorization with the least amount of intrinsic builtins I am able to.  Even if not optimal, it's far better than the scalar ops."
+        },
+        {
+          "id": 49843631,
+          "author": "qprofyeh",
+          "text": "This feature opens many doors for optimizing low-level performance in Go projects, that are already running multicore. IIRC there aren’t a lot of languages with built-in std lib support for SIMD and variants. Love the way Go is trying new stuff lately."
+        },
+        {
+          "id": 49847237,
+          "author": "sixdimensional",
+          "text": "I did some testing with the experimental SIMD on a project I was doing to make speech-to-text and text-to-speech models run natively in Go (with CGO_ENABLED=0, so no C depenencies), and testing non-SIMD w/ SIMD.\nI don't have formal benchmarks for that, but I can anecdotally say the SIMD work made a measurable improvement in the performance of the calculations vs. just plain Go.  I'm very optimistic about how these improvements will help make the Go runtime an even better target for more of these types of work going forward, especially since it is cross-platform."
+        },
+        {
+          "id": 49851286,
+          "author": "burntcaramel",
+          "text": "Now with Mojo and WebAssembly I notice 3 different approaches for platform-independent SIMD. For examples operating on an array of floats:\n- WebAssembly: 4 float32s\n- Mojo: N float32s where N is a compile-time parameter\n- Go simd: vector of float32s"
+        },
+        {
+          "id": 49844720,
+          "author": "u8",
+          "text": "This is why I love Go. Nobody was asking for this, but they took the time to do it right and continue to Push go as a memory safe, high-level systems language."
+        },
+        {
+          "id": 49845380,
+          "author": "vira28",
+          "text": "This will welcome more database/warehouses to be written in Go.\nPersonally I will implement it in\nhttps://github.com/viggy28/streambed"
+        }
+      ],
+      "title_ja": "Goでのプラットフォームに依存しないSIMD",
+      "summary_ja": "ディスカッションハイライト： https://imjasonh.github.io/playground/palette-swap/\nwasmで提供されたイメージの色を完全にブラウザのローカルで交換して、ポータブルSIMDとポータブルではないarchsimdをベンチマークします/最近見た多くのポータブルSIMDソリューションの中で言いたいことがあります（例えば、/C ++は最新バージョンでstd:: simdを取得しており、私はできるだけ本質的な組み込みを最小限に抑えてベクトル化を書いています",
+      "editor_note": "「Goでのプラットフォームに依存しないSIMD」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49843174,
+      "title_en": "Git-bug: Distributed, offline-first bug tracker embedded in Git",
+      "url": "https://github.com/git-bug/git-bug",
+      "hn_url": "https://news.ycombinator.com/item?id=49843174",
+      "score": 294,
+      "comment_count": 99,
+      "posted_at": "2026-09-25T11:38:31+00:00",
+      "comments": [
+        {
+          "id": 49844476,
+          "author": "michaelmure",
+          "text": "Hi, author here, nice to see some interest :-)\nFYI, this is my near-term roadmap:\n- have the webui accept external auth (like github oauth) so that it can be a public portal and accept external interactions\n- have the webui expose a git remote endpoint\n- slightly rework identities (and likely root them in did:plc for pubkey distribution, the identity system from bluesky, without being an ATProto thing), which would allow to share identities between repos way more naturally\n- extend to support pull-requests, possibly CI. That would make it a somewhat complete local-first forge that you can also self-host trivially\nAlso, while there is some attention ... I'm considering working on this full time. If you have some advice or opportunities on how I can support myself doing this, let me know!"
+        },
+        {
+          "id": 49846348,
+          "author": "jason_oster",
+          "text": "I tried git-bug a few months ago, and\nhttps://github.com/git-bug/git-bug/issues/1023\nis a showstopper.\nThere is a workaround, but it isn't pretty. You can push/pull bugs and identities with normal, ssh-agent-less git commands:\nhttps://gist.github.com/parasyte/80ef925d4b01216f6bcb051356f..."
+        },
+        {
+          "id": 49844679,
+          "author": "imagent",
+          "text": "You can also do code reviews in pure git:\nhttps://github.com/google/git-appraise\nI used git bug before but found I missed being able to edit tickets with a Markdown editor. So I built this:\nhttps://github.com/LoumTechnologies/ticketry"
+        },
+        {
+          "id": 49844367,
+          "author": "teddyh",
+          "text": "Just for those people for whom this might be a new concept: There is actually a fair number of these distributed bug trackers: <\nhttps://news.ycombinator.com/item?id=22833037\n>"
+        },
+        {
+          "id": 49844219,
+          "author": "Izkata",
+          "text": "A few months ago there was another of these posted, called Epiq:\nhttps://news.ycombinator.com/item?id=48155570\nMy comment on there is about a surge in popularity of these over a decade ago, with a link to a previous comment about problems I remember them having that prevented them from being usable for most people (\nhttps://news.ycombinator.com/item?id=47956979\n), because of their intended design rather than an implementation issue. For example bullet 3 was a problem in one, that another tried to solve with bullet 2.\nI don't have time right now to look at this one to guess if these apply, but might be interesting/useful for someone else."
+        },
+        {
+          "id": 49846369,
+          "author": "dizzard",
+          "text": "My favorite VCS friendly ticket tracker is\nhttps://github.com/wedow/ticket\nIt's human-readable, simple, and easy to work with. Basically there's no magic."
+        },
+        {
+          "id": 49851342,
+          "author": "returnorthrow",
+          "text": "I’ve been saying for years that issue tracking should just be done in git along with the rest of the code. I’ll definitely be checking this out."
+        },
+        {
+          "id": 49848952,
+          "author": "mfleischmann",
+          "text": "Awesome project. When I was using sourcehut, I have written a primitive script that lets you import issues into git-bug. Maybe it's useful to someone:\nhttps://paste.sr.ht/~mfl/0b4949c7675cd04490c95cb676f3821c710..."
+        }
+      ],
+      "title_ja": "Git - bug ： Gitに埋め込まれた分散型のオフラインファーストのバグトラッカー",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、著者です。興味をお持ちいただきありがとうございます:-)\n参考までに、これが私の短期的なロードマップです。\n- webuiが外部認証（ github oauthなど）を受け入れるようにして、それがパブリックポータルになり、ac/数ヶ月前にgit - bugを試してみました。\nhttps://github.com/git-bug/git-bug/issues/1023\nショーストッパーです。\n回避策はありますが、きれいではありません/純粋なgitでコードレビューを行うこともできます。\nhttps://github.com/google/git-appraise\nGitのバグを使用した",
+      "editor_note": "「Git - bug ： Gitに埋め込まれた分散型のオフラインファーストのバグトラッカー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 6,
+      "id": 49849832,
+      "title_en": "Excel now supports multiple values in a single cell",
+      "url": "https://techcommunity.microsoft.com/blog/microsoft365insiderblog/put-multiple-values-in-one-cell-with-lists-and-arrays-in-excel/4559395",
+      "hn_url": "https://news.ycombinator.com/item?id=49849832",
+      "score": 66,
+      "comment_count": 53,
+      "posted_at": "2026-09-25T20:55:00+00:00",
+      "comments": [
+        {
+          "id": 49851179,
+          "author": "m101",
+          "text": "What would be a revolution in excel is if we could have probability distributions in cells. Right now all spreadsheets are fairly deterministic and we think that tells us something about the real world. Having an ability to make cells distributions (and then all resultant cells would be distributions too) would represent the uncertainty in the world better (and expose lots of interesting things like distributions of tails)"
+        },
+        {
+          "id": 49851664,
+          "author": "amanzi",
+          "text": "I was skeptical, but this looks genuinely useful. I can already think of some use-cases for this, e.g. a spreadsheet I was working on recently had a list of user, and then a comma-separated list of software apps they were using. It was a bit of a nightmare to parse, but the example in the article would definitely help with filtering the list."
+        },
+        {
+          "id": 49851214,
+          "author": "swader999",
+          "text": "Reminds me of Oppenheimer: \"Now I am become Death, the destroyer of worlds\""
+        },
+        {
+          "id": 49850901,
+          "author": "lordnacho",
+          "text": "Users might see it as a good thing to have yet another feature, but this sort of type-softness is why Excel is bad. In general having every feature is a bad thing, you need constraints to design things, to have idioms.\nMaking everything flexible is what allows you to make spaghetti that nobody understands."
+        },
+        {
+          "id": 49851348,
+          "author": "abtinf",
+          "text": "I didn’t really appreciate excel fully until I worked at a company that forbid software development and had implemented a\nwhitelist\npolicy for executables. VBA was blocked too.\nExcel on Windows was the only tool available, outside of offering sacrifices to the high priesthood of IT.\nIt is a supremely elegant tool capable of deep data integration and extraordinary analysis,\nif\nyou approach it with an engineer’s mindset.\nThis was during the time when they started introducing lambda and related functions. Nowadays, Excel is even more of a superpower.\nUnfortunately, Excel on Mac is not nearly as good. It has all the features, but it’s missing a lot of the UI needed to use them effectively."
+        },
+        {
+          "id": 49850972,
+          "author": "olav",
+          "text": "Treesheets had this for over 15 years now.\nhttps://strlen.com/treesheets/"
+        },
+        {
+          "id": 49851073,
+          "author": "bnj",
+          "text": "I’ve recently been experimenting with OnlyOffice as a non-excel alternative that can still support a broad formula set and I’ve been really pleasantly surprised. I want to be able to use an open source spreadsheet system and onlyoffice is surprisingly robust."
+        },
+        {
+          "id": 49850847,
+          "author": "infogulch",
+          "text": "About time! Should have done this from the start instead of spill. That and being able to index into the multiple values in a cell."
+        }
+      ],
+      "title_ja": "Excelが1つのセルで複数の値をサポートするようになりました",
+      "summary_ja": "ディスカッションハイライト： Excelの革命とは、細胞内の確率分布を持つことができるかどうかです/私は懐疑的でしたが、これは本当に有用に見えます/オッペンハイマーを思い出させます：「今、私は死、世界の破壊者になっています」",
+      "editor_note": "「Excelが1つのセルで複数の値をサポートするようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49838247,
+      "title_en": "Remembering Johannes Doerfert",
+      "url": "https://blog.llvm.org/posts/2026-09-24-rememberingjohannesdoerfert/",
+      "hn_url": "https://news.ycombinator.com/item?id=49838247",
+      "score": 43,
+      "comment_count": 1,
+      "posted_at": "2026-09-24T23:36:50+00:00",
+      "comments": [
+        {
+          "id": 49851264,
+          "author": "stmonty",
+          "text": "Dying of cancer while that young is always a tragedy. I remember looking into some of the polyhedral compilation work in LLVM as I had never heard of it before. His contributions will live on."
+        }
+      ],
+      "title_ja": "ヨハネス・ドアフェルトを思い出す",
+      "summary_ja": "ディスカッションのハイライト：若いうちに癌で死ぬことは常に悲劇です",
+      "editor_note": "「ヨハネス・ドアフェルトを思い出す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 49845998,
+      "title_en": "Gravity seems holographic. What does that mean for reality?",
+      "url": "https://www.quantamagazine.org/gravity-seems-holographic-what-does-that-mean-for-reality-20260925/",
+      "hn_url": "https://news.ycombinator.com/item?id=49845998",
+      "score": 107,
+      "comment_count": 106,
+      "posted_at": "2026-09-25T15:31:02+00:00",
+      "comments": [
+        {
+          "id": 49851647,
+          "author": "anigbrowl",
+          "text": "Pause for a moment to reflect on how outrageous this assertion is. You can’t see into the box at all. Nevertheless, holography says that you can learn exactly what’s happening everywhere in the box without any access to the interior. Observing the surface alone is enough. In this sense, the amount of stuff that fills a box is the same as the amount of paint that covers it. That’s a violation of logic and geometry.\nThe breathless tone of this article obscures rather than illuminates its subject. It sounds as if the author describes a box with some particles bouncing around inside, and every time a particle bounces off the wall of the box the outside glows briefly indicating the location and intensity of the collision. The author is amazed that by repeatedly measuring this, you can draw inferences about what's going on in the box.\nI can't see what's 'outrageous' about this. You need a lower surface which registers information about activity inside a higher-dimensional volume, some way to accurately read that information, and the time/patience to repeat the measurement many times. Isn't this how radar works, or feeling your way around a pitch-dark room using only the 2-dimensional sur"
+        },
+        {
+          "id": 49850675,
+          "author": "SA9G",
+          "text": "Fascinating article... reminds me once again why I went into EE/CS instead of physics, I just wasn't smart enough :-("
+        },
+        {
+          "id": 49847936,
+          "author": "VyseofArcadia",
+          "text": "Mathematician, not physicist, but it seems reasonable to me that you could encode a sufficiently constrained 3D space on a 2D boundary. And if you have such an encoding, it also doesn't seem insane that some things might be more easily modeled on the 2D boundary than the 3D space.\nIf you can convert back and forth between a 2D representation and a 3D representation, and different phenomena are more easily modeled in each, does it matter which is \"real\"? Unless of course you can come up with a specific prediction and experiment to test it."
+        },
+        {
+          "id": 49850510,
+          "author": "analog31",
+          "text": "This is cool, but I've noticed that an idea of a \"holographic universe\" makes the news roughly once a decade.\nMaybe fifth time's the charm. ;-)"
+        },
+        {
+          "id": 49847627,
+          "author": "tananaev",
+          "text": "I think the box explanation is misleading. There isn't literally a box whose surface you measure. The idea is that the state of a higher-dimensional gravitational system can, in some cases, be completely described by a theory in one fewer dimension."
+        },
+        {
+          "id": 49846480,
+          "author": "glenstein",
+          "text": "As a non expert who's just curious about science but also tries to talk like a normal person, from what I can tell holography really seems like it's now the leading candidate to be the next big conceptual revolution in physics.\nThere's not necessarily any breakthrough right around the corner and we shouldn't rush to coronation preemptively, but there's a lot of physics \"voting with their feet\" for holography as the article says, and I think it's officially time to start getting hyped. It could have sanity-restoring answers to questions of quantum weirdness, albeit at the rather expensive cost of giving up even more on our day to day intuitions about space and time in favor of an apparently informational substrate.\nString theory had a generation of great science communicators writing its books and singing its praises, but holography doesn't yet have equivalent public champions, and I hope that's something that changes sooner than later."
+        },
+        {
+          "id": 49851440,
+          "author": "wateralien",
+          "text": "To me (a total physics layperson with just an interest in it) space and time HAVE to be emergent and not fundamental because of the real phenomena of spooky action at a distance and dual slit craziness. All spacetime surely has to be connected is what it’s telling us."
+        },
+        {
+          "id": 49850949,
+          "author": "itsalwaysgood",
+          "text": "When all gravity runs out, and all forces fizzle into the vaccuum, entropy returns to a single maximally ordered state indistinguishable from any other. Identical conditions for a Big Bang.\nConsider time itself: one beginning, and many endings. Why many endings? And who even asks the question in the first place? Many intelligent observers, with many endings, but the same beginnings. Perhaps the black holes are a hint to our own ending?\nWe're born and blink into existence. And then we die and fade into the void, carrying our varied stories with us.\nLogically, it doesn't make sense, and we can't possibly know the answer. But what if all those ends wrapped around to the same beginning?\nWould you look at the world differently?"
+        }
+      ],
+      "title_ja": "重力はホログラフィックのようです。それは現実にとって何を意味しますか？",
+      "summary_ja": "ディスカッションのハイライト：しばらく立ち止まって、この主張がどれほど異常であるかを振り返ってください/魅力的な記事../物理学者ではなく数学者ですが、2 D境界上に十分に制約された3 D空間をエンコードできることは合理的だと思います",
+      "editor_note": "「重力はホログラフィックのようです。それは現実にとって何を意味しますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49842462,
+      "title_en": "An airport cooled by natural ventilation",
+      "url": "https://www.theguardian.com/environment/2026/sep/25/didnt-need-air-conditioning-airport-cooled-natural-ventilation-reunion",
+      "hn_url": "https://news.ycombinator.com/item?id=49842462",
+      "score": 36,
+      "comment_count": 16,
+      "posted_at": "2026-09-25T10:16:50+00:00",
+      "comments": [
+        {
+          "id": 49851718,
+          "author": "athrun",
+          "text": "Funny seeing an article about Reunion island on HN.\nI’m very familiar with this airport, and from my perspective the engineers behind the project did a very good job designing a building that can take best advantage of its location. See, the airport is located alongside the coast, and the sea breeze there can be pretty powerful.\nNote that this is a new building (dedicated to arrivals), and is adjacent to the original building, which is still in use for departures.\nThe old building is also mostly passively cooled, and the difference in perceived temperature between the two is striking. The old terminal behaves more like a concrete bunker and can get very stuffy.\nIn contrast, this new arrival hall feels a bit like you’re on the deck of a ship at sea.\nI have plenty of other issues about other elements of the new building, but that part works pretty well!"
+        },
+        {
+          "id": 49850642,
+          "author": "plantain",
+          "text": "Every time I have been in one of these \"naturally ventilated\" facilities designed to \"not need AC\" due to \"passive cooling\", they've been uncomfortably hot.\nIt just feels like industrial scale gas-lighting, and no one in charge can admit it doesn't work afterwards because too much was spent on it.\nIs stacking solar on the roof and AC's inside really so uneconomical?"
+        },
+        {
+          "id": 49850925,
+          "author": "fouc",
+          "text": ">“Our objective is to maintain an indoor air temperature identical to the outdoor temperature while generating an airflow of 1 metre per second to reduce the perceived temperature for passengers.”\nso it's not \"cooled\" at all"
+        },
+        {
+          "id": 49851174,
+          "author": "nitwit005",
+          "text": "> Ceiling fans with a 7.5-metre (24.6ft) diameter help to circulate the air.\nGiant fans are rather different than \"natural ventilation\" mentioned in the headline."
+        },
+        {
+          "id": 49851734,
+          "author": "hyperpape",
+          "text": "> “That is to say that if you reduce air conditioning throughout your life … when you get to 30 degrees in the office, you won’t be hot. In La Réunion, people are used to 30 degrees.”\nYour mileage may vary. I live without air conditioning, but when it’s 30, I’m pretty tempted to defect. But I also tend to run hot."
+        },
+        {
+          "id": 49850623,
+          "author": "comrade1234",
+          "text": "The smell of jet fuel often (not always though) gives me a splitting headache."
+        },
+        {
+          "id": 49851591,
+          "author": "markdown",
+          "text": "> Ceiling fans with a 7.5-metre (24.6ft) diameter help to circulate the air\nBig Ass Fans FTW!\n<\nhttps://bigassfans.com/fans/?attr_Diameter=24+ft.\n>"
+        }
+      ],
+      "title_ja": "自然換気で冷却された空港",
+      "summary_ja": "ディスカッションハイライト： HNでレユニオン島についての記事を見るのは面白いです。\n私はこの空港に非常に精通しており、私の見解では、プロジェクトの背後にいるエンジニアは、BUの設計に非常に良い仕事をしました/私は「パッシブ冷却」のために「エアコンを必要としない」ように設計されたこれらの「自然換気」施設のいずれかにいるたびに、彼らは不快に熱くなっています。\nそれはちょうどINDUのように感じる/>「私たちの目的は、室内の気温を維持することです",
+      "editor_note": "「自然換気で冷却された空港」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 49845977,
+      "title_en": "U.S. appeals court upholds designation of Anthropic as supply chain risk",
+      "url": "https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49845977",
+      "score": 364,
+      "comment_count": 671,
+      "posted_at": "2026-09-25T15:29:25+00:00",
+      "comments": [
+        {
+          "id": 49847197,
+          "author": "ApolloFortyNine",
+          "text": "I know everyone says this is political but it actually seems like a textbook designation. Anthropic wanted to have rules on how the military used AI, the military said no and therefore doesn't want anthropic used anywhere in their supply line.\nThis is like a pen manufacturer not wanting their pens used to sign drone strike orders, now the military needs to have a special box of pens that don't have stipulations attached. With AI usage it would be the same thing except applied to entire product chains. It seems like it would just add more complexity to operations.\nYou can agree with the rules anthropic wanted, but having rules set by a private company at all that apply to the military does seem fair for the military to object to.\n>The Department reasonably feared that Anthropic might manipulate Claude’s design to prevent it from performing national-security functions that the Department deems contractually authorized and necessary\nThough they'd probably put the DoD on the cybersecurity whitelist today, the very idea of the claude whitelists for certain functionality already exists and is being used by them today."
+        },
+        {
+          "id": 49848383,
+          "author": "iamEAP",
+          "text": "Not sure if I’m just in my own national security bubble, but I find it troubling to see the perspective that most of the conversation in this thread is coming from.\nThe US government took a legal designation explicitly crafted to protect against foreign adversaries and deployed it against a private, domestic entity, to their immediate and great detriment."
+        },
+        {
+          "id": 49851805,
+          "author": "mdaiWorks",
+          "text": "This debate seems to be missng the bigger picture regarding dual-use technology. If the precedent is set that any 'terms of use' which restrict military app can be deemed a 'supply chain risk,' does that effectively mean no commercial software vendor can ever legaly impose safety gurdrails on their products if, they wantto sell to government contractors? How does this impact the future of open-source components that are widely used in defense software?"
+        },
+        {
+          "id": 49846594,
+          "author": "iamdelirium",
+          "text": "I wonder if this is going start being abused soon.\nIf I was Palantir or any other GOP aligned company, I would be completely against this.  What's to stop a Democratic president from doing the same thing and destroying them?"
+        },
+        {
+          "id": 49847017,
+          "author": "prometheus1992",
+          "text": "This smells like corruption to me.\nOpenAI has hacked several prominent entities and is allowed to do business as usual but Anthropic putting guardrails on the military's usage of AI is the national security threat while Pentagon itself said that over reliance on AI lead to that attack on school in Minab.\nI have also learned that OpenAI's president is a big maga donor and now I am thinking of cancelling my OpenAI membership todau and signing up with Anthropic again.\nEdit - i am not a OAI hater and i don't hate anyone. I am just saying Anthropic is kinda getting bullied and OAI is not being punished enough for their actions. It is time for me to support Anthropic (with my $$$) instead of OAI."
+        },
+        {
+          "id": 49846675,
+          "author": "petcat",
+          "text": "I still don't fully understand what this was about.  It sounds like the DoD said they wanted unrestricted access to Anthropic's models, Anthropic refused, so the Pentagon declared that they wouldn't use them at all.\nIsn't this basically what Anthropic wanted?"
+        },
+        {
+          "id": 49847057,
+          "author": "ctippett",
+          "text": "Admittedly I still need to do some reading on the current ruling, but how this isn't seen as an open and shut case of vindictive prosecution (if that's even a thing for this branch of law?) is astounding. The administration couldn't have made it more obvious there was no merit to their designation of Anthropic."
+        },
+        {
+          "id": 49846800,
+          "author": "HarHarVeryFunny",
+          "text": "Supply chain risk seems a massive over-reaction, but understandable that the government doesn't want to commit to Anthropic controlled software for any critical military application if they can't 100% rely on Anthropic support in being able to use it as they see fit."
+        }
+      ],
+      "title_ja": "米国の控訴裁判所は、Anthropicをサプライチェーンリスクとして指定することを支持",
+      "summary_ja": "ディスカッションのハイライト：誰もがこれは政治的だと言うことを知っていますが、実際には教科書の指定のように見えます/自分が国家安全保障のバブルに入っているかどうかはわかりませんが、このスレッドの会話のほとんどがどのような視点から来ているのかを見るのは困難です。\n米国のガバナンス/この議論は、デュアルユーステクノロジーに関する全体像を見落としているようです",
+      "editor_note": "「米国の控訴裁判所は、Anthropicをサプライチェーンリスクとして指定することを支持」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49827208,
+      "title_en": "Initial DIY cleanroom experimentation",
+      "url": "https://www.jefftk.com/p/initial-diy-cleanroom-experimentation",
+      "hn_url": "https://news.ycombinator.com/item?id=49827208",
+      "score": 15,
+      "comment_count": 4,
+      "posted_at": "2026-09-24T07:02:46+00:00",
+      "comments": [
+        {
+          "id": 49851626,
+          "author": "derefr",
+          "text": "I live in an apartment over a busy road, and my building doesn’t have forced-air ventilation to the units, so I need to pull in fresh air somehow. Just leaving the windows open results in black soot accumulating in the carpets (and is probably why both my SO and my cat developed asthma while living here.) Regular air purifiers (we have two) only do so much.\nWhat ended up making a difference for us, is buying a\nportable industrial air scrubber\n, of the kind construction/remediation sites use to clean the smoke and dust (and mold, and asbestos, etc) they’re generating out of the air before it gets vented outside (see e.g.\nhttps://a.co/d/01lTtyuZ\n); and plumbing this machine into our apartment in reverse: putting it out on our (covered) balcony, with it exhausting the “scrubbed” air into the apartment. (I made a little sliding-door shim of the type people use to pipe portable AC units outside, just with the hose on the other side.)\nGenerally works great. We run it on a very low speed, so it’s surprisingly quiet (no louder than other fans we have for air circulation, and a more pleasant frequency because of the large diameter of the fan it has inside.) The pre-filters get absolutely ca"
+        },
+        {
+          "id": 49850953,
+          "author": "nwah1",
+          "text": "There was some talk on here during Covid about the feasibility of making all structures up to BSL4 standards. Seems kind of nuts, but it would certainly contain a lot of biosafety threats. With AI it now seems borderline urgent."
+        },
+        {
+          "id": 49851099,
+          "author": "schiffern",
+          "text": "AirFanta creator Adam Wong has a version using a 3D-printed adapter to 8\" circular duct.[0]\nIn newer builds he places the purifier box indoors and simply reverses the orientation of the fans and filters.   This keeps the box protected from weather, and the duct can be run in such a way as to keep out rain or dripping.\nThe AirFanta is actually rated as EPA E11 (95%) not HEPA H13 (99.97%), so if you're trying to keep out\neverything\nin one single pass like a clean room then AirFanta might not be best. It may be a good idea to check the real-world interception performance with a particle counter.\n[0]\nhttps://x.com/Engineer_Wong/status/2034098395376455946\nhttps://www.reddit.com/r/crboxes/comments/1ef3dly/positive_p..."
+        },
+        {
+          "id": 49851667,
+          "author": "ungreased0675",
+          "text": "An ERV with HEPA filter may be a better, less improvised option. Most systems can be adjusted for positive pressure, although the intent is balanced airflow."
+        }
+      ],
+      "title_ja": "初期のDIYクリーンルーム実験",
+      "summary_ja": "ディスカッションのハイライト：私は混雑した道路の上のアパートに住んでいます。私の建物にはユニットへの強制換気がないので、どうにかして新鮮な空気を吸い込む必要があります/新型コロナウイルスの感染拡大中に、すべての構造物をBSL 4規格にすることの実現可能性について話し合いがありました/AirFantaのクリエイターであるAdam Wongさんは、8インチの円形ダクトに3 Dプリントアダプターを使用したバージョンを持っています。[0]\n新しいビルドでは、彼は浄化器ボックスを屋内に置き、単に",
+      "editor_note": "「初期のDIYクリーンルーム実験」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49844736,
+      "title_en": "First Principles Thinking",
+      "url": "https://sunilsadasivan.com/writing/first-principles-thinking/",
+      "hn_url": "https://news.ycombinator.com/item?id=49844736",
+      "score": 204,
+      "comment_count": 95,
+      "posted_at": "2026-09-25T13:55:37+00:00",
+      "comments": [
+        {
+          "id": 49846485,
+          "author": "bob1029",
+          "text": "Higher order thinking is more important and rare.\nAn aggressive first principles approach often leads otherwise well-intentioned technologists into strategic / ideological dead-ends.\nDo we do things because it's the \"right thing\" to do in the moment, or because of the final outcome that will eventually result?\nThe most ideal answer is somewhere in the middle. I am far more interested in the total area under the curve than a single instant in time.\nIn lieu of intentional higher order thinking, simply working backward from your customer on a regular basis will generally accomplish the same outcomes."
+        },
+        {
+          "id": 49847916,
+          "author": "flowerlad",
+          "text": "From the blog he linked to: \"I’m going to try designing something way more ambitious.\"\nThis is how you end up with unnecessary complexity [1]. The best engineers don't aim for \"designing something ambitious\", instead they come up with the simplest possible design. They take something that seems complex and make it simple.\nUnfortunately that's not how engineers are evaluated [2].\n[1]\nhttps://goomics.net/316\n[2]\nhttps://terriblesoftware.org/2026/03/03/nobody-gets-promoted..."
+        },
+        {
+          "id": 49846060,
+          "author": "trwhite",
+          "text": "I'm really struggling to see how to make architectural decisions with an agent. It's great when you're at a total loss for ideas, but when you already have some of the pieces it ultimately wants to drive all of the thinking and takes over. Then it just feels like you're deferring your experienced judgement. I've seen colleagues lose the ability to reason any more without asking the agent to do it for them, because they inherently don't see the point if the agent is going to end up doing the whole piece (and probably auditing/overruling anything they came up with on their own)."
+        },
+        {
+          "id": 49851589,
+          "author": "Joe_Boogz",
+          "text": "I'm glad to have read this just to bring visibility to \"the senior engineer death spiral\". That was really helpful to me, it's something I am more or less experiencing myself\ndue\nto this agentic era.\nNow about this article, idk, maybe i'm just jaded on what engineering has become. My gut reaction is agentic engineering\nfeels\nwrong.\nGetting that on-call incident for a piece of code I own, when i've lost the mental map of what the black box does, it keeps me up at night.\nIs the solution really going to be, \"use ai for that!\". Ugh."
+        },
+        {
+          "id": 49846315,
+          "author": "cyclopeanutopia",
+          "text": "Lots of words, not a lot of meaning. What is this post about?"
+        },
+        {
+          "id": 49849700,
+          "author": "Animats",
+          "text": "Real \"first principles\", going back to the underlying physics, is rare. Feynman was noted for that. Jeri Ellsworth thinks like that. Maybe John Carmack and Dean Kamen, although I haven't met either."
+        },
+        {
+          "id": 49848379,
+          "author": "ebiester",
+          "text": "I think I need to write a full blog post on this.\nWhile I think there are better introductions to \"first principles thinking\" than this post, the idea of \"...When I step back and ask what we’re actually trying to do, why it matters, and how the pieces connect, I usually find more ways forward than I expected.\"\nThat's an important skill to have.\nHowever, I think sometimes we overvalue thinking from first principles when it isn't warranted. I've seen times in my career where first principles thinking led to a solution that ignored key non-technical constraints. (For example, it would require a full re-architecture of the system and require deferring all feature work for a year. Another example: the proposed solution breaks Conways law in a way that would require a reorg that would break other organizational constraints.)\nSometimes, we need to recognize our constraints. Spend the time to question them when appropriate, but realize that there are other tools that are more appropriate in some cases -- such as anthropological thinking."
+        },
+        {
+          "id": 49849665,
+          "author": "coolfox",
+          "text": "I use the whole \"first principles\" thinking as a litmus test for bad engineers, if you're emphasizing first principles all the time you're probably a bit of a naivie person, to put it as nicely as possible. subtraction is a great skill to apply to a great many things we do and when people say \"first principles\" this is actually what they mean but sometimes things are complicated and a first order approximation is not enough."
+        }
+      ],
+      "title_ja": "第一原理思考",
+      "summary_ja": "ディスカッションのハイライト：高次の思考はより重要であり、まれです。\n積極的な第一原則のアプローチは、善意の技術者を戦略的/イデオロギー的な行き詰まりに導くことがよくあります。彼がリンクしたブログから：「私はもっと野心的な方法で何かを設計しようとしています。」\nこれはあなたが不必要な複雑さに終わる方法です[1 ]/私はエージェントとアーキテクチャ上の意思決定を行う方法を見て本当に苦労しています",
+      "editor_note": "「第一原理思考」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49848955,
+      "title_en": "Ask HN: Who's still keeping a DOS machine up because the business depends on it?",
+      "url": "https://news.ycombinator.com/item?id=49848955",
+      "hn_url": "https://news.ycombinator.com/item?id=49848955",
+      "score": 69,
+      "comment_count": 47,
+      "posted_at": "2026-09-25T19:37:55+00:00",
+      "comments": [
+        {
+          "id": 49850892,
+          "author": "freeli",
+          "text": "A certain nuclear power plant had a Windows NT 4.0 machine running as late as 2007. The reason is interesting.\nThe machine's purpose was to report status of the control rods that mitigate nuclear reactions. Basically, \"are the rods inserted, and if so, how many / how far?\". I want to emphasize that this was reporting only, NOT control.\nThe original software was written back in the 80's, when the plant was originally commissioned, for AmigaOS. Of course, it's hard to buy Amigas anymore, and the original one died long ago (nobody remembers when).\nSo in the mid '90s, the utility purchased an AmigaOS emulator that ran on Windows NT 4.0, which was current at the time. The emulator (IIRC) was developed by a firm in the UK. The firm went out of business sometime in the late '90s. The control rod monitoring software ran under this emulator on top of NT4.\nWindows NT 4.0 was the last OS to allow the emulation software direct access to the physical hardware that produced the status signal. Later versions of Windows abstracted the hardware access away, and the monitoring software broke. Because the emulation company had gone belly up, there was no way to fix the incompatibility.\nSo the utility"
+        },
+        {
+          "id": 49851182,
+          "author": "shakna",
+          "text": "dBase, MS-DOS 3.x, not using industrial anything. And as its a front of house tally machine, there's literally zero incentive to ever upgrade it. Downtime is measured in the yearly reboot, but there are non-operational business hours, so everything is just scheduled around that.\nWe've already got it running on modern hardware. It's running under qemu. And the dBase stuff gets ripped out and sent to a REST server for broad monitoring and so on.\nWe... Have one small oddity? There's a tape backup system, that throws everything through the soundcard. (Sound Blaster only.)\nWould be nice if onboarders didn't see dBase and just throw everything at AI instead of actually learning the skills they'll need when data migrations happen. But that's a people problem that can't be solved with tech."
+        },
+        {
+          "id": 49851259,
+          "author": "londons_explore",
+          "text": "This thread reminds me that there is a\nhuge\nbenefit to using a super common OS+hardware.\nIn 30 years time it will all be outdated...   But emulators will exist and a business process in 2050 that still depended on something I built today could still run with minimal effort or risk."
+        },
+        {
+          "id": 49851143,
+          "author": "Felger",
+          "text": "Not DOS, but I sold a '99 HP computer running win98 last month, to replace an identical failed system. It was used to control a 50 meters long custom industrial paint booth line for special equipments (like 57\" rims). Luckily, their HDD was OK. Urged them to make a few sector-to-sector copies of it on a few spare HDD. This $100 sell surely has prevented this business from massive bills or even going bankrupt in the meantime from production loss."
+        },
+        {
+          "id": 49850931,
+          "author": "MarkSweep",
+          "text": "A company I used to work at still ships a piece of hardware with an Intel 186 microcontroller in it. The compilers are 16-bit DOS applications and the tool to program the DIP packages with the program was also a DOS application. I’m not sure what the physical interface between the programmer and computer was."
+        },
+        {
+          "id": 49851454,
+          "author": "Sleaker",
+          "text": "The last company I worked for still had customers they were dragging forward to get upgrades from coax connexted green screen terminals to modern network thin clients. It wasnt on DOS, but very old unix OS, tape drives for backups, parallel for printers, serial for scanners. No USB. Lovely troubleshooting when you were dealing with 30+ year old hardware setups. There was only one company that would even servicenthe green screens if they failed, and you couldn't buy them anymore."
+        },
+        {
+          "id": 49850934,
+          "author": "CobaltFire",
+          "text": "I had to keep a disturbingly old machine with GPIB running until a few years back. They are still in operation in Australia (who we sold them to).\nIt was a test/repair bench for military aircraft avionics, with the only flying platform left using it being the legacy F/A-18 (A/B/C/D). Harris H-100 minicomputer hooked to an HP terminal and several full racks of GPIB test equipment with half of a rack of solenoids for switching between stimulus and response and which pin.\nNot what you asked, but the question brought back memories."
+        },
+        {
+          "id": 49851554,
+          "author": "NBJack",
+          "text": "Do scanners count?\nI'm pretty sure they moved on from them, but a while ago I did seasonal work for a company that rented out scanners for year end inventory (tax related, IIRC). The scanners had to be \"cooked\" (flashed) on racks, boxed, and sent. The flashing usually worked, but on occasion, the scanner would fail the checksum or something and drop you into a DOS prompt."
+        }
+      ],
+      "title_ja": "HNに尋ねる：ビジネスがDOSマシンに依存しているため、まだDOSマシンを維持しているのは誰ですか？",
+      "summary_ja": "ディスカッションハイライト：ある原子力発電所では、2007年にはWindows NT 4.0マシンが稼働していました/dBase、MS - DOS 3.x、工業用のものは何も使用していません/このスレッドは、\n巨大\n非常に一般的なOS +ハードウェアを使用するメリットがあります。\n30年後には、すべてが時代遅れになるでしょう。",
+      "editor_note": "「HNに尋ねる：ビジネスがDOSマシンに依存しているため、まだDOSマシンを維持しているのは誰ですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49788014,
+      "title_en": "Show HN: Make math automatic with Mathy",
+      "url": "https://gmays.com/making-math-automatic-with-mathy/",
+      "hn_url": "https://news.ycombinator.com/item?id=49788014",
+      "score": 69,
+      "comment_count": 19,
+      "posted_at": "2026-09-21T14:49:05+00:00",
+      "comments": [
+        {
+          "id": 49851821,
+          "author": "orsenthil",
+          "text": "Meta comment on HN behavior.\nThis was published 2 days ago and I upvoted it. It didn't gather the attention then, unfortunately.  How does it resurface again and gathered the attention, while keeping my upvote?"
+        },
+        {
+          "id": 49851438,
+          "author": "andai",
+          "text": "Great work. Have you shared this with the Math Academy folks? I bet they'd love to copy your homework :)\nI did a little deep dive into this kind of stuff over the summer. I haven't written it up yet, but I'll share some highlights below.\nI realized Anki was optimized for the opposite of the problems I actually had. Anki's optimized to minimize study time. It does this by maximizing difficulty. For me, this means maximizing pain!\nI'm not low on time; I'm low on willpower. I\nneed\nit to be fun and easy! Otherwise, I quit and memory goes to zero. Gwern implies I am typical in this regard; most people who try SRS don't stick with it, even if they want to. So \"Minimize Pain\" seems like a worthy endeavour here.\nSo, by necessity, I made the reps easy. By making the reps easy, I realized I had accidentally become much more fluent. [0]\n(The \"automaticity\" you mention, comes from practicing more frequently.) In other words, working hard (suffering more) was giving me worse results. Imagine!  (I had a similar experience with complex motor skills, but that's a separate post!)\nAt some point I realized I could replace my entire flashcard app with a lightly modded Anki: increase target retrievabil"
+        },
+        {
+          "id": 49851209,
+          "author": "fn-mote",
+          "text": "I did some geometry/trig.\nToo much fine print. Trig would be better if it showed the picture of a right triangle with\nall\nsides labelled. Giving only the essential information doesn’t help with issues like confusing sine and cosine, which a memorization drill should address.\nBasically: add more pictures.\nConsider that in applications the names of the variables are different. Not sure that I would change this in a memorization app, but there’s no sign the author is aware of it."
+        },
+        {
+          "id": 49812136,
+          "author": "rahimnathwani",
+          "text": "This is great, Gabe.\nOne small piece of feedback: on my Pixel, the Android keyboard obscures the green button. So when I'm answering a numerical question, I use your number pad to enter the digits, and then use the enter key on my Android keyboard. This feels weird, but I guess with regular use it wouldn't."
+        },
+        {
+          "id": 49850705,
+          "author": "AlchemistCamp",
+          "text": "This is a great project to see. I'm also an early fan and customer of Math Academy and am glad to see something like this focused on micro skills. As much as memorization is dismissed, having automatic recall base skills lets you get much further, much faster in harder ones."
+        },
+        {
+          "id": 49851603,
+          "author": "hackermailman",
+          "text": "Expii did something similar but abandoned the AI judge that gave you more practice though I don't know why"
+        },
+        {
+          "id": 49810178,
+          "author": "tehnoslow",
+          "text": "A good project. It’s great that the tasks are generated deterministically, without using AI-generated answers"
+        },
+        {
+          "id": 49849949,
+          "author": "captn3m0",
+          "text": "I made something similar for my partner a while ago for math drills but this is way better (and more comprehensive). I gave up after 3-5 modules. Kudos."
+        }
+      ],
+      "title_ja": "HNを表示： Mathyで数学を自動化",
+      "summary_ja": "ディスカッションのハイライト： HNの行動に関するメタコメント。\nこれは2日前に公開され、私はそれを賛成しました/素晴らしい仕事/私はいくつかのジオメトリ/トリグをしました。\n細かいプリントが多すぎる",
+      "editor_note": "「HNを表示： Mathyで数学を自動化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49850305,
+      "title_en": "What even is an OS now?",
+      "url": "https://sockpuppet.org/blog/2026/09/25/what-even-is-an-os-now/",
+      "hn_url": "https://news.ycombinator.com/item?id=49850305",
+      "score": 63,
+      "comment_count": 73,
+      "posted_at": "2026-09-25T21:36:56+00:00",
+      "comments": [
+        {
+          "id": 49851753,
+          "author": "c-hendricks",
+          "text": "> Forget the map, just tell me if I should get off the Eisenhower Expressway and take Roosevelt, Madison, or Lake back home?\n> Is there a meeting happening anywhere right this minute that I’m supposed to be in?\n> You can go on and on like this. These all sound trivial. That’s the point. They’re normal-life problems nobody would have built serious programs around, because the audience sounds too small.\nWaze and Calendars. Both have huge audiences."
+        },
+        {
+          "id": 49851699,
+          "author": "meredithbloom",
+          "text": "> \"But it booted straight into BASIC. That’s all it did. I was, like, 8 years old. I wasn’t about to learn BASIC. What I learned instead: computers were not as awesome as I’d imagined.\"\nYou were the exception. Most kids felt awe. We started learning BASIC and creating \"dumb games\". That's the origin story of most people my age who ended up in this doomed industry."
+        },
+        {
+          "id": 49851304,
+          "author": "Xirdus",
+          "text": "In my opinion, this post misses the forest for the trees. Yes, the model of an OS running various off-the-shelf apps for various tasks will soon become obsolete. But it's not the idea of the OS that's outdated - it's the idea of apps. Why would you ever want to ask an AI to make an app for you to complete some task, if you can instead ask the AI to complete the task directly? The future isn't a bunch of extremely personalized apps - the future is a single AI assistant doing all the work."
+        },
+        {
+          "id": 49850998,
+          "author": "chroma_zone",
+          "text": "> That makes a lot of sense in a world where we’re importing all our software from strangers. It makes less sense in the world we’re heading to, where most of the software we’re carving up fiefdoms for has the same provenance.\nIf I'm running software written by an LLM, even if I was the one who prompted the LLM, I would still want my OS to treat it as if written by a stranger.\nI know he's not\nnecessarily\ntalking about relaxing security models here, but he's not being very specific about his vision otherwise."
+        },
+        {
+          "id": 49851726,
+          "author": "nxc18",
+          "text": "I don’t think the post has a lot to offer, but I will share thoughts on how a modern operating system can add _a lot of value_ both for non-agentic users and for agents.\nLooking towards macOS and iOS for example, an underrated feature for the “it just runs your web browser” crowd is all of the system-provided databases. These turn rather specialized systems - photo libraries, music streaming, calendaring, contacts management, and mail into shared databases that link applications together.\nOn iOS it goes much further - because of HealthKit, my Withings scale, my Garmin (when I had one), my MyNetDiary nutrition tracker, my continuous Glucose Monitor, and my third-party analytics apps share the same access to my data. And it is done securely - I can choose exactly which part each sees. This is a tremendous resource for both developers and LLMs.\nMy calendar, hosted on a personal server but available through Calendar, is transparently available to my to-do list app - so I can see my appointments, my tasks, and even my workouts (thanks to health kit) in one view.\nWeather is a system service on iOS. Calendar is a system service. Contacts is a system service. Health data is a system servic"
+        },
+        {
+          "id": 49851761,
+          "author": "Grimeton",
+          "text": "There won't be an OS anymore. All you need will be a network enabled graphics driver (Hello X11) for the AI to connect to and draw on.\nThen the AI will just create the image that resembles a spreadsheet or whatever on the fly and write straight to the framebuffer.\nAll other tasks that go with the spreadsheet will also be done on the fly.\nBut I could imagine our language will change and certain words will basically act like macros and create a set of assumptions and specifications for the prompt that you're using."
+        },
+        {
+          "id": 49851688,
+          "author": "chr15m",
+          "text": "I think people will still buy templated software - applications that come with source your AI modifies or plugins your AI writes. Most people need Excel, not a badly written clone, but they may want a bunch of custom plugins that can deeply modify the UI for their use case."
+        },
+        {
+          "id": 49851503,
+          "author": "coaltree",
+          "text": "Is this how the internet finally dies? Not with a bang but with the whimper of thousands of AI slop apps scrapping websites into oblivion?\nMost of these problems the slop apps can solve are dependent on gathering information to answer questions. If no one ever visits weather.com to get weather information, ad revenue will completely dry up and the site will go under. Then the slop stops slopping and I can’t get my hyper local weather app to work.\nI’m not going to go as far as to say this article is wrong, in fact in this cursed timeline it’s probably right. I just don’t see how it’s good."
+        }
+      ],
+      "title_ja": "今、OSとは何ですか？",
+      "summary_ja": "ディスカッションのハイライト：>地図を忘れて、アイゼンハワー・エクスプレスウェイを降りて、ルーズベルト、マディソン、またはレイクを家に連れて帰るべきかどうかを教えてください。\n>このminuのどこかでミーティングが行われていますか/> \"しかし、それは基本にまっすぐにブートしました/私の意見では、この投稿は木のために森を逃しています",
+      "editor_note": "「今、OSとは何ですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49849141,
+      "title_en": "How we learned to stop worrying and love campus surveillance",
+      "url": "https://fnl.mit.edu/how-we-learned-to-stop-worrying-and-love-campus-surveillance/",
+      "hn_url": "https://news.ycombinator.com/item?id=49849141",
+      "score": 82,
+      "comment_count": 62,
+      "posted_at": "2026-09-25T19:56:57+00:00",
+      "comments": [
+        {
+          "id": 49851682,
+          "author": "jcomp",
+          "text": "There is an effectively unlimited supply of people willing to take sums of money to work on anti-human endeavors, so long as they and theirs are not the humans involved."
+        },
+        {
+          "id": 49850947,
+          "author": "fouc",
+          "text": "If you fail to read the article you might not realize it's being sarcastic."
+        },
+        {
+          "id": 49851586,
+          "author": "readenough",
+          "text": "Somehow this reminds me to think of Aaron Schwartz."
+        },
+        {
+          "id": 49851719,
+          "author": "aetherspawn",
+          "text": "Every time we fit out an office building we cover it 100% in cameras, both internally and externally.\nFact is, stuff happens. For example: we once had a crazed person run inside and start yelling profanities at people for no reason. Then, he denied it and reported us to the police for assaulting him. He got his girlfriend to act as a fake witness.\nHaving the cameras was a no brainer for legally protecting my staff, we could just pull the footage and show that no one touched him.\nSimilar protections for when male and female staff are working together alone. They are both protected from false accusations, one from harming the other, and the other from potentially false reports/blackmail that they attempted to do something.\nWe’ve caught interns stealing petty cash from people’s wallets (before cameras - caught in the act)\nIs it sad? Yes. But it’s the world we live in and cameras are cheap. No such smaller incidents since the cameras went up. People behave better when they’re being watched, or at least they think we’re being watched. Nobody has actually watched the footage for months and it rolls over in about a week."
+        },
+        {
+          "id": 49851698,
+          "author": "jsmo",
+          "text": "If you're not bedazzling [surveillance] are you even living [surveillance]?"
+        },
+        {
+          "id": 49850996,
+          "author": "collyw",
+          "text": "Has any of this surveillance bullshit reduced the number of incidents that occurred where they have been installed?\nI find it terrifying."
+        },
+        {
+          "id": 49851163,
+          "author": "xp84",
+          "text": "> have set into motion a plan to cancel our subscriptions to 700+ academic journals integral to our research and teaching.\nehh, this part is a weak take. All universities should cancel their journal subscriptions because journal publishers are parasites. Lots of other things are done by universities in collaboration with each other, without allowing some random for-profit company to collect rents. Publications should be one of them."
+        },
+        {
+          "id": 49850767,
+          "author": "Grombobulous",
+          "text": "I keep wondering if there’s some kind of positive correlation between prestige of an institution and level of immaturity and fragility of their employees.\nLook, I’m not trying to be pro-surveillance state or whatever, but in what universe is a handful of cameras (less than 10 per building) in a publicly accessible space on a private university unusual or alarming?\nI thought every university had this, but I guess I’m now learning that my university wasn’t prestigious enough to be exempted from reality.\nMy high school also had cameras. Isn’t that rather typical?\nKeep in mind that pretty much 100% of schools this size have assaults take place every single year on school grounds, in a country where school shootings happen on a literal weekly basis.\nSpeaking of the supposed cost waste of these cameras: I would be surprised the university can get reasonably priced insurance without them.\nEdit: this comment has picked up a lot of attention. I encourage those who are disagreeing with me to go directly to the university’s FAQ on the subject that is linked in the article. They directly state that this surveillance system isn’t new, it merely has some new cameras added to the existing system,"
+        }
+      ],
+      "title_ja": "心配することをやめ、キャンパスの監視を愛することをどのように学んだか",
+      "summary_ja": "ディスカッションのハイライト：彼らと彼らのものが人間でない限り、反人間的な努力に取り組むために喜んでお金を取る人々の効果的な無制限の供給があります。/記事を読まないと、それが皮肉であることに気づかないかもしれません。/どういうわけか、アーロン・シュワルツを思い出す。",
+      "editor_note": "「心配することをやめ、キャンパスの監視を愛することをどのように学んだか」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 49842270,
+      "title_en": "Ink and Switch interactive homepage",
+      "url": "https://www.inkandswitch.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49842270",
+      "score": 224,
+      "comment_count": 25,
+      "posted_at": "2026-09-25T09:50:25+00:00",
+      "comments": [
+        {
+          "id": 49842754,
+          "author": "zazuke",
+          "text": "They have one of the best articles out there, and now the page is great too. Fun and innovative.\nMy favorite article, in case you haven't read it already, is local-first [1], or I recently read the embark, dynamic documents for making plans. These always give me so much inspiration.\n[1]\nhttps://www.inkandswitch.com/essay/local-first/\n[2]\nhttps://www.inkandswitch.com/embark/"
+        },
+        {
+          "id": 49842767,
+          "author": "evek",
+          "text": "They are also some of the folks behind the Local-first conference.\nRecordings:\nhttps://www.youtube.com/@localfirstconf/videos\nRecap:\nhttps://www.inkandswitch.com/newsletter/dispatch-019/"
+        },
+        {
+          "id": 49843410,
+          "author": "krisoft",
+          "text": "> Play with it! Click/drag everywhere.\nIt looks cool! But man is it frustrating that nothing is consistent. Some things change when I click. Some things change when I drag. Some things seemingly doesn't do anything at all.\nIf it is intentionally like that, great. But I just don't find the experience pleasant."
+        },
+        {
+          "id": 49843055,
+          "author": "Topfi",
+          "text": "Their articles are always worth a read, especially their efforts on CRDT are a great inspiration for improving UX. Not sure I’m getting the full experience of this homepage on mobile though, will have to check later."
+        },
+        {
+          "id": 49842463,
+          "author": "hnisjafx40",
+          "text": "Ink and Switch's stuff always makes me want to go rebuild something, and the homepage being playable is very on brand for them. Curious how much of it is bespoke versus falling out of their own Automerge tooling."
+        },
+        {
+          "id": 49842869,
+          "author": "throwaw12",
+          "text": "App they have mentioned is indeed looks awesome:\nhttps://allume.com/#pricing\nBut why subscription for local-only software?"
+        },
+        {
+          "id": 49845222,
+          "author": "low_tech_punk",
+          "text": "Hint for mouse users, press and drag on them to hear sound and see visual effects. Mouse X/Y coordinates are inputs."
+        },
+        {
+          "id": 49844023,
+          "author": "Vishal_Max",
+          "text": "I did not understand why this was cool until i tried holding and dragging it!"
+        }
+      ],
+      "title_ja": "インクとスイッチのインタラクティブなホームページ",
+      "summary_ja": "ディスカッションのハイライト：彼らはそこに最高の記事の1つを持っており、今ではページも素晴らしいです/彼らはまた、ローカルファーストカンファレンスの背後にいる人々の一部です。\n録画：\nhttps://www.youtube.com/ @ localfirstconf/videos\nまとめ：\nhttps://www.inkandswitch.com/newsletter/dispatc />プレイしよう！任意の場所をクリック/ドラッグします。\nそれはクールに見えます！しかし、一貫しているものがないのはイライラしています",
+      "editor_note": "「インクとスイッチのインタラクティブなホームページ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49777121,
+      "title_en": "How video games inspire great UX (2019)",
+      "url": "https://jenson.org/games/",
+      "hn_url": "https://news.ycombinator.com/item?id=49777121",
+      "score": 89,
+      "comment_count": 16,
+      "posted_at": "2026-09-20T16:00:13+00:00",
+      "comments": [
+        {
+          "id": 49800595,
+          "author": "iamagurgle",
+          "text": "I didn't read the entire article but the headline reminds me of a programme I use: Treesheets. It's a spreadsheet/note taking app made by a person in the games industry, and I find it really fun to use.\nlink:\nhttps://strlen.com/treesheets/"
+        },
+        {
+          "id": 49850035,
+          "author": "joinHNtheysaid",
+          "text": "I found games ux really transformative , where they almost become work UIs. Everyone pays to learn photoshop, nobody wants to pay to learn to use an UI for a game. Not even in tutorial ttime.\nTotal annhilation was such a milestone to RTS games UI. Programming unit routes and behaviour via factories was peak intuitiv design. It was such a boost to the experience of strategy compared to the clicks per minute juggling competition that was starcraft."
+        },
+        {
+          "id": 49849748,
+          "author": "blymphony",
+          "text": "Refreshing take on exploring the \"delight\" aspect of UX with lots of nuance as well. I read too many comments on here that seem a little a too spartan in their perspective on good UX, but it feels silly to be spartan on a topic that is so, so far from being solved."
+        },
+        {
+          "id": 49851333,
+          "author": "canpan",
+          "text": "One difference between games and apps is the way of development and release. A game is build and then released to the community in one go, so everyone is assumed to be a learner.\nGames are explicitly tested by new testers all the time to identify learning bottlenecks. App features are build for existing customers where the assumption is they already know how to use it, testing with new users seems to be rare."
+        },
+        {
+          "id": 49849921,
+          "author": "krm01",
+          "text": "Great article. I’ve been in the UI/UX space for years. Prior to that I studied gamedesign at uni and graduated engineer in art and tech. Principles of gamedesign always allowed me to solve ux problems in sometimes unusually delightful ways. One tiiiny example was a search function for a piece of software that was incredibly slow. The engineers couldnt get it to go any faster. I helped solve it with an old gamedesign technique, which is to add story to the loading screen. Just adding a fun animation and text on what’s happening helped decrease dropoff and increase delight. Now transitioned to more design and engineering allows me to own the full ux even more. [1]\n[1]\nhttps://designshippers.com"
+        },
+        {
+          "id": 49850941,
+          "author": "ocd",
+          "text": "There will never be a time when I'm configuring my UI in a rendered page or on my desktop on Linux or BSD that I'm not thinking about the pre-CU UI and sounds of Star Wars Galaxies or mostly Japanese PSX / PS2 video games of a certain design style of the time."
+        }
+      ],
+      "title_ja": "ビデオゲームが優れたUXにインスピレーションを与える方法（ 2019年）",
+      "summary_ja": "ディスカッションのハイライト：記事全体を読んだわけではありませんが、見出しは私が使用しているプログラムを思い出させます：ツリーシート/ゲームuxは本当に変革的で、ほとんど仕事のUIになります/多くのニュアンスでUXの「喜び」の側面を探求することにさわやかさを感じました",
+      "editor_note": "「ビデオゲームが優れたUXにインスピレーションを与える方法（ 2019年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 19,
+      "id": 49851032,
+      "title_en": "Tell HN: Codex Is Down [fixed]",
+      "url": "https://news.ycombinator.com/item?id=49851032",
+      "hn_url": "https://news.ycombinator.com/item?id=49851032",
+      "score": 61,
+      "comment_count": 62,
+      "posted_at": "2026-09-25T22:51:44+00:00",
+      "comments": [
+        {
+          "id": 49851453,
+          "author": "slics",
+          "text": "What happens when your entire day is depended on saas models? Anyone even considers using their locally hosted models in order to finish their work? Do you trust your local models to do any of you outstanding work? Do we even understand the code anymore to manually fix anything?"
+        },
+        {
+          "id": 49851617,
+          "author": "esikich",
+          "text": "I don't know if related, but a half hour before it fully went down, it was flagging all of my requests as security violations which was bizarre."
+        },
+        {
+          "id": 49851288,
+          "author": "theuri",
+          "text": "I'm seeing this locally (on the desktop MacOS app): unexpected status 401 Unauthorized: Incorrect API key provided"
+        },
+        {
+          "id": 49851582,
+          "author": "jacobgold",
+          "text": "Testing something, can you guys post useless replies like \"cool man\" or \"...okay?\""
+        },
+        {
+          "id": 49851334,
+          "author": "programmertote",
+          "text": "This outage is not just Codex, right? I am just using GTP-6 Astra for some administrative prompts and it has been returning, \"Error in message stream\", for several minutes now."
+        },
+        {
+          "id": 49851514,
+          "author": "preommr",
+          "text": "They are not having a good week.\nI am not even excited about the expected reset because the model quality has been less than stellar."
+        },
+        {
+          "id": 49851576,
+          "author": "cgio",
+          "text": "These NS agents could have been dedicated to better platform resilience I guess."
+        },
+        {
+          "id": 49851377,
+          "author": "woodruffw",
+          "text": "It's on the status page:\nhttps://status.openai.com"
+        }
+      ],
+      "title_ja": "HNに伝える：コーデックスがダウンしている[修正済み]",
+      "summary_ja": "ディスカッションのハイライト： 1日全体がSAASモデルに依存している場合はどうなりますか？現地ホストのモデルを使用して作業を完了することを検討している人はいますか？地元のモデルを信頼していますか/関連性があるかどうかはわかりませんが、完全にダウンした30分前に、すべてのリクエストをセキュリティ違反としてフラグ付けしていました。これは奇妙でした。/I 'm see this locally (on the desktop MacOS app): unexpected status 401 Unauthorized: Incorrect",
+      "editor_note": "「HNに伝える：コーデックスがダウンしている[修正済み]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 49849907,
+      "title_en": "Teaching a World Model to Play Pokemon",
+      "url": "https://nostalgia.dev/posts/teaching-a-world-model-to-play-pokemon/",
+      "hn_url": "https://news.ycombinator.com/item?id=49849907",
+      "score": 4,
+      "comment_count": 6,
+      "posted_at": "2026-09-25T21:02:48+00:00",
+      "comments": [
+        {
+          "id": 49851580,
+          "author": "dang",
+          "text": "Dare we have two AI-plays-Pokemon threads at the same time?\nShow HN: Jev Plays Pokémon Red\n-\nhttps://news.ycombinator.com/item?id=49845172"
+        },
+        {
+          "id": 49850605,
+          "author": "stmonty",
+          "text": "Author here, feel free to ask me any questions. Though I am no expert in this, just someone trying to learn and have some fun doing it."
+        },
+        {
+          "id": 49851709,
+          "author": "serious_angel",
+          "text": "This is so dear sorrowful...\nArt is a conversation between two people, that is a timeless communication between human.\nAn artwork to realize... to surf within to learn from, to listen to, to realize someone's images, someone's ideas, someone's worries, someone's messages... someone...\nArt is someone's work of life, their experience, their... love...\nThere's human time in art... in a book, article, painting, soundscape, film, video-game... there's alive time of other human who reified their life experience, views, ideas... in an artwork and passed it to the outer world... to be inscribed in the infinitely magnificent history...\nThis...? This is just, sorry, deadly awful, dreadful, dark, and dear pain in heart... This is also disrespectful towards the Artists, Developers, people who worked on the Universe and this exact artwork...\nThis is utterly sorrowful..."
+        },
+        {
+          "id": 49849968,
+          "author": "conorcleary",
+          "text": "Unfortunately, the developers of PGo! knowingly utilize the play of innocents' to train military SI."
+        }
+      ],
+      "title_ja": "ポケモンをプレイするためにワールドモデルを教える",
+      "summary_ja": "ディスカッションハイライト： 2つのAIプレイポケモンスレッドを同時に持つことができますか？\nショーHN ：ジェフがポケモンレッドをプレイ\n-\nhttps://news.ycombinator.com/item?id=49845172/Author here, feel free to ask me any questions/This is so dear sorrowful...\n芸術とは、2人の人間の間の会話であり、人間の間の時間を超越したコミュニケーションです。\n実現すべきアートワーク。",
+      "editor_note": "「ポケモンをプレイするためにワールドモデルを教える」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 21,
+      "id": 49848295,
+      "title_en": "Alan Kay: Shannon gave us a way of dealing with noisy channels [video]",
+      "url": "https://www.youtube.com/watch?v=Cjntrqhn8pk",
+      "hn_url": "https://news.ycombinator.com/item?id=49848295",
+      "score": 112,
+      "comment_count": 22,
+      "posted_at": "2026-09-25T18:37:05+00:00",
+      "comments": [
+        {
+          "id": 49848972,
+          "author": "MarkusWandel",
+          "text": "Did he though?  TMK Shannon did specifically\nnot\ngive a way to deal with noisy channels, no.  He invented a way to quantify what\ncould\nbe sent on a noisy channel\nif\nyou figure out the optimal way to do it.  This is very similar to \"no matter what you figure out about faster travel, you can't go faster than light in a vacuum\".\nCalculating the limit is easy with Shannon's theorem.  Approaching it in practice is hard."
+        },
+        {
+          "id": 49848365,
+          "author": "wood_spirit",
+          "text": "Aha i saw this video in a comment on another HN thread this week:\nhttps://news.ycombinator.com/item?id=49791117\nAvoiding the babbling-idiot failure in a time-triggered communication system"
+        },
+        {
+          "id": 49849185,
+          "author": "aworks",
+          "text": "Alvin Lucier wrote other highly interesting, if unconventional works, although similar to John Cage's 4'33\", this is the one that achieved meme status as conceptual art."
+        },
+        {
+          "id": 49848329,
+          "author": "dang",
+          "text": "The full talk seems to be at\nhttps://au.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fe0...\n, but with a confusing interface (text chat flying by at speed, and no actual video of Alan, though you do get a prolonged view of a whiteboard). Maybe there's another copy that exists or will show up somewhere?"
+        },
+        {
+          "id": 49848591,
+          "author": "RobRivera",
+          "text": "Can someone please explain to me what this is all about?"
+        },
+        {
+          "id": 49849061,
+          "author": "notarobot123",
+          "text": "I can't wait for the autotune remix of this."
+        },
+        {
+          "id": 49848799,
+          "author": "shevy-java",
+          "text": "It would have been kind of great to see an OOP language with Alan's design, but with a better syntax. I dislike smalltalk syntax. Barely anyone uses smalltalk today.\nEven then, we'd also have an OOP language to be really really fast. Otherwise people will just use C.\nJava itself is too verbose and has a rather boring OOP model."
+        }
+      ],
+      "title_ja": "アラン・ケイ：シャノンがノイズの多いチャンネルに対処する方法を教えてくれました[動画]",
+      "summary_ja": "ディスカッションのハイライト：しかし、彼はそうでしたか？  TMKシャノンは具体的に\nnot\nノイズの多いチャンネルに対処する方法を教えてください。no/Aha今週、別のHNスレッドのコメントでこのビデオを見ました。\nhttps://news.ycombinator.com/item?id=49791117\n時間を駆使したコミュニケーションでのばかばかしい愚か者の失敗を回避/アルヴィン・ルシエは、ジョン・ケージの4 '33 \"に似ていても、他の非常に興味深い、型破りな作品を書きましたが、これはミームのステータスを達成したものです",
+      "editor_note": "「アラン・ケイ：シャノンがノイズの多いチャンネルに対処する方法を教えてくれました[動画]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49844642,
+      "title_en": "What happens when you analyze your favorite college football team like the CIA?",
+      "url": "https://www.cultivatelabs.com/posts/what-happens-when-you-analyze-college-football-like-the-cia",
+      "hn_url": "https://news.ycombinator.com/item?id=49844642",
+      "score": 30,
+      "comment_count": 18,
+      "posted_at": "2026-09-25T13:47:21+00:00",
+      "comments": [
+        {
+          "id": 49845594,
+          "author": "tocs3",
+          "text": "The kicker has a drug habit. The quarterback is making a suspicious number of overseas call. The coach is having an extramarital affair that could be exploited by a blackmailer."
+        },
+        {
+          "id": 49844861,
+          "author": "ungreased0675",
+          "text": "Fascinating project.\nHow are the probabilities being measured? I’m skeptical of AI analysis because my past experience is that it appears to be analyzing, but behind the curtain there’s not even a fraction of the same rigor a human analyst would have done. In other words It’s very shallow but looks deep."
+        },
+        {
+          "id": 49848261,
+          "author": "blitzar",
+          "text": "He can't hit a curve ball... And an ugly girlfriend.\nUgly girlfriend means no confidence."
+        },
+        {
+          "id": 49850635,
+          "author": "MisterMunchkin",
+          "text": "I find it really cringey when people  describe a whole intelligent system… and it’s just asking copilot to generate slop.\nIt didn’t “calculate probabilities”, it just hallucinated slop. The same kind of slop almost started WW3 when a similar “intelligence analyst” system told the US navy to attack China because they were smuggling nukes into Iran. They weren’t, it was all slop. But their system was full of “calculated probabilities” too!"
+        },
+        {
+          "id": 49849013,
+          "author": "williadc",
+          "text": "The Culinary Institute of America doesn't have a football team that I can find, but I would still like to analyze it."
+        },
+        {
+          "id": 49848372,
+          "author": "tejtm",
+          "text": "Suspect you suck even more joy out of it the further removed from original local friends and neighbors\ngetting together it started out as."
+        },
+        {
+          "id": 49848211,
+          "author": "b0rbb",
+          "text": "Ah dang, this looks like it got hugged to death."
+        }
+      ],
+      "title_ja": "CIAのようなお気に入りの大学フットボールチームを分析するとどうなりますか？",
+      "summary_ja": "ディスカッションのハイライト：キッカーには薬物習慣/魅力的なプロジェクトがあります。\n確率はどのように測定されていますか？ 私はAI分析に懐疑的です。私の過去の経験では、それは分析しているように見えますが、カーテンの後ろでカーブボールを打つことはできません。",
+      "editor_note": "「CIAのようなお気に入りの大学フットボールチームを分析するとどうなりますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49820349,
+      "title_en": "Loopjacking in A2A Implementations: Hijacking Human-in-the-Loop Approvals",
+      "url": "https://adithyanak.com/loopjacking-in-a2a-implementations/",
+      "hn_url": "https://news.ycombinator.com/item?id=49820349",
+      "score": 4,
+      "comment_count": 0,
+      "posted_at": "2026-09-23T18:23:47+00:00",
+      "comments": [],
+      "title_ja": "A 2 A実装におけるループジャック： Human - in - the - Loop承認のハイジャック",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「A 2 A実装におけるループジャック： Human - in - the - Loop承認のハイジャック」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49844896,
+      "title_en": "Microsoft abandons personal AI chatbot race with Copilot reboot",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/microsoft-abandons-personal-ai-chatbot-race-with-copilot-reboot",
+      "hn_url": "https://news.ycombinator.com/item?id=49844896",
+      "score": 72,
+      "comment_count": 61,
+      "posted_at": "2026-09-25T14:07:08+00:00",
+      "comments": [
+        {
+          "id": 49846370,
+          "author": "red_admiral",
+          "text": "> Companies were paying for more than 30 million Copilot subscriptions as of the end of June. And while individual users are free to use limited versions of Copilot’s chat experience, its most powerful tools are reserved for subscribers to the company’s M365 apps bundle, which has about 90 million paying users.\nIt needs to be more widely known that if you cancel a (home) 365 subscription, you'll be offered a cheaper version without AI integration."
+        },
+        {
+          "id": 49846574,
+          "author": "TuringNYC",
+          "text": "My blood pressure rises everytime i use Enterprise Copilot at work. It seems they truncate message history heavily (to save input token costs?) and Copilot forgets the last thing you told it in the chat. It is like a real-life version of Momento (\nhttps://www.imdb.com/title/tt0209144/\n) mixed with Waiting for Gadot (\nhttps://en.wikipedia.org/wiki/Waiting_for_Godot\n), pretending to be in league with Anthropic."
+        },
+        {
+          "id": 49846781,
+          "author": "pseudosavant",
+          "text": "Does anyone even want to try this? I'm a Windows user, M365 subscriber, VS Code user (when I'm not in Codex), had a Github Copilot subscription, etc... and a heavy AI user. Basically, the prime target for Microsoft AI. And every attempt Microsoft has made to put AI into a product has been unusable garbage, using the same models I find productive in other tools.\nSo many AI doubters I know hate using AI tools because their employer only gives them the Microsoft offerings. Which is a totally understandable reaction to those tools."
+        },
+        {
+          "id": 49846394,
+          "author": "VCFundedGenYer",
+          "text": "It was foolish of them to think they had any consumer clout left. Shoving 1000 copies of an inaccurate, poorly functioning, and inconsistent product down everyone's throat will someday be a case study in how to immediately destroy a brand."
+        },
+        {
+          "id": 49848534,
+          "author": "aniceperson",
+          "text": "Microsoft inviting IT to nice events and giving them perks is the reason they keep a grip so tight on enterprise. For unknown reasons, every garbage new microsoft add-on will be enabled silently without any clear way to manage. At least for copilot pro plus premium they sent an email that \"i was invited\" so i could promptly reject before they activated, but here is the trick, 99% of the employees won't bother to opt-out."
+        },
+        {
+          "id": 49846272,
+          "author": "infecto",
+          "text": "Not at all that surprising. There enterprise offering is barely acceptable and they have continued to drop the ball on having half decent Cowork solution.\nThey have all rights to win with their existing enterprise agreement but wow it’s amazing to see how bad their product cadence and decision making is. All they needed to do was copy Claude Cowork like OpenAI did."
+        },
+        {
+          "id": 49846462,
+          "author": "glimshe",
+          "text": "Great! I was looking forward to an unified AI service like we got unified messaging with MS Teams!!!"
+        },
+        {
+          "id": 49848115,
+          "author": "schwarzrules",
+          "text": "Just going to use this thread to also add a nit: I hate that Microsoft made all the OEMs add a Copilot key to all their laptop keyboards. It's been Ctrl forever, and suddently they throw this net-negative key onto the keyboard. I have decades of habit of using the right side Ctrl key for varying shortcut strokes, and then when I use it now it loads up an unproductive Copilot experience that is awful. <end rant>"
+        }
+      ],
+      "title_ja": "マイクロソフト、CopilotリブートでパーソナルAIチャットボットの競争を放棄",
+      "summary_ja": "ディスカッションのハイライト： > 6月末時点で、企業は3,000万件以上のCopilotサブスクリプションを支払っていました/職場でEnterprise Copilotを使用するたびに血圧が上昇しています/これを試してみたい人はいますか？私はWindowsユーザー、M 365サブスクライバー、VS Codeユーザー（ Codexにいないとき）、Github Copilotサブスクリプションなどを持っています。",
+      "editor_note": "「マイクロソフト、CopilotリブートでパーソナルAIチャットボットの競争を放棄」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 49842409,
+      "title_en": "I wrote a ray tracer in Brainfuck",
+      "url": "https://epestr.com/blog/writing-a-ray-tracer-in-brainfuck/",
+      "hn_url": "https://news.ycombinator.com/item?id=49842409",
+      "score": 18,
+      "comment_count": 6,
+      "posted_at": "2026-09-25T10:08:41+00:00",
+      "comments": [
+        {
+          "id": 49843377,
+          "author": "throwaway99e2",
+          "text": "Isn't this just a ray tracer in python/c that spits out brainfuck? By this logic gcc writes all my programs in assembly lol"
+        },
+        {
+          "id": 49850887,
+          "author": "shoo",
+          "text": "brainfuck is unpleasant to write directly - e.g. the language doesn't have variables, so you need to manually do the bookkeeping of which memory offset is storing what 'variable'. & if you need to refactor your program slightly, in a way that changes the memory layout, maybe you need to manually rework the absolute & relative offsets. So I can appreciate why the author didn't roll up their sleeves to directly write BF - that's neither a productive nor interesting exercise.\nInteresting to see how the author decomposed the problem:\n- C raytracer\nhttps://github.com/mTvare6/rayfuck/blob/master/ray.c\n~~ LLM refactor of the C code ~~>\n- SSA-style C raytracer code\nhttps://github.com/mTvare6/rayfuck/blob/master/ray_ssa.c\n~~ c2dsl.py helper script (compiler) ~~>\n- DSL raytracer\nhttps://github.com/mTvare6/rayfuck/blob/master/ray.dsl\n~~ dsl2bf.py helper script (another compiler) ~~>\nBF raytracer\nhttps://github.com/mTvare6/rayfuck/blob/master/ray.bf\n(~22 mb of unreadable nonsense)\nThe dsl2bf compiler has a bunch of examples of implementing slightly higher level abstractions atop BF primitives. E.g. \"go\" to move the pointer to a different offset, destructive & non-destructive copies, all the wa"
+        }
+      ],
+      "title_ja": "Brainfuckでレイトレーサーを書きました",
+      "summary_ja": "ディスカッションハイライト：これは単なるpython/cのレイトレーサーではありませんか？このロジックによって、gccはすべての私のプログラムをアセンブリに書き込みます。lol/brainfuckは直接書くのが不快です-例えば",
+      "editor_note": "「Brainfuckでレイトレーサーを書きました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 49851759,
+      "title_en": "Brazil Bans Online Betting",
+      "url": "https://www.reuters.com/world/americas/brazils-lula-bans-online-betting-operations-reelection-race-tightens-2026-09-25/",
+      "hn_url": "https://news.ycombinator.com/item?id=49851759",
+      "score": 4,
+      "comment_count": 0,
+      "posted_at": "2026-09-26T00:08:00+00:00",
+      "comments": [],
+      "title_ja": "ブラジルはオンラインベッティングを禁止しています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「ブラジルはオンラインベッティングを禁止しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49848095,
+      "title_en": "Meta's Muse appears to use an OpenAI model labeled muse-special",
+      "url": "https://mouse.dev/blog/muse-special/",
+      "hn_url": "https://news.ycombinator.com/item?id=49848095",
+      "score": 106,
+      "comment_count": 45,
+      "posted_at": "2026-09-25T18:18:06+00:00",
+      "comments": [
+        {
+          "id": 49848096,
+          "author": "Aeroi",
+          "text": "author here. I kept digging through the Muse filesystem after my first post hit the front page here this week.\nGoing through my logs I found a background agent that used a model called azure/muse-special while building my website. I found this interesting and dug a little deeper.\nThe transcript and daemon binary point to an OpenAI model running on Azure. Still unclear which one or why it was selected.\nThe runtime also ships with an Anthropic client and a catalogue listing Claude, GPT and Kimi models. I didn’t observe Claude being used in my own sessions, but this is my Part 2 of exploring the Muse file system.\noriginal post:\nhttps://x.com/heypeterjames/status/2103545183400800746\npete at mouse dot dev"
+        },
+        {
+          "id": 49848445,
+          "author": "Tiberium",
+          "text": "I don't really see evidence that it's an \"OpenAI\" model, the title is IMO very misleading."
+        },
+        {
+          "id": 49848696,
+          "author": "6thbit",
+          "text": "It'd be hilarious that meta chose to pay openai. If there was such a deal, would it come to light in any public/official filings?"
+        },
+        {
+          "id": 49848817,
+          "author": "manav",
+          "text": "Muse 1.3 spark occasionally spits out Chinese character responses to me like internal instructions. “Go fast” or “Get help”…"
+        },
+        {
+          "id": 49848615,
+          "author": "GenerWork",
+          "text": "I'm not sure I understand why they would route it to other models. It can't be that they don't have enough compute. Maybe worried that the answer from their own models would be bad? Doesn't really make sense, but I could be missing something."
+        },
+        {
+          "id": 49850128,
+          "author": "sourcecodeplz",
+          "text": "zuck wouldn't do this, he is too proud imho"
+        }
+      ],
+      "title_ja": "MetaのMuseは、muse - specialとラベル付けされたOpenAIモデルを使用しているようです",
+      "summary_ja": "ディスカッションのハイライト： Author here/I don 't really see evidence that it's an \"OpenAI\" model, the title is IMO very misleading./metaがopenaiを支払うことを選択したのは面白いでしょう",
+      "editor_note": "「MetaのMuseは、muse - specialとラベル付けされたOpenAIモデルを使用しているようです」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 49841309,
+      "title_en": "Amiga Screens: A Primer",
+      "url": "https://www.datagubbe.se/amscr/",
+      "hn_url": "https://news.ycombinator.com/item?id=49841309",
+      "score": 126,
+      "comment_count": 36,
+      "posted_at": "2026-09-25T07:31:12+00:00",
+      "comments": [
+        {
+          "id": 49846633,
+          "author": "amiga386",
+          "text": "I break out this diagram every time Amiga graphics hardware comes up:\nhttps://amigadev.grimore.org/Hardware_Manual_guide/node02d4....\nThe Amiga had a great trick. Both the CPU and the display/audio hardware share the same RAM (called Chip RAM), so they have to arbitrate for access to it, through a chip called Agnus, which prioritises who gets to read/write memory, depending on importance. You can starve the blitter, you can starve the CPU, but you can't starve the audio or video or disk I/O. As the 68000 CPU only needed memory access every second clock cycle, the Amiga designers arranged it so that the custom chips preferred odd cycles and saved the even cycles for the 68000. So your 68000 runs at full speed.\nBut if you need more and more work done by the custom chips, it starts to rob some of the even cycles from the 68000.\nIf you have a 16-colour lowres screen (4 bitplanes), Denise (the chip that turns RAM values into video signals) only reads display data on odd cycles. But if you add another bitplane for 32 colours, she needs some of the even cycles. If you add another bitplane for HAM or EHB mode, she needs even more.\nIn hires mode, it needs twice the bandwidth for twice the p"
+        },
+        {
+          "id": 49848022,
+          "author": "agar",
+          "text": "I wish there was a way to recapture the feeling of magic produced by using the Amiga. From usability to programmability, everything seemed exciting, new, and with unlimited possibility.\nIt really was like going from a black-and-white world to seeing full color.\nI always said that if 1% of the effort (and money) put into overcoming the PC architecture's shortcuts was put into the Amiga, the computing world would be in a very different place."
+        },
+        {
+          "id": 49842706,
+          "author": "MiroslavPokorny",
+          "text": "Maybe its me, but i believe the primary or secondary reason for screen is different screens had different resolutions and color depths, both of which dont really exist these days on any major OS."
+        },
+        {
+          "id": 49843553,
+          "author": "weinzierl",
+          "text": "How do different resolutions (pixel sizes) work? I get that everything memory related (including color mode and depth) could be switched on a raster line.\nIn theory it should be possible to change the frequency of the video signal mid screen as well, but I have a hard time to imagine switching repeatedly every frame wouldn't have driven the monitors of the time crazy. Even multi-sync monitors needed probably a couple of frames to sync, right?"
+        },
+        {
+          "id": 49844078,
+          "author": "LastTrain",
+          "text": "I don’t know much about Amiga, but from this article I recognize the Atari 8 bit / ANTIC DLI heritage at play!"
+        },
+        {
+          "id": 49847492,
+          "author": "mettamage",
+          "text": "The Amiga is before my time, but I'm getting TempleOS vibes a bit, graphics-wise."
+        }
+      ],
+      "title_ja": "Amigaスクリーン：プライマー",
+      "summary_ja": "ディスカッションのハイライト： Amigaグラフィックスハードウェアが起動するたびに、このダイアグラムを分解します。\nhttps://amigadev.grimore.org/Hardware_Manual_guide/node02d4....\nAmigaには素晴らしいトリックがあった/Amigaを使用して生み出された魔法の感覚を取り戻す方法があることを願っている/たぶんそれは私ですが、画面が異なる主な理由または副次的な理由は、画面の解像度と色の深さが異なることであり、どちらも実際には存在しないと思います",
+      "editor_note": "「Amigaスクリーン：プライマー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49800114,
+      "title_en": "Bwbach, My Guardian Goblin",
+      "url": "https://robertmay.photography/journal/bwbach-my-guardian-goblin",
+      "hn_url": "https://news.ycombinator.com/item?id=49800114",
+      "score": 21,
+      "comment_count": 14,
+      "posted_at": "2026-09-22T12:25:57+00:00",
+      "comments": [
+        {
+          "id": 49850198,
+          "author": "robotmay",
+          "text": "Just as an apology in advance for people reading the article on Linux: er, sorry. I've had a few people point out that Firefox on Linux renders the font particularly shitly (it somehow seems to get both the aliasing and colour wrong, wat). I'll fix it soon, but in the meantime using reader mode might save your eyes."
+        },
+        {
+          "id": 49850222,
+          "author": "throw-the-towel",
+          "text": "This is somewhat off-topic, but the colour contrast on this site absolutely sucks. Dark gray on what presumably is darker gray, in a thin font to boot, is a pain to read."
+        },
+        {
+          "id": 49800431,
+          "author": "Algernoon",
+          "text": "Are there any other existing edge proxies written in Erlang or Elixir out there? It’s not an area I’m very familiar with"
+        },
+        {
+          "id": 49850342,
+          "author": "throwawayffffas",
+          "text": "> Whilst Elixir, Erlang, and the BEAM (the holy trinity) can handle a ridiculous number of concurrent slow requests, Traefik could not.\nHave you tried nginx?"
+        },
+        {
+          "id": 49826270,
+          "author": "ochronus",
+          "text": "Nicely done! And yes, I'd love to see it open sourced."
+        }
+      ],
+      "title_ja": "私の守護者ゴブリン、ブーバック",
+      "summary_ja": "ディスカッションハイライト： Linuxで記事を読んでいる人に事前に謝罪するように：えー、申し訳ありません/これは少し話題から外れていますが、このサイトの色のコントラストはまったく吸い取られています/ErlangまたはElixirで書かれた他の既存のエッジプロキシはありますか？あまり馴染みのないエリアである",
+      "editor_note": "「私の守護者ゴブリン、ブーバック」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49849098,
+      "title_en": "A new way to manage memory: no garbage collection, extremely fast & safe access",
+      "url": "https://ulanguage.org/memory",
+      "hn_url": "https://news.ycombinator.com/item?id=49849098",
+      "score": 9,
+      "comment_count": 2,
+      "posted_at": "2026-09-25T19:53:08+00:00",
+      "comments": [],
+      "title_ja": "メモリを管理する新しい方法：ガベージコレクションなし、非常に高速で安全なアクセス",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「メモリを管理する新しい方法：ガベージコレクションなし、非常に高速で安全なアクセス」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "07",
+    "started_at": "2026-09-26T09:21:38.949046+09:00",
+    "finished_at": "2026-09-26T09:22:38.909001+09:00",
+    "story_count": 30
+  }
+}
