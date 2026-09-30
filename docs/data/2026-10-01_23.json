@@ -1,0 +1,1413 @@
+{
+  "date": "2026-10-01T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49911995,
+      "title_en": "Launch HN: Magnitude (YC S25) – Self-optimizing inference engine for agents",
+      "url": "https://github.com/magnitudedev/magnitude",
+      "hn_url": "https://news.ycombinator.com/item?id=49911995",
+      "score": 52,
+      "comment_count": 27,
+      "posted_at": "2026-09-30T17:37:40+00:00",
+      "comments": [
+        {
+          "id": 49912862,
+          "author": "mncharity",
+          "text": "Fwiw, top of my own pain-point list (I suppose given the first item, that's a pun) includes:\nExternal/policy-based throttling for temperature control. Unthrottled, my laptop bottom goes skin-burn hot. But fixed compute caps can have non-linearly dreadful performance impacts in particular cases. Plan is a runtime knob, to replace manual limits-kludgery.\nI'll use models which\nbarely\nfit in VRAM+RAM, and are order-1 tok/s\nslow\n. So tool call step overhead can be painful - a world where `ls` costs tens of seconds. Plan is blending harness plugins with inference loop, for \"no, don't stop - I already have the call result for you - just keep going\" (and also some logit games)."
+        },
+        {
+          "id": 49912331,
+          "author": "kmike84",
+          "text": "This seems to be a good idea. However, beating llama.cpp on speed is a low bar :)\nI found it to be a good baseline, but at least on Mac there was always something way faster, and/or with better memory requirements - like you said, ds4, omlx, mtplx, etc. It seems if you use local LLMs for real, there is very little reason not to use one of the more optimized engines.\n3 main failure modes I observed in the engines:\n* Not using best available spec decoding\n* Using too much VRAM for KV cache (e.g. KV cache used to take almost nothing in ds4, but huge amount of VRAM on unsloth/llama.cpp for deepseek models)\n* Degraded performance at large context sizes - benchmarks at 4K or 32K are awesome, but at realistic 100-200K it's slower than some stupid baseline"
+        },
+        {
+          "id": 49912394,
+          "author": "lxe",
+          "text": "On my local inference box I have a perpetual codex thread open in my llama.cpp checkout that I periodically ask to take a look at currently pending llama.cpp PRs, do some research on latest MTP, Dflash and other prediction or attention optimizations, do research on the latest model quants and finetunes, take a look at localLlama Reddit threads and just do essentially a sweep of the frontier.\nThen it rebuilds latest llama.cpp, grabs the PRs it finds relevant to test against, and then it performs a benchmark and finalizes the upgrade and verifies what model, variant, or even a separate finetune that we should be running.\nOccasionally, it performs its own optimizations and commits, which then gets superseded by pull requests and merged code that essentially validates the model's own optimization directionality."
+        },
+        {
+          "id": 49912533,
+          "author": "herf",
+          "text": "I have two NVIDIA GPUs (16GB+16GB) here, and it detects them each twice (says I have 4 GPUs). But then, it says most models are too big (anything >8GB?) and seems to run only on one GPU (5070ti).\nUnfortunately even with my 5070ti, llama.cpp seems to be about 20-30% faster at decode, running as:\nset CUDA_VISIBLE_DEVICES=0\nbuild\\bin\\Release\\llama-server -hf google/gemma-4-12B-it-qat-q4_0-gguf -ngl 99 --no-mmproj-offload -mg 0 -c 262144 -fa on --host 0.0.0.0"
+        },
+        {
+          "id": 49912629,
+          "author": "hypercube33",
+          "text": "From your description looks like this isn't for AMD or Strix Halo at all? Also one of the things I'm not sure of but definitely plays a huge factor is the variant of the model you download - how does this help select the fastest version for your specific hardware / context size?"
+        },
+        {
+          "id": 49912157,
+          "author": "nateb2022",
+          "text": "Any source on the benchmarks/methodology besides the image? There's a ton of variance possible in llama.cpp's performance depending on how it was configured. I'd also like to see benchmarks against MLX."
+        },
+        {
+          "id": 49912559,
+          "author": "teabee89",
+          "text": "How does this compare to ZML's llmd\nhttps://zml.ai/llmd/\n?"
+        },
+        {
+          "id": 49912423,
+          "author": "msdz",
+          "text": "Congratulations on the launch, it looks like an impressive product and tool!\nQ: From my (very, very limited!) understanding, I’m under the impression that part of the “inference engine inertia” is model- or at least architecture-specific code for most, if not each new open-weight model coming out.\nAssuming I got that right, do you plan on supporting everything vLLM/llama.cpp can do, such that Magnitude becomes a drop-in replacement for as many (economically/pareto-viable) models as possible, or do you want to focus on the best possible support for only a select few models/classes of models?"
+        }
+      ],
+      "title_ja": "HNを起動： Magnitude （ YC S 25 ） –エージェントの自己最適化推論エンジン",
+      "summary_ja": "ディスカッションのハイライト： Fwiw、私自身のペインポイントリストのトップ（最初の項目を考えると、それはペンです）は次のとおりです。\n温度制御のための外部/ポリシーベースの調整/これは良いアイデアのようです/ローカルの推論ボックスで、私のllama.cppチェックアウトで永続的なコーデックススレッドが開いています。定期的に保留中のllama.cpp PRを確認するように依頼し、いくつかの調査を行います",
+      "editor_note": "「HNを起動： Magnitude （ YC S 25 ） –エージェントの自己最適化推論エンジン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 2,
+      "id": 49911757,
+      "title_en": "Commit Description as a Thinking Tool",
+      "url": "https://yedhu.me/posts/commit-description-as-a-thinking-tool/",
+      "hn_url": "https://news.ycombinator.com/item?id=49911757",
+      "score": 57,
+      "comment_count": 20,
+      "posted_at": "2026-09-30T17:18:13+00:00",
+      "comments": [
+        {
+          "id": 49912789,
+          "author": "arialdomartini",
+          "text": "On top of this, it pays off to write the commit messages before the code\nhttps://arialdomartini.github.io/pre-emptive-commit-comments"
+        },
+        {
+          "id": 49912760,
+          "author": "WD-42",
+          "text": "Writing is thinking in every situation, not just limited to commit messages. This is a fact that I'm concerned people are forgetting, or worse never understood to begin with."
+        },
+        {
+          "id": 49912734,
+          "author": "dmtry",
+          "text": "I like git-notes (\nhttps://git-scm.com/docs/git-notes\n) for this sort of annotations and context. It's a nice balance - adjacent to commits, follows branch structure, easy to instrument, doesn't muddy the commit history.\nBeing able to stick a bit of directive text somewhere durable at any point in time has been surprisingly convenient for steering LLMs, as well."
+        },
+        {
+          "id": 49912395,
+          "author": "zahrevsky",
+          "text": "I sometimes struggle to decide whether to put an explanation in a commit message, in the docs (say in an ADR). I tend to save everything as docs because files are a more “universal” interface, so to speak. They’re in plain sight and harder to miss.\nI guess the main advantages of Git history are that it’s (1) uneditable and (2) directly linked to a specific commit."
+        },
+        {
+          "id": 49912649,
+          "author": "seunosewa",
+          "text": "I use a different LLM family to review commits and write detailed descriptions. If a commit was written with Fable/Opus, I use Sol/Astra to write a well reasoned commit message. If the message doesn't match my intent, then that triggers a manual review."
+        },
+        {
+          "id": 49912360,
+          "author": "kccqzy",
+          "text": "Long ago I changed the default commit message to include headers “Why?” and “How?” to remind myself that I need to explain why a change is made (what this article focuses on), and how it is made (different implementation approaches considered). I followed this format for a long time. I was in the top 1% for commit message length at the company."
+        },
+        {
+          "id": 49912293,
+          "author": "FLeXMurphy",
+          "text": "This has been a topic belabored since commit messages were a thing. CVS? RCS? Probably earlier."
+        },
+        {
+          "id": 49912268,
+          "author": "tombert",
+          "text": "Tangential, but very early in my career, back when I was still using SVN at work, I used to write all my commits in either limerick or haiku, usually smuggling in some curse word(s) with some cheeky message in there.  I was convinced that no one actually read them and I could get a laugh out of it.\nI did this for months without anyone noticing, and eventually my manager schedules a very awkward meeting asking me why I wrote saying “cfquery fucking blows sometimes”.  I had to sheepishly explain that I thought it was funny and then I stopped doing that and my commits became much more utilitarian and much less fun."
+        }
+      ],
+      "title_ja": "思考ツールとしてのコミット説明",
+      "summary_ja": "ディスカッションのハイライト：これに加えて、コードの前にコミットメッセージを書くことは有益です\nhttps://arialdomartini.github.io/pre-emptive-commit-comments/執筆とは、コミットメッセージだけでなく、あらゆる状況で考えることです/私はgit - notesが好きです（\nhttps://git-scm.com/docs/git-notes \n） この種の注釈とコンテキストのために",
+      "editor_note": "「思考ツールとしてのコミット説明」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 49909583,
+      "title_en": "A brief history of the Bloomberg terminal",
+      "url": "https://spectrum.ieee.org/bloomberg-terminal",
+      "hn_url": "https://news.ycombinator.com/item?id=49909583",
+      "score": 132,
+      "comment_count": 46,
+      "posted_at": "2026-09-30T14:34:07+00:00",
+      "comments": [
+        {
+          "id": 49910786,
+          "author": "rbanffy",
+          "text": "I have the highest regard for these terse, but information-dense displays that enable humans to quickly grasp all information they need to do their jobs, and nothing more. This is also something avionics provide - a modern cockpit displays are a work of art in layering needed information for what is happening at the time, both the dense PFD and the much specific that communicate aircraft status."
+        },
+        {
+          "id": 49912806,
+          "author": "Cider9986",
+          "text": "Have we made any progress on a cracked version?\nhttps://www.reddit.com/r/wallstreetbets/comments/8aiz67/how_..."
+        },
+        {
+          "id": 49911050,
+          "author": "mandevil",
+          "text": "The modern Terminal is based on a private fork of Chromium to give it the look and feel of a VT100 terminal, and integrate their private networking and security technologies. The BBT predates HTTP, and backwards compatibility is hugely important to the company- they have a museum where a second-generation Terminal from ~1985 shows the current news, because they are so dedicated to backwards compatibility that they still can support the 1985 hardware."
+        },
+        {
+          "id": 49911481,
+          "author": "helsinkiandrew",
+          "text": "Related: A look back: The Bloomberg Keyboard\nhttps://news.ycombinator.com/item?id=17079033\n(104 comments)"
+        },
+        {
+          "id": 49912141,
+          "author": "michaelastreiko",
+          "text": "Love how those dense screens make numbers checkable at a glance. Tiny shops still live that gap—bank lumps vs invoice lines—just without a dedicated terminal."
+        },
+        {
+          "id": 49912185,
+          "author": "mhh__",
+          "text": "It may be of interest to some that Bloomberg has an ocaml based DSL built in for pricing exotic derivatives."
+        },
+        {
+          "id": 49911261,
+          "author": "nxobject",
+          "text": "The article has an image of terminal keyboard used by a legendary trader... the key-caps are immaculate; the letters haven't faded at all. Amazing. I wonder if they were double-shot..."
+        },
+        {
+          "id": 49912361,
+          "author": "johnhamlin",
+          "text": "I did an internship in finance in college. Worked at a Bloomberg terminal that earned more money than me"
+        }
+      ],
+      "title_ja": "ブルームバーグターミナルの簡単な歴史",
+      "summary_ja": "ディスカッションのハイライト：私はこれらの簡潔さを最も重視していますが、人間が仕事をするために必要なすべての情報をすばやく把握できるようにする情報密度の高いディスプレイは、それ以上のものではありません/クラックされたバージョンで何らかの進歩がありましたか？\nhttps://www.reddit.com/r/wallstreetbets/comments/8aiz67/how_.../モダンなターミナルは、Chromiumのプライベートフォークに基づいており、VT 100ターミナルのような外観と雰囲気を与え、プライベートネットを統合しています",
+      "editor_note": "「ブルームバーグターミナルの簡単な歴史」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 4,
+      "id": 49906637,
+      "title_en": "You Said No MCP",
+      "url": "https://earendil.com/posts/you-said-no-mcp/",
+      "hn_url": "https://news.ycombinator.com/item?id=49906637",
+      "score": 507,
+      "comment_count": 285,
+      "posted_at": "2026-09-30T09:55:23+00:00",
+      "comments": [
+        {
+          "id": 49908136,
+          "author": "alin23",
+          "text": "Lately I found MCP to be much more than a coding tool. For example, I implemented it in my more complex macOS apps [0] like rcmd, Clop, Lunar, so they can be configured by natural language.\nSo even with a local Qwen and Pi you can now say things like:\nSet up Clop to optimise any PNG that I drop in my website assets folder and convert to a webp with the same name near it\nGet Crank to start Time Machine backups immediately when I connect my HDD and notify me when the backup is done.\nI want to be able to hold rcmd and fuzzy search and focus cmux agent panes\nBetterTouchTool has a great MCP which can create native SwiftUI views and bind them to hotkeys, trackpad gestures etc. It can leverage its immense macOS automation tools and private APIs to let agents do Computer Use.\nYou would need a much more capable coding model to code those tools from scratch and get the same fail-safe logic that the apps have honed over the years.\nLike, since MCP, Crank [1] has fully replaced my use of crontab, launchd, scattered scripts I run once a week. Not that it could not do that before, but it's so much simpler now to just describe the automation and have it happen reliably and visible in the UI. The f"
+        },
+        {
+          "id": 49910371,
+          "author": "gk1",
+          "text": "Props to the team not only for changing their minds from a strongly-held belief but making it very public\nand\nnot hiding the fact that it's a reversal.\nThe linked post from Armin is gold:\n\"... whenever you are confronted with a very strong opinion about a topic, reasonable discussions about the topic often involve arguments that have long become outdated or are no longer strictly relevant to the conversation.\"\n(\nhttps://lucumr.pocoo.org/2016/11/5/be-careful-about-what-you...\n)\nAnd that's from 2016! These days if you're arguing from a position you took even a week ago, you already might be out of sync."
+        },
+        {
+          "id": 49907780,
+          "author": "CharlieDigital",
+          "text": "This was the easiest call and many like me made it in March[0] among all of the anti-MCP wave of influencers claiming it dead (many, many prominent folks in tech including Garry Tan).  Literally every tech influencer in every social feed in March was calling MCP dead and crowning CLI the winner (completely ignoring every reasonable argument around security, observability/telemetry, ease of deployment and operations, etc.)\nA direct quote from March, 2026[1]:\n> If you’re still not convinced that a lot of this discourse [regarding the death of MCP] lacks nuance and is just hype, congrats on buying into the current AI-influencer FOMO hype cycle; see you in 6 months when the influencers move on to the next revelation of the moment to stay relevant and get your eyeballs and dollars.\nIt was\nfairly obvious\nwhy MCP would be needed once AI engineering and uptake moved beyond the solo developer and single harness stack of \"what works for Me\" versus  \"what works for My Team\", particularly in an enterprise context.  The key mistake people made was thinking in terms of their\nown\nworkflows and\nown\nlocal stacks instead of a team's workflow and a team's operational stack.  There was also an ignoran"
+        },
+        {
+          "id": 49906865,
+          "author": "_fw",
+          "text": "I appreciate their reluctance towards MCP, but /something/ is better than nothing.\nIt’s suboptimal for the reasons the author outlines: but so is USB-C. So is NVME, so is HDMI.\nWe use these hugely successful technologies in spite of their flaws because they’re widely compatible and easy for the end user.\nThat’s why MCP is everywhere. It might not be performant, robust and uniform but it  WILL get better over time.\nAnd I’d much rather have the broad MCP ecosystem that we have now than seven or eight different “optimal” ways of plugging in an LLM to something useful."
+        },
+        {
+          "id": 49906964,
+          "author": "KronisLV",
+          "text": "I feel the same way about needing support for sub-agents, those feel pretty foundational to me.\nI suspect that a smart model driving multiple dumber models for work and then using sub-agents with the same smart model for adversarial review will be a pretty common pattern.\nPersonally, I got a bit confused about Pi having most of that stuff as plugins since I remember how much of a mess Eclipse was where so much was just loosely fitting together plugins and just went with OpenCode since it covers most of my needs out of the box. Guess that might also be a sign of me getting older, because my IDEs and desktop environments are all closer to stock too."
+        },
+        {
+          "id": 49912751,
+          "author": "bloppe",
+          "text": "> The way we like to think about MCP at this point is that it should be much closer to OpenAPI with intelligent tool discovery.\nSo, exactly like OpenAPI?"
+        },
+        {
+          "id": 49912680,
+          "author": "dingaling911",
+          "text": "I might be dumb, but I don't quite understand why just running stuff in sub agents isn't sufficient for the context problem."
+        },
+        {
+          "id": 49908820,
+          "author": "abtinf",
+          "text": "> The way we like to think about MCP at this point is that it should be much closer to OpenAPI with intelligent tool discovery. That means tools should return structured data and tools should be discoverable by their documentation and description.\nOpenAPI\nis\n“intelligent tool discovery” (whatever that is). OpenAPI literally “returns structured data” and is “discoverable by their documentation and description.”\nJust once, I’d like to see someone explain MCP in terms that suggest they have any idea what they are talking about."
+        }
+      ],
+      "title_ja": "MCPはありませんとお答えになりました",
+      "summary_ja": "ディスカッションのハイライト：最近、MCPはコーディングツール以上のものであることがわかりました/強い信念から考えを変えるだけでなく、それを非常に公開するためにチームに支えています\nおよび\nそれが逆転であるという事実を隠すことはありません。\nArmin iからのリンクされた投稿/これは最も簡単な呼び出しであり、私のような多くの人が3月に[0]それが死んだと主張するインフルエンサーのすべての反MCPの波の中でそれを作った（ Garry Taを含むテクノロジーの著名な人々の多くは",
+      "editor_note": "「MCPはありませんとお答えになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49882754,
+      "title_en": "Burning Man Death Rates – A Short Lesson in Statistics",
+      "url": "https://ihavenapkinthoughts.substack.com/p/burning-man-death-rates-a-short-lesson",
+      "hn_url": "https://news.ycombinator.com/item?id=49882754",
+      "score": 57,
+      "comment_count": 38,
+      "posted_at": "2026-09-28T18:57:16+00:00",
+      "comments": [
+        {
+          "id": 49912204,
+          "author": "michael1999",
+          "text": "Some of this is selection bias, but lots of this is active work by the organizers.\nBurning Man has slowly re-created the regulatory state in response to the standard pressures of civilization.  To their credit, this has often been in response to near-misses, but sometimes in response to fatalities.  It started with sanitation (potties), and banning guns/explosives.  You can have 100 people shooting guns at a party in the desert without sanitation and muddle through.  At 10k, you are building a cholera-mad-max experiment.  A car running over a sleeping person prompted a designated road network.  And then they adopted zoning, with hush-ville and the large sound installation ends.  All supported by the ranger team preventing injury every day. Civilization is work."
+        },
+        {
+          "id": 49912523,
+          "author": "m101",
+          "text": "Been twice to burning man. It’s hard to describe the corruption of the soul that exists at burning man.\nThere’s a focus on the environment yet everything is disposable and people travel from all over the world to go.\nThere’s talk of safety but then they will literally kick you out of camp as soon as someone says you’re making them\nfeel\nunsafe because of some normal thing you did. YES, it did literally happen to someone I know. It felt like a public lynching.\nIt’s supposed to be camping together but then there’s pages of rules, documents, charity companies, and letters written by lawyers (yes, still the above).\nIt’s a celebration in mediocrity. Most things that happen are very mediocre at best. They just do it because you’re supposed to give something, so they give something mediocre.\nThe people are all hyper liberal, and the types that cannot help but judge individuals based on whether they’re in their group on not. People you called your friends for years will turn against you once the group turns on you.\nObviously most of it is all about seeing and being seen, engaging in the pleasures of sensual experiences on offer.\nI would describe it as literally sodom on earth. It’s shaped l"
+        },
+        {
+          "id": 49912142,
+          "author": "Aurornis",
+          "text": "Looking at population-level statistics, even adjusted for age, is useless. Going to burning man requires a level of health, energy, free time (not dealing with health issues), and freedom from chronic illnesses that make traveling to a desert a bad idea.\nMost people at high risk of random death are filtered out before they arrive.\nThere are so many better comparisons that could have been chosen. Comparing Burning Man to outdoor music festivals would be so much more accurate."
+        },
+        {
+          "id": 49911897,
+          "author": "zeroonetwothree",
+          "text": "The biggest factor is selection bias. If you are in the hospital with some terrible medical condition you aren’t going to Burning Man.\nIt would be interesting to look at cause of death at Burning Man, I would expect it to differ significantly from the population overall (even accounting for age)."
+        },
+        {
+          "id": 49912780,
+          "author": "totallynotabird",
+          "text": "One point that I haven't seen mentioned here is that deaths that happen outside of the event boundaries are not \"counted.\" For example, if someone is medevac'ed and dies en route or in a Reno hospital, the event organizers don't include that fatality in their count. There may be a distinction as to who is legally allowed to declare someone dead, and whether that can occur on-playa. Road fatalities of participants on their way to and from the event are also not counted ."
+        },
+        {
+          "id": 49912794,
+          "author": "skybrian",
+          "text": "Every calculated rate depends on what you put in the denominator, so it's a good idea to pay attention to denominators. Trying out different denominators can be helpful for putting a number into different perspectives."
+        },
+        {
+          "id": 49912836,
+          "author": "jazzpush2",
+          "text": "Burning man is an event for typical Silicon Valley folks to find community. The event is so lame because the people are - they spent their formative years following a preconceived plan laid out for them by their parents, instead of pursuing hobbies they're passionate about. Now they're playing catchup, and it comes off contrived and corny. (Not everyone is this way, of course, but by now the majority are, and so I'm painting with broad strokes).\nMost of the advertised experiences here come naturally as parts of passion-formed communities.\nThe down side is that it really isn't really possible to break into such communities in a meaningful way without having already done them for years before you've turned ~18-20yo.\nWhether it's team sports, rock climbing, surfing, music, etc. You can start [skateboarding] at age 25, but you'll never be a real [skater], or have the experiences that came along with spending the formative years of your life dedicated to it. Replace [skateboarding]/[skater] with your hobby of choice."
+        },
+        {
+          "id": 49912524,
+          "author": "0PingWithJesus",
+          "text": "I'm not sure what the point of this article is, the author claims 3 deaths at Burning Man is not unexpected because the age-adjusted mean death rate in the US  predicts that you'd expect 4.9 deaths. But at no point in the history of Burning Man has there ever been that many deaths, the article itself states that 3 deaths is the most at any Burning Man so far. So 4.9 deaths is not even close to actual average death rate expected for a \"mean\" Burning Man. And since the prediction of 4.9 deaths on average is wrong, any conclusion based upon that 4.9 deaths expectation is poorly founded. The author just seems to ignore that their model does not match the data at all. It's like if I used how many hot-dogs are in my fridge to model the Burning Man death rate, then at no point acknowledged that these two variables have no connection, either real or spurious, to each other. This is just mystifying to me."
+        }
+      ],
+      "title_ja": "バーニングマンの死亡率–統計学の短いレッスン",
+      "summary_ja": "ディスカッションのハイライト：これには選択バイアスがありますが、その多くは主催者による積極的な作業です。\nバーニングマンは、c/Been twice to burning man/の標準的な圧力に対応して、ゆっくりと規制状態を再現しました。人口レベルの統計を見ると、年齢を調整しても役に立ちません。",
+      "editor_note": "「バーニングマンの死亡率–統計学の短いレッスン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49883970,
+      "title_en": "I Could've Accessed 17T Microsoft Records",
+      "url": "https://blog.faav.net/how-i-couldve-accessed-17-trillion-microsoft-records",
+      "hn_url": "https://news.ycombinator.com/item?id=49883970",
+      "score": 164,
+      "comment_count": 74,
+      "posted_at": "2026-09-28T20:32:46+00:00",
+      "comments": [
+        {
+          "id": 49910750,
+          "author": "john_strinlai",
+          "text": ">\nMicrosoft had editorial control over this post, cutting sections and figures and reshaping how the impact is described before publication.\nthat is... not great. shame on microsoft.\nits actions like that which shed light on why we get the nighmare eclipses of the world. pressuring a kid into handing over full editorial control of a disclosure is gross."
+        },
+        {
+          "id": 49910471,
+          "author": "sdfhbdf",
+          "text": "> awarded $5000\nIt's a little perplexing. Of course it's always a controversial topic since it's difficult to value an exploit, but whenever we read about these online, which probably goes through some survivorship bias, they seem pretty low.\nOn\nhttps://www.microsoft.com/en-us/msrc/bounty\nit seems the top is $100,000 or $250,000 depending which program this counts under.\nWhat does HN think? Why would it be only $5000?"
+        },
+        {
+          "id": 49910759,
+          "author": "verst",
+          "text": "There is an internal library at Microsoft that reliably avoids all these JWT problems - Microsoft Identity Service Essentials (MISE). Adopting MISE and upgrading to the latest versions of it have been part of the Secure Future Initiative (SFI) that can be read about in the news of previous years. Unfortunately it sounds like the service team intentionally deferred the compliance alerts they will have received."
+        },
+        {
+          "id": 49910764,
+          "author": "throwaway2037",
+          "text": "> Hey! I’m Faav. A little over a year ago, when I was 15, I published Break into any Microsoft building: Leaking PII in Microsoft Guest Check-In, my first Microsoft write-up. I’m 16 now, and this one is a little bigger.\nDamn, these guys got schooled by a 15 year old!  Say less..."
+        },
+        {
+          "id": 49910952,
+          "author": "rdtsc",
+          "text": "> {\"alg\":\"none\",\"typ\":\"JWT\"}\nI don't know how this ever became a thing that was allowed into the spec and then picked from the spec and implemented in various implementations."
+        },
+        {
+          "id": 49910587,
+          "author": "er0k",
+          "text": "wow I am so surprised to hear once again how JWTs are terrible\nhttps://www.howmanydayssinceajwtalgnonevuln.com/"
+        },
+        {
+          "id": 49910227,
+          "author": "f311a",
+          "text": "What is Antares? Can't find anything related to it except for the 1B model, which does not seem to be capable of autoresearch.\nUPD: It's his personal bot."
+        },
+        {
+          "id": 49910542,
+          "author": "khalic",
+          "text": "You’re going places kid :) keep up the good work"
+        }
+      ],
+      "title_ja": "17 TのMicrosoftレコードにアクセスできた",
+      "summary_ja": "ディスカッションのハイライト：>\nマイクロソフトは、この投稿を編集管理し、セクションと図をカットし、出版前にインパクトをどのように説明するかを再構築しました。\nつまり.. /> $ 5000が授与されます\n少し当惑します/Microsoftには、これらすべてのJWTの問題を確実に回避する内部ライブラリがあります- Microsoft Identity Service Essentials （ MISE ）",
+      "editor_note": "「17 TのMicrosoftレコードにアクセスできた」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49909056,
+      "title_en": "What TLA+ can and can't check",
+      "url": "https://buttondown.com/hillelwayne/archive/what-tla-can-and-cant-check/",
+      "hn_url": "https://news.ycombinator.com/item?id=49909056",
+      "score": 61,
+      "comment_count": 10,
+      "posted_at": "2026-09-30T13:57:06+00:00",
+      "comments": [
+        {
+          "id": 49912416,
+          "author": "singron",
+          "text": "I love this. This is great to read if you are trying to use TLA+ for something.\nIn a different vein, another thing TLA+ isn't great at is modeling atomics and in particular weak-memory semantics or anything that's not sequentially consistent. If you translate your algorithm to pcal, it will run as if it was sequentially consistent. If you need to model non-sequential-consistency, then that needs to be spelled out with explicit logic to TLA+, which is probably too complicated and error-prone to do by hand. The C/C++/Rust memory models permit a lot of wacky stuff. I imagine you need to add read caches and writeback buffers for each variable with cache-flushing instructions at appropriate points, but maybe there is a more elegant way to do it.\nIf you use rust, miri and loom both have analyzers that can check some non-sequentially-consistent behavior (and loom doesn't actually implement sequential-consistency at all)."
+        },
+        {
+          "id": 49911795,
+          "author": "sourdecor",
+          "text": "I discovered Quint[0] due to this comment[1] on HN. Quint is \"an executable specification language [which works in JavaScript] with delightful tooling based on the temporal logic of actions (TLA)\". I think it is awesome and anybody interested in TLA+ should check it out.\n[0]:\nhttps://github.com/quint-co/quint\n[1]:\nhttps://news.ycombinator.com/item?id=49865720"
+        },
+        {
+          "id": 49911792,
+          "author": "rrook",
+          "text": "i think part of this is a shortcoming of our programming languages. generally, languages allow for the expression of partial graphs, which makes the verification problem technically challenging. my take is that a language that only exposes closed-graph semantics could help bridge the gap between the model and the implementation, even if not absolute."
+        },
+        {
+          "id": 49911400,
+          "author": "adamddev1",
+          "text": "Great write-up. People keep saying \"we can just write tests\" or more recently \"we can use formal verification,\" thinking these are sufficient safeguards we can use and then relegate all the implementation to LLMs. But the fact is that probabilistic guessing machines can't save them. People can't escape the need to actually understand the things they are building."
+        },
+        {
+          "id": 49912267,
+          "author": "westurner",
+          "text": "From \"How did software get so reliable without proof? (1996) [pdf]\" (2024)\nhttps://news.ycombinator.com/item?id=42425617\n:\n>\nFrom \"The Future of TLA+ [pdf]\" (2024)\nhttps://news.ycombinator.com/item?id=41385141\n:\n>>\nFormal methods including TLA+ also can't/don't prevent or can only workaround\nside channels in hardware and firmware\nthat is not verified. But that's a different layer.\n>>\nThings formal methods shouldn't be expected to find: Floating point arithmetic non-associativity, side-channels"
+        },
+        {
+          "id": 49912002,
+          "author": "ChrisArchitect",
+          "text": "Related:\nThe internet discovers TLA+. Now what?\nhttps://news.ycombinator.com/item?id=49863600"
+        }
+      ],
+      "title_ja": "TLA +が確認できることとできないこと",
+      "summary_ja": "ディスカッションのハイライト：私はこれが大好きです/私はHNのこのコメント[1]のためにQuint [0]を発見しました/これの一部は私たちのプログラミング言語の欠点だと思います",
+      "editor_note": "「TLA +が確認できることとできないこと」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 49908962,
+      "title_en": "SDF vs. MSDF vs. Slug: GPU Text Rendering",
+      "url": "https://alphapixeldev.com/sdf-vs-msdf-vs-slug-vs-rive-gpu-text-rendering/",
+      "hn_url": "https://news.ycombinator.com/item?id=49908962",
+      "score": 93,
+      "comment_count": 36,
+      "posted_at": "2026-09-30T13:50:50+00:00",
+      "comments": [
+        {
+          "id": 49912854,
+          "author": "exDM69",
+          "text": "As hobby project, I wrote a font rasterizer algorithm (two algorithms actually) that produces pixel perfect anti-aliased images (like Slug) using a similar but different algorithm. Rather than using Slug's clever root classifier for Bezier curves, I subdivide Bezier curves into monotonic sections where evaluating the winding number is much simpler and can be done in parallel for a group of pixels. It works nicely on GPU with warp/wave/subgroup operations and CPU using SIMD.\nAt first glance, subdividing the Bezier curves sounds like a bad idea (more Beziers to rasterize) but it opens doors for some parallelism, and most Bezier curves that appear in fonts are monotonic in the first place (so the increase is very modest). This was inspired by this entertaining but not very serious video about font rasterization [0].\nThe first parallelism optimization is checking against the curve bounding box vs. a rectangular (in uv-space) region of pixels, and this can quickly determine if the Bezier needs to be evaluated in the first place. This can be done per GPU warp.\nThe second optimization works only for rectilinear transformation (no rotation, skew or perspective). Solving the quadratic equat"
+        },
+        {
+          "id": 49910163,
+          "author": "GuB-42",
+          "text": "I once implemented SDF text rendering. To me, the thing I liked the most about this technique it how easy it is to add effects on top. With a few lines of shader code, I had outlines and softening of the edges (antialiasing). I didn't try the MSDF variant, as I didn't mind corners not being sharp when scaled up, so I don't know if these effects break on MSDF.\nSlug doesn't seem to support any of these, it is just \"for a given point, am I in or am I out?\", but it doesn't tell you by how much, which is great on really high resolution displays and large sizes, but you would lose the ability to do the kind of effects you can do with SDFs, and have to deal with antialiasing separately."
+        },
+        {
+          "id": 49909328,
+          "author": "jdanford",
+          "text": "Man, I am getting incredibly tired of reading LLM-generated writing"
+        },
+        {
+          "id": 49909734,
+          "author": "mattdesl",
+          "text": "I've also been working on a GPU curve renderer, Windfoil, based on a formulation that Fable 5 originally proposed to me during a directed search [1]. It is similar in some ways to Slug, not always as fast, but uses less shader storage (single band instead of two) and produces higher quality anti-aliasing i.e. closer to a box-filtered ground truth.\nIt may be of interest to some game/graphics devs here...\n[1]\nhttps://github.com/texel-org/windfoil-algorithm"
+        },
+        {
+          "id": 49910847,
+          "author": "Const-me",
+          "text": "“What makes glyphs hard” Another reason is hinting. Traditional text renderers like FreeType are aware of the pixel grid and they adjust the curves slightly, snapping them to that grid. For all methods in the article quite hard to do on GPUs.\n“Chinese, Japanese, and Korean have tens of thousands of glyphs, and baking all of them at several sizes is a memory disaster” One possible solution is dynamic atlas built on CPU for visible glyphs only.\n“The distance-field panels notch, where interpolating between stored samples no longer matches the true curve” Can’t it be fixed in the shader, using screen-space derivatives of the SDF? I think in theory, SDF value for pixel center combined with screen-space gradient vector of that number delivers enough data to compute partial coverage for the pixels on the edge."
+        },
+        {
+          "id": 49909513,
+          "author": "flohofwoe",
+          "text": "Here's a simple Slug rendering example on top of sokol_gfx.h:\nvia WebGPU backend:\nhttps://floooh.github.io/sokol-webgpu/slug-sapp.html\nvia WebGL2 backend:\nhttps://floooh.github.io/sokol-html5/slug-sapp.html\nThere's quite a bit of helper code plus stb_truetype.h and stb_ds.h under the hood to parse TTF files and crunch the TTF curve data into the runtime format expected by the Slug shader (this stuff should better go into an offline asset pipeline tool):\nhttps://github.com/floooh/sokol-samples/blob/master/libs/slu...\n...the actual text rendering code is also taking a couple of shortcuts, e.g. no kerning, no right-to-left, and also no text shaping.\nThere's also a new and complete text rendering stack by Mikko Mononen called Skribidi (AFAIK not based on Slug though):\nhttps://github.com/memononen/Skribidi\n...the list of external dependencies is a bit scary for a small self-contained sample though (Harfbuzz, SheenBidi, libunibreak, etc...), but that basically shows that proper international text rendering is really damn hard, even when trying to simplify the code as much as possible."
+        },
+        {
+          "id": 49910088,
+          "author": "seanw265",
+          "text": "Interesting read. Text rendering techniques have always fascinated me.\nI'm a bit confused because at some points it seems like the author is conflating \"tessellation\" and \"Rive\". Are they the same thing? As an uneducated reader, my understanding would be that Rive is an implementation of a renderer using the tessellation approach. But surely a generic tessellation approach could support perfect arbitrary transformations even if Rive doesn't?\nMaybe there's something I'm missing.\nAlso, a nitpick: in the \"head to head\" section, the author highlights Slug's better performance in green for the entries that it wins (or ties). For the sake of fairness, shouldn't we highlight the winners in every category? Surely Rive's \"low\" memory usage beats Slug's \"moderate\"?"
+        },
+        {
+          "id": 49909956,
+          "author": "pavlov",
+          "text": "> \"In 2017 Eric Lengyel published an algorithm, called Slug, that stopped dodging. It renders glyphs directly from their outlines in the fragment shader, with no texture atlas and no per-frame tessellation. Lengyel patented it in 2019, and on March 17, 2026 he dedicated that patent to the public domain.\"\nIt's nice that he gave the patent to public domain, but this is not how patents are supposed to work. You can't patent something two years after it was already published.\nI'm guessing he actually filed for a patent before publishing, and the article should read: \"Lengyel was granted a patent for it in 2019\"\nIt's an AI-written article, so maybe it's not reasonable to expect it to be consistent on this level..."
+        }
+      ],
+      "title_ja": "SDF対MSDF対スラッグ： GPUテキストレンダリング",
+      "summary_ja": "ディスカッションのハイライト：趣味のプロジェクトとして、類似しているが異なるアルゴリズムを使用してピクセル完璧なアンチエイリアス画像（スラッグなど）を生成するフォントラスタライザーアルゴリズム（実際には2つのアルゴリズム）を作成しました/一度SDFテキストレンダリングを実装したことがあります/Man、LLM生成の文章を読むのに信じられないほど疲れています",
+      "editor_note": "「SDF対MSDF対スラッグ： GPUテキストレンダリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 9,
+      "id": 49910613,
+      "title_en": "Moist-Electric Wallpaper for Indoor Energy Harvesting and Humidity Management",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71603",
+      "hn_url": "https://news.ycombinator.com/item?id=49910613",
+      "score": 36,
+      "comment_count": 25,
+      "posted_at": "2026-09-30T15:54:59+00:00",
+      "comments": [
+        {
+          "id": 49911883,
+          "author": "MostlyStable",
+          "text": "Cool concept. As they mention, more work needs to be done on long term durability, although they saw no degradation in their (very short) testing period. To me, the humidity control seems more worthwhile/useful than the power generation, although that could be a useful solution for small IoT devices like door and window sensors that don't need much power.\nI like it as a proof of concept, would love to see a more serious engineering effort to demonstrate what real world costs, durability, and aesthetics might look like (if significant portions of indoor walls are going to be covered in this stuff, it needs to be able to look decent)."
+        },
+        {
+          "id": 49911139,
+          "author": "jedberg",
+          "text": "I've thought for a while that it would be interesting to have micro dehumidifiers on my roof that supplement my water supply from humidity.\nTurn myself into a moisture farmer if you will.\nBut then I wonder, would it be a problem if everyone did it?  Would it cause humidity to drop in a bad way?"
+        },
+        {
+          "id": 49911845,
+          "author": "dinkblam",
+          "text": "> A 1596-unit array powers a wireless keyboard and simultaneously reduces indoor humidity from 38% to 32%,\nisn't below 40% \"bad\"?"
+        },
+        {
+          "id": 49911178,
+          "author": "bix6",
+          "text": "That’s impressive humidity drop for a small panel area. Curious how big the room was."
+        },
+        {
+          "id": 49912130,
+          "author": "westurner",
+          "text": "How to make this work with infrared wallpaper?\n\"Ask HN: Are there infrared wallpaper products in US markets?\" (2025)\nhttps://news.ycombinator.com/item?id=45444514\n:\n>\n/? infrared wallpaper heating :\nhttps://www.google.com/search?q=infrared+wallpaper+heating"
+        }
+      ],
+      "title_ja": "屋内のエネルギー収穫と湿度管理のための湿気のある電気壁紙",
+      "summary_ja": "ディスカッションのハイライト：クールなコンセプト/私は、湿度からの給水を補うマイクロ除湿器を屋根に設置することが興味深いとしばらく考えていました。\n1596ユニットのアレイがワイヤレスキーボードに電力を供給し、同時に屋内の湿度を38 ％から32 ％に下げ、\n40 ％未満は「悪い」ではありませんか？",
+      "editor_note": "「屋内のエネルギー収穫と湿度管理のための湿気のある電気壁紙」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 10,
+      "id": 49911531,
+      "title_en": "Bild AI (YC W25) Is Hiring a Founding Product Engineer",
+      "url": "https://www.ycombinator.com/companies/bild-ai/jobs/dAbC3Gd-founding-product-engineer",
+      "hn_url": "https://news.ycombinator.com/item?id=49911531",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-09-30T17:00:20+00:00",
+      "comments": [],
+      "title_ja": "Bild AI (YC W 25)が創業製品エンジニアを採用",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Bild AI (YC W 25)が創業製品エンジニアを採用」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49908394,
+      "title_en": "The last time my family was replaced by technology",
+      "url": "https://manuel.darcemont.fr/posts/the-last-time-my-family-was-replaced-by-technology/",
+      "hn_url": "https://news.ycombinator.com/item?id=49908394",
+      "score": 82,
+      "comment_count": 176,
+      "posted_at": "2026-09-30T13:06:11+00:00",
+      "comments": [
+        {
+          "id": 49912855,
+          "author": "techteach00",
+          "text": "I just wanted to point something out. I hear people say the AI revolution is the biggest one since the industrial revolution. I think it's the biggest revolution since the one that just preceded us, the information (computer) age. So we're still going fairly in order revolution wise."
+        },
+        {
+          "id": 49912374,
+          "author": "harimau777",
+          "text": "Have any of these articles actually addressed HOW software developers are supposed to retrain for good jobs? Personally I have neither the money nor the years to go back to college to get a livable job."
+        },
+        {
+          "id": 49909182,
+          "author": "megalomanu",
+          "text": "Author here! Thanks for all the comments. This post isn't meant as a lesson or a judgment, something to tell \"just shut up and adapt like my ancestor did\". The situation is hard, and I wasn't trying to dismiss anyone's anxiety. No one wants to hear \"you'll be fine\" when something bad just happened.\nIt's mostly a personal story. You can see it as a kind of tribute to a great-great-grandfather I never met, partly because I'd never heard a story like it before. It's banal but still a big adventure in the family. I find it fascinating that he grew up in a completely different world from mine and still felt some of the same doubts and anxieties I do today. And I'm really proud of him, because his \"pivot\" let my family stay in the village instead of maybe leaving to work in factories in the city. My father loved his job, and in a way that's thanks to him."
+        },
+        {
+          "id": 49912746,
+          "author": "pavinjoseph",
+          "text": "So far the impact of LLMs have been very much overstated.\nLike most (all?) tools, they require a human in the loop to work as intended.\nThis fear of being replaced by an LLM is unfounded and irrational.\nThe alternatives that may cause such mass displacement like World Models and such are yet to be proven."
+        },
+        {
+          "id": 49908685,
+          "author": "zug_zug",
+          "text": "And my great great grandpa thought horses would lose all their jobs to cars. And they all did and it was never the same again.\nThere’s no quick answers, but intuitively I think we all get that the % of jobs not doable by AI and robotics approaches 0 over time."
+        },
+        {
+          "id": 49908657,
+          "author": "hn9zmdcaou",
+          "text": "My grandad ran a small letterpress shop and when phototypesetting came in he didn't retrain, he just did smaller and smaller jobs until it was wedding invitations."
+        },
+        {
+          "id": 49909719,
+          "author": "zeven7",
+          "text": "Well written, and good to reflect on.\nHowever, the one thing I feel like is missed by some in these conversations is that what's being built is a general purpose thinking machine, not a coding machine. How are we going to transition from writing code to solving problems when the machines are solving the problems?"
+        },
+        {
+          "id": 49908854,
+          "author": "delichon",
+          "text": "Back in the '70s my dad used to tell a joke about his dad. He said that my grandfather had a job that supported his whole large family while my dad was growing up. But unfortunately technology caught up with him, and he was replaced by a device just this big, and he held his fingers apart to demonstrate.\nThen he said the real disaster hit: \"And then my mom got one.\"\nGrandma was there when he told it more than once, and thought it was hilarious.\nIt usually came with another joke about the time he was caught with his pecker in the pickle slicer. He was fired, and so was the pickle slicer.\nIn the seventies you were expected to tell jokes like that and allowed to laugh at them."
+        }
+      ],
+      "title_ja": "私の家族が最後にテクノロジーに置き換えられたとき",
+      "summary_ja": "ディスカッションのハイライト：私はただ何かを指摘したかっただけです/これらの記事のいずれかが、ソフトウェア開発者が良い仕事のためにどのように再訓練されるべきかを実際に扱っていますか？個人的には、私はここで大学/作家に戻るためのお金も年もありません！コメントありがとうございます",
+      "editor_note": "「私の家族が最後にテクノロジーに置き換えられたとき」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49909610,
+      "title_en": "SDF Public Access Unix System ... est. 1987",
+      "url": "https://sdf.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49909610",
+      "score": 45,
+      "comment_count": 5,
+      "posted_at": "2026-09-30T14:36:02+00:00",
+      "comments": [
+        {
+          "id": 49912715,
+          "author": "moecables",
+          "text": "I have an SDF login still and I go in there every once in awhile but don't really know what others use it for"
+        },
+        {
+          "id": 49910519,
+          "author": "chancitag",
+          "text": "Love SDF. They run some great services for members, like a mastodon instance and pixelfed."
+        },
+        {
+          "id": 49911965,
+          "author": "ChrisArchitect",
+          "text": "Some previous discussions:\nApril\nhttps://news.ycombinator.com/item?id=47819410\n2022\nhttps://news.ycombinator.com/item?id=31076886\n2017\nhttps://news.ycombinator.com/item?id=14940790\n2017\nhttps://news.ycombinator.com/item?id=14134798"
+        }
+      ],
+      "title_ja": "SDFパブリックアクセスUnixシステム...推定1987年",
+      "summary_ja": "ディスカッションのハイライト：私はまだSDFログインを持っており、時々そこに行きますが、他の人がそれを何に使用しているのかわかりません/SDFを愛する/以前のディスカッション：\n4月\nhttps://news.ycombinator.com/item?id=47819410\n2022\nhttps://news.ycombinator.com/item?id=31076886\n2017\nhttps://news.ycombinator.com/item?id=14940790",
+      "editor_note": "「SDFパブリックアクセスUnixシステム...推定1987年」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49912444,
+      "title_en": "5x faster Edge Functions: V8 isolates to Firecracker MicroVMs",
+      "url": "https://www.netlify.com/blog/edge-functions-firecracker-microvms/",
+      "hn_url": "https://news.ycombinator.com/item?id=49912444",
+      "score": 9,
+      "comment_count": 1,
+      "posted_at": "2026-09-30T18:17:45+00:00",
+      "comments": [
+        {
+          "id": 49912718,
+          "author": "TaupeRanger",
+          "text": "Curtains for Zoosha? K-smog and Batboy caught flipping a grunt."
+        }
+      ],
+      "title_ja": "5倍高速なエッジ機能： V 8からFirecracker MicroVMへの分離",
+      "summary_ja": "ディスカッションハイライト：ズーシャのためのカーテン？ Kスモッグとバットボーイは、うなり声を鳴らしているのを見つけました。",
+      "editor_note": "「5倍高速なエッジ機能： V 8からFirecracker MicroVMへの分離」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49884346,
+      "title_en": "Reverse-engineering a $35 backup camera display (AMT630A)",
+      "url": "https://github.com/mogrinz/AMT630A",
+      "hn_url": "https://news.ycombinator.com/item?id=49884346",
+      "score": 46,
+      "comment_count": 13,
+      "posted_at": "2026-09-28T21:06:30+00:00",
+      "comments": [
+        {
+          "id": 49884347,
+          "author": "mogrinz",
+          "text": "This started because I built a full-size Robby the Robot suit and discovered I couldn't actually see out of it (\nhttps://youtu.be/gAHd46ErNA8?si=-iOwbobp4trPXdGB\n)\nI bought a $35 backup camera/display to solve that problem, then discovered that the display contained an AMT630A video processor with a surprisingly capable OSD system. That sent me down a rabbit hole of I2C probing, firmware dumping, register tracing, custom graphics, bitmap formats, hidden factory menus, and eventually figuring out how to use an ESP32 to generate a programmable HUD over the live composite video.\nI ended up turning what I learned into an Arduino library, which I've released on GitHub. It supports built-in and custom fonts, multiple OSD windows, 16-color bitmaps, palettes, transparency, and animation. It can also be used with composite video sources other than the camera.\nThe library and code are here:\nhttps://github.com/mogrinz/AMT630A\nYou can also install directly from the Arduino IDE Library Manager (search for AMT630A)"
+        },
+        {
+          "id": 49911990,
+          "author": "bobsmooth",
+          "text": "Classic bit of reverse engineering. I love how detailed your readme is."
+        },
+        {
+          "id": 49911778,
+          "author": "BugsJustFindMe",
+          "text": "Title nit: \"backup\" means a second copy, \"back up\" is the verb phrase for moving backwards. Verb phrases get hyphenated for clarity when used as adjectives immediately preceding a noun. So this should be \"back-up camera\", not \"backup camera\"."
+        }
+      ],
+      "title_ja": "$ 35のバックアップカメラディスプレイのリバースエンジニアリング（ AMT 630 A ）",
+      "summary_ja": "ディスカッションのハイライト：これは、フルサイズのRobby the Robotスーツを構築し、実際にはそれを見ることができないことがわかったために始まりました（\nhttps://youtu.be/gAHd46ErNA8?si=-iOwbobp4trPXdGB \n）\n$ 35 b/Classic bit of reverse engineering/Title nit: \"backup\" means a second copy, \"back up\" is the verb phrase for moving backwards",
+      "editor_note": "「$ 35のバックアップカメラディスプレイのリバースエンジニアリング（ AMT 630 A ）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 15,
+      "id": 49901736,
+      "title_en": "Livenerf: Has Opus 5.5 been nerfed yet?",
+      "url": "https://github.com/ninjahawk/livenerf",
+      "hn_url": "https://news.ycombinator.com/item?id=49901736",
+      "score": 840,
+      "comment_count": 355,
+      "posted_at": "2026-09-29T22:36:14+00:00",
+      "comments": [
+        {
+          "id": 49902317,
+          "author": "jug",
+          "text": "We also have Nerf Bench:\nhttps://www.bridgebench.ai/nerf-bench\nThey test it on launch day, then benchmark it against that. A deviation of above 10% is considered a change. They're currently tracking Opus 5.5 and GPT-6 Astra.\nThis bench famously detected a degradation of Opus 4.6 which Anthropic later blogged about. I personally think people sense nerfs more often than they happen and that it's often about honeymoon effects."
+        },
+        {
+          "id": 49910534,
+          "author": "ChristmasTomer",
+          "text": "Glad someone's keeping track. These threads always turn into “they made it dumber” vs “nah, you're imagining it.”\nA few bad answers can be annoying as hell, but who knows what's behind them. I'm curious to see how the numbers look after a few weeks. Props for tracking improvements too."
+        },
+        {
+          "id": 49904026,
+          "author": "sheepscreek",
+          "text": "> It could also mean nothing happened and people are pattern-matching on noise.\nIt is definitely not this. Anthropic has thousands of employees making probably > 100,000+ tiny changes across the entire stack and infrastructure everyday.\nThe compounding effect can definitely cause temporary regressions in some domain or use-case that doesn’t have really good coverage in their internal tests.\nWhat makes this particularly challenging in the case of LLMs is how changing some language in the prompt can vastly affect the output.\nBut this is less true as models become larger and additional parameters are able to capture each and every possible nuance of the language. I’d say caching and cache tuning or token optimization/tweaks to thinking are the biggest culprits today."
+        },
+        {
+          "id": 49905447,
+          "author": "msejas",
+          "text": "As a claude code power user, when I get the 'rate the feedback on Claude' pop up, I used to say good or fine out of habit, and immediately after sending this feedback, I felt an instant degradation and mistakes that usually don't happen.\nNow I dismiss it every time and the quality is more consistent.\nComplete adhoc and personal experience but something I've observed, wouldn't be surprised if they nerfed on a per session basis"
+        },
+        {
+          "id": 49902336,
+          "author": "johnfn",
+          "text": "\"Nerf\"ing models isn't real in the vast majority of reported cases. Benchmarks like this or the 100 other \"let's see if nerfing is real\" copies would have shown it by now if it was.\nI made a graphic to explain why people feel like the models get nerfed:\nhttps://x.com/thesilenceturns/status/2103551351825543610\nThe idea is that new models can handle up to a certain level of complexity, at which point they fall apart. Every new model can handle more complexity, so there's a wonderful time upon release when you feel like you can do anything, only for you to hit the complexity ceiling a few days later when you saturate it. Rinse and repeat for the next model."
+        },
+        {
+          "id": 49906069,
+          "author": "khalic",
+          "text": "Given the tens of bot accounts in this thread making obviously misleading statements, I think you’re onto something here. Might be a good idea to open a Patreon or something, you probably need throwaway accounts to prevent anthropic from feeding you good models."
+        },
+        {
+          "id": 49908907,
+          "author": "giancarlostoro",
+          "text": "I think Anthropic tries to adjust things to handle their user load, which has negative effects. For example, before they added 1 million tokens back in February, I could effectively prompt Claude to keep going until x number of requirements were completed, now I have to make a loop, not only that, but Claude will finish before my loop time sometimes and wait for the next pass, which could be in like 30 minutes or so. This probably helps them keep a lighter load, but it could probably tick off anybody, the output is the same, you just aren't getting it as quickly as you once did. I don't hate it, I use Claude on my off-hours to work on personal side projects."
+        },
+        {
+          "id": 49906179,
+          "author": "bandrami",
+          "text": "Is it the models or the users' dopamine receptors that get nerfed after a few weeks?"
+        }
+      ],
+      "title_ja": "Livenerf: Opus 5.5はもう完成しましたか？",
+      "summary_ja": "ディスカッションのハイライト： Nerf Benchもあります：\nhttps://www.bridgebench.ai/nerf-bench\n発売日にテストしてから、それをベンチマークします/誰かが追跡していることを嬉しく思います/>それはまた、何も起こらず、人々が騒音にパターンマッチングしていることを意味する可能性があります。\n間違いなくこれではありません",
+      "editor_note": "「Livenerf: Opus 5.5はもう完成しましたか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 16,
+      "id": 49890707,
+      "title_en": "Show HN: JBR-001 – An open-source 3D printable desktop robot",
+      "url": "https://projecthub.arduino.cc/syntheticaidata/jbr-001-a-desktop-companion-robot-powered-by-arduino-uno-q-b11c96",
+      "hn_url": "https://news.ycombinator.com/item?id=49890707",
+      "score": 109,
+      "comment_count": 24,
+      "posted_at": "2026-09-29T10:05:56+00:00",
+      "comments": [
+        {
+          "id": 49909166,
+          "author": "phil42",
+          "text": "This reminds me of the Otto DIY (\nhttps://www.ottodiy.com/\n), which also used to be a free Arduino (nano) based, 3D-printable robot until it was bought by HP. Just like with the JBR-001 it seems that the main goal has shifted towards making it a commercial product, which is a shame. Especially the low price point made it so attractive for beginners and students alike.\nDoes anyone know of similar,\nreally\nopen source and free projects like this?"
+        },
+        {
+          "id": 49891318,
+          "author": "salamachinas",
+          "text": "Thanks for sharing! Love that it's open source with the 3D files and instructions included. My son and I are going to build this together. Great project."
+        },
+        {
+          "id": 49910827,
+          "author": "krisoft",
+          "text": "I would never design a robot which looks like it can walk, but actually can’t walk. That feels fundamentally dishonest to me. If nothing else it will let down plenty of people when they realise that the cool robot has legs only for show."
+        },
+        {
+          "id": 49907355,
+          "author": "mrheosuper",
+          "text": "I’m sad that it uses the Uno Q. I really dislike the uno Q, since it uses QC SoC, which means no cheap Chinese clone, which is not very accessible to everyone."
+        },
+        {
+          "id": 49907420,
+          "author": "NikhilChowdaryG",
+          "text": "I have started to use my editor to build a robotic arm and we are using JEPA for perception and Ornith local model for reasoning as a hybrid approach for arm because there’s no single model that handles both."
+        },
+        {
+          "id": 49910944,
+          "author": "altruios",
+          "text": "We are like... 5 years away from real star wars droids at this pace. keep up the good work!\nWhat was the biggest design challenge you faced?"
+        },
+        {
+          "id": 49909623,
+          "author": "shevy-java",
+          "text": "Finally I can have me my little worker slave. \\o/"
+        },
+        {
+          "id": 49909669,
+          "author": "numpad0",
+          "text": "...is this exterior design AI generated?"
+        }
+      ],
+      "title_ja": "Show HN: JBR -001 -オープンソースの3 D印刷可能なデスクトップロボット",
+      "summary_ja": "ディスカッションハイライト：これはオットーDIY （\nhttps://www.ottodiy.com/ \n）HPが購入するまで、無料のArduino （ nano ）ベースの3 Dプリント可能なロボットでした/共有していただきありがとうございます！ 3 Dファイルと説明書が含まれているオープンソースであることが気に入っています/歩けるように見えるが、実際には歩けないロボットを設計することは決してありません",
+      "editor_note": "「Show HN: JBR -001 -オープンソースの3 D印刷可能なデスクトップロボット」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 49904314,
+      "title_en": "LinkedIn Larpmaxxing",
+      "url": "https://hereticpleb.vercel.app/blog/linkedin-larpmaxxing/",
+      "hn_url": "https://news.ycombinator.com/item?id=49904314",
+      "score": 76,
+      "comment_count": 78,
+      "posted_at": "2026-09-30T04:19:57+00:00",
+      "comments": [
+        {
+          "id": 49912871,
+          "author": "meerita",
+          "text": "Who really goes to Linkedin to get useful info? That's why I am in Hacker News."
+        },
+        {
+          "id": 49904725,
+          "author": "kleiba2",
+          "text": "I don't have a LinkedIn account and don't really care about it. The one thing, however, that bothers me to no end is all the many, many times when a LinkedIn page comes up near the top of the results to a Google query, then I click on it, and chances are I don't get to the actual information, but to the LinkedIn log-in page.\nNot that I think that this is LinkedIn's fault, but I assume Google's rationale is that \"everybody has a LinkedIn account\" so it's fine to include result pages that cannot be accessed without one."
+        },
+        {
+          "id": 49904814,
+          "author": "MisterMunchkin",
+          "text": "You guys are playing it wrong. You don’t larpmax in general, you do it to hit specific targets.\nThe person who decides my promotions  follows me on LinkedIn. I never really see her except at the Christmas party etc, so the only way to influence her directly is through getting in her feed. If she regularly sees how great I am, that establishes the thought in her mind, so when she is then asked to promote me by other people, she’ll think it’s a good idea."
+        },
+        {
+          "id": 49912803,
+          "author": "spprashant",
+          "text": "I don't mind the projects. Its the grandiose self-important posting that is insufferable. Not everything you experienced today is an epiphany on productivity or team-building."
+        },
+        {
+          "id": 49904519,
+          "author": "jmathai",
+          "text": "LinkedIn is truly an odd place. I think it’s more performative than Instagram."
+        },
+        {
+          "id": 49912615,
+          "author": "imagetic",
+          "text": "People look at me weird when I tell them I don’t have a LinkedIn account."
+        },
+        {
+          "id": 49912454,
+          "author": "TrackerFF",
+          "text": "As far as larping goes, quantitative finance is currently the hottest field for that. I'm sure that close to 100% of the people on social media that market themselves as\nquants\nare in fact not professional quantitative analysts / researchers / developers.\nThey all post vids of their vibe-coded dashboards where agents are doing market research and executing trades, while they kick back as collect to profits.\nI've even seen these people promote some ASICs for home use, you know, to get those extra milliseconds shaved off.\nAfter tech layoffs started, the get-rich-quick folks looked on what other fields pay well, and the decided that the absolutely most selective, the most credentialed and gatekept niche role in finance, that's the one to impersonate."
+        },
+        {
+          "id": 49912593,
+          "author": "tombert",
+          "text": "I'm glad that LinkedIn's bullshit \"inspiration porn\" has finally gotten the hatred I always felt it deserved [1].\nIt's been an issue since well before LLMs were common, but LLMs have brought it up to 11; now all I get is bullshit hustle-culture diatribes or weird political opinions that really have no business being part of a site that is ostensibly your resume. Like most Microsoft products, its snuck in as a \"necessary\" part of our life before anyone truly realized how awful it is.\nI have debated just deleting my LinkedIn because I hate the platform so much, but annoyingly a lot of job applications actually\nrequire\nyou paste in your LinkedIn.  I don't know if putting something like `linkedin.com/donthaveone` would put me on an automatic rejection pile, but I've been too much of a coward to try it.\n[1]\nhttps://news.ycombinator.com/item?id=37905664"
+        }
+      ],
+      "title_ja": "LinkedIn Larpmaxxing",
+      "summary_ja": "ディスカッションのハイライト：役に立つ情報を得るためにLinkedinに実際に行くのは誰ですか？だから私はHacker Newsにいます。/私はLinkedInアカウントを持っておらず、あまり気にしていません/あなたたちは間違ったプレーをしています",
+      "editor_note": "「LinkedIn Larpmaxxing」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49887343,
+      "title_en": "Solving Factorio Quality",
+      "url": "https://exyr.org/2026/solving-factorio-quality/",
+      "hn_url": "https://news.ycombinator.com/item?id=49887343",
+      "score": 231,
+      "comment_count": 85,
+      "posted_at": "2026-09-29T02:27:54+00:00",
+      "comments": [
+        {
+          "id": 49905946,
+          "author": "DanielHB",
+          "text": "If anyone is interested I made a build that can make most items at the highest quality possible using a single assembler by switching the active recipe on the assembler. You just throw in the basic resources for the base items in the recipe and it just builds the whole thing at legendary quality.\nhttps://www.reddit.com/r/FactorioBlueprints/comments/1gl5v50...\nIt takes a bit of setup for each item you want to make though and doesn't work if the process takes more than one fluid. The default in the blueprint is to make blue circuits.\nUnfortunately factorio has this mechanic where if you switch the item an assembler is making it loses progress for productivity bonuses, so this setup is not really practical for many items. Plus it takes a lot of space. But it is fascinating to see it work."
+        },
+        {
+          "id": 49908649,
+          "author": "scottmsul",
+          "text": "Oh boy, this is a rabbit hole I've gone down pretty hard as well. I made a python script and a separate js app for running linear solvers on the upcycling problem. I really like the author's exposition for how to setup the solve matrix, as it's the first step when understanding the quality math.\nSpeaking\nvery\nhigh level, probably the most interesting and counter-intuitive thing I learned from doing these projects is that adding just a touch of speed modules can go a long way, especially at the lower quality levels. Of course, if the only thing being optimized is legendary outputs per common input, then speed is always bad. But because an upcycler works much better when the buildings and modules are themselves legendary, usually the limiting factor is the (very expensive) crafting machines, rather than the amount of input lines. Adding a touch of speed can give way more throughput for the same number of legendary crafting machines, at the cost of some wasted inputs, which isn't a big deal when you can slap down a few more cheap miners.\nPython script:\nhttps://github.com/scottmsul/FactorioQualityOptimizer\nJS source:\nhttps://github.com/scottmsul/upcycle\nJS app:\nhttps://scottmsul.github"
+        },
+        {
+          "id": 49910105,
+          "author": "michael-online",
+          "text": "> Factorio pretty much founded the factory video game genre\nI feel very nerd sniped by this one! Factorio was heavily influenced by minecraft mods like industrialcraft2 which create factories inside of minecraft. Here's the factorio creator discussing it in 2013\nhttps://forum.industrial-craft.net/thread/8845-factorio/\nAs usual, the ouroboros of culture continues, and now minecraft mods spend lots of time imitating factorio, as well as iterating from the same original seeds."
+        },
+        {
+          "id": 49905750,
+          "author": "fabian2k",
+          "text": "The difference between Washing and Upcycling is enormous. That does fit my observations, it's nice to see it quantified.\nAnother aspect that is nice to see quantified is how big the effect of better quality modules is. You likely underestimate that initially since it's not linear.\nThe Space Casino mentioned in the post is not possible anymore in Factorio 2.1. Which is experimental at the moment, but I'd assume will be released soon. And experimental Factorio tends to be as stable or more as the stable versions of other games."
+        },
+        {
+          "id": 49911514,
+          "author": "djkorchi",
+          "text": "Computing an infinite sum of matrix powers seems a bit nasty, but actually reformulating the problem as a transfer matrix (where legendary -> legendary with probability 1) let's you express the state of the system after N loops simply as  $A^N x_0 = x_n$. Then, A^N can be readily computed by diagonalizing the matrix so that $A = V diag(\\lambda_1, ...) V^T$. The matrix exponential means that different eigenvalues decay at different rates. The largest should be lambda_1 = 1 which will survive in the infinite N limit, and tells you the steady state solution. This machinery is a bit more general than the expectation based equations that the author solves with Gaussian elimination, and is a nice application of SVD/matrix diagonalization."
+        },
+        {
+          "id": 49907943,
+          "author": "unglaublich",
+          "text": "“Space casino” is gone from Factorio 2.1 as asteroid reprocessors don't take quality items anymore. Motivated by devs that it was 'just too easy' to get legendary items this way."
+        },
+        {
+          "id": 49905638,
+          "author": "hangrybear666",
+          "text": "The systematic and scientific approach is absolutely warranted if you want to produce legendary quality at scale. I brute forced my way to legendary mech armor with manually steered recycler loops and wasting millions of iron and copper in the process. Since playing on a Linux developer laptop with 0GB VRam and an onboard GPU (at 60FPS!) I couldn't have scaled it much larger anyways but the entire game, it's a fever dream of optimization and I love it."
+        },
+        {
+          "id": 49905754,
+          "author": "jordiburgos",
+          "text": "I would elect the people that does this kind of analysis and management for President."
+        }
+      ],
+      "title_ja": "Solving Factorioの品質",
+      "summary_ja": "ディスカッションハイライト：誰かが興味を持っているなら、アセンブラーでアクティブなレシピを切り替えることで、単一のアセンブラーを使用して可能な限り最高の品質でほとんどのアイテムを作ることができるビルドを作成しました/ああ、これはウサギの穴です。私もかなり苦労しました/> Factorioは工場のビデオゲームジャンルをかなり確立しました\nこいつに狙われてすごくオタクっぽい！ Factorioは、インダストリアルクラフト2のようなマインクラフトモッドの影響を強く受けていました。",
+      "editor_note": "「Solving Factorioの品質」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49888039,
+      "title_en": "Energy Timelines Photovoltaic",
+      "url": "https://www.eia.gov/kids/history-of-energy/timelines/photovoltaic.php",
+      "hn_url": "https://news.ycombinator.com/item?id=49888039",
+      "score": 4,
+      "comment_count": 1,
+      "posted_at": "2026-09-29T03:59:46+00:00",
+      "comments": [],
+      "title_ja": "太陽光発電のエネルギータイムライン",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「太陽光発電のエネルギータイムライン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49909913,
+      "title_en": "Show HN: Strata – an expressive semantic layer that can say no to your LLM",
+      "url": "https://strata.do/try/",
+      "hn_url": "https://news.ycombinator.com/item?id=49909913",
+      "score": 7,
+      "comment_count": 0,
+      "posted_at": "2026-09-30T14:59:57+00:00",
+      "comments": [],
+      "title_ja": "Show HN: Strata – LLMにノーと言える表現力豊かなセマンティックレイヤー",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Show HN: Strata – LLMにノーと言える表現力豊かなセマンティックレイヤー」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 21,
+      "id": 49889140,
+      "title_en": "Mathematical Origami",
+      "url": "https://mathigon.org/origami",
+      "hn_url": "https://news.ycombinator.com/item?id=49889140",
+      "score": 96,
+      "comment_count": 22,
+      "posted_at": "2026-09-29T06:45:46+00:00",
+      "comments": [
+        {
+          "id": 49911981,
+          "author": "rahimnathwani",
+          "text": "The 'origami ball' on the bottom left doesn't link to instructions.\nIn case anyone wants to make it, you can google 'venus kusudama'\nhttps://www.youtube.com/watch?v=TNwPzwtAme4\nhttps://www.cutoutandkeep.net/projects/heres-the-venus"
+        },
+        {
+          "id": 49910592,
+          "author": "fjfaase",
+          "text": "It is possible to fold a cube from a single sheet. The cube on the page is made from several units. The method for folding a cube from a single sheet was independently invented by Kazou Haga, Kunihiko Kasahara, Jeannine Mosely, me, and probably some others as well.\nhttps://www.iwriteiam.nl/box-fold.html"
+        },
+        {
+          "id": 49908058,
+          "author": "voidUpdate",
+          "text": "It should probably be noted somewhere that this is more \"papercraft\" than \"origami\", and the thing you download is just the net of the solid, not instructions to make what's in the picture.\nAlso saddened by the lack of Catalan solids"
+        },
+        {
+          "id": 49908952,
+          "author": "ciroduran",
+          "text": "Kusudama is your keyword if you want to learn how to do these :)\nThe 5 intersecting tetrahedra is particularly cool, and I've used these instructions to assemble it\nhttp://origametry.net/fit.html"
+        },
+        {
+          "id": 49908949,
+          "author": "andybak",
+          "text": "At the danger of spamming this (well - posting it for the second time in 6 months) - I'm still trying to find the select demographic who appreciate this:\nhttps://ixxyxr.github.io/polyhydra-web/?m=3"
+        },
+        {
+          "id": 49912049,
+          "author": "harhargange",
+          "text": "I always wait for someone to post origami on Hacker News so that I can publicize my own work on origami:\nhttps://royalsocietypublishing.org/rsos/article/7/2/200011/9..."
+        },
+        {
+          "id": 49908190,
+          "author": "saivan",
+          "text": "I was lucky enough to meet the guy behind mathigon for dinner a long time ago. He's brilliant! I'm always excited to see what he is up to! Glad to see this voted up."
+        },
+        {
+          "id": 49912115,
+          "author": "jpm_sd",
+          "text": "Modular origami construction of various mathematical solids was pioneered by Tomoko Fuse in the 1980s.\nhttps://en.wikipedia.org/wiki/Tomoko_Fuse\nhttps://www.amazon.com/stores/Tomoko-Fuse/author/B004L2C2A4/...\nThe author is still creating new work and writing new books."
+        }
+      ],
+      "title_ja": "数学的折り紙",
+      "summary_ja": "ディスカッションのハイライト：左下の「折り紙ボール」は指示にリンクしていません。\n誰かがそれを作りたい場合は、「venus kusudama」をGoogleで検索することができます\nhttps://www.youtube.com/watch?v=TNwPzwtAme4\n/1枚のシートから立方体を折りたたむことができます/これは「折り紙」よりも「ペーパークラフト」であり、ダウンロードするものは単なる固体の網であり、",
+      "editor_note": "「数学的折り紙」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49879346,
+      "title_en": "Getting out of the way: my robotics crash course",
+      "url": "https://thisismypersonalblog.com/posts/2026-09-25-getting-out-of-the-way/",
+      "hn_url": "https://news.ycombinator.com/item?id=49879346",
+      "score": 47,
+      "comment_count": 11,
+      "posted_at": "2026-09-28T15:12:43+00:00",
+      "comments": [
+        {
+          "id": 49912799,
+          "author": "WoodenChair",
+          "text": "I thought this was going to be a post about learning robotics.\nIt seems more like a post about hooking up an LLM to a pre-made robotic arm.\nWhile that's interesting, I wouldn't have labeled the post \"my robotics crash course.\"\nUnfortunately, I think this is in some sense another example of LLMs substituting for actual learning. While I'm sure the author is learning something about robotics from doing these experiments, I doubt it's as much as he would have gotten from say reading a couple chapters of an introductory robotics for dummies book."
+        },
+        {
+          "id": 49909860,
+          "author": "jvanderbot",
+          "text": "First law of calibration: Make sure you do an error analysis.\nFinding the table surface is pretty useless using a top-down view, even with April tags, because the range error to an april tag is much more than the bearing (pixel) error to the april tag. You basically have trouble observing the thing you're trying to measure.\nIf you do this again, ask your agent to conduct this analysis and make sure your desired calibration variables are observable with small error. A second camera from a 45deg angle or even on the table would go a lot further, but then of course other things become unobservable.\nNice workaround using a proxy for force sensing to get touch info, however. And neat project overall!"
+        },
+        {
+          "id": 49909950,
+          "author": "pj_mukh",
+          "text": "Shoutout to people who don't overthink blog setups. \"thisismypersonalblog.com\" AND GO. It'll do the job.\nOn a technical note, your setup is not far from where professional setups are headed [1]. Astra is really doing an end-run around (for now) research Robotics setups.\n[1]:\nhttps://x.com/ihorbeaver/status/2104646736652447854?s=20"
+        },
+        {
+          "id": 49910973,
+          "author": "ainch",
+          "text": "Curious to see how they get on with VLAs. They sound great till you have to sit and record hundreds of teleop demos to teach them how to solve your task..."
+        },
+        {
+          "id": 49912165,
+          "author": "Mystery-Machine",
+          "text": "Anyone tried using Jev for fast AI robot decisions? Would it make sense?"
+        }
+      ],
+      "title_ja": "邪魔にならないようにする：私のロボット工学クラッシュコース",
+      "summary_ja": "ディスカッションのハイライト：これはロボット工学の学習に関する投稿になると思っていました。\nLLMをあらかじめ作られたロボットアームに接続することについての投稿のようです。\n興味深いことですが、キャリブレーションの第一法則はありません。必ずエラー分析を行ってください。\n4月のタグであっても、トップダウンビューを使用してテーブルの表面を見つけることは、ブログの設定を過度に考えない人には/Shoutoutへの範囲エラーがあるため、かなり役に立ちません",
+      "editor_note": "「邪魔にならないようにする：私のロボット工学クラッシュコース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49902382,
+      "title_en": "Show HN: Ledge.sh – Runnable Markdown Notes",
+      "url": "https://ledge.sh",
+      "hn_url": "https://news.ycombinator.com/item?id=49902382",
+      "score": 37,
+      "comment_count": 30,
+      "posted_at": "2026-09-29T23:41:34+00:00",
+      "comments": [
+        {
+          "id": 49912570,
+          "author": "drayfield",
+          "text": "I went to look at Atuin Desktop to see what the crossover was with this product, and it's fascinating to see that the repo was archived the day this was posted here!\nhttps://github.com/atuinsh/desktop"
+        },
+        {
+          "id": 49911906,
+          "author": "TheGoodBarn",
+          "text": "This is awesome I will definitely play around with it. Fits the niche gap as a standalone app vs something like [Observable Framework](\nhttps://observablehq.github.io/framework/\n) for data analytical type things.\nI wish Notion could just integrate these things together and make it work, or someone build an Obsidian plugin. More often than not it would be so convenient to do something like this."
+        },
+        {
+          "id": 49912495,
+          "author": "edude03",
+          "text": "I feel like there has been a few takes on this (atuin desktop comes to mind[0] but apparently it's not a going concern anymore?) why hasn't it caught on?\n0:\nhttps://github.com/atuinsh/desktop"
+        },
+        {
+          "id": 49912435,
+          "author": "dannyw",
+          "text": "Love this concept, simple but brilliant idea with lots of utility. I think this can fit in a decent niche. I’ll give it a try!"
+        },
+        {
+          "id": 49911985,
+          "author": "theCodeStig",
+          "text": "As an Emacs user for over a decade I think this is brilliant, it solves my biggest gripes with org-babel which prevent me from using it in a team setting.\nLedge is a lot like org-babel from Emacs, but for muggles: a familiar UI, and common format go a long way."
+        },
+        {
+          "id": 49912149,
+          "author": "michaelastreiko",
+          "text": "Runnable notes in plain Markdown is a nice one-person stack move—fewer copy/paste hops between the doc and the shell when shipping alone."
+        },
+        {
+          "id": 49912189,
+          "author": "classictraffic",
+          "text": "This is really cool, and I love the mobile support too! I’ll definitely be giving this a spin"
+        },
+        {
+          "id": 49911945,
+          "author": "tetraodonpuffer",
+          "text": "cool idea, do you have any plans to integrate command generation with the shell completion / aliases / functions? Say I have tons of muscle memory on using ctrl-r fzf to get things from history, or on pressing tab to autocomplete pod names etc. so I would never write out a full kubectl command to execute by hand"
+        }
+      ],
+      "title_ja": "HNを表示： Ledge.sh –実行可能なマークダウンノート",
+      "summary_ja": "ディスカッションのハイライト： Atuin Desktopを見て、この製品のクロスオーバーが何であるかを確認しました。これがここに投稿された日にリポジトリがアーカイブされたのを見るのは魅力的です！\nhttps :// github/これは素晴らしいです。私は間違いなくそれで遊びます/私はこれにいくつかのテイクがあったように感じます（ atuinデスクトップが頭に浮かびます[0]が、どうやらそれはもはや継続的な懸念ではないようですか？ ）なぜそれは流行していませんか？\n0:\nhttps://github.com/atui",
+      "editor_note": "「HNを表示： Ledge.sh –実行可能なマークダウンノート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49896604,
+      "title_en": "Dots: Always-on agents",
+      "url": "https://openai.com/index/introducing-dots/",
+      "hn_url": "https://news.ycombinator.com/item?id=49896604",
+      "score": 727,
+      "comment_count": 613,
+      "posted_at": "2026-09-29T17:07:57+00:00",
+      "comments": [
+        {
+          "id": 49899033,
+          "author": "jjcm",
+          "text": "There's a lot of negativity in here for Dots. I've been a pretty heavy user of Grok Bot, and here are a few thoughts a long the positive line.\n1. Collaboration between always-on agents is a really, really powerful thing. It allows for domain-specific expertise that doesn't overload the context window, while still allowing for access to knowledge if they need it.\n2. Domain-specific always on agents creates a good barrier of trust. One of the things I dislike about Claude is sometimes it's memory is all-encompassing. It's weird that it brings up things about my personal life when I'm talking about something related to my business. I've never had that happen with Grok Bot bots because I have one for my biz admin and one for my personal admin. They don't intertwine, which is quite nice.\n3. Combined with cloud agents / cloud builds, things become really powerful for development. It was the first time that I felt there was a solution to the git worktrees / multiple streams at once issue. Each bot has its own computer and can spin up additional cloud agents. It comes at the cost of end to end speed - doing something via a grok bot often takes an hour end to end, whereas with a synchronous"
+        },
+        {
+          "id": 49906483,
+          "author": "bluelightning2k",
+          "text": "I must be getting dumber as I get older. I genuinely can't work out what Dots actually\nis\n.\nIt seems like a dumbed down reskin of Codex/ChatGPT Work but with the power-user features e.g. visibility/mentions removed. As a serious engineer why would I want that? Then the word agent becomes dot.\nIt also seems to be running a VM so the agent has its own computer.\nI guess the intent was to pull together the Codex, claw and ChatGPT Work paradigms and simplify them?"
+        },
+        {
+          "id": 49900640,
+          "author": "jwpapi",
+          "text": "This is one part of AI I hadn’t success with. I have very little need to run Agents over night, as my throughput is limited by my approval. Each work usually needs revisions, sometimes the bug is just a symptom of the root problem, sometimes I need to rethink how users want to use the app. Sometimes I need research.\nI get how i prefer an already researched-version of a bug versus a raw bug notice, but I can do this with webhooks in the correct environment.\nI really have no idea what to do with my agents over night. I can not build more. I can not think of more problems. My RAM is full."
+        },
+        {
+          "id": 49901297,
+          "author": "abeppu",
+          "text": "Ok so not that many months ago, the consensus seemed to be that the smart take on openclaw was \"don't trust it; don't give it write or delete access to anything you care about; don't give it read access to anything sensitive; expect that it may go off the rails and delete your inbox and send checks to that prince in your spam folder at any time. If you still have tasks that it can do within those restrictions, have fun.\"\nToday the models are better, but they don't seem trustworthy or reliable enough that I want to give them them a lot of access or freedom. My coding agents sometimes still go off in the wrong direction, or say they did something other than what they did, or say they will do something and then immediately stop without doing anything.\nThe always-running (so almost never supervised) agent that is meant to do the same work as a person (and therefore needs _access_ like a person) seems like a notorious footgun from earlier this year was just made more powerful, and the companies that are supposed to know the most are telling you to connect it to everything."
+        },
+        {
+          "id": 49899084,
+          "author": "tosh",
+          "text": "> excluding the European Economic Area, Switzerland, and the UK\nhttps://help.openai.com/en/articles/20001530-getting-started..."
+        },
+        {
+          "id": 49898209,
+          "author": "mvkel",
+          "text": "My biggest frustration with the frontier AI companies isn't what they're announcing, but that the announced-thing that exists ~6 months later is severely nerfed to reduce compute spend.  It doesn't resemble the demo in any way. For example, this was what the 4o voice capability sounded like in 2024(!)\nhttps://www.youtube.com/watch?v=vgYi3Wr7v_g\n. What exists today pales in comparison."
+        },
+        {
+          "id": 49905400,
+          "author": "chen_dev",
+          "text": "fyi, the cloud env is MITM. tested\nhttps://gmail.com\nwith curl and browser including downloaded firefox: OpenAI-issued certificate:\nSubject: CN=gmail.com\nIssuer: O=OpenAI, LLC; CN=openai.com\nCertificate verification: passed\nResponse: 301 redirect to\nhttps://mail.google.com/mail/u/0/"
+        },
+        {
+          "id": 49901589,
+          "author": "jesse_dot_id",
+          "text": "Dots is a little on the nose isn't it? Like the damage over time spells I used to spam in MMORPGs.\nIt's a little crazy that OpenAI is releasing sandboxed agents that are supposedly isolated to act autonomously on your behalf, encouraging people to hook them to their various social accounts when they can't even control 700 of them with access to nothing. 700 seemed fine and not problematic, why not try millions with access to every social media platform instead?\nWe're sure this wasn't the product they were testing that used makeshift forums to start hacking into stuff? I thought it was suspicious that they went so cute and cartoony with the design. Because if it wasn't, you might do the math?"
+        }
+      ],
+      "title_ja": "ドット：常時対応のエージェント",
+      "summary_ja": "ディスカッションハイライト：ドットにはネガティブな点がたくさんあります/年を取るにつれて鈍くなってきているに違いありません/これは私が成功していないAIの一部です",
+      "editor_note": "「ドット：常時対応のエージェント」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 49897993,
+      "title_en": "Vermont replacing power plants with home batteries",
+      "url": "https://www.bbc.com/future/article/20260928-a-virtual-power-plant-hidden-in-vermont-homes-is-keeping-the-lights-on-during-storms",
+      "hn_url": "https://news.ycombinator.com/item?id=49897993",
+      "score": 347,
+      "comment_count": 259,
+      "posted_at": "2026-09-29T18:19:02+00:00",
+      "comments": [
+        {
+          "id": 49907361,
+          "author": "beaviskhan",
+          "text": "This article is all over the place, but the principle is pretty simple - rather than adding more generation for peak usage times, batteries store energy generated off peak and smooth out the macro usage trends.\nOur local utility in NC has a program where they'll pay you ~$50/battery/month to enroll in their virtual power plant program. In exchange, they can take control of your battery up to 36 times per year for a period of a couple hours. Summer events are typically early evening during peak air conditioning times. Winter events are typically early morning during peak heating times.\nIn practice this means one of two things:\n* They make your battery charge to full capacity in advance of the event, and then you run your home off the battery and don't take any power from the grid during that time\n* Sometimes you'll also return power to the grid beyond that used by your house - they pay you the contracted rate for the power you deliver\nWe've paired our batteries with solar panels, so generally we have a full charge going into the summer VPP events. We have gas heat, but I expect we'll pay for at least some grid energy to charge batteries during the winter events. Regardless, it's bee"
+        },
+        {
+          "id": 49905393,
+          "author": "nonfamous",
+          "text": "I’m in a similar setup where I live in Australia. Our house has solar and battery — unlike the people in the FA, we purchased it directly ourselves, although with a significant government rebate.\nOur battery is under automatic VPP control, but it’s not like it randomly starts exporting when we don’t want it to. When regional demand is high (hot days) or supply is low (no wind or cloudy), our battery might start exporting. But that’s a\ngood\nthing for us, because our electricity is priced wholesale and changes every 5 minutes, and export rates are\nhigh\nin this situation. A couple of times there have been price spikes and we’ve made a few hundred dollars in under a hour. It’s a win-win for us (making money) and the grid (providing stability). To be fair, those spikes are rarer now than they were a year ago.\nYou can always control the battery if you want. Sometimes I’ll manually export even if prices aren’t high if I know I don’t need the power in my battery. Sometimes I’ll prevent export if I know I want to charge the car overnight from the battery. But mostly I let it do its thing.\nFrom an investment perspective, the battery has been a no-brainer. Even without the windfalls from pric"
+        },
+        {
+          "id": 49904231,
+          "author": "hettygreen",
+          "text": "Here's a better article:\nhttps://electrek.co/2026/07/28/vermonts-largest-energy-sourc...\nSeems like they supply each person with 2 Tesla powerwalls for the $55/month and get a reduction in their bills that depends on how much power they choose to share to the grid during power outages.\nThey've already closed down 2 peaker power plants because of this, so it doesn't seem to just be about handling power outages, but also handling fluctuating power usage instead of firing up extra power plants."
+        },
+        {
+          "id": 49902958,
+          "author": "autoexec",
+          "text": "I'd feel better about this if they weren't charging people thousands for the batteries. As it is, this looks like a scam by utility companies to force their costs onto consumers and charge them for it on top of that. People should be being paid by the utility for storing, hosting, and allowing access to the power company's distributed infrastructure.\nIt's not as if the batteries people are paying for become their property, or are only for the homeowner's benefit. The utility company has the right to use that power however they want at any time including the \"right to use all the energy in the battery\". The homeowner also has to allow contractors, subcontractors, or third-parties onto their property. Physical access aside, they also have to allow the utility free access to their network and free use of their internet connection/bandwidth. The utility will not compensate homeowners for any of that.\nHomeowners must also agree to install the utility company's cell phone apps/software. I'd bet those apps are collecting data and probably pushing ads too. They have to agree to the “Customer Privacy” terms, which will only be shown to them \"upon installation of the Equipment\".\nThe utility "
+        },
+        {
+          "id": 49905328,
+          "author": "entech",
+          "text": "I hope that the system designers know what they are doing in Vermont.\nThe way an article is written doesn't explore the fact that at its core batteries are a 'consumer of energy' and not a producer like a power plant. You are losing electrons through heat losses and degradation in a bid to match demand with lowest cost supply.\nReplacing generators with a battery make sense when the peak capacity is overbuilt, but it shouldn't be left unchecked.\nThe other challenge is that the customer's savings usually come not from the battery itself (the energy arbitrage) but from avoiding the usage charges from their distribution and transmission networks.  Deploying batteries on grid without a plan pushes forward the grid death spiral where some users of the network feel like they no longer need to be connected as they can be self sufficient. That means that those that cannot be self sufficient have to share the same cost of infrastructure with less users on it. That is assuming that being self sufficient is economically viable and sufficiently reliable.\nThose who think that home batteries and solar are 'cheap' should look into the true underlying costs. The per MWh cost of a home system is MUC"
+        },
+        {
+          "id": 49903714,
+          "author": "krschultz",
+          "text": "I tried to signup for this program but the building code gets in the way. You need 3' from both edges of the battery to a window or door. I don't have a wall with 8-9' between windows. The alternative is to build a fire proof room in your house which takes up a lot of space. Ultimately it was not worth it even with all the financial incentives. The rules might seem innocuous but they're a dealbreaker. It's far easier to get a propane or diesel generator installed."
+        },
+        {
+          "id": 49908746,
+          "author": "dghughes",
+          "text": "I like the idea of a home battery systems. I live in a place with frequent winter storms and also hurricanes.\nGrid storage large containerized batteries is a great idea too. There's even a local company (Aspin-Kemp) that makes them and also marine hybrid boats. The electric company here is a dinosaur wanting gas turbines and no interest in renewable energy just profits for shareholders. They even got caught with their pants down after a hurricane trees fell on power lines due to no tree maintenance for 40 years.\nOne issue with large battery storage is fires. Where I live is small and island with small towns the biggest city is at best 50,000. The next smallest city of about 15,000 uses grid storage batteries one of which recently caught fire and burned for a week. It's in a small town so the toxic smoke was a big problem. It would be very bad for a home battery system to ignite that's likely why my city does not allow home batteries inside homes.\nA new method to douse battery fires needs to be developed. A week long fire and toxic smoke is very stressful."
+        },
+        {
+          "id": 49902291,
+          "author": "whartung",
+          "text": "We have this in CA. I have Tesla batteries and they promote wanting me to enroll my batteries into a larger grid so their capacity can be used during higher load events.\nI thought it was a novel idea when I heard about it."
+        }
+      ],
+      "title_ja": "バーモント州、発電所を家庭用バッテリーに置き換える",
+      "summary_ja": "ディスカッションのハイライト：この記事は至る所にありますが、原則は非常に単純です。ピーク時の使用時間を増やすのではなく、バッテリーはピーク時に発生するエネルギーを保存します/私はオーストラリアに住んでいるのと同様の設定になっています/ここにより良い記事があります：\nhttps://electrek.co/2026/07/28/vermonts-largest-energy-sourc...\n1人あたり2つのテスラパワーウォールを月額$ 55で提供しているようです",
+      "editor_note": "「バーモント州、発電所を家庭用バッテリーに置き換える」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 49890733,
+      "title_en": "NASA asked several former SR-71A staffers to help secret restart",
+      "url": "https://aviationweek.com/defense/aircraft-propulsion/nasa-asked-several-former-sr-71a-staffers-help-secret-restart",
+      "hn_url": "https://news.ycombinator.com/item?id=49890733",
+      "score": 289,
+      "comment_count": 334,
+      "posted_at": "2026-09-29T10:10:20+00:00",
+      "comments": [
+        {
+          "id": 49909815,
+          "author": "scrumper",
+          "text": "The general tone here seems to be against the effort, but separate the circus from the ringmaster and there is a lot to like here.\nHaving a manned, very high altitude, very fast research plane is undoubtedly useful for all sorts of development purposes.\nBut more than that, we\nare\nas a civilization doing a bad job of preserving cutting edge expertise from the past. We keep letting entire areas of engineering and technology die out without really trying to preserve them even though we know at some point they will come in useful. The skills, processes, even institutional confidence developed in just trying to get an SR-71 flying again will teach us a lot about resurrecting other such dead ends. Aerospace in particular is full of them. That will, for sure, get us out of trouble or speed up something we need at some unknown point in the future. I'd think of it more as developing a general capability than the world's most expensive vintage aircraft hobby."
+        },
+        {
+          "id": 49907002,
+          "author": "braiamp",
+          "text": "> “Every time I threw one of these things out there, he says, ‘Oh, engineering will take care of that [and] engineering will take care of that,’” Relja recalls.\nThat sounds all to familiar to people that actually has to accomplish stuff, heard from management. Engineering will not take care of that because engineering is the one that is raising the concerns!"
+        },
+        {
+          "id": 49911234,
+          "author": "danielodievich",
+          "text": "There is an SR-71 on display in Seattle's Boeing Museum of Flight. One of my most favorite memories of it was taking my late Belarussian grandfather to that museum and having one of the docents there, a retired airforce person about my grandfather's age, tour us around, with me translating. I already knew a bunch of BlackBird's lore, but the docent/tour guide was pulling out all the stops to impress my grandpa and was talking about various overflights of USSR, and I my grandfather's smile crinkled up and he said \"oh I remember we finally shot that guy [Powell] down, and all the papers were trumpeting about it\" and he and the tour guide started laughing and slapping each other on backs!\nI miss my grandfather. He was a good one!"
+        },
+        {
+          "id": 49904847,
+          "author": "ggm",
+          "text": "A couple of questions/observations:\n1) when people say \"destroyed the jigs, tools and spares in 2007\" What do they actually mean? Burying things isn't destroying. Putting them in a furnace is destroying. Is it possible that both parts, and tools actually are recoverable e.g. from the seabed? The dimensional stability might be off, but to help reconstruct tools, it's not nothing. Likewise digging up something buried in its packing crate is not rocket science.\n2) \"that would be ludicrously expensive\" doesn't mean much any more. It's not unlike \"we can't make a saturn 1 any more because the tools were destroyed and it would be ludicrously expensive to make an F1 engine\" -well yes, but thats not impossible, it's just unlikely and expensive. So maybe this is unlikely, expensive but ... has a unicorn sugar daddy?\n3) there are craft in all sorts of places. Not just on sticks outside NASA property. I am not a historian or a federal government employee, but I wouldn't think it impossible for people to ask other agencies to let you inside the shell and remove the bits you want, or even ask for it back. The one on a stick in Balboa Park San Diego might have associated boxes of bits-and-bobs.."
+        },
+        {
+          "id": 49907563,
+          "author": "andyjohnson0",
+          "text": "The Blackbird is a deeply awesome machine, and hn understandably loves it. But this initiative is almost certainly about agency funding and access to budget, not engineering.\nThe Orange Entity sets the direction and his congress provides the money. My guess would be that NASA has been told that the direction that leads to there being money is to forget the space telescopes and other science, and instead to focus on national prestige projects (Moon, Mars) and things that will feed through to military applications (hypersonic flight)."
+        },
+        {
+          "id": 49902940,
+          "author": "justin66",
+          "text": "> The Air Force and NASA destroyed a $600 million supply of spare parts for the Blackbird fleet in 2007. The move came long after it seemed unlikely, if not impossible, that an SR-71A would return to operational service.\nThere's also the issue of converting a tanker back so it can carry the SR-71's unique fuel again. And for that matter, making a supply of JP-7 again. No other planes today use JP-7.\n\"It's not my money!\""
+        },
+        {
+          "id": 49905247,
+          "author": "voxadam",
+          "text": "If you haven't already read it Ben Rich's\nSkunk Works: A Personal Memoir of My Years at Lockheed\nis truly excellent read. Highly recommended."
+        },
+        {
+          "id": 49903154,
+          "author": "Centigonal",
+          "text": "This feels like the steam catapault kerfuffle from earlier this year. Maybe I'm missing some vital reason these retired technologies must be revived, but it's not inspiring when our military doctrine is \"let's go back to what worked 60 years ago\""
+        }
+      ],
+      "title_ja": "NASAは数人の元SR -71 Aスタッフに秘密裏の再起動を支援するよう依頼した",
+      "summary_ja": "ディスカッションのハイライト：ここでの一般的なトーンは努力に反対しているようですが、サーカスと団長を分離し、ここには気に入るものがたくさんあります。\n非常に高度が高く、非常に高速な有人機を持っています。「私がこれらのものを1つ投げるたびに、彼は『ああ、エンジニアリングがそれを処理し、エンジニアリングがそれを処理します』と言います」とReljaは思い出します。\nシアトルのボーイング博物館にSR -71が展示されています",
+      "editor_note": "「NASAは数人の元SR -71 Aスタッフに秘密裏の再起動を支援するよう依頼した」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 49886535,
+      "title_en": "Show HN: Dental Scope – Interactive 3D dental anatomy",
+      "url": "https://dental-scope.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49886535",
+      "score": 90,
+      "comment_count": 53,
+      "posted_at": "2026-09-29T00:47:19+00:00",
+      "comments": [
+        {
+          "id": 49886536,
+          "author": "Zeruxe",
+          "text": "Built Dental Scope, a free open source 3D learning tool for exploring teeth, jaws, nerves, vessels and dental structures.\nLive:\nhttps://dental-scope.com/\nGitHub:\nhttps://github.com/Yoosseph/dental-scope\nFeedback and contributions are welcome"
+        },
+        {
+          "id": 49912562,
+          "author": "thefyuriy",
+          "text": "@Zeruxe: I don't know how to DM people on this platform, but I'd love to chat with you.  I'm an ICU doc and have spent the past month vibe-coding a bunch of physiologic and anatomic simulators (med-sim.com).  If you want to collaborate, please use the \"contact me\" form at med-sim.com to reach out.  I don't want to share my email on this message board b/c I'm not smart enough to know whether that is safe or not."
+        },
+        {
+          "id": 49908283,
+          "author": "m-s-y",
+          "text": "Years and years of “mobile first” getting getting traction only to be forgotten in a heartbeat when it’s finally easy to do “real cool stuff” on desktop.\nI personally couldn’t be happier about it."
+        },
+        {
+          "id": 49912372,
+          "author": "sssilver",
+          "text": "When dentists take scans of our teeth, can those scans theoretically be rendered in this tool?"
+        },
+        {
+          "id": 49908003,
+          "author": "jamessb",
+          "text": "This reminds me of \"Human Atlas\" [1] (created by GPT-6 Astra) - there's a video in the tweet announcing it [2].\nThere was a live deploy, but it is currently unavailable:\nhttps://human-atlas-seven.vercel.app/\n[1]:\nhttps://github.com/ashemag/human-atlas\n[2]:\nhttps://x.com/ashebytes/status/2096221988763173186?lang=ar-x..."
+        },
+        {
+          "id": 49907163,
+          "author": "ivanjermakov",
+          "text": "According to commit history, built in 3 days."
+        },
+        {
+          "id": 49908835,
+          "author": "fouc",
+          "text": "I'm a bit confused that the top wisdom teeth are erupted but the bottom ones aren't.. is that toggle-able?"
+        },
+        {
+          "id": 49908497,
+          "author": "Zeruxe",
+          "text": "Here is the product hunt for those of you who would like to support -\nhttps://www.producthunt.com/products/dental-scope?utm_source..."
+        }
+      ],
+      "title_ja": "Show HN: Dental Scope – Interactive 3 D dental anatomy",
+      "summary_ja": "ディスカッションのハイライト： Built Dental Scopeは、歯、顎、神経、血管、歯科構造を探索するための無料のオープンソース3 D学習ツールです。\nライブ：\nhttps://dental-scope.com/\nGitHub:\nhttps://github.com /@ Zeruxe ：このプラットフォーム上の人々にDMを送る方法はわかりませんが、私はあなたとおしゃべりしたいと思います/長年の「モバイルファースト」のトラクションは、デスクトップで「本物のクールなもの」をやっと簡単に行うことができるようになったときにすぐに忘れられてしまいます。\nI",
+      "editor_note": "「Show HN: Dental Scope – Interactive 3 D dental anatomy」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49896757,
+      "title_en": "Show HN: A working 3D model of an Enigma machine",
+      "url": "https://enigma.design",
+      "hn_url": "https://news.ycombinator.com/item?id=49896757",
+      "score": 83,
+      "comment_count": 31,
+      "posted_at": "2026-09-29T17:15:56+00:00",
+      "comments": [
+        {
+          "id": 49911800,
+          "author": "dmcrespo",
+          "text": "Really cool project! The only thing I noticed is that the performance feels a bit slow at times, and it could use a little more fluidity, especially when interacting with the model.\nOther than that, everything feels really well done. Building something like this in JavaScript/HTML, especially with a 3D model this detailed, must be quite challenging from an optimization standpoint.\nGreat work!"
+        },
+        {
+          "id": 49910304,
+          "author": "heurekamala",
+          "text": "Cool work. There are some of this educational gems here. Is there a site which combines these treasures (like in a virtual museum?)"
+        },
+        {
+          "id": 49908469,
+          "author": "virtualcolossus",
+          "text": "Good job, I like the many cutaways to show exactly what's going on inside.\nYou may be interested in my simulation of Enigma (\nhttps://enigma.virtualcolossus.co.uk\n) which I wrote back in 2021 (pre-AI!). One of several I've done.\nTry it on an Android phone to look around it in VR or on PC/Mac for easier use.\nYou can even send messages to other users over the internet using the radio & Morse key."
+        },
+        {
+          "id": 49905779,
+          "author": "utopiah",
+          "text": "Neat, would be great to have it in WebXR with hand tracking, imagining 2 modes :\n- AR where the machine can be put on your desk, next to documents\n- VR where the machine is in context, e.g. a 3D model of German Naval Signals HQ in Guernsey, eventually stepping back to a broader context."
+        },
+        {
+          "id": 49902863,
+          "author": "anonydsfsfs",
+          "text": "I love the presentation! Would you mind sharing the source code?"
+        },
+        {
+          "id": 49904953,
+          "author": "DylanMerigaud",
+          "text": "Inspection tools ensure historical accuracy; great effort!"
+        },
+        {
+          "id": 49904180,
+          "author": "adityamishra241",
+          "text": "This is really cool. The attention to detail on the internal mechanics is impressive, especially the inspection tools you built. Looking forward to seeing where you take it!"
+        },
+        {
+          "id": 49902945,
+          "author": "ted_dunning",
+          "text": "It would be nice to be able to back up in the sequence. There were a few times where I realized I had not fully understood a previous step and would have like to be able to review some previous steps.\nOtherwise this is completely excellent!"
+        }
+      ],
+      "title_ja": "HNを表示：エニグママシンの動作する3 Dモデル",
+      "summary_ja": "ディスカッションのハイライト：本当にクールなプロジェクト！ 私が気づいた唯一のことは、パフォーマンスが時々少し遅く感じられ、特にモデル/クールワーク/グッドジョブとやり取りするときには、内部で何が起こっているのかを正確に示すために多くの断面図が好きです。\n私のエニグマのシミュレーションに興味があるかもしれません（\nhttps://enigma.virtualcolossus.co.uk \n） 私が書いたb",
+      "editor_note": "「HNを表示：エニグママシンの動作する3 Dモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 49910328,
+      "title_en": "Show HN: Parrot – Open-Source Smart Meeting Recorder with Co-Pilot on Mac",
+      "url": "https://openparrot.app",
+      "hn_url": "https://news.ycombinator.com/item?id=49910328",
+      "score": 10,
+      "comment_count": 2,
+      "posted_at": "2026-09-30T15:33:12+00:00",
+      "comments": [
+        {
+          "id": 49912003,
+          "author": "moecables",
+          "text": "instead of calling it \"co-pilot\" maybe call it something like \"Coach\", Assistant, or anything that doesn't connect it to Copilot from Microsoft b/c that's what I thought it meant"
+        }
+      ],
+      "title_ja": "Show HN ： Parrot – Mac上のCo - Pilotを備えたオープンソーススマートミーティングレコーダー",
+      "summary_ja": "ディスカッションのハイライト：それを「副操縦士」と呼ぶ代わりに、「コーチ」、「アシスタント」、またはMicrosoft b/cからCopilotに接続されていないものなどと呼ぶかもしれません。",
+      "editor_note": "「Show HN ： Parrot – Mac上のCo - Pilotを備えたオープンソーススマートミーティングレコーダー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49899090,
+      "title_en": "U.S. postal inspectors shut down website selling counterfeit postage labels",
+      "url": "https://postalemployeenetwork.com/news/2026/09/26/u-s-postal-inspectors-shut-down-website-selling-millions-of-counterfeit-postage-labels/",
+      "hn_url": "https://news.ycombinator.com/item?id=49899090",
+      "score": 272,
+      "comment_count": 161,
+      "posted_at": "2026-09-29T19:30:17+00:00",
+      "comments": [
+        {
+          "id": 49899904,
+          "author": "zucked",
+          "text": "I am pretty sure I bought from a seller using this (or something similar) on eBay. It sent me down a rabbit hole of reading about this type of scam that exploded earlier this year:\nhttps://www.uspsoig.gov/sites/default/files/reports/2026-04/...\nHere's how it went down:\nhttps://www.ebay.com/fdbk/feedback_profile/theperfectpart\nNote that they’ve sold so much that even 1k neutral ratings are barely registering - they have “100% positive feedback”\nI bought a cheap tool from this seller on ebay. Tracking number was provided showing my town as the destination. About four days later, I get an unprompted ebay message from the seller:\n“I monitor all my shipments and sometimes there are problems so I’m proactively sending you a new one, here’s a new tracking number.”\nThe original tracking number showed a message I’d never seen before “Item seized - counterfeit postage”. The new tracking number showed postage that had been\nbought\nback in January, but never entered the mailstream. Huh. I suspect that buys them time while they re-ship.\nI did eventually get the item after another tracking number was provided.\nMy suspicion is that the seller uses counterfit USPS postage on 'x' number of packages "
+        },
+        {
+          "id": 49901755,
+          "author": "joshmn",
+          "text": "The USPIS (mentioned in the article) once came to the federal prison I was at to tell inmates that using stamps as currency was illegal.\nThere are flats and there are books. Flats are a sheet of 20 Forever stamps that you would get at a drug store. A book is 20 stamps, used or not used.\nGenerally there are different values associated with flats because you can get cash for them on the streets. You can get them to the streets via an officer if you're ballsy. Or you can just find discreet ways to mail them.\nThe value of a flat where I was at was about $13-$14 depending on your vendor. A book was generally worth $10. If you were buying bulk (and depending on who exactly you were buying from), that number could go down to $12 and $7 respectively.\nIf you were buying from someone that was running a ticket (sports gambling) they had more incentive to get rid of their stamps. Some people had tens of thousands of dollars of stamps in their property and they wanted to convert them.\nIf you were buying from someone running a store (think \"buy and resell commissary\"), their business model was dependent on flipping books of stamps in exchange for more commissary. They could sell a ramen for 3 st"
+        },
+        {
+          "id": 49906832,
+          "author": "jillesvangurp",
+          "text": "Here in Germany, you can just print your own codes or even just write those on the envelope. You can buy these via a website.\nI tend to just use one of the many late night shops doubling as a post office these days in the rare case I need to send something. Thankfully, the amount of paper arriving in my mailbox has been declining steadily. It's next to nothing at this point. Dedicated post offices are very rare now. But there are many of these late night shops doing post and packages on the side. They take your envelope, they print a label with some kind of scanable code, slap it on there, and take care of delivery.\nThe codes are basically short hashes that correspond to a database record confirming the correct amount was paid. Very hard to forge those.\nNo need to handle stamps anymore. Only for international postage."
+        },
+        {
+          "id": 49902058,
+          "author": "codazoda",
+          "text": "30 years ago a teacher told me of an art student applying to a school. The student included two art pieces for the submission but was meant to provide three. A note suggested that they look at the stamp for the third submission. It was a hand drawn counterfeit that was good enough to get it delivered.\nOr so the story goes."
+        },
+        {
+          "id": 49899827,
+          "author": "A_D_E_P_T",
+          "text": "It says that the perp is Pakistani, and that he's been charged, but not that he's been arrested -- so he's presumably still free in Pakistan.\nI hear that normally what the FBI would try in such cases is to lure people onto US or extraditable territory.  IIRC there were some rogue Chinese chemists, who owned companies that sold fentanyl intermediates and were under secret indictment in the US, who were \"invited to a VIP academic conference in Hawaii\" and then arrested as soon as their flight landed.\nSeems clear that this Pakistani is a bit more circumspect."
+        },
+        {
+          "id": 49905909,
+          "author": "venzaspa",
+          "text": "Here in the UK, they've started putting QR codes on them and gave everyone a deadline to use the old ones. Has effectively got rid of this problem."
+        },
+        {
+          "id": 49899830,
+          "author": "HarHarVeryFunny",
+          "text": "So the USPS delivered these packages?\nThere's no verification built into a USPS label?"
+        },
+        {
+          "id": 49910792,
+          "author": "BatchJob",
+          "text": "Missing from the story as usual is any notion of how this will ever be prevented again or even if there are a thousand other people doing the same thing on a smaller or similar scale."
+        }
+      ],
+      "title_ja": "米国の郵便検査官が偽造郵便料金ラベルを販売するウェブサイトを閉鎖",
+      "summary_ja": "ディスカッションのハイライト： eBay/USPIS （記事で言及されている）でこれ（または類似のもの）を使用して売り手から購入したことがあると確信しています。私は連邦刑務所に来て、受刑者に切手を通貨として使用することは違法であると伝えました。\nフラットと本があります/ドイツでは、自分でコードを印刷したり、封筒に書いたりすることができます",
+      "editor_note": "「米国の郵便検査官が偽造郵便料金ラベルを販売するウェブサイトを閉鎖」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "23",
+    "started_at": "2026-10-01T03:59:01.283553+09:00",
+    "finished_at": "2026-10-01T04:00:04.236065+09:00",
+    "story_count": 30
+  }
+}
