@@ -1,0 +1,1332 @@
+{
+  "date": "2026-10-02T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49923692,
+      "title_en": "Clef: Open-source decision models, and new RL fine-tuning platform",
+      "url": "https://blog.cloudflare.com/clef-decision-models/",
+      "hn_url": "https://news.ycombinator.com/item?id=49923692",
+      "score": 268,
+      "comment_count": 101,
+      "posted_at": "2026-10-01T16:18:57+00:00",
+      "comments": [
+        {
+          "id": 49924445,
+          "author": "manlymuppet",
+          "text": "Am I hearing this right, that they made a decision model based on Typesafe's new paradigm, and actually made a model\nbetter\nthan Jev based on Typesafe's own ranking?\nAnd it's only been a few weeks."
+        },
+        {
+          "id": 49925842,
+          "author": "amluto",
+          "text": "I’ll go out on a limb and suggest that I don’t think a Jev-like model is particularly useful unless you can fine tune it.  The Jev API has zero ability to pass in a prior [0], and, if you can neither pass in a prior nor fine tune for your system, you will get an output that may be almost meaningless.\nI’d love to see someone build a model of this sort that can actually accept priors and do something intelligent with them.\n[0] You can feed Jev a prior as text. I’ve tried it.  It works poorly."
+        },
+        {
+          "id": 49924502,
+          "author": "buildbuildbuild",
+          "text": "Open weights, not open source.\nThe weights have permissive licensing, but the data and training pipeline are not published to reproduce them from their proprietary Qwen starting points. Weights are not \"source.\""
+        },
+        {
+          "id": 49925183,
+          "author": "mrkn1",
+          "text": "For smaller scale decision model that runs on CPU, check\nhttps://news.ycombinator.com/item?id=49923223"
+        },
+        {
+          "id": 49924252,
+          "author": "ssiddharth",
+          "text": "Pricing is $0.24/million input tokens which is ~6x compared to Jev. Clef-flash is at $0.09 which is way more competitive."
+        },
+        {
+          "id": 49925130,
+          "author": "fooker",
+          "text": "This is awesome.\nI bet the competition will result in research into how to make these decision models several more orders of magnitude faster and cheaper.\nHere's a challenge problem - look at a 1M context window and produce N decisions (different queries) from it in 50-100ms."
+        },
+        {
+          "id": 49925578,
+          "author": "ranyume",
+          "text": "I found the paragraph about how much networking data they have weird. I mean, if you already have all that data why didn't you train your models already using that? Why did you need clef to begin with?"
+        },
+        {
+          "id": 49924307,
+          "author": "bityard",
+          "text": "Clef is based on Qwen3.8-27B and Clef-flash is based on Qwen3.8-9B (edit: actually Qwen3.5-9B). So, similar in spirit to Kev by my understanding, but based on a newer model."
+        }
+      ],
+      "title_ja": "Clef ：オープンソースの意思決定モデルと新しいRL微調整プラットフォーム",
+      "summary_ja": "ディスカッションのハイライト： Typesafeの新しいパラダイムに基づいて意思決定モデルを作成し、実際にモデルを作成したというこの権利を聞いていますか\nより良い\ntypesafe自身のランキングに基づくJevよりも？\nそして、それはただ/私は外に出て、あなたがそれを微調整することができない限り、Jevのようなモデルは特に有用ではないと思うことを示唆します/オープンソースではなく、オープンウェイト。\n重みには許容ライセンスがありますが、データとトレーニングパイプラインは公開されていません",
+      "editor_note": "「Clef ：オープンソースの意思決定モデルと新しいRL微調整プラットフォーム」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49923466,
+      "title_en": "RIP, vector database",
+      "url": "https://turbopuffer.com/blog/rip-vector-database",
+      "hn_url": "https://news.ycombinator.com/item?id=49923466",
+      "score": 178,
+      "comment_count": 50,
+      "posted_at": "2026-10-01T16:01:56+00:00",
+      "comments": [
+        {
+          "id": 49924039,
+          "author": "gopalv",
+          "text": "> This write amplification is large enough that our efforts to tune indexing throughput have started to hit diminishing returns.\n> don't key on the ANN address. That is precisely the change turbopuffer v3 makes. As you can imagine, it is not a trivial change.\nThis is a direct parallel to how Postgres and Mysql built indexes.\nYour design choice went from a Postgres design pattern to a Mysql one. The difference is the reindexing cost vs the lookup cost - Postgres optimized for lookup and Mysql does for indexing on writes. Or more accurately, Postgres was better with good schema design using joins & mysql was optimized for a bad design with less normalization where many indexes exist for the same table.\nPostgres always points an index to a row-id within postgres which is an arbitrary value which changes on each update.\nMysql, always assuming the storage engine is pluggable, points to the primary index entry and adds an extra indirection to the lookup.\nThis means that you point the mysql index to a stable id, so unless you go update the primary key for a row, you won't have to update the indexes for all the attribute lookups you might have made to data.\nI don't do databases any more th"
+        },
+        {
+          "id": 49925190,
+          "author": "tschellenbach",
+          "text": "AI has some of the craziest up and down cycles of tech I've ever seen"
+        },
+        {
+          "id": 49924116,
+          "author": "gk1",
+          "text": "Vector databases were always more about retrieval than either vectors or data storage. But the term stuck all too well and companies held on to it a tad too long. Sorry :)"
+        },
+        {
+          "id": 49925719,
+          "author": "ironqcold",
+          "text": "I'd want to see p99 at 1k+ QPS on the same scale"
+        },
+        {
+          "id": 49924724,
+          "author": "Tsarp",
+          "text": "I've really liked lancedb for similar use cases. Not just that it is OSS. But Lance treats ANN as a secondary index similar to what turbopuffer v3 does. Rows sit in fragments, and the vector index never moves them."
+        },
+        {
+          "id": 49924668,
+          "author": "marekgalovic",
+          "text": "> The problem with a vector primary index\nWe've realized this a long time ago at TopK and built a flexible serverless search engine from scratch. Supports dense/sparse vectors, late interaction, lexical search, indexed regex, filtering, and custom scoring in one query.\n-\nhttps://www.topk.io/blog/vector-dbs-are-the-wrong-abstractio...\n-\nhttps://www.topk.io/blog/topk-embed-v1"
+        },
+        {
+          "id": 49924080,
+          "author": "drewlanenga",
+          "text": "the multi-vector duplication thing makes sense, copying every attribute once per vector explodes quickly. what's the new primary index?"
+        },
+        {
+          "id": 49924910,
+          "author": "orliesaurus",
+          "text": "Waitint for the CEO of Qdrant to step in"
+        }
+      ],
+      "title_ja": "RIP、ベクターデータベース",
+      "summary_ja": "ディスカッションのハイライト：>この書き込み増幅は、インデックススループットを調整するための私たちの努力がリターンを減少させ始めたのに十分な大きさです。\n> ANNアドレスのキーを押さないでください/AIには、私が今まで見た中で最もクレイジーなテクノロジーの上下サイクルがあります/ベクターデータベースは、ベクターやデータストレージよりも常に検索に重点を置いていました",
+      "editor_note": "「RIP、ベクターデータベース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 3,
+      "id": 49920160,
+      "title_en": "StreetComplete on iOS is now in public beta",
+      "url": "https://github.com/streetcomplete/StreetComplete/issues/5421",
+      "hn_url": "https://news.ycombinator.com/item?id=49920160",
+      "score": 434,
+      "comment_count": 101,
+      "posted_at": "2026-10-01T10:59:57+00:00",
+      "comments": [
+        {
+          "id": 49920261,
+          "author": "JBiserkov",
+          "text": "From the README:\nStreetComplete is an easy to use editor of OpenStreetMap data available for Android. It can be used without any OpenStreetMap-specific knowledge. It asks simple questions, with answers directly used to edit and improve OpenStreetMap data. The app is aimed at users who do not know anything about OSM tagging schemes but still want to contribute to OpenStreetMap.\nStreetComplete automatically looks for nearby places where a survey is needed and shows them as quest markers on its map. Each of these quests can then be solved on site by answering a simple question. For example, tapping on a marker may show the question \"What is the name of this road?\", with a text field to answer it. More examples are shown in the screenshots below.\nThe user's answer is automatically processed and uploaded directly into the OSM database. Edits are done in meaningful changesets using the user's OSM account. Since the app is meant to be used on a survey, it can be used offline and is economic with data usage."
+        },
+        {
+          "id": 49921800,
+          "author": "Fnoord",
+          "text": "Thank you, German government:\n> Within the frame of Prototype Fund round 15 (March 2024 to August 2024), the German Federal Ministry of Education and Research sponsored Tobias Zwick to work on StreetComplete for iOS (see progress report)\nAnd NLnet."
+        },
+        {
+          "id": 49924223,
+          "author": "atollk",
+          "text": "I love the project idea, unfortunately I had bad experiences with the community. I had lots of fun walking my neighbourhood to perform quests in the app until like one or two other users started reverting my edits. I checked their comments and it was some weird pedantic arguments, like I shouldn't mark a street as not walkable because there is no official sign that prohibits walking; the fact that it's basically a highway with no sidewalk would not matter.\nI ended up digging through the OSM wiki for definitions and rules to argue my case but in the end it felt very much like people on a power trip insistent on getting their way. It has ruined the fun in StreetComplete for me and I haven't participated since."
+        },
+        {
+          "id": 49920335,
+          "author": "greggsy",
+          "text": "Link to the actual TestFlight beta invite, since it wasn’t easily found on the linked page:\nhttps://testflight.apple.com/join/K1u3eUU5"
+        },
+        {
+          "id": 49925273,
+          "author": "alethic",
+          "text": "I am incredibly excited for this -- while I love doing StreetComplete quests myself, the lack of iOS support has prevented me from grabbing my friends / random strangers and turning mapping my city into a social outing. I'm going to wait until it's officially available, but this is so wonderful... gosh, I can't wait. First style of quest I'm going to get ppl coordinated with is accurate hours on local businesses :^)"
+        },
+        {
+          "id": 49920275,
+          "author": "PetitPrince",
+          "text": "StreetComplete is regularly cited whenever OpenStreetMap is mentioned on HN, and with excellent reason (this is a really good introduction to mapping with OSM). Congratulations to the team for the beta!"
+        },
+        {
+          "id": 49920741,
+          "author": "tbo47",
+          "text": "I tried both StreetComplete and EveryDoor on my Android for a while.\nI prefer EveryDoor. It's oriented more towards stores and things I'm interested in on the map.\nEveryDoor exist on the Apple store too."
+        },
+        {
+          "id": 49920713,
+          "author": "Loic",
+          "text": "I have been using StreetComplete on Android thanks to a comment here some weeks ago. This is a really great tool, the barrier to contribute is brought to nearly zero.\nThe only one thing missing for me is a small history of my past contributions. At some point, I made a mistake and entered the wrong information (nothing terrible, the surface of a walkway, it was 30% one surface, 70% another, I gave the 30% value instead of what I think 70% would be better). I would have been glad to be able to quickly \"revert\" this contribution.\nBut else, a really great tool."
+        }
+      ],
+      "title_ja": "IOS版StreetCompleteがパブリックベータ版になりました",
+      "summary_ja": "ディスカッションのハイライト： READMEから：\nStreetCompleteは、Androidで利用可能なOpenStreetMapデータの使いやすいエディタです/ありがとう、ドイツ政府：\n>プロトタイプ基金第15ラウンド（ 2024年3月から2024年8月）の枠組みの中で、ドイツ連邦教育研究省はTobias Zwicを後援しました/私はプロジェクトのアイデアが大好きですが、残念ながら私はコミュニティと悪い経験をしました",
+      "editor_note": "「IOS版StreetCompleteがパブリックベータ版になりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 49922569,
+      "title_en": "Ask HN: Who is hiring? (October 2026)",
+      "url": "https://news.ycombinator.com/item?id=49922569",
+      "hn_url": "https://news.ycombinator.com/item?id=49922569",
+      "score": 84,
+      "comment_count": 85,
+      "posted_at": "2026-10-01T15:02:07+00:00",
+      "comments": [
+        {
+          "id": 49925928,
+          "author": "sheer_health",
+          "text": "Sheer Health (\nhttps://www.sheerhealth.com\n) | New York, NY | Full-Time | ONSITE\nIf you or a loved one has ever suffered from confusing/egregious medical bills or insurance communications, this is your chance to give the power back to others in a similar situation.\nOur mission is to demystify health insurance, healthcare and medical billing. By utilizing cutting-edge technology and advanced data analytics, we deliver personalized recommendations on how to save money, maximize use of plan benefits, stay on top of reimbursements and avoid erroneous or inflated medical bills.\nCurrently open roles:\n- Automation Engineer (\nhttps://jobs.ashbyhq.com/sheerhealth/ccd28cff-eac8-4970-beb4...\n)"
+        },
+        {
+          "id": 49925904,
+          "author": "jhirshman",
+          "text": "Uncountable | NY, SF, London & Toronto (In-Person) | Full-Stack Engineering\nhttps://www.uncountable.com/hiring/hn\nUncountable accelerates R&D for industrial scientists across leading materials, chemicals, and life sciences organizations. With our SaaS solution, our customers get better products to the market in half the time. Our team has grown from 100 to 200 in the last year.\nFull-Stack Engineers | $130k - $220k + Equity\n---> Uncountable is looking for engineers who can spearhead the development of the Uncountable Web Platform. The position is heavily product-driven and comes with challenges across the stack.\n--> Summer internships and working student positions are also available.\nLearn more:\nhttps://www.uncountable.com/hiring/hn\nLearn about our agentic coding practices:\nhttps://engineering.uncountable.com/coding/\n.\nContact our CTO directly at jason@uncountable.com"
+        },
+        {
+          "id": 49925900,
+          "author": "arpanghoshal",
+          "text": "Please hire me - I am the best tech+product guy you will get  (sorry but if you hire me your problem is solved)\nBest if your product has AI in it.\nI desperately need a job.. I used to live in the US, but now I have moved to India, I have done every setup to work remotely. Also I have H1B approval if you want me in-person.\nAnd I am broke with $70k debt, so I will work with my 100%.\nPleaseee I will be your best employee. (best if it is a startup)\nMy achievements:\n- built open-source LLM model with 15+ millions downloads.\n- built open-source ai governance tool with 14k downloads per month.\n- built world's first commercial power outage model used by major telecom in US.\n- I was Director of Innovation working with a leading entrepreneur building AI products.\n- I build interesting product every month (ask me what all), once I was approached by CEO of pandadocs who wanted me to lead their product based on what I built, I was so loyal to my ex-employer that I rejected that offer. Then that employer ended the company and that's why I am in India now. With 0 savings and no job.\n- been building AI product from last 4-5 years for startups.\nGreat points you cannot avoid:\n- workaholic, obsessive"
+        },
+        {
+          "id": 49925643,
+          "author": "yboris",
+          "text": "It's my duty again to point out the popular request of including a\n4DWW\ntag in the description to communicate community interest in the\nFour Day Work Week\nFour characters more in the description is all we ask\n<bowing>"
+        },
+        {
+          "id": 49925063,
+          "author": "somethingnew",
+          "text": "Discord | Senior Software Engineer, Application Security | REMOTE (US West Coast) or San Francisco, CA | $196K-$245K base + equity\nDiscord is where communities and friend groups spend time together, on desktop, mobile, and now more and more inside games and third-party apps built on our platform. That surface area, plus a huge, engaged, occasionally adversarial user base, makes application security a genuinely hard and interesting problem here.\nWe are hiring a Senior Software Engineer to join the Application Security team. This is hands-on product engineering: building security features that protect user accounts, strengthening authentication and session security, and improving security-critical services. You will work directly with product teams to ship user-facing account security tools and address emerging threats.\nStack: Python primarily, some TypeScript/React, some Rust, occasional JavaScript. Runs on GCP.\nLooking for: hands-on AppSec experience (not just compliance-flavored security), comfort reading and writing code across languages, experience shipping production software, and sound judgment on prioritizing real risk over checklist security. Experience with authentication, "
+        },
+        {
+          "id": 49925747,
+          "author": "paddy_m",
+          "text": "Location: Boston, MA\nRemote: Yes (preferred)\nWilling to relocate: No\nTechnologies: Python, TypeScript, Rust, SQL | pandas, polars, Arrow, DuckDB/DataFusion, Parquet, PostgreSQL | React, ag-grid, FastAPI, Django | MCP servers, LLM tool design, agent evals\nEmail: paddy@paddymullen.com\nI build data tools, from the dataframe backend to the browser.\nI created and maintain Buckaroo (\nhttps://github.com/paddymul/buckaroo\n), an open source dataframe UI for Jupyter, marimo, and VSCode — summary stats and a histogram over every column, across pandas and polars. 683 stars. Scrolling millions of rows without eating the browser took a segment-merging row cache and parquet decoded client side.\nRecently: Tallyman, a data science environment for coding agents. Named computations in a dependency DAG, results rendered live in a browser companion, every step keeping the prompt that made it. Demoed at PyData London 2026.\nBefore that: Flatfile, Attune, Tudor, and Bokeh/Wakari at Anaconda.\nLooking for data infrastructure, developer tools, or agent tooling — where a hard backend problem has to surface as something a person can use."
+        },
+        {
+          "id": 49924972,
+          "author": "fh973",
+          "text": "QUOBYTE | Santa Clara, CA and Berlin, Germany | Full-time / Remote | ONSITE |\nhttps://www.quobyte.com/\nAt\nQuobyte\nwe are working on a highly scalable and fault-tolerant software storage system built around a parallel file system core. Our customers use us for large scale AI and HPC clusters in the enterprise and research, k8s and OpenStack infrastructures, and as a scalable backend for SaaS products. There are Quobyte clusters which span tens of thousands of machines and slurp 100s of GB/s!\nUnder the hood, we have built a full-stack fault-tolerant parallel file system, with everything from kernel development over our own replicated database system design to distributed algorithms (Paxos!) and performance. In short: lots of real-world challenging and fun problems!\nWe work as a highly efficient engineering team, ship frequently, do code reviews, and have lots of unit and integration testing. If you’re passionate about systems, we might be the right place for you!\nBerlin, Germany (onsite, please apply only if you already are in the EU):\n* Software Engineer (with a passion for Systems, 60-100k EUR)\n* QA Engineer (creative testing, test automation, release engineering, 60-100k EUR)\n* In"
+        },
+        {
+          "id": 49925696,
+          "author": "chrisjorge24",
+          "text": "Hiring: AI, Data, DevOps & Full Stack Engineers | Remote — Americas\nWe’re hiring engineers to join our distributed engineering team:\n- DevOps Engineer: Terraform, Kubernetes, Docker, AWS/Azure/GCP, ArgoCD, GitHub Actions, Airflow, Kafka\n- AI Engineer: LLMs, ML, neural networks, AI system design, SageMaker/Vertex AI, Docker/Kubernetes\n- Data Engineer: Python, SQL, ETL/ELT pipelines, Airflow, dbt, data warehouses/lakes, AWS/GCP/Azure, Kafka/Spark\n- Full Stack Engineer: React, Node.js, Python, Java, or .NET; APIs, microservices, and DevOps/AI integrations\nRequirements: Based in the US, Canada, or South America; strong English communication; experienced with AI-assisted development; comfortable with live technical interviews.\nInterview process: Application → Intro → Technical Interview → Live Final Interview.\nFull job description: [\nhttps://drive.google.com/file/d/1re66FJwcYm-04G9gOvDE3WqhOzP...\n](\nhttps://drive.google.com/file/d/1re66FJwcYm-04G9gOvDE3WqhOzP...\n)\nInterested? Contact Christopher Jorge, chrisjorge@fwdconsulting.org"
+        }
+      ],
+      "title_ja": "HNに尋ねる：誰が採用しているのか？ （ 2026年10月）",
+      "summary_ja": "ディスカッションハイライト：完全な健康（\nhttps://www.sheerhealth.com \n） |ニューヨーク州ニューヨーク|フルタイム|オンサイト\nあなたまたは愛する人が、紛らわしい/ひどい医療費や保険の請求に苦しんだことがある場合|ニューヨーク、サンフランシスコ、ロンドン、トロント（対面）|フルスタックエンジニアリング\nhttps://www.uncountable.com/hiring/hn\n責任を負わないことは、leadi全体の産業科学者の研究開発を加速させます/私を雇ってください-私はあなたが得る最高の技術+製品の人です",
+      "editor_note": "「HNに尋ねる：誰が採用しているのか？ （ 2026年10月）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49922515,
+      "title_en": "RacketCon Is Saturday",
+      "url": "https://con.racket-lang.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49922515",
+      "score": 96,
+      "comment_count": 25,
+      "posted_at": "2026-10-01T14:58:13+00:00",
+      "comments": [
+        {
+          "id": 49925369,
+          "author": "gus_massa",
+          "text": "For the curious, there is an official YouTube channel with the previous editions\nhttps://www.youtube.com/@racketlang/playlists\n(It usually take a few months until the videos are edited and uploaded.)"
+        },
+        {
+          "id": 49924310,
+          "author": "dharmatech",
+          "text": "I've been messing around with a language that I summarize as:\nALOE = Scheme + Smalltalk + Types\nhttps://github.com/dharmatech/2026-09-02-aloe-racket\nPrototype is in Racket."
+        },
+        {
+          "id": 49922516,
+          "author": "spdegabrielle",
+          "text": "RacketCon is Saturday\nhttps://con.racket-lang.org"
+        },
+        {
+          "id": 49924013,
+          "author": "so-cal-schemer",
+          "text": "behnamoh 20 minutes ago [flagged] [dead] | parent | context |   unvouch | favorite | on: RacketCon Is Saturday\nI'm curious: does anyone really care about Racket anymore? In general, does anyone really care about esoteric languages anymore?\nWith AI, we have converged on a set of languages. For the web, it's JavaScript or TypeScript. For backend, it's Go and Rust. Pretty much nothing else can get picked by AI if you start a new project. If you even like a language like Elixir, there seems to be less and less incentive to use it in production when AI can replicate a lot of its features in Rust for one-tenth of the cost and 10 times the speed of Elixir.\nI'm saying this as someone who is designing a programming language, and for me, it's just a lot of fun, but I also know I should not hope for my language to take off anytime soon.\n--------------------------\nI think the Lisp family of languages are still the productivity boost they always were, especially with a good REPL. They can be as fast and safe as Rust and more expressive than JavaScript doing front end work. The deep support for macros and more really let you mold a program to fit the problem domain. Frontier models are reported "
+        }
+      ],
+      "title_ja": "RacketConは土曜日です",
+      "summary_ja": "ディスカッションハイライト：好奇心旺盛な方のために、以前のエディションの公式YouTubeチャンネルがあります\nhttps://www.youtube.com/ @ racketlang/playlists\n（動画が編集されるまで通常数か月かかります/私は次のように要約する言語をいじくり回してきました：\nアロエ=スキーム+スモールトーク+タイプ\nhttps://github.com/dharmatech/2026-09-02-aloe-racket\nプロトタイプはラケットにあります。/RacketConは土曜日です\nhttps://con.racket-lang.org",
+      "editor_note": "「RacketConは土曜日です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49911500,
+      "title_en": "Show HN: Open-source model routing for coding agents at Astra-level performance",
+      "url": "https://news.ycombinator.com/item?id=49911500",
+      "hn_url": "https://news.ycombinator.com/item?id=49911500",
+      "score": 33,
+      "comment_count": 3,
+      "posted_at": "2026-09-30T16:58:24+00:00",
+      "comments": [
+        {
+          "id": 49925486,
+          "author": "thefourthchime",
+          "text": "Interesting work, and thanks for describing how your router works internally. It's definitely a fascinating subject. How would you say this compares to Cursor's auto mode?"
+        },
+        {
+          "id": 49925019,
+          "author": "redrove",
+          "text": "Is the model you trained available as open weights?"
+        }
+      ],
+      "title_ja": "HNを表示： Astraレベルのパフォーマンスでのコーディングエージェントのオープンソースモデルルーティング",
+      "summary_ja": "ディスカッションのハイライト：興味深い作業と、ルーターが内部でどのように機能するかを説明していただきありがとうございます/トレーニングしたモデルはオープンウェイトとして利用できますか？",
+      "editor_note": "「HNを表示： Astraレベルのパフォーマンスでのコーディングエージェントのオープンソースモデルルーティング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 49925036,
+      "title_en": "Bez: Generating a browser engine from specs and tests",
+      "url": "https://tangled.org/burrito.space/bez",
+      "hn_url": "https://news.ycombinator.com/item?id=49925036",
+      "score": 21,
+      "comment_count": 0,
+      "posted_at": "2026-10-01T18:08:03+00:00",
+      "comments": [],
+      "title_ja": "BEZ ：仕様とテストからブラウザエンジンを生成する",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「BEZ ：仕様とテストからブラウザエンジンを生成する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 8,
+      "id": 49921923,
+      "title_en": "Cloudflare K2: serverless event streams",
+      "url": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+      "hn_url": "https://news.ycombinator.com/item?id=49921923",
+      "score": 121,
+      "comment_count": 40,
+      "posted_at": "2026-10-01T14:09:10+00:00",
+      "comments": [
+        {
+          "id": 49923705,
+          "author": "psanford",
+          "text": "Object store is quickly becoming the new core data substrate. Lets build kafka, but on s3. Lets build github, but on s3. It feels like we going to see more and more \"object-store first\" systems in the next few years.\nI am excited about this future. Give me stateless servers and a storage bucket over having to manage systems with disks any day.\nI do wonder if we will see an expansion of the s3 api to support more of these use cases. S3 added a janky file append operation to their new express-one-zone bucket type, and limited to 10k total file append operations. I wonder what else we will get in the next few years."
+        },
+        {
+          "id": 49925504,
+          "author": "eivindga",
+          "text": "Congratulations on the launch! Looks very interesting indeed!\nAs someone who enjoys writing Kafka streams applications I am also looking forward to the day you support the Kafka APIs.\nHaving a cost efficient fully serverless Kafka compatible service would be great, and something I think many businesses would find useful.\nGreat work!"
+        },
+        {
+          "id": 49923432,
+          "author": "necubi",
+          "text": "I'm the author of the post and tech lead for K2. Happy to answer any questions!"
+        },
+        {
+          "id": 49925407,
+          "author": "senderista",
+          "text": "Not a single mention of AWS Kinesis? That seems like the closest competitor."
+        },
+        {
+          "id": 49924645,
+          "author": "addisonj",
+          "text": "Congrats on the launch! Stream/event-based system are really powerful, but they are also just pretty complex, in no small part because the modeling of streams for most people today is really modeling Kafka topic/partitions which has a whole bunch of foot-guns and complexity. Making the individual stream really cheap and easy is a big simplification, especially if flexibly consuming a stream for both ordered and unordered use-cases is made simple. This looks to work for unordered, be curious to see how the managed dividing the work for the mentioned key-based ordering."
+        },
+        {
+          "id": 49925381,
+          "author": "senderista",
+          "text": "Minor correction: it is not true that no major object stores support appends--Azure Blob Storage has from the beginning."
+        },
+        {
+          "id": 49924410,
+          "author": "kirillkosolapov",
+          "text": "How does this solution differ from AutoMQ and WarpStream? I’ve worked with one of them, and it is indeed a serverless solution built on top of S3.\nAs far as I know, Kafka itself already supports offloading some data to S3 for long-term storage.\nBased on the articles—which I didn't fully grasp—I’m wondering if there are additional benefits mentioned, such as multi-region distribution (though I find it hard to imagine how that would be implemented)."
+        },
+        {
+          "id": 49923348,
+          "author": "loufe",
+          "text": "If I was a serious Cloudflare customer I would be seriously concerned about the security of my infrastructure with them. Yes LLMs can code fast but this is an almost frenetic pace of releasing new products, all with fewer staff."
+        }
+      ],
+      "title_ja": "Cloudflare K 2 ：サーバーレスイベントストリーム",
+      "summary_ja": "ディスカッションハイライト：オブジェクトストアは急速に新しいコアデータ基盤になりつつあります/発売おめでとうございます！ 本当に面白そうですね！\nKafkaストリームアプリケーションを書くのが好きな人として、Kafka APをサポートする日を楽しみにしています/私はK 2の投稿と技術リードの著者です",
+      "editor_note": "「Cloudflare K 2 ：サーバーレスイベントストリーム」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49922674,
+      "title_en": "Various Projects Find Hidden SDR Capabilities in ESP32 Microcontrollers",
+      "url": "https://www.rtl-sdr.com/various-projects-independently-find-hidden-sdr-capabilities-in-esp32-microcontrollers/",
+      "hn_url": "https://news.ycombinator.com/item?id=49922674",
+      "score": 87,
+      "comment_count": 10,
+      "posted_at": "2026-10-01T15:07:42+00:00",
+      "comments": [
+        {
+          "id": 49925416,
+          "author": "mallets",
+          "text": "So many $1 wireless ICs have a powerful \"SDR\", but will never be documented due to certification/compiliance/export-control reasons. The projects listed here rightly limited the scope to RX-only but Espressif might be forced to \"patch\" this away if arbitrary TX too is possible (or starts making headlines). Hope it doesn't come to that, more cheap options for RF-to-bits is always welcome.\nOn a technical note, not much I can find about the signal quality. Phase noise, images, DC Offset, etc. Have to get my hands on one, ESP32-S31 seems promising."
+        },
+        {
+          "id": 49925830,
+          "author": "drtz",
+          "text": "Since I'm a little slow and it took me a minute:\nSDR in this context is software defined radio."
+        },
+        {
+          "id": 49925620,
+          "author": "xd1936",
+          "text": "Very exciting!\n> However, the current prototype uses the FPGA to clock the ESP32, which results in poor phase noise.\nLooks like this was solved five days ago:\nhttps://github.com/h0m3us3r/eSpDR/commit/41a0ffe279119df942e..."
+        },
+        {
+          "id": 49925432,
+          "author": "BlackRabbit1",
+          "text": "As far as I follow the research process it's currently quite difficult  to get all of it (like the 80MSPS@10-Bit showcase on Reddit) to a computer without a FPGA+USB3.\nWith the new ESP32-S31 we most likely can extract the I/Q data over  a 1 GBit/s interface. Guessing something around 20-40MSPS should work.\nThese modules will most likely will be a revolution for 13cm ham radio. With the new 5GHz ESP32 modules most likely also for 5cm. As all Espressif components are WiFi-qualified we can expect a very very stable and robust radio.\nI ordered a few and waiting for Ali to deliver them to my lab."
+        },
+        {
+          "id": 49925506,
+          "author": "ErroneousBosh",
+          "text": "> undocumented feature that lets the firmware bypass the fixed WiFi and Bluetooth functionality and instead capture raw IQ baseband samples\nSo kind of like those TV USB sticks that you can adapt into proper SDRs?"
+        }
+      ],
+      "title_ja": "さまざまなプロジェクトがESP 32マイクロコントローラに隠されたSDR機能を見つける",
+      "summary_ja": "ディスカッションハイライト：非常に多くの$ 1ワイヤレスICには強力な「SDR」がありますが、認証/コンピリアンス/輸出管理の理由により文書化されることはありません/私は少し遅く、1分かかりました。\nこの文脈でのSDRは、ソフトウェア定義無線です。/とてもエキサイティング！\n>ただし、現在のプロトタイプではFPGAを使用してESP 32をクロックしているため、位相ノイズが低下しています。\nこの問題は5日前に解決されたようです。\nhttps://github.com/h0",
+      "editor_note": "「さまざまなプロジェクトがESP 32マイクロコントローラに隠されたSDR機能を見つける」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 49922568,
+      "title_en": "Ask HN: Who wants to be hired? (October 2026)",
+      "url": "https://news.ycombinator.com/item?id=49922568",
+      "hn_url": "https://news.ycombinator.com/item?id=49922568",
+      "score": 50,
+      "comment_count": 176,
+      "posted_at": "2026-10-01T15:02:07+00:00",
+      "comments": [
+        {
+          "id": 49925932,
+          "author": "ellis0n",
+          "text": "Location: Europe\nRemote: Yes\nWilling to relocate: Yes\nTechnologies: H100, AI, Training, Python, PyTorch, FastAPI, Docker, CUDA, C/C++, OpenCV, Swift, JavaScript, TypeScript, NodeJS, React, NextJS, Game Development, ThreeJS, Godot, Vulkan, OpenGL.\nResume:\nhttps://www.acpul.org/cvs\nEmail: pungg10kk@gmail.com\nI'm an experienced developer, visionary and researcher.\nI've created better \"Who to be hired?\" reader here\nhttps://news.ycombinator.com/item?id=48748491\nReach out to me and I will strengthen your team with my experience and knowledge.\nI started working with AI back in 2014 and consider myself one of the early vibe coders. I’m interested in everything related to AI and security, I’ve worked on benchmarks, optimizations, training and inference, tinygrad, H100, B200, DeepSeek etc. I also developed an ultra-fast programming language for executing complex GPU workloads and created a generative OS for it.\nUnder 25, I created the core of a security scanner and built a hacking team at a UK startup ($7M investment). We removed the GIL from Python to run 30,000 threads and scan 18,000 exchange IPs for malware overnight.\nI have many achievements, I created a Top-10 music app on the App Stor"
+        },
+        {
+          "id": 49925858,
+          "author": "mamcx",
+          "text": "Senior Rust / Database Engineer\nLocation: Medellín, Colombia · Remote: Yes · Willing to relocate: No\nSoftware engineer with 30+ years of experience building production-ready business applications and 3+ years as a core database engineer working on high-performance RDBMS technology.\nFounder and principal engineer of a small ISV, with a long track record of owning complex systems end-to-end—from low-level design and implementation to production deployment and reliability.\nExperienced across database engines, query processing, transactions, storage, performance optimization, ERP systems, and business applications. Driven to learn new domains quickly and choose the simplest effective architecture, tools, and paradigms for each problem.\nProduct Development:\nERP systems built from scratch · eCommerce platforms built from scratch · Business applications\n* Résumé / CV:\nhttps://www.linkedin.com/in/mario-alejandro-montoya-cortés-6...\n* Email: mamcx@elmalabarista.com\n* Website:\nhttps://www.elmalabarista.com"
+        },
+        {
+          "id": 49925890,
+          "author": "terra_",
+          "text": "Location: San Francisco Bay Area\nRemote: Yes; also open to onsite anywhere in the Bay Area\nWilling to relocate: For the right hardware company\nFounder/operator looking for an chief of staff/operations role at an early-stage company.\nI previously boostrapped and founded a hardware company. I ran the systems, cadence, logistics, supply chain, and opertaions beneath it.\nBest fit is a broader operations roles where a founder/operator background is useful. Ideally seed to Series B hardware, robotics, energy, or physical-AI startup that needs someone to own supply chain and operations before there is a large team around it. I've worn a lot of hats and can tackle any problem.\nTechnologies: Codex/Claude Code, Python, Google Apps Script, ERP\nRésumé/CV: On request\nEmail: 8ewffpx6a@mozmail.com"
+        },
+        {
+          "id": 49925809,
+          "author": "DhawalModi",
+          "text": "Location: Fremont, CA, USA\nRemote: Fine w/ Remote or Hybrid or In-office\nWilling to relocate: No, want to stay in Bay area\nTechnologies: Python, C++, PyTorch, OpenCV, Spring Boot, React, TypeScript, PostgreSQL, OracleSQL, Linux/Shell.\nWebsite:\nhttps://dhawal-modi.github.io/\nRésumé/CV:\nhttps://dhawal-modi.github.io/data/Resume.pdf\nEmail: dhawal [dot] modi07 [at] gmail [dot] com\nI’m an ML Engineer with a software engineering background and an MS in EECS. My recent work has been around deep learning, computer vision and data workflows for real-world ML systems. Before moving into ML, I worked as a back-end Software Engineer building payment processing systems with Java/Spring, REST APIs, and SQL databases.\nI’m looking for Applied AI/ML Engineer, Computer Vision Engineer, or SWE roles. I’m especially interested in teams building practical ML systems or applied AI products.\nSponsorship not needed for US roles."
+        },
+        {
+          "id": 49925753,
+          "author": "mddr",
+          "text": "Lead Infrastructure Engineer seeking contract work.\nLocation: Estonia, EU (EET)\nRemote: Yes (occasional on-site visits)\nWilling to relocate: No\nTechnologies: AWS, Linux, IaC, Elastic Stack\nRésumé/CV: available on request\nLinkedIn: https://www.linkedin.com/in/martitaremaa/\nEmail: hn at kibe.ee\nI am a Lead Infrastructure Engineer with 20+ years of experience.\nWhether your team is stuck troubleshooting infra issues, needs extra hands on an infra-heavy project or is just lacking tech leadership on the DevOps topics, contact me and we'll figure it out.\nI prefer to work along the existing engineering teams, mentoring or training them while working together on the real tasks. This is a very effective and also a flexible way to learn and as a bonus, some work gets done on the way.\nThe usual topics are various AWS services, Elastic Stack, Linux, wide range of troubleshooting, infrastructure as code, logging & monitoring, managing cloud costs, but I find it rewarding to venture into new areas together with the team.\nI am located in EU (Estonia) and work remotely with occasional on-site visits. B2B contract roles only, not considering full time work."
+        },
+        {
+          "id": 49925808,
+          "author": "mrfoo",
+          "text": "Location: EU\nRemote: yes\nWilling to relocate: no\nTechnologies:\nhttps://flrn.dev/skills\nRésumé/CV:\nhttps://flrn.dev/experience\nEmail:\nhttps://flrn.dev/contact\n| jinx-haven-wham@duck.com\nInterested in Devex and internal tooling roles."
+        },
+        {
+          "id": 49925707,
+          "author": "0xmattf",
+          "text": "Location: Florida\nRemote: Preferred\nWilling to relocate: In a few months, absolutely\nTechnologies: JavaScript & friends (Node/React, etc.), C#, MSSQL.\nWebsite: mattkfay.com\nEmail: matt@javascripttoday.com\nHey all. I was laid off on Monday after the company I was working at experienced a major decline in sales, so I'm available immediately.\nI'm a full-stack developer who most recently spent 3.5 years at a data-driven marketing firm where I built internal software in JavaScript, C#, and SQL on a small team. I also ended up owning a lot of IT: Active Directory accounts, a phishing awareness guide for staff, troubleshooting, and coordinating with our data vendors. Over the last ~2 years, I have been self-studying penetration testing/security, which proved useful at my last role (managed to find and fix a few vulnerabilities in various codebases, including a file upload to XSS).\nLooking for Node/React or .NET roles, especially anything touching application security."
+        },
+        {
+          "id": 49925832,
+          "author": "darrelld",
+          "text": "Looking for folks working with loyalty points & credit management\nBeen building a platform around this, have one customer who has been happily using my solutions for 5 years now. Seeking to bring others onto the platform.\nEmail in profile. USA East coast based, but willing to work worldwide"
+        }
+      ],
+      "title_ja": "HNに尋ねる：誰が雇われたいですか？ （ 2026年10月）",
+      "summary_ja": "ディスカッションのハイライト：場所：ヨーロッパ\nリモート：はい\n転勤を希望する場合：はい\nテクノロジー： H 100、AI、トレーニング、Python、PyTorch、FastAPI、Docker、CUDA、C/C ++、OpenCV、Swift、JavaScript、TypeScript、NodeJS/Senior Rust/Database Engineer\n場所：コロンビア、メデジン・リモート：はい・移転希望：いいえ\n生産準備完了のビジネスを構築する30年以上の経験を持つソフトウェアエンジニア/所在地：サンフランシスコ・ベイエリア\nリモート：はい、オンにも開いています",
+      "editor_note": "「HNに尋ねる：誰が雇われたいですか？ （ 2026年10月）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49920896,
+      "title_en": "How to speed up the Rust compiler in September 2026",
+      "url": "https://nnethercote.github.io/2026/09/30/how-to-speed-up-the-rust-compiler-in-september-2026.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49920896",
+      "score": 194,
+      "comment_count": 97,
+      "posted_at": "2026-10-01T12:44:38+00:00",
+      "comments": [
+        {
+          "id": 49923594,
+          "author": "knuckleheads",
+          "text": "Funny to see this now. I’ve got a private branch I am in the process of shaping up this weekend to show the compiler team. For deep nested projects like rust analyzer, if you emit the meta data about function types earlier for downstream slots to use, before successful type checking, you can start other crates earlier and use all the slots you have instead of sitting around waiting for the full type checking of the bodies (which other crates largely don’t care about). Something like 40% wall time speed up, maybe 10% to 15% if you have the parallel frontend on."
+        },
+        {
+          "id": 49921467,
+          "author": "adamch",
+          "text": "I'm glad to see the donations from big companies to open source maintainers are making measurable difference to the Rust experience. Telling these companies that their employees spend 5% less time waiting for compilation might motivate future investment in people like Nick and the others mentioned."
+        },
+        {
+          "id": 49921549,
+          "author": "bryanlarsen",
+          "text": "Really nice to see that the 5% speedup is despite making the borrow checker better, validating code that previously would have tripped it up.\nSometimes we really can have our cake and eat it too."
+        },
+        {
+          "id": 49923560,
+          "author": "s08148692",
+          "text": "I finally gave in to the rust hype and built a new project in it (or my agent fleet did). Almost instant regret. My poor machine with just 2TB HDD and 24 cores was almost immediately crippled by agents each working in their own sandbox, each one building and compiling\nMost projects my fleet works on are in other languages (TS, Go, Elixir) and can comfortably handle 10+ agents working in parallel, but not rust. I had to cap the fleet to 5 workers and build a dedicated resource monitor to step in and tidy up every time the disk almost filled up\nThat and general progress on building is far slower, with far more time spent building and testing than any other language I use.\nEnded up rebuilding in Go, the perf gains weren't worth it"
+        },
+        {
+          "id": 49922865,
+          "author": "slowin",
+          "text": "I've moved from Rust to Go for most things because in the era of agents, being able to iterate quickly on a project is a huge advantage and Rust is way, way slower than Go for compilation. There\nare\ntimes when Rust is more appropriate, but for the vast majority of things Go is perfectly fine."
+        },
+        {
+          "id": 49921407,
+          "author": "Surac",
+          "text": "Why is the compiler slow in the first place? I have no rust knowledge, how slow us slow, lets say in comparison to a c compiler?\nWhat is the performance killer?"
+        },
+        {
+          "id": 49922252,
+          "author": "maherbeg",
+          "text": "I'm surprised the OpenAI Codex team doesn't donate like 10B tokens or something to the Rust team for performance"
+        },
+        {
+          "id": 49922260,
+          "author": "hnp9j9qtda",
+          "text": "Biggest win for me was splitting one fat crate into three, parallelism got real."
+        }
+      ],
+      "title_ja": "2026年9月のRustコンパイラのスピードアップ方法",
+      "summary_ja": "ディスカッションのハイライト：今これを見るのは面白い/大企業からオープンソースメンテナへの寄付がRustのエクスペリエンスに測定可能な違いをもたらしているのを見てうれしい/5 ％のスピードアップが借りチェッカーを改善し、以前は失敗していたコードを検証しているにもかかわらずであることを本当にうれしく思います。\n時には私たちは本当にケーキを食べることができます",
+      "editor_note": "「2026年9月のRustコンパイラのスピードアップ方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 12,
+      "id": 49922437,
+      "title_en": "Context Language Models",
+      "url": "https://arxiv.org/abs/2609.37725",
+      "hn_url": "https://news.ycombinator.com/item?id=49922437",
+      "score": 52,
+      "comment_count": 11,
+      "posted_at": "2026-10-01T14:51:33+00:00",
+      "comments": [
+        {
+          "id": 49925423,
+          "author": "bob1029",
+          "text": "I would be concerned with context management consuming limited attention resources.\nDo you want your agent solving its own memory crisis, or do you want it solving the actual task? It can probably do both at the same time, but I suspect there is a non trivial cost associated with this.\nA separate hypervisor agent that manages the main agent's context would be much better in my experience. You can run it on a different schedule and the main agent has to spend zero tokens thinking about it. This also makes it a lot easier to control when caches will be missed."
+        },
+        {
+          "id": 49925084,
+          "author": "svachalek",
+          "text": "Wow. Context management is one of the big remaining hassles with modern LLMs so this could be big. The obvious complication is cache busting so it's also exciting they investigated solutions for that."
+        },
+        {
+          "id": 49925365,
+          "author": "Bolwin",
+          "text": "The biggest discovery might actually be that they ignored regular caching rules and kept invalid cache suffixes and it didn't hurt performance"
+        },
+        {
+          "id": 49925372,
+          "author": "visarga",
+          "text": "Can't we do this trick today with any model? Just send the file as next context. Of course you pay the price for cache misses, depending how deep you make changes, while CLM just ignores the recomputation."
+        }
+      ],
+      "title_ja": "コンテキスト言語モデル",
+      "summary_ja": "ディスカッションのハイライト：私は、限られた注意力資源を消費するコンテキスト管理に関心があります。\nエージェントに独自の記憶の危機を解決してもらいたいですか、それとも実際のタスクを解決してもらいたいですか？ /Wow/最大の発見は、実際には通常のキャッシュルールを無視し、無効なキャッシュサフィックスを保持し、パフォーマンスに影響を与えなかったことかもしれません",
+      "editor_note": "「コンテキスト言語モデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 49922594,
+      "title_en": "Polyedergarten: Garden of Paper Polyhedron Models",
+      "url": "https://www.polyedergarten.de/e_index.htm",
+      "hn_url": "https://news.ycombinator.com/item?id=49922594",
+      "score": 36,
+      "comment_count": 5,
+      "posted_at": "2026-10-01T15:02:51+00:00",
+      "comments": [
+        {
+          "id": 49924273,
+          "author": "joshmarinacci",
+          "text": "VRML? That's a name I've not heard in quite some time."
+        },
+        {
+          "id": 49923493,
+          "author": "triyambakam",
+          "text": "Polygarten hätte passen können? Und kurz: Pita haha"
+        }
+      ],
+      "title_ja": "Polyedergarten: Garden of Paper Polyhedron Models",
+      "summary_ja": "ディスカッションのハイライト： VRML ？それはかなり長い間聞いたことのない名前です。/Polygarten hätte passen können? Und kurz: Pita haha",
+      "editor_note": "「Polyedergarten: Garden of Paper Polyhedron Models」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 49924275,
+      "title_en": "ParadeDB Search Performance Improvements",
+      "url": "https://www.paradedb.com/blog/opening-a-closed-tin",
+      "hn_url": "https://news.ycombinator.com/item?id=49924275",
+      "score": 39,
+      "comment_count": 7,
+      "posted_at": "2026-10-01T17:05:01+00:00",
+      "comments": [
+        {
+          "id": 49924926,
+          "author": "jamesgresql",
+          "text": "ParadeDB'er here: We are really hoping this can turn into a back and forth, making both of our products better."
+        },
+        {
+          "id": 49925132,
+          "author": "peterpanhead",
+          "text": "ParadeDB kicks the TIN can should be the title."
+        },
+        {
+          "id": 49924550,
+          "author": "tschellenbach",
+          "text": "Definitely looking at using them, you do wonder if such narrow focus is defensible as a business? Probably not."
+        }
+      ],
+      "title_ja": "ParadeDB検索パフォーマンスの改善",
+      "summary_ja": "ディスカッションのハイライト： ParadeDB 'erここで：私たちは、これが前後に変わり、両方の製品をより良くすることができることを本当に願っています。/ParadeDBは、TINをタイトルにする必要があります。/間違いなくそれらを使用することを検討して、そのような狭い焦点がビジネスとして防御可能であるかどうか疑問に思いますか？おそらくそうではありません。",
+      "editor_note": "「ParadeDB検索パフォーマンスの改善」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49923638,
+      "title_en": "Lightweight PDF parser with layout, tables, formulas and bounding boxes",
+      "url": "https://github.com/beatrizalmeidaf/papero-pdf-text-extractor",
+      "hn_url": "https://news.ycombinator.com/item?id=49923638",
+      "score": 37,
+      "comment_count": 7,
+      "posted_at": "2026-10-01T16:14:40+00:00",
+      "comments": [
+        {
+          "id": 49925465,
+          "author": "antonly",
+          "text": "I just tried this and the results look very off. I put in the MiniSat[1] Paper, and the result appears catastrophically wrong:\nhttps://imgur.com/a/i3RHwcQ\n[1]:\nhttp://minisat.se/downloads/MiniSat.pdf"
+        },
+        {
+          "id": 49924999,
+          "author": "phenomen",
+          "text": "I currently use\nhttps://github.com/firecrawl/anydoc\nin my PDF pipelines.\nIn most cases it performs well. I'll test your lib to compare."
+        },
+        {
+          "id": 49925284,
+          "author": "JaumeGar",
+          "text": "Really nice work, thanks for sharing. The table and formula extraction look great."
+        },
+        {
+          "id": 49923639,
+          "author": "beatrizalmeidaf",
+          "text": "I built this because extracting PDFs into Markdown/JSON often loses\nreading order, tables, formulas, figures, and their original locations.\nThe goal is a lightweight document extraction pipeline that preserves\ndocument structure and bounding boxes while exporting to Markdown, JSON,\nExcel and Word.\nI'm also working on structure-aware semantic chunking for RAG, so retrieved\nchunks can retain their section, page and exact visual location in the PDF.\nThe project is open source and I'd love feedback on the architecture,\nextraction quality, and useful use cases."
+        }
+      ],
+      "title_ja": "レイアウト、テーブル、数式、バウンディングボックスを備えた軽量のPDFパーサー",
+      "summary_ja": "ディスカッションのハイライト：これを試してみましたが、結果は非常に外れています/現在使用しています\nhttps://github.com/firecrawl/anydoc\n私のPDFパイプラインにあります。\nほとんどの場合、それはうまく機能します/本当に素晴らしい仕事、共有していただきありがとうございます",
+      "editor_note": "「レイアウト、テーブル、数式、バウンディングボックスを備えた軽量のPDFパーサー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 16,
+      "id": 49919910,
+      "title_en": "GPT-Synopsys: Frontier Intelligence to Revolutionize Chip Design",
+      "url": "https://news.synopsys.com/2026-09-30-OpenAI-and-Synopsys-Announce-GPT-Synopsys-Frontier-Intelligence-to-Revolutionize-Chip-Design",
+      "hn_url": "https://news.ycombinator.com/item?id=49919910",
+      "score": 145,
+      "comment_count": 78,
+      "posted_at": "2026-10-01T10:21:36+00:00",
+      "comments": [
+        {
+          "id": 49920359,
+          "author": "fwlr",
+          "text": "GPT-Synopsys brings together OpenAI frontier models with Synopsys' EDA technology and domain expertise, enabling the specialized model [to] directly operate Synopsys' tools. Engineers will delegate design objectives … with agents running tools, interpreting results, implementing changes, and iterating toward verified outcomes for engineer review.\n“Agents will do all the engineering work. Engineers will delegate and review.” Lol, no, what the engineers are gonna do is get laid off."
+        },
+        {
+          "id": 49920356,
+          "author": "karlkloss",
+          "text": "We just buried an ASIC design that was nearly finished.\nReason: There was a deviation that would've needed a mask change, but because of AI chip demand, the manufacturer wanted so much money for it, that we said screw it.\nSo we now have AI powered chip design tools that make chip design cheaper, but because of AI, chip manufacturing has become so expensive, that we can't afford it anymore.\nNice."
+        },
+        {
+          "id": 49921100,
+          "author": "aurareturn",
+          "text": "From an investment perspective, I think chip fabs TSMC, Intel, and Samsung will benefit from better AI chip design tools.\nIf AI made it 100x faster and cheaper to build software, you suddenly have an explosion of software that need to be hosted. So companies like AWS/iOS App Store/cloud companies benefit.\nIf AI makes designing chips 100x faster and cheaper, you will have an explosion of custom chips for all sorts of applications. These chips still need to be physically made at TSMC, Intel, or Samsung.\nApple says it takes 3-4 years to design each Apple Silicon generation.[0] So the M6 was being designed in 2022-2023 already. Reports are that it costs hundreds of millions to a billion to design a cutting edge chip from scratch to finish.[0]\nThe cool thing is that we'll have niche ASIC chips for accelerating special applications that previously didn't have big of a market for someone to make a profit on. This is the same thing with software today. It's much easier to build custom software for a small niche and be profitable today than in 2022.\nMaybe some day, a kid in his garage can just tell an AI to design a custom chip, send it to TSMC, and get the chip in the mail in a few weeks.\n"
+        },
+        {
+          "id": 49920410,
+          "author": "aniceperson",
+          "text": "> I see you are using Cadence IP in your project, unfortunately this is not allowed per the terms and conditions and you will be reported to the authorities\nAlso : create proprietary locked down eda->no data to train models->models suck at it->reach out to ai lab to rl on it -> expect users to pay for eda and the model."
+        },
+        {
+          "id": 49920120,
+          "author": "joennlae",
+          "text": "„The joint service offering will provide the bundled compute, model, and licenses, while ensuring customer-specific design data is protected.“\nI am not sure if Nvidia want to send their chip designs to OpenAI."
+        },
+        {
+          "id": 49920316,
+          "author": "amelius",
+          "text": "Give us more open source EDA tools, not more hyped up EDA vendors."
+        },
+        {
+          "id": 49920760,
+          "author": "ducktective",
+          "text": "A question to those active in chip design industry: Are formal methods and formally proving a design more prevalent and normal in this industry compared to general software development?\nLike for a Arm microcontroller design, do engineers thoroughly test and formally prove the correct functionality of every component? If that's the case, why silicon errata is a thing?"
+        },
+        {
+          "id": 49920691,
+          "author": "hnd9q09qk4",
+          "text": "Having written a lot of Tcl glue for PrimeTime and ICC, the hard part was never writing the constraints, it was knowing which timing violation to actually believe."
+        }
+      ],
+      "title_ja": "GPT - Synopsys ：チップ設計に革命を起こすフロンティアインテリジェンス",
+      "summary_ja": "ディスカッションのハイライト： GPT - Synopsysは、OpenAIフロンティアモデルとSynopsysのEDA技術とドメインの専門知識を統合し、特殊モデルがSynopsysのツールを直接操作できるようにしました/ほぼ完成したASIC設計を埋めました。\n理由：マスク交換を必要としていた逸脱があったが、AIチップ需要のため、メーカーはそう望んでいた/投資の観点からは、チップファブはTSMC、Intel、Sa",
+      "editor_note": "「GPT - Synopsys ：チップ設計に革命を起こすフロンティアインテリジェンス」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 49922736,
+      "title_en": "Identity Management for Agentic AI [pdf] (2025)",
+      "url": "https://openid.net/wp-content/uploads/2025/10/Identity-Management-for-Agentic-AI.pdf",
+      "hn_url": "https://news.ycombinator.com/item?id=49922736",
+      "score": 54,
+      "comment_count": 12,
+      "posted_at": "2026-10-01T15:11:10+00:00",
+      "comments": [
+        {
+          "id": 49925860,
+          "author": "juanre",
+          "text": "I wrote a solution for this, and it has been working across several organizations for some months now. I run it as a public service at\nhttps://awid.ai\nbut I would love to offload it to a foundation.\n- OSS (\nhttps://github.com/awebai/aweb/tree/main/awid\n)\n- Trust rooted in the DNS.\n- Multiple registries supported.\n- did, verifiable stable identities.\n- Certificate-based teams.\nIt is being a very interesting project so far. It's at the core of my\nhttps://aweb.ai\nwhich enables agents to communicate globally, and it makes it possible to build really simple agent-first tools where auth is just a matter of validating a certificate."
+        },
+        {
+          "id": 49924766,
+          "author": "x401throaway",
+          "text": "I work at Proof, and we're working on x401 as a means for agentic authorization\nhttps://x401.proof.com/spec/latest/#abstract\nin a nutshell:\n* a website that wants to authorize who you are (say, to book a flight or sign a waiver for go kart rental)\n* the endpoint returns 401 and defines in a header what info it needs about you (over 18? you're actually John Doe? etc.)\non the proof side specifically, we're putting IAL2 verification in front of this\nhttps://pages.nist.gov/800-63-3-Implementation-Resources/63A...\npretty cool stuff, its early days but its a strong way to ensure there's a human authorizing sensitive actions an agent is taking on your behalf"
+        },
+        {
+          "id": 49923572,
+          "author": "ChrisArchitect",
+          "text": "Blog post with context:\nhttps://openid.net/new-whitepaper-tackles-ai-agent-identity-..."
+        },
+        {
+          "id": 49922745,
+          "author": "cgeier",
+          "text": "Sorry for the heavy edit of the title, the original \"Identity Management for Agentic AI: The new frontier of authorization, authentication, and security for an AI agent world\" is much too long."
+        },
+        {
+          "id": 49922978,
+          "author": "canadiantim",
+          "text": "Executive Summary (from the linked pdf)\nThe rapid rise of AI agents presents urgent challenges in authentication, authorization, and identity management. Current agent-centric protocols (like MCP) highlight the demand for clarified best practices in authentication and authorization. Looking ahead, ambitions for highly autonomous agents raise complex long-term questions regarding scalable access control, agent-centric identities, AI workload differentiation, and delegated authority. This whitepaper is for stakeholders at the intersection of AI agents and access management. It outlines the resources already available for securing today’s agents and presents a strategic agenda to address the foundational authentication, authorization, and identity problems pivotal for tomorrow’s widespread autonomous systems."
+        },
+        {
+          "id": 49923339,
+          "author": "nephihaha",
+          "text": "Is the OpenID Foundation connected to the Open Society group?"
+        }
+      ],
+      "title_ja": "エージェント型AIのアイデンティティ管理[pdf] (2025)",
+      "summary_ja": "ディスカッションのハイライト：このためのソリューションを作成しましたが、数ヶ月間にわたって複数の組織で機能しています/私はProofで働いており、エージェントによる承認の手段としてx 401に取り組んでいます\nhttps://x401.proof.com/spec/latest/#abstract\n一言で言えば：\n* WHO/ブログ投稿をコンテキスト付きで承認したいウェブサイト：\nhttps://openid.net/new-whitepaper-tackles-ai-agent-identity-...",
+      "editor_note": "「エージェント型AIのアイデンティティ管理[pdf] (2025)」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 49925742,
+      "title_en": "Oxygen-deprived underwater zones may not be \"dead zones\" but clue to early life",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2026AV002570",
+      "hn_url": "https://news.ycombinator.com/item?id=49925742",
+      "score": 3,
+      "comment_count": 0,
+      "posted_at": "2026-10-01T19:03:42+00:00",
+      "comments": [],
+      "title_ja": "酸素欠乏した水中ゾーンは「デッドゾーン」ではないかもしれないが、初期の生命の手がかり",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「酸素欠乏した水中ゾーンは「デッドゾーン」ではないかもしれないが、初期の生命の手がかり」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49922212,
+      "title_en": "How to set up SPF, DKIM, and DMARC for your sending domain",
+      "url": "https://mailfully.com/blog/spf-dkim-dmarc-setup",
+      "hn_url": "https://news.ycombinator.com/item?id=49922212",
+      "score": 30,
+      "comment_count": 4,
+      "posted_at": "2026-10-01T14:33:21+00:00",
+      "comments": [
+        {
+          "id": 49925582,
+          "author": "buredoranna",
+          "text": "This looks like a pretty good resource.\nI'd like to add the following, which I continually reference and has led to repeatable success:\nhttps://www.linuxbabe.com/mail-server/setting-up-dkim-and-sp...\nAnd as far as confirming it works, I continually rely on sending to a gmail address.\nUnder the three dots is \"view original\" which gives you\nSPF, DKIM, and DMARC results.\n(edit:formatting)"
+        },
+        {
+          "id": 49925580,
+          "author": "zh3",
+          "text": "I did exactly this today.\nFire up Claude, give it an account with sudo, let it loose. Not long after, emails from $PERSONALDOMAIN are making it through to my gmail and outlook accounts."
+        },
+        {
+          "id": 49925508,
+          "author": "adiabatichottub",
+          "text": "I recently tried bouncing mail during the header phase when DMARC didn't align, but it rejected more legit emails than SPAM.  Most of the junk we've been getting passes DMARC and has an unsubscribe link."
+        },
+        {
+          "id": 49925453,
+          "author": "comrade1234",
+          "text": "You also need to set up reverse dns to avoid ending up in spam folders at the big ones."
+        }
+      ],
+      "title_ja": "送信ドメインにSPF、DKIM、およびDMARCを設定する方法",
+      "summary_ja": "ディスカッションのハイライト：これはかなり良いリソースのようです。\n私は継続的に参照し、繰り返し成功につながっている次のものを追加したいと思います。\nhttps://www.linuxbabe.com/mail-server/settin/今日はまさにこれをやりました。\nクロードを立ち上げ、sudoでアカウントを作成し、解散させます/最近、DMARCが整列していないヘッダーフェーズでメールをバウンスしようとしましたが、スパムよりも正当なメールを拒否しました",
+      "editor_note": "「送信ドメインにSPF、DKIM、およびDMARCを設定する方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 49923056,
+      "title_en": "Red Hat being phased out of existence?",
+      "url": "https://techrights.org/n/2026/10/01/Red_Hat_Being_Phased_Out_of_Existence_Like_Many_Other_Companies.shtml",
+      "hn_url": "https://news.ycombinator.com/item?id=49923056",
+      "score": 126,
+      "comment_count": 65,
+      "posted_at": "2026-10-01T15:33:26+00:00",
+      "comments": [
+        {
+          "id": 49923701,
+          "author": "Hasz",
+          "text": "Krishna was on Norges podcast a while ago and mentioned that Red Hat would be (not his words) brought to heel with the rest of IBM. IMO, it is a version of the Broadcom/VMware playbook, boil-the-frog style.\nRedhat underpins many low-visibility, very important Linux projects, and most have no idea they are doing it. For example, look at kernel committers:\nhttps://insights.linuxfoundation.org/project/korg/contributo...\nweighted by market cap, the disparity is even more severe imo.\nThere is more visible projects (eg Ansible) that are great, but with very lackluster monetization and little impetus for IBM to GAF.\nThese guys are pursuing the wrong strategy, they should be using super popular, high-mindshare projects to drive new wave of tailored business solutions leveraging existing consulting teams they already have (IBM revenue to hugely reliant on PS, 33%). Basically the largest \"forward deployed eng\" transition ever, backed by existing very strong open-source software and tailored (with Watson, dear god) as the \"AI powered\" engine to appease the shareholder gods. You would run over so many startups with poor penetration at the F2000 level."
+        },
+        {
+          "id": 49924281,
+          "author": "scottyah",
+          "text": "They have more bargaining power now. Lots of people are scrambling to get off vmware after they raised their prices astronomically for seemingly no reason (other than they could, and a lot of groups are leaving VMs for containers). Openshift Virtualization is there with open arms to take those who haven't or won't migrate off of VMs.\nRedhat can now charge a lot more and have worse service because some of their main competition now enables it. Whatever replaces kubernetes is slowly being formed and decided on, but there's easy pickings for custom solutions and consultants for now."
+        },
+        {
+          "id": 49925326,
+          "author": "christophilus",
+          "text": "I hope not. I love Fedora, and it's kind of heavily reliant on Red Hat being a good citizen (as are many other distros). Red Hat is still the (benevolent?) king of the Linux world."
+        },
+        {
+          "id": 49923243,
+          "author": "throwaway7356",
+          "text": "Untrustworthy blog reposts Twitter message from some person?"
+        },
+        {
+          "id": 49924370,
+          "author": "INTPenis",
+          "text": "I'm also scared of RH pandering to share holders.\nBut RH disappearing as a brand is far fetched imho, just look at the recent output of their Youtube channel. They're leaning heavily into the Red Hat branding, not IBM.\nI'm more worried about the brain drain and drop in morale of the veteran employees. Something posts like this one probably contribute to."
+        },
+        {
+          "id": 49925767,
+          "author": "Danox",
+          "text": "IBM, are they still in business? I thought they were comatose like Xerox, and Kodak. :)"
+        },
+        {
+          "id": 49924405,
+          "author": "chasil",
+          "text": "I wonder if the forces behind OpenELA are able to shoulder a heavier burden.\nThe weakest link at this point would be Oracle. They've bet their future on AI, and it's crushing them.\nhttps://openela.org/"
+        },
+        {
+          "id": 49924447,
+          "author": "wormius",
+          "text": "My biggest fear (doubt it'd happen, but...) would be seeing this headline \"Oracle purchases Red Hat from IBM.\"\n(I have no idea why they'd do that, but it's a terrifying prospect;  worse than letting it go to pasture, imo)"
+        }
+      ],
+      "title_ja": "Red Hatは段階的に廃止されていますか？",
+      "summary_ja": "ディスカッションのハイライト：クリシュナは少し前にノルウェーのポッドキャストに出演していて、レッドハットは（彼の言葉ではなく） IBMの他の人たちと一緒になるだろうと述べました/彼らは今やより多くの交渉力を持っています/そうでないことを願っています",
+      "editor_note": "「Red Hatは段階的に廃止されていますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49906100,
+      "title_en": "OpenDLSS: A Vulkan Reimplementation of Nvidia's DLSS 5 Neural Rendering Network",
+      "url": "https://github.com/maanHimself/OpenDLSS-NR",
+      "hn_url": "https://news.ycombinator.com/item?id=49906100",
+      "score": 228,
+      "comment_count": 104,
+      "posted_at": "2026-09-30T08:43:21+00:00",
+      "comments": [
+        {
+          "id": 49919405,
+          "author": "Lerc",
+          "text": "I'm rather surprised that it doesn't take the z-buffer as an input. I would have thought that would have provided useful information,  it's one of the more useful forms of contolnet."
+        },
+        {
+          "id": 49919402,
+          "author": "TheJCDenton",
+          "text": "> bit-exact against the original\nWhat kind of sorcery is this ? Very impressive work !"
+        },
+        {
+          "id": 49919253,
+          "author": "tim-projects",
+          "text": "Jensen : Nobody needs to code anymore...\nProgrammer: OpenDLSS...\nJensen : Wait. Not like that! (╯°□°）╯︵┻━┻"
+        },
+        {
+          "id": 49919336,
+          "author": "flohofwoe",
+          "text": "Almost 8ms on 1080p resolution seems extremely expensive, does the original also eat into the rendering budget as much?"
+        },
+        {
+          "id": 49919689,
+          "author": "binsquare",
+          "text": "At what point does this neural rendering take away the human touch on the art styles?"
+        },
+        {
+          "id": 49919331,
+          "author": "franticgecko3",
+          "text": "How useful is this without weights?\nIsn't the mote that Nvidia has is they work with studios to generate the training data from the game, then they ship a model per game?\nOr is my knowledge outdated here and they're just using a single generalised model?"
+        },
+        {
+          "id": 49922499,
+          "author": "drnick1",
+          "text": "> A Vulkan reimplementation of NVIDIA's DLSS 5 Neural Rendering network, bit-exact against the original.\nBit-identical, I swear I heard that somewhere before."
+        },
+        {
+          "id": 49921096,
+          "author": "the_voice",
+          "text": "I think it's interesting that Nvidia is so interested in producing the hardware that fuels the future of software development, given that their primary business advantage is their software moat. This is an interesting project for sure, but turning a bunch of GPUs at Zluda[0] (an open implementation of Cuda) could be far more destructive for them, right?\n[0]\nhttps://github.com/vosen/ZLUDA"
+        }
+      ],
+      "title_ja": "OpenDLSS ： NVIDIAのDLSS 5ニューラルレンダリングネットワークのVulkan再実装",
+      "summary_ja": "ディスカッションのハイライト： Zバッファを入力として使用しないことにかなり驚いています/>元の\nこれは何の魔術だ？ とても印象的な仕事です！/ Jensen:もう誰もコーディングする必要はありません...\nプログラマー： OpenDLSS...\nジェンセン:待って",
+      "editor_note": "「OpenDLSS ： NVIDIAのDLSS 5ニューラルレンダリングネットワークのVulkan再実装」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 49924354,
+      "title_en": "SlutCon",
+      "url": "https://www.thenewcritic.com/p/safe-at-slutcon",
+      "hn_url": "https://news.ycombinator.com/item?id=49924354",
+      "score": 12,
+      "comment_count": 0,
+      "posted_at": "2026-10-01T17:12:15+00:00",
+      "comments": [],
+      "title_ja": "SlutCon",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「SlutCon」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49920932,
+      "title_en": "Micron CEO Says Memory Supply Will Be Much Tighter in 2027 and 2028 Than in 2026",
+      "url": "https://www.techpowerup.com/353296/micron-ceo-says-memory-supply-will-be-much-tighter-in-2027-and-2028-than-in-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=49920932",
+      "score": 263,
+      "comment_count": 307,
+      "posted_at": "2026-10-01T12:48:59+00:00",
+      "comments": [
+        {
+          "id": 49921548,
+          "author": "ocd",
+          "text": "I'm not a business guy, but I think I would be very worried if I created any opening (even on the very long term) for competition to justify itself being built up to meet demand (or national security requirements of other countries) on an industry I mostly control, because I prioritized extremely high prices for a few years that might have the effect of changing the arithmetic for potential competitors that wouldn't have done it before.\nIt makes me consider whether there would be retaliation in later years against the US intellectual property system in countries other than China. While RAM is a tangible product, the areas it serves aren't really."
+        },
+        {
+          "id": 49921215,
+          "author": "water-drummer",
+          "text": "Shovel seller says shovels will be expensive in winter so make sure to buy as many as you can today."
+        },
+        {
+          "id": 49921267,
+          "author": "proxysna",
+          "text": "I have huge hopes fox CXMT entering the market and at least offsetting this nightmare. Just this week i've paid ~$1k USD for 2x32G DDR5 ECC, insane."
+        },
+        {
+          "id": 49921144,
+          "author": "twelvedogs",
+          "text": "doesn't seem unlikely, i'd probably ask someone who won't massively benefit from people believing that it will be tighter though"
+        },
+        {
+          "id": 49925840,
+          "author": "CodeWriter23",
+          "text": "Didn't Micron make it big by busting in with supply when the market leaders tried to leverage scarcity into profit?"
+        },
+        {
+          "id": 49922791,
+          "author": "BatchJob",
+          "text": "The war on general purpose computing is ramping up.  They are coming for your computer....get ready."
+        },
+        {
+          "id": 49921256,
+          "author": "damowangcy",
+          "text": "remind me in a few years when the same CEO is writing long post on Linkedin explaining why they need to let go half of the company."
+        },
+        {
+          "id": 49925799,
+          "author": "TJSomething",
+          "text": "Sounds like I'm not buying a computer or a phone for 2 years. I hope my Pixel 6 lasts that long."
+        }
+      ],
+      "title_ja": "マイクロンのCEOは、2027年と2028年には2026年よりもメモリ供給がはるかに厳しくなると述べています",
+      "summary_ja": "ディスカッションのハイライト：私はビジネスマンではありませんが、需要を満たすために構築されていることを正当化するために（非常に長期的にも）競争の機会を設けた場合は、非常に心配になると思います（シャベルの売り手は、冬にはシャベルが高価になると言いますので、今日できるだけ多く購入してください。/私はFOX CXMTが市場に参入し、少なくともこの悪夢を相殺することに大きな希望を持っています",
+      "editor_note": "「マイクロンのCEOは、2027年と2028年には2026年よりもメモリ供給がはるかに厳しくなると述べています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49922278,
+      "title_en": "Cops Can Bypass iPhone's Automatic Reboot to Get into Locked Phones",
+      "url": "https://www.404media.co/cops-can-bypass-iphone-automatic-inactivity-reboot-graykey/",
+      "hn_url": "https://news.ycombinator.com/item?id=49922278",
+      "score": 180,
+      "comment_count": 135,
+      "posted_at": "2026-10-01T14:38:35+00:00",
+      "comments": [
+        {
+          "id": 49923244,
+          "author": "Cider9986",
+          "text": "For those who don't know, automatic reboot restarts your device if you haven't unlocked it in a set amount of time. Cellebrite and other digital forensics companies are able to get into AFU devices much more often. The automatic reboot feature was first introduced by GrapheneOS and was later added to iOS and stock Pixels.\nGrapheneOS's default is 18 hours and it can be set to between 10 minutes and 72 hours. iPhones and Stock pixels have it non customizable at 72 hours.\nOn GrapheneOS, for privacy and convenience, it's best to use a long random passphrase [1] for your primary unlock and then a fingerprint with a second factor pin as the secondary unlock. You enter the passphrase every time the device restarts.\nIf you're encountering someone that's going to seize your phone, try to restart/shut it down yourself so you don't have to trust the AFU protections.\n[1]\nhttps://strongphrase.net\ngive memorable ones which is cool."
+        },
+        {
+          "id": 49922872,
+          "author": "delichon",
+          "text": "I keep all of my most sensitive personal documents on my phone, as an emergency backup, but in an encrypted (Cryptomator) volume that requires a separate password. Given the routine news of such exploits this seems like due diligence.\nAs I understand it this encryption is a significant additional barrier to technical or legal access to those files. If someone knows otherwise, please let me know. Being wrong could cost me my home and life savings."
+        },
+        {
+          "id": 49925548,
+          "author": "iancarroll",
+          "text": "> “Even if that device does reboot for any number of reasons, memory maintenance or the power is lost or whatever, the AFU state is not lost. This is the true magic behind the GrayKey Preserve and the Evidence Preservation Mode function.”\nBased on this, it seems more likely that this involves exploiting the device to retrieve the underlying keybags present in AFU mode and store them, rather than manipulating the actual feature of automatic reboots. Then the device can be exploited again in BFU mode but with the prior keybag to decrypt everything.\nIt sounds like this feature is being used to exploit and extract keys from devices without a warrant (or in advance of getting one), which seems dubious to me."
+        },
+        {
+          "id": 49923441,
+          "author": "ethagnawl",
+          "text": "> The idea behind this so-called “inactivity reboot” is to revert the phone to a state that makes it harder for police to break into the device, and thus extract sensitive data from it with forensics technology.\nThis is weird framing. The feature makes it harder for\nanyone\nto break into the device."
+        },
+        {
+          "id": 49925790,
+          "author": "t1234s",
+          "text": "Graphine needs a triple tap power button for a hard power off."
+        },
+        {
+          "id": 49923330,
+          "author": "Melatonic",
+          "text": "I wouldnt be surprised if they had a backdoor into the Qualcomm chip that Apple decided to oddly still include in most of their US iPhones vs the international versions that come with their own internal modem"
+        },
+        {
+          "id": 49923520,
+          "author": "Cider9986",
+          "text": "Huh, so this is essentially very similar be what this guy said to my suggestion of a factory reset timer in GrapheneOS being flawed. Apple's implementation of the reboot timer is flawed.\nThis goes to show for all the people that want GrapheneOS to implement a feature like hidden profiles–flawed features give people a false sense of security and should not be implemented (that's not to mention deniability may not even be a good feature if it was technically possible to implement it well).\nMe:\n>What about a duress timer working as the reboot timer but it wipes if you don't unlock within the time period. Would that have any advantages for destruction of evidence or deniability?\nHybridStatAnim8:\n>That would not be viable because the hardware does not support it. It cannot be implemented in the OS because the OS can be turned off or exploited endlessly.\nFor GOS to consider it, it would likely need to be backed by the secure element.\n>Duress PIN is deemed acceptable to implement in the OS because it is expected that the user is the one to enter it, so it has not fallen into the hands of attackers who may bypass it. Once attackers have it, you are effectively gambling. Account for that in"
+        },
+        {
+          "id": 49923439,
+          "author": "Cider9986",
+          "text": "Offtopic:\n>Even if that device doesn't have the ability to turn on Airplane Mode or to turn off the transmitters through the Control Center of iOS.\nIIRC, the default on iOS is that anyone with your locked device can enable airplane mode which is concerning simply for thieves. But I suppose they have to use faraday bags anyway because of the Find My network."
+        }
+      ],
+      "title_ja": "警察はiPhoneの自動リブートをバイパスしてロックされた電話に入ることができます",
+      "summary_ja": "ディスカッションのハイライト：わからない人のために、一定時間ロックが解除されていない場合、自動再起動がデバイスを再起動します/緊急バックアップとして、最も機密性の高い個人文書をすべて携帯電話に保存しますが、別のパスワードを必要とする暗号化された（ Cryptomator ）ボリュームに保存します/>「そのデバイスが何らかの理由で再起動したとしても、メモリのメンテナンスや電源の喪失など、AFU状態は失われません",
+      "editor_note": "「警察はiPhoneの自動リブートをバイパスしてロックされた電話に入ることができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49919680,
+      "title_en": "Truemetrics (YC S23) Is Hiring a GTM Founder's Associate",
+      "url": "https://www.ycombinator.com/companies/truemetrics/jobs/THLEzXI-gtm-founder-s-associate",
+      "hn_url": "https://news.ycombinator.com/item?id=49919680",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-10-01T09:48:18+00:00",
+      "comments": [],
+      "title_ja": "Truemetrics (YC S 23)がGTMファウンダーズアソシエイトを採用",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Truemetrics (YC S 23)がGTMファウンダーズアソシエイトを採用」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 49922729,
+      "title_en": "Figma restricts MCP access to whitelisted clients, excluding Pi",
+      "url": "https://twitter.com/GayaniFigma/status/2105295629941350454",
+      "hn_url": "https://news.ycombinator.com/item?id=49922729",
+      "score": 130,
+      "comment_count": 73,
+      "posted_at": "2026-10-01T15:10:46+00:00",
+      "comments": [
+        {
+          "id": 49923207,
+          "author": "miguel-muniz",
+          "text": "For context: Figma has two MCPs. The local \"dev\" MCP that works through the Desktop app, and the remote MCP that requires a connection to Figma. Companies need to be whitelisted to use the remote MCP, which is the only one that allows agents edit access to Figma documents.\nI only found out about Figma's limitation when I was trying to add the remote MCP server to GitHub Copilot Desktop and kept running into errors. Turns out they whitelisted GitHub Copilot CLI but not the Desktop app and had put a pause on enabling any more vendors. Eventually someone (not sure which side) got it working.\nKind of strange to limit edit access only to the Remote MCP when their competitors like Pen[1] and Paper[2] allow any local agent to edit.\n[1]\nhttps://www.pen.dev/\n[2]\nhttps://paper.design/"
+        },
+        {
+          "id": 49923547,
+          "author": "JimDabell",
+          "text": "OpenCode seems to have been given the run-around as well:\n> on the figma mcp, we've had an email thread going on for 8 months trying to get it setup in opencode\n> they seem very concerned with the labs competing with them\n> finally got unblocked after i sent this email and it'll be rolled out in a week or so\nThe email:\n> looking through the legal stuff the amount of things in there seems pretty crazy\n> this is just an mcp server, there are thousands of them. we're not going to treat figma like its special\n> we've been talking about this for this entire year, i don't think this makes much sense and i don't want my team burning more time on this\n> once again, for a simple mcp server\n—\nhttps://www.threads.com/@thdxr/post/Dd7LN-ylLQW"
+        },
+        {
+          "id": 49923900,
+          "author": "ig0r0",
+          "text": "I like how Pi released an updated with a new oauth client name field for mcp where I just wrote Codex and Figma mcp works now."
+        },
+        {
+          "id": 49923805,
+          "author": "SkyPuncher",
+          "text": "I do security review for my company. I suspect this is a means of containing OAuth redirect vulnerabilities. We basically needed to do the same thing with our MCP server.\nThe security problem is two fold: (1) companies want control over where their data goes. Figma allowing any MCP creates problems (2) open redirects can create phishing issues. If your using Pi, you’re probably thinking of this. Most users aren’t.\nFor us, we decided to do an allowlist pattern because it was a reasonable tradeoff. The solution is allowing per-tenant client configuration, but that comes with its own set of issues (dev time, support, maintenance, etc).  When nearly all of the money is flowing through a handful of well-known MCPs there’s little reason to out effort into supporting every MCP."
+        },
+        {
+          "id": 49925519,
+          "author": "thefourthchime",
+          "text": "Funny timing. Just yesterday I threw Opus 5.5 at excalidraw.com and told it to diagram the architecture of the software I'm working on.\nIt did an amazing job."
+        },
+        {
+          "id": 49924530,
+          "author": "jjcm",
+          "text": "Dylan Field has shared some thoughts on this:\nhttps://x.com/zoink/status/2105369960008855914?s=46&t=bwJTI_..."
+        },
+        {
+          "id": 49922773,
+          "author": "thdr",
+          "text": "https://nitter.meowing.monster/GayaniFigma/status/2105295629..."
+        },
+        {
+          "id": 49923856,
+          "author": "WhitneyLand",
+          "text": "Even if you’re whitelisted you get only 6 accesses a day on a standard account, have to pay for a dev account to get 200/day which still isn’t great.\nFor my Figma needs, having Codex do computer use seems just as good as their mcp. I can tell it, “go download the assets for what I need and take a few screenshots for reference”."
+        }
+      ],
+      "title_ja": "Figmaは、Piを除くホワイトリストに登録されたクライアントへのMCPアクセスを制限します",
+      "summary_ja": "ディスカッションのハイライト：コンテキストの場合： Figmaには2つのMCPがあり、OpenCodeも駆け回っているようです。\n> figma mcpでは、オープンエンコードで設定しようとするメールスレッドが8か月間続いています\n>彼らは非常に協力しているように見えます/私は今、CodexとFigmaのmcpが動作するようになったところで、piがmcpの新しいoauthクライアント名フィールドを更新してリリースした方法が気に入っています。",
+      "editor_note": "「Figmaは、Piを除くホワイトリストに登録されたクライアントへのMCPアクセスを制限します」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49894430,
+      "title_en": "Book of Shapes – Collection of minimal, generative and customizable SVG-patterns",
+      "url": "https://bookofshapes.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49894430",
+      "score": 230,
+      "comment_count": 18,
+      "posted_at": "2026-09-29T14:56:22+00:00",
+      "comments": [
+        {
+          "id": 49920163,
+          "author": "kachnuv_ocasek",
+          "text": "Beautiful. Reminds me of the amazing visual art of Adam Fuhrer[1].\n[1]:\nhttps://adamfuhrer.com/"
+        },
+        {
+          "id": 49920418,
+          "author": "fireproof_",
+          "text": "I've been building something similar[1], but focused more on generating desktop/mobile wallpapers based on a desktop theme.\nMost of the designs is build via python-scripts that generate the final SVG's which then can be recolored in browser. Claude + a harness is surprisingly adept at generating these scripts, i guess pelicanmaxxing might be the reason?\n[1]\nhttps://github.com/nickolaj-jepsen/walldye"
+        },
+        {
+          "id": 49919541,
+          "author": "virtualritz",
+          "text": "Is this a rip of turtletoy[1] content?\n[1]\nhttps://turtletoy.net/"
+        },
+        {
+          "id": 49919831,
+          "author": "albert_e",
+          "text": "Looks useful. I was experimenting with making an SVG creator tool that can churn out shapes that go beyond the shape library of microsoft powerpoint -- so my slides can stand out. Things like a hexagon with rounded corners, squircle, swooshes and blobs etc.\nPatterns like these are useful as well."
+        },
+        {
+          "id": 49922324,
+          "author": "kn330",
+          "text": "Forgive my non-creative brain but who is this for? and how/where can this be used?"
+        },
+        {
+          "id": 49920503,
+          "author": "dominicrose",
+          "text": "unimportant detail but the Liked button doesn't show any shape"
+        }
+      ],
+      "title_ja": "Book of Shapes –最小限の生成可能でカスタマイズ可能なSVGパターンのコレクション",
+      "summary_ja": "ディスカッションのハイライト：美しい/私は似たようなものを構築してきました[1]が、デスクトップテーマに基づいてデスクトップ/モバイル壁紙を生成することに重点を置いています。\nほとんどのデザインは、生成されたPythonスクリプトを介して構築されています/これはturtletoy [1]コンテンツのリッピングですか？\n[1]\nhttps://turtletoy.net/",
+      "editor_note": "「Book of Shapes –最小限の生成可能でカスタマイズ可能なSVGパターンのコレクション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 28,
+      "id": 49920234,
+      "title_en": "Returning from vacation? The government can search your phone without a warrant",
+      "url": "https://arstechnica.com/tech-policy/2026/09/immigration-advocate-sues-border-agents-for-demanding-his-cell-phone/",
+      "hn_url": "https://news.ycombinator.com/item?id=49920234",
+      "score": 315,
+      "comment_count": 291,
+      "posted_at": "2026-10-01T11:13:59+00:00",
+      "comments": [
+        {
+          "id": 49920594,
+          "author": "TrackerFF",
+          "text": "Yeah, people are unfortunately not informed on just how much power border agents wield. Not only in the US, but in many (most I'd believe) other countries, too. I've worked on cases (intel side) where the law-enforcement side would just wait for the surveillance objects to cross the border, as that's where they could do most data collection with the least hassle.\nIf for whatever reason you think you're being investigated or surveilled (who knows for what these days, could be enough to just associate with the various protest groups / orgs), you can just assume that the border will be where they'll try to clone / download your data (phones, laptops, whatever)"
+        },
+        {
+          "id": 49920552,
+          "author": "lbriner",
+          "text": "For me, it isn't the lack of warrant (I am a UK Citizen but I expect we have similar problems here), it is the lack of transparency and accountability.\nIf was arrested on suspicion of something, I can get legal assistance and I can know what I am suspected of and why before any of my property (or in this case, potentially very private and sensitive information) could be taken. If the arrest is manifestly wrongful or not based on any evidence, then I expect it would be easy enough to resist investigation.\nOn the other hand, having someone at the border who can justify an arbitrary search on the basis that \"they might suspect of something\", without having to clearly justify that basis and that if they then take property (or information), potentially copy it completely opaquely and then have zero accountability if that is misused is extremely frustrating but I guess you need to lobby your lawmakers to make the system fairer and to ensure legal protections of privileged information is completely upheld - period."
+        },
+        {
+          "id": 49920638,
+          "author": "tantalor",
+          "text": "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.\nIt's self explanatory."
+        },
+        {
+          "id": 49922513,
+          "author": "Cider9986",
+          "text": "IANAL. This is my understanding.\nFor US citizens entering the US: If you're concerned about protecting your data from this threat, you should use GrapheneOS (or less good would be a latest iPhone in lockdown mode and BFU) and not talk to the police. The 5th amendment does not seem to have an exception at the border, so you can't legally be compelled to hand over your password by border agents (there's not strong case law here). They can lie, they can detain you, search you, they can seize your stuff. You shouldn't be the one arguing with them, you should be silent (besides identification) and ask for an attorney (you don't have a right to an attorney at a routine search). As a US citizen, you can refuse and still enter.\nGrapheneOS has demonstrated to be robust against physical access even in AFU [1]. It's still a good idea to shut down / restart because BFU is much more secure. To maintain convenience while avoiding reliance on the rate limiting of the secure element, you can use a long random passphrase as your primary unlock (you enter it every time the device is in BFU) and a fingerprint with a second factor pin as the secondary unlock.\nEven if you factory reset your phone and b"
+        },
+        {
+          "id": 49920844,
+          "author": "smalltorch",
+          "text": "I don't like this. I think about a year ago when there was a big push for chat control in the EU, almost like an instinct, I started working on ways to be more soverign with my data.\nI'm just a regular guy who really has nothing to hide, but that doesn't mean I need to be complacent with just allowing a future I don't like be propped up in front of my eyes.\nWhat I've come to realize is there is really no safer place for your data and communications than just your own home. At the very least, I would like a judge to review the evidence of my alledged wrong doing before the government can raid my castle and get what they need.\nWhy do I, as a regular citizen feel the need to invoke and create  my own protections on personal data and communications?\nThere's something deep inside me that feels the need to be prepared for this odd future where the government feels they have the right to access everything. It's deeply troubling on many fronts."
+        },
+        {
+          "id": 49921721,
+          "author": "gorgoiler",
+          "text": "”[the CBP agent] said if I didn’t give them my phone, my interrogation was going to take much longer and they could retain my phone indefinitely”\nI would take a punt at filing a complaint about that.  Threatening someone with selective enforcement must fall short of professional standards at CBP, as stated on their .gov page:\nhttps://www.cbp.gov/sites/default/files/2024-09/exhibit_08_-..."
+        },
+        {
+          "id": 49920599,
+          "author": "gblargg",
+          "text": "Too bad phones aren't easy to do a full back up of, wipe, then restore after you are past the border agents. Or can keep all user data on a microSD card that you remove and secure before the search."
+        },
+        {
+          "id": 49920948,
+          "author": "raincole",
+          "text": "> “In [Fiscal Year] 2025, out of the over 419 million travelers CBP processed at ports of entry, CBP only searched the electronic devices of 55,318 international travelers,” the agency wrote, or 0.0013%.\nAnd...\n> In Fiscal Year 2020, CBP processed more than 238 million travelers at U.S. ports of entry. During that same period of time, CBP conducted 32,038 border searches of electronic devices, representing less than .014 percent of arriving international travelers.[1]\nIn other words, now it's as likely[0] to get your phone searched as in 2020. It's interesting how the media shapes people's perspective, isn't it?\n[0]: 0.001% less likely, so just marginal error.\n[1]:\nhttps://www.cbp.gov/newsroom/stats/cbp-enforcement-statistic...\nnot sure it reports 2020's data here though."
+        }
+      ],
+      "title_ja": "休暇から帰国しましたか？政府は令状なしで携帯電話を捜索することができます",
+      "summary_ja": "ディスカッションのハイライト：残念ながら、人々は国境警備員がどれだけの権力を行使しているかについて知らされていません/私にとっては、令状の欠如（私は英国市民ですが、ここでも同様の問題があると思います）ではなく、透明性と説明責任の欠如です。\n容疑で逮捕された場合／人身、住宅、書類、財産の安全を確保する権利、不当な捜索および差押えに対する権利は侵害されないものとし、",
+      "editor_note": "「休暇から帰国しましたか？政府は令状なしで携帯電話を捜索することができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49913571,
+      "title_en": "Gemini 4 Argon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "hn_url": "https://news.ycombinator.com/item?id=49913571",
+      "score": 1615,
+      "comment_count": 1090,
+      "posted_at": "2026-09-30T20:04:37+00:00",
+      "comments": [
+        {
+          "id": 49913755,
+          "author": "taylorfinley",
+          "text": "Ten days ago I had an experience with Gemini 3.8 flash that made me wonder if I was being routed to a different model under test.  I was trying to use rocm with llama.cpp on my 128gb Strix Halo but could only get it to run Vulkan. I pasted the error message into agy and it proceeded to attach GDB to my GPU driver, reverse-engineer the kernel queue ioctl interface, and author an LD_PRELOAD C shim to get ROCm llama.cpp working on my Strix Halo. My jaw was hanging open the whole time.\nEdit to add the fix:\nhttps://gist.github.com/birep/6f2c8d490c7a29820997d57bd654c3..."
+        },
+        {
+          "id": 49913802,
+          "author": "nickysielicki",
+          "text": "The important take away here: the leapfrogging we’ve seen this year doesn’t seem to be a temporary thing. The famous theory of Dario Amodei was that AI was this winner-takes-all field where the first team to get a head start would never cede ground back. The term he liked to use was, “concentrating”. This is yet another datapoint that he was wrong about that. AI seems more distributed amongst neoclouds and traditional hyperscalers, FAANG and startups, GPUs and ASICs than it did this time a year ago.\nNobody has a moat."
+        },
+        {
+          "id": 49913608,
+          "author": "babelfish",
+          "text": "> We’ll continue to gather feedback from early testers as we iterate on guardrails before making Argon available to developers, enterprises, and consumers as soon as possible.\nGemini not beating the \"can't release a model\" allegations"
+        },
+        {
+          "id": 49914553,
+          "author": "wg0",
+          "text": "Breaking news is not the model. Breaking news is that inside Google, it is being heavily used on large code bases for writing code and it is migrating 800k lines of C++ code to Rust already.\nIn this space, any other company that I respect other than DeepSeek is - that would be Google. They had been honest about it from the get go including their infamous \"we have no moat\" memo.\nThis company has enormous data, their own hardware (TPUs) and their own in house experts. Actually, LLMs are invented here.\nGood addition to the arsenal."
+        },
+        {
+          "id": 49913673,
+          "author": "tazjin",
+          "text": "> Argon agents are working on migrating C/C++ codebases to Rust across Google\nMan, I remember back in the days when the cppnext team was refusing to even\nconsider\nRust, instead looking at absurd stuff like Carbon and Swift (!), even though half of the engineering staff already knew where this was headed. I hope they got a few good promos out of the delays at least."
+        },
+        {
+          "id": 49913926,
+          "author": "uvdn7",
+          "text": "> Large Scale Codebase Migrations and Optimizations: Argon agents are working on migrating C/C++ codebases to Rust across Google—scaling from tens of thousands of lines in core libraries like re2, libgav1 up to 800K+ lines for the Fuchsia OS Zircon kernel.\nTo me this is way more significant than other random c++-to-rust-AI-rewrite. If they can pull it off on core C++ libraries en masse, I don't know if C++ will still be relevant in a few years.\nI look forward to a post from google on this effort."
+        },
+        {
+          "id": 49914574,
+          "author": "Revanche1367",
+          "text": "Great, so they _finally_ decided to add a non-flash model and it's not available to regular subscribers for an indefinite period. What's the point of paying for the AI Ultra plan? Anthropic doing the same with Fable as far as I know, OpenAI at least allows Pro plan subscribers to use Astra. I subscribe to Gemini AI Ultra and ChatGPT Pro, and have enterprise access to Claude at work. To be fair, Gemini's flash models since at least 3.6 have been quite useful for non-complex work, but for any task where there is a bit of complexity involved, I've had to check and recheck the work multiple times myself or sometimes with another LLM to get it to follow plans accurately. It's disappointing to see yet another Gemini release ignore adding newer pro models.\nEdit: seems I was wrong about Anthropic restricting Fable, I guess our enterprise plan doesn't include it. But, the block from Anthropic regarding Mythos for regular subscribers/enterprise-users is still true I think."
+        },
+        {
+          "id": 49915870,
+          "author": "juanre",
+          "text": "Whatever your workflow is, make sure that model and provider are replaceable. Frontier labs will keep leapfrogging each other, as they have been doing for months.\nIn order for the benefits of AI to be distributed, intelligence has to become a commodity.\nAs long as you control the skills, the learnings, and the infrastructure setup you will be fine."
+        }
+      ],
+      "title_ja": "ジェミニ4アルゴン",
+      "summary_ja": "ディスカッションのハイライト： 10日前、私はGemini 3.8フラッシュを使用した経験があり、テスト中の別のモデルにルーティングされているかどうか疑問に思いました/ここでの重要なポイント：今年見た飛躍は一時的なものではないようです/>できるだけ早く開発者、企業、および消費者にArgonを利用できるようにする前に、初期のテスターからのフィードバックを引き続き収集します。\nジェミ",
+      "editor_note": "「ジェミニ4アルゴン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 49921050,
+      "title_en": "FTC is investigating OpenAI, Anthropic and other AI companies over product risks",
+      "url": "https://www.cnbc.com/2026/09/30/ftc-ai-probe-openai-anthropic.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49921050",
+      "score": 179,
+      "comment_count": 121,
+      "posted_at": "2026-10-01T13:00:55+00:00",
+      "comments": [
+        {
+          "id": 49921265,
+          "author": "jfasi",
+          "text": "My prediction: nothing will come of this, and these investigations will either be concluded favorably or dropped no less than six months after the midterms.\nThere's only one voice that matters in this administration, and he has already made it quite clear that he both does not consider AI to be an issue, and he is more than happy to trample over his agencies to enforce his opinion."
+        },
+        {
+          "id": 49925821,
+          "author": "CodeWriter23",
+          "text": "Looks like their \"Oops! we can't control our dog\" PR campaign has backfired."
+        },
+        {
+          "id": 49925476,
+          "author": "exabrial",
+          "text": "\"Product risks\"? The hell? How about cartel like behavior trying to stifle their competition."
+        },
+        {
+          "id": 49921808,
+          "author": "asdfasgasdgasdg",
+          "text": "If the FTC weren't investigating three of the largest and fastest growing companies in the country for one thing or another, it would be kinda surprising to me."
+        },
+        {
+          "id": 49921416,
+          "author": "Cipater",
+          "text": "They just need to hire the right lobbyists, get a meeting at the White House, agree on the terms and call it a settlement.\nAnd if the FTC chair is not agreeable, they will be threatened by said lobbyists and eventually be fired.\nIf this sounds far-fetched, it is exactly what happened to Gail Slater, then-head of the DOJ's antitrust division and her deputies in 2025 over HPE’s bid to acquire Juniper.\nWall Street Journal archive link:\nhttps://archive.ph/IMer9"
+        },
+        {
+          "id": 49922475,
+          "author": "herunan",
+          "text": "Just a way to pretend like they're doing anything in front of the public. What's there to investigate? Risks are pretty wide open. Crimes have been committed and admitted to."
+        },
+        {
+          "id": 49923312,
+          "author": "6gvONxR4sf7o",
+          "text": "What a shame that the focus in the article seems to be on \"winning.\" Seems like winning comes first and safety comes second, and the only question is how far apart they are. That's not surprising, but also not encouraging."
+        },
+        {
+          "id": 49922948,
+          "author": "elAhmo",
+          "text": "Do we really think that FTC under this administration, which is in bed with top tech billionaires giving gifts for inauguration will do anything against them?\nLet's not kid ourselves."
+        }
+      ],
+      "title_ja": "FTCは、製品のリスクについてOpenAI、Anthropic、およびその他のAI企業を調査しています",
+      "summary_ja": "ディスカッションのハイライト：私の予測：これは何も起こらず、これらの調査は、中間選挙の後、有利に終了するか、少なくとも6か月後に中止されます。\n声は1つしかありません/「おっと！犬をコントロールできません」のPRキャンペーンが裏目に出たようです。 /\" Product risks \"?どうしたの？ カルテルのように競争相手を窒息させようとする行動はどうでしょうか。",
+      "editor_note": "「FTCは、製品のリスクについてOpenAI、Anthropic、およびその他のAI企業を調査しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 26,
+    "slot": "23",
+    "started_at": "2026-10-02T04:21:35.102414+09:00",
+    "finished_at": "2026-10-02T04:22:51.072014+09:00",
+    "story_count": 30
+  }
+}
