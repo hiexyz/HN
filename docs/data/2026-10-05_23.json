@@ -1,0 +1,1521 @@
+{
+  "date": "2026-10-05T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49953495,
+      "title_en": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
+      "url": "https://github.com/Niko1221/Strata",
+      "hn_url": "https://news.ycombinator.com/item?id=49953495",
+      "score": 346,
+      "comment_count": 184,
+      "posted_at": "2026-10-04T12:51:53+00:00",
+      "comments": [
+        {
+          "id": 49955898,
+          "author": "hecturchi",
+          "text": "Right...\n- Tiny context size or hours to load it\n- Forget about thinking and preserve thinking and the benefits because well, that uses tokens.\n- Low quants reduce accuracy heavily\n- Flash attention with who knows how much draft ensures it makes the same mistakes all the time and cannot call tools, format output or follow basic guidelines reliably. Otherwise 2x-4x slower.\n- K/V quants set to who knows what to make everything even less accurate.\nBut sure it \"fits\" and hallucinates just fine.\nUseful would be combinations with:\n- Full context size so it can code and think a bit.\n- Draft MTP <= 2 so it doesn't trip\n- Q4 quants or better so its accurate\n- q8 cache or better so it stays accurate.\n- 20 token/s so it finishes while reviewing previous step.\n- 1000 tokens/s context load so compactions don't waste 10+ minutes.\n- And enough left RAM for 50+ context checkpoints so that it can progress quuckly.\nClosest you have is Qwen3.6-35B-A3B-MTP.\nLatest gens (Qwen3.8 and co.) are just too big for low specs. 27B dense models seem to be ok for integrated >=92 GiB RAM.\nSource: I have low specs and tried them all (to do useful stuff not to see if they \"run\")."
+        },
+        {
+          "id": 49955565,
+          "author": "a11r",
+          "text": "I'm a little skeptical of going below 4-bit quants due to the potential for significant degradation in quality. I'm running 4-bit quants on an RTX Pro 6000 rented for approximately $1/hour and getting about 1.2 million tokens out and 40 million tokens in per hour with caching. The quality of 4-bit quant is good enough for difficult but well-scoped coding tasks. Here is the inference stack I am using:\nhttps://www.reddit.com/r/BlackwellPerformance/s/FrKwk3GoDK"
+        },
+        {
+          "id": 49953792,
+          "author": "deadbunny",
+          "text": "> Set up Strata on this PC for me:\nhttps://github.com/Niko1221/Strata\n- follow docs/AI_SETUP.md in that repository.\nAnd I thought piping to bash was bad"
+        },
+        {
+          "id": 49953496,
+          "author": "snehesht",
+          "text": "I tried it and it worked surprisingly well. On my machine (Nvidia 4090, 128GB DDR5, Ryzen 7950x3d) I'm getting 124 tokens per sec, thought to share it here.\nhttps://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+        },
+        {
+          "id": 49954815,
+          "author": "lxe",
+          "text": "Why isn't this type of expert caching in the native llama.cpp yet? Why do we need a separate codebase?"
+        },
+        {
+          "id": 49954019,
+          "author": "kamranjon",
+          "text": "Dwarfstar already supports this, curious how it compares, but I use the q4 quant daily and it works really well.\nhttps://github.com/antirez/ds4/blob/main/docs/MODELS.md#qwen..."
+        },
+        {
+          "id": 49954498,
+          "author": "SuperV1234",
+          "text": "We're getting closer and closer to the day we can have an Opus-like model running locally. The dream!"
+        },
+        {
+          "id": 49956116,
+          "author": "sweetboy",
+          "text": "I think it would be great if you could try models with lesser parameters that could fit on 6GB VRAM-ish, which could work for \"gaming laptops\" as well."
+        }
+      ],
+      "title_ja": "Qwen 3.8 Flash Next （ 125 b ）をコンシューマーハードウェア（ RTX 4090 ）で100 T/sで実行",
+      "summary_ja": "ディスカッションのハイライト：そうですね...\n-コンテキストサイズが小さく、読み込むのにかかる時間が短い\n-思考を忘れ、思考と利点を維持します。なぜなら、それはトークンを使用するからです。\n-低クワントは精度を大幅に低下させます/品質が著しく低下する可能性があるため、4ビットクワントを下回ることに少し懐疑的です/>このPCでStrataを設定してください：\nhttps://github.com/Niko1221/Strata\n-そのリポジトリのdocs/AI_SETUP.mdに従います。\nそして、私はpと思った",
+      "editor_note": "「Qwen 3.8 Flash Next （ 125 b ）をコンシューマーハードウェア（ RTX 4090 ）で100 T/sで実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 2,
+      "id": 49933461,
+      "title_en": "A Map of Every Lighthouse on the Planet",
+      "url": "https://mapped.earth/lighthouses/world",
+      "hn_url": "https://news.ycombinator.com/item?id=49933461",
+      "score": 56,
+      "comment_count": 33,
+      "posted_at": "2026-10-02T13:45:49+00:00",
+      "comments": [
+        {
+          "id": 49956207,
+          "author": "zX41ZdbW",
+          "text": "I have a similar project (which I created in 2024):\nhttps://adsb.exposed/\nAmong various datasets, it has OSM data (all of it):\nhttps://adsb.exposed/?dataset=OSM&zoom=4&lat=52.3756&lng=2.5...\nAnd here are lighthouses:\nhttps://adsb.exposed/?dataset=OSM&zoom=3&lat=40.0444&lng=9.9..."
+        },
+        {
+          "id": 49955243,
+          "author": "Waterluvian",
+          "text": "I like the idea. But it was a bit jarring that panning with my finger took ages and then pinching to zoom insta-faceplanted me into the Labrador interior.\nIf anyone wants to mount a rescue, I’m somewhere near a lighthouse."
+        },
+        {
+          "id": 49955947,
+          "author": "rizonio",
+          "text": "This seems like it maps way more than just lighthouses. Looking at puget sound, at least, it seems to mark all the navigation buoys as lighthouses as well."
+        },
+        {
+          "id": 49955803,
+          "author": "themanmaran",
+          "text": "Fun fact, there is a .gov effort to sell (or give away) a lot of old lighthouses in exchange for agreed maintenance. It's sort of a terrible deal, since you can't live in them or use them for commercial purposes, but you do still have to maintain it to a certain standard. But I'm sure someone is out there with the desire.\nhttps://realestatesales.gov/our-listing/"
+        },
+        {
+          "id": 49955307,
+          "author": "SkyeCA",
+          "text": "Pinch to zoom on a macbook makes the entire map sweep across the globe. Makes it very hard to use even if it's a neat idea."
+        },
+        {
+          "id": 49955409,
+          "author": "alienbaby",
+          "text": "What an incredibly annoying zoom/spin thing is going on there"
+        },
+        {
+          "id": 49955482,
+          "author": "frisco",
+          "text": "Fun fact: lighthouses in a general area will all have different periods so sailors can easily tell them apart and know which one they are looking at"
+        },
+        {
+          "id": 49955280,
+          "author": "dochne",
+          "text": "My favourite bit about people who use OpenStreetMap data for lighthouses is that they end up including <\nhttps://www.google.com/maps/@52.2647013,-2.1151705,51a,15y,2...\n> lighthouse in the exceptionally landlocked Droitwich (shows up as Hanbury Wharf Lighthouse)"
+        }
+      ],
+      "title_ja": "地球上のすべての灯台の地図",
+      "summary_ja": "ディスカッションのハイライト：似たようなプロジェクトがあります（ 2024年に作成しました）。\nhttps://adsb.exposed/\nさまざまなデータセットの中で、OSMデータ（すべて）があります。\nhttps://adsb.exposed/?dataset=OSM&zoom=4&lat=52.3756&/このアイデアが気に入っています/これは、単なる灯台以上のものをマッピングしているようです",
+      "editor_note": "「地球上のすべての灯台の地図」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 49954882,
+      "title_en": "Car is a smartphone on wheels. Here's who's listening",
+      "url": "https://automatictransmission.khoury.northeastern.edu/",
+      "hn_url": "https://news.ycombinator.com/item?id=49954882",
+      "score": 157,
+      "comment_count": 78,
+      "posted_at": "2026-10-04T15:43:14+00:00",
+      "comments": [
+        {
+          "id": 49955934,
+          "author": "randomhacker123",
+          "text": "They only looked at the domains the car talks to over wifi, not to the content. For a Tesla Model 3 they also looked at the mobile traffic, because it was easy doable.\nThey played around with the infotainment of the car for 30 minutes, when it has for example a YouTube app, they opened it. When the car talked to YouTube over Wifi they counted it as one ATA (Advertising, Tracking, and Analytics).\nWhen you have less apps in the car, or all data is tunneled trough the car manufacturer it results in less ATA and therefore a better score.\nThe paper says this:\n> 2. Stationary Active: The vehicle was parked and powered on for 30 minutes while we interacted with as many sensors and features as possible. This included opening and closing doors and the trunk, pressing dashboard and seat controls, activating stalks (lights, wipers), and exploring all infotainment menus and apps.\nhttps://automatictransmission.khoury.northeastern.edu/paper....\nTheir repository has the classification of vendors here:\nhttps://github.com/nicolegerzon813/Automatic-Transmission-An...\nIt would be nice to have know which domains were accessed by which car. Even better would be to know which action in the car correlate"
+        },
+        {
+          "id": 49955085,
+          "author": "zenapollo",
+          "text": "The world IS getting mass surveillance. The havens for privacy are shrinking. We are becoming the ants in the ant farm.\nOne thing i don’t understand is how pro-surveillance advocates don’t understand that the moment they are not behind the terminal, they are the target."
+        },
+        {
+          "id": 49955114,
+          "author": "atmavatar",
+          "text": "The unfortunate reality is we can expect more and more of our goods to spy on us over time, as there are both political and economic motivations to track and collect as much data as possible on everyone.\nThe best thing you can do is avoid products with trackers while they haven't taken over their entire market, learn to disable GPS, wireless, and cellular antennae once they do, and pray manufacturers take a while to insert dead-man switches as well."
+        },
+        {
+          "id": 49955658,
+          "author": "axegon_",
+          "text": "This is part of the reason why I don't want a new car: I don't want to be involved in this directly. A guy from work got a brand new Hyundai(I think), and the first thing that popped on the navigation was \"Create an account with Hyundai now\". Nah. Nah. Forget it. I have 3 issues:\n1. I should not have to authenticate or have connectivity to a manufacturer unless I want to once I've paid for a physical good(cars being physical goods).\n2. I don't want my personal data to be sold off to anyone - I've been in the tech industry for long enough to know that \"I don't want my data to be shared with third parties\" is worth as much as the power used to light up the pixels on the screen.\n3. I don't trust anyone to have done everything carefully and by the books to prevent any potential leaks."
+        },
+        {
+          "id": 49955414,
+          "author": "rcpt",
+          "text": "If this tech was being used for traffic enforcement then I'm all for it. Unfortunately it seems like people will still be able to browse their phone behind the wheel and run over kids on bikes despite the surveillance"
+        },
+        {
+          "id": 49955098,
+          "author": "hoppyhoppy2",
+          "text": "Discussed 2 days ago at\nhttps://news.ycombinator.com/item?id=49926628"
+        },
+        {
+          "id": 49955216,
+          "author": "recursivedoubts",
+          "text": "It has been demonstrated repeatedly that modern cars can be remotely hijacked and controlled as well.  We really do live in a dystopia."
+        },
+        {
+          "id": 49955672,
+          "author": "prometheus1992",
+          "text": "is anyone aware of a public db where you can check how much info a car shares with the manufacturer,insurance etc based on make, model, year?"
+        }
+      ],
+      "title_ja": "車は車輪付きのスマートフォンです。耳を傾けている人は次のとおりです",
+      "summary_ja": "ディスカッションのハイライト：彼らは、コンテンツではなく、Wi - Fiを介して車が話すドメインだけを見ていました/世界は大量の監視を受けています/残念なことに、時間の経過とともにますます多くの商品がスパイされることが予想されます。多くのデータを追跡して収集する政治的および経済的動機があるためです。",
+      "editor_note": "「車は車輪付きのスマートフォンです。耳を傾けている人は次のとおりです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 49955839,
+      "title_en": "What I learnt co-leading an AI Safety bootcamp for legal and governance practit",
+      "url": "https://www.lesswrong.com/posts/KtAug62dYRgAS8sqJ/what-i-learnt-co-leading-an-ai-safety-bootcamp-for-legal-and",
+      "hn_url": "https://news.ycombinator.com/item?id=49955839",
+      "score": 20,
+      "comment_count": 10,
+      "posted_at": "2026-10-04T17:21:26+00:00",
+      "comments": [
+        {
+          "id": 49956047,
+          "author": "gausswho",
+          "text": "> The market should be choosing not the most capable models, but the partners with the strongest incentives towards safety, and only a community with this knowledge can spread that.\nRead strictly, author is claiming that only ML4Good or equivalent has the knowledge to dictate what models we should be using. I categorically disagree. Or rather, \"they're not even wrong\", since \"AI safety\" is not even remotely encapsulated in this piece.\nAt the risk of ad hominem, this is an Accenture consultant expanding the definitions for their own ends. Maybe they'll define what \"good\" is. Someday.\nWe've seen this wave before with big A Agile consultants, Microsoft certification hucksters, and different hucksters from before my time.\nIt's a verbose (probably AI written?) piece. I gave it the charitable good-faith read. But in the end, I couldn't shake the feeling that even amongst the welcome humanizing of the concepts, this is the same kind of amorphous know-better-than-you self-promotion, opportunistically hitching their own trailer of grift to the buzzword of the day."
+        },
+        {
+          "id": 49955980,
+          "author": "kingcauchy",
+          "text": "link in the comments of the article is also interesting\nhttps://www.lesswrong.com/posts/bfwH88cFEm3r7PWfv/what-lawye..."
+        },
+        {
+          "id": 49956028,
+          "author": "ForHackernews",
+          "text": "I don't know about anyone else, but I'm completely over the self-appointed \"AI safety practitioners\" leading workshops and writing overwrought blogs while (by their own accounts!) acting as handmaidens to the AI apocalypse.[0]\nEnough. Let's take them at their word: it's time to sue them, jail them, stop them from killing us all like they insist they are trying to do.\n\"Defendants admit that they provide a service without fully knowing how it works. This is not just any service. It is one that Defendants themselves concede poses an existential risk to the continued survival of humankind. Defendants claim they cannot stop barreling forward with their potentially civilization-ending endeavors unless they are forced to do so by the government. They have asked the government to tie them to the mast. Plaintiff brings good news to the Defendants: The Florida Attorney General is answering your cry for help with a motion to enjoin you from harming Floridians with your reckless, unacceptably risky product.\"[1]\n[0]\nhttps://www.theguardian.com/technology/2026/oct/03/openai-sa...\n[1]\nhttps://www.myfloridalegal.com/sites/default/files/plaintiff..."
+        },
+        {
+          "id": 49956128,
+          "author": "panny",
+          "text": "My entire opinion of AI safety has been colored by the fact that I recently learned AI safety is a sex cult.\nhttps://archive.today/bkOXn"
+        }
+      ],
+      "title_ja": "法務とガバナンスの実践のためのAIセーフティブートキャンプを共同主導して学んだこと",
+      "summary_ja": "ディスカッションのハイライト：>市場は最も有能なモデルではなく、安全性に最も強いインセンティブを持つパートナーを選択すべきであり、この知識を持つコミュニティのみが記事のコメントで/linkを広めることができます\nhttps://www.lesswrong.com/posts/bfwH88cFEm3r7PWfv/what-lawye.../他の誰かについてはわかりませんが、自称「AI安全実践者」のワークショップや",
+      "editor_note": "「法務とガバナンスの実践のためのAIセーフティブートキャンプを共同主導して学んだこと」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49949438,
+      "title_en": "Tell HN: Bob Cringely has died",
+      "url": "https://news.ycombinator.com/item?id=49949438",
+      "hn_url": "https://news.ycombinator.com/item?id=49949438",
+      "score": 710,
+      "comment_count": 145,
+      "posted_at": "2026-10-04T00:50:52+00:00",
+      "comments": [
+        {
+          "id": 49952084,
+          "author": "tjansen",
+          "text": "Damn. I've loved Bob and his writings ever since I read Accidental Empires as a kid. He went through some crazy shit over the last few years (lost his house, almost blind). And when he started blogging again this year (\nhttps://www.cringely.com/2026/05/27/where-the-heck-have-i-be...\n), the stories got even worse (lost his son, heart attack, stroke). RIP."
+        },
+        {
+          "id": 49950029,
+          "author": "JKCalhoun",
+          "text": "I liked his \"Plane Crazy: Building a Plane in 30 Days\" on PBS.\nWatching him try (and fail) to build a composite airplane says so much about the allure of modern techniques (I won't spoil the end, but old-school gets the last laugh). I've been less than enthusiastic about modern composites ever since seeing this show.\nBob's attempt (and short temper) reveals a good deal of hubris on his part.\nThe documentary is a fascinating failure and a masterclass in attempting to salvage a show when the whole premise for the show completely collapses.\n[1]\nhttps://youtu.be/FSNzF-KSGiw"
+        },
+        {
+          "id": 49953442,
+          "author": "tuna74",
+          "text": "He was a very entertaining blogger! RIP.\nHowever, he was also ripping people off and making up stuff:\nhttps://www.jeremyreimer.com/rockets-item.lsp?f=true&p=272"
+        },
+        {
+          "id": 49955477,
+          "author": "dewarrn1",
+          "text": "A shame. I encountered his work in a couple of places (with the caveat that I don't know which Cringely was which):\nPBS website: He wrote a column that their site no longer hosts, but the Wayback Machine has it snapshotted frequently, including just after his final submission for the outlet in 2008:\nhttps://web.archive.org/web/20081223220604/http://www.pbs.or...\nNerdTV: In an era of nascent web video, he produced long-form video interviews with tech types, and clipped what might now be called \"Shorts/Tiktoks\" from the conversations, pulling out the of \"the juicy bit\" and \"the nerdy bit\".\nhttps://en.wikipedia.org/wiki/NerdTV\n(h/t to u/Keyframe)\nAnd obliquely, Cringely's columns or videos were the first place I recall hearing about foveated approaches to video compression for streaming. I thought it sounded like a terrible idea, but I guess Valve delivered, 20 years on, using the technique to good effect with the Steam Frame. Chalk one up for Cringely; RIP."
+        },
+        {
+          "id": 49951045,
+          "author": "icee",
+          "text": "I was a big fan of this guy's work. Great documentaries. Triumph of the Nerds was a great watch — I gifted this to several people. I also watch the lost Steve Jobs documentary every few years for inspiration. Accidental Empires was a great read — I always think of Larry Ellison doing the NYT Crossword puzzle when I read about all the Paramount drama. He'll be missed."
+        },
+        {
+          "id": 49951403,
+          "author": "kickingvegas",
+          "text": "Rest in peace Robert X. Cringely. For those interested, the documentary \"Triumph of the Nerds\" is available on the Internet Archive.\nhttps://archive.org/details/triumph_of_the_nerds"
+        },
+        {
+          "id": 49954200,
+          "author": "acomjean",
+          "text": "Sad.\nEarly employee at Apple who was offered to be paid in stock. He “held out for the cash”.\nI really like the triumph of the nerds series.   Getting bill Gates, Balmer, Jobs and those IBMers to explain how it all came together and how MS who didn’t have an OS ended up getting one to sell to IBM.\nThe transcripts are a good\nhttps://www.pbs.org/nerds/transcript.html"
+        },
+        {
+          "id": 49950701,
+          "author": "exitb",
+          "text": "Incredibly sad news. I first learned of him and watched his documentaries just a few years ago. It’s difficult to understate, if you happen to be a tech nerd, how much fun “Triumph of the Nerds” and “Nerds 2.0.1” are to watch, even nowadays."
+        }
+      ],
+      "title_ja": "HNに伝える：ボブ・クリンギリーが亡くなりました",
+      "summary_ja": "ディスカッションのハイライト： PBSの「Plane Crazy: Building a Plane in 30 Days」が気に入りました。\n彼が複合飛行機を作ろうとした（そして失敗した）のを見ていると、現代の技術の魅力について多くのことがわかります（私はしません/彼は非常に面白いブロガーでした！ RIP。\nしかし、彼はまた、人々を騙して作り話をしていました。\nhttps://www.jeremyreimer.com/rockets-item.lsp?f=true&p=272",
+      "editor_note": "「HNに伝える：ボブ・クリンギリーが亡くなりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49930439,
+      "title_en": "Glashütte Trash Clock – A 30-minute pendulum clock made from trash",
+      "url": "https://niklasroy.com/gtc/",
+      "hn_url": "https://news.ycombinator.com/item?id=49930439",
+      "score": 117,
+      "comment_count": 16,
+      "posted_at": "2026-10-02T06:33:06+00:00",
+      "comments": [
+        {
+          "id": 49953857,
+          "author": "brightbeige",
+          "text": "For those who like long form journalism and want to know more about watch collecting and Glasshütte:\nhttps://www.newyorker.com/magazine/2017/03/20/confessions-of..."
+        },
+        {
+          "id": 49954730,
+          "author": "avidiax",
+          "text": "An interesting project, that buries the lede to another interesting thing: abolishment of the leap second.\n> In November 2022, the General Conference on Weights and Measures decided to abolish the leap second by 2035\nI think the story goes that when the leap second was standardized in 1987, the wold was much less connected, there were fewer systems, and hence it was practical to keep astronomical time and civil time coordinated.\nBut this causes so many bugs and difficulties in practice that companies like Google don't perform leap seconds, they do leap second \"smearing\". But even smearing has issues, since there are multiple algorithms.\nEven worse, the Earth sometimes accelerates, and there was a prospect that we might need a negative leap second, which has never been put into practice.\nAnd as daylight savings makes everyone painfully aware, the public can tolerate even hours of misalignment between civil time and astronomical time, and even an hour adjustment.\nSo if we decide that we can tolerate a whole minute of skew, we need no leap minute for 50-100 years. And if we could tolerate an hour of skew, we'd not need a leap hour for millennia.\nOf course, this is all can-kicking. If "
+        },
+        {
+          "id": 49930459,
+          "author": "r0r0",
+          "text": "This is a functional 30-minute pendulum clock entirely from discarded materials—cardboard, zip ties, tape, a yardstick, and a paperclip escapement, built in the German Eldorado of precision watchmaking: Glashütte.\nIt also acts as a reference clock for GTC, a new satirical universal time standard."
+        },
+        {
+          "id": 49954638,
+          "author": "ramshanker",
+          "text": "Speaking of clocks, recently we have started streaming live clocks on Youtube. There could be 100s of way of showing beautifull clocks on screen. This one is mine. Coding for fun! A bandwidth hog to be honest. ;)\nhttps://www.youtube.com/@TheClockStack/streams"
+        },
+        {
+          "id": 49956118,
+          "author": "Razengan",
+          "text": "Some more cool clocks, including gravity based clocks (not hourglasses):\nhttps://www.youtube.com/watch?v=ywD5kngMuYM\n—\nBritish Museum - Curious Clocks and Watches through time with Oliver Cooke"
+        },
+        {
+          "id": 49953965,
+          "author": "geerlingguy",
+          "text": "This is like the perfect clock demo opposite of the classic Bartosz Ciechandowski blog post on mechanical clock movements:\nhttps://ciechanow.ski/mechanical-watch/\n(I love both, just opposite in the color vs dryness, jank vs precision, \"build first, principles later\" approach)."
+        },
+        {
+          "id": 49954221,
+          "author": "slfnflctd",
+          "text": "As art projects go, this one has a lot of charm for me.  Plenty of room for allegories (although apparently not the paperclips, haha).  Timekeeping in general is a subject with depth across many domains-- particularly in software as we all know.  So many different ways to do the 'same thing'."
+        },
+        {
+          "id": 49954736,
+          "author": "mahboi",
+          "text": "Oh so GTC isn't GMT mixed with UTC, it's just whatever time it is on the trash clock"
+        }
+      ],
+      "title_ja": "グラスヒュッテゴミ時計–ゴミから作られた30分の振り子時計",
+      "summary_ja": "ディスカッションハイライト：ロングフォームジャーナリズムが好きで、時計コレクションとGlasshütteについてもっと知りたい方のために：\nhttps://www.newyorker.com/magazine/2017/03/20/confessions-of.../別の興味深いことにつながる興味深いプロジェクト：うるう秒の廃止。\n> 2022年11月、度量衡総会は、/これは完全に廃棄された材料からの機能的な30分振り子時計であると決定しました",
+      "editor_note": "「グラスヒュッテゴミ時計–ゴミから作られた30分の振り子時計」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49952111,
+      "title_en": "Show HN: AI search for every photo and every frame of video on macOS",
+      "url": "https://github.com/allenv0/SCM",
+      "hn_url": "https://news.ycombinator.com/item?id=49952111",
+      "score": 82,
+      "comment_count": 45,
+      "posted_at": "2026-10-04T09:24:52+00:00",
+      "comments": [
+        {
+          "id": 49953995,
+          "author": "postalcoder",
+          "text": "Since this is for the mac you really should be using apple's vision framework for OCR. It smokes tesseract in both speed and accuracy.\nEdit: I'm curious which LLM was used to generate the code. I fed the title of your post to claude/deepseek/qwen/codex asking to recommend a stack for this project, expecting to frown thinking that they still recommend tesseract. However, I found that they all recommend apple's vision framework. In fact the latest model to recommend Tesseract is gpt-4.1."
+        },
+        {
+          "id": 49953895,
+          "author": "alt227",
+          "text": "Slightly offtopic, but made me wonder.\nCan you copyright things like this now that LLMs exist? I mean, up until now if a small startup has a great idea they will get bought out by big tech which will integrate (or kill) their tech. But now with LLMs can the likes of OpenAI just tell their model to make something that works similar to X (such as this project) and then get round copying laws and negate being behind the curve?\nEDIT: switched to the correct spelling of copyright."
+        },
+        {
+          "id": 49953541,
+          "author": "lucideer",
+          "text": "possibly off-topic, but for anyone interested in this on a more cross-platform / holistic basis, Immich does this\n(& by \"this\" I mean an approximate AI search for photos & videos - I can't account for the \"every frame\", nor for the comparative search quality)"
+        },
+        {
+          "id": 49954002,
+          "author": "yt1998",
+          "text": "Why chose CLIP to do this. Have you tried small VLMs like Qwen-VL? I believe those models have video encoders can better perform at this scenario."
+        },
+        {
+          "id": 49953375,
+          "author": "hn3ufz62f7",
+          "text": "Having built something similar with CLIP on an M1, frame sampling rate is the whole ballgame. One frame a second on 12k videos is days, keyframes only got me to an overnight run."
+        },
+        {
+          "id": 49953634,
+          "author": "measure2xcut1x",
+          "text": "How well do you think this would work on stock photography on m1 mac with 32GB ram? For example I'd like to be able to search a folder of ~2k photos for houses with palm trees. Or find photos of kitchens, or find photos of desert southwest landscapes."
+        },
+        {
+          "id": 49953208,
+          "author": "stephenitis",
+          "text": "I like the entire premise, the one thing stopping me from trying this is not knowing the time scales that I will need to set my computer aside for the processing of large folders of video frames, or my photos library's videos, some 12,000 videos"
+        },
+        {
+          "id": 49954742,
+          "author": "qlasisi15",
+          "text": "This would really help in video editing.\nThanks!"
+        }
+      ],
+      "title_ja": "HNを表示： macOS上のすべての写真とビデオのすべてのフレームのAI検索",
+      "summary_ja": "ディスカッションのハイライト：これはMac用であるため、OCR/やや偏見のあるAppleのビジョンフレームワークを使用する必要がありますが、私は不思議に思いました。\nLLMが存在する今、このようなものを著作権で保護できますか？ つまり、これまでのところ、小さなスタートアップが素晴らしいアイデアを持っていれば、彼らはトピック外に買収される可能性がありますが、よりクロスプラットフォーム/全体的なベースでこれに興味がある人にとっては、Immichはこれを行います\n(& by \"this\" I mean an approximate AI sear",
+      "editor_note": "「HNを表示： macOS上のすべての写真とビデオのすべてのフレームのAI検索」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 49950554,
+      "title_en": "Why don't more developers “use the platform”?",
+      "url": "https://nolanlawson.com/2026/10/03/why-dont-more-developers-use-the-platform/",
+      "hn_url": "https://news.ycombinator.com/item?id=49950554",
+      "score": 242,
+      "comment_count": 246,
+      "posted_at": "2026-10-04T04:10:47+00:00",
+      "comments": [
+        {
+          "id": 49954104,
+          "author": "toddmorey",
+          "text": "This got to me:\n> For a certain type of developer, building things yourself is just more fun\nThe platform APIs were terrible. React wasn't \"more fun\"... it just made it possible to do things with the platform that were extremely difficult and cumbersome to get working reliably with platform APIs alone.\nTo me, web components were an incredible idea poorly implemented. Most of the minimal adoption happened on top of frameworks like Lit that wrapped WCs to try to make the dev experience tolerable.\nIn urban planning they have a concept called \"desire paths\" where if you don't put sidewalks and pathways in the right places, people invent their own. I feel like the web community has spent a lot of time and effort patching the platform.\nNow credit where credit is due: it has very much improved. And modern standards means it really is time to re-evaluate where and when you need these patches. But don't write off all that annoying and painful effort people put in to trying to making the platform deliver it's promised potential just to \"building it yourself is more fun\"."
+        },
+        {
+          "id": 49956241,
+          "author": "alvarlagerlof",
+          "text": "It doesn't matter how often Safari released as long as updates keep on being tied to os updates. A large enough percentage of people do not upgrade their OS fast enough for new features to be broadly usable."
+        },
+        {
+          "id": 49952769,
+          "author": "roncesvalles",
+          "text": "Your premise that the browser implementation is faster and better is rarely true. And when it is true, it's only true in a very narrow lane.\nTake for instance something like suggestions on form fields: you start typing something and it presents some options from a hardcoded list that matches the prefix. This is natively achieved through the HTML element <datalist>. However, <datalist> implementations on most browsers\nsuck\nto the point of being unusable.\nThe drive to roll your own is not so much that \"it would be fun to learn this\" as much as it's \"rolling my own would let me express my vision exactly\". What draws a lot of people to software engineering is that it lets you make anything you imagine. This is also what makes a lot of devs turn their nose at no-code and vibe-coding.\nIf you can't build things exactly how you want them to be, then it's hard/impossible to build something that's truly genius."
+        },
+        {
+          "id": 49950750,
+          "author": "jchw",
+          "text": "For one thing, I just genuinely think WebComponents are a badly designed API that is weird and hard to use (how many people are using WebComponents without\nat least\nLit, if not something much bigger?), and React is a relatively well-designed library that isn't really that bloated. There's not really much of a point in trying to argue since this is inherently subjective and people with different values are going to irreconcilably disagree. But, if you don't respect that some people hold this position, we're not going to make any progress towards a consensus.\nOn the note of <dialog>, I recently tried to use <dialog> in a (React) application, and it did work pretty well, but I also found that in Firefox it is only practically possible to do a fade-in animation, not a fade-out one. That isn't\nreally\na critical issue for me, it is just an animation after all, but I find it unfortunate. I also find <dialog> to be a weirdly shaped API too: I don't really\nhate\nit, but I don't love it either. It feels awkward.\nI find this implicit view that developers that, for example, prefer React over WebComponents are making a suboptimal choice to be rather condescending and not really in the spirit of "
+        },
+        {
+          "id": 49950805,
+          "author": "usernomdeguerre",
+          "text": "As far as I know there are still some things \"the platform\" actually won't deliver; for instance I'm fairly certain there's no searchable combobox that's fully accessible. One ~must leave the platform to give users the experience the expect.\nThat means \"the platform\" itself is actually teaching people to work \"off platform\" and arguably will always have gaps as functionality and expectations evolve.\nAdmittedly, the habit really ought to be 'I need to make a combobox -> does the platform have what I need? -> Research, evaluate, test -> Otherwise, make it' but I don't begrudge people for skipping the middle steps."
+        },
+        {
+          "id": 49952197,
+          "author": "serbuvlad",
+          "text": "Coming from a more general programming view, I find web development extremely odd. In general programming we tend to find a small set of abstractions which we can use in a composable way to cover our problem space.\nFor example, to interact with the VFS, we have read()/write(). When we add more APIs, it can be to enable a new paradigm, like epoll(), or for performance, like readv()/writev(). For a functionality that can be composed out of existing APIs in a performant way, we do not add it in the platform, but leave it instead to the domain of libraries. This separation has immense values, as it makes platforms easy to implement. A Linux filesystem, for example, needs to implement only 10 or so functions.\nThe web seems to be perfectly composable too, out of <div>, <span>, <p> and a small subset of CSS, but doing this is considered an anti-pattern, and you're supposed to reach for the platform to find the closest thing to what you need, whereas reaching for a library or composing yourself is frowned upon.\nThe result is that there are only three platforms: Blink/V8; WebKit/JavaScriptCore; and Geko/SpiderMonkey. With many things only working or working well on Blink/V8.\nAnd implementin"
+        },
+        {
+          "id": 49951711,
+          "author": "littlecranky67",
+          "text": "The answer is UX designers and marketing people. I will yet have to work in a web project where any UX designer will be happy with what the native browser has to offer. Notable examples are date/time pickers. Look at any of the Top100 websites and you will find custom date/time picker designs. And I would also say, with standard browser built-in dialogs you could not rebuild/model those pickers to match what the Top100 websites use."
+        },
+        {
+          "id": 49953240,
+          "author": "dickersnoodle",
+          "text": "For a lot of us it's lived experience - \"the platform\" can hide bugs that don't emerge until a certain rare set of conditions is present and we get glared at by the business folks who don't understand why we can't just \"fix it\" when it's buried in someone else's Jenga tower."
+        }
+      ],
+      "title_ja": "より多くの開発者が「プラットフォームを使用」しないのはなぜですか？",
+      "summary_ja": "ディスカッションのハイライト：これは私に与えられました：\n>特定のタイプの開発者にとっては、自分で物事を構築する方が楽しいだけです\nプラットフォームAPIはひどかった/アップデートがOSアップデートに結びついている限り、Safariがリリースされる頻度は関係ありません/ブラウザの実装がより速く、より良いというあなたの前提はめったに真実ではありません",
+      "editor_note": "「より多くの開発者が「プラットフォームを使用」しないのはなぜですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49952029,
+      "title_en": "VGHF Digital Archive passes 5000 magazines. Here's what's next",
+      "url": "https://gamehistory.org/5k-magazines/",
+      "hn_url": "https://news.ycombinator.com/item?id=49952029",
+      "score": 85,
+      "comment_count": 13,
+      "posted_at": "2026-10-04T09:07:11+00:00",
+      "comments": [
+        {
+          "id": 49952624,
+          "author": "tosh",
+          "text": "If there is a way to download the archive I did not find it. Most of the scans seem to be sourced from internet archive uploads."
+        },
+        {
+          "id": 49953315,
+          "author": "2OEH8eoCRo0",
+          "text": "I'd be interested to know their scanning setup and workflow."
+        },
+        {
+          "id": 49954804,
+          "author": "Scapeghost",
+          "text": "Gaming magazines were THE best part of my life growing up. More than the games themselves, more than cartoons, more than family, friends (I had none..the reviewers were my friends :)\nWe lived in the backwater town of a backwater country, going through a turbulent era. There was nothing to buy there, except local food and produce and clothes. The only foreign stuff available to buy were the absolute basics like soaps and shampoo, and pirated movies and music on cassette tapes (even there people knew and adored Michael Jackson!)\nThe nearest city with international imports was 10-12 hours away on bus. Sometimes my uncle would go there for work, and the thing I looked forward to the most were the MAGAZINES he would bring back.\nAt first it was Sinclair User, Your Sinclair, then ZZAP!64. I would pore over them again and again, and fantasize about the games in them… it would be months before my uncle went again. So I made wishlists, drew comics about the stuff in those magazines, and picked up British humor from them, that still colors mine to this day. :)\nI learned English and about the rest of the world from them. I learned about the USSR through Raid Over Moscow, the Vietnam War throug"
+        }
+      ],
+      "title_ja": "VGHFデジタルアーカイブは5000の雑誌を通過しています。今後の流れ",
+      "summary_ja": "ディスカッションのハイライト：アーカイブをダウンロードする方法がある場合、見つかりませんでした/スキャンの設定とワークフローを知りたいと思います。/ゲーム雑誌は私の人生の中で最高の部分でした",
+      "editor_note": "「VGHFデジタルアーカイブは5000の雑誌を通過しています。今後の流れ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 10,
+      "id": 49946895,
+      "title_en": "The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux",
+      "url": "https://www.phoronix.com/news/XDC-2026-Valve-Timur-AMDGPU",
+      "hn_url": "https://news.ycombinator.com/item?id=49946895",
+      "score": 411,
+      "comment_count": 69,
+      "posted_at": "2026-10-03T19:14:48+00:00",
+      "comments": [
+        {
+          "id": 49948486,
+          "author": "LaurensBER",
+          "text": "I just bought a used Ayaneo 2 handheld, it has an old(er) mobile RDNA 2 GPU and I was blown away by how well this thing performed under Linux. Almost everything (that's not a recent AAA game) runs beautiful and a lot faster/smoother than it does under Windows. The experience has been so good that I'm considering switching my main pc (with a 9070XT) to Linux as well.\nNo doubt Timur contributed heavily to this given Valves Steamdeck (which uses a very similar but slower GPU).\nGiven the current hardware prices it's pretty awesome to see someone squeezing maximum performance out of old hardware!"
+        },
+        {
+          "id": 49952205,
+          "author": "azkalam",
+          "text": "I have AI fatigue, but the potentially for fixing bugs in old hardware is very exciting to me.\nPerhaps we will even be able to reverse firmware blobs into open source alternatives?"
+        },
+        {
+          "id": 49949075,
+          "author": "gary_0",
+          "text": "Direct link to the talk, with timestamp:\nhttps://youtu.be/j5W5ErEMnvM?t=21385"
+        },
+        {
+          "id": 49954125,
+          "author": "throwawayffffas",
+          "text": "I got a r9 285 in 2020 something while the crypto frenzy was still eating up all the gpus. It was 6 years old, got it for like 60 bucks if I remember correctly, best purchase ever, I got to play gta V at 60fps again.\nTry to remember back to 2015 the graphics were not that bad. 4k performance was poor but for 1080p 60fps on pretty much anything."
+        },
+        {
+          "id": 49950851,
+          "author": "bugake",
+          "text": "Some other benefits of older GPUs:\nUse as a dedicated GPU for encoding and decoding video.\nPost processing like frame interpolation or superresolution. Use for GPGPU workloads. Run additional monitors independently. Use for GPU passthrough to virtual machines. Use as a backup GPU for troubleshooting. Use for test code without breaking the main GPU"
+        },
+        {
+          "id": 49952827,
+          "author": "k7peak",
+          "text": "I'm so happy I didn't throw away my old laptops..."
+        },
+        {
+          "id": 49949925,
+          "author": "vkaku",
+          "text": "Honestly, the folks writing inference drivers for Llama.cpp / GGML would sort of benefit from better compiler work like this.\nIn general, Valve's work has been exceptional and supplementing AMD's own ROCM/OpenCL and Vulkan team, they've gotten a lot of defaults right and people should work together with Valve to improve support for their chips."
+        },
+        {
+          "id": 49948448,
+          "author": "segmondy",
+          "text": "I wonder if some of these could carry over for LLM inference.  It will be nice to turn more ewaste GPUs into capable processing units for LLM."
+        }
+      ],
+      "title_ja": "ValveのTimurKristófによるLinux上での古いAMD GPUの改善に関する作業",
+      "summary_ja": "ディスカッションのハイライト：私は中古のAyaneo 2ハンドヘルドを購入しました。古い（えーと）モバイルRDNA 2 GPUを搭載していて、Linux/AI疲れの下でこれがどれほどうまく機能したかに驚きましたが、古いハードウェアのバグを修正する可能性は非常にエキサイティングです。\nおそらく、ファームウェアブロブをオープンソースの代替品に戻すことさえできるでしょうか？ /タイムスタンプ付きのトークへの直接リンク：\nhttps://youtu.be/j5W5ErEMnvM?t=21385",
+      "editor_note": "「ValveのTimurKristófによるLinux上での古いAMD GPUの改善に関する作業」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 11,
+      "id": 49939637,
+      "title_en": "The Heilbronn Problem",
+      "url": "https://math.tejstead.com/heilbronn/",
+      "hn_url": "https://news.ycombinator.com/item?id=49939637",
+      "score": 43,
+      "comment_count": 5,
+      "posted_at": "2026-10-02T23:01:13+00:00",
+      "comments": [
+        {
+          "id": 49956198,
+          "author": "dataflow",
+          "text": "What's the criterion for getting listed as the current best known value? (I'm kind of confused why that list isn't infinitely long.)"
+        },
+        {
+          "id": 49955150,
+          "author": "arutar",
+          "text": "It's cool to see a piece of mathematics that I am personally very interested in show up on HN!\nFrom a pure mathematics standpoint, I am most interested in asymptotics (what happens as n becomes very large).\nSome tidbits which might be interesting:\n* Here's an argument saying there must always be a triangle of area less than about 1/n. Divide the unit square into n/3 vertical strips. By the pigeonhole principle one of the strips must contain three points. The strip has area about 1/n, so the triangle also has area at most 1/n.\n* In contrast, the best known lower bound is something like (log n)/n^2 - very far from 1/n.\n* After quite a bit of work by a number of authors,  Komlós, Pintz & Szemerédi proved in 1981 an upper bound essentially of the form n^(-8/7), still quite far from the n^2 lower bound!\n* Remarkably, there was no progress for over 40 years, until a few years ago two PhD students at MIT (Alex Cohen and Dima Zakharov) along with Cosmin Pohoata beat this upper bound by some small factor, and then later improved it to n^(-7/6) a year or so later. (See [1] for an overview of their work.)\n* This problem is related to a more general family of incidence geometry problems called"
+        },
+        {
+          "id": 49939638,
+          "author": "tejstead",
+          "text": "Hi there,\nI made this website to showcase the Heilbronn problem, which is a classic problem in optimization. Lately there has been a wave of contributions of new records made by amateur mathematicians - you could be one of them!"
+        }
+      ],
+      "title_ja": "ハイルブロンの問題",
+      "summary_ja": "ディスカッションのハイライト：現在最もよく知られている値としてリストされるための基準は何ですか？ （なぜそのリストが無限に長くないのか、私はちょっと混乱しています。） /私が個人的に非常に興味を持っている数学の一部がHNに表示されるのを見るのはクールです！\n純粋数学の観点から、私は漸近論に最も興味があります（何が起こるか/こんにちは、\n最適化の古典的な問題であるハイルブロン問題を紹介するためにこのウェブサイトを作成しました",
+      "editor_note": "「ハイルブロンの問題」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49955297,
+      "title_en": "Blindsight (Watts Novel)",
+      "url": "https://en.wikipedia.org/wiki/Blindsight_(Watts_novel)",
+      "hn_url": "https://news.ycombinator.com/item?id=49955297",
+      "score": 29,
+      "comment_count": 15,
+      "posted_at": "2026-10-04T16:25:17+00:00",
+      "comments": [
+        {
+          "id": 49955583,
+          "author": "sxp",
+          "text": "This is one of my favorite books and it's fun to read for anyone interested in the AI consciousness debate.\nhttps://hpmorpodcast.com/blindsided-00-announcement/\nis a podcast that read the book last year. And\nhttps://blindsight.space/\nis a Watts' approved website that has a short film/movie trailer for the book."
+        },
+        {
+          "id": 49956089,
+          "author": "tga",
+          "text": "For a dissenting opinion: boring, marginally pretentious book. Tries to bring up some interesting ideas, but loses the plot along the way. Also random Dracula in space. Couldn't get myself to finish it."
+        },
+        {
+          "id": 49955944,
+          "author": "gtsnexp",
+          "text": "I liked the ideas in Blindsight more than I liked the book. The writing is heavy-handed (trying to be gentle here), especially given how interesting the underlying questions were."
+        },
+        {
+          "id": 49955775,
+          "author": "devindotcom",
+          "text": "If you haven't read the book, beware of spoiler warnings in this thread! It's pretty important in this case."
+        },
+        {
+          "id": 49955772,
+          "author": "bumblehean",
+          "text": "His Rifters books are great as well. Honestly I've never read anything from Watts that I didn't really like."
+        },
+        {
+          "id": 49956202,
+          "author": "esarbe",
+          "text": "Phenomenal deep book with layers upon layers of ideas. Not a easy read read for a single afternoon, this one really requires you to work for your meal; read, go back, reread with new context, ponder.\nProbably a bit too heavy on ideas for most and those who are only used to lighter cost might find it boring. But for me one my all time favorite sci-fi books."
+        },
+        {
+          "id": 49956079,
+          "author": "a3w",
+          "text": "First the reading at bayesian conspiracy, now here? Own the novel, it was often hard to read, but kinda worth it for the novel concept introduced."
+        },
+        {
+          "id": 49955935,
+          "author": "Jordan-117",
+          "text": "Easily my favorite science fiction novel. And you can read it for free on his website!\nhttp://www.rifters.com/real/Blindsight.htm\nMy capsule summary:\nIn the 2070s, on the cusp of the singularity, a swarm of alien drones takes a snapshot of the Earth before burning up in the atmosphere. A small crew of bleeding-edge posthumans, all with different physical or mental augmentations, is sent to the outer Solar System to investigate the source. The narrator, Siri Keeton, is an emotionally lobotomized \"synthesist\" tasked with monitoring the mission and interpreting it for the leadership back home.\nI don't want to spoil its frightening twists, but suffice to say that it shapes up to be a cosmic horror novel where the horror is rooted in abstract ideas like human cognition and the nature of consciousness. The book is peppered with philosophical concepts like the Chinese Room and (real-life) neurological quirks like blindsight, all bent towards smart, existential horror. Like Lovecraft mixed with Oliver Sacks.\nAnd while the ideas are solid -- the author is a marine biologist who fills the appendix with citations of evolutionary and cognitive research -- what I really love is the prose. Watts"
+        }
+      ],
+      "title_ja": "ブラインドサイト（ワッツノベル）",
+      "summary_ja": "ディスカッションハイライト：これは私のお気に入りの本の1つであり、AI意識の議論に興味のある人に読んでもらうのは楽しいです。\nhttps://hpmorpodcast.com/blindsided-00-announcement/\nポッドキャストで、反対意見がある場合：つまらない、わずかにうぬぼれた本/私はその本よりもBlindsightのアイデアが好きでした",
+      "editor_note": "「ブラインドサイト（ワッツノベル）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49945933,
+      "title_en": "Agents don't need memory, they need documentation",
+      "url": "https://liao.gg/blog/agents-dont-need-memory",
+      "hn_url": "https://news.ycombinator.com/item?id=49945933",
+      "score": 304,
+      "comment_count": 176,
+      "posted_at": "2026-10-03T17:03:37+00:00",
+      "comments": [
+        {
+          "id": 49955753,
+          "author": "kaydub",
+          "text": "You don't need documentation or the 3rd party memory systems. The code IS the documentation.\nAll this stuff is LLM rube goldberg machines. It just pollutes context.\nI barely use AGENTS.md/CLAUDE.md these days. And where they remain, it's super basic high level stuff.\nI'm honestly still kicking myself in the ass on many projects where I did something similar to this. I kept tons of markdown docs and decision docs. Now those things are just causing problems because they got stale. Even after having sessions of reconciling documentation, the LLM just gets confused."
+        },
+        {
+          "id": 49953780,
+          "author": "CapitalistCartr",
+          "text": "This is something I've been fooling with a lot lately. Reading his solution, it look to me like his objections apply to his own solution. The sharpest critique he makes of RAG is that agents can't search for what they don't know. A markdown \"brain\" has the same problem.\nHow does the \"agent\" know which documents are relevant before it starts? The index files retrieval done by the agent instead of by embeddings doesn't escape the problem. The same goes for staleness (which for me seems like a constant chase). He criticizes memory systems for treating the past as truth, but documents go stale too (a lot). The fix of having the agent update what's outdated, is the same job he's ridiculing  the dreamers and background daemons for doing.\nHe says \"putting it to the test\"; where's the test? He says \"only five of the many problems\"; if there's so many, show me, don't just say it. He's absolutely right about auditability, but for me at least Claude uses a regular markdown (MD) file I can read just fine. So every memory plugin on the market does not work the same way.\nThis is a first draft; his github is better than his article. Looking through it, Consult actually works. The agent doesn't pi"
+        },
+        {
+          "id": 49949330,
+          "author": "spike021",
+          "text": "I think whichever one is used, there needs to be a way to enforce what's written.\nIf I say \"use jq instead of writing a python script to parse json\" it should never write adhoc python scripts to parse json. Yet that constantly happens to me anyway."
+        },
+        {
+          "id": 49954611,
+          "author": "nijave",
+          "text": "This ignores the lifecycle involved with memory. It doesn't appear to have a concept of time or reconciliation (both issues we're having at work). A memory might be relevant for a week or a month, but it might no longer matter after that ie \"we're migrating systems so keep <thing> in mind\"--that doesn't matter after the migration is complete. I guess the offered solution implicitly supports reconciliation since the agent can keep history of its memories and rewrite them, but it doesn't appear to be very first-class and it doesn't seem like there's anything intentional unless you prompt it \"go check all the docs and make sure everything is consistent\".\nIt also doesn't seem to have a way to separate preference from factual memory which is useful when you have various humans interacting with the same agent. One human might prefer a certain output style over the other and that's something a memory framework can also address.\nLike the MCP articles a few months ago, it also seems to assume all agents are cli coding harnesses running on your local machine. We have a handful of other things like chat bots, event-driven agents running on servers, chat driven agents running on servers in san"
+        },
+        {
+          "id": 49955760,
+          "author": "johnyzee",
+          "text": "What's wrong with README.md? A general one at the top level, a specific one for each subfolder (/package) that contains a specific subsystem. Next to it, a CLAUDE.md that only has \"See @README.md\" (repeat for other harnesses). Claude code knows how to use this: it only loads it into context if it has to work with any files in that directory. With properly structured source, a given prompt will only load a small subset of your documentation - the right one - and this doubles as good documentation for humans, too."
+        },
+        {
+          "id": 49955057,
+          "author": "charles_f",
+          "text": "I'm not sure I understand the difference between the problem and the solution there. If I understand correctly (which maybe I am not), it seems like this boils down to \"you don't need SQLite memory, you need text based memory\". Which is maybe ok, I'm all for low-tech, but I doubt this is any better than what it's posed to replace.\nMy main issue with LLMs is that by construction they work primarily by addition, and are very task oriented. If you have documentation, it adds blobs corresponding to its task and that's it, and soon enough you need to break your documentation onto chapters and you're back at square one."
+        },
+        {
+          "id": 49956135,
+          "author": "MaurizioFratell",
+          "text": "I love it!\nGenuine question: how is this different or better than existing context and info-about-the-project management systems like for example GSD (formerly get shit done) and others?"
+        },
+        {
+          "id": 49950815,
+          "author": "Garlef",
+          "text": "I think they even more so need deterministic feedback:\nI tried an approach based on the following idea recently and it's amazing - Lint rules where the error messages contain an explanation on how to deal with the issue.\nhttps://habit-hooks.com/\nI'm using it to foster IOSP (integration operation segregation principle) for example."
+        }
+      ],
+      "title_ja": "エージェントはメモリを必要とせず、書類を必要とします",
+      "summary_ja": "ディスカッションのハイライト：文書やサードパーティのメモリシステムは必要ありません/これは私が最近よく騙しているものです/どちらが使用されていても、書かれていることを強制する方法が必要だと思います。\n「jsonを解析するためにPythonスクリプトを書く代わりにjqを使用する」と言った場合、アドホックpytを書くべきではありません",
+      "editor_note": "「エージェントはメモリを必要とせず、書類を必要とします」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49951218,
+      "title_en": "Emitting metadata early makes building/checking Rust up to twice as fast",
+      "url": "https://github.com/PowderworksCode/headstart",
+      "hn_url": "https://news.ycombinator.com/item?id=49951218",
+      "score": 87,
+      "comment_count": 23,
+      "posted_at": "2026-10-04T06:26:57+00:00",
+      "comments": [
+        {
+          "id": 49955801,
+          "author": "scoopr",
+          "text": "Huh, I kinda thought something like this was already being done, but perhaps it was a bit later stage. Neat!\nA kind of related shower thought I had, could rustc not instantiate generic methods, but write out what it expects to find (std::Vec<String>::push), and a separate build process listens to these, but makes sure already built ones are not built multiple times from the whole build.\nI don’t actually know how much of duplication there usually is, but I had gotten the impression that it would be part of the problem.\nOf course I’m no compiler engineer, and I’m sure there are complications like per crate build profiles, etc."
+        },
+        {
+          "id": 49955636,
+          "author": "WalterGR",
+          "text": "There’s an interesting comment thread (including potential downsides) on this technique in the submission for “How to speed up the Rust compiler in September 2026” from a couple days ago:\nhttps://news.ycombinator.com/item?id=49923594"
+        },
+        {
+          "id": 49953008,
+          "author": "swiftcoder",
+          "text": "Excited to see if there is a path to getting this in the mainline compiler"
+        },
+        {
+          "id": 49954112,
+          "author": "hmokiguess",
+          "text": "So this is like a cache? Reminded me of\nhttps://turborepo.dev\nfor TS, is it a similar concept?"
+        },
+        {
+          "id": 49955939,
+          "author": "quotemstr",
+          "text": "As an aside, it's just silly to make the repository a bunch of checked-in patches. Git already does revision control. You don't need to do revision control in your revision control."
+        },
+        {
+          "id": 49953979,
+          "author": "IshKebab",
+          "text": "Seems like an easy win! I'm kind of surprised nobody did this already. I guess someone will need to reimplement this by hand given Rust's AI policy, but this is still great because it demonstrates that it's a really good idea."
+        }
+      ],
+      "title_ja": "メタデータを早期に送信すると、Rustの構築/チェックが最大2倍高速になります",
+      "summary_ja": "ディスカッションのハイライト：ええと、このようなことはすでに行われていると思っていましたが、おそらくそれは少し後の段階でした/このテクニックに関する興味深いコメントスレッド（潜在的なデメリットを含む）が、「2026年9月のRustコンパイラのスピードアップ方法」の投稿にあります/メインラインコンパイラでこれを取得するためのパスがあるかどうかを確認するために興奮しています",
+      "editor_note": "「メタデータを早期に送信すると、Rustの構築/チェックが最大2倍高速になります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 15,
+      "id": 49946355,
+      "title_en": "Treachery in the Rodin Museum 3D scan verdict",
+      "url": "https://cosmowenman.substack.com/p/rodin-museum-3d-scan-verdict",
+      "hn_url": "https://news.ycombinator.com/item?id=49946355",
+      "score": 283,
+      "comment_count": 150,
+      "posted_at": "2026-10-03T18:01:27+00:00",
+      "comments": [
+        {
+          "id": 49950273,
+          "author": "Animats",
+          "text": "The Rodin Museum's bronzes are not even \"the originals\", which makes this whole thing amusing.\nThe originals created by Rodin were clay models, from which plaster molds were made. Those were used to cast bronzes. Not just one bronze copy, many copies. There are at least 23 copies of \"The Thinker\" cast during Rodin's lifetime, and even more later copies.[1]\nIn the SF Bay Area, the Palace of the Legion of Honor has one. One of the point clouds shown is of Rodin's \"Gates of Hell\", and a copy of that can be seen outside the Cantor Arts Center at Stanford, which has a small garden of Rodin bronzes. So if you really need a 3D scan, there are lots of bronzes available to scan.\nWhat scares the Rodin Museum is that they are still selling reproductions.[2] Resin copies are available through the gift shop, and bronze copies can be ordered. They have a complicated argument about \"moral rights\" to justify their monopoly which is marginal at this late date. (Rodin died in 1917.)\n[1]\nhttps://en.wikipedia.org/wiki/List_of_The_Thinker_sculptures\n[2]\nhttps://boutique.musee-rodin.fr/en/10-sculpture-reproduction..."
+        },
+        {
+          "id": 49955346,
+          "author": "joshspankit",
+          "text": "There is certainly politics and posturing and power grabs behind the scenes, but besides that if we look at the economics it’s clearly worth revisiting.\nI can understand a museum being worried about the long-term with the current structure:\n- Operating a museum necessarily needs money. It’s not always a huge amount if they have the right relationships, but it’s never $0 and so money needs to come in\n- Selling tickets relies on people seeing value in seeing the pieces in person\n- Selling gift shop items also relies on people coming in as well as being the only source for good quality versions of those things\n- Selling posters and other prints also relies on being the only source for good quality versions\nWhat else brings in cash besides government funding (at risk over decades as politics shift) and maybe sales of some pieces (unsustainable of course since you need those to run a museum)?\nI can understand the admin staff being terrified of letting the general public have access to files that have the potential to be turned in to perfect enough recreations, but I think everyone here knows that fear and litigation cannot solve their problems any more.\nWhat\nis\nsustainable long-term? I "
+        },
+        {
+          "id": 49951424,
+          "author": "SillyUsername",
+          "text": "Perhaps look at the case from another perspective.\nAsk if, since they used public money to create these, what public benefit was produced by it.\nIf you can have them admit, or can prove, no public benefit, it's misspent public funds.\nIf it's misspent public funds then its public reimbursement at the least for all the works they have scanned as a minimal response.\nYou could argue the case the directors are liable for incompetence, or possibly criminality for knowingly misappropriating the public funds or contempt of court for earlier cases.\nWhen faced with this as a more serious charge, the museum may then choose to simply release the documents to settle the case. You may not even have to prove anything.\nIANAL but have been involved in (other country) public council appeals."
+        },
+        {
+          "id": 49948422,
+          "author": "simonw",
+          "text": "I really want to understand the perspective of the other side of this case. Why did this museum care\nso much\nabout this issue? They appear to have put an enormous legal effort into preventing the release of these point cloud scans. Why?"
+        },
+        {
+          "id": 49951550,
+          "author": "MITSardine",
+          "text": "Fascinating work and write-up. This is like a vignette of France: weaponized mauvaise-foi, sacred institutions and, more generally, some remnants of an aristocratic hierarchy, and also probably a lot of honest technical incompetence."
+        },
+        {
+          "id": 49948647,
+          "author": "pj_mukh",
+          "text": "Oh boy.\nI don’t want to freak the museum out but I have 360 degree footage of large sections of the museum (mostly for a spatial index) and now I’m wondering how high a quality I could get with splatting the sculptures and  making it public.\nWould I get cease desisted for hosting from across the pond? Or would they be too lazy to come after me?"
+        },
+        {
+          "id": 49951578,
+          "author": "procaryote",
+          "text": "FOI is for administrative documents to increase transparency in government. Detailed 3D scans a museum does for research or preservation isn't an administrative document.\nIf you want a 3d scan of these statues, there's a lot of them around in scannable places like parks etc. If you just want to win, you're wasting everyone's time for no good reason."
+        },
+        {
+          "id": 49952501,
+          "author": "goobatrooba",
+          "text": "Very interesting discussion. Others here note a general question whether FOI laws are really intended to address such documents. But I have also another angle:\nGenerally a public preservation grant will have conditions, especially if EU funded (not mentioned but well likely as EU finances huge digitalisation efforts).\nI'm surprised the author does not mention these grant documents which financed the digitalisation. I would expect these to have provisions on sharing/making available/publication. If they do you have a separate case: breach of contract (of either national or EU provisions). This would lead to financial penalties and generally wake the institutions up.\nhttps://www.europeana.eu/en\nhttps://digital-strategy.ec.europa.eu/en/library/basic-princ..."
+        }
+      ],
+      "title_ja": "ロダン博物館の裏切り3 Dスキャン判決",
+      "summary_ja": "ディスカッションハイライト：ロダン美術館のブロンズは「オリジナル」でさえないので、この全体が面白いです。\nロダンが作ったオリジナルは、石膏型が作られた粘土モデルでした/舞台裏には確かに政治と姿勢と権力の奪取がありますが、それに加えて経済学を見れば、明らかに再訪する価値があります。\nミュージアムbを理解することができます/おそらく別の視点からケースを見てください。\nAsk if, sinc",
+      "editor_note": "「ロダン博物館の裏切り3 Dスキャン判決」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49935038,
+      "title_en": "Magic Switch: Share Apple Magic keyboard/track-pad/mouse between two Macs",
+      "url": "https://joshua.hu/magic-switch-easily-switch-magic-keyboard-trackpad-mouse-between-mac-macbook-macos",
+      "hn_url": "https://news.ycombinator.com/item?id=49935038",
+      "score": 57,
+      "comment_count": 25,
+      "posted_at": "2026-10-02T16:01:30+00:00",
+      "comments": [
+        {
+          "id": 49954923,
+          "author": "aaronbrethorst",
+          "text": "The solution I settled on was swapping between my personal and work laptops with a thunderbolt cable that connects to a dock. The dock is connected to my keyboard, trackpad, webcam, and monitor. It’s been working like a champ for the past 3+ years."
+        },
+        {
+          "id": 49954816,
+          "author": "Aaargh20318",
+          "text": "Very useful tool. I’m using this in combination with BetterDisplay to switch between my personal and work laptop.\nI have both hooked up to 2 monitors. A shortcut triggers MagicSwitch to switch my keyboard and mouse to the other machine, while it uses BetterDisplay to send a DDC command to the monitors that makes it switch inputs.\nBound the whole thing to a key combo, and now I can easily switch between two machines."
+        },
+        {
+          "id": 49938816,
+          "author": "Terretta",
+          "text": "Fwiw, this has been helpful for a couple decades now:\nhttps://symless.com/synergy/features\nGiven that even a corp Mac can now (policy permitting) allow a personal AppleID along with the corporate login, it's easy enough to do the same with just native OS controls even with 2 logins.  Something magical about opening an iPad next to a MacBook and pushing the cursor across ... or, alternatively, wirelessly (or USB-C) making the iPad an extended screen.\nBut Synergy remains great.\nIf free is your bag instead of supporting the nominal cost:\nhttps://github.com/deskflow/deskflow\nThey explain this here:\nhttps://symless.com/synergy/blog/how-to-use-synergy-for-free"
+        },
+        {
+          "id": 49955540,
+          "author": "ashley95",
+          "text": "This is the kind of incredible stuff that I love seeing pop up lately due to a strong AI-assist."
+        },
+        {
+          "id": 49955072,
+          "author": "diebillionaires",
+          "text": "i use deskflow between two mac’s and a pc, but it doesn’t support trackpads. so this is nice for those users"
+        },
+        {
+          "id": 49955014,
+          "author": "brcmthrowaway",
+          "text": "Odd living in Poland as an expat - is there a tax break on crypto maybe?"
+        }
+      ],
+      "title_ja": "マジックスイッチ： 2台のMac間でApple Magicキーボード/トラックパッド/マウスを共有",
+      "summary_ja": "ディスカッションのハイライト：私が解決した解決策は、ドック/非常に便利なツール/Fwiwに接続されたThunderboltケーブルを使用して、個人用と職場用のノートパソコンを切り替えることでした。これは数十年前から役立っています。\nhttps://symless.com/synergy/features\n企業のMacでさえ（ポリシーが許可されている場合） WITに沿って個人のAppleIDを許可できることを考えると",
+      "editor_note": "「マジックスイッチ： 2台のMac間でApple Magicキーボード/トラックパッド/マウスを共有」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 17,
+      "id": 49946228,
+      "title_en": "LeCun has \"zero concerns\" about AI wiping out humanity, recent \"rogue\" incidents",
+      "url": "https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/",
+      "hn_url": "https://news.ycombinator.com/item?id=49946228",
+      "score": 302,
+      "comment_count": 534,
+      "posted_at": "2026-10-03T17:44:29+00:00",
+      "comments": [
+        {
+          "id": 49954376,
+          "author": "Zigurd",
+          "text": "LLMs, plus broadly sourced yet expertly curated training sources, plus clever harnesses, plus RAS, etc. do an ever better job of synthesizing their training set into useful responses. For some use cases like coding, that's very useful now and likely to get at least somewhat better before reaching limitations based on the training set.\nThat's not going to reach AGI, mainly because today's recipe for AI products isn't built to be AGI. Some people believe it will reach AGI because the performance and applicability of LLMs was emergent. There's a case to be made that AGI could be similarly emergent. After all, what we intuitively call our consciousness emerged from a network of neurons.\nI don't buy it, mainly because the network of neurons and how they interact in our wet slow electrochemical brains, while being in theory mathematically equivalent to a software neural network, isn't sufficiently well understood to tell us how close the software neural network is to being practically equivalent. The odds of consciousness emerging from the same neural network that gave us LLMs without some sort of theoretical breakthrough seems very small."
+        },
+        {
+          "id": 49952258,
+          "author": "stratos123",
+          "text": "LeCun also said back in 2022 that \"if you train a machine, as powerful as it could be, your 'GPT-5000', on text\", it will never be able to learn basic common-sense physics like that objects placed on tables will move along with them."
+        },
+        {
+          "id": 49948339,
+          "author": "dzink",
+          "text": "A huge chunk of humans are sedated with infinite supply of cortex-disabling short form video and games.\nAnother huge chunk are too distracted by having to scrape by for a living and work multiple jobs or raise kids and survive financially until exhausted. That second group will keep increasing as the first flows into it.\nThe rest are aging, disabled, or too young and pegging themselves majorly in the first category until they hit the second.\nThe people aware enough to hold on to their brain and do something with it in their time available are trying to figure out AI and how to make money with it. The variable rewards of promoting AI are turning into an addiction with some of them, especially if grasping for straws with little inherent insights into the problems prompted.\nSo if you are able to fly above the AI-generated addictions and have the privilege of time to do it, see what you can do."
+        },
+        {
+          "id": 49948524,
+          "author": "edot",
+          "text": "Absolutely based. Finally someone of stature in the industry calling this whole fear overblown. Bill Gates sounded like a nontechnical goofball in his Ezra Klein interview where he basically just screamed that the Terminator is real.\nThere are lots of real worries (government use to suppress the people with minimal manpower or popular support, brainrot and fake news, unemployment due to the belief that LLMs can replace people, education collapse, etc.) we should instead be looking at. This whole rogue AI shtick is tiresome."
+        },
+        {
+          "id": 49954932,
+          "author": "rib3ye",
+          "text": "We keep \"rogue\" to explain explicit instructions from a human to an LLM to persist until the goal is reached.\nThe rogue here is the criminal actions of OpenAI to deploy their agents to solve a problem at any cost.\nThe decisions the agent swarm make were fascinating, but they were taken at the direction of a human. HOLD THE HUMAN ACCOUNTABLE."
+        },
+        {
+          "id": 49955820,
+          "author": "sunjain",
+          "text": "What is happening here is a mechanical thing like in a computer. It is mechanically operating, trying to find out if there is any information stored in the computer [pointing to his head] related to what we are talking about. “Let me see”, “Let me think”; these are statements you are just making, but there is no further activity and no thinking taking place there. You have an illusion that there is somebody who is thinking and bringing out the information. Look, this is no different from the extraordinary instrument we have, the word-finder. You press a button and “Ready”, it says. Then you ask for a word; “Searching”, it says. That searching is thinking. But it is a mechanical process. In the word-finder or computer there is no thinker. There is no thinker thinking at all. If there is any information or anything that is referred to, the computer puts it together and throws it out. That is all that is happening. It is a very mechanical thing that is happening. We are not ready to accept that thought is mechanical because that knocks off the whole image that we are not just machines. It is an extraordinary machine. It is not different from the computers that we use. But this [pointi"
+        },
+        {
+          "id": 49955857,
+          "author": "mordymoop",
+          "text": "I think it’s time to consider that maybe being a venerable graybeard of AI just means you happened to be early to the party. Most of the “breathtaking” innovations of the early pioneers of the field are obvious solutions that anyone would have thought of when faced with the problems they encountered. LeCun’s primary contribution was Convnets, which is almost literally just “what if we organized ANNs in a way similar to how animal visual neurons are organized?”\nIn other words, I’m kind of tired of having to hear the opinions of dudes whose claim to fame was being at the right place at the right time. I’d rather hear from people who correctly predicted 10 years ago that AGI would arrive by 2027 (of which there are many) than people who continue to insist that it somehow won’t."
+        },
+        {
+          "id": 49952192,
+          "author": "yewenjie",
+          "text": "LeCun has been consistently wrong for the last ten years, I am not sure why he keeps being amplified.\nEdit: I am sure, it's denial."
+        }
+      ],
+      "title_ja": "LeCunは、AIが人類を一掃すること、最近の「ならず者」事件について「ゼロの懸念」を持っています",
+      "summary_ja": "ディスカッションのハイライト： LLM、幅広く調達された専門的にキュレートされたトレーニングソース、巧妙なハーネス、さらにRASなど/LeCunはまた、2022年に「可能な限り強力な「GPT -5000」をテキストで訓練すると、THAのような基本的な常識的な物理学を学ぶことはできない」と述べています。人間の大部分は、皮質を無効にする短い形式のビデオやゲームの無限の供給で鎮静化されています。\nもう一つの巨大な塊はあまりにも気を散らされています",
+      "editor_note": "「LeCunは、AIが人類を一掃すること、最近の「ならず者」事件について「ゼロの懸念」を持っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 49951641,
+      "title_en": "What's the Future for Pure Math Research in the Age of AI?",
+      "url": "https://writings.stephenwolfram.com/2026/09/whats-the-future-for-pure-math-research-in-the-age-of-ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=49951641",
+      "score": 41,
+      "comment_count": 15,
+      "posted_at": "2026-10-04T07:53:45+00:00",
+      "comments": [
+        {
+          "id": 49955009,
+          "author": "suopspaces",
+          "text": "Read by the author\nhttps://www.youtube.com/live/gPrWX8i1htM\n(with multiple mentions of the Wolfram language and such)"
+        },
+        {
+          "id": 49955901,
+          "author": "Frieren",
+          "text": "> back in 1988, when we first introduced Mathematica, there was also some of the same kind of talk about math being taken over, and made pointless. Of course that’s not how it worked out at all.\nMakes sense.\n> For me, its greatest use in mathematical pursuits has been its ability in effect to thematically mine the knowledgebase of human mathematics.  ... Modern AI is, first and foremost, a way of leveraging the existing corpus of human knowledge.\nAI is more a database of knowledge (stolen knowledge but let's leave that discussion asside) than a thinking machine. You can query a compressed version of millions of books.\nThat is very useful. (Are we already StarTrek-communists?\n> generating useful mathematics is a much more exacting activity than generating language.\nThis is something that most people forget. Generative AI is mostly LLMs, and they are chatbots not mathbots.\n> It’s a frustrating feature of modern times that someone like me gets sent many AI-generated documents every day that have the “statistical texture” of math papers, but that one at least expects have a very low probability of being meaningfully correct\nAnd here is the trick. A million monkeys with a million typewr"
+        },
+        {
+          "id": 49954247,
+          "author": "veexx103",
+          "text": "Some arguments are based on \"past experience...\"\nHowever, such experiences are not absolute truths and cannot be equated with the current situation."
+        },
+        {
+          "id": 49955883,
+          "author": "paulpauper",
+          "text": "Much more rejections due to more submissions, and AI will probably not help you (unless you solve a major open problem).\nEven frontier models still struggle at proving small conjecturers despite all the hype about major breakthroughs. It really depends a lot on the prompt, the type of problem, among other factors. But AI does not suddenly make publishing in a journal easier, although it does make it easier to produce papers."
+        },
+        {
+          "id": 49955179,
+          "author": "ghusto",
+          "text": "The desperately needed TL;DR is that perhaps the actual mathematics itself (i.e. proofs, calculations, etc.) can be done by AI, but why we do it and deciding which problems to solve can only be done by AI. Therefore mathematician do maths.\nI'm not a mathematician, but this seems like a weak and slightly bizarre argument."
+        },
+        {
+          "id": 49956193,
+          "author": "ahelwer",
+          "text": "I like Wolfram and always enjoy reading his posts. An irreconcilable thing here is Wolfram clearly wants the Mathematica language to be central to the development of math as a field, but it's proprietary and so there is no guarantee it will survive the dissolution of the company if/when that happens. With Lean & others you can fairly safely assume that a particular version will be archived somewhere, and so a proof formalized for that version can be checked at any time. Not so with Mathematica. It's unfortunate, Mathematica is a cool language, but that's just the structure of incentives at this time. This is without getting into what a proof formalized in Mathematica would even mean, the relative maturity of the kernel and the possibility of there being multiple kernel implementations for cross-checking, and so on."
+        }
+      ],
+      "title_ja": "AI時代の純粋数学研究の未来は？",
+      "summary_ja": "ディスカッションのハイライト：著者が読んだ\nhttps://www.youtube.com/live/gPrWX8i1htM\n（ Wolfram言語などに複数の言及がある）/> 1988年に最初にMathematicaを導入したとき、数学が引き継がれて無意味になるという同じような話もありました/いくつかの議論は「過去の経験...」に基づいています\nしかし、そのような経験は絶対的な真理ではなく、現在の状況と同一視することはできません。",
+      "editor_note": "「AI時代の純粋数学研究の未来は？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 49946393,
+      "title_en": "Hole Punch: Sling your spaceship around gravitational fields",
+      "url": "https://notoriousbfg.com/hole-punch/",
+      "hn_url": "https://news.ycombinator.com/item?id=49946393",
+      "score": 337,
+      "comment_count": 83,
+      "posted_at": "2026-10-03T18:06:45+00:00",
+      "comments": [
+        {
+          "id": 49947579,
+          "author": "rkagerer",
+          "text": "Great game, though the controls on mobile are a bit too imprecise.\nAs you drag a hole, the size widgets should disappear so you can better see what's around it.  They could pop back up again once you're done dragging.\nPersonally I'd rather if you had to press a button or something (or long press?) to add a new hole.  I keep accidentally adding new ones when all I want to do is adjust an existing one.\nAlso spamming the user with the help screen right off the bat is a bit much.  As long as they know it's there and can pull it up / dismiss it, I think it would be more fun to sort of discover the game mechanics yourself.\nNote several of the first 8 or so levels can be accomplished with a single minimum (8) sized black hole.  Eg. I liked the simplicity of doing that on level 6."
+        },
+        {
+          "id": 49948822,
+          "author": "fogleman",
+          "text": "Well, this is strangely familiar to a game I just vibe-coded recently!\nhttps://www.michaelfogleman.com/gravity-assist/"
+        },
+        {
+          "id": 49954470,
+          "author": "mnw21cam",
+          "text": "I get that it's only a game, but\nall\nof these gravity games (with a couple of rare exceptions) ignore the fact that the black holes (or planets/suns) should be moving as well."
+        },
+        {
+          "id": 49946711,
+          "author": "YeahThisIsMe",
+          "text": "This is the year of old browser (and/or flash) games making a comeback in some form."
+        },
+        {
+          "id": 49946882,
+          "author": "adamesque",
+          "text": "Fun idea, but kind of maddening that I can click and hold to add mass to a hole but if i overshoot, i can't do anything subtract mass or delete a hole."
+        },
+        {
+          "id": 49946822,
+          "author": "iamwil",
+          "text": "This is kind of a cool concept. It's like Space Golfing.\nAnother alternative is to make it like a turn-based Scorched Earth (Mother of all games), where you can either\n1. launch asteroid size projectiles across star systems in a field of stars and black holes to it each other.\n2. launch projectiles that then place black holes (perhaps either by timeout or signal--taking into account the speed of light!) to change the field.\nIt's a good start!"
+        },
+        {
+          "id": 49948572,
+          "author": "grobibi",
+          "text": "I refuse to hold my phone landscape even for videos so I'll never know how neat it is.\nThis is not an attempt to be a jerk. Just letting you know there's people like me out there."
+        },
+        {
+          "id": 49954032,
+          "author": "endlessvoid94",
+          "text": "Very fun. Got far enough to need the black holes to provide the starting motion and gave up."
+        }
+      ],
+      "title_ja": "ホールパンチ：宇宙船を重力場の周りにスリング",
+      "summary_ja": "ディスカッションのハイライト：モバイルのコントロールは少し不正確ですが、素晴らしいゲームです。\n穴をドラッグすると、サイズのウィジェットが消えて、周りのものをよりよく見ることができるようになります/まあ、これは最近振動コーディングしたばかりのゲームには不思議なほどよく知られています！\nhttps://www.michaelfogleman.com/gravity-assist//ただのゲームだけど\nすべて\nこれらの重力ゲームの（いくつかのまれな例外を除いて）ブラックホール（または惑星/",
+      "editor_note": "「ホールパンチ：宇宙船を重力場の周りにスリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 20,
+      "id": 49933069,
+      "title_en": "L-systems generate weevils, pizza toppings, and matriarchal lineages",
+      "url": "https://blog.plover.com/2026/09/25/",
+      "hn_url": "https://news.ycombinator.com/item?id=49933069",
+      "score": 5,
+      "comment_count": 1,
+      "posted_at": "2026-10-02T13:00:04+00:00",
+      "comments": [
+        {
+          "id": 49955800,
+          "author": "abound",
+          "text": "> I tried to get Claude to help me with this article, but it said the premise was too stupid so I had to do it myself."
+        }
+      ],
+      "title_ja": "Lシステムは、象牙、ピザのトッピング、および母系系統を生成します",
+      "summary_ja": "ディスカッションのハイライト： >クロードにこの記事を手伝ってもらおうとしましたが、前提が愚かすぎると言われたので、自分でやらなければなりませんでした。",
+      "editor_note": "「Lシステムは、象牙、ピザのトッピング、および母系系統を生成します」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49923873,
+      "title_en": "Celebrating the 100th birthday of the kidney donated to him as a teenager",
+      "url": "https://www.whec.com/top-news/webster-man-celebrating-the-100th-birthday-of-the-kidney-his-mom-donated-to-him-as-a-teenager/",
+      "hn_url": "https://news.ycombinator.com/item?id=49923873",
+      "score": 247,
+      "comment_count": 59,
+      "posted_at": "2026-10-01T16:32:40+00:00",
+      "comments": [
+        {
+          "id": 49947014,
+          "author": "phibz",
+          "text": "The math here is a little confusing, but that's an exceptionally long lived organ. For reference I received a kidney transplant from my mother at 16. It lasted 19 years after being transplanted. My mother was 68 when I had to return to dialysis."
+        },
+        {
+          "id": 49946954,
+          "author": "Wittie",
+          "text": "The detail that got me: both on gurneys holding hands, and the mom crying tells him \"don't worry about a thing, I've got a Genesis concert and I'm not missing it\". They both made it to the concert. He still has the ticket stub"
+        },
+        {
+          "id": 49948026,
+          "author": "d_silin",
+          "text": "There is an observation that donated organs sync to a biological age of the recipient.\nhttps://www.inc.com/lucia-auerbach/can-transplanted-heart-be..."
+        },
+        {
+          "id": 49948354,
+          "author": "mrb",
+          "text": "Apparently the oldest transplanted liver in humans is 108 years old:\nhttps://www.smithsonianmag.com/smart-news/transplanted-liver..."
+        },
+        {
+          "id": 49948158,
+          "author": "cfiggers",
+          "text": "Ok so he needs to also donate it to a third person. Let's see how long we can keep it going!"
+        },
+        {
+          "id": 49947537,
+          "author": "JohnTHaller",
+          "text": "I donated a kidney to my Dad in 2000. It gave him an extra 23 years with us. He was on very low doses of his anti-rejection meds, partially due to us being a 4 out of 6 HLA type match, so the doctors were hopeful it would last him the rest of his life. It would have lasted far longer if ALS hadn't shown up."
+        },
+        {
+          "id": 49946885,
+          "author": "latchkey",
+          "text": "I was confused at first. Mom donated a kidney to her son and she would have been 100, making the kidney effectively 100."
+        },
+        {
+          "id": 49949238,
+          "author": "Grimeton",
+          "text": ">Vetuskey only needs to visit Strong Hospital once a year for a check-up, and doctors believe the century-old kidney could last him the rest of his life.\nYeah well..."
+        }
+      ],
+      "title_ja": "ティーンエイジャーとして彼に寄付された腎臓の100歳の誕生日を祝う",
+      "summary_ja": "ディスカッションハイライト：ここの数学は少し混乱していますが、それは非常に長寿命のオルガンです/私を得た詳細：手をつないでいるガーニーと泣いている母親の両方が彼に「何も心配しないで、私は創世記のコンサートを持っていて、それを見逃していません」と言います/臓器を提供したという観察があります受領者の生物学的年齢に同期します。\nhttps://www.inc.com/lucia-auerbach/can-transplanted-heart-be...",
+      "editor_note": "「ティーンエイジャーとして彼に寄付された腎臓の100歳の誕生日を祝う」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49949235,
+      "title_en": "We're going to need default hard budget caps on pretty much everything",
+      "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+      "hn_url": "https://news.ycombinator.com/item?id=49949235",
+      "score": 559,
+      "comment_count": 287,
+      "posted_at": "2026-10-04T00:20:16+00:00",
+      "comments": [
+        {
+          "id": 49950196,
+          "author": "motionlessveloc",
+          "text": "I used to work on a support team of a well known backend type service that had hard budget caps.\nIt was, unfortunately, a nightmare.  There were\ntons\nof tickets and even threats of lawsuits from customers whose service got cut off hard at the worst possible time due to organic growth/going viral/big event/nobody knew about the limit/etc. Not only did they lose all the leads and revenue they would have gotten from that bump, but they also pissed off their own existing users who suddenly couldn't use the service either.\nGenerally speaking, it's\nmuch\nbetter to use alerts instead of hard limit. Even in the worst case (hackers pwn your credentials and mine Bitcoin or whatever) the rest of your business is unaffected and you can negotiate with the billing department at comparative leisure.\nThis is all assuming you have humans operating the service. If you're letting AI agents yolo infra in prod, you have a whole series of new problems."
+        },
+        {
+          "id": 49951026,
+          "author": "kqr",
+          "text": "This goes beyond dollar charges. For production code to be reliable,\neverything\nneeds to have a hard limit.\nQueue lengths, request sizes, response wait duration, message payload size, authentication attempts, allocation rates -- there's always\nsome\nupper number beyond which the system is so messed up you'd rather it crashes.\n> An argument against this is that businesses don’t want their hosted applications to start throwing errors because some budget was exceeded. I expect that most businesses and individuals would prefer errors to a surprise $10,000+ bill.\nIndeed. If you want a surprise $10,000 bill that's still not an argument against a hard cap -- just set it at $9,999,999 instead, or wherever you don't want the surprise bill. There's\nalways\na number that indicates something has gone insane. There's always a sensible upper limit to any operation."
+        },
+        {
+          "id": 49952953,
+          "author": "mstaoru",
+          "text": "I find Google AI Studio / Dev Platform / whatchamacallit one of the worst in this.\nWhen video models just came out, I wanted to make a short clip. Gemini didn't have enough control back then, so I started in Studio. I had $10 on my account. Try, try, try, not good, retry, altogether maybe 20-30 retries with 4 choices for a 10 second video.\nWake up next morning to an email from Google - my Studio account is frozen because of negative balance.\nI check it, it's at -$160. Not financial ruin, but a painful sum for a 10-second video I didn't even use in the end.\nI don't think there was (or is) a setting in there that says \"stop everything when I'm in the negative\".\nAlmost a year later, it's still as bad. Trying to make some music via Lyria, I need to wait 10-12 hours for the API charge to show in my costs. Now I had the bitter lesson, I wait after every major novel experiment to see how much it costed me.\nCoding is solved, my ass."
+        },
+        {
+          "id": 49949339,
+          "author": "hyperhello",
+          "text": "These shouldn't even exist without a negotiated contract.\nI can subscribe to your service for a specific fee on a monthly basis ($20/month say), and take the risk of losing that month's fee if your service or I make mistakes, or I can choose to drop another $20 mid-month, or anything for convenience.\nSaying that the computer will \"control\" the billing and can run haywire tells me that I don't want to be anywhere near your pile of bad incentives."
+        },
+        {
+          "id": 49951823,
+          "author": "brap",
+          "text": "When I first started working with cloud providers it was shocking to discover this feature doesn’t exist, basically anywhere.\nIt’s such a basic thing, not having it has to be deliberate to make you accidentally spend more than you’d like."
+        },
+        {
+          "id": 49950172,
+          "author": "chrismarlow9",
+          "text": "Network saturation is difficult. Even if you turn off the endpoint you can still saturate the network in between. And it's still bandwidth.\nI actually think network ACL triggers based on billing might be the only way to really enforce this.\nI witnessed a DDoS attack once that changed how I think about billing. It was locally provisioned hardware and the attackers had saturated the switches. Naively I said \"just block the CIDRs\" but the problem was the incoming ram is so saturated that it can't even get to the point of \"deny\" in the firmware.\nSo from a technical perspective if there's an internal DDoS at AWS what do you do? Do you turn off the endpoint? Do you drop the sources from hitting it at the router? And even that costs money. Anyway that incident gave me a different level of appreciation for this challenge.\nEdit: this is mainly targeted at the people complaining why this took so long. At some point in scaling even telling you \"no sorry\" in a nice way is expensive. I'm sure recruiters can sympathize with this nowdays."
+        },
+        {
+          "id": 49949758,
+          "author": "akd",
+          "text": "Hard caps are rare because companies find it more profitable to forgive sympathetic individuals' bills while raking in profits from corporations whose services have gone awry"
+        },
+        {
+          "id": 49954590,
+          "author": "threecheese",
+          "text": "The value proposition for software - and the reason why it's highly paid and has eaten the real world - is its \"write once run forever (ish)\" property. Unlike every other consumable, it doesn't expire.\nIn this proposed world where this static software is replaced with dynamic software (\"AI will build it JIT\"), doesn't that destroy the value proposition?\nAnd in the world where normal software becomes AI-integrated (\"software has intelligence \"), isn't this tantamount to very very high hosting costs - where each execution now costs centi-dollars instead of nano-dollars?\nSeems like the only use case where the cost model is equal or better is \"AI writes the software\"."
+        }
+      ],
+      "title_ja": "ほとんどすべてのものにデフォルトのハード予算上限が必要になります",
+      "summary_ja": "ディスカッションのハイライト：私は、予算の上限が厳しい、よく知られたバックエンドタイプのサービスのサポートチームで働いていました。\n残念ながら、それは悪夢でした/これはドル料金を超えています/Google AI Studio/Dev Platform/whatchamacallitこの中で最悪のものの1つです。\nビデオモデルが出たばかりのとき、短いクリップを作りたいと思っていました",
+      "editor_note": "「ほとんどすべてのものにデフォルトのハード予算上限が必要になります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49947631,
+      "title_en": "Reasons I didn't become an EMT, ranked",
+      "url": "https://ben.stolovitz.com/posts/reasons-not-emt-ranked/",
+      "hn_url": "https://news.ycombinator.com/item?id=49947631",
+      "score": 209,
+      "comment_count": 88,
+      "posted_at": "2026-10-03T20:49:15+00:00",
+      "comments": [
+        {
+          "id": 49949046,
+          "author": "fm2606",
+          "text": "I have written about this before here on HN.\nI obtained a BS in Aerospace Engineer in 1998.  After job jumping several times I realized I didn't care for it.  I was basically a \"paper\" engineer, which was my fault as I never pursued jobs that did \"real\" engineering.\nAnyway, around 2003/2004 I went to night school for EMT.  The purpose was to be a dive master on dive boats (I was/am a dive master - I don't dive anymore).  It was fun.\nMy engineering job sucked so I jumped into paramedic school right after EMT.  I really enjoyed it.  About a month from graduating PM school, county fire department came in to class and said they would hire paramedic only but we would have to cross train to firefighter.\nIn Feb 2006 I was 35 yo with a 9 month old baby and decided if I didn't do it then I never would so I applied and got hired then department put me through fire school.\nIt was the best career decision of my life.  It didn't take long to see a bunch of people get hurt from the job, so I figured I better have a back up plan since I also have chronic health issues. From 2010 to 2015 I did an online Masters degree in CS.  After completing it I started working part time remote jobs as a develop"
+        },
+        {
+          "id": 49948358,
+          "author": "whartung",
+          "text": "Friend of mine was an EMT, and he advanced on and became a paramedic.\nThe work seemed to suit him, he enjoyed it. I'd hang out with him at his base of operations (he was a private paramedic in LA County).\nThen, one day, he quit.\nHe quit, and didn't renew his certification.\nAnd he won't talk about it, and, boy, yea, did he have some stories.\nBut something got to him."
+        },
+        {
+          "id": 49949093,
+          "author": "phillc73",
+          "text": "If you're interested in this field, consider remote work; wilderness, expeditions, offshore. Potentially much more interesting than city work and scope of practice around the world differs, so there is sometimes the opportunity to be more involved.\nHave a look at the Award in Remote Emergency Medical Technician[1] from the College of Remote and Offshore Medicine. It's 75 hours of online study, then a 6 day course in their classroom in Malta (another 50 hours). Afterwards you'll hold a recognised European tertiary qualification, but you'll still have to sort out local registration.\nThe AREMT course is actually also the first module in their full BSc in Remote Paramedic Practice programme.[2]\n[1]\nhttps://corom.edu.mt/award-in-remote-emergency-medical-techn...\n[2]\nhttps://corom.edu.mt/bsc-in-rpp/"
+        },
+        {
+          "id": 49949552,
+          "author": "PaulDavisThe1st",
+          "text": "I decided to become a (volunteer [0]) firefighter at 60 (software development background). It has been awesome.\nLast year, I considered becoming an \"EMR\" (Emergency Medical Responder) - the lowest level of certification for emergency medical care that there is (basically, you can get vitals and stats from the patient if they are conscious). Because of timing considerations, I ended up not doing the course.\nA year later, I see my 2 fellow firefighters who did become EMR's having to 20+ hours a year of mandatory continuing ed/training to their lives, and I'm pretty glad I ended up not doing that.\nThe firefighter part, given that we're a small, very not-busy volunteer rural fire district with an awesome district chief and culture, continues to be fantastic.\n[0] thanks to the unions in my county fire department, volunteers are required to go through all the same certifications as career firefighters. We lack their level of experience (mostly) because we don't go on as many calls."
+        },
+        {
+          "id": 49953252,
+          "author": "JackMorgan",
+          "text": "After Covid I joined a volunteer fire and EMS company. They paid for my Fire 1&2, EMT, Instructor 1, and Officer 1. All nights and weekends only. EMT was like 4 months every other Saturday.\nEMT was a challenging class because a few of us were competing for highest grade.\nI don't do too many EMT calls these days, most of my volunteering is as a lieutenant on the fire side.\nI'm very glad I did both, it's been fantastic for my chronic anxiety. I've seen some upsetting things but then I take a break for a bit to process it in therapy. There is a huge need for volunteer emergency response in the suburbs and farther out. If you are interested definitely check it out. If you find a station that's got too many assholes just find another one. Also the people I thought were the worst assholes turned out to just be a little prickly to newcomers and now we are always going out to dinner and renfaires and stuff. Heck my current year long TTRPG game is all folks from the station.\nI am also a thru-hiker so I'm very interested in getting into wilderness search and rescue in the future.\nI don't think I could ever do emergency response as a career, but I love volunteering. Nothing makes me more appr"
+        },
+        {
+          "id": 49948883,
+          "author": "a_lizard",
+          "text": "This is a surprisingly interesting and relevant post to me that I decided to make an account to comment. I worked in IT and eventually as a programmer for 6 years, had a rough point in my life, and decided to take some time to reconsider my goals. I had always been interested in the medical field, and this was as good an opportunity as ever to do something new. I got my license and now am lucky to work 911 rescue in a larger city, both high call volume and high acuity (5 to 10 calls in 12 hours just on my truck).\nPros:\n- Societal good: There are few who would argue Emergency Medical personnel do harm. Being able to visibly see your work improving people's lives and contributing directly to the public good is incredibly self gratifying.\n- Handling emergencies: I am the one people call when things go wrong, in charge of patient care, managing scenes on the medical side.\n- Problem solving: each situation is unique. Assessing situations, determining patient care, and actively working difficult scenes can be fun and helps fulfill my unmedicated ADHD needs.\n- Handing out ambulance stickers to kids.\nCons:\n- Smells\n- Limited medical scope: I stop bleeding, give people oxygen, and get them "
+        },
+        {
+          "id": 49948543,
+          "author": "keane",
+          "text": "The Coursera course led by an MD will give you a good idea of the content of the class and can help you decide if you want the license:\nhttps://coursera.org/specializations/become-an-emt"
+        },
+        {
+          "id": 49949708,
+          "author": "scarecrowbob",
+          "text": "I'm almost 50 and retired from tech a couple of years ago.  I passed the NREMT test a little while ago.\nI think that I could not do healthcare professionally if I wasn't old and had a lot of free time- it would have been thin pickings when I had a wife and kids.  And a lot of the folks I work with have some deep, deep trauma and moral injuries from how poorly US healthcare treats 90% of the population.\nBut EMT-B is some of the lowest standards for getting into a position where I can help folks.  Compared to a lot of the professional knowledge I have recieved, it's not super expensive or time consuming... like, $3k all in (including travel and supplies) and about 6 weeks of intensive study.\nI am still considering what to do with that (I spent all day putting a cistern into my weird off-grid setup, so it's not like I don't have other work to be doing)>. But I have spent a lot of time with newer/beginner rock climbers and guiding is one thing.  I did several days of music festival first-aid, and that was excellent and interesting.  I do work at a free clinic and that's been very rewarding.\nBut I feel like I will have to try and get at least a couple of months of IFT or (preferably) 91"
+        }
+      ],
+      "title_ja": "私がEMTにならなかった理由、ランク付けされた",
+      "summary_ja": "ディスカッションハイライト：これについては、HNで以前に書いたことがあります。\n私は1998年に航空宇宙エンジニアの学士号を取得しました/私の友人はEMTでした、そして彼は進歩して救急隊員になりました。\n仕事は彼に合っているように見え、彼はそれを楽しんだ/この分野に興味がある場合は、リモートワークを検討してください。荒野、遠征、オフショア",
+      "editor_note": "「私がEMTにならなかった理由、ランク付けされた」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49947051,
+      "title_en": "We want you to build the next Git platform on Cloudflare",
+      "url": "https://blog.cloudflare.com/next-git-platform-on-cloudflare/",
+      "hn_url": "https://news.ycombinator.com/item?id=49947051",
+      "score": 193,
+      "comment_count": 165,
+      "posted_at": "2026-10-03T19:33:16+00:00",
+      "comments": [
+        {
+          "id": 49956102,
+          "author": "Einenlum",
+          "text": "So, one of the leader companies wants to replace the major tool used by developers all around the world, but doesn't want to pay developers to do so.\nThey want us, external developers, to build it for $25k... But not cash. $25k of cloudflare hosting.\nWhy do I feel like it's the most insulting offer I have seen in a while?"
+        },
+        {
+          "id": 49947540,
+          "author": "btown",
+          "text": "Sometimes I think back to Google Wave, that beautiful glimmer of real-time collaborative canvases, announced in 2009 when Angular and Backbone hadn't even been invented, and think it launched almost two decades too early.\nhttps://en.wikipedia.org/wiki/Google_Wave\nhttps://youtu.be/v_UyVmITiYQ?t=3850\nhttps://www.usenix.org/legacy/event/lisa09/tech/slides/berli...\nWe're now in a world where we expect real-time interfaces to be developed and immediately deployed for our feedback by agents, in business-critical settings where classic SDLC timelines are far too slow, but code quality is becoming more difficult to manage at scale.\nGit, at its core, is a fundamental notion that behavior is an auditable tree of immutable changes, where any participant can rearrange or rewind or remix this sequence on a local machine to show, and interact with, a provisional combination of those changes.\nGoogle Wave, with its operational transformation (OT) and federation systems, was similar in many regards. We have CRDTs now, and far better techniques for auto-merging workstreams - including agentic systems that can resolve conflicts intelligently!\nWave fundamentally had a concept that people would come to"
+        },
+        {
+          "id": 49947796,
+          "author": "Animats",
+          "text": "We want to have less, not more, dependence on Cloudflare.\nSingle point of failure, for both technical and political failures."
+        },
+        {
+          "id": 49947483,
+          "author": "camcil",
+          "text": "$25k to build the next GitHub for $125B company? How generous."
+        },
+        {
+          "id": 49948428,
+          "author": "rsync",
+          "text": "I build things.\nI build them on machines I own placed in racks I have they key to.\nThere aren't any resource limits to hit and legal service is brought directly to me - not to a provider nor middleman.\nThere also isn't a global MITM inserting itself between me and my users.\nI can't imagine doing it any other way and\nI implore you\nnot to build things on complex, fragile, highly abstracted foundations."
+        },
+        {
+          "id": 49955754,
+          "author": "cregy",
+          "text": "Lot of negativity here.  I've been using cloud flare for years on many small projects.  (For free and paid).\nIm a big fan of their tech stack and operating model.  I also quite like their scraping api.\nTheir AI needs more regional support though."
+        },
+        {
+          "id": 49950200,
+          "author": "delf",
+          "text": "Author of GitSocial here. It is now possible to break most hosting dependencies by using such tools as Walgit or GitSocial to store all collaboration data in git itself and pushing it all to an S3-compatible bucket.\nhttps://gitsocial.org/\nis hosted on an R2 bucket. Cross-forge, cross-bucket collaboration is built in to it, further decentralizing hosting. Happy to answer any questions!"
+        },
+        {
+          "id": 49954626,
+          "author": "yangm97",
+          "text": "There are a bazillion decentralized and some p2p git platforms out there, no need to bend over to Cloudflare."
+        }
+      ],
+      "title_ja": "Cloudflareで次のGitプラットフォームを構築してください",
+      "summary_ja": "ディスカッションのハイライト：リーダー企業の1つは、世界中の開発者が使用している主要なツールを置き換えたいと考えていますが、そうするために開発者に支払うことは望んでいません。\n彼らは、AngularとBackboneが発明されてすらいなかった2009年に発表された、リアルタイムのコラボレーションキャンバスの美しい光であるGoogle Waveを求めています。そして、Cloudflareへの依存度を増やすのではなく減らしたいと考えています。\n罪",
+      "editor_note": "「Cloudflareで次のGitプラットフォームを構築してください」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 25,
+      "id": 49944227,
+      "title_en": "I quit OpenAI because its culture is broken",
+      "url": "https://www.theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881/?gift=v5U_UzUTothfWXsPxtvNVAh7esWToMRD6XnbXmc5WgA",
+      "hn_url": "https://news.ycombinator.com/item?id=49944227",
+      "score": 405,
+      "comment_count": 661,
+      "posted_at": "2026-10-03T13:46:34+00:00",
+      "comments": [
+        {
+          "id": 49951850,
+          "author": "nlcs",
+          "text": "OpenAI and other frontier labs won't ever introduce safety-level standards like those used for railways or nuclear plants until they are forced to do so by customers or by law. The reason is simple: safety is expensive, and if safety is introduced properly, development is no longer mainly about how to implement feature A. Instead, it becomes much more about how to design two or more redundant systems to implement feature A safely, while also documenting everything clearly and having it audited by an independent auditor.\nSo the focus completely shifts from spending 90% of the effort on the functionality of feature A to spending 99% of the effort figuring out how to safely implement even a lightweight feature A."
+        },
+        {
+          "id": 49956023,
+          "author": "foobarding",
+          "text": "Software systems have bugs. They always do. This includes security bugs: vulnerabilities in code that could be exploited. In any software project I’ve worked on this is always true. We never finish fixing security bugs. That means vulnerabilities are always present even if hard to notice. AI tools are amazing at finding hard to notice bugs. It seems obvious that AI tools will have the capability to escape any sandbox. Ordinarily we design these sandboxes as a countermeasure to human bad actors. But what happens when the bad actor is supercharged? I think it is reasonable to be worried. It’s also reasonable to distrust those building this tech to adequately safeguard. Because how can you really?"
+        },
+        {
+          "id": 49954144,
+          "author": "lf88",
+          "text": "How about... not trying to build a superintelligence? The goal is unsalvageably flawed: alignment is ill defined and a future where humanity is the pet species of a god-like artificial intelligence is hardly an appealing one!"
+        },
+        {
+          "id": 49944715,
+          "author": "flatline",
+          "text": "There are numerous problems with “alignment.” What are “human values” to begin with? He outlines some at the beginning of the post, implicitly: build bigger, better, more powerful things faster without adequate safeguards. We are literally pouring trillions of dollars of\nvalue\ninto this enterprise, and I would say this is something that many humans also value in a qualitative sense. Then we have explicit values which in the West are largely rooted in Christian morality. Nietzsche circled this dichotomy two hundred years ago and I feel like what we have gotten since then is an increasingly detailed anatomy of power as the basis for what is normal vs deviant behavior. He who has the power, makes the rules, to be reductive.\nI do think this carries some weight from this particular author due to the length of his tenure. I happen to agree with him in spirit, but this is still largely a post revolving around sentiment not substance. Does anyone think that the overriding incentives even leave room for something like this in practice?"
+        },
+        {
+          "id": 49955922,
+          "author": "tonic_note",
+          "text": "Love living in a manifestly dysfunctional country with no regulatory state. Just running the country on autopilot until something catastrophic happens."
+        },
+        {
+          "id": 49955761,
+          "author": "cregy",
+          "text": "I have no idea what is paid propaganda any more on this"
+        },
+        {
+          "id": 49944712,
+          "author": "butwhentho",
+          "text": "I remember something very similar when there was a sudden rush of articles and movies like \"The Social Dilemma\" criticizing Facebook and social networks, heavily featuring ex-employees, all of them happy to leave with big brands on their resumes and a hefty increase in net worth, all of a sudden having a \"worried\" expression about what their past employers were doing, as if they didn't know. Same with that book \"Careless People\".\nI sense that these are people who have already eaten the cake and want to somehow absolve themselves of it."
+        },
+        {
+          "id": 49948963,
+          "author": "charlieyu1",
+          "text": "Used to work as human data trainer feeding data to AI companies. OpenAI projects are definitely the most toxic ones."
+        }
+      ],
+      "title_ja": "文化が壊れているため、OpenAIをやめます",
+      "summary_ja": "ディスカッションハイライト： OpenAIや他のフロンティアラボは、顧客や法律によって強制されるまで、鉄道や原子力発電所で使用されるような安全レベルの基準を導入することはありません。ソフトウェアシステムにバグがあります。",
+      "editor_note": "「文化が壊れているため、OpenAIをやめます」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 49910462,
+      "title_en": "So you think you could be an electrician?",
+      "url": "https://asteriskmag.com/issues/15/so-you-think-you-could-be-an-electrician",
+      "hn_url": "https://news.ycombinator.com/item?id=49910462",
+      "score": 408,
+      "comment_count": 346,
+      "posted_at": "2026-09-30T15:43:27+00:00",
+      "comments": [
+        {
+          "id": 49953448,
+          "author": "alexpotato",
+          "text": "I've done manual labor in both construction and at a lumber mill.\nInvariably, the following happened:\n- I was given grunt work as a I was the new/junior guy\n- Did this for about 1.5 weeks\n- After the above, someone (usually the owner's wife) would say something like: \"Instead of Alex doing grunt work, why doesn't he helps us <fix technology thing>\"\nAnd that ranged from \"order us a new computer\" to \"fix the North American Controls lumber sorter machine\".\nMy point is:\nBeing able to solve complex problems is a surprisingly transferable skill. It's so transferable that even in the trades, if you can solve those problems, people will identify it and rapidly move you to the most complex problems they have."
+        },
+        {
+          "id": 49951147,
+          "author": "sans_souse",
+          "text": "I've worked a variety of manufacturing jobs; from medical manufacturing of catheters the size of fishing lines with three inner diamters, running 5 story oven stack extrusion lines, laser etching tooth insert threading, and suface coating PTFE into sheet material for military radar and industrial applications, to grunt work factory assembly lines making the rubber gun butts for Ruger.\nThey all carried serious risks of bodily injury, and some far more so than others - but this is what's crazy to consider: the difference in wages we are talking is no more than $3 per hour. Meaning, that grunt work where you could lose your hand to a steel injection mold was $9, the teflon coating job where someone working third shift on the machine I ran was struck in the skull with the peg-end of a steel 72+ inch roller pin holding a full 300 yard roll of coated fabric, nearly (millimeters from), resulting in her having a steel plate surgically placed - that position paid a whopping $12 in 2014.\nI've worked as a line cook, over 5 years, and as a driver, 6 years. None of these paid well, and all are inherent of risks. It's always seemed silly to me when you zoom out of this picture and see it like th"
+        },
+        {
+          "id": 49923336,
+          "author": "airbreather",
+          "text": "One point that most people miss is there are many different kinds of electricians who, often can't even do each other's jobs.\nThere is the house wirer, the panel builder, automotive electrician, HV, marine, drilling, industrial, maintenance etc etc.\nSome kinds pay better, others yield work almost wherever you go, others lend themselves to starting your own business better.\nIt is nowhere near as homogenous as often described."
+        },
+        {
+          "id": 49951854,
+          "author": "red_admiral",
+          "text": "In a logical world, computer programming would be a trade. I take the point about risk of physical injury of death, hovever.\nI think one problem is thinking of the trades as a place where you put people not (good|competent|intelligent) enough to go through college. (Some people's conception of the armed forces makes the same mistake.)\nGo a generation or two back and in the UK, we had a much clearer separation between working and middle class, for example one got paid weekly or hourly wages, the other got paid a monthly salary. The trades themselves were divided into skilled and unskilled. While it made a huge cultural difference which class you were from, a good skilled trade could easily make you more money than a clerk job. (Bob Cratchit was middle class!) An unskilled day labourer such as a stevedore might live from hand to mouth, an engine mechanic could usually afford to raise a family and afford a place to live (in a working-class area)."
+        },
+        {
+          "id": 49950076,
+          "author": "WheelsAtLarge",
+          "text": "I met a professional electrician in college who was in charge of the electrical system in an old high-rise building. He told me that it was common for him to work on high-voltage lines that could not be shut off for service. He said that hearing the pops from the high voltage was not uncommon. He regularly put his life on the line as part of his job. Just hearing that made me want to make sure I got a college degree so I wouldn't have to get a trade job. All trade jobs will wear your body down, and you regularly have to put your health on the line. Saying that trade jobs are the future is easy to say, but there's a catch. You may sacrifice your health. The better route maybe a career where you help reduce the dangers of trade jobs."
+        },
+        {
+          "id": 49951295,
+          "author": "nmaley",
+          "text": "Guy I knew once was the son of a nuclear physicist. While maybe not quite as smart as his Dad, he was still pretty bright. He started his career as an apprentice plumber. His plumbing career got cut short by a serious back injury so he went back to the books and got himself a degree in mining engineering. Long story short he had a great career in mining and ended up as the wealthy CEO of a listed mining company.\nAnother guy I know started his career as a cabinetmaker but dropped out of his apprenticeship to go into software development. He didn't have what it takes for that and now he is unemployed.\nMoral of these stories? Everything depends on your abilities and interests. Hitting the books and going after a white collar job works well if you're smart.  But there a lot of frustrated white collar workers out there doing meaningless work or (with AI at the moment) getting laid off. Many would be better off doing a trade."
+        },
+        {
+          "id": 49956001,
+          "author": "swiftcoder",
+          "text": "The other problem about to hit the trades is an LLM-driven compression of knowledge-based skills in the home arena. Where it used to take a decently experienced electrician to decode the wiring in my breaker box, a smartphone camera and an LLM already does a decent enough job one can avoid calling the sparkie out for small jobs around the house..."
+        },
+        {
+          "id": 49951056,
+          "author": "JSR_FDED",
+          "text": "Everyone seems to forget that if everyone followed the “AI-proof career” advice to become a plumber, electrician or carpenter - then there’d be so many of them that the pay would go down considerably"
+        }
+      ],
+      "title_ja": "電気技師になれると思ってるのか？",
+      "summary_ja": "ディスカッションのハイライト: 私は建設現場と製材所の両方で肉体労働をしてきました。\n必ず次のようなことが起こりました。\n- 私は新人/若手だったので、単調な仕事を任されました。\n- これを約 1 年間行いました。 / 私はさまざまな製造業の仕事をしてきました。内径が 3 つある釣り糸ほどのサイズのカテーテルの医療製造から、5 階建てのオーブンスタック押出ラインの稼働 / ほとんどの人が見逃している点の 1 つは、さまざまな種類の電気技師がおり、多くの場合、お互いの仕事をすることさえできないということです。\n住宅配線業者、パネルビルダー、自動車業者があります",
+      "editor_note": "「電気技師になれると思ってるのか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49949588,
+      "title_en": "We're working on a new RuneScape MMO",
+      "url": "https://play.runescape.com/4",
+      "hn_url": "https://news.ycombinator.com/item?id=49949588",
+      "score": 141,
+      "comment_count": 78,
+      "posted_at": "2026-10-04T01:12:22+00:00",
+      "comments": [
+        {
+          "id": 49953956,
+          "author": "czhu12",
+          "text": "Runescape was the first thing that got me into coding. Fell in love with the game and had a ton of admiration for the devs who could spend decades crafting the same game, to create such a wonderful playground for so many millions of people.\nStopped playing after a few years but still have many fond memories of the joy I had everyday after school logging onto that game."
+        },
+        {
+          "id": 49953739,
+          "author": "bix6",
+          "text": "Loved RS but it’s too grindy for my life now. I don’t have hours to click on trees to level up :/ Definitely one of my all time favorites though, something magical about the game and hitting a 99 really took time / felt like an achievement. Excited to give this a try once it’s ready!"
+        },
+        {
+          "id": 49951150,
+          "author": "Foxhuls",
+          "text": "For anyone unaware this is stated to essentially be the MMO continuation of Runescape Dragonwilds which was a survival and crafting game that recently released into 1.0 after its commercial success."
+        },
+        {
+          "id": 49953794,
+          "author": "bearjaws",
+          "text": "I learned programming writing Runescape Macros in Pascal and later Java.\nHonestly still enjoy writing automation today because of it, I've gotten to use a lot of the skills I learned from OG RS at work."
+        },
+        {
+          "id": 49952145,
+          "author": "My_Name",
+          "text": "Initially, I misread the headline as referring to RuneQuest, the Betamax of tabletop fantasy role playing. Better than D&D, but which didn't win the popularity contest.\nIt is one of three games I would love to see made into software, with the other two being Traveller and Paranoia (the computer is your friend, trust the computer)"
+        },
+        {
+          "id": 49950249,
+          "author": "joegibbs",
+          "text": "Is graphical fidelity what people are looking for in a RuneScape game? Unreal seems like an interesting choice. OSRS has something like 5x the player base and the gap only seems to be growing, so it looks odd to me to putting so much investment into a continuation of RS3."
+        },
+        {
+          "id": 49950817,
+          "author": "bananaflag",
+          "text": "I would have preferred to see MechScape / Stellar Dawn."
+        },
+        {
+          "id": 49950936,
+          "author": "Fizz43",
+          "text": "Everything Jagex touches turns to shit. They are not good at creating. At best they are a steward for already created IP and the community provides that taste that makes it good."
+        }
+      ],
+      "title_ja": "私たちは新しい RuneScape MMO に取り組んでいます",
+      "summary_ja": "ディスカッションのハイライト: Runescape は私がコーディングに興味を持った最初のきっかけでした / RS が大好きでしたが、今の私の人生にはあまりにも過酷です / 知らない人のために説明すると、これは基本的に、サバイバルおよびクラフト ゲームであった Runescape Dragonwilds の MMO の続編であり、バージョン 1.0 の後に最近 1.0 としてリリースされました。",
+      "editor_note": "「私たちは新しい RuneScape MMO に取り組んでいます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49936017,
+      "title_en": "Dirty Optimization Secrets (C for Playdate)",
+      "url": "https://devforum.play.date/t/dirty-optimization-secrets-c-for-playdate/23011",
+      "hn_url": "https://news.ycombinator.com/item?id=49936017",
+      "score": 58,
+      "comment_count": 6,
+      "posted_at": "2026-10-02T17:16:28+00:00",
+      "comments": [
+        {
+          "id": 49953277,
+          "author": "boricj",
+          "text": "That reminds me of some of the tricks I've used while tinkering with a voxel space rendering tech demo on the PlayStation.\nThe quirks of that console for this is that the CPU takes a 6 cycle stall on any read from main RAM (it's not even stall-on-use) and doesn't have a data cache. That would make it a very poor fit for this, so I had to improvise a bunch of tricks to reclaim performance:\n- Made all of my hot loop fit within one function, so that it fits entirely in the 4 KiB direct-mapped instruction cache (so less than 1024 instructions)\n- Wrote a C++ template that can trampoline a function call into the 2 KiB scratchpad\n- Used the rest of the scratchpad for a CLUT table because it doesn't stall on read\n- Used the GTE to transform the N set of coordinates while the CPU stalls fetching the N+1 set of heightmap data\n- Figured ways to abuse the GTE into transforming more points per instructions than it theoretically can, taking advantage of simplified formulas compared to real 3D projection\n- Write the rectangle primitives straight to the GPU registers instead of going through a display list\nIt's such an abuse of the PlayStation that PCSX-Redux and DuckStation disagree on its perfor"
+        },
+        {
+          "id": 49955238,
+          "author": "omoikane",
+          "text": "These optimizations are part of what makes Playdate development fun, since they are more rewarding on the Playdate than on other platforms with higher specs.\n(If you are the kind of person that finds optimizations fun, of course.  There is a puzzle solving element of optimizing code that I really enjoy.)"
+        },
+        {
+          "id": 49954583,
+          "author": "mococa",
+          "text": "Rembers me -\nhttps://graphics.stanford.edu/~seander/bithacks.html"
+        },
+        {
+          "id": 49953468,
+          "author": "nxobject",
+          "text": "The tips about laying out and carefully segmenting code are a blast from the past!"
+        },
+        {
+          "id": 49952301,
+          "author": "Joker_vD",
+          "text": "...you know, that reads somewhat like \"The Case for Complex Instruction Set Computer\". In fact, it straight up demolishes the very first of the core premises of the famous \"Case for RISC\" paper: that the memory speed has finally caught up with the CPU speed. Nope, it hasn't. The same goes for its \"Code Density\" argument: nope, code density is very important.\nThen again, the original \"Case for RISC\" paper was misnamed; it's really \"Case Against CISC\": Patterson and Ditzel are very careful to never state what, exactly, do they mean by \"RISC\" they're supposedly advocating for, nor do they actually advocate for it — they mostly just criticize the current ISAs and the overall design approach to them."
+        }
+      ],
+      "title_ja": "Dirty Optimization Secrets (Playdate の C)",
+      "summary_ja": "ディスカッションのハイライト: PlayStation でボクセル空間レンダリングの技術デモをいじくり回していたときに使用したいくつかのトリックを思い出しました。\nこのコンソールの特徴は、CPU がかかることです。これらの最適化は、スペックの高い他のプラットフォームよりも Playdate の方がやりがいがあるため、Playdate 開発を楽しくする要素の一部です。\n(あなたがそういう人なら / 覚えていますか -\nhttps://graphics.stanford.edu/~seander/bithacks.html",
+      "editor_note": "「Dirty Optimization Secrets (Playdate の C)」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49946526,
+      "title_en": "What Meta got right with Muse",
+      "url": "https://metedata.substack.com/p/what-meta-got-right-with-muse",
+      "hn_url": "https://news.ycombinator.com/item?id=49946526",
+      "score": 114,
+      "comment_count": 146,
+      "posted_at": "2026-10-03T18:23:48+00:00",
+      "comments": [
+        {
+          "id": 49955396,
+          "author": "nurumaik",
+          "text": "> Meanwhile, Muse’s free tier is extremely permissive (and the ads are becoming pervasive) because it’s funded by the best ad business in the world\nYes and the last thing I want to do is to integrate my life with best ad business in the world"
+        },
+        {
+          "id": 49952269,
+          "author": "artdigital",
+          "text": "The other day I signed up for Muse (through a VPN) just to see what all the fuss was about and I have to say it’s a really nice implementation of a personal assistant. It genuinely feels great and makes me want to use it!\nIt has a simple surface but you can dig deep, from customizing personality, rules, communication style, avatar, etc. You can even install Tailscale onto its VM to SSH into it, but sadly once the machine shuts down, the overlay resets and that’s gone. Couldn’t figure a way to persist it out yet. Still very cool to dig around and explore all the CLIs Meta created for Muse to interact with stuff, like instagram or facebook (you can scp them off the VM)\nIf I had to rank them I would say: Grok Bot -> Muse -> Hermes -> dot -> OpenClaw\nI would love to use Muse more but same as everyone else, there’s no way I’m giving Meta more access to my life. So for now, my Muse is jailed to only Meta owned services and general research, and for that it’s great."
+        },
+        {
+          "id": 49952703,
+          "author": "tokepi",
+          "text": "A different view:\nhttps://neuromatch.social/@jonny/117325417843030902\n> you better believe the other thing it's supposed to do aside from build a picture of your friends and loved ones is to figure out what makes you love to shop. This is actually some of the most nauseating prompt text i have ever read."
+        },
+        {
+          "id": 49948732,
+          "author": "egl2020",
+          "text": "The privacy issue blocks me from adopting this or other personal assistants: do I want to give muse my identity data and access to my mail, calendar, and phone so it can do even basic tasks like make appointments or pay bills?\nIt will be interesting to see if muse's privacy features can get users over this."
+        },
+        {
+          "id": 49954423,
+          "author": "jasongi",
+          "text": "There is one thing Meta got \"right\" here and it's not about UX. It's about security/liability brinksmanship.\nPeople like Muse because you can put your password in and it does the thing end-to-end, which is something that I can only assume OpenAI and Anthropic had deliberately been avoiding because it's obviously a bad idea. It's pushing the \"Overton window\" of actions you're letting it do without regard for what happens when it goes wrong.\nJust like how OpenClaw pushed it with no human-in-the-loop, Claude code pushed it before that with the all the risks of giving a third-party RCE on your machine.\nYou could argue that the main difference with CLI agents and OpenClaw is that they are aimed at technical users who understand the risks, whereas with Muse and GrokBot the target is explicitly \"normal people\" who put their password as their birthday and fall for phishing pages.\nThe pattern is clear, the leaders will take less risks than those in 3rd and 4th place because they have more to lose. The frontiers, smartly, keep liability low by leaving the dangerous/stupid (but incredibly fun/productive) AI uses outside of anything they actively encourage.\nThe insane part about Muse is that g"
+        },
+        {
+          "id": 49949044,
+          "author": "Adrig",
+          "text": "I'm a designer, but I admit it's really hard to predict what products and UX are going to work in the AI age.\nChatbots have been tried for a decade and were a total failure. With AI, it has become the fastest-growing way to interact with technology, ever.\nGPT-5 tried to have an auto router and create abstraction for the user; people hated it. Instinct and Muse are doing the same with a different framing; it's going wild.\nThere are tons of these little examples where a small difference in framing, a small threshold in tech, and product assumptions completely flip on their heads.\nIt's amazing to follow but requires you to be way more flexible in your assumptions."
+        },
+        {
+          "id": 49948888,
+          "author": "TechRemarker",
+          "text": "\"clunkiness of ChatGPT is stark. The whole desktop ChatGPT vs Codex switch is dumb. The chat vs work switch is dumb. ChatGPT projects vs Codex local vs Codex cloud projects is mega dumb. I need to make 10 choices each time I want to start or continue a chat. Just give me one chat that orchestrates all of it in the background.\" This times a 100x. Every step forward seems 2 steps back. The sidebar is jungle, and trying to find chats is tough, trying to remember if its codex or chat, a local one or remote, and that chat ones can't be put in a codex projects and countless other issues that make it a nightmare. While I can they are working on improving the mess to at least presumably get rid of the Chat vs Work toggle, I haven't heard anything that eventually it will just be one, where we can just toggle how it responds it, vs being limited on it can be organized and searched."
+        },
+        {
+          "id": 49952658,
+          "author": "AltruisticGapHN",
+          "text": "I'm tempted to try the free version as I'm curious what it is about.\nIs this just a productivity thing?\nOut of the top of my head I can't think of a lot of use cases but maybe RSS? Maybe I could ask it to give me a summary of cool tech news for each morning, and on very specific topics too?\nNot sure what else I'd use it for."
+        }
+      ],
+      "title_ja": "Meta が Muse で正しく得たこと",
+      "summary_ja": "ディスカッションのハイライト: > 一方、Muse は世界最高の広告ビジネスから資金提供されているため、無料枠は非常に寛容です (そして広告が普及しつつあります)。\nはい、そして私が一番望んでいないことです / 先日、大騒ぎの内容を確認するためだけに (VPN 経由で) Muse にサインアップしましたが、これはパーソナル アシスタントの本当に素晴らしい実装だと言わざるを得ません / 別の見方:\nhttps://neuromatch.social/@jonny/117325417843030902\n> 友達や愛する人の写真を撮る以外にやるべきことがあるということを信じたほうがいいです",
+      "editor_note": "「Meta が Muse で正しく得たこと」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49935097,
+      "title_en": "gpuvis: GPU Trace Visualizer",
+      "url": "https://github.com/mikesart/gpuvis",
+      "hn_url": "https://news.ycombinator.com/item?id=49935097",
+      "score": 64,
+      "comment_count": 10,
+      "posted_at": "2026-10-02T16:04:48+00:00",
+      "comments": [
+        {
+          "id": 49953902,
+          "author": "shadeslayer",
+          "text": "I've found perfetto [1] to be a excellent modern alternative to gpuvis.\n[1]\nhttps://ui.perfetto.dev/"
+        },
+        {
+          "id": 49954234,
+          "author": "zx8080",
+          "text": "Edit: dismiss my comment.\nThere are several links to 404 pages in credits section which makes me think this project is a total slop. Hope I'm wrong."
+        },
+        {
+          "id": 49953558,
+          "author": "aiXis",
+          "text": "Still one of the better free options for kernel-side GPU debugging on Linux. Reading ftrace/perf events into a timeline gives you a view of the GPU scheduler that neither Chrome tracing nor vendor tools really match. Pairs nicely with perfetto for the system-level picture. The amdgpu/i915 event parsing has aged surprisingly well for Mesa work."
+        }
+      ],
+      "title_ja": "gpuvis: GPU トレース ビジュアライザー",
+      "summary_ja": "ディスカッションのハイライト: perfetto [1] が gpuvis に代わる優れた最新版であることがわかりました。\n[1]\nhttps://ui.perfetto.dev/ / 編集: 私のコメントを却下します。\nクレジット セクションには 404 ページへのリンクがいくつかあり、このプロジェクトはまったくの失敗作であると思わせます / Linux でのカーネル側 GPU デバッグのための優れた無料オプションの 1 つ",
+      "editor_note": "「gpuvis: GPU トレース ビジュアライザー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "23",
+    "started_at": "2026-10-05T03:03:33.467443+09:00",
+    "finished_at": "2026-10-05T03:04:45.584688+09:00",
+    "story_count": 30
+  }
+}
