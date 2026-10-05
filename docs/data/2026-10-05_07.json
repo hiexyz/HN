@@ -1,0 +1,1348 @@
+{
+  "date": "2026-10-05T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49953495,
+      "title_en": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
+      "url": "https://github.com/Niko1221/Strata",
+      "hn_url": "https://news.ycombinator.com/item?id=49953495",
+      "score": 573,
+      "comment_count": 276,
+      "posted_at": "2026-10-04T12:51:53+00:00",
+      "comments": [
+        {
+          "id": 49955565,
+          "author": "a11r",
+          "text": "I'm a little skeptical of going below 4-bit quants due to the potential for significant degradation in quality. I'm running 4-bit quants on an RTX Pro 6000 rented for approximately $1/hour and getting about 1.2 million tokens out and 40 million tokens in per hour with caching. The quality of 4-bit quant is good enough for difficult but well-scoped coding tasks. Here is the inference stack I am using:\nhttps://www.reddit.com/r/BlackwellPerformance/s/FrKwk3GoDK"
+        },
+        {
+          "id": 49956534,
+          "author": "Jackson__",
+          "text": "I've just tested Strata on a simple 50 image vision benchmark. The task is to output the exact coordinates of a requested object. The result via Strata had a median error distance of 154.8 pixels, avg of 168.8. Running the exact same GGUF and vision adapter weights on llama.cpp gives me a median error of 46.5, avg 81.4.\nTo put that into perspective, here are some more numbers from other models via llama.cpp:\nMedian/Average\nQwen 3.5 9B BF16: 46.5 / 193.3\nQwen 3.6 35B Q4 K XL: 38.4 / 76.4\nQwen 3.5 122B Q3 K M: 32.9 / 68.6\nThe difference in vision performance is as large as the jump from a 9B model to a 35B model. All tests were performed at temp=0.\nI have done no further testing, as these results line up perfectly with my expectations."
+        },
+        {
+          "id": 49953496,
+          "author": "snehesht",
+          "text": "I tried it and it worked surprisingly well. On my machine (Nvidia 4090, 128GB DDR5, Ryzen 7950x3d) I'm getting 124 tokens per sec, thought to share it here.\nhttps://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+        },
+        {
+          "id": 49957375,
+          "author": "AntiRush",
+          "text": "I've been working on support for this model in ds4 on the RTX 6000 pro - it's been really great for my use cases. The ds4 q4 quant performs a lot better than other similar sizes that I've seen.\nUsing the Q4 quant on an RTX 6000 Pro Workstation Edition at 450 watts:\nCode: prefill 1,251 tok/s decode 255.26 tok/s\nProse: prefill 1,251 tok/s decode 198.78 tok/s\nMost important for me, I can run 4 concurrent streams at 400+ tok/s.\nhttps://github.com/fairfieldt/ds4"
+        },
+        {
+          "id": 49957786,
+          "author": "jacquesm",
+          "text": "LLM threads the world over are spammed with Strata links, it remains to be seen how much of the breathless hype remains standing once the honeymoon period is over. I've tried it but so far I have not seen anything that overly impressed me in terms of accuracy, though the speed is definitely there. I'm sure there are applications for LLMs where the quality of the answers is less important but I don't have any of those. YMMV."
+        },
+        {
+          "id": 49954019,
+          "author": "kamranjon",
+          "text": "Dwarfstar already supports this, curious how it compares, but I use the q4 quant daily and it works really well.\nhttps://github.com/antirez/ds4/blob/main/docs/MODELS.md#qwen..."
+        },
+        {
+          "id": 49954815,
+          "author": "lxe",
+          "text": "Why isn't this type of expert caching in the native llama.cpp yet? Why do we need a separate codebase?"
+        },
+        {
+          "id": 49954449,
+          "author": "mmaunder",
+          "text": "More great work on local model but you’re still losing a lot. Down to 2 bit quantization and the coder model throws away half the MoE experts. In a world where anything is better than nothing, this is a net win. But we have a way to go still."
+        }
+      ],
+      "title_ja": "Qwen 3.8 Flash Next （ 125 b ）をコンシューマーハードウェア（ RTX 4090 ）で100 T/sで実行",
+      "summary_ja": "ディスカッションのハイライト：品質が著しく低下する可能性があるため、4ビットクォントを下回ることに少し懐疑的です/単純な50画像ビジョンベンチマークでStrataをテストしました/試してみましたが、驚くほどうまくいきました",
+      "editor_note": "「Qwen 3.8 Flash Next （ 125 b ）をコンシューマーハードウェア（ RTX 4090 ）で100 T/sで実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 2,
+      "id": 49943637,
+      "title_en": "Infidel goes wild",
+      "url": "https://blog.zarfhome.com/2026/10/infidel-goes-wild",
+      "hn_url": "https://news.ycombinator.com/item?id=49943637",
+      "score": 56,
+      "comment_count": 7,
+      "posted_at": "2026-10-03T12:19:40+00:00",
+      "comments": [
+        {
+          "id": 49959335,
+          "author": "gertlex",
+          "text": "I've been gradually reading the Digital Antiquarian's series of posts [0] about history of computer games. Many of these feature links to try out these games (I haven't yet gotten to games that were released after I was born)... with user setup required (take this disk image, run it in a Apple II emulator, etc). The history so far has heavily featured text based simple parser adventure games.\nThis\nmight be the way in which I finally try one of these games out. Though, I'm betting my attention won't last long.\n[0]\nhttps://www.filfre.net/the-digital-antiquarian-e-book-librar..."
+        },
+        {
+          "id": 49958865,
+          "author": "jdw64",
+          "text": "I want to write technically interesting posts like this too, but I don't know how.\nMy writing is mostly just tracking various internet posts to trace history. How do you create interesting posts based on personal experience like this?"
+        }
+      ],
+      "title_ja": "異教徒が狂っていく",
+      "summary_ja": "ディスカッションハイライト：コンピュータゲームの歴史に関するDigital Antiquarianの一連の投稿[0]を徐々に読んできました/このような技術的に興味深い投稿も書きたいのですが、どのようにすればいいのかわかりません。\n私の執筆は、主に履歴を追跡するためにさまざまなインターネット投稿を追跡するだけです",
+      "editor_note": "「異教徒が狂っていく」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 49957116,
+      "title_en": "Turn off Apple Intelligence on macOS 27 and get its disk space back",
+      "url": "https://github.com/omlahore/RemoveMacAI",
+      "hn_url": "https://news.ycombinator.com/item?id=49957116",
+      "score": 308,
+      "comment_count": 194,
+      "posted_at": "2026-10-04T19:42:25+00:00",
+      "comments": [
+        {
+          "id": 49958088,
+          "author": "ryandrake",
+          "text": "Reminds me of all the de-crufting you've always needed to do when you install Windows. Looks like we've gotten to the point on macOS too, where you need to run third party scripts on a new OS installation to gain back control of your system resources and remove unwanted crapware."
+        },
+        {
+          "id": 49958375,
+          "author": "Grombobulous",
+          "text": "I no longer have a Mac as I’ve moved over to Linux, but my iOS device leaves me very frustrated that I can no longer disable this AI stuff with a simple toggle.\nIt seems insane given that Apple’s competitors (Microsoft, Firefox, probably others) moved toward a global AI switch to make the choice easy for their customers."
+        },
+        {
+          "id": 49957589,
+          "author": "hypfer",
+          "text": "This is stuff on the level of O&O ShutUp10.\nWhich is a good tool, but also, a Windows tool for very (back in the day) Windows-specific nonsense.\nWhat's going on at Apple product strategy?"
+        },
+        {
+          "id": 49958389,
+          "author": "_pdp_",
+          "text": "I don't understand why you would want to remove well-balanced and relatively small local-inference models that ship with every mac.\nSure, not frontier levels but fine for basic tasks and they are off-the-cloud."
+        },
+        {
+          "id": 49958630,
+          "author": "Waterluvian",
+          "text": "I remember 15+ years ago having to remove gigabytes of printer drivers from OSX. This was at a time where “drivers” were a whole, horribly frustrating thing and Apple wanted stuff to “just work.”\nLots of opinions for sure, but I’m curious how Apple actually tries to decide the cost-benefit of these kinds of things. Obviously they know they need added disk usage and some people will be upset.  Do they have a model to estimate or do they just A/B test and see how it goes?"
+        },
+        {
+          "id": 49958347,
+          "author": "rsx88",
+          "text": "The enshittification of Apple is going on. Debloating Windows, degoogling Android. MacOS/iOS was still decent a few months ago. And now they've put banners on iPhones, real advertisements trying to force you to subscribe to Apple This, Apple That. And you can't close the banner. Now they remove the option for you to remove the models. And Apple storage space is darn expensive. Now we have to use a 3rd-party tool to debloat Apple's OS too? To hell with that. Is this really the year to go full-time Linux? Steve must be squirming down there with the enshittification of Apple too. Let's shove AI (SI is different stuff, Bozo) down your throats. Jesus Christ. I suppose that's what the board members want. More revenue. Maybe it's time to start parting ways with Apple if they keep it like that. Corporate greed has taken over and user experience has gone down the drain."
+        },
+        {
+          "id": 49958439,
+          "author": "1saadcodes",
+          "text": "It's nice that the tool is open source tool. You can actually see what it's doing and not end up downloading something sketchy\nWhat worries me is that Apple might to be heading in a bit of a bloatware direction with this stuff. Having to give up tens of GB of storage for an AI model that I may not even use feels pretty far from the old Apple approach of keeping the OS lean"
+        },
+        {
+          "id": 49957814,
+          "author": "the_arun",
+          "text": "How do we believe this tool? Is it secure?"
+        }
+      ],
+      "title_ja": "MacOS 27でApple Intelligenceをオフにして、ディスク容量を取り戻す",
+      "summary_ja": "ディスカッションのハイライト： Windowsをインストールするときに常に行う必要があるすべての操作を思い出させてくれます/Linuxに移行したのでMacを持っていませんが、私のiOSデバイスは、簡単な切り替えでこのAIを無効にできなくなったことに非常にイライラしています。\n狂気の沙汰のようです/これはO&O ShutUp 10のレベルのものです。\nこれは良いツールですが、非常に（当時の） Windows固有のナンセンスのためのWindowsツールでもあります。\nWhat's goin",
+      "editor_note": "「MacOS 27でApple Intelligenceをオフにして、ディスク容量を取り戻す」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 49958569,
+      "title_en": "Self-hosted HTTP tunnels with SSH and Nginx",
+      "url": "https://vincent.bernat.ch/en/blog/2026-http-over-ssh",
+      "hn_url": "https://news.ycombinator.com/item?id=49958569",
+      "score": 30,
+      "comment_count": 10,
+      "posted_at": "2026-10-04T22:25:10+00:00",
+      "comments": [
+        {
+          "id": 49959358,
+          "author": "gonzalohm",
+          "text": "I don't have the code at hand, but I think it's better to just have a nginx server that only serves content if the browser has a specific certificate installed.\nThat way you generate a key pair, share the public key with anyone that you want to share the content with and that's it.\nDownside is that some browsers don't handle the certificates properly (especially on phones)"
+        },
+        {
+          "id": 49958868,
+          "author": "aliasxneo",
+          "text": "This is one of the core things I've been working towards with DNTLS [1]. I love the idea of tunnels, especially for sharing between private parties. The SaaS providers (Tailscale, Cloudflare, etc.) have done a good job making it really easy on their infra, but it really blurs the line of \"self-hosted\" to me. Ideally we end up with solutions like this that can be run entirely without an intermediary.\n[1]:\nhttps://dntls.substack.com/p/the-new-internet"
+        },
+        {
+          "id": 49959059,
+          "author": "toomim",
+          "text": "For this stuff, I'm most excited about https over iroh.\n-\nhttps://github.com/aflin/iroh-webproxy\n-\nhttps://github.com/n0-computer/iroh-proxy-utils\nNo port forwarding.  No public IP required.  No special proxy to set up.\nIroh already runs public relays.  Your two computers will signal through those, and then port-knock and form a direct connection to each other, perfectly encrypted.\nWe just need to define a new https:// url, like ... let's call it \"irohttps://\" maybe, so then you could contact my laptop with \"irohttps://<hash>/path?query\"."
+        },
+        {
+          "id": 49959366,
+          "author": "Transformanshen",
+          "text": "This is what I needed, but I didn't know it"
+        },
+        {
+          "id": 49959165,
+          "author": "snehesht",
+          "text": "I'm working on something similar with userspace wireguard, will share it soon."
+        },
+        {
+          "id": 49958903,
+          "author": "guessmyname",
+          "text": "If self-hosted, then why do you need a third-party service *.ssh.luffy.cx ?"
+        }
+      ],
+      "title_ja": "SSHとNginxを使用した自己ホスト型HTTPトンネル",
+      "summary_ja": "ディスカッションのハイライト：コードは手元にありませんが、ブラウザに特定の証明書がインストールされている場合にのみコンテンツを提供するNGINXサーバーを使用する方が良いと思います。\nそのように/これは私がDNTLSで取り組んできた中核的なことの1つです[1]/このことについて、私はirohを介したhttpsに最も興奮しています。\n-\nhttps://github.com/aflin/iroh-webproxy\n-\nhttps://github.com/n0-computer/iroh-proxy-utils\nポート転送なし",
+      "editor_note": "「SSHとNginxを使用した自己ホスト型HTTPトンネル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49957068,
+      "title_en": "Improper redaction reveals Google Data Center water and electricity usage",
+      "url": "https://www.1011now.com/2026/09/30/more-questions-than-answers-about-lincolns-google-data-center-water-electricity-usage/",
+      "hn_url": "https://news.ycombinator.com/item?id=49957068",
+      "score": 207,
+      "comment_count": 310,
+      "posted_at": "2026-10-04T19:37:05+00:00",
+      "comments": [
+        {
+          "id": 49957483,
+          "author": "aliasxneo",
+          "text": "I lived in a smaller rural town near a Google datacenter. During my career there I had routinely come across some outlandish accusations made about our water/power usage from the locals. But for obvious reasons I could never dispute them. I remember we hired a local who'd grown up in the town and he was \"really surprised\" when he started to see what we were doing to remain efficient.\nThe current data center craze just feels like the same thing but on a bigger scale."
+        },
+        {
+          "id": 49957395,
+          "author": "tptacek",
+          "text": "So, basically, not a meaningful amount of water at all. Credit to the story authors for taking the time to frame what 13MM gallons actually works out to."
+        },
+        {
+          "id": 49958579,
+          "author": "ilyagr",
+          "text": "This article seems to focus on one of the less interesting in terms of water usage data centers (for most of us non-locals) because the paper is from Lincoln and that data center is in Lincoln.\nThe article's data center used 13 mil gal of water, but as they point out another one used up more than 500 mil gallon.\nSeemingly much better article (pictures, better comparisons):\nhttps://flatwaterfreepress.org/data-centers-can-guzzle-serio...\nApparently Google self-reported the total 700+ million, so the main thing to learn from redacted numbers is how much smaller all the other data centers are compared to the 500 mil gallon one.\nUpdate:\nin terms of water usage. Not sure whether 500 mil gallon one is larger or just really water-inefficient. That would be a nice thing for some journalist to research...\nUpdate 2:\nit seems that Google uses water-evaporation cooling in regions that they don't consider water-stressed. Here's a not-so-great reference (scroll down if the text-fragment link doesn't work):\nhttps://www.axios.com/2026/06/03/google-pushes-water-standar..."
+        },
+        {
+          "id": 49957549,
+          "author": "eleventen",
+          "text": "There is sometimes incorrect conflation between what the datacenter is permitted for and what the datacenter actually draws.\n> Many articles about current or future AI data centers report the number in the water permit they apply for as the amount of water they actually use day to day. But this almost never happens. [1]\nThis is from the problematic and often wrong but in this case correct Andy Masley. It's not completely clear to me whether this number is observed usage or a theoretical permitted maximum, in which case the actual usage could be even lower. It could be either.\n[1]\nhttps://blog.andymasley.com/p/the-ai-water-issue-is-fake?ope..."
+        },
+        {
+          "id": 49958963,
+          "author": "oliwarner",
+          "text": "It's helpful when journos put things in terms the layman can relate to.\nI had no idea what 13 million gallons of water was until they pointed out it was like when I filled up my olympic swimming pool 20 times. That was a slow summer.\nGiven the pressure construed on resources, why not use personal or household usage averages?\nMaybe ~450 people-years doesn't have the same impact as Olympic pools."
+        },
+        {
+          "id": 49958690,
+          "author": "_heimdall",
+          "text": "People shouldn't be latching onto side effect costs of AI data centers like water or energy use, it seems like an abstraction layer above the core complaint. If we don't want AI, or LLMs, or data centers that should be the complaint. Once it is abstracted to water use or similar it opens the door for data to show the actual water use is comparatively small.\nIts like arguing about climate change by zeroing in on carbon emissions. The issue people should be raising is wasted energy, over consumption, not knowing \"enough\", etc. Once the issue is pinned to a single externalized factor the argument lives or dies by that factor."
+        },
+        {
+          "id": 49958139,
+          "author": "fasterik",
+          "text": "The concern around data centers looks a lot like a moral panic. They've been around for decades and nobody cared before the backlash against AI. They're like any other industrial building, subject to the same resource constraints and zoning laws. I suspect if the owners of that land built a steel mill, a semiconductor fab, or anything other than a data center with similar power and water requirements, nobody would care."
+        },
+        {
+          "id": 49957449,
+          "author": "1-6",
+          "text": "You can get better cooling performance at the cost of slight water usage or you can use more energy without using water at all.\nThe greener solution is to use water."
+        }
+      ],
+      "title_ja": "不適切な編集により、Googleデータセンターの水道と電気の使用量が明らかになる",
+      "summary_ja": "ディスカッションのハイライト：私はGoogleのデータセンターの近くの小さな田舎町に住んでいました/だから、基本的に、意味のある量の水はまったくありません/この記事は、論文がリンカーンからのものであり、そのデータセンターi",
+      "editor_note": "「不適切な編集により、Googleデータセンターの水道と電気の使用量が明らかになる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49957117,
+      "title_en": "Homa: The end of TCP for AI clusters [video]",
+      "url": "https://www.youtube.com/watch?v=eZ8WWZzoaR0",
+      "hn_url": "https://news.ycombinator.com/item?id=49957117",
+      "score": 47,
+      "comment_count": 14,
+      "posted_at": "2026-10-04T19:42:25+00:00",
+      "comments": [
+        {
+          "id": 49958720,
+          "author": "Animats",
+          "text": "Homa has been around for a while. Here's the 2018 paper.[1]\nThe core idea:\nWhen a message arrives at the sender’s transport module, Homa\ndivides the message into two parts: an initial unscheduled portion (the first RTTbytes bytes), followed by a scheduled portion.\nThe sender transmits the unscheduled bytes immediately, using\none or more DATA packets. The scheduled bytes are not transmitted until requested explicitly by the receiver using GRANT packets.\nSo it sends blind for short requests, then needs a go-ahead from the receiver.\nThat's reasonable when the main application is a remote procedure call. It's reminiscent of QNX's networking protocol, which is also single packet message request/response but can also handle arbitrarily long messages.\nWhat makes this work today is that per-packet processing overhead in hardware switches is low vs. per-byte overhead. In early software driven switches, per-packet overhead tended to dominate, and sending small packets was very inefficient. In modern hardware switches, where FPGAs are doing the processing, the per-packet overhead is low enough that small packets are not inefficient.\nIt's amusing that web stuff is so bloated today that any tra"
+        },
+        {
+          "id": 49959116,
+          "author": "Veserv",
+          "text": "Homa is not a good design. [1]\n1. No way to detect whole RPC loss. Since there is no outer connection state, if every packet in the send-side of a RPC is lost then there is no way for a server to detect that it should issue a resend. The RPC is just lost to the ether. This affects small messages, like messages that fit in a single packet, more since there are fewer packets in the send-side.\n2. Related to the above, there is no builtin encryption support. So, if you want encryption then you need to layer it either above or below.\n3. Benchmarked performance is awful. The 60 kB average message case in [2] Table 4 takes 5(!) hyperthreads to average 20 Gbit/s. That is just 4 Gbit/s per hyperthread. Even a totally naive one-packet per system call network protocol design and implementation should get to ~8 Gbit/s per hyperthread. 30 Gbit/s per hyperthread is easy with just a little focus on performance.\n4. Despite all the performance design problems in QUIC (though still faster than Homa) it already solves basically every problem Homa is trying to solve in a much cleaner way. Stream IDs correspond to RPC IDs. Stream Max corresponds to Grants. Multiple streams under single Client allows pr"
+        },
+        {
+          "id": 49958202,
+          "author": "giovannibonetti",
+          "text": "I remember listening to Jane Street’s Ron Minsky on their podcast talking about this a few months ago, how TCP becomes the bottleneck in AI clusters. As an electrical engineer, I remember that circuit switching gave away to packet switching due to very sparse usage of the network when there are many actors going through it. It is not very efficient, but that wide variety of traffic makes it hard to optimize it since the flow patterns are too dynamic. A good analogy with car traffic is that downtown there are so many cars going to a large variety of places, that traffic lights – as inefficient as they are – are a solution that at least works good enough.\nOn the other hand, if the traffic follows a very predictable pattern, a custom implementation can be much more efficient. Specially nowadays machine learning can find much better solutions through reinforcement learning. And AI cluster data flow is much more predictable than what goes over the internet as a whole."
+        },
+        {
+          "id": 49958826,
+          "author": "throw0101c",
+          "text": "With regards to (~6:01) \"congestion control is the responsibility of the sender\" and \"somehow we have to get the sending nodes to stop sending so fast\". Does that not exist in Ethernet/RoCE?\n>\nLink Level Flow Control: InfiniBand uses a credit-based algorithm to guarantee lossless HCA-to-HCA communication. RoCE runs on top of Ethernet. Implementations may require lossless Ethernet network for reaching to performance characteristics similar to InfiniBand. Lossless Ethernet is typically configured via Ethernet flow control or priority flow control (PFC). Configuring a Data center bridging (DCB) Ethernet network can be more complex than configuring an InfiniBand network.[19]\n*\nhttps://en.wikipedia.org/wiki/RDMA_over_Converged_Ethernet\n>\nA sending station (computer or network switch) may be transmitting data faster than the other end of the link can accept it. Using flow control, the receiving station can signal the sender requesting suspension of transmissions until the receiver catches up. Flow control on Ethernet can be implemented at the data link layer.\n*\nhttps://en.wikipedia.org/wiki/Ethernet_flow_control"
+        },
+        {
+          "id": 49958209,
+          "author": "adastra22",
+          "text": "Please don’t make the primary link a video."
+        },
+        {
+          "id": 49958533,
+          "author": "wmf",
+          "text": "I've been hearing about Homa for years and wondered what's new. I found a changelog in the readme of the git repo:\nhttps://github.com/PlatformLab/HomaModule"
+        },
+        {
+          "id": 49958369,
+          "author": "jMyles",
+          "text": "I wonder if, as LLMs get accustomed to using homa or some other optimized protocol for, as the article lists, \"chores such as weight gradients, model weights, KV cache entries, and checkpoints\", whether we'll start to see TCP as a bottleneck for their post-trained interactions as well, for many of the reasons."
+        },
+        {
+          "id": 49957575,
+          "author": "almost_usual",
+          "text": "https://lwn.net/Articles/1003059/\nhttps://www.usenix.org/system/files/atc21-ousterhout.pdf"
+        }
+      ],
+      "title_ja": "HOMA ： AIクラスターのためのTCPの終わり[ビデオ]",
+      "summary_ja": "ディスカッションのハイライト： HOMAはしばらく前から存在しています/HOMAは良いデザインではありません/数ヶ月前にJane StreetのRon Minskyがポッドキャストで、TCPがAIクラスターのボトルネックになる方法について話していたのを覚えています",
+      "editor_note": "「HOMA ： AIクラスターのためのTCPの終わり[ビデオ]」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 49956681,
+      "title_en": "A browser-native classic Visual Basic VB6 IDE",
+      "url": "https://wieslawsoltes.github.io/VB6/",
+      "hn_url": "https://news.ycombinator.com/item?id=49956681",
+      "score": 53,
+      "comment_count": 21,
+      "posted_at": "2026-10-04T18:49:17+00:00",
+      "comments": [
+        {
+          "id": 49959400,
+          "author": "imnotr0b0t",
+          "text": "Wow, that's great. It brings back so many memories"
+        },
+        {
+          "id": 49958385,
+          "author": "sijmen",
+          "text": "Slick! Thanks for bringing back some memories of how i got into programming; by automating math-homework in visual basic."
+        },
+        {
+          "id": 49959205,
+          "author": "pcdoodle1",
+          "text": "Awesome! If only we could publish the programs as a PWA :)"
+        },
+        {
+          "id": 49957281,
+          "author": "vunderba",
+          "text": "Nice job - definitely consider implementing at least a little bit of the Win32 API layer! For kicks I tried importing an old highschool VB6 map editor at it which uses BitBlt but sadly it didn't work."
+        },
+        {
+          "id": 49958672,
+          "author": "hagbard_c",
+          "text": "The speed with which this thing launches\nin a browser\nshould put shame on the faces of current IDE developers. While VB itself was nothing to write home about there certainly was something lost when hardware became more powerful. Imagine what current\nand 'recent'\nhardware were capable of if only efficiency was taken seriously again. Maybe generative AI can provide a boost where human developers would rather spend their time on chasing the latest fads, adding yet another feature or inversely removing even more functionality in an attempt to create the 'perfect' sparse application? Let the humans think up the features and write the initial implementation, then loosen the bots on the code to make it run as efficiently as possible on hardware which used to be current a few generations back."
+        },
+        {
+          "id": 49958863,
+          "author": "Onavo",
+          "text": "How does it compare with\nhttps://news.ycombinator.com/item?id=42105869"
+        }
+      ],
+      "title_ja": "ブラウザーネイティブの従来のVisual Basic VB 6 IDE",
+      "summary_ja": "ディスカッションのハイライト：すごい/スリック！ Visual Basicで数学の宿題を自動化して、プログラミングに入ったときの思い出を取り戻してくれてありがとう。/素晴らしい！プログラムをPWAとして公開できればよかったのですが:)",
+      "editor_note": "「ブラウザーネイティブの従来のVisual Basic VB 6 IDE」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 49959260,
+      "title_en": "1 in 8 cancer cases are caused by infections",
+      "url": "https://www.livescience.com/health/cancer/1-in-8-cancer-cases-are-caused-by-infections-underscoring-the-importance-of-vaccines-experts-say",
+      "hn_url": "https://news.ycombinator.com/item?id=49959260",
+      "score": 11,
+      "comment_count": 0,
+      "posted_at": "2026-10-05T00:04:02+00:00",
+      "comments": [],
+      "title_ja": "癌症例の8人に1人は感染症によって引き起こされています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「癌症例の8人に1人は感染症によって引き起こされています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49949438,
+      "title_en": "Tell HN: Bob Cringely has died",
+      "url": "https://news.ycombinator.com/item?id=49949438",
+      "hn_url": "https://news.ycombinator.com/item?id=49949438",
+      "score": 802,
+      "comment_count": 173,
+      "posted_at": "2026-10-04T00:50:52+00:00",
+      "comments": [
+        {
+          "id": 49952084,
+          "author": "tjansen",
+          "text": "Damn. I've loved Bob and his writings ever since I read Accidental Empires as a kid. He went through some crazy shit over the last few years (lost his house, almost blind). And when he started blogging again this year (\nhttps://www.cringely.com/2026/05/27/where-the-heck-have-i-be...\n), the stories got even worse (lost his son, heart attack, stroke). RIP."
+        },
+        {
+          "id": 49950029,
+          "author": "JKCalhoun",
+          "text": "I liked his \"Plane Crazy: Building a Plane in 30 Days\" on PBS.\nWatching him try (and fail) to build a composite airplane says so much about the allure of modern techniques (I won't spoil the end, but old-school gets the last laugh). I've been less than enthusiastic about modern composites ever since seeing this show.\nBob's attempt (and short temper) reveals a good deal of hubris on his part.\nThe documentary is a fascinating failure and a masterclass in attempting to salvage a show when the whole premise for the show completely collapses.\n[1]\nhttps://youtu.be/FSNzF-KSGiw"
+        },
+        {
+          "id": 49953442,
+          "author": "tuna74",
+          "text": "He was a very entertaining blogger! RIP.\nHowever, he was also ripping people off and making up stuff:\nhttps://www.jeremyreimer.com/rockets-item.lsp?f=true&p=272"
+        },
+        {
+          "id": 49951403,
+          "author": "kickingvegas",
+          "text": "Rest in peace Robert X. Cringely. For those interested, the documentary \"Triumph of the Nerds\" is available on the Internet Archive.\nhttps://archive.org/details/triumph_of_the_nerds"
+        },
+        {
+          "id": 49951045,
+          "author": "icee",
+          "text": "I was a big fan of this guy's work. Great documentaries. Triumph of the Nerds was a great watch — I gifted this to several people. I also watch the lost Steve Jobs documentary every few years for inspiration. Accidental Empires was a great read — I always think of Larry Ellison doing the NYT Crossword puzzle when I read about all the Paramount drama. He'll be missed."
+        },
+        {
+          "id": 49959261,
+          "author": "etc-hosts",
+          "text": "My last memory of him writing was he claimed he has definitive authoritative inside info that Google was going to start charging up to a $1 for each search request on the website."
+        },
+        {
+          "id": 49955477,
+          "author": "dewarrn1",
+          "text": "A shame. I encountered his work in a couple of places (with the caveat that I don't know which Cringely was which):\nPBS website: He wrote a column that their site no longer hosts, but the Wayback Machine has it snapshotted frequently, including just after his final submission for the outlet in 2008:\nhttps://web.archive.org/web/20081223220604/http://www.pbs.or...\nNerdTV: In an era of nascent web video, he produced long-form video interviews with tech types, and clipped what might now be called \"Shorts/Tiktoks\" from the conversations, pulling out the of \"the juicy bit\" and \"the nerdy bit\".\nhttps://en.wikipedia.org/wiki/NerdTV\n(h/t to u/Keyframe)\nAnd obliquely, Cringely's columns or videos were the first place I recall hearing about foveated approaches to video compression for streaming. I thought it sounded like a terrible idea, but I guess Valve delivered, 20 years on, using the technique to good effect with the Steam Frame. Chalk one up for Cringely; RIP."
+        },
+        {
+          "id": 49954200,
+          "author": "acomjean",
+          "text": "Sad.\nEarly employee at Apple who was offered to be paid in stock. He “held out for the cash”.\nI really like the triumph of the nerds series.   Getting bill Gates, Balmer, Jobs and those IBMers to explain how it all came together and how MS who didn’t have an OS ended up getting one to sell to IBM.\nThe transcripts are a good\nhttps://www.pbs.org/nerds/transcript.html"
+        }
+      ],
+      "title_ja": "HNに伝える：ボブ・クリンギリーが亡くなりました",
+      "summary_ja": "ディスカッションのハイライト： PBSの「Plane Crazy: Building a Plane in 30 Days」が気に入りました。\n彼が複合飛行機を作ろうとした（そして失敗した）のを見ていると、現代の技術の魅力について多くのことがわかります（私はしません/彼は非常に面白いブロガーでした！ RIP。\nしかし、彼はまた、人々を騙して作り話をしていました。\nhttps://www.jeremyreimer.com/rockets-item.lsp?f=true&p=272",
+      "editor_note": "「HNに伝える：ボブ・クリンギリーが亡くなりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 49933461,
+      "title_en": "A map of every lighthouse",
+      "url": "https://mapped.earth/lighthouses/world",
+      "hn_url": "https://news.ycombinator.com/item?id=49933461",
+      "score": 156,
+      "comment_count": 72,
+      "posted_at": "2026-10-02T13:45:49+00:00",
+      "comments": [
+        {
+          "id": 49956830,
+          "author": "plasticeagle",
+          "text": "Aside from the incredibly low quality of the data, this jumps out as being vibe coded due to the unbeleviably stupid text.\n\"Rain as a surface; Height is millimetres of rain per day. Nothing else is encoded.\"\nWhy does AI generated ridiculous sentences like these?"
+        },
+        {
+          "id": 49955243,
+          "author": "Waterluvian",
+          "text": "I like the idea. But it was a bit jarring that panning with my finger took ages and then pinching to zoom insta-faceplanted me into the Labrador interior.\nIf anyone wants to mount a rescue, I’m somewhere near a lighthouse."
+        },
+        {
+          "id": 49958714,
+          "author": "hasteg",
+          "text": "Made something similar a few weeks ago with GPT6 when it launched to test it out, however for just US lighthouses:\nhttps://jmoul.io/lighthouse-map/?v=20260909-3\nAlthough this one look a lot better. cool! like how the beams look like they're ray traced.\nI feel like this is a cool application of using ai - before something like this would be unfeasible to make due to the amount of lighthouses. Parsing through the amount of data to create a description of every lighthouse would take months+."
+        },
+        {
+          "id": 49956557,
+          "author": "jvdvegt",
+          "text": "Looks nice as already mentioned: pinch to zoom is broken (Firefox on Android here). Also: why am I shown a button labeled 'lighthouses in France' when I'm not actually looking at France?"
+        },
+        {
+          "id": 49956658,
+          "author": "bobosola",
+          "text": "Lovely idea, and a nostalgia trip for me. The sweeping looms brought back some old memories. I worked on merchant ships prior to getting into coding and was the officer of the watch one night crossing the Bay of Biscay going north. It was a clear night with that almost unnaturally still air you get at sea sometimes. I gradually noticed the loom of a lighthouse flashing over the sky just off the starboard bow. I wasn’t expecting landfall so soon and quickly double-checked our position on the chart. I counted the flashes; it was clearly the Phare du Créac'h on the Isle of Ushant. It’s stated as visible at 32 nautical miles, but I was seeing it at almost 90 nautical miles away. The light itself was still below the horizon, but the loom was clearly identifiable (there were no other lights in that area with the same number of flashes and frequency). It must have been some weird temperature inversion effect, but I have never forgotten it. I never saw any other lighthouse from that far away in the rest of my 25-odd years at sea."
+        },
+        {
+          "id": 49956207,
+          "author": "zX41ZdbW",
+          "text": "I have a similar project (which I created in 2024):\nhttps://adsb.exposed/\nAmong various datasets, it has OSM data (all of it):\nhttps://adsb.exposed/?dataset=OSM&zoom=4&lat=52.3756&lng=2.5...\nAnd here are lighthouses:\nhttps://adsb.exposed/?dataset=OSM&zoom=3&lat=40.0444&lng=9.9..."
+        },
+        {
+          "id": 49955947,
+          "author": "rizonio",
+          "text": "This seems like it maps way more than just lighthouses. Looking at puget sound, at least, it seems to mark all the navigation buoys as lighthouses as well."
+        },
+        {
+          "id": 49959188,
+          "author": "bookofjoe",
+          "text": "https://news.ycombinator.com/item?id=49945006"
+        }
+      ],
+      "title_ja": "すべての灯台の地図",
+      "summary_ja": "ディスカッションのハイライト：データの品質が信じられないほど低いことはさておき、これは非常に愚かなテキストのためにバイブコーディングされているとして飛び出します。\n「表面としての雨。高さは1日あたりミリメートルの雨/このアイデアが気に入っています/数週間前にGPT 6を使用してテストを開始したときに同様のものを作成しましたが、米国の灯台だけです。\nhttps://jmoul.io/lighthouse-map/?v=20260909-3\nこれにもかかわらずl",
+      "editor_note": "「すべての灯台の地図」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49956003,
+      "title_en": "Xray-core concealed a certificate verification bypass vulnerability",
+      "url": "https://github.com/net4people/bbs/issues/672",
+      "hn_url": "https://news.ycombinator.com/item?id=49956003",
+      "score": 42,
+      "comment_count": 0,
+      "posted_at": "2026-10-04T17:38:54+00:00",
+      "comments": [],
+      "title_ja": "Xray - coreが証明書検証バイパスの脆弱性を隠しました",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Xray - coreが証明書検証バイパスの脆弱性を隠しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 12,
+      "id": 49930439,
+      "title_en": "Show HN: Glashütte Trash Clock – A 30-minute pendulum clock made from trash",
+      "url": "https://niklasroy.com/gtc/",
+      "hn_url": "https://news.ycombinator.com/item?id=49930439",
+      "score": 162,
+      "comment_count": 22,
+      "posted_at": "2026-10-02T06:33:06+00:00",
+      "comments": [
+        {
+          "id": 49959305,
+          "author": "wkjagt",
+          "text": "Reminds me of some pendulum clock fun I had making a clock for the Apple 2 that used my grandparent's old clock and an inductive proximity sensor as an oscillator.\nhttps://github.com/wkjagt/apple2_pendulum_clock/blob/main/RE..."
+        },
+        {
+          "id": 49954730,
+          "author": "avidiax",
+          "text": "An interesting project, that buries the lede to another interesting thing: abolishment of the leap second.\n> In November 2022, the General Conference on Weights and Measures decided to abolish the leap second by 2035\nI think the story goes that when the leap second was standardized in 1987, the wold was much less connected, there were fewer systems, and hence it was practical to keep astronomical time and civil time coordinated.\nBut this causes so many bugs and difficulties in practice that companies like Google don't perform leap seconds, they do leap second \"smearing\". But even smearing has issues, since there are multiple algorithms.\nEven worse, the Earth sometimes accelerates, and there was a prospect that we might need a negative leap second, which has never been put into practice.\nAnd as daylight savings makes everyone painfully aware, the public can tolerate even hours of misalignment between civil time and astronomical time, and even an hour adjustment.\nSo if we decide that we can tolerate a whole minute of skew, we need no leap minute for 50-100 years. And if we could tolerate an hour of skew, we'd not need a leap hour for millennia.\nOf course, this is all can-kicking. If "
+        },
+        {
+          "id": 49953857,
+          "author": "brightbeige",
+          "text": "For those who like long form journalism and want to know more about watch collecting and Glasshütte:\nhttps://www.newyorker.com/magazine/2017/03/20/confessions-of..."
+        },
+        {
+          "id": 49954638,
+          "author": "ramshanker",
+          "text": "Speaking of clocks, recently we have started streaming live clocks on Youtube. There could be 100s of way of showing beautifull clocks on screen. This one is mine. Coding for fun! A bandwidth hog to be honest. ;)\nhttps://www.youtube.com/@TheClockStack/streams"
+        },
+        {
+          "id": 49953965,
+          "author": "geerlingguy",
+          "text": "This is like the perfect clock demo opposite of the classic Bartosz Ciechandowski blog post on mechanical clock movements:\nhttps://ciechanow.ski/mechanical-watch/\n(I love both, just opposite in the color vs dryness, jank vs precision, \"build first, principles later\" approach)."
+        },
+        {
+          "id": 49954221,
+          "author": "slfnflctd",
+          "text": "As art projects go, this one has a lot of charm for me.  Plenty of room for allegories (although apparently not the paperclips, haha).  Timekeeping in general is a subject with depth across many domains-- particularly in software as we all know.  So many different ways to do the 'same thing'."
+        },
+        {
+          "id": 49957882,
+          "author": "jacquesm",
+          "text": "There is also a museum there which is well worth visiting."
+        },
+        {
+          "id": 49954736,
+          "author": "mahboi",
+          "text": "Oh so GTC isn't GMT mixed with UTC, it's just whatever time it is on the trash clock"
+        }
+      ],
+      "title_ja": "ショーHN ：グラスヒュッテごみ時計–ごみから作られた30分の振り子時計",
+      "summary_ja": "ディスカッションのハイライト：祖父母の古い時計と誘導式近接センサーを発振器として使用したApple 2用の時計を作っていたことを思い出しました。\nhttps://github.c/別の興味深いことにつながる興味深いプロジェクト：うるう秒の廃止。\n> 2022年11月、度量衡に関する総会は、/ロングフォームのジャーナリズムが好きで、もっと知りたい人のために決定します",
+      "editor_note": "「ショーHN ：グラスヒュッテごみ時計–ごみから作られた30分の振り子時計」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49951891,
+      "title_en": "How to scale intent, quality, and artistry with AI [video]",
+      "url": "https://www.youtube.com/watch?v=GLvFTMtw4Jk",
+      "hn_url": "https://news.ycombinator.com/item?id=49951891",
+      "score": 44,
+      "comment_count": 13,
+      "posted_at": "2026-10-04T08:41:58+00:00",
+      "comments": [
+        {
+          "id": 49958976,
+          "author": "KazaNLP",
+          "text": "\"...Use the good judgment of the human and scale with the AI\" this is the way."
+        },
+        {
+          "id": 49958609,
+          "author": "chakintosh",
+          "text": "She could have a great career in audiobook narration"
+        },
+        {
+          "id": 49951900,
+          "author": "simonjgreen",
+          "text": "Just stumbled on this on YouTube and was compelled to share. This is the best (relatively) short form piece I’ve seen on avoiding AI slop while simultaneously embracing the gifts of AI"
+        },
+        {
+          "id": 49957314,
+          "author": "mpalczewski",
+          "text": "instead, human slop with that ted talk format.\nall for the following.\n1. give a shit.\n2. build a system and codify it\n3. review iterate and recreate\n4. be creative"
+        },
+        {
+          "id": 49957543,
+          "author": "devindotcom",
+          "text": "With the caveat that I have not watched the video, the title itself rubs me the wrong way. Intent, quality, and artistry as I understand them are not things intended to \"scale.\" You would not, for instance, as a musician, think \"I made an album, yes. But how do I scale up to ten or a hundred albums?\" You may well think \"How can I scale my audience,\" but that is a different question entirely and not a matter of intent, quality, or artistry. Scaling art is, to me, a wrongheaded notion to begin with."
+        }
+      ],
+      "title_ja": "AIで意図、品質、芸術性を拡張する方法[ビデオ]",
+      "summary_ja": "ディスカッションのハイライトは、「……人間の良い判断力を活かし、AIでスケールアップする」ということです。/彼女はオーディオブックのナレーションで素晴らしいキャリアを持つことができました/YouTubeでこれにつまずき、共有することを余儀なくされました",
+      "editor_note": "「AIで意図、品質、芸術性を拡張する方法[ビデオ]」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 49956035,
+      "title_en": "Incentives in Academic Research",
+      "url": "https://www.msoos.org/2026/10/incentives-in-academic-research/",
+      "hn_url": "https://news.ycombinator.com/item?id=49956035",
+      "score": 33,
+      "comment_count": 15,
+      "posted_at": "2026-10-04T17:42:38+00:00",
+      "comments": [
+        {
+          "id": 49958271,
+          "author": "smath",
+          "text": "There is a great blog post [0] that sohl dickstein had a couple years ago, about what happens when the metric being optimized is only a proxy for the thing you want to maximize — what happens eventually is “overfitting”. The original metric (which we cannot directly optimize for) actually starts to get worse.\nI believe publishing papers and citations are those proxy metrics.\n[0]\nhttps://sohl-dickstein.github.io/2022/11/06/strong-Goodhart...."
+        },
+        {
+          "id": 49957933,
+          "author": "bonoboTP",
+          "text": "I think everyone who enters academia goes through this phase of disillusionment. This thing you revered so much as this temple of knowledge turns out to involve the same kind of human business you see anywhere else, with petty fights, little cliques opposing each other, grudges, backscratching, quid pro quo etc etc.\nI think once you come to terms with this, you come out on the other side realizing that this is nothing new. The idealized version never existed. What's new is the scale and all the quantitative metrics regarding publication.\n> Academic research was meant to be about breaking new ground, keeping to honesty and good scientific conduct, being clear and upfront about uncertainties, errors, and mistakes, and improving our common understanding of science, all the while training the new generation to follow these goals and principles.\nThis is a naive idealism. Research takes effort and someone has to pay. Sometimes this someone's may profess beliefs that they only want to sponsor unrestricted objective inquiry, but everyone has biases and in an iterated game, soft preferences will be gamed too. In other words, there's is always an effect of \"the one who pays orders the song\"."
+        },
+        {
+          "id": 49958258,
+          "author": "tacostakohashi",
+          "text": "Sounds a lot like the incentives for making a software change / PR or whatever at BigCo...\nPublish a PR that has the word \"fix\" in the description, get it approved, release it to prod... you are the hero, took action, will get promoted, etc.\nWhen it turns out that the \"fix\" makes everything worse... well, that's everyone _else's_ problem, like whichever users run into that change blowing up, whoever is on support that day, whoever has to undo it.\nThe old... \"concentrated benefits and diffuse costs\" problem."
+        },
+        {
+          "id": 49958781,
+          "author": "auggierose",
+          "text": "What I am seeing is not people not being diligent in their research, but people not being diligent in their reviewing of research. But maybe there is a positive feedback loop here..."
+        },
+        {
+          "id": 49959284,
+          "author": "oddIdentities",
+          "text": ">I am not sure how to fix this problem.\nBe brave. Go public. Name names. And don't be a part of the system.\nYou'll earn more and do more with your life and for society at large by getting to a place in engineering where you can spend an increasing fraction of your time on research."
+        },
+        {
+          "id": 49957828,
+          "author": "malshe",
+          "text": "I see the author's point but I respectfully disagree. If anything, there is now much more pressure to make sure the research is error-free because so many people independently look at it. In the past if you found an error in published research, you had limited ways to share your findings. Most journals are reluctant to put their papers under scanner. Now we can just write a blog or tweet out the findings. The researchers today face much more scrutiny compared to the ones in the past. In economics, people are using AI to replicate older famous papers and reporting problems with them. Tools like refine.ink can help researchers identify the errors in their research before even submitting the paper anywhere for a peer review."
+        },
+        {
+          "id": 49956177,
+          "author": "jruohonen",
+          "text": "While I agree with the points raised about incentives, the logic is once again in the antagonistic camp and even plain wrong (cf. if they only would be \"afraid of having their careers damaged\"). No.\nThat is: the problems are in the system.\nBetter: if not plain fraud, the \"faulty\" papers should stay where they are, and editors (or conference chairs, etc.) should encourage follow-ups (incl. replications, commentaries, and whatever), which, with \"modern\" technology, could be linked to the papers."
+        },
+        {
+          "id": 49959005,
+          "author": "toomim",
+          "text": "We can be more specific than \"the incentives are wrong in Academia\", because we know what the incentive is: it's peer-review.\nThe problem is that today's peer review, while better than nothing, is far from a perfect judge of research quality.  If peer-review was a perfect judge of research quality, there would be no incentive problem.  The incentives would be aligned.\nI happen to be working on an improvement to peer review.  An early prototype can be viewed at\nhttps://peeryview.org/about\n.  Holler at me if you're also working on this problem!"
+        }
+      ],
+      "title_ja": "学術研究におけるインセンティブ",
+      "summary_ja": "ディスカッションのハイライト： SOHL DICKSTEINが数年前に書いた素晴らしいブログ記事[0]があります。最適化されている指標が最大化したいものの代用にすぎない場合に何が起こるかについてです。学界に入るすべての人がこの幻滅の段階を経験していると思います/BigCoでソフトウェアの変更/PRなどを行うためのインセンティブのように聞こえます...\n説明文に「修正」と書かれたPRを公開し、承認を得る",
+      "editor_note": "「学術研究におけるインセンティブ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 15,
+      "id": 49934078,
+      "title_en": "Results from the ASIC puzzle",
+      "url": "https://blog.janestreet.com/asic-puzzle-results/",
+      "hn_url": "https://news.ycombinator.com/item?id=49934078",
+      "score": 69,
+      "comment_count": 32,
+      "posted_at": "2026-10-02T14:42:44+00:00",
+      "comments": [
+        {
+          "id": 49957015,
+          "author": "kayson",
+          "text": "The EE/IC Design part of me loves this for trying to build a community around what is typically a very opaque and secretive industry. The social justice / millenial part of me hates this for being funded by high frequency trading, of all things. What a colossal waste of resources."
+        },
+        {
+          "id": 49958330,
+          "author": "babush",
+          "text": "I asked Claude to \"fuzz the circuit\" and, while it didn't work, it basically ended up going the Z3/SMT route and solving it in ~3 hours. This is after the writeups were already out, but still, as a software reverser, pretty wild. Writeup:\nhttps://www.babush.me/how-not-to-solve-jane-streets-asic-puz..."
+        },
+        {
+          "id": 49957952,
+          "author": "ryontikygod",
+          "text": "Every time I see a Jane Street puzzle of this like I wonder in which way you can improve your problem solving skills for these things and how to extrapolate patterns from other things. I have a gut feeling that this is not only just grinding puzzles, there has to be a way to improve this. Curious if people have some insights on this"
+        },
+        {
+          "id": 49957363,
+          "author": "amelius",
+          "text": "Were AI models able to find the solution and easter eggs?"
+        },
+        {
+          "id": 49957964,
+          "author": "IshKebab",
+          "text": "> The hardware team at Jane Street designs FPGAs and ASICs that run some of the fastest trading systems in the world, and the day-to-day work is full of puzzles just like this one: staring at a sea of gates, timing reports, or waveforms and slowly teasing out what’s really going on.\nAlthough not really any more. AI is really good at debugging failing tests so I no longer have to spend hours - sometimes it was even days - staring at waves and instruction traces.\nTbh that's one thing I won't miss."
+        }
+      ],
+      "title_ja": "ASICパズルの結果",
+      "summary_ja": "ディスカッションのハイライト： EE/ICデザインの部分は、典型的には非常に不透明で秘密の業界を中心にコミュニティを構築しようとしたことでこれを気に入っています/私はクロードに「回路をファズする」よう頼みましたが、うまくいかなかったものの、基本的にZ 3/SMTルートに進み、約3時間で解決することになりました/このようなジェーンストリートのパズルを見るたびに、これらの問題を解決するスキルをどのように向上させることができるのか、そしてどのようにエクストラポラするのか疑問に思います",
+      "editor_note": "「ASICパズルの結果」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49947565,
+      "title_en": "'Neanderthals Among Us' review",
+      "url": "https://www.historytoday.com/archive/review/neanderthals-among-us-peter-sahlins-review",
+      "hn_url": "https://news.ycombinator.com/item?id=49947565",
+      "score": 54,
+      "comment_count": 46,
+      "posted_at": "2026-10-03T20:41:15+00:00",
+      "comments": [
+        {
+          "id": 49956933,
+          "author": "bwnkl",
+          "text": "> for example the 2026 discovery that interbreeding was predominantly between Neanderthal males and human females, and not between Neanderthal females and human males.\nI thought this was an interesting detail in the article, and trying to find out more about a possible reason for this discrepancy, I found a recent paper concluding that this was possibly due to mate preference [1]. Neanderthal dudes were smoking hot!\n[1]:\nhttps://www.science.org/doi/abs/10.1126/science.aea6774"
+        },
+        {
+          "id": 49957347,
+          "author": "armenarmen",
+          "text": "There has to be a living person that is the very most Neanderthal, it would be cool if the consumer DNA companies consensually released that. It would satiate my curiosity and probably lead to lucrative influencer money for the person revealed"
+        },
+        {
+          "id": 49957050,
+          "author": "ericmcer",
+          "text": "The Neanderthal extinction always made me think that erasure of races in our modern times will follow a similar pattern. People think of the Native Americans as getting wiped out by disease/violence over a few years, but their ultimate end (and every other races end) probably will be similar to Neanderthals: slowly getting bred out of existence until finding someone with >2% DNA is a novelty. Same thing will probably happen to any smaller populations as globalization/interbreeding means massive populations like China/India will end up being the majority of the DNA."
+        },
+        {
+          "id": 49957253,
+          "author": "riffraff",
+          "text": "> In the 1990s hair-dragging rape scenes in the Clan of the Cave Bear novels (20 million copies sold by 1990) caused the books to be banned from American public libraries.\nI think I read this book in the 90s and yes, there's a rape (maybe more?) but it's an exception as the neanderthals are generally shown as relatively \"civilized\", not as brutes. : the raped sapiens was actually saved as a child by the neanderthals. And there's no hair dragging scene I remember.\nBut it's been so long ago, I may misremember."
+        },
+        {
+          "id": 49958582,
+          "author": "mac3n",
+          "text": "https://www.biorxiv.org/content/10.64898/2026.03.11.711219v1...\n\"Hypothesis: A modern human range expansion ~300,000 years ago explains Neandertal origins\", an alternatate take by David Reich, who has done a lot of work in this area. He notes that Neanderthal haplotypes appears largely replaced by Sapiens.\nThis would make them our siblings rather than our cousins."
+        },
+        {
+          "id": 49956949,
+          "author": "SecuredMarvin",
+          "text": "Dig into the words Homo neanderthalensis and you get “the man from the valley of the new man” - a wonderfully ironic name for an extinct human."
+        },
+        {
+          "id": 49956950,
+          "author": "AndrewKemendo",
+          "text": "Sahlins is one of the GOATS of modern anthropology\nStone Age Economics will change your life if you’re new to anthropology and think the modern society is representative of our social lineage….rather than us living in an extremely new, completely alien context, for a 250,000 year old animal"
+        },
+        {
+          "id": 49957038,
+          "author": "Gagarin1917",
+          "text": "I thought this was a new twist on the popular online game"
+        }
+      ],
+      "title_ja": "「Neanderthals Among Us」レビュー",
+      "summary_ja": "ディスカッションのハイライト： >たとえば、ネアンデルタール人の男性とヒトの女性の間で主に交配が行われ、ネアンデルタール人の女性とヒトの男性の間ではないことが2026年に発見されました。\n私は/最もネアンデルタール人である生きている人がいるはずだと思っていました。消費者のDNA会社が合意に基づいてそれをリリースしたらクールでしょう/ネアンデルタール人の絶滅は、私たちの現代の人種の消滅が続くと常に私に考えさせました",
+      "editor_note": "「「Neanderthals Among Us」レビュー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 17,
+      "id": 49952111,
+      "title_en": "Show HN: AI search for every photo and every frame of video on macOS",
+      "url": "https://github.com/allenv0/SCM",
+      "hn_url": "https://news.ycombinator.com/item?id=49952111",
+      "score": 135,
+      "comment_count": 64,
+      "posted_at": "2026-10-04T09:24:52+00:00",
+      "comments": [
+        {
+          "id": 49953995,
+          "author": "postalcoder",
+          "text": "Since this is for the mac you really should be using apple's vision framework for OCR. It smokes tesseract in both speed and accuracy.\nEdit: I'm curious which LLM was used to generate the code. I fed the title of your post to claude/deepseek/qwen/codex asking to recommend a stack for this project, expecting to frown thinking that they still recommend tesseract. However, I found that they all recommend apple's vision framework. In fact the latest model to recommend Tesseract is gpt-4.1."
+        },
+        {
+          "id": 49953895,
+          "author": "alt227",
+          "text": "Slightly offtopic, but made me wonder.\nCan you copyright things like this now that LLMs exist? I mean, up until now if a small startup has a great idea they will get bought out by big tech which will integrate (or kill) their tech. But now with LLMs can the likes of OpenAI just tell their model to make something that works similar to X (such as this project) and then get round copying laws and negate being behind the curve?\nEDIT: switched to the correct spelling of copyright."
+        },
+        {
+          "id": 49953541,
+          "author": "lucideer",
+          "text": "possibly off-topic, but for anyone interested in this on a more cross-platform / holistic basis, Immich does this\n(& by \"this\" I mean an approximate AI search for photos & videos - I can't account for the \"every frame\", nor for the comparative search quality)"
+        },
+        {
+          "id": 49953375,
+          "author": "hn3ufz62f7",
+          "text": "Having built something similar with CLIP on an M1, frame sampling rate is the whole ballgame. One frame a second on 12k videos is days, keyframes only got me to an overnight run."
+        },
+        {
+          "id": 49953634,
+          "author": "measure2xcut1x",
+          "text": "How well do you think this would work on stock photography on m1 mac with 32GB ram? For example I'd like to be able to search a folder of ~2k photos for houses with palm trees. Or find photos of kitchens, or find photos of desert southwest landscapes."
+        },
+        {
+          "id": 49954002,
+          "author": "yt1998",
+          "text": "Why chose CLIP to do this. Have you tried small VLMs like Qwen-VL? I believe those models have video encoders can better perform at this scenario."
+        },
+        {
+          "id": 49953208,
+          "author": "stephenitis",
+          "text": "I like the entire premise, the one thing stopping me from trying this is not knowing the time scales that I will need to set my computer aside for the processing of large folders of video frames, or my photos library's videos, some 12,000 videos"
+        },
+        {
+          "id": 49954742,
+          "author": "qlasisi15",
+          "text": "This would really help in video editing.\nThanks!"
+        }
+      ],
+      "title_ja": "HNを表示： macOS上のすべての写真とビデオのすべてのフレームのAI検索",
+      "summary_ja": "ディスカッションのハイライト：これはMac用であるため、OCR/やや偏見のあるAppleのビジョンフレームワークを使用する必要がありますが、私は不思議に思いました。\nLLMが存在する今、このようなものを著作権で保護できますか？ つまり、これまでのところ、小さなスタートアップが素晴らしいアイデアを持っていれば、彼らはトピック外に買収される可能性がありますが、よりクロスプラットフォーム/全体的なベースでこれに興味がある人にとっては、Immichはこれを行います\n(& by \"this\" I mean an approximate AI sear",
+      "editor_note": "「HNを表示： macOS上のすべての写真とビデオのすべてのフレームのAI検索」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 49939308,
+      "title_en": "Interview with Chicken Scheme Maintainer Sjamaan/Peter Bex",
+      "url": "https://alexalejandre.com/interviews/peter-bex/",
+      "hn_url": "https://news.ycombinator.com/item?id=49939308",
+      "score": 6,
+      "comment_count": 1,
+      "posted_at": "2026-10-02T22:17:04+00:00",
+      "comments": [
+        {
+          "id": 49958985,
+          "author": "thenthenthen",
+          "text": "Unrelated but Where is the ‘Sjamaan’ coming from? Ctrl+f doesn’t give any results. Not familiar with the Chicken/Scheme nomenclature but gives me the yuck’s (most if not all self declared shamans I met were total creeps)"
+        }
+      ],
+      "title_ja": "Chicken Scheme Maintainer Sjamaan/Peter Bexインタビュー",
+      "summary_ja": "ディスカッションのハイライト：無関係ですが、「Sjamaan」はどこから来ていますか？ Ctrl + fでは結果が得られません",
+      "editor_note": "「Chicken Scheme Maintainer Sjamaan/Peter Bexインタビュー」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 49953288,
+      "title_en": "Bill Draper has died",
+      "url": "https://www.nytimes.com/2026/09/30/technology/william-draper-dead.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49953288",
+      "score": 69,
+      "comment_count": 17,
+      "posted_at": "2026-10-04T12:21:35+00:00",
+      "comments": [
+        {
+          "id": 49955691,
+          "author": "JSR_FDED",
+          "text": "Man that was as a different ethos back then…”Draper realized that his ‘learning curve was flattened out’ in venture capital and detoured into public service”. Subsequently he funded 280 non profits.\nThe A16z team of today is probably deeply confused reading this article."
+        },
+        {
+          "id": 49953767,
+          "author": "hncbw02z5a",
+          "text": "Third generation of Drapers doing this, which is its own kind of rare."
+        },
+        {
+          "id": 49957435,
+          "author": "sophacles",
+          "text": "I met Mr Draper once. I was staying at the SFO hyatt, or maybe the Mariott, and had a couple hours to kill after breakfast and noticed there was some sort of conference going on, so I crashed it. I walked into a talk room and sat in the front row and introduced myself to my neighbors. On one side was Steven Levy (author of many books in the industry) and the other was Bill Draper. I don't really remember the conversation, nor even the topic of the conference - it was a brief conversation in the 5 or 10 minutes before the talk started. At the time I didn't really know who he was but I was a little star-struck by Mr Levy, and it was Levy who told me I should be more impressed by being next to Draper. Mr Draper thought that was funny and the three of us chatted a bit more about whatever. I found it interesting that Mr. Draper was a surprisingly relatable guy (particularly given what I know about him know) and that he was very insightful of technology for someone who was in his 70 or 80s at the time.\nRIP Mr. Draper. I didn't know it when we talked, but you helped make my career possible - thanks!"
+        },
+        {
+          "id": 49953289,
+          "author": "bookofjoe",
+          "text": "https://archive.ph/YRgDY\nhttps://www.nytimes.com/2026/09/30/technology/william-draper..."
+        },
+        {
+          "id": 49954398,
+          "author": "jhbadger",
+          "text": "I do wish that \"Silicon Valley\" would have been elsewhere less useful, though. As mentioned, before it became the tech hub, the Santa Clara valley was extremely productive agricultural land that is now paved over."
+        },
+        {
+          "id": 49957086,
+          "author": "2ahg6a",
+          "text": "Maybe the site would be more cheerful if there were a separate section for AI, obituaries and diseases."
+        }
+      ],
+      "title_ja": "ビル・ドレイパーが亡くなりました",
+      "summary_ja": "ディスカッションのハイライト：当時は異なる精神であった男性…」ドレイパーは、ベンチャーキャピタルで彼の「学習曲線が平坦化され」、公共サービスに迂回されていることに気付きました。/ドレイパーの第3世代がこれを行っていることは、それ自体がまれなことです。/私は一度ミスター・ドレイパーに会ったことがあります",
+      "editor_note": "「ビル・ドレイパーが亡くなりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 49950554,
+      "title_en": "Why don't more developers “use the platform”?",
+      "url": "https://nolanlawson.com/2026/10/03/why-dont-more-developers-use-the-platform/",
+      "hn_url": "https://news.ycombinator.com/item?id=49950554",
+      "score": 272,
+      "comment_count": 287,
+      "posted_at": "2026-10-04T04:10:47+00:00",
+      "comments": [
+        {
+          "id": 49954104,
+          "author": "toddmorey",
+          "text": "This got to me:\n> For a certain type of developer, building things yourself is just more fun\nThe platform APIs were terrible. React wasn't \"more fun\"... it just made it possible to do things with the platform that were extremely difficult and cumbersome to get working reliably with platform APIs alone.\nTo me, web components were an incredible idea poorly implemented. Most of the minimal adoption happened on top of frameworks like Lit that wrapped WCs to try to make the dev experience tolerable.\nIn urban planning they have a concept called \"desire paths\" where if you don't put sidewalks and pathways in the right places, people invent their own. I feel like the web community has spent a lot of time and effort patching the platform.\nNow credit where credit is due: it has very much improved. And modern standards means it really is time to re-evaluate where and when you need these patches. But don't write off all that annoying and painful effort people put in to trying to making the platform deliver it's promised potential just to \"building it yourself is more fun\"."
+        },
+        {
+          "id": 49952769,
+          "author": "roncesvalles",
+          "text": "Your premise that the browser implementation is faster and better is rarely true. And when it is true, it's only true in a very narrow lane.\nTake for instance something like suggestions on form fields: you start typing something and it presents some options from a hardcoded list that matches the prefix. This is natively achieved through the HTML element <datalist>. However, <datalist> implementations on most browsers\nsuck\nto the point of being unusable.\nThe drive to roll your own is not so much that \"it would be fun to learn this\" as much as it's \"rolling my own would let me express my vision exactly\". What draws a lot of people to software engineering is that it lets you make anything you imagine. This is also what makes a lot of devs turn their nose at no-code and vibe-coding.\nIf you can't build things exactly how you want them to be, then it's hard/impossible to build something that's truly genius."
+        },
+        {
+          "id": 49950750,
+          "author": "jchw",
+          "text": "For one thing, I just genuinely think WebComponents are a badly designed API that is weird and hard to use (how many people are using WebComponents without\nat least\nLit, if not something much bigger?), and React is a relatively well-designed library that isn't really that bloated. There's not really much of a point in trying to argue since this is inherently subjective and people with different values are going to irreconcilably disagree. But, if you don't respect that some people hold this position, we're not going to make any progress towards a consensus.\nOn the note of <dialog>, I recently tried to use <dialog> in a (React) application, and it did work pretty well, but I also found that in Firefox it is only practically possible to do a fade-in animation, not a fade-out one. That isn't\nreally\na critical issue for me, it is just an animation after all, but I find it unfortunate. I also find <dialog> to be a weirdly shaped API too: I don't really\nhate\nit, but I don't love it either. It feels awkward.\nI find this implicit view that developers that, for example, prefer React over WebComponents are making a suboptimal choice to be rather condescending and not really in the spirit of "
+        },
+        {
+          "id": 49952197,
+          "author": "serbuvlad",
+          "text": "Coming from a more general programming view, I find web development extremely odd. In general programming we tend to find a small set of abstractions which we can use in a composable way to cover our problem space.\nFor example, to interact with the VFS, we have read()/write(). When we add more APIs, it can be to enable a new paradigm, like epoll(), or for performance, like readv()/writev(). For a functionality that can be composed out of existing APIs in a performant way, we do not add it in the platform, but leave it instead to the domain of libraries. This separation has immense values, as it makes platforms easy to implement. A Linux filesystem, for example, needs to implement only 10 or so functions.\nThe web seems to be perfectly composable too, out of <div>, <span>, <p> and a small subset of CSS, but doing this is considered an anti-pattern, and you're supposed to reach for the platform to find the closest thing to what you need, whereas reaching for a library or composing yourself is frowned upon.\nThe result is that there are only three platforms: Blink/V8; WebKit/JavaScriptCore; and Geko/SpiderMonkey. With many things only working or working well on Blink/V8.\nAnd implementin"
+        },
+        {
+          "id": 49950805,
+          "author": "usernomdeguerre",
+          "text": "As far as I know there are still some things \"the platform\" actually won't deliver; for instance I'm fairly certain there's no searchable combobox that's fully accessible. One ~must leave the platform to give users the experience the expect.\nThat means \"the platform\" itself is actually teaching people to work \"off platform\" and arguably will always have gaps as functionality and expectations evolve.\nAdmittedly, the habit really ought to be 'I need to make a combobox -> does the platform have what I need? -> Research, evaluate, test -> Otherwise, make it' but I don't begrudge people for skipping the middle steps."
+        },
+        {
+          "id": 49959196,
+          "author": "socketcluster",
+          "text": "I would push back on \"LLMs seem to love duplicating code\" - LLMs love copying your code style.\nIf your code style involves duplicating code, then LLMs will duplicate a lot of code. If you reuse code, LLMs will reuse code.\nIf your code is full of patches and workarounds, then LLMs will write code that is full of patches and workarounds.\nThat's the inference aspect.\nThere are also some biases introduced by the training set itself. If your favorite programming language's training set favors over-engineering and an enterprise coding style, then LLMs will leans towards that coding style.\nThis is why I prefer Javascript over Typescript. TS is more enterprisey. In TS, LLMs tend to invent unnecessary abstractions and create architectural complexity... TS was designed for large corporate teams of people who move slowly, bill by the hour and whose salary and job security is determined primarily by their lock-in factor within the company; their incentives aren't necessarily aligned with delivering results and this is reflected in LLM output."
+        },
+        {
+          "id": 49958507,
+          "author": "bastawhiz",
+          "text": "I have such mixed feelings on this.\nLast week, I replaced 100kb of React code for a JavaScript based date picker with an <input type=datetime-local>. It's part of an accessibility project, and the old date picker wasn't good for many reasons. What a win! This input type didn't land in browsers other than Chrome until a few years ago, and my support matrix didn't officially allow me to use it until pretty recently. By and large, this is a win on paper.\nWithin 24 hours a customer using Firefox and NVDA (a screen reader) wrote in to say they hated the change and asked me to bring the old date picker back.\nHow am I supposed to win here?"
+        },
+        {
+          "id": 49951711,
+          "author": "littlecranky67",
+          "text": "The answer is UX designers and marketing people. I will yet have to work in a web project where any UX designer will be happy with what the native browser has to offer. Notable examples are date/time pickers. Look at any of the Top100 websites and you will find custom date/time picker designs. And I would also say, with standard browser built-in dialogs you could not rebuild/model those pickers to match what the Top100 websites use."
+        }
+      ],
+      "title_ja": "より多くの開発者が「プラットフォームを使用」しないのはなぜですか？",
+      "summary_ja": "ディスカッションのハイライト：これは私に与えられました：\n>特定のタイプの開発者にとっては、自分で物事を構築する方が楽しいだけです\nプラットフォームAPIはひどかった/ブラウザの実装が高速で優れているというあなたの前提はめったに真実ではありません/一つには、私は本当にWebComponentsが奇妙で使いにくい不適切に設計されたAPIであると思います（ WebComponentsを使用していない人がどれだけいるか\n少なくとも\n点灯（ SOMでない場合）",
+      "editor_note": "「より多くの開発者が「プラットフォームを使用」しないのはなぜですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49917536,
+      "title_en": "What is going on with ceiling fans",
+      "url": "https://mcmansionhell.com/post/829127919552151552/what-is-going-on-with-ceiling-fans",
+      "hn_url": "https://news.ycombinator.com/item?id=49917536",
+      "score": 195,
+      "comment_count": 161,
+      "posted_at": "2026-10-01T03:52:10+00:00",
+      "comments": [
+        {
+          "id": 49945113,
+          "author": "donatj",
+          "text": "My wife and I were out recently looking at ceiling fans to replace the one in our dining room, which has committed no crimes, other than having the appearance of being very much from the 1980s.\nI was taken aback by how few of the fans had replaceable lightbulbs! In the entire store there were maybe three or four options with a replaceable bulb!\nCall me crazy, but a nonreplaceable LED is a complete dealbreaker. I go through so many LED bulbs! I don't know if my electricity is like particularly bad or if that's just normal? The first LED bulb I ever bought (Shout out EarthLED) in 2008 for like $30 is still going strong, but every bulb I buy these days lasts like two years tops.\nAnyway, we did not buy a fan."
+        },
+        {
+          "id": 49945387,
+          "author": "brudgers",
+          "text": "Technology Connections\nnerd-snipes ceiling fans in a recent video,\nhttps://youtu.be/_KWdCqpXB7A\nAnd of course complains.\nBut they are technologically informed complaints."
+        },
+        {
+          "id": 49944953,
+          "author": "Gshaheen",
+          "text": "It’s the same story for basically any part of a home. Faucets, furniture, tubs, windows, doors, floors, lamps, you name it.\nWhat a testament to the manufacturing advances that have made it profitable to cater to every possible taste, budget, and architectural layout. It’s incredible actually."
+        },
+        {
+          "id": 49945391,
+          "author": "card_zero",
+          "text": "> a normal fan that for some reason has a border around it\nSo, a ducted fan! That would be a sensible and practical design if your ceiling needed extra thrust for takeoff.\nCheap and stupid goods with threatening auras,\nindeed. Possibly a step up from the 90s when it was cheap and stupid goods with a Memphis Group primary school aesthetic. Hard to choose."
+        },
+        {
+          "id": 49958590,
+          "author": "mrinterweb",
+          "text": "I assume the GAMERFAN is applied to ceiling with thermal paste"
+        },
+        {
+          "id": 49945098,
+          "author": "jmbwell",
+          "text": "On behalf of my late mother, these look impossible to clean"
+        },
+        {
+          "id": 49945489,
+          "author": "WaitWaitWha",
+          "text": "most forget, but fan blades need cleaning.  any plastic blades, specially the clear one will look like cat vomit.\nImagine clear blades with each blade displaying cat hairballs spread out on the edges, spinning them above your head.  It will harass you, give ammo to your in-laws to harass you, create marital strife (when are you going to clean that?) and then death as you fall off the ladder and break your neck on the coffee table, despite surviving four frontline deployments..."
+        },
+        {
+          "id": 49946837,
+          "author": "bsoqk",
+          "text": "I see no indication that the photo is AI.\nhttps://st.hzcdn.com/simgs/pictures/living-rooms/century-woo..."
+        }
+      ],
+      "title_ja": "シーリングファンはどうなっていますか",
+      "summary_ja": "ディスカッションのハイライト：私の妻と私は最近、私たちのダイニングルームのシーリングファンを交換するために外出していました。シーリングファンは、非常にfr/Technology Connectionsであるように見える以外、犯罪を犯していません。\n最近のビデオでオタクスナイプのシーリングファン、\nhttps://youtu.be/_KWdCqpXB7A\nそしてもちろん文句を言います。\nしかし、彼らは技術的に情報に基づいた苦情です。 /基本的に家のどの部分でも同じストーリーです",
+      "editor_note": "「シーリングファンはどうなっていますか」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49946895,
+      "title_en": "The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux",
+      "url": "https://www.phoronix.com/news/XDC-2026-Valve-Timur-AMDGPU",
+      "hn_url": "https://news.ycombinator.com/item?id=49946895",
+      "score": 458,
+      "comment_count": 92,
+      "posted_at": "2026-10-03T19:14:48+00:00",
+      "comments": [
+        {
+          "id": 49948486,
+          "author": "LaurensBER",
+          "text": "I just bought a used Ayaneo 2 handheld, it has an old(er) mobile RDNA 2 GPU and I was blown away by how well this thing performed under Linux. Almost everything (that's not a recent AAA game) runs beautiful and a lot faster/smoother than it does under Windows. The experience has been so good that I'm considering switching my main pc (with a 9070XT) to Linux as well.\nNo doubt Timur contributed heavily to this given Valves Steamdeck (which uses a very similar but slower GPU).\nGiven the current hardware prices it's pretty awesome to see someone squeezing maximum performance out of old hardware!"
+        },
+        {
+          "id": 49952205,
+          "author": "azkalam",
+          "text": "I have AI fatigue, but the potentially for fixing bugs in old hardware is very exciting to me.\nPerhaps we will even be able to reverse firmware blobs into open source alternatives?"
+        },
+        {
+          "id": 49949075,
+          "author": "gary_0",
+          "text": "Direct link to the talk, with timestamp:\nhttps://youtu.be/j5W5ErEMnvM?t=21385"
+        },
+        {
+          "id": 49954125,
+          "author": "throwawayffffas",
+          "text": "I got a r9 285 in 2020 something while the crypto frenzy was still eating up all the gpus. It was 6 years old, got it for like 60 bucks if I remember correctly, best purchase ever, I got to play gta V at 60fps again.\nTry to remember back to 2015 the graphics were not that bad. 4k performance was poor but for 1080p 60fps on pretty much anything."
+        },
+        {
+          "id": 49950851,
+          "author": "bugake",
+          "text": "Some other benefits of older GPUs:\nUse as a dedicated GPU for encoding and decoding video.\nPost processing like frame interpolation or superresolution. Use for GPGPU workloads. Run additional monitors independently. Use for GPU passthrough to virtual machines. Use as a backup GPU for troubleshooting. Use for test code without breaking the main GPU"
+        },
+        {
+          "id": 49952827,
+          "author": "k7peak",
+          "text": "I'm so happy I didn't throw away my old laptops..."
+        },
+        {
+          "id": 49949925,
+          "author": "vkaku",
+          "text": "Honestly, the folks writing inference drivers for Llama.cpp / GGML would sort of benefit from better compiler work like this.\nIn general, Valve's work has been exceptional and supplementing AMD's own ROCM/OpenCL and Vulkan team, they've gotten a lot of defaults right and people should work together with Valve to improve support for their chips."
+        },
+        {
+          "id": 49957184,
+          "author": "throwawaytea",
+          "text": "I now have a 2011 or 2012+ 27\" iMac everywhere I need a computer, running Linux Mint Mate, and it works better and with less frustration that any new $2500+ Lenovo workstation laptop my employers give me."
+        }
+      ],
+      "title_ja": "ValveのTimurKristófによるLinux上での古いAMD GPUの改善に関する作業",
+      "summary_ja": "ディスカッションのハイライト：私は中古のAyaneo 2ハンドヘルドを購入しました。古い（えーと）モバイルRDNA 2 GPUを搭載していて、Linux/AI疲れの下でこれがどれほどうまく機能したかに驚きましたが、古いハードウェアのバグを修正する可能性は非常にエキサイティングです。\nおそらく、ファームウェアブロブをオープンソースの代替品に戻すことさえできるでしょうか？ /タイムスタンプ付きのトークへの直接リンク：\nhttps://youtu.be/j5W5ErEMnvM?t=21385",
+      "editor_note": "「ValveのTimurKristófによるLinux上での古いAMD GPUの改善に関する作業」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 23,
+      "id": 49940044,
+      "title_en": "Demystifying Tufte's data-ink ratio – Tufte's Razor",
+      "url": "https://tuftesrazor.scienceux.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=49940044",
+      "score": 3,
+      "comment_count": 0,
+      "posted_at": "2026-10-02T23:55:17+00:00",
+      "comments": [],
+      "title_ja": "タフテのデータインク比の解明–タフテのカミソリ",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「タフテのデータインク比の解明–タフテのカミソリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 49948738,
+      "title_en": "Declaring a bird extinct: The median wait is 36 years after the last sighting",
+      "url": "https://birdshistory.com/how-long-to-declare-a-bird-extinct/",
+      "hn_url": "https://news.ycombinator.com/item?id=49948738",
+      "score": 20,
+      "comment_count": 7,
+      "posted_at": "2026-10-03T23:16:45+00:00",
+      "comments": [
+        {
+          "id": 49949145,
+          "author": "anenefan",
+          "text": "It's interesting to see that some populations which are nearly wiped out due to habitat changes, can adapt to the new conditions and slowly rebuild ... but it leaves questions like if the adaptation  was behavioural or physical which allowed it's survival is the bird that survived tending to be its own sub species of what existed.\nIn Australia, well the north part of Queensland at the very least, since the 80s there's really not been that much funding  or an obvious program of population monitoring of whatever native species remain, including birds.\nI miss what used to be common bird calls from my youth even though I didn't know which bird species was responsible.  I've resolved the mystery for a couple I could recall but one still eludes me.  In my parts the high canopy tropical forests have taken a huge toll from the 90s, no real wet season with warm rain, no large storms, (these days it's not uncommon to hear alarm around a storm dropping 3 inches in a couple of hours ... used to have years where they were not uncommon,) a fungus pathogen taking out some trees which may just be down to the trees being stressed more than their evolution allowed for - oh yes, the fact that many su"
+        },
+        {
+          "id": 49958297,
+          "author": "plusfour",
+          "text": "Treat yourself to this gorgeous podcast episode, \"The Woods\" from The Memory Palace.\nhttps://thememorypalace.us/the-woods/\nThe red shock of feathers on the heads of the males,\nthe bright white that spilled down the sides of the long throat to pool in the center of the wide wings,\nhemmed in by borders that looked jet black in pictures,\nbut in real life were something other.\nA glinting thing.\nA blue-purple.\nA night sky.\nOn the right night."
+        },
+        {
+          "id": 49957350,
+          "author": "jmclnx",
+          "text": "Could not get into the site, from the  wayback machine:\nhttps://web.archive.org/web/20261004025452/https://birdshist..."
+        },
+        {
+          "id": 49948747,
+          "author": "Heidi_70",
+          "text": "I run the site, so flagging that up front.\nMethod, since the number deserves scrutiny: the dataset is every bird on my site where both dates are documented, the last confirmed record (specimen, photo, recording, accepted sighting, or death of the last captive) and the first formal extinction declaration by a recognised authority. That gives 13 species and subspecies. Median gap 36 years, mean 47.5, range 3 to 124.\nTwo rules matter for reading it. Where a bird was declared twice (IUCN and later the US delisting in October 2023), the earlier declaration counts; using the US dates would inflate most figures. And the sample is small and weighted toward Hawai'i, so the median describes these birds, not a published constant.\nThe pattern that seemed most robust to me: the three short gaps are all birds whose last individual was watched dying, e.g. the dusky seaside sparrow in captivity in 1987, declared in 1990. Where the record just stops, nobody can date the stopping, and the declaration takes decades.\nHappy to go into the sources or any individual case."
+        }
+      ],
+      "title_ja": "鳥の絶滅宣言：待ち時間の中央値は、最後の目撃から36年後です",
+      "summary_ja": "ディスカッションのハイライト：生息地の変化により絶滅寸前になっている個体群の中には、新しい状況に適応し、ゆっくりと再建できるものもあります。/The Memory Palaceのゴージャスなポッドキャストエピソード「The Woods」で自分にご褒美を。\nhttps://thememorypalace.us/the-woods/\n雄の頭にかかった羽の赤い衝撃、\nウェイバックマシンから/サイトに入ることができませんでした：\nhttps://web.archive.org/web/2026100",
+      "editor_note": "「鳥の絶滅宣言：待ち時間の中央値は、最後の目撃から36年後です」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 49956771,
+      "title_en": "Show HN: Build with Python – a beginner course where your code draws",
+      "url": "https://scimigo.com/en/learn/build-with-python/01-draw-with-python",
+      "hn_url": "https://news.ycombinator.com/item?id=49956771",
+      "score": 21,
+      "comment_count": 9,
+      "posted_at": "2026-10-04T18:59:25+00:00",
+      "comments": [
+        {
+          "id": 49959256,
+          "author": "ezra60",
+          "text": "CMU Academy\nhttps://academy.cs.cmu.edu/splash\nDoes a great job implementing this idea and making it available at no cost."
+        },
+        {
+          "id": 49959175,
+          "author": "gnarlouse",
+          "text": "My only feedback is $49 for AI slop feels like extortion at best, and delusion at worst. Don't give up building stuff, we should all be using AI to build ideas because the cost of developing them has dropped substantially. We should not be using them, however, to grift one another."
+        },
+        {
+          "id": 49957992,
+          "author": "aarontian0",
+          "text": "It has a nice interface and I really like it. I'll stay in tuned for the C++ version as well."
+        },
+        {
+          "id": 49957335,
+          "author": "fwip",
+          "text": "You may want to review it a bit more before soliciting feedback. For example, the very first task it asks the user to do is already done."
+        }
+      ],
+      "title_ja": "HNを表示： Pythonでビルド–コードが描画される初心者コース",
+      "summary_ja": "ディスカッションハイライト： CMUアカデミー\nhttps://academy.cs.cmu.edu/splash\nこのアイデアを実装し、無料で利用できるようにするのに優れている。 /私の唯一のフィードバックは、AI SLOPがせいぜい恐喝のように感じ、最悪は妄想のように感じるための$ 49です/それは素敵なインターフェースを持っていて、私はそれが本当に好きです",
+      "editor_note": "「HNを表示： Pythonでビルド–コードが描画される初心者コース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 26,
+      "id": 49945933,
+      "title_en": "Agents don't need memory, they need documentation",
+      "url": "https://liao.gg/blog/agents-dont-need-memory",
+      "hn_url": "https://news.ycombinator.com/item?id=49945933",
+      "score": 346,
+      "comment_count": 210,
+      "posted_at": "2026-10-03T17:03:37+00:00",
+      "comments": [
+        {
+          "id": 49955753,
+          "author": "kaydub",
+          "text": "You don't need documentation or the 3rd party memory systems. The code IS the documentation.\nAll this stuff is LLM rube goldberg machines. It just pollutes context.\nI barely use AGENTS.md/CLAUDE.md these days. And where they remain, it's super basic high level stuff.\nI'm honestly still kicking myself in the ass on many projects where I did something similar to this. I kept tons of markdown docs and decision docs. Now those things are just causing problems because they got stale. Even after having sessions of reconciling documentation, the LLM just gets confused."
+        },
+        {
+          "id": 49953780,
+          "author": "CapitalistCartr",
+          "text": "This is something I've been fooling with a lot lately. Reading his solution, it look to me like his objections apply to his own solution. The sharpest critique he makes of RAG is that agents can't search for what they don't know. A markdown \"brain\" has the same problem.\nHow does the \"agent\" know which documents are relevant before it starts? The index files retrieval done by the agent instead of by embeddings doesn't escape the problem. The same goes for staleness (which for me seems like a constant chase). He criticizes memory systems for treating the past as truth, but documents go stale too (a lot). The fix of having the agent update what's outdated, is the same job he's ridiculing  the dreamers and background daemons for doing.\nHe says \"putting it to the test\"; where's the test? He says \"only five of the many problems\"; if there's so many, show me, don't just say it. He's absolutely right about auditability, but for me at least Claude uses a regular markdown (MD) file I can read just fine. So every memory plugin on the market does not work the same way.\nThis is a first draft; his github is better than his article. Looking through it, Consult actually works. The agent doesn't pi"
+        },
+        {
+          "id": 49959204,
+          "author": "nialv7",
+          "text": "You cannot reason about what an llm need. Llms are unlike humans so your intuition won't work. What's most likely to be true is simply that agents work best with whatever they were trained with. If their RL sessions had a vector memory database, then they would work well with a memory database, if not then they won't."
+        },
+        {
+          "id": 49954611,
+          "author": "nijave",
+          "text": "This ignores the lifecycle involved with memory. It doesn't appear to have a concept of time or reconciliation (both issues we're having at work). A memory might be relevant for a week or a month, but it might no longer matter after that ie \"we're migrating systems so keep <thing> in mind\"--that doesn't matter after the migration is complete. I guess the offered solution implicitly supports reconciliation since the agent can keep history of its memories and rewrite them, but it doesn't appear to be very first-class and it doesn't seem like there's anything intentional unless you prompt it \"go check all the docs and make sure everything is consistent\".\nIt also doesn't seem to have a way to separate preference from factual memory which is useful when you have various humans interacting with the same agent. One human might prefer a certain output style over the other and that's something a memory framework can also address.\nLike the MCP articles a few months ago, it also seems to assume all agents are cli coding harnesses running on your local machine. We have a handful of other things like chat bots, event-driven agents running on servers, chat driven agents running on servers in san"
+        },
+        {
+          "id": 49949330,
+          "author": "spike021",
+          "text": "I think whichever one is used, there needs to be a way to enforce what's written.\nIf I say \"use jq instead of writing a python script to parse json\" it should never write adhoc python scripts to parse json. Yet that constantly happens to me anyway."
+        },
+        {
+          "id": 49948336,
+          "author": "gregwebs",
+          "text": "Agreed, and this seems better.\nMy thought though has always been that I don't want there to be agent-only designated documentation.\nI use mattpocock/skills and that generates ADRs (Architectural Decision Records). That only uses skills, including a setup skill that will write a few pointers in AGENTS.md. I always have a CONTRIBUTING.md to document development flow and a CODING_STANDARDS.md. Between those and the README.md and architecture documentation and commit messages the agents seem to be able to find and use docs and keep them up to date. We are also writing a lot of specs and putting those in Github issues."
+        },
+        {
+          "id": 49950815,
+          "author": "Garlef",
+          "text": "I think they even more so need deterministic feedback:\nI tried an approach based on the following idea recently and it's amazing - Lint rules where the error messages contain an explanation on how to deal with the issue.\nhttps://habit-hooks.com/\nI'm using it to foster IOSP (integration operation segregation principle) for example."
+        },
+        {
+          "id": 49952750,
+          "author": "zenapollo",
+          "text": "I started with .agents/notes-and-plans/ but the agents were overzealous about putting every random thought there, so i made new system.\n.agents/plans/<plan-name>/\n.agents/notes/<topic>/\n.agents/knowledge/<topic>/\nI only commit knowledge and if knowledge gets big i add\n.agents/knowledge/INDEX.md\nThis is a good mix of human readable and agent fluent. Notes are ephemeral, knowledge is permanent.\nI have a rule for knowledge that it has to be stable and mostly permanent (though updatable). And the agents are not allowed to post there unless docs are clean organized and with permission.\nNotes are for jotting things down and handoffs, massaging a featureset. Agent can document at will.\nStill WIP."
+        }
+      ],
+      "title_ja": "エージェントはメモリを必要とせず、書類を必要とします",
+      "summary_ja": "ディスカッションのハイライト：文書やサードパーティのメモリシステムは必要ありません/これは最近よく騙されています/LLMが何を必要としているかを推論することはできません",
+      "editor_note": "「エージェントはメモリを必要とせず、書類を必要とします」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49916753,
+      "title_en": "Page Table Memory Consumption",
+      "url": "https://frn.sh/pagetables/",
+      "hn_url": "https://news.ycombinator.com/item?id=49916753",
+      "score": 39,
+      "comment_count": 7,
+      "posted_at": "2026-10-01T01:55:51+00:00",
+      "comments": [
+        {
+          "id": 49958268,
+          "author": "monocasa",
+          "text": "While this article correctly points out issues with tree based page tables, it fails to describe how the other option (a PowerPC style hashed page table) being considered by Torvalds, et al. is any better.  And a cursory glance doesn't appear to support them being better under the cases described; each issue seems like it'd be the same or worse under hashed page tables.\nFor one, the hash on PowerPC is over the virtual address and a VSID (virtual segment ID) which functionally gets used as an address space ID[0].  That means that hashed page tables also have separate entries for each process mapping the same physical page.\nSince the hashed page table is one (physically!) contiguous structure, that means that all of the same NUMA tradeoffs also apply to it as well.\nBecause it's based on a hash of the virtual address, you have the same issues with partial residency bloat of the structure as you either have to size the whole page table up in powers of two during hash collisions[1], or you have to treat the whole thing like a large last chance TLB and have a separate software page table to hold your ground truth (which will probably just be a tree based table anyway).\nAnd on top of that"
+        },
+        {
+          "id": 49959214,
+          "author": "Sopel",
+          "text": "At least on windows zombie processes may use no memory but still keep >=32KiB page table. So in this [extreme case of an AMD iGPU driver bug](\nhttps://superuser.com/questions/1838566/how-to-identify-a-dr...\n) close to 100% of memory was used by page tables (or would if pushed far enough)"
+        },
+        {
+          "id": 49958502,
+          "author": "mastax",
+          "text": "Sounds like a reason to prefer multi threading over multi processing."
+        }
+      ],
+      "title_ja": "ページテーブルのメモリ消費量",
+      "summary_ja": "ディスカッションのハイライト：この記事はツリーベースのページテーブルの問題を正しく指摘していますが、Torval/少なくともWindowsゾンビプロセスで他のオプション（ PowerPCスタイルのハッシュページテーブル）がどのように考慮されているかを説明していません。メモリは使用しませんが、>= 32 KiBのページテーブルを維持します/マルチ処理よりもマルチスレッドを好む理由のようです。",
+      "editor_note": "「ページテーブルのメモリ消費量」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49910465,
+      "title_en": "cp: -r or -R?",
+      "url": "https://movq.de/blog/postings/2026-09-30/0/POSTING-en.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49910465",
+      "score": 83,
+      "comment_count": 96,
+      "posted_at": "2026-09-30T15:44:02+00:00",
+      "comments": [
+        {
+          "id": 49943504,
+          "author": "bariumbitmap",
+          "text": "This blog post is odd because it keeps on hinting about a difference between `-r' and `-R' and links to the source code but never actually says what it is. I'll quote the OpenBSD manual that the post mentions but does not link to for some reason:\n> Historic versions of the cp utility had an -r option. This implementation supports that option; however, its use is strongly discouraged, as it does not correctly copy special files, symbolic links or FIFOs.\nhttps://man.openbsd.org/cp"
+        },
+        {
+          "id": 49958382,
+          "author": "chasil",
+          "text": "The POSIX standard does not appear to support -r lowercase (so don't use it!):\nhttps://pubs.opengroup.org/onlinepubs/9799919799/utilities/c...\nhttps://pubs.opengroup.org/onlinepubs/9799919799/utilities/\nEdit: adjusted to the latest version of the standard."
+        },
+        {
+          "id": 49959068,
+          "author": "ddosmax556",
+          "text": "For those that don't know what 'copy as regular file' means, it means the copy command opens any file as though it was a regular file. If you have a FIFO queue sitting around it will read the content of the FIFO queue - if nothing writes to it, the command will hang. If you do cp -r /dev/zero foo, it will write zeroes into foo until the disk is full. -R otoh will copy a fifo queue as a fifo queue."
+        },
+        {
+          "id": 49943712,
+          "author": "spijdar",
+          "text": "> nobody™ still runs coreutils from 24 years ago.\nSprite 2.077 pc386\nWelcome to Sprite\nroot@cherimoya [1] # cp --version\nGNU fileutils 3.9\nroot@cherimoya [2] # cp --help | grep recurs\n-r                           copy recursively, non-directories as files\n-R, --recursive              copy directories recursively\nroot@cherimoya [3] #\nI'll take the honorary title of nobody ;-)"
+        },
+        {
+          "id": 49943406,
+          "author": "mkl",
+          "text": "-a\nNot sure why you wouldn't want to preserve timestamps, links, etc. by default."
+        },
+        {
+          "id": 49957177,
+          "author": "dataflow",
+          "text": "Kind of off topic, but why in the world in 2026 do POSIX utilities still rely on global variables to pass around state? Is it too complicated to pass around a struct address in C or something?"
+        },
+        {
+          "id": 49947392,
+          "author": "BobMontgomeryJr",
+          "text": "-h perhaps the only useful comment here.\n-R just looks baroque, but ls(1) might think it fine.\nI once read an article about the inconsistencies in *nix CLI commands,\nbut the picture's much better than hot-key and shortcut conflicts-\n<which get silently absorbed by whatever's running,\nno way to tell what they might've done or where they went..>\nI hestitate to consult documentation, because of course there is non anymore.\nWhy not Google it?"
+        },
+        {
+          "id": 49943670,
+          "author": "throwaway2046",
+          "text": "I'm more inclined to use the uppercase -R as it's standardized by POSIX and will generally behave the same on any POSIX compliant system."
+        }
+      ],
+      "title_ja": "cp :- rまたは- R?",
+      "summary_ja": "ディスカッションのハイライト：このブログ記事は、「- r」と「- R」の違いやソースコードへのリンクについてヒントを与え続けているが、実際にはそれが何であるかを決して示さないため、奇妙です/POSIX標準は- r小文字をサポートしていないように見えます（したがって、使用しないでください！ ） ：\nhttps://pubs.opengroup.org/onlinepubs/9799919799/utilities/c...\nhttps://pubs.opengroup.org/onlinepubs/「通常のファイルとしてコピー」の意味がわからない場合は、コピーコマンドを意味します。",
+      "editor_note": "「cp :- rまたは- R?」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 49957812,
+      "title_en": "In the wake of closure, a digital archive of animated materials appears online",
+      "url": "https://filmstories.co.uk/news/tippett-studios-in-the-wake-of-its-closure-a-digital-archive-of-animated-materials-appears-online/",
+      "hn_url": "https://news.ycombinator.com/item?id=49957812",
+      "score": 6,
+      "comment_count": 1,
+      "posted_at": "2026-10-04T21:01:28+00:00",
+      "comments": [
+        {
+          "id": 49959194,
+          "author": "drewbeck",
+          "text": "Tippett Studios or Phil’s name should probably be in the title here to give this the audience it deserves. He’s a legend and many many nerds will know his name."
+        }
+      ],
+      "title_ja": "閉鎖後、アニメーション素材のデジタルアーカイブがオンラインに表示されます",
+      "summary_ja": "ディスカッションのハイライト： Tippett StudiosまたはPhilの名前をここのタイトルに入れて、これにふさわしいオーディエンスを提供する必要があります",
+      "editor_note": "「閉鎖後、アニメーション素材のデジタルアーカイブがオンラインに表示されます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 30,
+      "id": 49947472,
+      "title_en": "Surely you have ultra-wideband radios on your bins too?",
+      "url": "https://sjg.io/writing/binrange-have-you-actually-put-the-bins-out/",
+      "hn_url": "https://news.ycombinator.com/item?id=49947472",
+      "score": 125,
+      "comment_count": 71,
+      "posted_at": "2026-10-03T20:27:44+00:00",
+      "comments": [
+        {
+          "id": 49951554,
+          "author": "alexaholic",
+          "text": "I live in the EU, where I have five separate waste streams: glass, paper, plastic/metal, RVM plastic, and general trash. They all fill at different rates, while the collection schedule is essentially nondeterministic. The only reliable signal is that they arrive at 6 a.m. sharp in trucks specifically engineered to maximize acoustic output.\nMy solution is similarly overengineered: a vision system combined with an olfactory system feeds into a biological neural network, which monitors the bins and determines when intervention is required.\nThe neural network is annoyingly power-hungry, occasionally unreliable, and has yet to support OTA firmware updates. I also have a Home Assistant as a backup for when the neural network fails. It provides a gentle nudge that perhaps the bins need taking out.\nShocking, I know."
+        },
+        {
+          "id": 49948367,
+          "author": "qurren",
+          "text": "> Home Assistant already knows which bins (trash cans, for the international readers) are due for collection. [...] What it can’t tell me is whether I’ve actually done anything about it.\nMy first gut reaction to this was: Have you tried using a vision-language model?\nI used to have an elaborate Home Assistant setup with tons of zigbee sensors here and there telling me if front door is not closed properly, if the rice cooker is left on (via current monitoring), if the garage door is left open (with a magnetic contact sensor), if window is left open, if the soil is dry, etc. I had to keep changing batteries of all these things and manage flaky Zigbee connections in the past.\nMore recently, I've found the absolute most reliable, ~zero-maintainence solution to be an LLM. Home Assistant already has an LLM plugin, you can wire it up to a local LLM if you want, and you can just feed it an image and ask \"Is this garage door open or closed\" and I found that to be much better for my sanity than changing batteries every 6 months and dealing with flaky sensors sending me false alerts.\nI even found it useful for \"Did the cat vomit on the floor\" (if so notify me and pause the cleaning robot sche"
+        },
+        {
+          "id": 49949179,
+          "author": "walrus01",
+          "text": "If the author is reading this, I did a ctrl-f in your writeup for \"battery\" and \"life\" and didn't find anything specific about how long the batteries on these last. Can you elaborate a bit more on the battery types in use and lifespan? Charging? Since use lithium? 18650? CR2032 or CR2477 size coin cells? Any other details would be very interesting to read.\nMy biggest barrier to doing something like thins in my home automation setups is that I already have an extensive schedule of things that need periodic disposable battery changes (like CR2477 cells in zigbee humidity/temperature sensors), and I'm really hesitant to add even more into my house. In addition to things like battery-backed smoke detectors in every bedroom, etc, which need periodic 9V replacements on a schedule.\nIn fact I've started looking at going the opposite direction, where I can run a cat5e cable from my utility room, down and across the ceiling of my basement, and come up in a location where I can install an 802.3af to arbitrary DC voltage DC-DC converter (3.3, 5VDC, 12VDC out, or similar) as a PoE splitter, to make some of these things\nnot\ndependent on batteries. Same idea as how you can find 9V or AA battery t"
+        },
+        {
+          "id": 49953768,
+          "author": "jgrahamc",
+          "text": "This is great fun. For where I live I decided to \"under engineer\" a solution that required 0 Turing Machines:\nhttps://blog.jgc.org/2024/09/i-made-rubbish-clock.html"
+        },
+        {
+          "id": 49950566,
+          "author": "rapjr9",
+          "text": "If position were measured instead of range this could be used to document activities-of-daily-living, for the elderly or to measure health information for anyone (humans or pets).  Precision location could be used to detect cooking, fridge visits, bathroom visits, exercise, time in bed, possibly time sleeping, overall activity (or lack thereof, possibly indicating a health decline if extended over a long time), and more.  There has been research on trying to do this with accelerometers and RFID tags, possibly recent research has tried UWB tags."
+        },
+        {
+          "id": 49953553,
+          "author": "TrackerFF",
+          "text": "This is one of the problems where I think a simple camera or two would suffice.\nYears ago I worked as a consultant on a projects which is quite similar to this, but larger scale and involving moving machinery. The task was basically to come up with sensors that would register when and which machines would be at what place in a structure. In the end we came up with a solution which only involved cameras and object detection...this was before AlexNet etc., so fun times with classical machine learning."
+        },
+        {
+          "id": 49950335,
+          "author": "aenis",
+          "text": "In my case, one of the external cameras points at where the bins normally reside. Each has a distinct colour. I wrote a simple algo that bins colours on the image coming from the camera, and, accounting for things like direct sunlight skewing the distribution, tells me which bins are currently on the street. That was pre-LLM age, these days I would have told claude to write that thing for me. Works as a charm, no batteries nor maintenance of any type. Runs on pyscript."
+        },
+        {
+          "id": 49951240,
+          "author": "bschwindHN",
+          "text": "A related over-engineered project for residential trash management:\nhttps://news.ycombinator.com/item?id=34216415"
+        }
+      ],
+      "title_ja": "あなたのゴミ箱にも超広帯域ラジオがありますよね？",
+      "summary_ja": "ディスカッションのハイライト：私はEUに住んでおり、ガラス、紙、プラスチック/金属、RVMプラスチック、一般ゴミの5つの廃棄物ストリームがあります/>ホームアシスタントは、どのゴミ箱（ゴミ箱、海外の読者向け）を収集する必要があるかをすでに知っています/著者がこれを読んでいる場合、「バッテリー」と「寿命」のためにあなたの書き込みにctrl - fをしましたが、これらのバッテリーの持続時間について具体的なものは見つかりませんでした",
+      "editor_note": "「あなたのゴミ箱にも超広帯域ラジオがありますよね？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "07",
+    "started_at": "2026-10-05T09:25:50.439327+09:00",
+    "finished_at": "2026-10-05T09:27:00.588902+09:00",
+    "story_count": 30
+  }
+}
