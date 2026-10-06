@@ -1,0 +1,1450 @@
+{
+  "date": "2026-10-06T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49969183,
+      "title_en": "Beam: Reflection's 501B open-weight model",
+      "url": "https://reflection.ai/blog/introducing-beam",
+      "hn_url": "https://news.ycombinator.com/item?id=49969183",
+      "score": 456,
+      "comment_count": 145,
+      "posted_at": "2026-10-05T19:16:35+00:00",
+      "comments": [
+        {
+          "id": 49976305,
+          "author": "berkes",
+          "text": "What kind of company or organization is Reflection?\nI think it is ever more important to realize\nwho\nis releasing models rather than what the models do and how they compare.\nBecause models iterate at breakneck speed, looking at today's benchmarks is only useful for someone\nusing\nthe models today. Whereas if one builds a product on top of it, or commits to one for a project or team, the company or organization behind it, is far more important. Will they exist in a few months? Do they need a business-model? Are they subsidizing usage with venture capital and how long can they keep this up?\nIs reflection a company? University lab? NGO?"
+        },
+        {
+          "id": 49976291,
+          "author": "springtimesun",
+          "text": "I feel like this is a marketing miss. If they had held their announcement until the model was released, I would have grabbed it and started running it through my benchmarks. It probably doesn’t get a place in the rotation based on their own description of its performance, but now the weights live on the server, I’m probably following them on HF and I will remember to check in every time I ls the models folder. With the announcement only, none of that happens and I’m likely to forget about this by the time it actually gets released.\nThe email harvest move just doesn’t fit where we/they are in the cycle. There are established players and a buffet of models to choose from (plus a ton of empty hype). The first move at this point for any new entrant should be to show, not tell. Even an API only release with the promise to open weight would be better (actually probably all around better since most people can’t run this locally).\nI wish this lab and all the labs releasing the best. It’s a brutal landscape to sink millions of dollars into for a guaranteed “behind x model from a year ago” evaluation. But, I do believe there is genuine innovation left to uncover."
+        },
+        {
+          "id": 49969374,
+          "author": "Ariarule",
+          "text": "Always glad to see more open-weight models, but this caption on the 2nd demo image had me do a double-take: \"Land or Water Generalization Experiment: We recreated the viral X puzzle by asking Beam to create a fixed 180×90 grid for longitudes -179° to 179° and latitudes -89° to 89°, with 16,200 points. This puzzle is a few days old, so could not appear in the training data, thus testing the model’s generalization. Beam gets 95.5% coverage right, putting us between Opus 5 (92.5%) and Fable 5 (97.8%), which shows how well it generalizes to novel new tasks.\"\nOof, no, this \"puzzle is a few days old\" is incorrect even if it's a social media trend just recently. Asking a model to generate a world map in this way is _at least_ from August 2025 as it appeared on LessWrong at that time:\nhttps://www.lesswrong.com/posts/xwdRzJxyqFqgXTWbH/how-does-a..."
+        },
+        {
+          "id": 49969215,
+          "author": "htrp",
+          "text": "> Beam is a sparse Mixture-of-Experts model with 501 billion total parameters, 23 billion active, built for coding, reasoning, and agentic workloads.\n> Beam’s capabilities come from major investments in both pretraining and reinforcement learning (RL). We pretrained the model on 23.8 trillion diverse, curated, high-quality tokens from the web and proprietary licensed datasets, matching or outperforming available similar-sized open base models. In parallel, we developed the algorithms, training environments, and infrastructure needed to sustain high-compute RL at exceptional scale. Our high-compute RL run generated over 100 million rollouts on 10.5K NVIDIA GB300 GPUs over 4 weeks of training.\nEarly access, no weights no tech details, just a sign up here for info"
+        },
+        {
+          "id": 49971694,
+          "author": "wren6991",
+          "text": "I thought it would be interesting to look at some key figures vs another contemporary model in the same weight class (DeepSeek V4.1 Flash)\nDS V4.1F            Beam\nLM total params             552B                501B\nLM active params (prefill)  8B                  23B\nLM active params (decode)   16B                 23B\nN-gram/PLE params           196B                0\nPretrain tokens             45T                 28T\nDisk KV bytes/token (FP4)   890                 No information\nVision                      Yes (pretrain)      No\nWeights available           Yes (launch day)    \"This month\"\nWeights licence             MIT                 Apache 2.0\nAt first blush the benchmarks are impressive, but to paraphrase Linus: \"Talk is cheap, show me the weights.\" :-)"
+        },
+        {
+          "id": 49969690,
+          "author": "NorwegianDude",
+          "text": "Bigger and still worse than existing free Chinese models that are smaller? Open weight models are nice, but at this point it seems western models are very far behind Chinese ones, despite Chinese companies publishing a lot of their findings. I hope we get more open models and more providers, as being stuck with a model from China or US with no competition is risky.\nGoogle does do a great job with Gemma models. It's one of the few language models actually good at language. OpenAI's top closed models can't even write norwegian correctly."
+        },
+        {
+          "id": 49969696,
+          "author": "onlyrealcuzzo",
+          "text": "This appears to be larger than DeepSeek v4.1 Flash, more expensive to run, and worse on every measured metric.\nAm I missing something?"
+        },
+        {
+          "id": 49969579,
+          "author": "drubs",
+          "text": "I remember being in the room with pretraining day 1 to help monitor the training job launch. Watching this model train from day 1 has been an amazing experience!"
+        }
+      ],
+      "title_ja": "ビーム：リフレクションの501 Bオープンウェイトモデル",
+      "summary_ja": "ディスカッションのハイライト：振り返りとはどのような会社や組織ですか？\n実現することがますます重要になってきていると思います\nwho\nモデルが何をするのか、どのように比較するのかではなく、モデルをリリースすることです。\n原因/これはマーケティングミスのように感じる/より多くのオープンウェイトモデルを見るのはいつもうれしいですが、2つ目のデモ画像のこのキャプションでは、「土地または水の一般化実験：ウイルスのXパズルを再現しました",
+      "editor_note": "「ビーム：リフレクションの501 Bオープンウェイトモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49971230,
+      "title_en": "Find the flattest route between any two points in SF",
+      "url": "https://flattensf.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49971230",
+      "score": 203,
+      "comment_count": 70,
+      "posted_at": "2026-10-05T21:40:50+00:00",
+      "comments": [
+        {
+          "id": 49972074,
+          "author": "andalinmicphew",
+          "text": "Checkout\nhttps://bikehopper.org\nfor solid elevation, bike infrastructure and transit-aware routing around the Bay Area. Some friends and I built this about 5 years ago and continue to maintain it. We use 1m DTM elevation data for SF and 50m for rural areas. DTM is a must for elevation based routing in SF as there are so many sizable buildings, large trees the other models fail hard."
+        },
+        {
+          "id": 49972225,
+          "author": "jez",
+          "text": "It would be neat if it there were an option which added distance and elevation gain, but minimized the grade.\nFor example, a route from SOMA to Nob Hill can be made flatter by approaching from either the east or west. Technically the \"flattest\" as measured by elevation gain between the two is straight up Taylor from Market, but it's much nicer to bike to the top of Nob Hill by going out of the way (e.g. Polk → California, Embarcadero → Broadway, etc.)"
+        },
+        {
+          "id": 49971638,
+          "author": "danserfaty",
+          "text": "It's not accurate. I mapped it from my house on Cabrillo St in the outer Richmond to 4th avenue and it says I need to climb 25th avenue then walk Geary instead of correctly telling me to use 23rd avenue that is completely flat."
+        },
+        {
+          "id": 49971572,
+          "author": "pokpokpok",
+          "text": "The wiggle!\n(in honor of my old commute, which I miss)\nhttps://flattensf.com/#t~-122.40850~37.77493~-122.50940~37.7..."
+        },
+        {
+          "id": 49975437,
+          "author": "dzogchen",
+          "text": "If that's OpenStreetMap data, it is missing the required attribution."
+        },
+        {
+          "id": 49974717,
+          "author": "bwnkl",
+          "text": "Nice visualization. For proper turn by turn directions, Valhalla [1] could help. It has elevation support so this could theoretically be built with it[2], or you just send the shape of your flattest route and it annotates it with guidance.\n[1]:\nhttps://github.com/valhalla/valhalla\n[2]: Currently it only supports 30m resolution for elevation unfortunately"
+        },
+        {
+          "id": 49972066,
+          "author": "askjdfksdbfhk",
+          "text": "There's a weird thing going on at 22nd and San Jose in the Mission, where it doesn't seem to understand that you can simply continue down 22nd, but instead takes a hook down San Jose before backtracking. I see some other weird discontinuities like this as I click around.\nI have to say that the Claude UI has made many inexplicable decisions here, including (but not limited to) the mysterious color coding, the confusing continuous slider over a discrete set, and the weird positioning of the height labels in the altitude graph."
+        },
+        {
+          "id": 49975961,
+          "author": "ivanjermakov",
+          "text": "Or just\nhttps://brouter.de/\nwith min elevation profile."
+        }
+      ],
+      "title_ja": "サンフランシスコの任意の2地点間の最も平坦なルートを見つける",
+      "summary_ja": "ディスカッションのハイライト：チェックアウト\nhttps://bikehopper.org\nしっかりとした標高、自転車インフラストラクチャ、ベイエリア周辺のトランジットアウェアルーティング/距離と標高ゲインを追加しながら、グレードを最小限に抑えるオプションがあればきれいです。\nたとえば、相馬からノブヒルへのルートは、APPRによってより平坦にすることができます/正確ではありません",
+      "editor_note": "「サンフランシスコの任意の2地点間の最も平坦なルートを見つける」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 49951155,
+      "title_en": "Accountability mechanisms can be joyful (2024)",
+      "url": "https://liquidbrain.net/blog/accountability-and-joy/",
+      "hn_url": "https://news.ycombinator.com/item?id=49951155",
+      "score": 36,
+      "comment_count": 10,
+      "posted_at": "2026-10-04T06:15:17+00:00",
+      "comments": [
+        {
+          "id": 49975213,
+          "author": "pugio",
+          "text": "Great idea. Related: My wife and I have been sending each other video game achievement style images (with ChatGPT) to celebrate our little wins and keep us going in a busy household. I've also recently been planning goals for next year, and hit upon making my goal tracker look like the old Quest for Glory V character UI. Instant major (recurring) motivation boost.\nTakeaway: Try mining your own past for the easy things that bring you joy, and weave those in. Personal UIs are free now, so do the fun thing."
+        },
+        {
+          "id": 49975863,
+          "author": "DonHopkins",
+          "text": "And when you start Rick Rolling and Nickelbacking each other, it's a strong signal that it's time to break up."
+        },
+        {
+          "id": 49975799,
+          "author": "bluefirebrand",
+          "text": "This strikes me as pretty similar to gamification, honestly. You went to the gym this week 1/7\nI guess if it works, but man I think we need to do some work as a society and species to untangle how messed up we've become that we need a little jingle to motivate us to do good things for ourselves and make healthy choices."
+        }
+      ],
+      "title_ja": "説明責任のメカニズムは喜びに満ちている（ 2024年）",
+      "summary_ja": "ディスカッションのハイライト：素晴らしいアイデア/そして、リック・ローリングとニッケルバックをお互いに始めたとき、それは別れる時が来たという強いシグナルです。/これは正直なところ、ゲーミフィケーションとかなり似ています",
+      "editor_note": "「説明責任のメカニズムは喜びに満ちている（ 2024年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 49970871,
+      "title_en": "Dust: Pretraining Transformers Without Backpropagation",
+      "url": "https://qlabs.sh/research/dust",
+      "hn_url": "https://news.ycombinator.com/item?id=49970871",
+      "score": 191,
+      "comment_count": 46,
+      "posted_at": "2026-10-05T21:15:07+00:00",
+      "comments": [
+        {
+          "id": 49974026,
+          "author": "blt",
+          "text": "Every few years, a derivative-free neural network optimization algorithm gets some hype. I'd bet my life savings that none of them ever make an impact.\nDerivative-free optimization can be useful for genuinely discontinuous objectives [1], but common neural network objectives are smooth and/or Lipschitz.\nThe gradient is useful. Instead of trying random directions and hoping that one of them is an improvement, it tells you where to go. The more parameters you have, the more useful it becomes.\nA strict complexity gap between gradient-based and derivative-free Lipschitz convex optimization has been suspected for decades and recently proved (using AI, [2]). Neural net optimization is nonconvex, but not radically different.\nIMO, a more promising direction is gradient-based optimizers specialized to the neural network structure, like Muon [3].\n[1]\nhttps://arxiv.org/abs/2202.00817\n[2]\nhttps://arxiv.org/abs/2607.13335\n[3]\nhttps://jeremybernste.in/writing/deriving-muon"
+        },
+        {
+          "id": 49974575,
+          "author": "syntacticsalt",
+          "text": "I'm skeptical as to whether zeroth-order methods really lend themselves to a Bitter Lesson argument. First-order methods don't explore the loss landscape optimally, but the loss function tends to be nonconvex, and zeroth-order methods don't address that issue head on. Dust smooths, and so do applicable first-order methods. Remove the nonconvexity issue, and I suspect Dust's purported advantages evaporate (based on published theoretical work), so it's pretty odd to me that the paper never discusses convexity.\nI could buy that this method scales better than previous zeroth-order methods, and that's interesting, but it doesn't seem like enough of a moat to keep improved first-order methods from drinking its milkshake, except in cases where a zeroth-order method is already a primary option: the network needs to call a simulator that doesn't expose gradient-like information. (In cases where gradients\ndon't exist\n, I'd still argue for other options, e.g., Clarke-generalized gradients where applicable, so long as those can be computed with the available information. I know this technology has been published for automatic differentiation, so I would imagine it could be incorporated into ba"
+        },
+        {
+          "id": 49973704,
+          "author": "usernametaken29",
+          "text": "> There are many interesting open questions. The first is whether, and how, Dust can find better directions than backprop’s first-order gradient\nBoth algorithms are bound by the same Pareto frontier based on the Empirical Risk Minimisation Principle, so they’re already on the same trajectory.\nInterestingly backprop is limited by conditioning of the Hessian matrix in order to converge (differentiate correctly). So removing this limitation is actually a great step.\nI’m excited to see a comeback of evolutionary methods because they’re much more general, albeit costly and naive.\nWe’re now very close to what can be described best as brute forcing the Pareto frontier out of our datasets. Not sure that’s what we want but I have no better ideas either."
+        },
+        {
+          "id": 49976143,
+          "author": "ammarmalik17",
+          "text": "Bigger Dust models needing fewer population samples?"
+        },
+        {
+          "id": 49975678,
+          "author": "ContinuityLab",
+          "text": "Moving beyond traditional backpropagation for transformer pretraining opens up fascinating avenues for alternative learning dynamics and architectural efficiency."
+        },
+        {
+          "id": 49971693,
+          "author": "polyomino",
+          "text": "Even though this is way more expensive than backprop, could a hybrid approach where you fine tune an existing checkpoint that's been backpropped unlock further gains?\nIt would be cool to apply this to different stages and see if that affects the learning trajectory"
+        },
+        {
+          "id": 49975445,
+          "author": "soltanov",
+          "text": "I would like to see wall clock time, energy, peak memory and downstream quality compared at equal loss. Until the effiency gap closes, this is an interesting research direction."
+        },
+        {
+          "id": 49975262,
+          "author": "sim04ful",
+          "text": "For me credit assignment without a global clock is extremely important, i believe it's a necessary step towards end to end training of models In-materio."
+        }
+      ],
+      "title_ja": "粉塵：逆伝播なしのトランスフォーマーの事前訓練",
+      "summary_ja": "ディスカッションハイライト：数年ごとに、デリバティブフリーのニューラルネットワーク最適化アルゴリズムが誇大宣伝される/私は、0次メソッドが本当に苦いレッスンの議論に役立つかどうかに懐疑的です/>興味深い未解決の質問がたくさんあります",
+      "editor_note": "「粉塵：逆伝播なしのトランスフォーマーの事前訓練」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 49971719,
+      "title_en": "Friendship ended with Deno, now Node is my best friend",
+      "url": "https://dbushell.com/2026/10/03/deno-to-node/",
+      "hn_url": "https://news.ycombinator.com/item?id=49971719",
+      "score": 167,
+      "comment_count": 96,
+      "posted_at": "2026-10-05T22:30:02+00:00",
+      "comments": [
+        {
+          "id": 49973086,
+          "author": "isyouaint",
+          "text": "I helped Deno bring the Standard Library to v1 [as a contractor] and have always loved the team and philosophy. But these days I’m saddened by what seems to be their slow decline into obscurity. After the layoffs, there seems to be no roadmap, no comms, etc. I’m just so curious as to where they’re heading and still hope the best for it. I’ve always liked Deno more than Node and Bun."
+        },
+        {
+          "id": 49973192,
+          "author": "tuveson",
+          "text": "> This restriction is philosophical rather than technical. I get it though. TypeScript is a Microsoft product. Opening that floodgate would pollute the entire ecosystem.\nBad news (well not news, this happened a while ago):\nhttps://www.cnbc.com/amp/2020/03/16/microsoft-github-agrees-..."
+        },
+        {
+          "id": 49974203,
+          "author": "AgentME",
+          "text": "Deno is still an easy pick for me because of its built-in test-runner (deno test), linter (deno lint), and type checker (deno check). I've used many different npm packages for these things in previous projects and I have no idea what the new hotness and proper configuration is for all of these things in a new node project, so I really value the simplicity of Deno for it all. Also JSR and Deno for publishing Typescript libraries is still so much easier than setting up a Typescript node project and configuring it to publish compiled code, and it gets you documentation pages generated from your tsdoc comments too, which I never knew how to do outside of JSR."
+        },
+        {
+          "id": 49973419,
+          "author": "theturtletalks",
+          "text": "With LLMs becoming prevalent, it seems people are “quitting” their projects more quickly. Not necessarily a bad thing, but just shows that the opportunity cost is too high right now if you’re building the wrong thing. Deno isn’t the wrong thing, but LLMs don’t reach for it and that’s a huge blow right now."
+        },
+        {
+          "id": 49973818,
+          "author": "raspace",
+          "text": "Turns out the 'boring enterprise runtime' spent its time actually shipping stability while everyone else was chasing the next shiny runtime hype cycle."
+        },
+        {
+          "id": 49975775,
+          "author": "stuaxo",
+          "text": "Oh, I always thought this was the blog of someone that had spent a lot of time developing using DBUS"
+        },
+        {
+          "id": 49972677,
+          "author": "fastball",
+          "text": "I know Bun is kinda not the fan favorite right now with the Anthropic acquisition and the Rust re-write drama and such, but on every one of the dimensions listed in this article, I like Bun better than either Node or Deno."
+        },
+        {
+          "id": 49975681,
+          "author": "tiborsaas",
+          "text": "I'm building on Deno for the past 2 years and I have no regrets. It still delivers me why I picked it over node. Less config, less packages to install, good DX."
+        }
+      ],
+      "title_ja": "デノとの友情は終わりました。これでノードは私の親友になりました",
+      "summary_ja": "ディスカッションのハイライト： Denoが標準ライブラリをv 1に[請負業者として]持ち込むのを手伝い、常にチームと哲学を愛してきました/>この制限は技術的ではなく哲学的です/Denoは、テストランナー（ denoテスト）、linter （ denoリント）、タイプチェッカー（ denoチェック）が組み込まれているため、今でも簡単に選択できます",
+      "editor_note": "「デノとの友情は終わりました。これでノードは私の親友になりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 49970667,
+      "title_en": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+      "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+      "hn_url": "https://news.ycombinator.com/item?id=49970667",
+      "score": 356,
+      "comment_count": 237,
+      "posted_at": "2026-10-05T21:00:21+00:00",
+      "comments": [
+        {
+          "id": 49971175,
+          "author": "tedsanders",
+          "text": "> We’re all used to two types of magnet. The common one, the fridge magnet, is ferromagnetic — its atomic magnets all point the same way (up or down), adding their magnetic effects. The less well known one, the antiferromagnet (AF), has neighbouring atomic magnets that point opposite ways and exactly cancel out magnetically.\nThis is a very bizarre introduction. People encounter diamagnets (e.g., copper) and paramagnets (e.g., aluminum) way more than they encounter antiferromagnets. I don't know why you'd ever cast magnetism as a false binary between ferromagnets and antiferromagnets, without acknowledging any other types of magnetic order.\n(I did a PhD in magnetic materials)\nEdit: I'll add that whether an antiferromagnet is useful, say, for exchange biasing a ferromagnetic thin film, depends on many factors. Just looking at antiferromagnetism alone you've got collinear vs non-collinear, G-type vs A-type vs C-type, commensurate vs incommensurate, and isotropic vs anisotropic; and all of that interacts with the interface structure, yada yada yada. It would be helpful if the authors elaborated on the expected properties of these materials. I personally don't know what people want room"
+        },
+        {
+          "id": 49975471,
+          "author": "wg0",
+          "text": "Last night, my Fable 5.1 cluster of agents discovered cold fusion techniques. All you need is ordinary iron or stainless steel pot to contain the plasma and I am barely at 13% of the weekly limit of my 200 pro plan.\nAmazing times."
+        },
+        {
+          "id": 49970761,
+          "author": "scrlk",
+          "text": "After the LK-99 debacle, I'm taking this with a truck load of salt."
+        },
+        {
+          "id": 49971067,
+          "author": "nico",
+          "text": "In a way, you can think of pretty much anything we express with language, especially things that are already modeled in scientific language, or logical language, or in equations or code; to be representable in a parametric/searchable space\nThus, you can build ai/ml models+agents to explore those spaces, at a speed and scope much larger than what any human can do\nI can imagine findings like these are going to keep increasing in frequency to a point in which the bar for novelty goes a lot higher"
+        },
+        {
+          "id": 49970754,
+          "author": "dev_l1x_be",
+          "text": "I am not sure how this process looks like. When they \"discover\" these, what are they actually doing?\nThe agents ran quantum-mechanical simulations of each crystal with the standard method for this, density functional theory, at two levels of approximation: a faster one (PBE+U) and a slower, usually more accurate one (HSE06). The band gaps and spin windows below come from the more accurate one.\nSo the agent runs a classic simulation or I am missing something."
+        },
+        {
+          "id": 49971428,
+          "author": "esperent",
+          "text": "The title has been editorialized.\nActual title:\nTwo Room-Temperature Antiferromagnetic Semiconductor Candidates\nThere's nothing unusual about finding room temperature\nsemiconductors\n. I assume whoever posted it misread this as room temperature\nsuperconductors\n, but it has nothing to do with that.\nWhat's interesting here is the\nantiferromagnetic\npart of the title, which was removed. I think this makes it relevant for e.g. RAM, but not superconducting. Someone can correct me if I'm wrong."
+        },
+        {
+          "id": 49971235,
+          "author": "malfist",
+          "text": "Okay? Aren't the semiconductors we use today room temperature? I certainly don't use helium to cool my phone.\nI don't see any claims that this is better than the current silicon and gallium arsenide semiconductors that we use. And the use of \"room temperature\" seems a deliberate attempt to misconstrue this with\nsuperconductors"
+        },
+        {
+          "id": 49971050,
+          "author": "jonplackett",
+          "text": "A lot of these ‘an agent invented’ or ‘an agent solved’ are actually the agent wading through a lot of info and finding something a human did that no one noticed or saw the relevance of at the time.\nIf ai becomes so prolific that we humans all stop doing those things then will they still work?"
+        }
+      ],
+      "title_ja": "Opus 5.5エージェントが2つの室温磁気半導体候補を発見",
+      "summary_ja": "ディスカッションのハイライト：> 2種類のマグネットに慣れている/昨夜、私の寓話5.1のエージェントの集団が冷核融合技術を発見した/LK -99の大失敗の後、私はこれをトラックに大量の塩で運んでいます。",
+      "editor_note": "「Opus 5.5エージェントが2つの室温磁気半導体候補を発見」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 49963171,
+      "title_en": "Web Search API",
+      "url": "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/",
+      "hn_url": "https://news.ycombinator.com/item?id=49963171",
+      "score": 548,
+      "comment_count": 248,
+      "posted_at": "2026-10-05T10:47:06+00:00",
+      "comments": [
+        {
+          "id": 49965369,
+          "author": "simonw",
+          "text": "My number one question about search APIs is always if they allow you to store and resyndicate results you get from them.\nIf I'm running an agent system but I'm not allowed to store the responses - or provide a \"share transcript\" button - that's a pretty significant limitation.\nThe answer to that question is inevitably buried\ndeep\nin the terms. Here's the relevant section I found for Ceramic, in their list of things you can't do:\n> (n) collect, aggregate, store, or compile Output, including search results, relevance scores, or rankings, for the purpose of creating or contributing to any database, dataset, index, or corpus, whether or not such database, dataset, index, or corpus is used for a purpose that competes with Ceramic; (o) resell, syndicate, or otherwise make Output available to any third party on a standalone basis or as a separately accessible component of another product or service; provided that you may display Output to your authorized end users within your own application so long as such Output is integrated into your application's functionality, is incident to the end user’s real-time query, and is not independently accessible, extractable, or downloadable by end user"
+        },
+        {
+          "id": 49963754,
+          "author": "iphonecorridor",
+          "text": "For those developers out there, the best is still Gemini Flash Lite 2.5 believe it or not. It gives you 1000 google searches per day for free. Compare to Flash Lite 3.x which is 5k PER MONTH and then a few pennies PER SEARCH. Nuts. Didn’t realize search was so expensive.\nPerhaps realizing all of this, Google hasn’t yet deprecated 2.5, bit limits access to it to “those who have used it before.”\nIt’s really really good for low cost search!"
+        },
+        {
+          "id": 49963500,
+          "author": "binarymax",
+          "text": "Why not use those providers directly? Does Cloudflare need to be in the middle of everything?"
+        },
+        {
+          "id": 49972142,
+          "author": "denkmoon",
+          "text": "1. Become monopolistic \"guardian\" of the internet\n2. Make it so other bots can't load pages\n3. Offer service for \"verified\" bots which can load pages\n4. ???\n5. Profit\nDon't use cloudflare."
+        },
+        {
+          "id": 49965099,
+          "author": "karmakaze",
+          "text": "I was just looking into these as DeepSeek Harness w/ Qwen3.8-27B relies heavily on search. I was going to go with Serper.dev[0] $1 per 1000 (or lower in quantity).\nThe providers[1] behind this Web Search API have very different rates:\nCeramic.ai: $0.25 per 1,000 requests\nLinkup:     $5.00 per 1,000 requests\nExa:        $7.00 per 1,000 requests\n[0]\nhttps://serper.dev/\n[1]\nhttps://developers.cloudflare.com/web-search/providers/"
+        },
+        {
+          "id": 49963896,
+          "author": "qznc",
+          "text": "My coding agent uses the hister cli, i.e. a local index. That often requires me to seed it manually as a downside. The upside is that it caches website contents via browser plugin, which is a nice workaround for bot blocking.\nThanks asciimoo for\nhttps://github.com/asciimoo/hister"
+        },
+        {
+          "id": 49975548,
+          "author": "soltanov",
+          "text": "If every provider has different restrictions there, the abstraction starts leaking very quickly. I would like to see Cloudflare normalize not only the api, but also expose the data  retention rights of each provider clearly."
+        },
+        {
+          "id": 49975857,
+          "author": "jharohit",
+          "text": "I am constantly surprised how none of these new search APIs come even close to how easy it is to use ddg by any agents. Everytime I look at a new search API, I click, see pre requisite to sign up to X/Y/Z and I exit."
+        }
+      ],
+      "title_ja": "ウェブ検索",
+      "summary_ja": "ディスカッションのハイライト：検索APIに関する私の一番の質問は、検索APIから得た結果を保存して再シンジケートできるかどうかです。\nエージェントシステムを実行しているにもかかわらず、保存することが許可されていない場合/そこにいる開発者にとって、Gemini Flash Lite 2.5が最善であるかどうか/これらのプロバイダーを直接使用しないのはなぜですか？ Cloudflareはすべての真ん中にいる必要がありますか？",
+      "editor_note": "「ウェブ検索」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 49973878,
+      "title_en": "Resurrecting iChat Audio and Video Conferencing",
+      "url": "https://blog.pipetogrep.org/2026/09/11/resurrecting-ichat-audio-and-video-conferencing/",
+      "hn_url": "https://news.ycombinator.com/item?id=49973878",
+      "score": 48,
+      "comment_count": 12,
+      "posted_at": "2026-10-06T03:39:01+00:00",
+      "comments": [
+        {
+          "id": 49975618,
+          "author": "rajbot",
+          "text": "> Then at Apple's World Wide Developer Conference (WWDC) in June of 2003, along with the G5 processor and OS X 10.3 panther, Apple announced \"iChat AV\".\nThis is wonderful. I love that people are still using this!\nI worked on iChat AV video. We also added 4-way video conferencing with H.264 support in 2004. Really did feel cutting edge back then. Lots of all-nighters in those days, hand-writing altivec and hand-optimizing h.264 to work on iMacs and iBooks that didn’t have simd.."
+        },
+        {
+          "id": 49974950,
+          "author": "jd3",
+          "text": "That overengineered isight camera worked through multiple adapters up until the introduction of the M1, when they sadly finally removed the driver. I used to use it connected to my intel macbook pro for meetings in the the late 2010s for fun."
+        },
+        {
+          "id": 49975637,
+          "author": "dewey",
+          "text": "A few years ago I bought that iSight camera off eBay for no good reason, especially as I can't really use it. It's just a beautiful object to own."
+        },
+        {
+          "id": 49973928,
+          "author": "jadar",
+          "text": "This is awesome! I remember trying to figure out how this worked as a kid, and never made headway. Today my dream was realized. ;)"
+        },
+        {
+          "id": 49974588,
+          "author": "penskymaterial",
+          "text": "A time warp to when video conferencing actually worked, as opposed to every new release of FaceTime now being some kind of avant-garde art experiment with the UI being increasingly impossible to use for both technical and non-technical users.\nThe last straw for me was making the recents/contacts as confusing as it was, and I personally made some accidental calls to former contacts that for some reason were made front and center.\nI expect the next version will hide even more controls behind a new, indecipherable icon that looks like a 2D abstract pair of testicles."
+        },
+        {
+          "id": 49974410,
+          "author": "mulanroo",
+          "text": "SNATMAP is essentially Apple's version of STUN (RFC 3489, also 2003): learn your public IP and port from an outside server, swap them over chat, then both sides send packets at once to punch through NAT. That's why port-preserving NAT matters. Carrier-grade NAT, common on mobile and some ISPs, assigns a new port per destination and breaks it. Modern WebRTC falls back to a TURN relay, but iChat had none, so if calls still fail after the hosts fix, check for CGNAT on either end."
+        }
+      ],
+      "title_ja": "IChatオーディオおよびビデオ会議の復活",
+      "summary_ja": "ディスカッションハイライト：>その後、2003年6月のAppleのWorld Wide Developer Conference （ WWDC ）で、G 5プロセッサとOS X 10.3パンサーとともに、Appleは「iChat AV」を発表しました。\nこれは素晴らしいです/過度に強化されたisightカメラは、M 1が登場するまで複数のアダプターで動作しましたが、悲しいことにドライバーがついに取り外されました/数年前、私はそのiSightカメラを正当な理由もなくeBayから購入しました。特に私は実際に使用することができません",
+      "editor_note": "「IChatオーディオおよびビデオ会議の復活」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 49950653,
+      "title_en": "Testing 12 different Zigbee temperature/humidity sensors",
+      "url": "https://smarthomescene.com/reviews/best-selling-zigbee-temperature-sensors-tested/",
+      "hn_url": "https://news.ycombinator.com/item?id=49950653",
+      "score": 114,
+      "comment_count": 52,
+      "posted_at": "2026-10-04T04:30:46+00:00",
+      "comments": [
+        {
+          "id": 49973057,
+          "author": "rpcope1",
+          "text": "One of the things I never see in reports like this is what sensor is being used (is it a Bosch unit? Sensiron? Plain thermistor? Pixies and Fairy Dust? Some bodged together 1wire deal?) and what MCU (Nordic? Espresif? Microchip? Something else?) as those have a huge bearing on what the sensor is actually capable of, and would say a lot about precision/accuracy and battery life."
+        },
+        {
+          "id": 49975334,
+          "author": "marsbars241",
+          "text": "The nicknames for the sensors is really annoying.  I could only get one of the dots to actually tell me anything, and scrolling back and forth for the key suuuucks"
+        },
+        {
+          "id": 49974750,
+          "author": "DocG",
+          "text": "Sadly it's missing Ikea one. They are cheap and most importantly, use AAA standard batteries instead of the coin cell type.\nIkea selle rechargable ones for really cheap additionally."
+        },
+        {
+          "id": 49973005,
+          "author": "Gigachad",
+          "text": "I put the Ikea Thread sensor in my fridge a while back and it's been a lot more useful than I expected. My fridge had been periodically getting too cold or too hot, I suspect the issue is that the captive touch buttons that control the temp get occasionally bumped, changing the set temperature. With the thread sensor I can have Home Assistant send me an alert when the fridge leaves the safe zone for too long so I can manually correct it.\nIt's also been interesting to see when placing hot food in the fridge how long the temperature stays elevated for. I put the sensor in a ziplock bag and sucked the air out of it so it has weatherproofing."
+        },
+        {
+          "id": 49957835,
+          "author": "kadoban",
+          "text": "Do _not_ get the Aqara ones. The things will not stay connected for shit.\nI have a couple of the Tuya ones and I'm pleased with them. The humidity accuracy is questionable, but it's fine.\nI also have an airgradient (not zigbee, uses wifi) for high accuracy the one place I care about that. Works great in Home Assistant with esphome."
+        },
+        {
+          "id": 49975749,
+          "author": "R_mand",
+          "text": "Testing a single unit and assuming the rest of the production units have the same variance is quite risky. Some sensor manufacturers calibrate at factory but even then we’ve seen outliers."
+        },
+        {
+          "id": 49975453,
+          "author": "Havoc",
+          "text": "Temp and humidity tends to be fairly reliable.\nCO2 and equivalents on the other hand is Wild West."
+        },
+        {
+          "id": 49974532,
+          "author": "tzs",
+          "text": "> To get an accurate base for benchmarks, I decided to calibrate it against a lab-certified thermometer at a friend’s butcher shop, as weirdly as that sounds. His particular thermometer gets checked and calibrated by the state on a schedule (every 3 months) because it sits inside a commercial meat refrigerator and it is required by law. After calibration, my MHO-C401 needed an offset of minus 0.5°C and plus 4% humidity to match the reference reading exactly.\n> It is worth clarifying from the start that my setup does not represent typical room comfort conditions, since the calibration was done at a much lower temperature, around 4°C. Sensors do not always respond in a perfectly straight line across a wide temperature range, so this fixed point is not a guarantee of the exact same accuracy at room temperature.\nThis can be fixed pretty easily if you are up to a little simple DIY.\nInstead of using the MHO-C401, calibrated at one point against a lab-certified thermometer, build on a solderless breadboard your own temperature/humidity sensor using an ESP32 or ESP8266 dev board and a Sensiron SHT45 temperature/humidity sensor and program it using Arduino.\nThe SHT45 communicates with the E"
+        }
+      ],
+      "title_ja": "12種類のZigbee温度/湿度センサーのテスト",
+      "summary_ja": "ディスカッションハイライト：このようなレポートでは決して見られないことの1つは、使用されているセンサーです（ボッシュのユニットですか？ Sensiron ？普通のサーミスタ？妖精と妖精の粉？ 1ワイヤーでまとめたものもあります/センサーのニックネームは本当に迷惑です/残念ながらIKEA ONEが欠けています",
+      "editor_note": "「12種類のZigbee温度/湿度センサーのテスト」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 49945588,
+      "title_en": "An algorithmic failure beneath the secret ballot",
+      "url": "https://blog.citp.princeton.edu/2026/08/03/an-algorithmic-failure-beneath-the-secret-ballot/",
+      "hn_url": "https://news.ycombinator.com/item?id=49945588",
+      "score": 79,
+      "comment_count": 51,
+      "posted_at": "2026-10-03T16:23:07+00:00",
+      "comments": [
+        {
+          "id": 49974644,
+          "author": "anilakar",
+          "text": "> To keep the published record anonymous, ballot scanners shuffle the electronic records randomly before releasing them\nSo they were never secret in the first place.\nI have never understood the desire to have voting machines when a paper ballot works just fine. We tried electronic voting in three municipal elections in 2008 and courts ended up invalidating the results due to horrible usability issues."
+        },
+        {
+          "id": 49974872,
+          "author": "RA2lover",
+          "text": "Diego Aranha had found an exploit with brazilian voting machines back in 2017. They scrambled votes whenever every vote was cast using a CSPRNG, but initialized its seed with the time the voting machine had been turned on (rounded to the second), which due to voting protocols at the time meant you only had to have one person vote a specific way and bruteforce 3600 orderings to find that person's vote and destroy ballot secrecy for everyone else who voted on the same machine.\nSeems like this is the same mode of failure, which is strange considering diebold made the brazilian machines back then and should have fixed that."
+        },
+        {
+          "id": 49974311,
+          "author": "cryptonector",
+          "text": "The way this sort of problem has been fixed in Texas since 2024 is to require that all ballots be sequentially numbered -- that is, they arrive at polling locations in packs of 50 or 100 ballots, each pack having sequentially numbered ballots, but the presiding judge takes 10-20 at a time, signs them, then shuffles them, places them with the serial number facing down towards the table, and voters get to pick one at random when they check in."
+        },
+        {
+          "id": 49974215,
+          "author": "beloch",
+          "text": "\"In October 2022, a team of researchers published a report showing that certain ballot scanning machines used throughout the US had a critical privacy failure in how they anonymized ballots. Specifically, the machines would assign a seemingly random number to each electronic ballot record at the time of scanning to label each ballot for later auditing. However, the algorithm by which the machines generate this random number is actually deterministic and can be exactly reversed to identify the sequence in which ballots were cast.\n...\nNaturally, knowing the order ballots were cast is just one piece of the puzzle. But, when paired with publicly available records on the order in which voters cast their ballots (such as logbooks or poll watchers), a simple procedure exists to reconstruct the mapping from ballots back to voters.\"\n---------------------\n1. Either upgrade your pseudo-RNG's to real RNG's ($$$) or omit the \"random\" number from records.\n2. Alternatively, just use plain paper ballots.  (Yes, I know America is extra-superduper special and ordinary paper ballots that work everywhere else on the planet will\nnever\nwork in America.  Special requirements, too many people, labour inte"
+        },
+        {
+          "id": 49975859,
+          "author": "amelius",
+          "text": "Democracy's main problem isn't the voting process, at the moment."
+        },
+        {
+          "id": 49974782,
+          "author": "rapidaneurism",
+          "text": "I feel a bit silly, but I do not understand how the results were verified."
+        },
+        {
+          "id": 49973021,
+          "author": "lenerdenator",
+          "text": "> this allows you to know whether your neighbor voted, but never who they voted for.\nThere's probably an angle I'm not thinking of here, but imho, it's absolutely not John Q. Public's damned business what a person does or does not do on election day."
+        },
+        {
+          "id": 49973014,
+          "author": "allforJesse",
+          "text": "When I hit the term \"load-bearing\" in the first sentence my mind immediately turned off. Had to forcibly reengage in reading. Claude trauma is real."
+        }
+      ],
+      "title_ja": "秘密投票の下でのアルゴリズムの失敗",
+      "summary_ja": "ディスカッションのハイライト： >公開された記録を匿名に保つために、投票用紙スキャナーは電子記録を公開する前にランダムにシャッフルします\nですから、そもそも秘密ではありませんでした。\n私は2017年にブラジルの投票機で悪用されたことは一度もありませんでした/2024年以来テキサス州でこの種の問題が解決された方法は、すべての投票に順番に番号を付けることを要求することです。つまり、投票所に到着します",
+      "editor_note": "「秘密投票の下でのアルゴリズムの失敗」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 49971921,
+      "title_en": "Example.com just launched the biggest redesign in decades",
+      "url": "https://www.debugbear.com/blog/example-dot-com-redesign-history",
+      "hn_url": "https://news.ycombinator.com/item?id=49971921",
+      "score": 222,
+      "comment_count": 143,
+      "posted_at": "2026-10-05T22:55:11+00:00",
+      "comments": [
+        {
+          "id": 49975234,
+          "author": "pimterry",
+          "text": "For the desperate people whose tests all just broke, I have a page on my public endpoint testing server that exactly reproduces the classic design:\nhttps://example.testserver.host/\n. You can just use update the URL and go back to blissful ignorance.\nAlso open-source and self-hostable:\nhttps://github.com/httptoolkit/testserver\n. Lots of other endpoints too, full docs here:\nhttps://testserver.host/"
+        },
+        {
+          "id": 49972731,
+          "author": "selcuka",
+          "text": "I'm wondering how many automated tests this change broke.\nYes, I know it's not the example.com's fault, and it's a side effect of Hyrum's Law:\n> This is not a service, avoid relying on it for testing and monitoring purposes.\nDon't we all have a few fragile tests?"
+        },
+        {
+          "id": 49972055,
+          "author": "jamdav16",
+          "text": "> there's a gradual opacity transition\nLooks like they removed this and instead just show all languages with no CSS animation now."
+        },
+        {
+          "id": 49972248,
+          "author": "sea-gold",
+          "text": "Discussed here a few days ago:\nhttps://news.ycombinator.com/item?id=49915060"
+        },
+        {
+          "id": 49972597,
+          "author": "adithyassekhar",
+          "text": "The page mentions example.com 14 times and not a single one is a link"
+        },
+        {
+          "id": 49972143,
+          "author": "zahrevsky",
+          "text": "> There is no requirement there is a HTTP service present on the host in order to fulfill its purpose, we just operate it as a courtesy.\nI guess this is also done to prevent bad actors from abusing the fact that this domain is hit by people who might not know what they're doing (the ones copy-pasting code without reading it)"
+        },
+        {
+          "id": 49975890,
+          "author": "dfox",
+          "text": "It seems that they changed it again and now there is minified HTML with english message + simple script that injects the other languages and the icon, no animation. Which to me seems much more sensible."
+        },
+        {
+          "id": 49976158,
+          "author": "pipes",
+          "text": "What should I use for example URLs in my testa."
+        }
+      ],
+      "title_ja": "Example.comは、ここ数十年で最大の再設計を開始しました",
+      "summary_ja": "ディスカッションのハイライト：テストがすべて失敗したばかりの絶望的な人々のために、私のパブリックエンドポイントテストサーバーに、クラシックなデザインを正確に再現したページがあります。\nhttps://example.testserver.host//この変更によってどのくらいの自動テストが壊れたのか疑問に思います。\nはい、これはexample.comのせいではなく、ハイラムの法則の副作用であることを知っています。\n>これはサービスではありません。依存しないでください/>漸進的な不透明度の移行があります\n削除されたようです",
+      "editor_note": "「Example.comは、ここ数十年で最大の再設計を開始しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 12,
+      "id": 49944049,
+      "title_en": "Competitive Programmer's Handbook (2018) [pdf]",
+      "url": "https://cses.fi/book/book.pdf",
+      "hn_url": "https://news.ycombinator.com/item?id=49944049",
+      "score": 205,
+      "comment_count": 47,
+      "posted_at": "2026-10-03T13:24:01+00:00",
+      "comments": [
+        {
+          "id": 49975977,
+          "author": "delis-thumbs-7e",
+          "text": "Antti is a wonderful teacher, he is one of my lecturers. His courses are pretty hard, since they go into very very bread and bones of CS (algorithms, memory allocation, etc), but I always feel I 10x’d my understanding after them.\nSeems he has a new book out (I haven’t read it):\nhttps://link.springer.com/book/10.1007/978-3-032-07453-9"
+        },
+        {
+          "id": 49970894,
+          "author": "dang",
+          "text": "Related. Others?\nCompetitive Programmer's Handbook (2017) [pdf]\n-\nhttps://news.ycombinator.com/item?id=17605395\n- July 2018 (14 comments)\nCompetitive Programmer's Handbook (2017) [pdf]\n-\nhttps://news.ycombinator.com/item?id=16952222\n- April 2018 (121 comments)\nA Competitive Programmer's Handbook\n-\nhttps://news.ycombinator.com/item?id=14115826\n- April 2017 (157 comments)\nCompetitive programmers handbook\n-\nhttps://news.ycombinator.com/item?id=13762408\n- March 2017 (2 comments)"
+        },
+        {
+          "id": 49975945,
+          "author": "HEX4AGON",
+          "text": "I used this book back in 2nd year of uni to prep for interviews. I did electrical engineering and so I didn't have a strong background on CS and primarily used this book to get over the software engineering interviews. Helped me got my internship (and probably my job now lol). Another book that I used was the OSTEP for OS and another book about networking that I don't remember. Also Harris & Harris DDCA for computer architecture & Digital Design."
+        },
+        {
+          "id": 49971858,
+          "author": "lifeisloving",
+          "text": "Ive been doing codeforces, Rosalind, codewars and leetcode casually in my spare time to detox from heavy daily agent use.\nIve been relearning a ton that either over-reliance on llms caused me to forget, or just lost due to time.\nIts been extremely fun. I really  missed the feeling of thinking really hard and arriving at a solution.\nI hope we dont lose this desire as a species."
+        },
+        {
+          "id": 49970167,
+          "author": "xendo",
+          "text": "This one is quite difficult, it sacrifices some readability for cleverness and conciseness. I find Algorithmic Thinking by Zingaro much more approachable but almost as dense."
+        },
+        {
+          "id": 49972129,
+          "author": "ExciteByte",
+          "text": "There is a more polished version of this book:\nhttps://link.springer.com/book/10.1007/978-3-031-61794-2\nAdditionally, there is a nice set of problems that go along with the book:\nhttps://cses.fi/problemset/"
+        },
+        {
+          "id": 49975752,
+          "author": "oleggromov",
+          "text": "I'm not a competitive programmer and won't be one, but this book seems to be a very practical, hands-on intro into many useful algorithms. Really good!"
+        },
+        {
+          "id": 49970169,
+          "author": "Keegs",
+          "text": "I’m a big fan of this book. It’s an equally great algorithms reference and way to prep for coding interviews. I haven’t had one in a while but doubt they’ve changed too much in the last half decade."
+        }
+      ],
+      "title_ja": "競争力のあるプログラマーのハンドブック（ 2018年）[ pdf]",
+      "summary_ja": "ディスカッションハイライト： Anttiは素晴らしい教師であり、私の講師の一人です/関連/私はこの本をユニの2年目にインタビューの準備のために使用しました",
+      "editor_note": "「競争力のあるプログラマーのハンドブック（ 2018年）[ pdf]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 13,
+      "id": 49973598,
+      "title_en": "Why Common Lisp is now the best programming language",
+      "url": "https://www.vivienhenz.com/common-lisp",
+      "hn_url": "https://news.ycombinator.com/item?id=49973598",
+      "score": 164,
+      "comment_count": 224,
+      "posted_at": "2026-10-06T02:51:51+00:00",
+      "comments": [
+        {
+          "id": 49974799,
+          "author": "kelnos",
+          "text": "I feel like everyone has some sort of justification for why their pet language is now the best because LLMs can work in it better for a bunch of reasons.\nJavascript/Python is the best because there's so much code out there that the LLMs can train on, and LLMs can write lots of tests to make sure everything is correct.  There's nothing to compile, so the LLM can iterate quickly.\nRust is the best because the LLM gets great feedback from the compiler because of its strong type system, and it can deal with the borrow checker for you.\nGo is the best because it's a simpler language with a decent type system, and the LLM can reason about that well, and will never forget to check an `err` return.  The compiler is fast, so the LLM can iterate quickly.\nI could write similar praise for C, C++, Java...\nAt this point I don't think any language is the best \"because LLMs\".  I think there are quite a few languages that LLMs are probably\nnot\ngood at, but you have lots of choices if you want something they\nare\ngood at."
+        },
+        {
+          "id": 49974701,
+          "author": "clx75",
+          "text": "I have similar experiences in Clojure. I use Pi and created an extension which teaches the LLM how to start a JVM with a Clojure nREPL listening in it. Added a tool which lets the agent evaluate any Clojure form inside the JVM. Sprinkled the setup with clj-reload and now the agent is using the nREPL as if it were its second nature.\nWhat I like most is how fast testing goes: it modifies test code on disk, asks clj-reload to reload all affected namespaces, then reruns the tests. It's also fun to see how it verifies its assumptions by evaluating short programs through the nREPL.\nI asked it to organize the various subsystems inside my playground repo into Integrant systems and make it possible for me to say things like \"restart the http subsystem\".\nIt also understands shadow-cljs: I replicated the necessary parts of the shadow CLI tooling in Clojure; now I can compile, watch and serve any number of CLJS apps located in various namespaces from inside the same JVM. There is no need to touch the command line any more: I just instruct the agent to start a particular CLJS app and it's there."
+        },
+        {
+          "id": 49974354,
+          "author": "alexjurkiewicz",
+          "text": "I think half the article talks about why CL is good because it can resume from an exception, and half the article talks about why DSLs are good.\nI think others have pointed out that most modern scripting languages can halt at exceptions without unwinding the stack. Python & Node both support this with core tooling.\nAs for DSLs, they constrain the LLM which generally helps with code quality. However why implement your DSL in the unconstrained chaos of CL? You can write DSLs in Rust which gives you static typing, a borrow checker, and clippy."
+        },
+        {
+          "id": 49974907,
+          "author": "peri-cl",
+          "text": "Lots of comments praising LLM's understanding of Common Lisp macros. I've seen them break badly at the macros-writing-macros level. I saw a current frontier model get so disoriented by one (a simple one!), it created something that expanded into a \"(let (((\".\n(That's an impossible count (3) of parentheses on the RHS—like a six-fingered hand)."
+        },
+        {
+          "id": 49974817,
+          "author": "artpar",
+          "text": "> because writing code used to be the slow part\nI don't understand how people have that stated as a fact. Coding was never the slow part. Neither pre-llm, nor now. How it needs to be done is software engineering. And that corresponds now to the \"thinking\" part of llms, so unless you are making the llm \"think in lisp\" its not useful. How would that even work. training data to be completely in lisp ?\n> Lisp programs are often much more concise because macros let you abstract away recurring patterns and make them part of the language itself\nfunctions ?\n> So the bigger the program gets, the bigger the difference. In my own experience the apps I've built in Common Lisp end up about six to seven times shorter than the Python versions\nBy that logic writing code in this concept language made up completely of symbols would take you even further (\nhttps://github.com/artpar/guage\n) but in practice it doesnt because llms arent trained to that extent on this."
+        },
+        {
+          "id": 49974564,
+          "author": "onion2k",
+          "text": "For LLMs, less code means fewer tokens, and tokens are what you pay for so you spend less on development.\nI don't think that's strictly true.\nWhat you need is for your LLM to be able to understand enough context to be able to make a change with as few token as possible, so if your code isn't expressive enough or if it has a tendrils calling lots of different functions/methods all over the place, then you'll have to give it much more code (context) than if you've got nice encapsulated modules that don't depend on other parts.\nThe design of your architecture (probably?) has a greater impact on token use in a large app than the language it's written in. Although, obviously, languages lend themselves to particular architectures so it's correlated."
+        },
+        {
+          "id": 49974189,
+          "author": "jaggederest",
+          "text": "I've had some of the same ideas, I would love a full macro system on a dependently typed language. My stab at it earlier in January was not quite the right thing, but I do think this is the way. Weirdly enough concision is even more important in LLM context than in regular human context."
+        },
+        {
+          "id": 49974858,
+          "author": "WalterBright",
+          "text": "> Lisp programs are often much more concise because macros let you abstract away recurring patterns and make them part of the language itself\nThis is why Lisp never catches on. Each programmer invents their own ad-hoc, undocumented, barely working language in the form of those macros. The same thing happens in other languages with macros (like C and assembler)."
+        }
+      ],
+      "title_ja": "Common Lispが最高のプログラミング言語になった理由",
+      "summary_ja": "ディスカッションのハイライト： LLMはさまざまな理由でより効果的に働くことができるため、誰もが自分のペットの言葉が最高である理由を何らかの形で正当化できると感じています。\nJavascript/Pythonはb/私はClojureで同様の経験をしています/私は記事の半分がCLが例外から再開できるのでなぜ良いのかについて話し、記事の半分がDSLがなぜ良いのかについて話していると思います。\n他の人からも指摘されていると思います",
+      "editor_note": "「Common Lispが最高のプログラミング言語になった理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49971782,
+      "title_en": "Global Solar Atlas: summary of solar power potential globally",
+      "url": "https://globalsolaratlas.info/",
+      "hn_url": "https://news.ycombinator.com/item?id=49971782",
+      "score": 55,
+      "comment_count": 36,
+      "posted_at": "2026-10-05T22:37:58+00:00",
+      "comments": [
+        {
+          "id": 49972825,
+          "author": "thelastgallon",
+          "text": "Even if a location doesn't show high potential, it shouldn't matter.\nSolar panels are dirt cheap, just put up more of them. With plug-in solar, rooftop solar and vertical solar, there can be enough production.\nIf all buildings in a city start producing, we eliminate a third of the cost of grid. Transmission network is not needed (or doesn't need to grow) we produce energy where we consume, in every city. Transmission networks are costly and time consuming. Vertical solar will get us there. Vertical solar will be the cheapest form of energy, because it can use the structural elements already on a building (no need of , adds ~4 hours of production (same as adding batteries, could be cheaper?). Vertical solar can immediately be deployed as fence, we have some kind of wall/fence between buildings everywhere.\nEurope is the only place which shows a little less potential. They can build solar farms in Spain, Turkey, North Africa and add transmission lines.\nEurope has very high per capita income and colonial wealth, from Roman Empire, Vikings, Portugese, Spanish Empire, English Empire, Dutch and French colonies. With that level of income and wealth, adding dirt cheap solar panels, a bit mo"
+        },
+        {
+          "id": 49975962,
+          "author": "pbmonster",
+          "text": "I always wish maps like that would include some sort of seasonality score. Maybe a worst week / best week ratio.\nAs it is, the map is useful until solar goes to a double digit percentage of total yearly generation. Any higher, and seasonal places start needing backup generation capacity that is only running in winter (or during monsoon), which does violent things to electricity markets."
+        },
+        {
+          "id": 49973981,
+          "author": "newswangerd",
+          "text": "Here's the tool I use for estimating solar performance:\nhttps://re.jrc.ec.europa.eu/pvg_tools/en/#api_5.3\nIt's also includes historic weather patterns and has some simple modeling tools built into it that can help predict how well off grid, grid tied and hybrid solar systems will perform. So far I have found that it's predictions map very closely to what I've experienced on the ground with my solar array."
+        },
+        {
+          "id": 49975443,
+          "author": "ZeroGravitas",
+          "text": "Access to low-risk funding over the decade needed to recoup investment is probably the actual blocker on solar potential.\nNotably that's something that can be changed by human intervention."
+        },
+        {
+          "id": 49971783,
+          "author": "stratts",
+          "text": "I thought this was very interesting - there's the map upfront, but you can also drill into individual countries and regions with some nice tables. Some \"obvious\" things here, though a few surprises:\n* The solar potential of a gloomy, northern locale like the UK is \"only\" half of somewhere sunny like Australia. Though I can imagine the swings between seasons are greater.\n* Northern Canada has a surprising amount of potential, compared to European regions at the same latitude"
+        },
+        {
+          "id": 49972658,
+          "author": "thelastgallon",
+          "text": "Places with most potential:\nAustralia (all of it!)\nMost of South America: Chile (darkest on the map!), Bolivia, Argentina, Brazil.\nMexico and Cuba (everywhere), all of Central America\nWestern US\nAfrica (everywhere)\nMiddle East (everywhere)\nMongolia, North and Western China, Tibet"
+        },
+        {
+          "id": 49975627,
+          "author": "wartywhoa23",
+          "text": "I wonder what makes for that blue region over China? Air pollution?"
+        },
+        {
+          "id": 49972371,
+          "author": "polishdude20",
+          "text": "Why did it need to hijack my back button..."
+        }
+      ],
+      "title_ja": "グローバルソーラーアトラス：世界の太陽光発電の可能性の概要",
+      "summary_ja": "ディスカッションのハイライト：場所が高い可能性を示していなくても、それは問題ではありません。\nソーラーパネルは非常に安価です。もっと設置してください。/そのようなマップに季節性スコアが含まれていることを常に願っています。/太陽光発電の性能を推定するために使用するツールは次のとおりです。\nhttps://re.jrc.ec.europa.eu/pvg_tools/en/#api_5 .3\nまた、歴史的な気象パターンを含み、いくつかのシンプルなモデリングを備えています",
+      "editor_note": "「グローバルソーラーアトラス：世界の太陽光発電の可能性の概要」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 49952464,
+      "title_en": "Using A.I. and machine learning to decode communication of sperm whales",
+      "url": "https://blue-continuum.com/the-man-who-listens-to-whales",
+      "hn_url": "https://news.ycombinator.com/item?id=49952464",
+      "score": 23,
+      "comment_count": 8,
+      "posted_at": "2026-10-04T10:15:13+00:00",
+      "comments": [
+        {
+          "id": 49975674,
+          "author": "tednoob",
+          "text": "If they are intelligent and curious, imagine if they let us come tell them tales of the world, works of fiction, musings of space, what if they swim around just letting us tell them of all the fascinating things we find out. Humanity may travel the cosmos, only to come home to tell our whale friends everything we learned. I wonder if there will be a whale someday with the dream of going to space."
+        },
+        {
+          "id": 49975489,
+          "author": "rufw91",
+          "text": "Holy ** is this guy from the future :), my high school coursebook was literally about this guy.\nhttps://en.wikipedia.org/wiki/The_Whale_Rider"
+        },
+        {
+          "id": 49975869,
+          "author": "amelius",
+          "text": "Does that mean we have a universal translator now?\nhttps://en.wikipedia.org/wiki/Universal_translator"
+        }
+      ],
+      "title_ja": "人工知能と機械学習を使用してマッコウクジラのコミュニケーションをデコードする",
+      "summary_ja": "ディスカッションのハイライト：彼らが知的で好奇心旺盛であれば、彼らが私たちに世界の物語、フィクションの作品、宇宙の思考を教えてくれると想像してください。彼らが泳いでいるとしたら、私の高校のコースブックは文字通りこの人についてでした。\nhttps://en.wikipedia.org/wiki/The_Whale_Rider/それは今ユニバーサル翻訳機があることを意味しますか？\nhttps://en.wikipedia.org/wiki/Universal_translato",
+      "editor_note": "「人工知能と機械学習を使用してマッコウクジラのコミュニケーションをデコードする」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 49971846,
+      "title_en": "ChatGPT is adding real cartoonists' signatures to fake New Yorker cartoons",
+      "url": "https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/",
+      "hn_url": "https://news.ycombinator.com/item?id=49971846",
+      "score": 439,
+      "comment_count": 313,
+      "posted_at": "2026-10-05T22:46:45+00:00",
+      "comments": [
+        {
+          "id": 49973102,
+          "author": "Isamu",
+          "text": "The part of the AI generating the mashup doesn’t really understand what the signature means, or how it may be interpreted, it’s just a visual part of a New Yorker cartoon. Elsewhere in ChatGPT there is plenty of information about signatures and what they mean, and what plagiarism is.\nIt’s not organized like a human brain, it shouldn’t be surprising that unusual results occur. They are approximating human intelligence from a different angle. It’s interesting to see the improvements in areas like this that require introspection that isn’t fully wired up yet.\n[edit] I should add that a human making a New Yorker cartoon is extremely iterative and introspective. Current generative AI is meant to push it out, and you can do the iteration and introspection yourself."
+        },
+        {
+          "id": 49972442,
+          "author": "gwern",
+          "text": "This has been a perennial problem with my own generated comics with both Nano Banana Pro and ChatGPT (all generations). I often have to put in an extra edit to erase the false signature. It is annoying and I'm unsurprised most users don't bother."
+        },
+        {
+          "id": 49975883,
+          "author": "rwmj",
+          "text": "A practical step is cartoonists should register their name/signature as a trademark.  Arguably they should have been doing this before AI came along, but definitely they should do it now.  Registration makes enforcement easier."
+        },
+        {
+          "id": 49972870,
+          "author": "jameson",
+          "text": "I'm certain if I drew a cartoon and used the signature that looks just like a real cartoonists', I would get sued and liable for the damage.\nThe same should apply to LLM vendors."
+        },
+        {
+          "id": 49972264,
+          "author": "dormento",
+          "text": "The copyright washing machine strikes again."
+        },
+        {
+          "id": 49972489,
+          "author": "WD-42",
+          "text": "Engineering manager at my company put a comic at the end of our sprint demo that was signed bloper. Except it wasn’t funny at all, and kind of weird. I asked him, sure enough it was ChatGPT and he didn’t notice the signature."
+        },
+        {
+          "id": 49972523,
+          "author": "ThrowawayR2",
+          "text": "Nice.  This demolishes the \"LLMs can reason\" (but not enough to avoid this sort of basic error) and \"humans make mistakes too\" (not like this) talking points from the LLM promoters."
+        },
+        {
+          "id": 49973348,
+          "author": "zahlman",
+          "text": "Of course\nit does this. The training data is full of examples that associate e.g. \"New Yorker-style cartoon\" with Loper's signature in the corner, because Loper's signature is in the corner of a lot of them. There's nothing to make it treat the signature as anything special by default; that would have to be trained in explicitly.\nOne would hope that the person prompting ChatGPT would notice this sort of thing and do something about it before sharing it publicly, out of a genuine desire not to cause confusion etc. But I guess that's way more personal responsibility than we can expect average people to take on nowadays."
+        }
+      ],
+      "title_ja": "ChatGPTは、本物の漫画家の署名を偽のニューヨーカー漫画に追加しています",
+      "summary_ja": "ディスカッションのハイライト：マッシュアップを生成するAIの部分は、署名が何を意味するのか、またはそれがどのように解釈されるのかを本当に理解していません。それはニューヨーカー漫画の視覚的な部分にすぎません/これは、Nano Banana ProとChatGPT （すべての世代）の両方で私自身が生成した漫画の永続的な問題でした/実用的なステップは、漫画家が商標として自分の名前/署名を登録することです",
+      "editor_note": "「ChatGPTは、本物の漫画家の署名を偽のニューヨーカー漫画に追加しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 49953344,
+      "title_en": "The complement of true is true, except when it's false",
+      "url": "https://dryperspective.github.io/posts/complement-of-true/",
+      "hn_url": "https://news.ycombinator.com/item?id=49953344",
+      "score": 12,
+      "comment_count": 1,
+      "posted_at": "2026-10-04T12:28:55+00:00",
+      "comments": [
+        {
+          "id": 49975949,
+          "author": "rep_lodsb",
+          "text": "They should have defined true as -1 (all bits set) instead, as in some other languages like Forth and BASIC."
+        }
+      ],
+      "title_ja": "Trueの補数は、falseの場合を除いてtrueです。",
+      "summary_ja": "ディスカッションのハイライト： ForthやBASICなどの他の言語と同様に、代わりに-1 （すべてのビットが設定されている）としてtrueを定義する必要があります。",
+      "editor_note": "「Trueの補数は、falseの場合を除いてtrueです。」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 18,
+      "id": 49965152,
+      "title_en": "The lamps in my house",
+      "url": "https://arslan.io/2026/10/05/the-lamps-in-my-house/",
+      "hn_url": "https://news.ycombinator.com/item?id=49965152",
+      "score": 207,
+      "comment_count": 89,
+      "posted_at": "2026-10-05T14:12:14+00:00",
+      "comments": [
+        {
+          "id": 49972144,
+          "author": "m463",
+          "text": "I have a lamp I really really like¹:\nhttps://www.amazon.com/dp/B0D5LS2KQW\nI don't know how honeywell of all companies is selling this, but I figure they have engineers that they turned loose on and got out of their way.\nIt is just super nice.  Elegant looking, not expensive, very high quality illumination that can get bright, smoothly dimmable with a knob.  a knob to adjust lighting is a good design.\nIn comparison, dyson makes a lamp that is the same kind of interesting genre, but they cost 10-20x.\n[1] except to turn it off is inelegant - you have to press and hold instead of tap, because tap changes color temperature."
+        },
+        {
+          "id": 49975744,
+          "author": "bob1029",
+          "text": "Lamps are a fantastic way to light an interior space. Recessed ceiling lights do not establish hierarchy in the dimensions that humans are most interested in. Getting the lighting source close to eye level is the key to success.\nAt some level this turns into an accessibility and comfort issue. People with limited vision can take strong advantage of well placed lights. Highlights and shadows are some of the most fundamental elements of human visual perception. Without them our brain needs to work overtime to analyze a given scene."
+        },
+        {
+          "id": 49970089,
+          "author": "losvedir",
+          "text": "Unrelated aside, but:\n> Fun fact: “Akari” means light in Japanese, both as illumination and as lightness.\nWow! I love it when two languages have matching homonyms. I always wonder \"what does it\nmean\n?\". Like, in English \"second\" to mean the unit of time and the place after \"first\" feels like two distinct usages. But it's the same in Spanish (\"segundo\"), which points to a deeper connection (and isn't so unsurprising given the shared roots of the languages): the unit of time is called that because it's the second subdivision of an hour.\nThe two usages of \"light\" in English are so distinct I'm quite surprised it's like this in the entirely unrelated Japanese language. Is this just a big coincidence, or does anyone know any deeper reasons here?"
+        },
+        {
+          "id": 49972030,
+          "author": "arjie",
+          "text": "These look quite nice. I'm very protective of desk real estate for persistent things, though. Has anyone got a nice bright focus lamp when working on things. Most of the time my room is well-enough illuminated for things, but yesterday I was doing some minor maintenance on my 3d printer hot-end and I had to use my iPhone with the flashlight on propped up. Is there some kind of compact folding lamp which nonetheless has the ability to hold position and still be moved over specific parts of my table? Battery-operated would be ideal, but I can plug things in at worst."
+        },
+        {
+          "id": 49968694,
+          "author": "m4tthumphrey",
+          "text": "What a beautiful home. I love the office and desk setup specifically. The lamps are cool too."
+        },
+        {
+          "id": 49975113,
+          "author": "sdcfgy",
+          "text": "The Tizio ones, despite certainly desirable due to Sapper, are crap. Suffer from contact issues and the earlier halogen ones love to overheat. I used to refurbish them for people."
+        },
+        {
+          "id": 49971666,
+          "author": "eps",
+          "text": "Excellent collection, compliments to the chef!\nOne of my recent favourites - Le Soleil by Foscarini -\nhttps://www.foscarini.com/en/product/le-soleil-std-s-en/\nIt's wonderfully asymmetrical without overdoing it, with every layer suspended and swaying independently when prodded. Exceptional light distribution."
+        },
+        {
+          "id": 49974208,
+          "author": "jkestner",
+          "text": "Since you’re a fan of Sapper, have you peeped the Halley? He did it for an LED lighting startup (back when that was a thing), very artsy for him. I got one on eBay several years ago that I use as a work lamp because of its supreme adjustability. Uses my favorite electromechanical connector of all time, the 3.5mm audio jack (I’ve used it on every one of my hardware products)."
+        }
+      ],
+      "title_ja": "家の中のランプ",
+      "summary_ja": "ディスカッションのハイライト：本当に気に入っているランプがあります¹：\nhttps://www.amazon.com/dp/B0D5LS2KQW\nすべての企業のハネウェルがこれをどのように販売しているのかはわかりませんが、彼らにはエンジニアがいると思います。tu/ランプは、インテリアスペースを照らすのに最適な方法です/無関係ですが、次のとおりです。\n>面白い事実：「あかり」は日本語で光を意味し、照明と軽さの両方を意味します。\nうわー！ 2つの言語の同音異義語が一致するのが大好きです",
+      "editor_note": "「家の中のランプ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49944196,
+      "title_en": "Show HN: Photoc – Command-line tools for photographers",
+      "url": "https://github.com/ahmetomerv/photoc",
+      "hn_url": "https://news.ycombinator.com/item?id=49944196",
+      "score": 34,
+      "comment_count": 5,
+      "posted_at": "2026-10-03T13:42:23+00:00",
+      "comments": [
+        {
+          "id": 49975645,
+          "author": "soltanov",
+          "text": "Would be interesting to see this grow more as a Unix-style toolkit rather than trying to become Lightroom in a terminal."
+        },
+        {
+          "id": 49951349,
+          "author": "ctech_",
+          "text": "The preview-by-default safety model is a nice touch. Are you planning to add RAW metadata support beyond Sony ARW, or is keeping the dependency surface small a deliberate design choice?"
+        }
+      ],
+      "title_ja": "Show HN: Photoc –フォトグラファー向けのコマンドラインツール",
+      "summary_ja": "ディスカッションのハイライト：これが、ターミナルでLightroomになろうとするのではなく、Unixスタイルのツールキットとしてさらに成長するのを見るのは興味深いことです。/デフォルトの安全モデルによるプレビューは素敵なタッチです",
+      "editor_note": "「Show HN: Photoc –フォトグラファー向けのコマンドラインツール」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 20,
+      "id": 49972008,
+      "title_en": "Ephemeral Testing",
+      "url": "https://lemire.me/blog/2026/10/05/ephemeral-testing/",
+      "hn_url": "https://news.ycombinator.com/item?id=49972008",
+      "score": 59,
+      "comment_count": 19,
+      "posted_at": "2026-10-05T23:06:36+00:00",
+      "comments": [
+        {
+          "id": 49975455,
+          "author": "kqr",
+          "text": "This is an interesting idea. It's effectively what a good software engineer already does in their head, except it's doing it with a real compiler.\nRichard Gabriel wrote something that has really stuck with me:\n>\nAbstractions must be carefully and expertly designed, especially when reuse or compression is intended. However, because abstractions are designed in a particular context and for a particular purpose, it is hard to design them while anticipating all purposes and forgetting all purposes, which is the hallmark of the well-designed abstractions.\nThis is one of my favourite quotes on abstraction, because “anticipating all purposes and forgetting all purposes” is such a good summary of what goes into abstraction design.\nA language model in an agentic harness cannot (yet) do this at the same level as a good software engineer, but the advantage they have is speed of token generation, so they can actually build the things the engineer tries to imagine, and verifying those is easier. Very cool!"
+        },
+        {
+          "id": 49973113,
+          "author": "folkrav",
+          "text": "Unless I'm missing something, this doesn't help with preventing regressions. In the end, as the author already puts it, it's an integration test in the end, why not just write the integration tests directly?"
+        },
+        {
+          "id": 49973136,
+          "author": "simonw",
+          "text": "I've been using this pattern quite a bit recently for API design, and I really like it.\nThe big challenge with designing an API is that the only way to be confident in the design is to build a bunch of different things on top of it. But why invest all that effort in an API that you don't think is ready yet?\nWith coding agents the cost of building those prototypes drops to almost nothing. I can exercise a proposed API design five different ways before I commit to the shape."
+        },
+        {
+          "id": 49973238,
+          "author": "bunderbunder",
+          "text": "I had good results with a similar technique this summer.\nI was designing a DSL to help make a colleague’s work easier, and I tested it by having a coding agent re-implement some of their notebooks using a draft of the DSL. The LLM output was a decent enough approximation of “typical” use, and it uncovered some warts I didn’t catch by testing it myself. As its designer, I simply wouldn’t have thought to try using it in some of the ways the LLM-generated code did."
+        },
+        {
+          "id": 49973414,
+          "author": "bakies",
+          "text": "Not unthinkable at all. Been doing this for several years as an opt-in on pr tags usually but now with agents writing code I have it on by default. I've got several skills files about accessing with a read only account and gitops done through the PR. It's an excellent dev environment for the agents."
+        },
+        {
+          "id": 49972470,
+          "author": "CBLT",
+          "text": "I just reduced our AI-in-CI bill this month (while keeping or improving our KPIs), but now we have new and exciting ways to spend tokens right around the corner!"
+        },
+        {
+          "id": 49975469,
+          "author": "stabbles",
+          "text": "Another trick I have found useful is to do integration testing with coverage enabled. One agent creates tasks for subagents that run the application with coverage enabled, it merges the  reports, and based on that it comes up with new tasks for subagents, repeat until coverage no longer moves."
+        },
+        {
+          "id": 49973001,
+          "author": "exac",
+          "text": "We use NX in our monorepo, and it is great at determining which testing/linting tasks need to be run based on which libraries in the repo were \"affected\". We have a bunch of e2e tests, and I've been having a lot of success getting Claude with Opus to run only the relevant e2e tests when appropriate during development."
+        }
+      ],
+      "title_ja": "エフェメラルテスト",
+      "summary_ja": "ディスカッションのハイライト：これは興味深いアイデアです/私が何かを見落としていない限り、これは回帰を防ぐのに役立ちません/私は最近このパターンをAPI設計に使用しており、本当に気に入っています。\nAPIを設計する際の大きな課題は、デザインに自信を持つ唯一の方法は、",
+      "editor_note": "「エフェメラルテスト」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49956932,
+      "title_en": "Fundamentals of circadian entrainment by light (2021)",
+      "url": "https://journals.sagepub.com/doi/full/10.1177/14771535211014792",
+      "hn_url": "https://news.ycombinator.com/item?id=49956932",
+      "score": 3,
+      "comment_count": 0,
+      "posted_at": "2026-10-04T19:19:09+00:00",
+      "comments": [],
+      "title_ja": "光による概日エントレインメントの基礎（ 2021年）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「光による概日エントレインメントの基礎（ 2021年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 49943598,
+      "title_en": "Show HN: Entombed in a Raycaster",
+      "url": "https://www.stelabouras.com/blog/entombed-raycaster/",
+      "hn_url": "https://news.ycombinator.com/item?id=49943598",
+      "score": 23,
+      "comment_count": 5,
+      "posted_at": "2026-10-03T12:13:15+00:00",
+      "comments": [
+        {
+          "id": 49975160,
+          "author": "Scapeghost",
+          "text": "I wish someone would remake this weird game from the C64 that has stayed in my head since forever: Scarabaeus\nhttps://www.youtube.com/watch?v=FusuIst21E4"
+        },
+        {
+          "id": 49974744,
+          "author": "krige",
+          "text": "Ah yes, Lode's raycaster tutorial, the classic writeup keeps generating interesting projects. Such as this one.\nThe human ingenuity never ceases to amaze me. Take what's essentially a pong machine with a few extraneous bits and almost no memory, what you can do with it? Apparently racing games, building games, maze games, even honest to god space sims."
+        }
+      ],
+      "title_ja": "HN: Entombed in a Raycasterを表示",
+      "summary_ja": "ディスカッションのハイライト：誰かが私の頭の中に永遠に残っているC 64からこの奇妙なゲームをリメイクしてほしい：スカラベウス\nhttps://www.youtube.com/watch?v=FusuIst21E4/ああ、はい、Lodeのレイキャスターチュートリアル、古典的な書き込みは興味深いプロジェクトを生成し続けます",
+      "editor_note": "「HN: Entombed in a Raycasterを表示」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 49953195,
+      "title_en": "DEDA – Tracking Dots Extraction, Decoding and Anonymisation Toolkit",
+      "url": "https://github.com/dfd-tud/deda",
+      "hn_url": "https://news.ycombinator.com/item?id=49953195",
+      "score": 64,
+      "comment_count": 7,
+      "posted_at": "2026-10-04T12:09:10+00:00",
+      "comments": [
+        {
+          "id": 49976248,
+          "author": "arcanemachiner",
+          "text": "I remember hearing about this forever ago, but wasn't sure if the practice was still being done."
+        },
+        {
+          "id": 49971959,
+          "author": "ortusdux",
+          "text": "Reportedly, OpenPrinter will not have these dots by default.  I did wonder if this omission would cause them issues.  As I understand it, the dots are not mandated by law."
+        }
+      ],
+      "title_ja": "DEDA –トラッキングドット抽出、デコード、匿名化ツールキット",
+      "summary_ja": "ディスカッションのハイライト：私はずっと前にこれについて聞いたことを覚えていますが、練習がまだ行われているかどうかはわかりませんでした。/報告によると、OpenPrinterはデフォルトでこれらのドットを持っていません",
+      "editor_note": "「DEDA –トラッキングドット抽出、デコード、匿名化ツールキット」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 24,
+      "id": 49972211,
+      "title_en": "Samon: Designing a Zen Garden Raking Puzzle",
+      "url": "https://gwern.net/doc/design/2026-10-03-gwern-samon.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49972211",
+      "score": 42,
+      "comment_count": 20,
+      "posted_at": "2026-10-05T23:35:35+00:00",
+      "comments": [
+        {
+          "id": 49975517,
+          "author": "supermatt",
+          "text": "I have really enjoyed \"Zen Puzzle Garden\" by lexaloffle:\nhttps://www.lexaloffle.com/zen.php"
+        },
+        {
+          "id": 49973251,
+          "author": "Wowfunhappy",
+          "text": "If you like this, I happen to think Cardinal Chains is a more interesting take on the same overall concept:\nhttps://danijmn.itch.io/cardinalchains"
+        },
+        {
+          "id": 49972630,
+          "author": "lubujackson",
+          "text": "Surprisingly deep and seems quite in line with the underlying concept of Zen gardens."
+        },
+        {
+          "id": 49974572,
+          "author": "contingencies",
+          "text": "Ideas for elevated difficulty and more complex mechanics: animal interactions, precipitation, water interactions, wind interactions, directional and variant lighting, mirrors, earthquakes, plant/fern/bryophyte interactions (volunteer plants, spreading plants, pop-ups, seasonal flowering, seed dropping), plants that respond to nutrient/sun/seasonal conditions, littering humans."
+        },
+        {
+          "id": 49973150,
+          "author": "mcphage",
+          "text": "It’s not exactly the same, but Zen Puzzle Garden (\nhttps://www.lexaloffle.com/zen.php\n) has been around since the 90s."
+        },
+        {
+          "id": 49974567,
+          "author": "TZubiri",
+          "text": "If you transpile convert this to CSS with some turing complete JS to CSS transpiler, you could submit this to that Zen Garden CSS zine"
+        },
+        {
+          "id": 49973038,
+          "author": "duhhhhh1212",
+          "text": "https://www.pangram.com/history/cfc9ee7e-b1f5-4ce0-8377-6102...\nNo surprise there."
+        }
+      ],
+      "title_ja": "サモン：禅庭のレイキングパズルのデザイン",
+      "summary_ja": "ディスカッションのハイライト：私はlexaloffleの「Zen Puzzle Garden」を本当に楽しんでいます。\nhttps://www.lexaloffle.com/zen.php/これが気に入ったら、カーディナルチェーンは同じ全体的なコンセプトをより興味深く解釈していると思います。\nhttps://danijmn.itch.io/cardinalchains/驚くほど深く、禅庭園の根底にあるコンセプトと非常に一致しているようです。",
+      "editor_note": "「サモン：禅庭のレイキングパズルのデザイン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 49962857,
+      "title_en": "Apple and a hacker's future",
+      "url": "https://stratechery.com/2026/apple-and-a-hackers-future/",
+      "hn_url": "https://news.ycombinator.com/item?id=49962857",
+      "score": 258,
+      "comment_count": 219,
+      "posted_at": "2026-10-05T10:05:02+00:00",
+      "comments": [
+        {
+          "id": 49963306,
+          "author": "GeekyBear",
+          "text": "The full disk access permission is something you give to backup software.\nIf you give full-disk access to Meta software running on your main computer, Meta is not going to respect your privacy.\n> Friday’s [full-disk access] announcement comes two weeks after tech columnist Jason Aten said that Meta’s new general-purpose AI agent Muse sent him an unsolicited notification referencing a thread between him and a co-worker over Apple Messages. Aten said he never granted Muse permissions to read his messages and had assumed they were off-limits. Social media last week blew up with masses of people who agreed and said the incident showed that AI assistants given access to calendars, emails, messages, shopping accounts, and other resources are akin to a skill saw or other power tool. While potentially useful, they can do real damage if not used carefully.\nhttps://arstechnica.com/security/2026/10/apple-changes-full-...\nIf you want to know why Apple is suddenly not happy about the way the full-disk access permission is being abused, look no further."
+        },
+        {
+          "id": 49974298,
+          "author": "parasubvert",
+          "text": "It strikes me that heavy AI agent users have an extraordinarily high risk tolerance for identity theft, privacy breaches and data loss vs. perceived productivity.  Far beyond what any responsible   medium to large size company would ever tolerate.\nOverall the limits to AI productivity can be summarized in one word:  discipline.  If you're undisciplined in your security, your design constraints, your automated test coverage, your separation of the deterministic and indeterministic, you will be quite productive ... for a time.  Until quite suddenly, you aren't, possibly due to  catastrophe.\nSimilar to the early era of computers on the Internet, with lax security, we have a window where we can get away with this, but it will close quicker than many realize.  Some things do seem to need to be learned the hard way.\nApple is trying to do the bare minimum here - not even introducing a new security model - and people are already freaking out.  But a disciplined agent sandbox model is exactly what we need to get to."
+        },
+        {
+          "id": 49967688,
+          "author": "w10-1",
+          "text": "To read Ben is to glimpse the AI divide: he's honestly and emphatically choosing based on whether it makes it easier for him to use his AI agents, even if that means ditching Apple for the Zuckerberg's melee.  It's that important to his personal productivity. AI-native product streams will separate from what came before, as will the people who master them.\nThat said, I disagree on Apple: while the UI can be perfect, it has always imperfectly been trying to do the right thing technically in concert with developers and users, which puts it in the position of imposing constraints that developers and users can relax to varying degrees: wearable and home devices (not at all), iOS (somewhat), macOS (mostly).\nwrt a hacker's future: I'm still traumatized both by decades of windows reboots and virus scanning, and by decades of squeezing into Linux (just don't sleep, avoid these displays...).  I'm glad Apple stuff mostly just works and ordinary people still have access to unlocked, general-purpose computers, but that might not last.  Cheap AI coding might remove any financial incentive to support users programming on their own, and we'd be left with locked devices as consumers or work-only a"
+        },
+        {
+          "id": 49964612,
+          "author": "mixdup",
+          "text": "I would argue that someone who would open a remote access port to the internet with no filtering is exactly the kind of person that Apple needs to protect from themselves\nYeah, it was neat that Claude found this, but Thompson showed an almost criminal lack of security awareness by having VNC/ARD open to the internet"
+        },
+        {
+          "id": 49963185,
+          "author": "intrasight",
+          "text": "> The question, however, is whether what they are designed for is the future I am barreling towards, one where agentic abstraction both renders traditional interfaces relics\nI think he was burying the lede but glad he finally posed the question.\nI think it's a bigger risk factor for Apple than is generally assumed. If consumers get used to the freedom but endemic spying of products like Muse, Apple may have a hard time sticking to their privacy and security mandate."
+        },
+        {
+          "id": 49965892,
+          "author": "jppope",
+          "text": "I think the observation Ben is making, is that Apple no longer has a grasp on the future purchases in the market. He makes it explicit with this quote: \"I can, for the first time, envision a future where I don’t buy Apple by default.\" It used to be a given that we would refresh every 3-4 years, thats probably no longer guaranteed.\nObservationally, I would argue we've all been expecting this for this for a long time. Every year Apple has raised the price of allegiance and every year we've paid it, waiting for products like the framework laptop or certain linux distros to become mature. We're still not there yet, but how much longer until there is real competition in the personal computer market?"
+        },
+        {
+          "id": 49964365,
+          "author": "nerdjon",
+          "text": "What I find most surprising, is that I don't think we got any sort of timeline from Apple on this change and its very vague (which just fuels articles like this).\nSo did this initiative within Apple just start and we could be looking at this change coming in Mac 28?\nI don't remember another time of an announcement like this from Apple of a major change with so little information, though I could be wrong or hint of when.\nRegarding the concern, while I do hope that there is still a way to grant actual full disk access to some applications. Even Apple called out a non controversial need for something like that, backup software. I can also think of security scanning software, a lot of businesses have those deployed to corporate Mac's. I do also think that better controls around it, especially in this age of vibe coded apps that never actually think about security or actively hostile companies like meta."
+        },
+        {
+          "id": 49963357,
+          "author": "Someone",
+          "text": "> This system is annoying but manageable on your primary Mac; it’s a disaster on a headless Mac running agents, for two reasons. First, agents write new programs all of the time, and in my case, those programs need access to devices on my network (SMB shares, for example, trigger a TCC warning). What I need is a permission layer for agents, not the programs they create; TCC is operating at the wrong level of abstraction.\nDoesn’t that already exist? If I give Terminal.app access to the entire disk, CLI tools started by the app (indirectly: Terminal.app runs a shell, and the shell runs the tools) have that access, too.\nAnd I don’t think that’s because Apple gives Terminal.app preferential access. Google tells me that works for iTerm, too.\nOr would it mean agents need to do some special thing to launch tools?"
+        }
+      ],
+      "title_ja": "アップルとハッカーの未来",
+      "summary_ja": "ディスカッションのハイライト：フルディスクアクセス権限は、バックアップソフトウェアに付与するものです。\nメインコンピューターで実行されているメタソフトウェアへのフルディスクアクセスを許可した場合、メタは尊重しません/重いAIエージェントのユーザーは、個人情報の盗難、プライバシー侵害、データ損失に対して非常に高いリスク許容度を持っていることに驚きます/Benを読むことはAIの分断を垣間見ることです。彼は正直に、そしてそれがmakであるかどうかに基づいて強く選択しています",
+      "editor_note": "「アップルとハッカーの未来」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 26,
+      "id": 49965308,
+      "title_en": "Making a GTK application in Haskell, part 1",
+      "url": "https://floreal.tech/blog/2026/making-a-gtk-app-in-haskell-part-1/",
+      "hn_url": "https://news.ycombinator.com/item?id=49965308",
+      "score": 156,
+      "comment_count": 42,
+      "posted_at": "2026-10-05T14:23:47+00:00",
+      "comments": [
+        {
+          "id": 49969946,
+          "author": "Koshkin",
+          "text": "Is a widget a monad? Anyway, the examples in this tutorial are another proof that\nHaskell is the best imperative language\n!"
+        },
+        {
+          "id": 49966577,
+          "author": "seba_dos1",
+          "text": "Replace `backdrop-filter` on `.backdrop::after` with `filter` on `.backdrop picture` for a free scrolling performance boost."
+        },
+        {
+          "id": 49968937,
+          "author": "shevy-java",
+          "text": "Are people still using gtk?\nI started to learn it back then via ruby-gtk2. It was not\nthe best experience but I learned several key things\npertaining to widgets and the UI. Then came gtk3; it was\nin some ways worse than GTK2, but it also brought a few\nimprovements such as the partial CSS support. I always\nmiss that when I use e. g. wxwidget.\nThen came GTK4 though and things changed. Tons of old\nthings broke or no longer worked. Simple things such as\nmain_window_widget.move(0, 0) for top-left positioning\n(I added an alias to this, .top_left in ruby and that\nworked nicely); there are work-arounds to get the old\nbehaviour, but this is just one example of so many more\nthings that were eliminated. GTK4 is a GNOMEy-toolkit\nand GTK5 will be even worse since it will be wayland-only.\n\"Interacting\" with the GNOMEy-GTK devs is a total waste\nof time and I am hardly the only one who had that\nexperience. For GNOMEys it may be a useful platform,\nbut GTK no longer is a general toolkit really, despite\nclaims by the current GTK devs otherwise. Why would\nwe non-GNOMEys want to keep GTK on life support? There\nreally needs to be a toolkit that can work in a much\nmore de-centralized way. Sadly I also do"
+        },
+        {
+          "id": 49968214,
+          "author": "pluc",
+          "text": "> import GI.Awd qualified as Adw\nplease tell me that's a typo"
+        },
+        {
+          "id": 49966839,
+          "author": "birchcove",
+          "text": "i've been writing Haskell GUIs for a few years and mostly stick to react-banana or reflex because wiring up gtk-gi signals manually gets messy fast. The Elm architecture pattern here looks clean on paper but I'm curious how you handle async events from the widget tree without ending up in callback hell. Did you end up wrapping all GI callbacks in a channel that feeds into your update loop?"
+        },
+        {
+          "id": 49967536,
+          "author": "drnick1",
+          "text": "Just keep in mind that some people like me avoid Haskell and the huge package mess it causes on Linux. Pandoc is infamous for that. Just stick to C++."
+        }
+      ],
+      "title_ja": "HaskellでのGTKアプリケーションの作成、パート1",
+      "summary_ja": "ディスカッションのハイライト：ウィジェットはモナドですか？ とにかく、このチュートリアルの例は、\nHaskellは最高の命令型言語です\n!/ '.backdrop:: after `の` background - filter `を'.backdrop picture`の`filter`に置き換えると、無料のスクロールパフォーマンスブーストが得られます。 /人々はまだgtkを使用していますか？\n当時ruby - gtk 2経由で学び始めました",
+      "editor_note": "「HaskellでのGTKアプリケーションの作成、パート1」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49975345,
+      "title_en": "Anthropic Subscriptions Offer 5x+ More Value Than OpenAI",
+      "url": "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x",
+      "hn_url": "https://news.ycombinator.com/item?id=49975345",
+      "score": 16,
+      "comment_count": 13,
+      "posted_at": "2026-10-06T07:29:50+00:00",
+      "comments": [
+        {
+          "id": 49975833,
+          "author": "redhale",
+          "text": "> subscription gross margins are way lower than API and meaningfully reduce revenue per MW for both OpenAI and Anthropic\nI don't know about everyone else, but there is no way in hell I would pay even $200 for API-priced tokens for personal use. So at least for my sample size of one, Anthropic's revenue would not be higher if they dropped their subscription plan (they would get $0 from me instead of $200 per month)."
+        },
+        {
+          "id": 49975623,
+          "author": "nryoo",
+          "text": "One of their three identical accounts had ~20% lower limits and the explanation was an \"extremely tiny\" A/B test. Makes the \"5x\" kind of a joke. I'd honestly take a slightly worse plan if it just published the actual token limits."
+        },
+        {
+          "id": 49975993,
+          "author": "_fw",
+          "text": "My theory is that for a large amount of people, “work are paying anyway so what do I care?”.\nI lost my job recently, so gave myself an AI budget of $100 to help with search and applications.\nIf I put that in OpenAI or Anthropic, I’d hit limits quickly and lose whatever I didn’t use.\nOr… I could put the same money in OpenRouter, use open models at 1/25th the price, and only need to pay more when I’ve spent what I put in.\nBack in January when Claude Cowork was new and Claude Code was one of the only performant harnesses, it would have been a tougher decision.\nBut Hermes, dsh, agy, codex, opencode, pi… they make it so easy to achieve so much with such a low budget.\nI know it’s a cliche nowadays to say “just use cheaper models” but the value they offer is SO much greater. And i can switch to GPT6, or Opus 5.5 in two clicks for tasks anyway.\nMy point is this: OpenAI and Anthropic are pulling stunts like this because they don’t care about you and your subscription. So stop caring about them."
+        },
+        {
+          "id": 49976159,
+          "author": "viraptor",
+          "text": "This is a joke.\n> Token efficiency is also an extremely relevant factor, but the industry unfortunately lacks reliable data here. Many people like to cite this chart from Artificial Analysis, but we do not believe the benchmark tasks in the AA Intelligence Index are at all representative of real work people do with LLMs.\nRight, so they just ignore the fact that different models use very different number of tokens to achieve the same thing. Ignoring that means they can't say anything about \"value\". This is like comparing numbers with different units. They're Atokens and Otokens."
+        },
+        {
+          "id": 49976124,
+          "author": "gizajob",
+          "text": "What’s news to me is that Anthropic reports that it has 88% gross margin. I find that extremely hard to believe with the capex required to build and run the models."
+        },
+        {
+          "id": 49975916,
+          "author": "throwuxiytayq",
+          "text": "This says “Anthropic gives you 5× more API-priced model usage”, which is not equivalent to “Anthropic is 5x as much value”. This does not take into account model/harness efficiency. I tried looking up some benchmarks and Claude seemingly uses roughly 5x as many tokens while taking its sweet time to complete a task. No such thing as a coincidence."
+        },
+        {
+          "id": 49975974,
+          "author": "yube01",
+          "text": "but ai credit runs out really really fast"
+        }
+      ],
+      "title_ja": "Anthropicサブスクリプションは、OpenAIよりも5倍以上の価値を提供します",
+      "summary_ja": "ディスカッションのハイライト：>サブスクリプションの粗利益はAPIよりもはるかに低く、OpenAIとAnthropicの両方でMWあたりの収益を大幅に削減\n私は他の人については知りませんが、彼/彼らの3つの同じアカウントのうちの1つには約20 ％の下限があり、その説明は「非常に小さな」A/Bテストでした/私の理論は、多くの人にとって「仕事はとにかくお金を払っているので、私は何を気にしていますか？」ということです。\n私は最近仕事を失ったので、マイセを与えました",
+      "editor_note": "「Anthropicサブスクリプションは、OpenAIよりも5倍以上の価値を提供します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 49961861,
+      "title_en": "Qualcomm licenses patents on Huawei’s LogicFolding chip tech",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-05/qualcomm-licenses-patents-on-huawei-s-logicfolding-chip-tech",
+      "hn_url": "https://news.ycombinator.com/item?id=49961861",
+      "score": 192,
+      "comment_count": 125,
+      "posted_at": "2026-10-05T07:46:10+00:00",
+      "comments": [
+        {
+          "id": 49969912,
+          "author": "FlowingRiver",
+          "text": "Interesting. LogicFolding is something that seems so obvious in retrospect and yet somebody has to be the first to do it.\nI did find it neat that it ends up actually reducing overall heat despite the multiple layer wafers as signals have less overall distance to travel as they move in layer space rather than across the chip."
+        },
+        {
+          "id": 49974994,
+          "author": "albert_e",
+          "text": "There is contrary reporting too on whether \"Logicfolding\" tech is part of the deal --\nhttps://www.huaweicentral.com/qualcomm-refutes-huawei-logicf...\n> Qualcomm and Huawei have inked a new broad patent licensing agreement on AI, 5G, and networking, though the LogicFolding chip tech is not part of this deal. The US chipmaker has clarified the assertions made regarding the new chipset technology."
+        },
+        {
+          "id": 49972077,
+          "author": "anigbrowl",
+          "text": "A Chinese technology/military propagandist I follow asserted today that Huawei is getting net revenue from Qualcomm on this deal, marking a change from being a buyer/licensor of western technology to a provider. I don't know if it's true but this individual historically promotes the Chinese state view via selective presentation of facts rather than made-up claims."
+        },
+        {
+          "id": 49962132,
+          "author": "rwmj",
+          "text": "Aren't Huawei on the Entity List?  How can Qualcomm enter into agreements like this without getting into massive hot water?"
+        },
+        {
+          "id": 49962120,
+          "author": "whatever1",
+          "text": "Remember when they were telling us how important the 5G race was and how critical was for the US to lead it?\nAnd now they are just giving it away ?"
+        },
+        {
+          "id": 49963437,
+          "author": "eunos",
+          "text": "It's not mentioned on Huawei page, but this bloomberg article claims that the focus in on LogicFolding architecture\nhttps://www.bloomberg.com/news/articles/2026-10-05/qualcomm-..."
+        },
+        {
+          "id": 49966323,
+          "author": "yearesadpeople",
+          "text": "Will be interesting to see how Ericsson - if at all - responds to this"
+        },
+        {
+          "id": 49962930,
+          "author": "maxglute",
+          "text": "How the turntables etc.\nPre sanctions, HW fine buying QC for mobile chipset StandardEssentialPatentswhile QC pay HW for 5g SEPs, with net balance favoring QC. Huawei indigenized mobile SoC + 5g hardware with Kirin 9000 in 2023. Hilariously, now that Huawei weaned off QC SoC... QC simply stuck net paying Huawei."
+        }
+      ],
+      "title_ja": "クアルコム、ファーウェイのLogicFoldingチップ技術の特許をライセンス供与",
+      "summary_ja": "ディスカッションハイライト：興味深い/「ロジックフォールディング」技術が取引の一部であるかどうかについては、反対の報告もあります--\nhttps://www.huaweicentral.com/qualcomm-refutes-huawei-logicf...\n>クアルコムとファーウェイはインクを持っています/私がフォローしている中国の技術/軍事プロパガンダ担当者は、ファーウェイがこの取引でクアルコムから純収益を得ていると主張しました。これは、私たちのバイヤー/ライセンサーからの変化を示しています",
+      "editor_note": "「クアルコム、ファーウェイのLogicFoldingチップ技術の特許をライセンス供与」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 29,
+      "id": 49920785,
+      "title_en": "The first fully implanted cochlear implant reaches patients",
+      "url": "https://spectrum.ieee.org/fully-implantable-cochlear-implant",
+      "hn_url": "https://news.ycombinator.com/item?id=49920785",
+      "score": 92,
+      "comment_count": 74,
+      "posted_at": "2026-10-01T12:31:40+00:00",
+      "comments": [
+        {
+          "id": 49976302,
+          "author": "gadders",
+          "text": "My mum was deaf (totally in one ear, hearing aid in the other), and sadly she died in the late 80s.\nI would have loved for her to have one of these. A playmate of my daughter had one and it was amazing."
+        },
+        {
+          "id": 49965464,
+          "author": "janeerie",
+          "text": "There's a good thread on Reddit from a recipient of this implant talking about his experience:\nhttps://www.reddit.com/r/Cochlearimplants/comments/1wu4zjz/t...\nIn related news, 2 companies have begun human trials on genetic therapy for the most common cause of hearing loss (GJB2). I'm sure cochlear implant companies are a bit nervous about this development!"
+        },
+        {
+          "id": 49963193,
+          "author": "weinzierl",
+          "text": "When I first heard about Cochlear Implants I thought this is magic. That we can replace a part of the body that does some calculation mechanically with a real time computer simulation of it blew my mind.\nNowadays these implants must be quite common. At least I encounter people wearing ones regularly. If their life can get more convenient with an implantable version this is fantastic news."
+        },
+        {
+          "id": 49964860,
+          "author": "Semkas",
+          "text": "This probably sounds really obvious, but I underestimated how isolating even slight deafness can be.\nHave a really nice chatty senior (70s) at my volunteering job who was very jovial with everyone, always cheered me up because I worry about the amount elder-loneliness in my town sometimes. He lost some of his hearing over the years, and even with decent hearing aids and people taking his hearing into account he participates much less in conversation during our breaks."
+        },
+        {
+          "id": 49975166,
+          "author": "ivell",
+          "text": "Is the battery safe to be implanted. I ask because of fire and poisoning risks"
+        },
+        {
+          "id": 49963633,
+          "author": "silver92bullet",
+          "text": "So I think thos would be something that needs to be started at a young age with lots of exposure training.  My father in law is deaf and has a cochlear implant but often removes at points because it gets overwhelming for him to hear all the noise all the time.   This seems like it would not afford him the luxury of that."
+        },
+        {
+          "id": 49962805,
+          "author": "blamestross",
+          "text": "They think the lithium ion battery inside will need to be replaced in 15 years.\nI feel like implants like this should require an open connectivity standard between the stimulator in the cochlea and the processor.\nA friend has a bone anchored hearing aid, with an osteointegrated post. The two different companies that make BAHAs use different posts. Which requires more surgery if they want to change brands. It could trivially be made compatible and swappable instead.\nThere is no vendor lock-in quite like prosthetic vendor lock-in.\nTrusting a company for 15 years to keep making a replacement product seems crazy."
+        },
+        {
+          "id": 49963264,
+          "author": "AnaSpelunker",
+          "text": "Is it viable as anything but subscription service? I mean if you want technical staff with expertise to continue working on it they need to continue getting paid. It's a gamble that your one time payment (however large) will be responsibly managed by the company owners once the flow of new clients dries up.\nAnd once you are on the hook what's stopping the company from playing some ads for users tiers platinum and lower?"
+        }
+      ],
+      "title_ja": "最初の完全に埋め込まれた人工内耳が患者に届く",
+      "summary_ja": "ディスカッションのハイライト：私の母は耳が聞こえず（片方の耳は完全に耳が聞こえ、もう片方の耳は補聴器が聞こえていました）、悲しいことに彼女は80年代後半に亡くなりました。\n私は彼女がこれらのうちの1つを持っていることを望んでいました/このインプラントのレシピエントからRedditに良いスレッドがあり、彼の経験について話しています：\nhttps://www.reddit.com/r/Cochlearimplants/comments/1wu4zjz/t...\n関連ニュースでは、2 co/初めてコクレアインプラントについて聞いたとき、これは魔法だと思いました",
+      "editor_note": "「最初の完全に埋め込まれた人工内耳が患者に届く」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49961057,
+      "title_en": "Anthropic reported diary entry to police, woman faces felony charge",
+      "url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49961057",
+      "score": 732,
+      "comment_count": 564,
+      "posted_at": "2026-10-05T05:37:40+00:00",
+      "comments": [
+        {
+          "id": 49961356,
+          "author": "socializer",
+          "text": "I have some sympathy for Anthropic here because I've seen the headlines after OpenAI failed to report a shooter in a similar situation. So from their perspective, it's damned-if-you-don't, damned-if-you-do.\nHowever, people need to get it in their heads that they're not chatting with their secret BFF, they're chatting with Big Tech. Before LLMs, Big Tech had no way to scrutinize the bulk of what was going on within their services, so you could have a secret hate diary in Google Docs. Now, everything you say or write can be automatically screened for red flags on a planetary scale, and probably will be because that's what the regulators and \"concerned citizens\" will demand. In a couple of years, you'll be biting your tongue a lot more often in private chats."
+        },
+        {
+          "id": 49972216,
+          "author": "Wowfunhappy",
+          "text": "> Florida Statute 836.10 makes it a second-degree felony to send, post, or transmit a written or electronic record threatening to kill or injure someone [...] The communication must be made in a manner in which another person may view it.\nWhich it clearly wasn't, right? I mean, okay, in this case, the message\ndid\nget reviewed by another person, but that's obviously an exceptional circumstance.\nIf I write something down on a piece of paper, and someone else goes through my garbage and finds it, is my note \"communication made in a manner in which another person may view it\"? It was clearly intended to be a private note!"
+        },
+        {
+          "id": 49969722,
+          "author": "andrewla",
+          "text": "Pool together with some friends and buy an H200 or two to run unquantized open source models with abliteration/heretic transformations.\nYou need to be able to use these models for the real world and not for some imaginary world where everything is safe and nice and happy all the time, while at the same time intensely surveilled in the name of CYA and the latest panic about whether speech THAT ISN'T EVEN BETWEEN TWO PARTIES is considered \"wrong\".\nI'm a free speech fan that acknowledges there are lots of boundaries of free speech (fraud, perjury, blackmail, defamation), but the one thing that all of the boundaries have in common is that a second party must be involved for them to make any sense at all.\nMaybe the courts will uphold this, maybe they won't, but don't take the risk!"
+        },
+        {
+          "id": 49969957,
+          "author": "gwd",
+          "text": "> Florida Statute 836.10 makes it a second-degree felony to send, post, or transmit a written or electronic record threatening to kill or injure someone, carry out a mass shooting, or commit an act of terrorism. The communication must be made in a manner in which another person may view it.\nI think Anthropic did the right thing here; but the sheriff's office are probably demonstrating why she dislikes them.  Writing a diary entry to a chatbot is clearly not how this law was intended to be used.\nEDIT: Actually, on reflection, making this report\nto the people she was upset about\nwas probably not the right call.  If they'd sent it to the FBI, there'd be a much lower chance that someone felt the need to assert their \"authority\"."
+        },
+        {
+          "id": 49968521,
+          "author": "MisterMunchkin",
+          "text": "How can you charge someone for making a threat when you only read the threat by spying on them? Surely that has to be thrown out in court? They didn’t actually send the threat to anyone, you just obtained it by spying."
+        },
+        {
+          "id": 49961423,
+          "author": "Anoian",
+          "text": "I have told llms all kinds of stories to find out what its answers would be. I always make it sound like it is the truth to make sure the AI answers in a way that it would if somebody actually said this. I also tested internal flagging systems of the ai company I work at with the most evil things a person can ever say to find out if it would flag them.\nOf course I did not mean any of that stuff, but how can you make sure a human reviewer knows you did not mean it while the llm does not know that you did not mean it.\nI guess its a miracle I am not in jail yet.\nFlagging people for anything said to an llm sounds wrong to me because an LLM is not a real person and while some people put in their internal thoughts, others just roleplay and the two are inseparable just from reading it."
+        },
+        {
+          "id": 49975573,
+          "author": "figassis",
+          "text": "It’s going to be interesting when they’re done going after the really serious crimes, like mass shootings, they’ll just lower the bar bc they will then get sued for not reporting people writing hate speech in diaries, planning to pirate music, vandalize a statue, plan a protest. The bar will keep getting lower because people have an unlimited supply of outrage and the companies that host all your thoughts is a perfect candidate to become the thought police."
+        },
+        {
+          "id": 49961537,
+          "author": "apparent",
+          "text": "I don't understand how she violated this law:\n> Heller faces a charge of making a written threat of violence under Florida law. Florida Statute 836.10 makes it a second-degree felony to send, post, or transmit a written or electronic record threatening to kill or injure someone, carry out a mass shooting, or commit an act of terrorism.\nShe didn't threaten anything, she wrote down that she was going to do it. A \"threat\" is more than a mere statement, especially when written in what is described as a \"diary\".\n> A Florida woman is facing felony charges after she used Claude as a diary and allegedly wrote that she planned to \"shoot up\" the Sheriff's office.\nObviously I don't want anyone to shoot up anything, but this seems like a weak case legally speaking."
+        }
+      ],
+      "title_ja": "Anthropicが警察に日記を提出し、女性は重罪に直面していると報告",
+      "summary_ja": "ディスカッションのハイライト：ここでは、OpenAIが同様の状況でシューティングゲームを報告しなかった後の見出しを見たので、Anthropicに同情しています/>フロリダ州法836.10は、誰かを殺したり傷つけたりする恐れのある書面または電子記録を送信、投稿、または送信することを第二級の重罪としています[...]友人と一緒にコミュニケーションを行い、H 200または2つを購入して、abliteratで量子化されていないオープンソースモデルを実行します",
+      "editor_note": "「Anthropicが警察に日記を提出し、女性は重罪に直面していると報告」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "23",
+    "started_at": "2026-10-06T18:58:09.095401+09:00",
+    "finished_at": "2026-10-06T18:59:26.359026+09:00",
+    "story_count": 30
+  }
+}
