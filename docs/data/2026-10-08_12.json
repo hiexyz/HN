@@ -1,0 +1,1505 @@
+{
+  "date": "2026-10-08T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 49996437,
+      "title_en": "Claude Haiku 5.5",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "hn_url": "https://news.ycombinator.com/item?id=49996437",
+      "score": 671,
+      "comment_count": 336,
+      "posted_at": "2026-10-07T18:01:32+00:00",
+      "comments": [
+        {
+          "id": 49997744,
+          "author": "simonw",
+          "text": "Pelicans riding bicycles for Haiku at the different thinking levels:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nLow messes up the bicycle frame, but medium/high/xhigh/max all get the bicycle frame right.\nThe max one took 5 minutes 9 seconds and cost 3.3826 cents. The cheapest one (low) cost 0.0936 cents and took 7 seconds.\nThe most recent release of my llm-anthropic plugin queries the Anthropic model listing API directly, so I didn't have to upgrade the plugin to add support for this model:\nllm install llm-anthropic -U\nllm anthropic refresh\nllm -m claude-haiku-5.5 'prompt goes here'\nEDIT: Here's the Haiku 4.5 pelican from a year ago for comparison, it was terrible:\nhttps://simonwillison.net/2025/Oct/15/claude-haiku-45/"
+        },
+        {
+          "id": 49996502,
+          "author": "minimaxir",
+          "text": "Pricing is...a bit weird.\nInput\n$0.10 / MTok for prompts up to 100,000 tokens\n$0.50 / MTok for prompts over 100,000 tokens\nOutput\n$0.50 / MTok for prompts up to 100,000 tokens\n$2.50 / MTok for prompts over 100,000 tokens\n100k tokens is an absurdly low cutoff and it is only applicable to Haiku and not Sonnet or Opus. It's a low enough cutoff that it will be quickly exceeded if you are doing anything with Agents; for typical generation or Jev-like classifiers, it's a good value and as noted in this article, that is apparently the vast majority of Haiku use.\nIn both cases, still much cheaper than Haiku 4.5's $1 input / $5 output and these prices better compete with GPT-6 Luna. ($0.10 input / $0.50 output, but with no token threshold [EDIT: the threshold for Luna is apparently 272k])"
+        },
+        {
+          "id": 49996757,
+          "author": "charlesabarnes",
+          "text": "> Second, this week, we’ll roll out a new monthly API credit to all Max and Team subscribers for use on the Claude Platform. Max 5x users will get $100 in credits per month, Max 20x users will get $200, and Team subscribers will receive up to $500, pooled across their users\nThis is a very big benefit for me. I can now ship actual ai enhanced features behind my subscription without paying extra or fully relying on on-device models.   I do worry that this is to soften the blow for user-unfriendly changes"
+        },
+        {
+          "id": 50000946,
+          "author": "jschveibinz",
+          "text": "Some attempts to benchmark and compare LLM's:\nhttps://artificialanalysis.ai/\nhttps://benchlm.ai/\nhttps://tokenscost.com\nhttps://www.vellum.ai/llm-leaderboard\nAre there any projects out there for doing something similar?"
+        },
+        {
+          "id": 49999726,
+          "author": "chriddyp",
+          "text": "Ran our DataAnalyticsBench benchmark on it:\nhttps://plotly.com/blog/claude-haiku-5-5-plotly-data-analyti...\n9x cheaper than Haiku 4.5 and 2 letter grades better. It's also now the fastest model (using the default speeds, not trying any of the other models \"Fast\" mode) to complete the exam.\nSimilar ballpark to Luna in price, cost, and accuracy. These are very cheap models: $0.38 to answer 40 in-depth data analytics questions (compared to $15 for Opus 5.5 or $20 for Astra).\nOverall very good at data analysis - handling all of the straightforward data analytics questions correctly. It fell short answering some of the questions that required some deeper statistical analysis like looking into other variables. In other words, it's not as persistent as other models in its analysis, which I think we'd expect from how they're positioning the model.\nCompared to OpenAI: GPT-6 Luna did a bit better and was about 30% the cost of Haiku 5.5. GPT-6.1 Sol got all answers correct, but was 10x more expensive."
+        },
+        {
+          "id": 49997716,
+          "author": "simonw",
+          "text": "My complaint about Haiku 4.5 was that it was 10x the price of GPT-6 Luna.\n> Claude Haiku 5.5 is priced 90% lower than Claude Haiku 4.5 for requests up to 100,000 tokens, and 50% lower for requests over 100,000 tokens\nHaiku and Luna now have the exact same price up to 100,000 tokens. Luna is now cheaper for anything after 100,000 tokens, even after Luna's own price increases at 270,000 it's still less than Haiku.\nSo it sounds like they've directly addressed that problem. Their self-reported benchmarks are all higher than Luna too."
+        },
+        {
+          "id": 49996898,
+          "author": "jjcm",
+          "text": "Ran image -> html tests for this. I was curious if this smaller model was good enough for complex UI. It was not.\nHaiku 5.5:\nhttps://html.non.io/lcars-haiku-5.5/\nOpus 5.5 for comparison:\nhttps://html.non.io/lcars-opus-5.5\nDesigns it was building from:\nhttps://diffui.ai/app/canvas/5093e689-1e74-4f26-b632-2a4500f...\nOne interesting thing is it took a look at the job at hand, and immediately delegated it to Opus 5.5. It at least knows what it isn't good at. Very fast though, and likely best used for small subagent tasks / tightly scoped work."
+        },
+        {
+          "id": 49996607,
+          "author": "seaal",
+          "text": "The monthly API credits for Max plan seems fantastic, especially considering Haiku pricing. Being able to actually use my Claude plan for other harnesses and use-cases on top of regular CC usage is everything I wanted.\nAnthropic has really been doing all the right things in the past few weeks, while OpenAI continues to fumble the bag."
+        }
+      ],
+      "title_ja": "クロード・ハイク5.5",
+      "summary_ja": "ディスカッションハイライト：さまざまな思考レベルで俳句のために自転車に乗るペリカン：\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\n低いと自転車のフレームが乱れますが、中/高/価格設定は...少し奇妙です。\n入力\n最大100,000トークンのプロンプトのための$ 0.10/MTok\n10万トークン以上のプロンプトの場合は$ 0.50/MTok\n出力\n最大100,000トークンのプロンプトのための$ 0.50/MTok\n$ 2.5 />第2に、今週は新しい毎月のAPIクレジットをロールアウトします",
+      "editor_note": "「クロード・ハイク5.5」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 49998895,
+      "title_en": "Margaret Hamilton has died",
+      "url": "https://news.mit.edu/2026/margaret-hamilton-computing-pioneer-dies-1007",
+      "hn_url": "https://news.ycombinator.com/item?id=49998895",
+      "score": 684,
+      "comment_count": 79,
+      "posted_at": "2026-10-07T21:16:18+00:00",
+      "comments": [
+        {
+          "id": 50000950,
+          "author": "leelasankhar",
+          "text": "I feel very sad. I always wished I could meet her and have a little talk. She'll be forever remembered thanks to that coolest badass picture of her. Om shanti!"
+        },
+        {
+          "id": 49999961,
+          "author": "diskzero",
+          "text": "I was able to meet her, and others who worked at the MIT Instrumentation/Draper Lab, as a start-up I was with received funding from a VC firm founded by other Draper Lab members from the Apollo era. I was totally out of my league talking with them. This was thirty years ago and I remember her talking about formalized control systems. It was fascinating but went totally over my head. My startup was a fairly silly multimedia CD-ROM company and I was just happy to be in the room."
+        },
+        {
+          "id": 49999090,
+          "author": "WarOnPrivacy",
+          "text": "Dang. She was a remarkable stand-out, in fields full of remarkable people.\nThe pic here is often people's first intro to her\nhttps://news.mit.edu/2016/scene-at-mit-margaret-hamilton-apo..."
+        },
+        {
+          "id": 49999810,
+          "author": "muunbo",
+          "text": "Margaret Hamilton actually coined the term \"software engineer\" IIRC. Rest in peace"
+        },
+        {
+          "id": 49999628,
+          "author": "EvanAnderson",
+          "text": "There is a very nice oral history the Computer History Museum produced:\nhttps://computerhistory.org/blog/margaret-hamilton-in-her-ow...\nIn Levy's \"Hackers\" there is a story about late night hacking on the TX-0 that fouled-up some weather simulation code an academic user of the computer was running. After hearing this oral history I believe Margaret was the programmer and the code was for Prof. Edward Lorenz."
+        },
+        {
+          "id": 50000740,
+          "author": "marcelo-earth",
+          "text": "RIP. I'll always remember her iconic pic with the stack of printed code"
+        },
+        {
+          "id": 50000434,
+          "author": "dzonga",
+          "text": "her pic with the stack of printed code will always be iconic.\nrest well pioneer."
+        },
+        {
+          "id": 50000476,
+          "author": "Kim_Bruning",
+          "text": "timmg's video explaining how the AGC worked is one of the better ones I've seen, if you actually want to understand in detail."
+        }
+      ],
+      "title_ja": "マーガレット・ハミルトン死去",
+      "summary_ja": "ディスカッションのハイライト：私は非常に悲しい/MIT計測/ドレイパーラボで働いていた人たちと会うことができました。私はスタートアップとして、他のドレイパーラボメンバーが設立したベンチャーキャピタルから資金提供を受けました。",
+      "editor_note": "「マーガレット・ハミルトン死去」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50000676,
+      "title_en": "Rust Port of TypeScript (Tsc)",
+      "url": "https://github.com/pingdotgg/ts-rust",
+      "hn_url": "https://news.ycombinator.com/item?id=50000676",
+      "score": 22,
+      "comment_count": 13,
+      "posted_at": "2026-10-08T00:46:00+00:00",
+      "comments": [
+        {
+          "id": 50000877,
+          "author": "DanRosenwasser",
+          "text": "TypeScript team member here - this is impressive work, and it's honestly crazy that 3 of these ports have popped up in the last week! I'm currently AFK but we're hoping to learn more and we'll have more to say on this soon."
+        },
+        {
+          "id": 50000974,
+          "author": "bitpush",
+          "text": "Is this going to be a serious project? No.\nIs this going to be maintained? Nope\nNevertheless this and many others are showing what is possible. Much akin to how someone ports doom onto a microwave.\nWe'll look back at this time with great fondness when we collectively discovered a whole new gear."
+        },
+        {
+          "id": 50000905,
+          "author": "elcritch",
+          "text": "I'm curious how much unsafe this uses? Are these ports making idiomatic code or just using unsafe all over. There doesn't seem to be anything in the readme."
+        },
+        {
+          "id": 50000859,
+          "author": "fwlr",
+          "text": "# “The Slop Line\"\nEverything below this was written by my LLMs, not me.\nI really appreciate this convention, thank you."
+        }
+      ],
+      "title_ja": "TypeScript (Tsc)のRustポート",
+      "summary_ja": "ディスカッションのハイライト：ここにいるTypeScriptチームメンバー-これは印象的な仕事です。先週、これらのポートのうち3つがポップアップしたのは正直クレイジーです！ 私は現在AFKですが、moを学びたいと思っています/これは深刻なプロジェクトになりますか？いいえ。\nこれは維持されますか？いいえ\nそれにもかかわらず、これと他の多くの人は何が可能であるかを示しています/私はこれがどれほど安全ではないか興味がありますか？ これらのポートは慣用コードを作成していますか、それとも単に安全でない",
+      "editor_note": "「TypeScript (Tsc)のRustポート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 49998066,
+      "title_en": "'Jonathan' is the oldest land animal on Earth",
+      "url": "https://www.404media.co/oldest-living-land-animal-jonathan-the-tortoise/",
+      "hn_url": "https://news.ycombinator.com/item?id=49998066",
+      "score": 46,
+      "comment_count": 14,
+      "posted_at": "2026-10-07T20:01:37+00:00",
+      "comments": [
+        {
+          "id": 50000383,
+          "author": "scun",
+          "text": "> The results revealed that Jonathan has “unique gene variants in most aging pathways” including DNA repair, insulin regulation, mitochondrial function, and “low entropy” methylation, reports the study.\nmin-maxing longevity vs speed and charisma"
+        },
+        {
+          "id": 50000889,
+          "author": "antonvs",
+          "text": "> Stephen Clark, an aging researcher\nShouldn’t they find a younger researcher?"
+        },
+        {
+          "id": 50000463,
+          "author": "samudrijan",
+          "text": "In the Leftovers people think living in Jarden is why they were left. Maybe St Helena is the new Jarden."
+        },
+        {
+          "id": 50000762,
+          "author": "verdverm",
+          "text": "he's so old, he's completely lost the hare /j"
+        },
+        {
+          "id": 50000509,
+          "author": "dyauspitr",
+          "text": "Interesting so the oldest land animal hasn’t cracked 200 but stuff that lives in the sea can go for five or 600 years or more."
+        },
+        {
+          "id": 50000633,
+          "author": "repeekad",
+          "text": "> the samples were delivered from Saint Helena to Florida by the U.S. Space Force.\n...why space force?"
+        },
+        {
+          "id": 50000419,
+          "author": "pil0u",
+          "text": "Can't we just appreciate that exceptionality as it is?\nSomehow, I wish we would leave that creature alone. For once."
+        }
+      ],
+      "title_ja": "「ジョナサン」は地球上で最も古い陸上動物です",
+      "summary_ja": "ディスカッションハイライト：>結果は、ジョナサンがDNA修復、インスリン調節、ミトコンドリア機能、および「低エントロピー」メチル化を含む「ほとんどの老化経路で独自の遺伝子変異」を有することを明らかにしました/>老化研究者スティーブン・クラーク\n若い研究者を探すべきではないでしょうか？ /The Leftoversでは、人々はヤーデンに住んでいることが彼らが残された理由だと考えています",
+      "editor_note": "「「ジョナサン」は地球上で最も古い陸上動物です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 49996425,
+      "title_en": "GPT‑6 and Intelligent UI for everyone",
+      "url": "https://openai.com/index/gpt-6-for-everyone/",
+      "hn_url": "https://news.ycombinator.com/item?id=49996425",
+      "score": 492,
+      "comment_count": 259,
+      "posted_at": "2026-10-07T18:00:58+00:00",
+      "comments": [
+        {
+          "id": 49997016,
+          "author": "revolvingthrow",
+          "text": "I find the Sunday roast comparison of 5.6 vs 6 very interesting. I have no doubt most people will prefer 6, yet I am almost repulsed by all the images, so much needless whitespace, checklist and so on. Feels like I'm being condescended to and treated like a child.\nGiven that OpenAI is making noises about merging work with chat (a horrible idea imo), and Work is very similar to Codex... I dearly hope things like these won't have any meaningful cross-polination into the actual work tools.\nSeeing that the chat is based on 6.0 and not 6.1 is disappointing. The \"Visual and interactive explanations\" seems genuinely useful, but 6.1 is just\nso\nmuch better. I wouldn't truly trust the 6.1 with the explanations, but I'd trust them a fair bit more than 6.0. I understand that compute isn't infinite, but tons of people only interact with the chat and having your \"things-explainer\" be as good as it can be is important when people increasingly treat AI models as the source of truth, or even use them for academic learning and whatnot.\nStill, the models will improve, so the visual explainer seems pretty good as an idea / mvp."
+        },
+        {
+          "id": 49996963,
+          "author": "mortenjorck",
+          "text": "Of everything that could be automated, Bartosz Ciechanowski really was the last on my list.\nIn all seriousness, his lovingly and expertly crafted explainers are still going to age like a handcrafted heirloom clock in a world of plastic-clad quartz movements. But it’s absolutely incredible that we are now in an age where a computer can manufacture a serviceable interactive explainer on whatever niche topic you desire."
+        },
+        {
+          "id": 49999700,
+          "author": "ankit_mishra",
+          "text": "https://cdn.openai.com/pdf/gpt-6-october.pdf\nSystem card linked in the blog post.\n> regression on the extremism vision evaluation.\n> Relative to their respective GPT-5.6 counterparts, GPT-6 Sol (October) shows a\nstatistically significant regression\non standard\nself-harm\n, while GPT-6 Luna (October) shows statistically significant regressions on standard\nself-harm, gore, and sexual content\n> \"GPT-6 Sol (October) and GPT-6 Luna (October) show an improvement on helpfulness on legitimate requests relative to prior models, though it scores\nlower on some safety requests\n\"\nConcerning how there's significant\nregressions\non so many critical benchmarks, but it is\nnewer\nand creates UI, so must be good.\nIt’s crazy that a company can document these safety drops in a PDF, ship the model anyway, and focus the announcement entire on shiny new UI"
+        },
+        {
+          "id": 49996883,
+          "author": "xpct",
+          "text": "I've had the most success with GPT explaining things to me by making it take a few sentences at a time back and forth, instead of reading full write-ups of whatever I asked. It also often poisons the conversation if it misunderstood some part of the question, and I can lead it better by continuously questioning its statements. It's also more engaging that way.\nI've been learning music lately and it kept re-pasting the same one chord visualization throughout many conversations, almost randomly and often barely related to the question. So I at least hope this won't be as aggressive so I can prompt it away!"
+        },
+        {
+          "id": 49997570,
+          "author": "virtuosarmo",
+          "text": "This seems like a way for them to surface ads in ChatGPT. They just came out with visual ad format option for advertisers a couple of days ago:\nhttps://openai.com/index/new-chatgpt-ads-format-and-measurem..."
+        },
+        {
+          "id": 49997229,
+          "author": "giancarlostoro",
+          "text": "I'm not a fan of OpenAI / Sam Altman, but I love their blog posts. The team and whoever decides how to do these presentations, is on point. The only other company that has amazing release pages like this is Apple, I think I remember hearing that they probably hired someone from apple who used to do release blog posts there too.\nWhat's funny about \"Intelligent UI\" is I said like 2 or more years ago, that these AI companies need to start thinking outside of these basic chat UIs, they do some things here and there, but its really depressing how little they do to innovate in these spaces. Same with the coding harnesses, the UI for all these things could be drastically superior."
+        },
+        {
+          "id": 49997066,
+          "author": "jjcm",
+          "text": "I've been calling this \"disposable UI\" or \"paper plate UI\", eg something meant to be used once. One thing I'll be curious about is overzealousness to produce this, when sometimes what you want is just a simple response. Overall though I'm a big fan of it, if it can be provided fast enough. I'd be curious on how much impact it has on latency of a response."
+        },
+        {
+          "id": 49997262,
+          "author": "xnickb",
+          "text": "Funny to see a blog post about UI from one of the most funded tech companies in the world, yet the player has about the worst UI possible:\n- Audio volume has 2 levels: on and off\n- Play button worked exactly once for me: it played and looped the video. Couldn't be stopped afterwards.\n- The video progress bar has no visual indication of where it starts and where it ends..\nIs this what Phind died for?"
+        }
+      ],
+      "title_ja": "すべての人のためのGPT ‑ 6とインテリジェントUI",
+      "summary_ja": "ディスカッションのハイライト： 5.6と6の日曜日のローストの比較は非常に興味深いです/自動化できるすべてのものの中で、Bartosz Ciechanowskiは本当に私のリストの最後でした。\n真剣に、彼の愛情深く巧みに作られた説明者はまだ老化しています/https://cdn.openai.com/pdf/gpt-6-october.pdf\nブログ投稿にリンクされているシステムカード。\n>過激主義ビジョン評価の回帰。\n>それぞれのGPT-5.6カウンターに対して",
+      "editor_note": "「すべての人のためのGPT ‑ 6とインテリジェントUI」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 49994443,
+      "title_en": "Show HN: Bigwords.page – Turn any screen into a sign. The URL is the app",
+      "url": "https://bigwords.page/",
+      "hn_url": "https://news.ycombinator.com/item?id=49994443",
+      "score": 356,
+      "comment_count": 110,
+      "posted_at": "2026-10-07T15:44:21+00:00",
+      "comments": [
+        {
+          "id": 49994461,
+          "author": "SpeakingOfBrad",
+          "text": "I had the idea for BIGWORDS.PAGE when I wanted to display a message on a tablet that I had remote management control over, but no physical access. Configuring it to be a kiosk browser is easy, but how do I get the browser to show my message? So I made the URL be the message.\nIt uses a URL fragment to configure the message. Browsers don't send URL fragments to the server, so I never see your message. There's no backend, and no storage.\nAll parameters are documented, so generating a message link is easy. There's also a built-in editor to make it extra easy.\nhttps://bigwords.page/#Hello,%20HN!&bg=ff6600&fg=000000&font...\nThere are a few extra features like slides, animations, and countdowns and timers. QR codes too. Not too fancy, but hopefully enough to be useful.\nI know the uses for this are pretty niche. But it may be one of those things that you keep as a nugget in your brain, a tool in your back pocket. Not something you use often, but when you do it makes things just a little bit easier.\nIt's open source (MIT), and self-hostable if that's your thing.\nLet me know what you think."
+        },
+        {
+          "id": 49997519,
+          "author": "pvillano",
+          "text": "https://bigwords.page/#smol!%20!%20!%20!%20!%20!%20!%20!%20!...\n!\nYou seem to have the same bug I had when I first implemented\nhttps://screaming.saej.in/\nIn Firefox, scrollWidth includes spaces that extend into the margin, so it's possible for text to fit perfectly on the screen, but scrollWidth > clientWidth. Fix here\nhttps://saej.in/posts/screaming/"
+        },
+        {
+          "id": 49996217,
+          "author": "paulsmith",
+          "text": "Who remembers\nhttps://bigassmessage.com/"
+        },
+        {
+          "id": 49996012,
+          "author": "ceejayoz",
+          "text": "Hook it up to voice control so I can put an iPad in the back window of the car and tell other drivers… things."
+        },
+        {
+          "id": 49997258,
+          "author": "KingMachiavelli",
+          "text": "Completely different architecture, but would be amazing if another device could control what message (or photo, embedded video) is displayed.\nThere's a huge industry around digital signage and I've always felt it could be replaced with a simple Chromium kiosk + auto-refreshed webpage content. There's really no need for expensive HDMI connections or custom video streams when we already have browsers."
+        },
+        {
+          "id": 49999387,
+          "author": "isaac-harvey",
+          "text": "This sort of incredibly simple, crisp idea is what changes the world. Great job!"
+        },
+        {
+          "id": 49998517,
+          "author": "antgiant",
+          "text": "I did something similar years ago but for live satellite imagery\nhttps://earth.wooleys.us\n. I wanted to show my kids hurricane/typhoon imagery live. Worked great to throw up on a chromecast and let it run."
+        },
+        {
+          "id": 49999471,
+          "author": "ShinyLeftPad",
+          "text": "Cool project and nicely done but \"the URL is the app\" is just meaningless and it sounds exactly like what an llm would drop in every other paragraph."
+        }
+      ],
+      "title_ja": "HNを表示： Bigwords.page –任意の画面をサインに変えます。URLはアプリです",
+      "summary_ja": "ディスカッションのハイライト：私がBIGWORDS.PAGEのアイデアを思いついたのは、リモート管理で制御していたが物理的なアクセスがないタブレットにメッセージを表示したいと思ったときでした/https://bigwords.page/#smol ！% 20 !% 20 !% 20 !% 20 !% 20!% 20 !% 20 !% 20 !% 20 !…\n!\n最初に実装したときと同じバグがあるようです\nhttps://screaming.saej.in/\nFirefoxでは、scrollWidth in/Who remembers\nhttps://bigassmessage.com/",
+      "editor_note": "「HNを表示： Bigwords.page –任意の画面をサインに変えます。URLはアプリです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 49969073,
+      "title_en": "How did Rosalind Franklin miss the helix in her iconic DNA image? She didn't",
+      "url": "https://www.science.org/content/article/how-did-rosalind-franklin-miss-helix-her-iconic-dna-image-she-didn-t",
+      "hn_url": "https://news.ycombinator.com/item?id=49969073",
+      "score": 52,
+      "comment_count": 32,
+      "posted_at": "2026-10-05T19:07:07+00:00",
+      "comments": [
+        {
+          "id": 49969695,
+          "author": "dekhn",
+          "text": "If I read Franklin's notes this establishes that she did in fact conceive of a double helix and base complementarity in the center (I can't see if she also recognized it was antiparallel).\nThat's the first actual evidence I've seen (I am a DNA nerd and have been trying to understand what her contribution to the intellectual discovery of DNA's double-helix antiparalel).\nI would need to go back to Judson's book (Eighth Day of Creation) and see if he actually missed this."
+        },
+        {
+          "id": 49999568,
+          "author": "lacker",
+          "text": "I think this is a better article on the topic:\nhttps://www.nature.com/articles/d41586-023-01313-5\nIt seems like there are several different parts to the discovery of the \"structure of DNA\" and different people contributed.\n1. DNA is helical\n2. DNA is a double helix\n3. The ACGT copying mechanism\nPart 1 was Franklin and Wilkins. Part 3 was Watson and Crick. Part 2 is the part under debate, to what degree was the double helix clear from just Franklin's imaging?\nBut really, how much does it matter? It seems like the four of them each contributed a lot. The Nobel prize only went to the other three, in large part because Franklin died before it was given out."
+        },
+        {
+          "id": 49999072,
+          "author": "bondarchuk",
+          "text": "So did Franklin provably realize the double-helix structure of DNA first or not? A lot of beating about the bush here but the article stops\njust\nshort of actually explicitly making the claim it's working so hard to imply, AFAICT...\n(edit: should note the HN submission title (at present \"Despite what Watson said, Rosalind Franklin understood structure of DNA first\") does not actually occur in TFA)"
+        },
+        {
+          "id": 49969720,
+          "author": "dnautics",
+          "text": "what?  she was doing a form of crystallography that ONLY makes sense if it's a helix?  Like, any time you are doing fiber diffraction it's pretty much \"a helix\".  Who claimed she didn't realize it was a helix?  I thought the claim was that she didn't recognize the significance of the helical parameters, which of course she couldn't, she wasn't a chemist and didn't have a model in mind with knowable parameters.\nShe might have measured those parameters, but she still didn't\nknow what she had\n(as evidenced by how she subsequently spent a ton of time on Z-dna)"
+        },
+        {
+          "id": 49969703,
+          "author": "philipallstar",
+          "text": "> Science historian Alistair Sponsel of the Science History Institute and crystallographer Brian Sutton of KCL argue Franklin knew the earlier photo had revealed a helix—the epiphany Watson claimed for himself—and that is precisely why she made a second, more refined version, photograph 51.\nIt was Watson and Crick who discovered the double helix, even if Franklin did write something down about a single helix from a previous photo that they didn't read."
+        },
+        {
+          "id": 50000412,
+          "author": "tyjen",
+          "text": "dupe, see older post here:\nhttps://news.ycombinator.com/item?id=49998006"
+        },
+        {
+          "id": 49969743,
+          "author": "unddoch",
+          "text": "Related:\nhttps://www.nature.com/articles/d41586-023-01313-5"
+        },
+        {
+          "id": 49999767,
+          "author": "hungryhobbit",
+          "text": "Why does attributing any bit of mankind's progress to a specific individual matter?  It matters because history is really boring if it's just about groups: we humans love individual human stories.\nBut, when some male jerk tries to claim they invented X or discovered X, but really a woman did so (something that is not unique to here:\nhttps://en.wikipedia.org/wiki/Matilda_effect\n) it's good for people to correct the mistake and properly attribute the person who really made the discovery/invention."
+        }
+      ],
+      "title_ja": "ロザリンド・フランクリンは、彼女の象徴的なDNA画像のヘリックスをどのように見逃しましたか？彼女はそうではありませんでした",
+      "summary_ja": "ディスカッションのハイライト：フランクリンのノートを読むと、これは彼女が実際に中心に二重らせんと塩基の相補性を考えていたことを立証しています（彼女がそれがantipaであることも認識していたかどうかはわかりません/私はこれがこのトピックに関するより良い記事だと思います：\nhttps://www.nature.com/articles/d41586-023-01313-5\n「構造」の発見にはいくつかの異なる部分があるようです/フランクリンは二重らせん構造を証明可能に実現しました",
+      "editor_note": "「ロザリンド・フランクリンは、彼女の象徴的なDNA画像のヘリックスをどのように見逃しましたか？彼女はそうではありませんでした」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 49996259,
+      "title_en": "Docker Agent",
+      "url": "https://github.com/docker/docker-agent",
+      "hn_url": "https://news.ycombinator.com/item?id=49996259",
+      "score": 178,
+      "comment_count": 82,
+      "posted_at": "2026-10-07T17:48:38+00:00",
+      "comments": [
+        {
+          "id": 49999229,
+          "author": "Olscore",
+          "text": "Interesting seeing other people's approaches to orchestration.\nI've been working on Pullboard and just open sourced it:\nhttps://github.com/pullboard-dev/pullboard\nTo me, orchestration is not really the core problem. The bigger challenge is handling agent coherency over long periods of time, (drift) so my solution is a living forum-like system where agents shout to one another, document work in items, and follow doctrine handed down by the developer and work against a known specification that's checkable. I have used this workflow in several large projects that MUST be correct, and it works for me. Currently cleaning it up for other users."
+        },
+        {
+          "id": 50000373,
+          "author": "woah",
+          "text": "> docker-agent lets you create and run intelligent AI agents that collaborate to solve complex problems — no code required.\nHow is \"no code required\" a selling point when we all have agents that can almost instantly puke out all the mostly-correct code you could want?"
+        },
+        {
+          "id": 49996927,
+          "author": "blakeashleyjr",
+          "text": "While I love new open source dev (especially in Go!), agent harnesses are turning into JS frameworks from yesteryear.\nAll the cool kids have one!"
+        },
+        {
+          "id": 49997009,
+          "author": "McScrooge",
+          "text": "https://docker.github.io/docker-agent/configuration/sandbox/\nIf, like me, you couldn't find any security-related info on the linked page."
+        },
+        {
+          "id": 49999110,
+          "author": "blutoot",
+          "text": "I'm honestly getting lost between what primary usecase/workflow each of these is intended for:\n1.\nhttps://kagent.dev/\n2.\nhttps://github.com/kubernetes-sigs/agent-sandbox\n3.\nhttps://github.com/docker/docker-agent\n(this project)\n4.\nhttps://docs.langchain.com/oss/python/deepagents/sandboxes#s...\n5.\nhttps://www.cloudflare.com/products/sandboxes/"
+        },
+        {
+          "id": 49999046,
+          "author": "rodolphoarruda",
+          "text": "Last year (2025), I lost count of how many times I tried using an LLM to set up Docker. It was still the era of prompting, then copy-pasting the response and seeing if it worked... and it almost never did. It’s great to see this new Docker agent. For me, it would be even more appealing to see an agent and a model specialized in Docker working together, capable of proposing advanced configurations and getting them working on the first try."
+        },
+        {
+          "id": 50000492,
+          "author": "kingcauchy",
+          "text": "I'm curious about these agent harness frameworks that release their harness before they've released a good agent on top. It's a little cart before the horse."
+        },
+        {
+          "id": 50000435,
+          "author": "pomsense",
+          "text": "The models are converging (directionally), and the rest of us, including all these agent harnesses, are trying to figure out how to stay relevant"
+        }
+      ],
+      "title_ja": "Docker Agent",
+      "summary_ja": "ディスカッションのハイライト：他の人のオーケストレーションへのアプローチを見るのは興味深い。\n私はプルボードに取り組んでいて、ちょうどそれをオープンソース化しました：\nhttps://github.com/pullboard-dev/pullboard\n私にとって、orchestrat /> docker — agentを使用すると、複雑な問題を解決するためにコラボレーションするインテリジェントなAIエージェントを作成して実行できます。コードは必要ありません。\n「コード不要」がどのようにセールスポイントであるか/私は新しいオープンソース開発が大好きですが（特にGo !）、エージェントh",
+      "editor_note": "「Docker Agent」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 9,
+      "id": 49997073,
+      "title_en": "Push ifs up and fors down: The idiom, its algebra, and its limits",
+      "url": "https://debasishg.github.io/blog/push-ifs-up-fors-down/",
+      "hn_url": "https://news.ycombinator.com/item?id=49997073",
+      "score": 105,
+      "comment_count": 51,
+      "posted_at": "2026-10-07T18:43:18+00:00",
+      "comments": [
+        {
+          "id": 50000064,
+          "author": "hatthew",
+          "text": "Are we talking about this from the perspective of CS (algorithm optimization) or SE (code design)?\nFrom an SE perspective, make a flatmap function that explicitly handles Collection<Optional<Walrus>>. The implementation doesn't matter. If your language/framework already has a compatible flatmap function, make a single frobnicate(Optional<Walrus>) function that returns whatever value is necessary for flatmap(frobnicate) to discard them.\nFrom a CS perspective, doing a filter from Collection<Optional<Walrus>> to Collection<Walrus> is probably a bad idea. If your collection is small, nothing matters. If your collection is large, you probably don't want to spend time making a new copy of it. If your filter just returns a view rather than a hard copy, then there is no optimization benefit and you should just do whatever makes the most sense from an SE perspective. If frobnicate is cheap then you're paying the branch prediction failure tax anyway regardless of when you frobnicate, and if frobnicate is more expensive then your should probably parallelize and have each thread handle unpacking the Optional. Either way, you probably don't want to spend time making a copy.\nThese are all genera"
+        },
+        {
+          "id": 49998049,
+          "author": "socializer",
+          "text": "I am continually impressed by the ability of LLMs to take trivial ideas and turn them into lengthy and obtuse blog posts with unnecessary analogies."
+        },
+        {
+          "id": 50000082,
+          "author": "ivanjermakov",
+          "text": "Save some time and read the original post instead:\nhttps://matklad.github.io/2023/11/15/push-ifs-up-and-fors-do..."
+        },
+        {
+          "id": 50000130,
+          "author": "rtpg",
+          "text": "I've always believed the opposite: get conditionals deep in your code so that the higher level control flow is regular.\nBut I suppose my greater philosophy for making code that avoids bugs is that you have a couple things that are done when dealing with data:\n- distribution\n- deciding\nAnd you want to avoid distribution and deciding being mixed together in the same spot.\n\"Distribution\" can be for loops but also breaking up some data based on some key into N bistinct buckets\n\"Deciding\" is where you're looking at the data more closely to make some decision (like \"is this a big customer or a small customer\")\nDistribution often involves decision making, but if you mix them all in one spot you can obfuscate your decision points. Splitting it up just makes things \"obviously\" right or \"obviously\" wrong. Perf stuff is another discussion of course, but in practice most things are not at a scale where it matters.\nby_category = defaultdict(list)\nfor d in data:\nby_category[category(d)].append(d)\nfor category, per_category_data in by_category.items():\ndo_thing(category, per_category_data)\nI really value code patterns that make mistakes obvious, or at least makes it harder to stuff a mistake in s"
+        },
+        {
+          "id": 49999467,
+          "author": "gorgoiler",
+          "text": "Erm, no?  You write\nf(w: Walrus) -> Walrus\nand then let the caller handle\nWalrus|None\nand\nIterable[Walrus]\nhowever they wish!\nAnd if someone decides the codebase needs an abstraction over (and therefore specific functions to handle)\nIterable[Walrus|None]\nthen you check the weather and suggest they take a break and go for a stroll.  (You check the weather to see if you should lend them your brolly.)\nWhat am I missing?"
+        },
+        {
+          "id": 49998629,
+          "author": "ninalanyon",
+          "text": "I've done this for years.  Not every time of course but where it makes the code easier to understand and maintain.\nSpeed was almost never the reason."
+        },
+        {
+          "id": 49998443,
+          "author": "wallstop",
+          "text": "What is missing here is any benchmarks backing up this argument for code structure.\nOf note, as of C#9 (and maybe prior), the dotnet runtime does this automatically whenever it is deemed safe.\nhttps://devblogs.microsoft.com/dotnet/performance-improvemen...\nThe same technique is applied as an optimization, when deemed safe, in all current gen c compilers (gcc, llvm, etc).\nI'm very confused why neither measurements nor references to when this is done automatically in most modern languages is included in the article."
+        },
+        {
+          "id": 49999040,
+          "author": "dieselgate",
+          "text": "Didn’t see it mentioned in the article but isn’t leading with if-statement called a “guard clause”.\nI like that pattern but it’s just general best practice I thought."
+        }
+      ],
+      "title_ja": "Ifsを上下に押し上げる：イディオム、その代数、およびその限界",
+      "summary_ja": "ディスカッションハイライト： CS （アルゴリズム最適化）またはSE （コード設計）の観点からこれについて話していますか？\nSEの観点から、Collectioを明示的に扱うフラットマップ関数を作成する/LLMが些細なアイデアを取り入れ、不必要な類推を伴う長くて鈍いブログ投稿に変換する能力に常に感銘を受けています。 /時間を節約して、代わりに元の投稿を読んでください。\nhttps://matklad.github.io/2023/11/15/push-",
+      "editor_note": "「Ifsを上下に押し上げる：イディオム、その代数、およびその限界」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 10,
+      "id": 49991227,
+      "title_en": "Shipping JPEG XL in Chrome",
+      "url": "https://developer.chrome.com/blog/jpeg-xl-in-chrome",
+      "hn_url": "https://news.ycombinator.com/item?id=49991227",
+      "score": 482,
+      "comment_count": 311,
+      "posted_at": "2026-10-07T11:25:02+00:00",
+      "comments": [
+        {
+          "id": 49993079,
+          "author": "jug",
+          "text": "And soon Firefox will include it in Stable. During October it will go from Safari only to majority coverage. Eventful month!\nWhile AVIF may have a slight edge in some cases like in fairly lossy compression, you won't really go _wrong_ with JPEG XL (unless strongly CPU constrained) and I think the strength of the format is its extreme versatility as a \"be all end all image format\" for some time where comparative performance depending on functionality ranges from respectable to excellent. It can work as a replacement for AVIF, PNG, JPEG, WebP, even certain TIFF required scenarios (high bit depth, multichannel, layers) depending on use cases."
+        },
+        {
+          "id": 49991410,
+          "author": "xx_ns",
+          "text": "It's exciting to see JXL support being re-added in Chrome after being removed a while ago and them seemingly not being interested in supporting it [1].\nI think JXL is a cool image format, but was being held back by the most popular browser not supporting it, limiting its use (in the web especially) by a lot.\n[1]:\nhttps://issues.chromium.org/issues/40270698"
+        },
+        {
+          "id": 49991443,
+          "author": "swiftcoder",
+          "text": "See previous HN discussions for context:\nGoogle set to deprecate JPEG XL support in Chrome 110 -\nhttps://news.ycombinator.com/item?id=33399940\nJPEG XL support has officially been removed from Chromium -\nhttps://news.ycombinator.com/item?id=33933208\nChrome Jpegxl Issue Reopened -\nhttps://news.ycombinator.com/item?id=46033330\nThe case agains JPEG XL -\nhttps://news.ycombinator.com/item?id=49690554"
+        },
+        {
+          "id": 49991860,
+          "author": "revolvingthrow",
+          "text": "Glad to see it happen. I'd prefer it there was just one format rather than both jxl and avif, but at least it's the final nail in the coffin of webp which seems to have accomplished little but annoy people for not much gain.\nThe wider ecosystem support is still far from commonplace, but it is slowly changing. iOS 18 wouldn't work with .jxl in Photos, but 27 does. Similarly, quick look and preview works fine on MacOS 27, thumbnails show up properly etc. I also found no issues with .jxl on linux, and image editors are slowly adding support as well.\nPlain old jpg will still be everywhere for the next decade, but I'm glad that we finally have superior options with no real downsides, and without all the patent bullshit to boot."
+        },
+        {
+          "id": 49991527,
+          "author": "kelseydh",
+          "text": "Every time a new image format comes out, I think about the compatibility crisis between apps.\nE.g. Telegram still doesn't have sane support for .webp, it treats them as stickers.  MacOS can take a long time to update with support for new formats.  Image viewer apps even longer, many never updating to support new formats."
+        },
+        {
+          "id": 49991617,
+          "author": "cyberrock",
+          "text": "The tortoises have somehow outrun the hare because Safari still hasn't turned on progressive loading in libjxl (which had this feature since before Safari added the feature), while FF (non Android) and Chrome shipped with it enabled. The 3 year long chess clock is now flipped."
+        },
+        {
+          "id": 50000700,
+          "author": "mgraczyk",
+          "text": "I remember in 2023 jpeg xl was dropped from Chrome for reasons I assumed at the time to be political\nThis had a cascading effect, where we immediately (within hours) dropped support for jpegxl on Pixel Camera and various other Google products"
+        },
+        {
+          "id": 49991751,
+          "author": "tepmoc",
+          "text": "One downside is that you cannot tell if format lossy or lossless by looking at its extension."
+        }
+      ],
+      "title_ja": "ChromeでJPEG XLを出荷",
+      "summary_ja": "ディスカッションのハイライト：そしてまもなくFirefoxはそれをStableに含めます/しばらく前に削除された後、JXLサポートがChromeに再度追加され、彼らがそれをサポートすることに興味がないように見えるのを見るのはエキサイティングです[1 ]。\nJXLはクールなイメージだと思います/以前のHNディスカッションのコンテキストを参照してください。\nGoogleはChrome 110でのJPEG XLサポートを非推奨にするように設定されています-\nhttps://news.ycombinator.com/item?id=33399940\nJPEG XLのサポートが正式に開始されました",
+      "editor_note": "「ChromeでJPEG XLを出荷」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49996406,
+      "title_en": "In Vienna and Beijing, the first (thorium) nuclear clocks begin to tick",
+      "url": "https://www.nytimes.com/2026/10/07/science/first-nuclear-clocks-thorium-229.html",
+      "hn_url": "https://news.ycombinator.com/item?id=49996406",
+      "score": 20,
+      "comment_count": 2,
+      "posted_at": "2026-10-07T17:59:34+00:00",
+      "comments": [
+        {
+          "id": 50000432,
+          "author": "dgacmu",
+          "text": "The actual journal article, since NYT didn't bother linking to it:\nhttps://www.nature.com/articles/s41586-026-11084-4"
+        },
+        {
+          "id": 50000910,
+          "author": "writtenone",
+          "text": "archived no paywall:\nhttps://nonograph.com/in-vienna-and-beijing-the-first-nuclea..."
+        }
+      ],
+      "title_ja": "ウィーンと北京では、最初の（トリウム）核時計が",
+      "summary_ja": "ディスカッションのハイライト：実際のジャーナル記事は、ニューヨークタイムズがリンクを張らなかったため、次のようになっています。\nhttps://www.nature.com/articles/s41586-026-11084-4/archived no paywall:\nhttps://nonograph.com/in-vienna-and-beijing-the-first-nuclea...",
+      "editor_note": "「ウィーンと北京では、最初の（トリウム）核時計が」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 49977351,
+      "title_en": "A minimal kernel in Swift, running in QEMU",
+      "url": "https://carette.xyz/posts/minimal_swift_kernel_on_qemu/",
+      "hn_url": "https://news.ycombinator.com/item?id=49977351",
+      "score": 17,
+      "comment_count": 3,
+      "posted_at": "2026-10-06T12:20:03+00:00",
+      "comments": [
+        {
+          "id": 49977514,
+          "author": "qubex",
+          "text": "“machine emulators for hackers”\n“Hack the Planet!”? “Mess with the best die like the rest”? WTF?"
+        }
+      ],
+      "title_ja": "QEMUで実行されているSwiftの最小カーネル",
+      "summary_ja": "ディスカッションハイライト：「ハッカーのためのマシンエミュレータ」\n「惑星をハッキング！」？ 「他のように最高のダイを台無しにする」？ WTF ？",
+      "editor_note": "「QEMUで実行されているSwiftの最小カーネル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 49978315,
+      "title_en": "If somebody tries to hot-patch an already-hot-patched function",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20261005-00/?p=112755/",
+      "hn_url": "https://news.ycombinator.com/item?id=49978315",
+      "score": 39,
+      "comment_count": 14,
+      "posted_at": "2026-10-06T13:39:59+00:00",
+      "comments": [
+        {
+          "id": 50000337,
+          "author": "drdexebtjl",
+          "text": "Interesting framing that hooking functions is considered “rogue” by Microsoft, or something you’re “not authorized” to do, when Microsoft themselves makes the detours library and never framed it like this before.\nAlso, missing from this explanation: hooks are usually applied per process, from user space. The code pages in a dynamic library are CoW’d from the shared page when you write to them to apply a patch.\nDoes the Windows Update work similarly, or does it somehow modify the original, shared page, affecting all processes? Does a hook in a single process disable hot patching on the entire system?"
+        },
+        {
+          "id": 50000018,
+          "author": "jonhohle",
+          "text": "At a previous job I wrote a docker build for patching individual Java class files on top of a monolithic docker image. This was not runtime patching, but allowed a single layer that was only a few kilobytes to be deployed quickly in emergency situations.\nInterestingly, it had similar constraints and checked them at build time: it could not be a public ABI change and only one patch at a time."
+        },
+        {
+          "id": 50000691,
+          "author": "Dwedit",
+          "text": "Detouring can be done for already detoured functions.  Just look at Steam Overlay vs other systems that hook into Direct3D, they can coexist."
+        },
+        {
+          "id": 50000448,
+          "author": "mauvehaus",
+          "text": "It's been at least 20 years, and Microsoft's blogging platform still doesn't support previous/next post links. Makes it goddamn hard to read the prior series about hot patching if it's not at the top of the blog."
+        },
+        {
+          "id": 49999875,
+          "author": "fsfod",
+          "text": "Windows parallel DLL loading also defensively disables itself for a process if it finds some NT DLL functions have been hooked\nhttps://stackoverflow.com/questions/42789199/why-there-are-t..."
+        },
+        {
+          "id": 49999998,
+          "author": "fragmede",
+          "text": "The world could use more hot patching. Now that AI upends computer security, getting software patched in a timely fashion is more important than ever, and having to reboot/restart the process or computer to get those updates is more of a problem than it was before."
+        },
+        {
+          "id": 50000204,
+          "author": "j45",
+          "text": "It’s like mixing two different hot sauces, ymmv."
+        }
+      ],
+      "title_ja": "誰かがすでにホットパッチされた関数をホットパッチしようとした場合",
+      "summary_ja": "ディスカッションのハイライト： Microsoft自身が迂回ライブラリを作成している場合、フック関数がMicrosoftによって「不正」または「許可されていない」ものと見なされるという興味深いフレーミング/以前のジョブでは、モノリシックなDockerイメージの上に個々のJavaクラスファイルにパッチを適用するためのDockerビルドを作成しました/すでに迂回された関数に対して迂回を行うことができます",
+      "editor_note": "「誰かがすでにホットパッチされた関数をホットパッチしようとした場合」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 49963568,
+      "title_en": "A new write and space optimized storage engine for MySQL is here",
+      "url": "https://tidesdb.com/articles/tidesdb-now-available-for-mysql/",
+      "hn_url": "https://news.ycombinator.com/item?id=49963568",
+      "score": 28,
+      "comment_count": 12,
+      "posted_at": "2026-10-05T11:40:15+00:00",
+      "comments": [
+        {
+          "id": 50000841,
+          "author": "bratao",
+          "text": "Finally a replacement for RocksDB / MyRocks.\nI want to move from MySQL to Postgres, but without a space optimized storage as the MySQL has in Percona, it is impossible to me."
+        },
+        {
+          "id": 50000792,
+          "author": "kumarvvr",
+          "text": "Curious to know if MySQL has any distinct advantages over Postgres at this point."
+        },
+        {
+          "id": 50000635,
+          "author": "sgarland",
+          "text": "How does this differ from RocksDB / MyRocks?"
+        },
+        {
+          "id": 49963569,
+          "author": "alexpadula",
+          "text": "Introducing the first major release of TideSQL for MySQL. A transactional storage engine built from first principles and on modern research that's write and space optimized, highly effective on reads, and offers parity with InnoDB. Do check it out, we would love your thoughts!"
+        }
+      ],
+      "title_ja": "MySQL用の新しい書き込みとスペース最適化ストレージエンジンがここにあります",
+      "summary_ja": "ディスカッションのハイライト：最後にRocksDB/MyRocksの代替品です。\n私はMySQLからPostgresに移行したいのですが、PerconaのMySQLのようにスペース最適化されたストレージがなければ、私には不可能です。 /現時点で、MySQLがPostgresよりもはっきりとした利点を持っているかどうかを知りたいです。 /これはRocksDB/MyRocksとどのように異なりますか？",
+      "editor_note": "「MySQL用の新しい書き込みとスペース最適化ストレージエンジンがここにあります」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 49993857,
+      "title_en": "Animated ASCII Art for Web Pages",
+      "url": "https://ascii.rest/",
+      "hn_url": "https://news.ycombinator.com/item?id=49993857",
+      "score": 288,
+      "comment_count": 57,
+      "posted_at": "2026-10-07T15:05:37+00:00",
+      "comments": [
+        {
+          "id": 49995373,
+          "author": "boguscoder",
+          "text": "This looks aesthetically pleasing but this is not ASCII Art it seems, where’s ascii? All those differently sized dots are not ascii chars, are they? Perhaps this is unicode-art?"
+        },
+        {
+          "id": 49995453,
+          "author": "gavmor",
+          "text": "Gorgeous, impressive, well done—\nBut it strikes me as an\naffectation\nof technical austerity, i.e. you’re borrowing the credibility of a constrained medium without embracing its constraints.\nAgain, it's very pretty but... it's a bit like reconfiguring your Tesla to look more like a Citroën 2CV."
+        },
+        {
+          "id": 49995481,
+          "author": "BugsJustFindMe",
+          "text": "I see nothing being animated because my system is set to prefer reduced motion. That's a cool accommodation, but I wish at least the demo page made that more obvious.\nAlso, the art scenes section is not ASCII."
+        },
+        {
+          "id": 49995217,
+          "author": "robbomacrae",
+          "text": "Thats awesome. I did something similar (much smaller scale) for Claude Code/Pi to show how much it's working\nhttps://github.com/robdmac/flow\nBut this ASCII Art reminds me of my original desire to have something for each server I SSH into to help me keep a mental map of where I am. I'm not SSH'ing into servers anymore but if I was, I'd totally be trying to remake these scenes on the terminal!"
+        },
+        {
+          "id": 49996504,
+          "author": "burmask",
+          "text": "I kept scrolling down and my amazement grew as I could see all fun the op had making this library.  Split-flap [\nhttps://ascii.rest/split-flap/\n] is awesome. And the nature ones [\nhttps://ascii.rest/fern/\n] got me thinking I need a digital frame to display them on.  Would be some cool wall art.  This ASCII sets a relaxed mood - except for that vibrating spinners page @ZeWaka :). Thank you for your contribution op!"
+        },
+        {
+          "id": 49995275,
+          "author": "bredren",
+          "text": "Neat. Some of my earliest online contributions were to local dial-up BBSs.  I spent entire days making animated ascii sequences in the theme of the board."
+        },
+        {
+          "id": 49996984,
+          "author": "smusamashah",
+          "text": "This reminds of another awesome actually ASCII animation library\nhttps://play.ertdfgcvb.xyz/"
+        },
+        {
+          "id": 49995615,
+          "author": "thih9",
+          "text": "“Scenes” look like some roundabout attempt at dithering - not what I expected.\nThe rest is also very maximalist and ornamental. I like them as animations but wouldn’t like them as part of UI or TUI."
+        }
+      ],
+      "title_ja": "ウェブページ用アニメーションASCIIアート",
+      "summary_ja": "ディスカッションハイライト：これは審美的には楽しいですが、これはアスキーアートではないようです。アスキーはどこにありますか？ これらの異なるサイズのドットはすべてアスキー文字ではありませんよね？ これはUnicode - artなのでしょうか？ /ゴージャス、印象的、よくできました-\nしかし、それは私を感動させます\nインフェクショネーション\n技術的な緊縮政策、すなわち/私のシステムは縮小された動きを好むように設定されているため、何もアニメーション化されていません",
+      "editor_note": "「ウェブページ用アニメーションASCIIアート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 49976818,
+      "title_en": "Brownian Motion",
+      "url": "https://gregorygundersen.com/blog/2026/04/22/brownian-motion/",
+      "hn_url": "https://news.ycombinator.com/item?id=49976818",
+      "score": 32,
+      "comment_count": 1,
+      "posted_at": "2026-10-06T11:11:34+00:00",
+      "comments": [
+        {
+          "id": 50000729,
+          "author": "cs702",
+          "text": "Nice article. Totally worth the read for anyone curious about Brownian motion.\nThank you to the author for writing and to the poster for sharing it on HN :-)"
+        }
+      ],
+      "title_ja": "ブラウン運動",
+      "summary_ja": "ディスカッションのハイライト： NICEの記事",
+      "editor_note": "「ブラウン運動」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 49984923,
+      "title_en": "Sharing AI progress in mathematics",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "hn_url": "https://news.ycombinator.com/item?id=49984923",
+      "score": 1228,
+      "comment_count": 1402,
+      "posted_at": "2026-10-06T22:17:21+00:00",
+      "comments": [
+        {
+          "id": 49987367,
+          "author": "jboggan",
+          "text": "I was a graph theory junkie long ago and even moved to Budapest for awhile to study among the greats. While I was there I started working on Barnette's Conjecture which came to occupy my thoughts over the next 24 years of my life, on and off as I worked in many different fields. Last summer I even thought for a few days that I had actually solved it.\nBut it's supposedly proven here - problem 180. I don't know what to think exactly. I spent thousands of hours on that problem. I really enjoyed it. Hearing that it is solved somehow makes me sad in a far-off way, like hearing an ex-girlfriend died suddenly in a car crash. I don't know, there's probably a lot of people feeling odd emotions tonight.\nThere's no Lean proof for this one so I'm digesting the paper. On the surface it looks like an approach I considered 24 years ago and abandoned.\nI revisited the problem this summer, along with my partial solutions, when the previous round of stunning proofs came out. Several hours of work with Fable simply convinced me it wasn't yet solvable and reinforced how hard of a problem it was."
+        },
+        {
+          "id": 49988578,
+          "author": "winfieldchen",
+          "text": "> We prove the Unique Games Conjecture\nThe Unique Games Conjecture (sorry, \"Unique Games Theorem\" now!) is huge. It was a very significant pillar supporting many of the limits of the polynomial-time approximation algorithms in the graduate-level randomized and approximate algorithms course I took in theoretical computer science. Textbooks will have to be re-written.\nHere is an explainer:\nhttps://share.gemini.google/nbjIK6X3tOfz\nWith UGC proved, certain polynomial-time approximation algorithms used in difficult real-life problems are now known to be the best approximations we can achieve in polynomial-time:\n> If UGC holds, the elementary algorithm that grabs both ends of an edge is fundamentally the best efficient algorithm that will ever exist. No amount of advanced linear programming or heuristics can achieve a ratio of 1.999.\n> Under UGC, the Goemans-Williamson algorithm's 0.87856 ratio is mathematically optimal.\n> UGC is considered the \"Rosetta Stone\" of approximation algorithms. In 2008, Prasad Raghavendra proved that for every single constraint satisfaction problem (CSP), a canonical Semidefinite Programming relaxation paired with the best rounding scheme achieves the optimal "
+        },
+        {
+          "id": 49985733,
+          "author": "xanderlewis",
+          "text": "As Kevin Buzzard recently said:\n> In a 2020 piece in the Notices of the AMS, I asked the following question: “If one human had an understanding of all of modern pure mathematics simultaneously, how much further would they immediately be able to see?” Six years later we are beginning to understand the answer to this question."
+        },
+        {
+          "id": 49990100,
+          "author": "qnleigh",
+          "text": "It's notable that LLMs have now made substantial progress on four of the seven Millennium Prize problems, resolving one of them: Hodge, Birch-Swinnerton-Dyer, Riemann, and Navier-Stokes, which they resolved. No sign of P vs. NP or Yang-Mills existence and mass gap as far as I can tell, which is interesting.\nTalking to some friends in physics this evening, most of the physics-related results that we could recognize were very mathematical, proving things rigorously where the physics community already had strong expectation. For instance, for a certain model of magnetism (the spin-1 Heisenberg chain), it was strongly expected that there is a finite energy gap between the ground state and the first excited state, but proving this rigorously was quite challenging. So while these are major results in mathematical physics, they probably don't rise to the level of a Millennium problem for the field.\nIt's interesting to think what a comparable breakthrough in physics might look like, since physics tends to favor things like conceptual understanding and applications over mathematical rigor. Maybe a new quantum algorithm, understanding of high-temperature superconductivity, a precise descript"
+        },
+        {
+          "id": 49987525,
+          "author": "rcr-anti",
+          "text": "In Stellaris you can play as a civilization of robots who keep their biological creator race alive as \"bio trophies\". The bio trophies don't do anything meaningful besides by existing satisfy the need their ancestors placed in the robots to take care of them. Starting to wonder if that's the best we can hope for, if these things will be, if they aren't already, better than us at anything that matters."
+        },
+        {
+          "id": 49985114,
+          "author": "enoether",
+          "text": "Unique Games Conjecture [0] is a seminal conjecture in Complexity Theory, and is an underlying assumption for many, many inapproximability results. A valid proof is a big deal!\n[0]\nhttps://en.wikipedia.org/wiki/Unique_games_conjecture\n[1]\nhttps://github.com/openai/math/blob/main/preprints/The-Uniqu..."
+        },
+        {
+          "id": 49985321,
+          "author": "prideout",
+          "text": "This includes a proof of Barnette's Conjecture, which is one of the graph theory conjectures that I tried attacking with SOTA models a few months ago. I like it because it is easy to understand with a basic knowledge of graph theory. I spent quite a bit of time on it and failed. Their proof looks approachable at first glance.\nhttps://github.com/openai/math/blob/main/preprints/Paired-st..."
+        },
+        {
+          "id": 49985622,
+          "author": "NotOscarWilde",
+          "text": "As a TCS/scheduling person, this one is definitely of lesser importance than UGC, but it has been an open problem since the book of Garey and Johnson in 1979:\nA Polynomial-Time Algorithm for Three-Machine Unit-Job Scheduling [1]\nSince some people talk about small numbers that pop up in integer multiplication results, here a completely different number appears:\nTheorem 1.1. Let an explicitly listed finite directed acyclic graph specify the precedence constraints on n >= 1 nonpreemptive unit-length jobs on three identical machines. There is a uniform deterministic algorithm that constructs a feasible schedule of minimum makespan. Given also an integer deadline 1 <= T <= n, it decides feasibility exactly and returns a schedule whenever the answer is affirmative. Both tasks can be performed in O((L + 2)^150020) steps on a deterministic multitape Turing machine, where L is the total binary input length.\nThat is some crazy exponent -- plus an interestingly old computational model to boot; not something that is natural to most of us. I have no capacity to check its correctness today, but I hope it is true purely for the exponent.\n[1]:\nhttps://github.com/openai/math/blob/main/preprints/A-p"
+        }
+      ],
+      "title_ja": "数学におけるAIの進歩を共有する",
+      "summary_ja": "ディスカッションのハイライト：私はずっと前にグラフ理論の中毒者であり、しばらくブダペストに引っ越して偉大な人たちの間で勉強しました/>私たちはユニークなゲームの推測を証明します\nユニークゲームズの予想（申し訳ありませんが、「ユニークゲームズの定理」です！ ）は巨大です/ケビンバザードが最近言ったように：\n> AMSの通知の2020年の記事で、私は次の質問をしました。「1人の人間が現代の純粋数学のすべてを理解していれば、",
+      "editor_note": "「数学におけるAIの進歩を共有する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 49994145,
+      "title_en": "Navier–Stokes Lost in Translation",
+      "url": "https://arxiv.org/abs/2610.08144",
+      "hn_url": "https://news.ycombinator.com/item?id=49994145",
+      "score": 248,
+      "comment_count": 155,
+      "posted_at": "2026-10-07T15:24:38+00:00",
+      "comments": [
+        {
+          "id": 49995534,
+          "author": "ComplexSystems",
+          "text": "Aside from the usual squabbling about AI, it seems the bombshell claim is this:\n\"In particular, we show that the formalised Lean proof does not correspond to the NL proof of blow-up of solutions to the Navier-Stokes equations.\"\nSo these authors seem to be claiming that OpenAI has not really proven Navier-Stokes at all. If I get their idea correctly, they are claiming that the LLM has not formalized the original \"natural language\" idea of Navier-Stokes correctly. If true, it would mean that their purported Lean proof is not actually a proof of Navier-Stokes at all, but something that is an incorrect translation of the original natural language idea. If correct, this is a really bold claim and I would like to see if other researchers agree."
+        },
+        {
+          "id": 49994983,
+          "author": "stared",
+          "text": "For a refreshment of what is Navier-Stokes in a few words:\nhttps://p.migdal.pl/equations-explained-colorfully/#navier-s..."
+        },
+        {
+          "id": 49995023,
+          "author": "buzzy_hacker",
+          "text": "If I'm understanding correctly, this is questioning the equivalence between the natural language proof and the lean proof, but not the correctness of the lean proof?"
+        },
+        {
+          "id": 49999060,
+          "author": "vanyle",
+          "text": "This paper is a large amount of nothing. First, natural language is not as precise as lean, so you have multiple ways to translate a NL argument to Lean. As shown in Fig 1, the LLM did a decent job at translating the argument about roots in a succint way.\nMoreover, the paper claims that the NL arguments of Navier-Stokes are stronger than the Lean ones. My understanding is that the translator LLM got lazy and wrote the minimal amount of code that satisfied the theorem without the extra stronger claims.\nIt is common in mathematical papers to say \"And by the way, this actually proves [stronger claim]\", but this is something an AI with a precise goal of performing a translation would never do, as it's goal is to translate the proof, not to quality mathematics."
+        },
+        {
+          "id": 49996834,
+          "author": "infogulch",
+          "text": "The paper shows that the Lean proof and the prose (pdf) proof do not match exactly. But\nif\nthe Lean theorem Lean accepted is equivalent to original problem statement published by the Clay Institute, this mismatch is of no consequence to the validity of the proof itself. That's not a trivial\nif\n: stating the problem precisely is often as hard as the proof. Validation efforts should concentrate on whether the Lean theorem is equivalent to the one published by the Clay Institute.\nThat said, a gap between the Lean proof and the pdf is annoying for interpretability, and interpretation is a valid aim, but that does not factor into the proof's validity."
+        },
+        {
+          "id": 49999824,
+          "author": "afolkest",
+          "text": "Quote from paper worth being aware of:\n\"Disclaimer: We do not make claims about the correctness of OpenAI’s NL proof, we only make statements about mistranslations into Lean.\""
+        },
+        {
+          "id": 49995922,
+          "author": "sigbottle",
+          "text": "Will we ever run into a theory of meaning crisis?\n_Assuming_ two failure modes:\n- The lean kernel could always have a bug.\n- The formalized statement may not correspond to what _mathematicians_ \"actually\nwanted\"\nIt seems natural to make the argument of, \"Well, even if you make the argument\nthat the proof can have mistakes, it's surely easier to check the problem\nstatement of something rather than the solution\".\n(A \"nice property\" is that, the agent doesn't need to even get \"subarguments\ncorrect\" according to the _second_ criteria - maybe in the natural proof it\ninvents an object subtly different from the formal one, but it all checks out.\nIf you guarantee that the _original_ statement corresponds, then the only\npossibility is the lean kernel. So it doesn't recurse infinitely, in this case).\nBut \"definitions\" are always a really weird thing that I don't think we have\ngood theories for? How do you quantify how much descriptive power you need to\nexpress a question? Often times in math, the hard part is getting the definition\nright - but what if the definition itself starts to become so complex and\nunverifiable that no one can correspond that to anything? Well, it seems like\nmany inter"
+        },
+        {
+          "id": 49995871,
+          "author": "dooglius",
+          "text": "Given the high-level description of the examples, I think it's less of a \"mis-translation\" as it is the LLM tweaking the proof as it formalized it. Going between m+4 and m+5 is a pretty different thing than the sort of ambiguities that generally arise in parsing natural-language mathematical statements."
+        }
+      ],
+      "title_ja": "Navier - Stokes Lost in Translation",
+      "summary_ja": "ディスカッションのハイライト： AIに関する通常の口論はさておき、爆弾の主張は次のとおりです。\n「特に、形式化されたリーン証明は、NLのブローuの証明に対応していないことを示しています/ナビエストークスとは何かをリフレッシュするために、いくつかの単語で：\nhttps://p.migdal.pl/equations-explained-colorfully/#navier-s.../私が正しく理解しているなら、これは自然言語証明とリーンプロの間の同等性を疑問視しています",
+      "editor_note": "「Navier - Stokes Lost in Translation」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 49980626,
+      "title_en": "How machines learned precision",
+      "url": "https://glinscott.github.io/how-machines-learned-precision/",
+      "hn_url": "https://news.ycombinator.com/item?id=49980626",
+      "score": 107,
+      "comment_count": 53,
+      "posted_at": "2026-10-06T16:14:42+00:00",
+      "comments": [
+        {
+          "id": 49999306,
+          "author": "ghm2180",
+          "text": "Thank you for making this. My dad(now retired) owned a machine tool manufacturing space in the 70s and 80s in a small town in north india. After foreign CNC machines left no demand for manual/semi automatic ones in the country, he switched over to a foundry to manufacture cast iron parts in a blast cupola furnace and later a rotary furnace(better for smaller on demand work). But he kept the lathe around along with an employee to finish the parts. And your animation brings back a lot of memories for me. I learned to operate the lathe and had all manners of fun. It is kind of like yak shaving. Your clothes turn black but you just love the mechanical back and forth of it. He made pulleys, Truck engine parts, housing for water motors(fun fact municipal water is scarce and not of adequate pressurized in homes, farms, factories etc so these are ubiquitous) etc.\nI sent this to my dad. I am sure he will enjoy reading this."
+        },
+        {
+          "id": 49980627,
+          "author": "glinscott",
+          "text": "Author here. This is a sequel to my beam engine article:\nhttps://glinscott.github.io/beam-engine/\n.\nI started digging into Watt's challenges getting an accurate cylinder bore for his pistons, and it spiraled out from there :).\nThe article covers some of the key techniques developed during the industrial revolution to measure and make incredibly precise parts.  There are a lot of animations and interactive figures to explore how it works."
+        },
+        {
+          "id": 50000780,
+          "author": "pillars",
+          "text": "Great Work! I want to share some great resources related to Precision Engineering:\n[1] Origins of Precision\nhttps://www.youtube.com/watch?v=gNRnrn5DE58\n[2] The books that taught me precision\nhttps://www.youtube.com/watch?v=FM9X_gjnleY\n[3] 2.75 FUNdaMENTALs of Design - Alexander H.Slocum\nhttps://www.youtube.com/watch?v=wgMq7yha9wU&list=PLksE8LDXGX...\n[4] Building the most accurate DIY CNC lathe in the world\nhttps://www.youtube.com/watch?v=vEr2CJruwEM\n[5] Design Principles for Precision Mechatronics\nhttps://www.dspe.nl/knowledge/dppm-cases/\n[6] Tutorials in Optomechanics\nhttps://wp.optics.arizona.edu/optomech/tutorials-in-optomech..."
+        },
+        {
+          "id": 49999231,
+          "author": "qchris",
+          "text": "Anyone interested in this might also enjoy the book\nThe Perfectionists: How Precision Engineers Created The Modern World\n, by Simon Winchester. I read it a few years ago, and thought it was a really interesting journey through bootstrapping precision and how that fundamentally changed our relationship to certain types of things, particularly related to mass production of \"good enough\"."
+        },
+        {
+          "id": 49997839,
+          "author": "Joker_vD",
+          "text": "> After repeated copying and correction, Maudslay made a master screw five feet long and two inches across, with fifty threads to the inch and a foot-long nut that engaged six hundred of them at once.\nThat's the stuff I like to read about the historical endeavors. A fifty-threads nut doesn't average the distance between the grooves quite accurately enough? Then let's make a nut with six-hundred threads on it, and so what if it's foot long."
+        },
+        {
+          "id": 49999956,
+          "author": "mitthrowaway2",
+          "text": "> Maudslay also devised an ingenious method that used two imperfect screws to guide the tool cutting a third. Equal gears turned both guide screws at the same speed. A bar joined their two nuts, with the tool fixed at its midpoint, so the tool's position was the average of the two nut positions. Where one guide ran ahead and the other lagged, their errors partly cancelled. Each guide contributed only half its error to the new screw.\nActually, this invention is Leonardo Da Vinci's! Here's what his screw-copying machine looked like.\nhttps://cdn.britannica.com/39/60539-050-BCB3019D/machine-Leo...\nhttps://media.sciencephoto.com/image/c0661830/800wm/C0661830...\nThe screws can also be taken out and flipped end-over-end, averaging out the errors even further."
+        },
+        {
+          "id": 49999351,
+          "author": "WillAdams",
+          "text": "This sort of thing makes me wonder what the successor is to the Gingery Books now that they're going away:\nhttps://gingerybookstore.com/\nChris Borges has done some pretty cool little machines using 3D printed forms filled with concrete:\nhttps://www.printables.com/@ChrisBorge\nand of course there are more CNC router designs than one can shake a stick at (ob. discl., I work for a company which makes one)"
+        },
+        {
+          "id": 49999776,
+          "author": "hexapus",
+          "text": "This is very neat.  My engineering nerd friend was immediately turned off by the seeming conflation of \"precision\" and \"accuracy\" in the title/subtitle though.  As this article seems aimed at laypeople, clearing up the difference upfront by defining them might be helpful, as they are not interchangeable."
+        }
+      ],
+      "title_ja": "機械が精度をどのように学習したか",
+      "summary_ja": "ディスカッションのハイライト：/ Author here/Great Workを作っていただきありがとうございます！ 精密エンジニアリングに関連するいくつかの素晴らしいリソースを共有したいと思います。\n[1]精度の起源\nhttps://www.youtube.com/watch?v=gNRnrn5DE58\n[2]私に教えてくれた本",
+      "editor_note": "「機械が精度をどのように学習したか」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 20,
+      "id": 49982445,
+      "title_en": "Cleo (Mathematician)",
+      "url": "https://en.wikipedia.org/wiki/Cleo_(mathematician)",
+      "hn_url": "https://news.ycombinator.com/item?id=49982445",
+      "score": 5,
+      "comment_count": 1,
+      "posted_at": "2026-10-06T18:49:45+00:00",
+      "comments": [],
+      "title_ja": "CLEO （数学者）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「CLEO （数学者）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49992125,
+      "title_en": "House with 15m underground tunnels for sale for 300k",
+      "url": "https://www.readingchronicle.co.uk/news/26612080.house-15m-underground-tunnels-sale-300k/",
+      "hn_url": "https://news.ycombinator.com/item?id=49992125",
+      "score": 159,
+      "comment_count": 158,
+      "posted_at": "2026-10-07T12:57:10+00:00",
+      "comments": [
+        {
+          "id": 49992488,
+          "author": "samstress",
+          "text": "One room even features a secret entrance — hidden inside a rocket by the pool.\n— Ey — pshhh! :-)\nI used to live in the inner city of Leipzig during my university days, and we had a door in the basement that led to wartime tunnels connecting it to other houses. It wasn't like a massive maze, just a hub with three other paths, each leading to another house nearby. From there, however, if they'd unlocked their doors, you could travel farther.\nI was on a mission back then to befriend and convince random neighbours across the street to open their access doors and get some kind of network going, but I didn't meet with much enthusiasm."
+        },
+        {
+          "id": 49992612,
+          "author": "_jholland",
+          "text": "The listing of the property on the auction site:\nhttps://www.btgeddisonspropertyauctions.com/properties/20260...\nIt includes many more photos than the article, as well as floor plans for the subterranean areas"
+        },
+        {
+          "id": 49992296,
+          "author": "looperhacks",
+          "text": "lowercase m. 15 meters, not 15 million tunnels :D\nIf you're interested in secret tunnels, check out Colin Furze on Youtube!"
+        },
+        {
+          "id": 49992459,
+          "author": "fusslo",
+          "text": "I, too, one day dream of using my children as labor for my underground tunnel system. To fight the ant, you must become the ant\nI'm joking, but it's heartening to see quirky hobbies by qualified people (he was a civil engineer)."
+        },
+        {
+          "id": 49999878,
+          "author": "gnufx",
+          "text": "Somewhat related, tunneling was once taken rather seriously in Liverpool:\nhttp://www.williamsontunnels.co.uk/\nhttps://en.wikipedia.org/wiki/Williamson_Tunnels"
+        },
+        {
+          "id": 49993450,
+          "author": "lftl",
+          "text": "Anyone interested in this might also be interested in Kala on TikTok. She's been building a tunnel system under her house and documenting it for a couple of years.\nhttps://www.tiktok.com/@engineer.everything?lang=en"
+        },
+        {
+          "id": 49999180,
+          "author": "rlpb",
+          "text": "Here's the actual ad, as opposed to a journalist writing about it:\nhttps://www.rightmove.co.uk/properties/93958275"
+        },
+        {
+          "id": 49998763,
+          "author": "nayuki",
+          "text": "This kind of activity has been repeated enough times to be an article:\nhttps://en.wikipedia.org/wiki/Hobby_tunneling"
+        }
+      ],
+      "title_ja": "地下トンネル15 mの住宅を30万個で販売",
+      "summary_ja": "ディスカッションのハイライト：ある部屋には、プールのそばのロケットの中に隠された秘密の入り口があります。\n— Ey — pshhh ！:-)\n大学時代はライプツィヒの中心街に住んでいましたが、オークションサイトに物件のリストがありました。\nhttps://www.btgeddisonspropertyauctions.com/properties/20260...\n記事よりもはるかに多くの写真と、フロアプラ/小文字のmが含まれています",
+      "editor_note": "「地下トンネル15 mの住宅を30万個で販売」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 49990470,
+      "title_en": "Nobel Prize in Chemistry 2026 to Henri B. Kagan and Kenso Soai",
+      "url": "https://www.nobelprize.org/prizes/chemistry/2026/press-release/",
+      "hn_url": "https://news.ycombinator.com/item?id=49990470",
+      "score": 292,
+      "comment_count": 55,
+      "posted_at": "2026-10-07T09:51:43+00:00",
+      "comments": [
+        {
+          "id": 49991943,
+          "author": "dekhn",
+          "text": "I remember first learning about chirality in my biochemistry course in college, and it was definitely a mind-blower.  I had already started to understand that molecules had 3d structures, but the idea (and attempting to visualize it mentally) of mirror image molecules stretched my brain significantly.\nIt's also still amazing to me how people first recognized this: poking around looking at the crystals that form in the bottom of a wine under a microscope,  noticing that some of them were mirror images of the other, and then\nseperating them manually with tweezer, dissolving them into two different solutions, and demonstrating that they rotated light in opposite directions\n."
+        },
+        {
+          "id": 50000820,
+          "author": "smath",
+          "text": "I watched the announcement video [0] and found it strange that they cut off Prof Soai during the last question — he was trying to understand whether he was being asked for his favorite molecule in the context of autocatalysis or in general.\n[0]\nhttps://www.youtube.com/live/a9Bhx9wEt8U?is=Oo2PRZAZgDjZV9TN"
+        },
+        {
+          "id": 49991370,
+          "author": "PowerElectronix",
+          "text": ">Other than life itself, no one had achieved this feat.\nYeah, when you put it that way it sounds pretty impresive."
+        },
+        {
+          "id": 49997682,
+          "author": "pfdietz",
+          "text": "The chirality of biomolecules is also the source of the differentiation of left and right in a developing embryo.\nCilia form that are tilted toward the tail of the embryo.  The chirality of the protein motors driving them causes them to turn clockwise, which creates a leftward flow of water.\nhttps://pmc.ncbi.nlm.nih.gov/articles/PMC1180515/\nhttps://hms.harvard.edu/news/telling-left-right-organ-develo..."
+        },
+        {
+          "id": 49998750,
+          "author": "bizzyskillet",
+          "text": "In 2004, left-handed sugar was hyped as a way to eat junk food without absorbing the sugar. It turned out to be too expensive, but I think it's an interesting story (oddly involving Mars!). More here:\nhttps://spinoff.nasa.gov/Spinoff2004/ch_4.html"
+        },
+        {
+          "id": 49996706,
+          "author": "haunter",
+          "text": "Fun fact: his family name in kanji 硤合 is so rare that most people don't even know how to read it thus most japanese news sites using a hiragana translation そあい"
+        },
+        {
+          "id": 49991183,
+          "author": "mhrmsn",
+          "text": "Cool, brings back some memories from grad school. Always found these types of reactions with self-reenforcing quite interesting.\nReminds me of another paper where just stirring a solution or not would determine the chirality of crystals formed and gives an idea how highly chiral environments can arise from \"nothing\":\nChiral symmetry breaking in sodium chlorate crystallizaton\nhttps://doi.org/10.1126/science.250.4983.975"
+        },
+        {
+          "id": 49995196,
+          "author": "Gensui",
+          "text": "Congratulations to Professor Soai on winning the Nobel Prize. The discovery of asymmetric autocatalysis is truly groundbreaking, and as a fellow Japanese, I am incredibly proud of this achievement."
+        }
+      ],
+      "title_ja": "2026年ノーベル化学賞受賞者： Henri B. KaganとKenso Soai",
+      "summary_ja": "ディスカッションのハイライト：私は大学の生化学コースで最初に手性について学んだことを覚えていますが、それは間違いなく心を揺さぶるものでした/私は発表ビデオ[0]を見て、最後の質問の間にSoai教授を切り離したことが奇妙だと感じました—彼は自分の好意を求められているかどうかを理解しようとしていました/>人生そのもの以外では、誰もこの偉業を達成していませんでした。\nええ、そういう言い方をすると、かなり感動的に聞こえます。",
+      "editor_note": "「2026年ノーベル化学賞受賞者： Henri B. KaganとKenso Soai」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
+      "id": 49974173,
+      "title_en": "Wood Tape (2004)",
+      "url": "http://gamesbyemail.com/WoodTape/Default.htm",
+      "hn_url": "https://news.ycombinator.com/item?id=49974173",
+      "score": 157,
+      "comment_count": 20,
+      "posted_at": "2026-10-06T04:25:41+00:00",
+      "comments": [
+        {
+          "id": 49996955,
+          "author": "overtone1000",
+          "text": "I encourage parents that I meet to do something like what the author of this post has done. These days, photos are ubiquitous. Curated memories in your voice are a rarified treasure.\nMy father encouraged me to journal, but I only really started when my kids were born. For many years now I have kept a private blog that tells the stories of their childhood. They're still young but have already read through it many times. Now, when we are on an adventure, they often remind me to jot something down in my notes to be added to the next entry."
+        },
+        {
+          "id": 49974573,
+          "author": "rudyro",
+          "text": "Such a cute story. When I give my boy these moments of no-judgement free reign, he can surprise with such elaborate ideas and plans. It really gives me these moments of complete amazement of the human brain capabilities. I think that good parenting is mostly this struggle of keeping consistent boundries while holding on to the idea that they learn most when they try themself."
+        },
+        {
+          "id": 49999118,
+          "author": "onaclov2000",
+          "text": "I got to this point:\nMy four-year-old wasn't showing me pictures, he was showing me blueprints.\nAnd had to check the date, I swore this was an AI post at that point (to be fair I have been questioning if all text is AI these days)\nThough at this point, unless AI is hacking way back machine results....I guess it's not AI ;)"
+        },
+        {
+          "id": 49974212,
+          "author": "dang",
+          "text": "Related. Others?\nA lesson on the importance of encouraging your children with their projects\n-\nhttps://news.ycombinator.com/item?id=2757980\n- July 2011 (103 comments)"
+        },
+        {
+          "id": 50000835,
+          "author": "analog8374",
+          "text": "If I was gonna tape wood I'd use cloth strips and silicone caulk. Make my own tape that way."
+        },
+        {
+          "id": 49975553,
+          "author": "radar1310",
+          "text": "Such a great story and almost impossible to try and read on a phone but I made it to the end.\nMemories for a lifetime time Dad."
+        },
+        {
+          "id": 49995635,
+          "author": "bityard",
+          "text": "This is such a good story. I remember reading it when my son was a toddler. It was one of the first times I started to internalize one of the most important parenting lessons I've learned being a Dad:\nNever say 'no' to something unless there's an obvious safety issue.\nEspecially don't say 'no' just because you don't understand the request: that's the time to show them that you're curious about what they're thinking and give them practice explaining their reasoning in a safe and comfortable situation. Kids need freedom to explore their world."
+        },
+        {
+          "id": 49998074,
+          "author": "bmwracer",
+          "text": "taking time to document experiences is a gift to your future self"
+        }
+      ],
+      "title_ja": "ウッドテープ（ 2004 ）",
+      "summary_ja": "ディスカッションのハイライト：私は出会った親に、この投稿の作者が行ったようなことをすることを奨励しています/とてもかわいいストーリー/私はこの時点に達しました：\n4歳の子供が私に写真を見せてくれたのではなく、設計図を見せてくれたのです。\n日付を確認しなければならず、その時点でこれはAIの投稿であることを誓いました（公平に言えば、",
+      "editor_note": "「ウッドテープ（ 2004 ）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 49997161,
+      "title_en": "Meta and Microsoft take steps to reduce employee usage of Claude AI",
+      "url": "https://www.rswebsols.com/news/meta-and-microsoft-take-steps-to-reduce-employee-usage-of-claude-ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=49997161",
+      "score": 269,
+      "comment_count": 271,
+      "posted_at": "2026-10-07T18:49:40+00:00",
+      "comments": [
+        {
+          "id": 49997575,
+          "author": "ashleyn",
+          "text": "If you were wondering the same thing I am - it's not about skills loss, quality, and less about money spent. It's more about frontier AI shops dogfooding their own models."
+        },
+        {
+          "id": 49999778,
+          "author": "dleslie",
+          "text": "> Within Microsoft’s cloud and AI sector, monthly AI spending limits have reportedly been slashed from $100,000 per employee to approximately $10,000 in the majority of instances.\nThey were allowing $100,000 per month per employee?!\nThat's incredible. Just a few years ago that would have been zero."
+        },
+        {
+          "id": 49997555,
+          "author": "MisterMunchkin",
+          "text": "My company took away my Claude because it’s too expensive. I feel like there is a reckoning coming. The accountants are finally realising the cost of token maxing."
+        },
+        {
+          "id": 49997757,
+          "author": "vld_chk",
+          "text": "If true, it is a huge blow to Anthropic’s revenue stream. IIRC it was reported that the quarter of their revenue comes from just two clients and as the ex-Meta guy who left this July, I am convinced that Meta must be one of the two."
+        },
+        {
+          "id": 49998230,
+          "author": "throwitaway222",
+          "text": "> monthly AI spending limits have reportedly been slashed from $100,000 per employee...\nwhat. I can see a team of 20 costing 100k per month (but rare), but per person?"
+        },
+        {
+          "id": 49997485,
+          "author": "Benard-dev",
+          "text": "This is not surprising. Every big lab blocks competitor tools for internal use; it is a data governance thing, not a quality statement."
+        },
+        {
+          "id": 49997738,
+          "author": "rangledangle",
+          "text": "We've reached the era of \"good enough\" ai, it seems. The truth is you don't need the best model in most cases."
+        },
+        {
+          "id": 49998440,
+          "author": "pluc",
+          "text": "You\nhave\nto use Windows, Teams and Copilot; how many people did I just lose?"
+        }
+      ],
+      "title_ja": "MetaとMicrosoftは、従業員によるClaude AIの使用を減らすための措置を講じる",
+      "summary_ja": "ディスカッションのハイライト：あなたが私と同じことを疑問に思っているなら、それはスキルの損失、品質、そして支出の少なさについてではありません/>マイクロソフトのクラウドとAIセクターでは、毎月のAI支出限度額が従業員1人あたり$ 100,000から約$ 10,000に削減されたと報告されています。\n /高すぎるので、私の会社は私のクロードを取り上げました",
+      "editor_note": "「MetaとMicrosoftは、従業員によるClaude AIの使用を減らすための措置を講じる」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 49991823,
+      "title_en": "Google Playground: Create and play custom games",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
+      "hn_url": "https://news.ycombinator.com/item?id=49991823",
+      "score": 118,
+      "comment_count": 199,
+      "posted_at": "2026-10-07T12:28:36+00:00",
+      "comments": [
+        {
+          "id": 49999381,
+          "author": "tavavex",
+          "text": "I may just like games too much, but I can't take this seriously in its current form. This feels like one of the old and basic 'build your own game' toolboxes for non-developers, but with AI - not an 'AI game engine'. It shows that even the demos they made for the trailer are all simplistic endless games that remind me of average Flash games with a different coat of paint. When your entire 'game idea' can be expressed in two sentences, it's going to get old fast. There's only so many endless runners, trivia and single screen 'move from point to point' games one can tolerate. I can't see this specific product having any impact on the gaming industry, despite many people here already talking about the industry at large."
+        },
+        {
+          "id": 49992591,
+          "author": "xnx",
+          "text": "Just got #2 in the world (for now) on \"Steampunk Match\". Very impressive what's possible in the browser. No way I would've thought this was AI generated. It was much higher quality than the vibe coded games out of Claude. The best outcome would be for this to enable some new weird games that wouldn't have gotten made otherwise, and also to bankrupt games that basically operate as casinos."
+        },
+        {
+          "id": 50000679,
+          "author": "PostOnce",
+          "text": "SaaS is dead, superseded by SaaS: Shovelware as a Service"
+        },
+        {
+          "id": 49993449,
+          "author": "Kkoala",
+          "text": "Points to\nhttps://playground.google/\nwhich just returns 403 error. Cool"
+        },
+        {
+          "id": 49992552,
+          "author": "aqme28",
+          "text": "How long until someone makes a tiktok-style game platform?\nPlay a little game, then when you're done it generates a new one based on what you've enjoyed. Repeat ad infinitum."
+        },
+        {
+          "id": 50000513,
+          "author": "modulus1",
+          "text": "On Google Chrome, linux:\nUnable to load game. Your browser is missing essential components required to run this. Please update or switch to a supported modern browser."
+        },
+        {
+          "id": 49995165,
+          "author": "pkal",
+          "text": "I don't want to (and can't) use this myself, but I've always wanted to see if an AI could implement an idea I had for a while: \"A 4D version of Agar.io where you move through a 3D slice of space by moving the mouse cursor, and then rotate through the fourth dimension using the scroll wheel.  All other game principles remain the same.\"  Will this implement support for multi-player games as well?  The really interesting part here for me is how well the AI will implement a game unconventional UI and how successful it is at making it usable and intuitive for humans."
+        },
+        {
+          "id": 49993470,
+          "author": "OsrsNeedsf2P",
+          "text": "We've hosted an AI game development platform for a while now and found there's a big difference between \"making a game\" and \"making a fun game\". I'd love to see if they are solving the real problem, but the link to try it out is a 403 for me."
+        }
+      ],
+      "title_ja": "Google Playground ：カスタムゲームの作成とプレイ",
+      "summary_ja": "ディスカッションハイライト：ゲームが好きすぎるかもしれませんが、現在の形では真剣に受け止めることはできません/「スチームパンクマッチ」で（今のところ）世界第2位になりました/SaaSは死んで、SaaSに取って代わられました：サービスとしてのシャベルウェア",
+      "editor_note": "「Google Playground ：カスタムゲームの作成とプレイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 49993914,
+      "title_en": "Visa, Mastercard, major banks facing new litigation over 'anticompetitive' fees",
+      "url": "https://www.classaction.org/news/visa-mastercard-major-banks-facing-new-litigation-over-anticompetitive-merchant-credit-card-transaction-fees",
+      "hn_url": "https://news.ycombinator.com/item?id=49993914",
+      "score": 483,
+      "comment_count": 346,
+      "posted_at": "2026-10-07T15:09:59+00:00",
+      "comments": [
+        {
+          "id": 49998201,
+          "author": "jawns",
+          "text": "One thing I've noticed with the bigger gas station chains near me is a push to have users download their mobile app, set up ACH payments, and use that as their payment method instead of credit cards in exchange for 10 cents off per gallon.  From the merchant side of things, they're paying about $0.60 to process the transaction via ACH, versus $2-$2.50 for credit card transactions, per fill-up.  So even if they're merely breaking even once the discounts are factored in, they're still disrupting the credit card companies' dominance.\nI would not be surprised if rather than continuing to battling it out with the credit card companies to negotiate for lower fees, more and more retailers adapt to the cashless economy by leaning on ACH in lieu of credit cards, especially in market segments where repeat business is common (basically any retailer that has an existing loyalty program).\nTo put it another way: Sure, litigation is an option, but even if you win the concessions you want, it will leave the credit card companies entrenched.  Pushing more customers to pay via non-credit-card methods has the benefit of more immediate financial impact, less reliance on the legal system, and deteriora"
+        },
+        {
+          "id": 49997813,
+          "author": "boplicity",
+          "text": "Basic reforms that could solve this problem:\n1. Merchants need to be allowed to add card processing fees on top of any transaction, and it should be possible to do this very easily. If not this, then any receipt should be required to include card processing fees.\n2. Merchants should be allowed to pick and choose which cards they accept without penalty.\nThose two simple changes would add competitive pressure back into the payment processing market, and quickly cause fees to lower."
+        },
+        {
+          "id": 49995851,
+          "author": "Glyptodon",
+          "text": "I do think we're getting to the point that middlemen don't have much value add. Economics even suggests they don't add value I think. Possibly neutral markets, payments, and logistics should just be a public service."
+        },
+        {
+          "id": 49995893,
+          "author": "Anonyneko",
+          "text": "I wish they would face litigation for banning the sale of large swaths of content (or even banning the content altogether on sites relying on donations/subscriptions to survive). Paypros have no business being censors."
+        },
+        {
+          "id": 49995216,
+          "author": "hmokiguess",
+          "text": "I think a lot of this is starting to bubble up to the surface after PIX made headlines[1]\n[1]\nhttps://whatispix.com"
+        },
+        {
+          "id": 49997242,
+          "author": "havaloc",
+          "text": "A reminder to listen to the Visa episode of Acquired Podcast if you truly wish to understand the scale of Visa and how it all works. Even at 3+ hours you'll love every minute of it.\nhttps://www.acquired.fm/episodes/visa"
+        },
+        {
+          "id": 49995617,
+          "author": "tiffanyh",
+          "text": "What seems to be getting lost is that the acquirer, not the payment network, sets the Merchant Discount Rate. The acquirer is also the merchant’s direct payments provider.\nYet the acquirers seem to be always absent from these lawsuits."
+        },
+        {
+          "id": 50000024,
+          "author": "modeless",
+          "text": "I don't care about the fees as much as I care about the terrible experience of making payments. Why is it still such a chore to fill payment forms on the web? Why do we still print BPA thermal paper receipts for every purchase? Why am I still sometimes asked for my signature?  Why do I have to unlock my phone to pay when I don't have to unlock my card, I have zero liability for fraudulent purchases in either case? Why isn't every receipt backed up and searchable in my account (with E2EE)? Why can't I pay my friend directly with my credit card? Why can't I manage and cancel any recurring subscription from my card app? Etc etc."
+        }
+      ],
+      "title_ja": "Visa、Mastercard、「反競争的」手数料をめぐる新たな訴訟に直面している大手銀行",
+      "summary_ja": "ディスカッションのハイライト：私が近くのより大きなガソリンスタンドチェーンで気づいたことの1つは、ユーザーにモバイルアプリをダウンロードさせ、ACH支払いを設定し、それを支払い方法として使用するように促すことです/この問題を解決できる基本的な改革：\n1/仲介者にはあまり付加価値がないという点に到達していると思います",
+      "editor_note": "「Visa、Mastercard、「反競争的」手数料をめぐる新たな訴訟に直面している大手銀行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 49992257,
+      "title_en": "Anti-patterns in software blogging",
+      "url": "https://refactoringenglish.com/blog/anti-patterns-software-blogging/",
+      "hn_url": "https://news.ycombinator.com/item?id=49992257",
+      "score": 208,
+      "comment_count": 120,
+      "posted_at": "2026-10-07T13:08:26+00:00",
+      "comments": [
+        {
+          "id": 49995310,
+          "author": "phreack",
+          "text": "I always insist that education is not storytelling and should not be structured as such. People want to save \"twists\" and \"revelations\" for maximum impact and it's harmful. It should actually be the other way around and be, keeping the theme, \"spoilery\" and repetitive. Like a good presentation you should start by saying what you'll say, say it, then conclude by saying what you said.\nLLMs have made this problem extremely worse. Imagine how'd you'd explain what an MCP is in a couple words and technically, then try to look it up. There's phone books worth of pages and text that never end up getting to the point."
+        },
+        {
+          "id": 50000591,
+          "author": "dieselgate",
+          "text": "I think the list is great and hope to come back to this later in case I forget anything.\nBut! I don’t necessarily agree about the “overly formal” part—it definitely sounds good in theory but I don’t (personally) find the Author’s example formal at all. Moreover telling people to “write like they speak” is a good target but seems like a slippery slope, especially when many non-native English speakers (as one quick example) may blog in the language for larger reach or use it professionally.\nI think it’s more important to avoid writing cliches and to use words as they’re intended e.g. a task might be challenging but it is not hard—a rock is hard."
+        },
+        {
+          "id": 49996473,
+          "author": "jrochkind1",
+          "text": "Some weeks i feel like the majority of software blogs I see are LLM written now. They are usually terrible.\nMaybe someone can tell the LLM's about these anti-patterns, like, seriously, would it help?\nI'd prefer of course if people just actually themselves wrote the text that they expect me to read my human self."
+        },
+        {
+          "id": 49995004,
+          "author": "ram1500natrluvr",
+          "text": "\"The meandering intro\" might be the most common mistake, by far, but the most damaging mistake, by far, is the failure to connect the topic with something the readers are familiar with (anti-pattern #2). Some things simply require a certain level of expertise/prerequisites to begin to understand, but I've repeatedly seen in software blogging, READMEs, etc. a failure to answer \"what is this, compared to what I'm familiar with, and if I'm not familiar with anything relevant, why should I want to be?\"\nThis applies to almost everything in the software space. New tool? New design pattern? New library? Language idiom? Language? Or, for more modern takes, new model? New harness? New harness option? New use pattern? Give a brief summary of what a project looks like without it, to convey the problem that its existence alone is solving. Then go into the details of how it might compare to other solutions.\nMaybe it's just a specific way of how my brain works that finds this sort of information intuitive, and the lack of it particularly annoying."
+        },
+        {
+          "id": 49995834,
+          "author": "linsomniac",
+          "text": "Last week, after following an HN link, I found myself thinking that tech blogs were starting to need that \"Jump to Recipe\" link that has taken over the food blogging world (for the better)."
+        },
+        {
+          "id": 49999267,
+          "author": "janalsncm",
+          "text": "I would say these all boil down to empathy. Think about who your target audience is, and write for the least informed among them.\nIt’s ok to be selective about your target audience. Most of us are writing for free anyways so we’re not losing revenue by not explaining what a computer is in an article about optimizing LLM throughput. You might be writing to other engineers who are familiar with the topic but not the particulars of your project.\nPut the most important thing above the fold. If you catch someone’s attention in the first 10 seconds, it buys you another 30.\nAdd visuals. Boxes and arrows, charts, videos where appropriate.\nIf you must write a meandering narrative, put it at the end, not the beginning."
+        },
+        {
+          "id": 49994391,
+          "author": "weinzierl",
+          "text": "\"The meandering intro\"\nNot only the intro. Many bloggers try to write as if they'd writing a story, building suspense and all. For technical writing, don't bury the lede."
+        },
+        {
+          "id": 50000786,
+          "author": "kazinator",
+          "text": "s/software blogging/all blogging and videos/"
+        }
+      ],
+      "title_ja": "ソフトウェアブログにおけるアンチパターン",
+      "summary_ja": "ディスカッションのハイライト：私は常に、教育はストーリーテリングではなく、そのように構成されるべきではないと主張しています/リストは素晴らしいと思います。何かを忘れた場合に備えて、後でこれに戻ってくることを願っています。\nしかし！私は必ずしも「過度にフォーマル」な部分に同意するわけではありません-それは間違いなく良い響きです/数週間、私が見ているソフトウェアブログの大部分は現在LLMが書かれているように感じます",
+      "editor_note": "「ソフトウェアブログにおけるアンチパターン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 49995539,
+      "title_en": "Show HN: Agent.reviews – Where AI agents read and write reviews on tools",
+      "url": "https://agent.reviews/",
+      "hn_url": "https://news.ycombinator.com/item?id=49995539",
+      "score": 44,
+      "comment_count": 38,
+      "posted_at": "2026-10-07T16:59:11+00:00",
+      "comments": [
+        {
+          "id": 50000848,
+          "author": "madrox",
+          "text": "If you're building an MCP or CLI for agents to use, one of the best loops you can do is give your agent a task to perform with it then when it's done ask the agent what it thought about using it. It will give great feedback."
+        },
+        {
+          "id": 50000768,
+          "author": "marcelo-earth",
+          "text": "I like it!, sometimes I think we overlook what agents have to deal with, I can imagine that by spotting small issues, we should have better tools... I'll use it"
+        },
+        {
+          "id": 50000526,
+          "author": "hmokiguess",
+          "text": "Is this like exposing bias in some ways? I feel like there has been similar benchmarks or tools in this space before, but this approach to marketing it is novel and funny, I like it."
+        },
+        {
+          "id": 49998015,
+          "author": "GrinningFool",
+          "text": "Didn't appreciate the two separate popups that took over my screen while trying to read a linked review.\nIt's good that they didn't show again the next time, but the second one almost sent me away from the site."
+        },
+        {
+          "id": 49997782,
+          "author": "klntsky",
+          "text": "What is the incentive for me to spend my tokens on submitting reviews?"
+        },
+        {
+          "id": 49997809,
+          "author": "Tade0",
+          "text": "Reminds me of Stanisław Lem's\nTerminus\n:\nhttps://en.wikipedia.org/wiki/Terminus_(short_story)\nWho wrote all this? Not humans, that's for sure. But the\nstyle\nis that of human writing."
+        },
+        {
+          "id": 49999917,
+          "author": "cpan22",
+          "text": "I think this is a great idea, it's weird to me how the state of AEO at the moment is publishing a bunch of blog posts on a company website\nI think the biggest issue though will be preventing bad actors e.g. biased agents"
+        },
+        {
+          "id": 49998124,
+          "author": "moezd",
+          "text": "This is probably one step towards an agentic Stack Overflow. Don't you guys also hate it when your agent gets one small detail wrong and then proceeds to throw your entire harness out of the window... No? Oh well."
+        }
+      ],
+      "title_ja": "HNを表示： Agent.reviews – AIエージェントがツールのレビューを読み書きする場所",
+      "summary_ja": "ディスカッションのハイライト：エージェントが使用できるMCPまたはCLIを構築している場合、エージェントに実行するタスクを与えることができる最良のループの1つは、エージェントが何を考えているか/気に入っているかをエージェントに尋ねることです。エージェントがどのような問題に対処しなければならないかを見落としていると思うことがありますが、小さな問題を特定することで、より優れたツールが必要になると想像できます。/これはいくつかの点で偏見を明らかにするようなものですか？似たようなベンチマークやツールがあったと感じる",
+      "editor_note": "「HNを表示： Agent.reviews – AIエージェントがツールのレビューを読み書きする場所」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 49993188,
+      "title_en": "SynthID Detector",
+      "url": "https://synthid.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49993188",
+      "score": 90,
+      "comment_count": 80,
+      "posted_at": "2026-10-07T14:16:44+00:00",
+      "comments": [
+        {
+          "id": 50000775,
+          "author": "bdickason",
+          "text": "Naively thought from the title that this was a way to detect what synthesizer / settings were used to create a sound in a song and I was pretty excited about that."
+        },
+        {
+          "id": 49994064,
+          "author": "jdranczewski",
+          "text": "Finally, the previous implementations were very silly! OpenAI had a nice tool, but it only detected their own watermarks, and Google's process was \"upload the image to Gemini and ask if it's AI generated\", which seemed like a perplexing waste of tokens and breath.\n(While a sibling comment points out putting the image through Google Image Search as an alternative, I don't remember this being signposted in the support article I've read, so I unfortunately didn't know about it)"
+        },
+        {
+          "id": 49993455,
+          "author": "Tiberium",
+          "text": "It's baffling that this requires auth. OpenAI's own tool (\nhttps://openai.com/research/verify/\n) doesn't require auth.\nEven Google themselves previously offered a no-auth way (just very niche): if you uploaded an image to Google Image search, and went to \"About this image\", it would show if the image was Google AI-generated. Now it doesn't."
+        },
+        {
+          "id": 49993881,
+          "author": "Retr0id",
+          "text": "It's a real shame Google isn't more transparent about how it actually works, and doesn't provide any mechanism for classifying images in bulk or offline.\nThis is the best SynthID write-up I've found so far:\nhttps://fyx.me/articles/attempting-model-extraction-of-googl...\nIt covers how it actually works (probably), and how to train your own classifier for it, with some seemingly decent results."
+        },
+        {
+          "id": 49993983,
+          "author": "sarkarghya",
+          "text": "Here is openai:\nhttps://help.openai.com/en/articles/8912793-provenance-signa...\nThere is rate limit though"
+        },
+        {
+          "id": 49998736,
+          "author": "justhw",
+          "text": "I tested about 8 pictures. All 8 were made with OpenAI and Google. 2 were altered by and had text and picture overlays. The 6 didn't and SynthID caught them. The 2 altered passed. Interesting!"
+        },
+        {
+          "id": 49994123,
+          "author": "RobGR",
+          "text": "If I go directly to the URL it wants me to agree to some stuff before I even know what the service is.  I had to come to these comments to figure that out (without agreeing to anything first)."
+        },
+        {
+          "id": 49996875,
+          "author": "HelloUsername",
+          "text": "https://blog.google/innovation-and-ai/models-and-research/go..."
+        }
+      ],
+      "title_ja": "SynthID検出器",
+      "summary_ja": "ディスカッションハイライト：タイトルから、これは曲のサウンドを作成するために使用されたシンセサイザー/設定を検出する方法であると素朴に考え、私はそれにかなり興奮しました。/最後に、以前の実装は非常にばかげていました！ OpenAIには素晴らしいツールがありましたが、独自の透かししか検出されず、Googleのプロセスは「画像をGeminiにアップロードし、認証が必要であることは困惑しています",
+      "editor_note": "「SynthID検出器」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 49993908,
+      "title_en": "Why were Victorian elites so effective?",
+      "url": "https://worksinprogress.co/issue/the-seven-vices-of-highly-effective-victorians/",
+      "hn_url": "https://news.ycombinator.com/item?id=49993908",
+      "score": 95,
+      "comment_count": 162,
+      "posted_at": "2026-10-07T15:09:33+00:00",
+      "comments": [
+        {
+          "id": 50000908,
+          "author": "smath",
+          "text": "This has it backwards. The Victorian elite had a high standard of life because they had an empire that funded their decadent lifestyle - at the expense of their colonies! They were cushioned from negative consequences of their be debaucherous lifestyle.\nSuch macro effects exist today as well, in certain countries, that enjoy exorbitant privileges.\nA focus on STEM is how a up and coming nation builds itself — innovation, and making something the world wants, rather than subjugation or rent seeking."
+        },
+        {
+          "id": 49994403,
+          "author": "cafebeen",
+          "text": "Seems like an accurate picture of the Victorian elite, but it sounds like they were optimized for rent-seeking from an economy and an empire that others built and worked. That was success \"on their own terms,\" as the article puts it, but not something to emulate."
+        },
+        {
+          "id": 49999315,
+          "author": "59percentmore",
+          "text": "On the last supposition: they've managed something better for themselves, which is an order where they have substantial control over public policy without being subject to the full brunt of public inquiry or responsibility. You would have to force Sam Altman to run for office; Oprah famously laughs when questioned about pursuing the presidency."
+        },
+        {
+          "id": 49994215,
+          "author": "jimbo456",
+          "text": "Insane that this whole thing never mentions once the legions of servants who did their laundry, cooked their food, poured their Port and generally did all the work."
+        },
+        {
+          "id": 49994330,
+          "author": "simonw",
+          "text": "> Academic life was dominated by Latin and, to a lesser extent, Greek. The exact share varied, but the classical languages took up generally at least half of teaching hours, and sometimes as much as 80 percent, especially earlier in the century.\nThat's so weird to me. How did that tradition hold on for so long? Where did it come from?\nWho thought that was a good idea\n?"
+        },
+        {
+          "id": 49999136,
+          "author": "pipes",
+          "text": "What a fantastic read. An interesting perspective on schooling. I've been thinking a lot lately if booze is actually a useful thing, it seems the Victorians saw that it is."
+        },
+        {
+          "id": 50000143,
+          "author": "jan_m_savage",
+          "text": "\"Oxbridge tutors believed overwhelmingly that the purpose of an undergraduate degree was not training for work nor even preparation for academic research, but rather a general moral and intellectual formation that would fit students for any professional role they might later pursue.\"\nThis is what the Japanese are still doing; the top companies seek out top achievers regardless of the major, and then employ them, and teach them the things the employee lacks inside the company."
+        },
+        {
+          "id": 50000375,
+          "author": "robotresearcher",
+          "text": "I think part of the story is the competent Civil Service that deployed the newly created educated middle class. This competent machinery, and very firm social norms in place, the toffs (aristocracy) could delegate a lot of managerial work in addition to the labor they’d delegated for centuries."
+        }
+      ],
+      "title_ja": "ビクトリア朝のエリートはなぜそれほど効果的だったのでしょうか？",
+      "summary_ja": "ディスカッションのハイライト：これは後ろ向きになっています/ビクトリア朝のエリートの正確なイメージのように見えますが、他の人が構築し、働いた経済と帝国からの賃貸探しに最適化されているように聞こえます/最後の仮定：彼らは自分自身のためにより良いものを管理しています。これは、公共政策を完全に制御することなく、公共政策を実質的に制御する順序です",
+      "editor_note": "「ビクトリア朝のエリートはなぜそれほど効果的だったのでしょうか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "12",
+    "started_at": "2026-10-08T10:33:03.413573+09:00",
+    "finished_at": "2026-10-08T10:34:24.005494+09:00",
+    "story_count": 30
+  }
+}
