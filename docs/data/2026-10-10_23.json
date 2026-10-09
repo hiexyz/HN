@@ -1,0 +1,1456 @@
+{
+  "date": "2026-10-10T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50019911,
+      "title_en": "Cloudflare acquires Deno",
+      "url": "https://deno.com/blog/cloudflare",
+      "hn_url": "https://news.ycombinator.com/item?id=50019911",
+      "score": 811,
+      "comment_count": 442,
+      "posted_at": "2026-10-09T13:03:48+00:00",
+      "comments": [
+        {
+          "id": 50020072,
+          "author": "theodorejb",
+          "text": "> We will support the Deno runtime for another year with monthly releases containing bug fixes and security updates. After that year we will end our development of the Deno runtime. Deno will remain open source, and we welcome others who want to continue its development.\nSo unless someone else picks up development, Deno will no longer be supported."
+        },
+        {
+          "id": 50021907,
+          "author": "sholladay",
+          "text": "I loved early Deno and am sad to see it die. I invested heavily in the Deno ecosystem because of Ry’s initial vision for it.\nBut I stopped because I saw this coming the moment they changed course and started putting npm compatibility as a priority. Deno’s surface area went from beautifully simple to very bloated. I think they felt the pressure of VC funding and just gave up on rebuilding Node from first principles.\nThe silver lining is that early Deno was so good that Node copied some of its features. So at least we have a better Node now."
+        },
+        {
+          "id": 50020818,
+          "author": "coldtea",
+          "text": "\"Deno development effectively shut down via a Cloudflare acquihire\" would be a better headline."
+        },
+        {
+          "id": 50024230,
+          "author": "sixdimensional",
+          "text": "So the developer tooling consolidation/acquisitions continue... hmm!\n- Cursor -> SpaceX\n- Astral/uv -> OpenAI\n- Stainless -> Anthropic\n- Bun -> Anthropic\n- Astro.js -> Cloudflare\n- Deno -> Cloudflare\n- VoidZero (Vite, etc.) -> Cloudflare\n- NuxtLabs -> Vercel\n- Hugging Face -> NVIDIA\n- ... what else?"
+        },
+        {
+          "id": 50021206,
+          "author": "networked",
+          "text": "RIP, my favorite JavaScript runtime, and thank you. You were too secure for this world.\nWhat kind of business move is this for Cloudflare? celld is a more complete Cloudflare-at-home runtime than current workerd. What does Cloudflare stand to gain from commodizing Workers?\nI'll say that although I'm not really a Cloudflare Workers user, I've been eyeing workerd and celld with interest. The idea of a complete backend in a box appeals to me (see also: PocketBase, Algernon). At the same time, the acquisition means that another company won't acquire Deno for celld."
+        },
+        {
+          "id": 50020269,
+          "author": "bennett_dev",
+          "text": "I feel it leaves a bitter flavor how Ryan Dahl pushed so hard for Deno and Deno Deploy for years, just to let them die within 1 year and 6 months respectively.\nThankfully I don't have any codebases that heavily use Deno features, otherwise this would be a steep curve now."
+        },
+        {
+          "id": 50020609,
+          "author": "ryanrasti",
+          "text": "A lot of the comments are on sunsetting Deno, but the more interesting part is merging the celld model into workerd.\nI've been following celld since it was announced. Bootstrapping both durability\nand coordination\noff object storage simplifies so many things for self-hosting. (Yes, ironic that self-hosting has a cloud dependency, but in this case I think justified because S3 has become a widely supported protocol that you can run yourself too).\nWill be curious to see the details on exactly how that model makes it into workerd."
+        },
+        {
+          "id": 50025348,
+          "author": "K0IN",
+          "text": "I was a big fan of deno, so much that I migrated all my cf worker to demo, cause you can run the same engine in there cloud and local/selfhost - perfect no vender lockin(like with cloud flare workers), it's so sad to see it gets shelved."
+        }
+      ],
+      "title_ja": "CloudflareがDenoを買収",
+      "summary_ja": "ディスカッションのハイライト：> Denoランタイムをさらに1年間サポートし、バグ修正とセキュリティアップデートを含む毎月のリリースを行います/私は早期のDenoが大好きで、それが死んでしまうのを見て残念です/「Deno開発はCloudflareの取得を介して効果的にシャットダウンされます」という見出しの方が良いでしょう。",
+      "editor_note": "「CloudflareがDenoを買収」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 2,
+      "id": 50020014,
+      "title_en": "Our $445M Series D",
+      "url": "https://oxide.computer/blog/our-445m-series-d",
+      "hn_url": "https://news.ycombinator.com/item?id=50020014",
+      "score": 445,
+      "comment_count": 182,
+      "posted_at": "2026-10-09T13:12:47+00:00",
+      "comments": [
+        {
+          "id": 50020339,
+          "author": "passive",
+          "text": "Sounds like a great company raising money for the right reasons.\nOxide continues to be one of the most inspiring companies in the space, I was just encouraging someone to apply there yesterday. :)"
+        },
+        {
+          "id": 50020358,
+          "author": "simonw",
+          "text": "Love the photo caption \"FIGURE 1. US BEING AS EXCITED AS YOU CAN BE PAYING TAXES\".\nOxide are so good at comms."
+        },
+        {
+          "id": 50021188,
+          "author": "arpinum",
+          "text": "I'm surprised they didn't go the debt route, trade finance could cover their customer orders. I know they are risk averse in case companies back out of orders, but bringing on more shareholders is its own form of risk.\nIs something else going on here, are they locking in orders from AMD and other suppliers beyond their current order backlog?"
+        },
+        {
+          "id": 50020690,
+          "author": "tosh",
+          "text": "with agentic coding lock in @ AWS and Google Cloud is evaporating fast\na few days ago I migrated a non-trivial firestore app to sqlite\n10x less latency (10x requests / second)\nmigration took a few minutes (+ 2 days of prep)\njust a few months ago that would have been infeasible or at least nerve wracking"
+        },
+        {
+          "id": 50023511,
+          "author": "bihla",
+          "text": "Maybe the most thoughtful fundraising announcement I’ve seen. Focusing on all the right stuff."
+        },
+        {
+          "id": 50020524,
+          "author": "thatsabadlook",
+          "text": "Awesome company, awesome products. I wish they pushed AI less in their socials, like we get it computers and servers means ai workloads. It just devalues their whole image in my opinion. Hope you all do continue to do awesome things and don't become evil."
+        },
+        {
+          "id": 50023424,
+          "author": "ahl",
+          "text": "FYI previous discussion of the series D\nhttps://news.ycombinator.com/item?id=49174407"
+        },
+        {
+          "id": 50024134,
+          "author": "meta-level",
+          "text": "Probably I'm blind.. is there any form of imprint on their page? An address?"
+        }
+      ],
+      "title_ja": "当社の$ 445 MシリーズD",
+      "summary_ja": "ディスカッションのハイライト：適切な理由で資金を調達する素晴らしい会社のようです。\nOxideはこの分野で最もインスピレーションを与える企業の1つであり続けています。私はちょうど誰かに/写真のキャプションを適用するよう奨励していました。「図1/彼らが債務経路に行かなかったことに驚いています。貿易金融は顧客の注文をカバーすることができました",
+      "editor_note": "「当社の$ 445 MシリーズD」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50022292,
+      "title_en": "Triple-A Minesweeper",
+      "url": "https://minesweeper.mikelacher.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50022292",
+      "score": 141,
+      "comment_count": 43,
+      "posted_at": "2026-10-09T15:51:05+00:00",
+      "comments": [
+        {
+          "id": 50025422,
+          "author": "grumbel",
+          "text": "There is also the classic \"Minesweeper - The Movie\"[1]\n[1]\nhttps://www.youtube.com/watch?v=LHY8NKj3RKs"
+        },
+        {
+          "id": 50024387,
+          "author": "lapetitejort",
+          "text": "Missing:\nSidequest to sweep 10 mines.\nAchievement after sweeping 5 mines\nThe yellow diamond is nice but what if I don't notice the diamond? I need a colored scent trail leading from my cursor to the yellow diamond, and a pinging noise when my cursor is near a mine\nMocapped mines\nJack Quaid\n$70"
+        },
+        {
+          "id": 50024657,
+          "author": "devin",
+          "text": "So good.\nMaybe lean into some of the metal gear solid dialogue by having a long back and forth about \"What's a mine?\" \"What do you mean 'mark a mine'?\" \"How do I know when I'm done?\" etc."
+        },
+        {
+          "id": 50025339,
+          "author": "NSUserDefaults",
+          "text": "Nice but the logos are skippable, which is not realistic."
+        },
+        {
+          "id": 50024875,
+          "author": "fidotron",
+          "text": "But I didn't need to install a publisher specific launcher to run it."
+        },
+        {
+          "id": 50025100,
+          "author": "theroadnotbacon",
+          "text": "I was absolutely hoping to see production babies in the credits. Can’t win ‘em all."
+        },
+        {
+          "id": 50025289,
+          "author": "LunicLynx",
+          "text": "Needs:\n- Checkpoints after each mine\n- DLC for rounded corners"
+        },
+        {
+          "id": 50024979,
+          "author": "xbar",
+          "text": "I was angry at the wasted 30 seconds of opening licensed 3rd party software listings, but I stayed through to the end of the credits roll, laughing until I cried.\nThis is Art."
+        }
+      ],
+      "title_ja": "トリプルA地雷掃除人",
+      "summary_ja": "ディスカッションハイライト：古典的な「地雷掃除人-映画」もあります[1]\n[1]\nhttps://www.youtube.com/watch?v=LHY8NKj3RKs/行方不明：\nサイドクエストで鉱山を10回掃討する。\n鉱山を5回掃討した後の達成\n黄色のダイヤモンドは素敵ですが、ダイヤモンドに気づかなかったらどうしますか？ 前後に続く色付きの香りのトレイルが必要です/とても良いです。\n「鉱山とは何か」について長く話し合うことで、金属装備の堅実な対話の一部に身を乗り出すことができるかもしれません。 「どういう意味ですか、お母さん」",
+      "editor_note": "「トリプルA地雷掃除人」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50024499,
+      "title_en": "Show HN: Carrier-Explode: iPhone, Pixel and Galaxy carrier settings decoded",
+      "url": "https://carrierexplode.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50024499",
+      "score": 32,
+      "comment_count": 4,
+      "posted_at": "2026-10-09T18:10:55+00:00",
+      "comments": [
+        {
+          "id": 50025349,
+          "author": "seba_dos1",
+          "text": "It would be great to contribute whatever's applicable to\nhttps://gitlab.gnome.org/GNOME/mobile-broadband-provider-inf..."
+        },
+        {
+          "id": 50025165,
+          "author": "tylergetsay",
+          "text": "Reminds me of the CDMA days when the qualcom software got leaked"
+        },
+        {
+          "id": 50025073,
+          "author": "dorianmariecom",
+          "text": "very interesting here is my carrier for instance\nhttps://carrierexplode.com/ios/carriers/Free_fr/72.0/setting..."
+        },
+        {
+          "id": 50025060,
+          "author": "mrweasel",
+          "text": "Not really sure what to do with the information, but I love the UI."
+        }
+      ],
+      "title_ja": "HN: Carrier - Explode: iPhone、Pixel、Galaxyのキャリア設定をデコードして表示",
+      "summary_ja": "ディスカッションのハイライト：\nhttps://gitlab.gnome.org/GNOME/mobile-broadband-provider-inf.../QualcomソフトウェアがリークされたCDMAの日々を思い出させます/非常に興味深いのは、例えば私のキャリアです\nhttps://carrierexplode.com/ios/carriers/Free_fr/72.0/setting...",
+      "editor_note": "「HN: Carrier - Explode: iPhone、Pixel、Galaxyのキャリア設定をデコードして表示」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50018088,
+      "title_en": "Sorry, I'm in a meeting",
+      "url": "https://iminafleeting.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50018088",
+      "score": 570,
+      "comment_count": 187,
+      "posted_at": "2026-10-09T09:21:48+00:00",
+      "comments": [
+        {
+          "id": 50020900,
+          "author": "alexpotato",
+          "text": "At a past firm I managed a team of SREs.\nThis was very much a \"fire drill all the time\" kind of place (vs \"slow and steady\"). The team came to me and said:\n\"Alex, we keep getting bombarded by meeting requests and have no focus time.\"\nMy solution was to create a weekly \"team meeting\" from 8am to 11am every Friday and invite all of them to it.\nThey loved it!\nI mentioned to them that making a meeting like this was something they could have done themselves but they responded:\n\"It carries more weight coming from you. Plus, if someone tries to schedule over it, they are more likely to think twice and/or I can say 'Hey, you have to talk to Alex.' \""
+        },
+        {
+          "id": 50019063,
+          "author": "frangonf",
+          "text": "This has real demand, I ended up in the Gitlab secondary youtube channel one day, ordering by most views, and I found a video [0] of a seemingly normal uninteresting meeting with millions of views. Turns out people were using this as an excuse for looking like they were busy. They disabled comments now but I saved some of them because I thought it was hilarious:\nI play this when I need my family to leave me alone - so helpful\n4.5K\nI play this when I pretend to be busy. This meeting is literally about anything you want it to be about lol\n1.5K\nI love that we all arrived at this video for the same reason\n2.6K\nEvery now and then I'll pause it at a good point in between them talking to make my own voice heard contributing to the \"meeting\" lol. Gets the full effect in! And the beautiful thing is their conversation just flows with it like they heard me lol.\n562\n[0]\nhttps://www.youtube.com/watch?v=lBVtvOpU80Q"
+        },
+        {
+          "id": 50019905,
+          "author": "filcuk",
+          "text": "The scripts are hilarious, yet not inaccurate. I can't stop chuckling.\n'Are you happy with that?'\n'Happy is a strong word'\n'OK'\nmoves on to the next topic"
+        },
+        {
+          "id": 50019334,
+          "author": "tacostakohashi",
+          "text": "Reminds me of the \"boss mode\" / \"boss key\" in old games, like MS-DOS days, which would switch the screen to some spreadsheet mockup or suchlike, updated for the current century."
+        },
+        {
+          "id": 50019412,
+          "author": "ninkendo",
+          "text": "Audio seems broken now, maybe hugged to death. Console:\nHTTP load failed with status 404. Load of media resource https://iminafleeting.com/media/people/standup-a.mp4 failed"
+        },
+        {
+          "id": 50019427,
+          "author": "voidUpdate",
+          "text": "Do people in offices typically just blast meetings out of their computer speakers? Everyone I work with uses headphones so we're not disturbing other people in the office..."
+        },
+        {
+          "id": 50018424,
+          "author": "roryirvine",
+          "text": "Truly uncanny!\nOnly the British audio works for me, though - if I try American or International, the relevant meetings are silent with a \"Join Audio\" button which doesn't appear to do anything. (Firefox on MacOS, if that's useful)"
+        },
+        {
+          "id": 50025034,
+          "author": "cantrevealname",
+          "text": "Some decades ago there was an actual product you could buy that did the analog version of this service.  It was a cassette tape with various background noises, so you could call your boss or spouse  from a payphone and play background noise from (for example) a car mechanic’s shop while you explained that you’re not coming because your car broke down. The auto repair recording had a convincing mix of clanging, hammering, and car engine sounds, but there were a dozen other scenarios to choose from on the tape."
+        }
+      ],
+      "title_ja": "申し訳ありませんが、会議中です",
+      "summary_ja": "ディスカッションハイライト：過去の会社では、SREのチームを管理していました。\nこれは非常に「常に火災訓練」のような場所でした（対「ゆっくりとした安定した」）/これには本当の需要があります。ある日、私はGitlabのセカンダリユーチューブチャンネルに行き、ほとんどのビューで注文しました。そして、mとの一見普通の面白くない会議のビデオ[0]を見つけました/スクリプトは滑稽ですが、不正確ではありません",
+      "editor_note": "「申し訳ありませんが、会議中です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50019056,
+      "title_en": "I Pointed AI at 400 Years of Archives. It Found a Forgotten Meteorites and More",
+      "url": "https://jessewaites.com/blog/post/i-pointed-ai-at-400-years-of-archives/",
+      "hn_url": "https://news.ycombinator.com/item?id=50019056",
+      "score": 32,
+      "comment_count": 11,
+      "posted_at": "2026-10-09T11:36:20+00:00",
+      "comments": [
+        {
+          "id": 50025157,
+          "author": "jvanderbot",
+          "text": "IMHO: The rotating rhino, meteor impact, and animated flowchart is totally unnecessary cruft that makes it look almost satirical. If this keeps up, in time, this \"AAA effects\" stuff is going to look like the 90s \"under construction\" banner gifs."
+        },
+        {
+          "id": 50025015,
+          "author": "whythismatters",
+          "text": ">To make this kind of research accessible, I’m open-sourcing the workflow I created for this investigation as a small toolkit, Antiquity, enabling anyone with a question and a coding agent to conduct similar historical archival investigations.\nhttps://github.com/jessewaites/antiquity"
+        },
+        {
+          "id": 50025396,
+          "author": "piratebroadcast",
+          "text": "There's an option at the very top of the article to turn the effects off, so I don't know what to tell you."
+        },
+        {
+          "id": 50025107,
+          "author": "acgourley",
+          "text": "Very cool.\nI'm working on a similar project for contemporary political opinion media. Every podcast, blog, oped, or show cut into little pieces with the structure, speaker, quotes and nouns pulled out and cross-referenced. I bring it up because I wonder if this kind of heavy-weight preprocessing is worth bringing to historical documents as well. It would be much more expensive, initially, but afterwards allows questions get answered even cheaper than they are in your current system. It may be worth collecting interested parties and co-investing in the structured parsing.\nAlso modern transcription and historical document scanning have a similar shaped problem - dealing with misspelled words and trying to infer their corrections from context."
+        }
+      ],
+      "title_ja": "私は400年のアーカイブにAIを指し示しました。忘れられた隕石などを発見",
+      "summary_ja": "ディスカッションのハイライト： IMHO ：回転するサイ、隕石の衝突、アニメーションのフローチャートはまったく不要なもので、ほとんど風刺的に見えます/>この種の研究を利用可能にするために、私がこの調査のために作成したワークフローを小さなツールキット、Antiquityとしてオープンソース化し、質問とcodiを持つ誰でも利用できるようにしています/記事の一番上には効果をオフにするオプションがありますので、何を伝えればいいのかわかりません。",
+      "editor_note": "「私は400年のアーカイブにAIを指し示しました。忘れられた隕石などを発見」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50018817,
+      "title_en": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen",
+      "url": "https://github.com/franzenzenhofer/big-arrow-on-the-screen",
+      "hn_url": "https://news.ycombinator.com/item?id=50018817",
+      "score": 320,
+      "comment_count": 139,
+      "posted_at": "2026-10-09T11:03:48+00:00",
+      "comments": [
+        {
+          "id": 50022929,
+          "author": "sicktriple",
+          "text": "Man, just when it seemed like we had it all. Computers were cheap, efficient and powerful. Somehow we figured out a way to accomplish tasks we already had solved except now it's 1000x more expensive, requires the combined electricity of the entire world, is reliant on someone else's rented compute, and now I need a robot to tell me what button to press. What a time to be alive."
+        },
+        {
+          "id": 50019459,
+          "author": "hn8726",
+          "text": "I tried to read the \"Does it need Screen Recording or Accessibility?\" part, but it's slopped to the point I have no clue what it's trying to say. But if it can draw on top of permission prompts, what's stopping it from drawing box that hides the \"decline\" button and changing the \"approve\" button copy?"
+        },
+        {
+          "id": 50021210,
+          "author": "tangotaylor",
+          "text": "\"It is an arrow, so we spent an unreasonable amount of time on how it looks.\"\nBrilliant. This is exactly the kind of content I seek when I visit Hacker News.\nTruly art."
+        },
+        {
+          "id": 50024169,
+          "author": "kogus",
+          "text": "My first reaction was similar to the reaction I'd have if you told me that cockroaches had learned to unlock doors and stand on their hind legs.  But then I thought about accessibility, and the ways this could be used to help technologically illiterate or disabled people, and I thought again.\nDo you remember when PCs used to come with a completely soup-to-nuts tutorial that would talk to you like you had never seen a PC before?  Things like this:\nhttps://www.youtube.com/watch?v=3ScS4OYDfHE\nThis kind of baked-in interactivity could really help in a training or disability context."
+        },
+        {
+          "id": 50020043,
+          "author": "usrbinbash",
+          "text": "SO the point of this is ... what exactly?\nA big arrow to an interface element which ... has a label that explains what it does?\nSo...a label for a label?"
+        },
+        {
+          "id": 50019233,
+          "author": "arshxyz",
+          "text": "The README is geared towards technical people (complete with the HN screenshot) but when I see a tool like this all I can think of is how helpful this would be for my mom when I'm trying to tell her how to download and print a document over the phone"
+        },
+        {
+          "id": 50022699,
+          "author": "alansaber",
+          "text": "OP has inspired me to write up my tedious thoughts on agent GUIs if of interest\nhttps://news.ycombinator.com/item?id=50022688"
+        },
+        {
+          "id": 50019128,
+          "author": "isoprophlex",
+          "text": "Literally unusable as it is. Some minimal extra features this would need:\n- rainbow dripping arrows\n- angrily pointing arrows\n- flame-surrounded text boxes with particle effects\n- the ability for the agent to play airhorn.wav at max volume, overriding existing volume or mute settings\nEDIT: ayy lmao\nhttps://github.com/franzenzenhofer/big-arrow-on-the-screen/p..."
+        }
+      ],
+      "title_ja": "HNを表示： AIエージェントが画面に大きな矢印、ボックス、テキストをペイントできるようにします",
+      "summary_ja": "ディスカッションのハイライト：男、ちょうど私たちがそれをすべて持っているように見えたとき/私は「それはスクリーンレコーディングまたはアクセシビリティが必要ですか？」の部分を読んでみましたが、それが何を言おうとしているのかわからないほど傾いています/「それは矢印なので、私たちはそれがどのように見えるかに不合理な時間を費やしました。」\n素晴らしい",
+      "editor_note": "「HNを表示： AIエージェントが画面に大きな矢印、ボックス、テキストをペイントできるようにします」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 50023450,
+      "title_en": "Typesafe AI raises $870M at $7.5B",
+      "url": "https://typesafe.ai/blog/series-ai",
+      "hn_url": "https://news.ycombinator.com/item?id=50023450",
+      "score": 76,
+      "comment_count": 49,
+      "posted_at": "2026-10-09T17:02:31+00:00",
+      "comments": [
+        {
+          "id": 50025232,
+          "author": "christina97",
+          "text": "Everyone appears surprised by this news. It’s clear that they don’t have a product with some incredible moat. But they clearly have good engineering and product people that came up with a product people wanted. On top of that they have very strong marketing muscle that took the AI world by storm. And as far as I’ve seen, they still lead in some part of the latency-quality (-cost) curve?\nThey may well be a good team to throw money behind if you are hoping to bet on a new AI lab."
+        },
+        {
+          "id": 50024954,
+          "author": "armcat",
+          "text": "It's weird because two days after Jev was released there were a dozen decision models, a week later there are several dozen, mostly open source, OpenAI's own Decisions API [1] beats it, and you can easily finetune your own [2]. But as others have pointed out, this doesn't matter.\n[1]\nhttps://developers.openai.com/api/docs/guides/decisions\n[2]\nhttps://unsloth.ai/docs/basics/train-your-own-decision-model..."
+        },
+        {
+          "id": 50025433,
+          "author": "amelius",
+          "text": "They already got Sherlocked by OpenAI:\nhttps://developers.openai.com/api/docs/guides/decisions"
+        },
+        {
+          "id": 50024839,
+          "author": "prometheus1992",
+          "text": "I really don't understand how this can be. I have sat in fund raising meetings with VCs in toronto and my experience is that there is shit ton of due diligence at the tech level. a product which has no moat, was already available, was duplicated within a couple of days is valued at 7B - i thought we were past the peak of the hype cycle."
+        },
+        {
+          "id": 50025181,
+          "author": "jacobgold",
+          "text": "Whether they can compete on decision models or not, TypeSafe showed that a lot of the market had missed something important. With this much money, they have a lot more chances to discover other important things that are missing."
+        },
+        {
+          "id": 50025334,
+          "author": "maxdo",
+          "text": "interestingly , it destroy the landscape of Chinese models.\nUnless china takes leadership in frontier space the picture is next :\n1. cheap workhorses for classification, routing, other scenarios : Jev\n2. coding agents with less erros : Anthropic/Openai, etc.\n3. Science /Legal/Medical : A mixture of Jev+Anthropic scenarios"
+        },
+        {
+          "id": 50025020,
+          "author": "jypepin",
+          "text": "Their headline says \"TypeSafe A raises series AI\". Is that AI slope?"
+        },
+        {
+          "id": 50025377,
+          "author": "dvt",
+          "text": "Is Jev being astroturfed on HN? It certainly feels like it. It's a middling product with virtually no moat (but\ngreat\nmarketing)."
+        }
+      ],
+      "title_ja": "Typesafe AIが8億7000万$を75億$で調達",
+      "summary_ja": "ディスカッションのハイライト：誰もがこのニュースに驚いているように見えます/Jevがリリースされてから2日後には12の意思決定モデルがあり、1週間後には数十の、主にオープンソースのOpenAI独自のDecisions API [1]が打ち負かされています/彼らはすでにOpenAIによってSherlockedされています：\nhttps://developers.openai.com/api/docs/guides/decisions",
+      "editor_note": "「Typesafe AIが8億7000万$を75億$で調達」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 9,
+      "id": 50024669,
+      "title_en": "M7.6 Earthquake in Panama",
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k/executive",
+      "hn_url": "https://news.ycombinator.com/item?id=50024669",
+      "score": 66,
+      "comment_count": 23,
+      "posted_at": "2026-10-09T18:22:20+00:00",
+      "comments": [
+        {
+          "id": 50024988,
+          "author": "stickfigure",
+          "text": "Still early, but so far local news does not look especially bad:\nhttps://www.telemetro.com/nacionales/asi-se-vivio-el-fuerte-..."
+        },
+        {
+          "id": 50025202,
+          "author": "ortusdux",
+          "text": "Looks like it was 6mi deep, which is very shallow!"
+        },
+        {
+          "id": 50025267,
+          "author": "neves",
+          "text": "remember that other day Venezuela had a terrible earthquake"
+        },
+        {
+          "id": 50024932,
+          "author": "wang_li",
+          "text": "Wonder if there could ever be enough damage resulting in the lake draining because the locks failed?"
+        }
+      ],
+      "title_ja": "パナマのM7.6地震",
+      "summary_ja": "ディスカッションのハイライト：まだ早いですが、これまでのところ地元のニュースは特に悪くないようです。\nhttps://www.telemetro.com/nacionales/asi-se-vivio-el-fuerte-.../深さは6マイルで、非常に浅いようです！/先日ベネズエラでひどい地震が発生したことを覚えておいてください",
+      "editor_note": "「パナマのM7.6地震」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50018420,
+      "title_en": "Nobel Peace Prize for 2026 to Navanethem Pillay",
+      "url": "https://www.nobelprize.org/prizes/peace/2026/press-release/",
+      "hn_url": "https://news.ycombinator.com/item?id=50018420",
+      "score": 366,
+      "comment_count": 190,
+      "posted_at": "2026-10-09T10:12:11+00:00",
+      "comments": [
+        {
+          "id": 50025411,
+          "author": "vincnetas",
+          "text": "and here you go\nUS unveils sanctions on ICC in move court condems as 'assault on rule of law'\nhttps://www.bbc.com/news/articles/cj20vkkx3rdvo"
+        },
+        {
+          "id": 50018685,
+          "author": "killingtime74",
+          "text": "I was just checking which were the top guesses on polymarket before the announcement and this winner was not even a choice on there. At least we know there's no insider trading at the Nobel foundation."
+        },
+        {
+          "id": 50024021,
+          "author": "dang",
+          "text": "Related ongoing thread:\nUS imposes sanctions on ICC hours after former judge wins Nobel Peace Prize\n-\nhttps://news.ycombinator.com/item?id=50021066\n- Oct 2026 (288 comments)"
+        },
+        {
+          "id": 50018846,
+          "author": "onepunchedman",
+          "text": "Great to see that they're not afraid to stand up to the rising authoritarianism"
+        },
+        {
+          "id": 50022913,
+          "author": "jonathanlydall",
+          "text": "My wife (also of Indian descent and from Durban) was happy when I forwarded her a BBC link of this news.\nShe remembered her late mother used to talk a lot of her as she managed to become a lawyer despite being an Indian in apartheid South Africa."
+        },
+        {
+          "id": 50018680,
+          "author": "JensRantil",
+          "text": "Yay, congrats Navi! Thanks for contributing to international law!"
+        },
+        {
+          "id": 50025176,
+          "author": "sailingcode",
+          "text": "What a courageous woman. There is so much suffering and horror involved.\nAnd Scandinavians aren't shy to set a statement."
+        },
+        {
+          "id": 50025316,
+          "author": "carefree-bob",
+          "text": "Unfortunately Nobel Peace prizes are stained with the reputation of going to some pretty undeserving people (Henry Kissinger, Shimon Peres, Obama, etc) and this mars the image of the prize even as a whole.\nThere are actually people who spend their lives working for peace, and die in the effort. And then there are people like Henry Kissinger. They share the same prize.\nMore recently, the prizes are even more obviously politicized(1), so when the west is trying to overthrow Iran, it gives the prize to western-backed dissidents fighting for \"women's rights\" in Iran - the nation that has female airline pilots and university professors, but not to the scores of dissidents executed by Saudi Arabia, where women only recently got the right to drive. None of those murdered by Saudi Arabia, even if they died arguing for women's rights, will ever qualify for the Nobel Peace price. Not while Iran still needs to be overthrown.\n1. See\nhttps://www.eureporter.co/nobel-peace-prize/2025/10/27/when-...\nfor a survey of recent winners and what political agenda was pushed with each award."
+        }
+      ],
+      "title_ja": "Navanethem Pillayへの2026年ノーベル平和賞",
+      "summary_ja": "ディスカッションのハイライト：これで完了です\n米国はICCへの制裁を発表し、裁判所は「法の支配への攻撃」と認定\nhttps://www.bbc.com/news/articles/cj20vkkx3rdvo/発表前にポリマーケットで最も推測されたものはどれかを確認していましたが、この受賞者はそこでの選択肢ですらありませんでした/関連する進行中のスレッド：\n元裁判官がノーベル平和賞を受賞してから数時間後、米国はICCに制裁を課す\n-\nhttps://news.ycombinator.com/item?id=50021066\n-",
+      "editor_note": "「Navanethem Pillayへの2026年ノーベル平和賞」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 49993106,
+      "title_en": "Part of a police code for describing suspects",
+      "url": "https://www.researchgate.net/figure/Part-of-a-police-code-for-describing-suspects_fig4_228844649",
+      "hn_url": "https://news.ycombinator.com/item?id=49993106",
+      "score": 10,
+      "comment_count": 1,
+      "posted_at": "2026-10-07T14:09:15+00:00",
+      "comments": [
+        {
+          "id": 50025358,
+          "author": "copperx",
+          "text": "Now I know where the name Axe body spray comes from."
+        }
+      ],
+      "title_ja": "容疑者を説明するための警察コードの一部",
+      "summary_ja": "ディスカッションハイライト：これで、Axeボディスプレーの名前の由来がわかりました。",
+      "editor_note": "「容疑者を説明するための警察コードの一部」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 12,
+      "id": 50024927,
+      "title_en": "You might want to try being less creative",
+      "url": "https://blog.bawolf.com/p/you-might-want-to-try-being-less",
+      "hn_url": "https://news.ycombinator.com/item?id=50024927",
+      "score": 22,
+      "comment_count": 6,
+      "posted_at": "2026-10-09T18:39:47+00:00",
+      "comments": [
+        {
+          "id": 50025188,
+          "author": "herbertl",
+          "text": "While I like the punchy title, I'd suggest the often invisible role of preliminary work IS a part of being creative. In music it's \"demos,\" in art it's \"sketches,\" in writing it's \"drafts,\" etc. I write in my book, Creative Doing:\n> This stage is far too early to demand perfection; it’s best to keep expectations low, to refrain from self-criticism, and to support psychological safety (the feeling that it’s okay to make mistakes) to allow every single detail of the idea to flow out.\nIt's related to the original post's mention of scarcity, and how \"the path to writing a great song really is through hundreds of mediocre songs.\" The most reliable way to good work is to allow it to emerge through a lot of preliminary work (e.g., lots of drafts, demos, and sketches).\nMore on preliminary work here:\nhttps://www.holloway.com/g/creative-doing/sections/draft-dem..."
+        },
+        {
+          "id": 50025255,
+          "author": "andai",
+          "text": "Started having way more fun (and making better music) when I released the \"need\" to make everything from scratch and just started dragging and dropping loops.\nNow it's like I'm back in 2003 when my feature phone had a little music composer thing on it. You'd just slap together some presets.\nLife is good."
+        },
+        {
+          "id": 50025190,
+          "author": "Ancalagon",
+          "text": "Why does every article have to start with a biography these days?"
+        }
+      ],
+      "title_ja": "あまり創造性を発揮しないようにしてみてはどうでしょうか",
+      "summary_ja": "ディスカッションのハイライト：パンチの効いたタイトルが気に入っていますが、準備作業の目に見えない役割は、クリエイティブであることの一部であることが多いことを示唆しています/ゼロからすべてを作る「必要性」をリリースし、ループをドラッグアンドドロップし始めたときに、より楽しく（そしてより良い音楽を作ること）を始めました。\nさて、私はバックのようなものです/最近、なぜすべての記事は伝記から始まらなければならないのですか？",
+      "editor_note": "「あまり創造性を発揮しないようにしてみてはどうでしょうか」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50021540,
+      "title_en": "Germany transforms former coal mines into Europe's largest lake landscape",
+      "url": "https://www.euronews.com/2026/04/14/almost-like-lake-como-germany-transforms-former-coal-mines-into-europes-largest-lake-lands",
+      "hn_url": "https://news.ycombinator.com/item?id=50021540",
+      "score": 135,
+      "comment_count": 73,
+      "posted_at": "2026-10-09T15:05:24+00:00",
+      "comments": [
+        {
+          "id": 50022589,
+          "author": "m4rtink",
+          "text": "This is quite normal thing to do for many open pit mines or rather hard not to do if the pit goes below the water table.\nThere are some very nice natural swimming pools in the local area thanks to that, for example:\nhttps://www.kudyznudy.cz/aktivity/koupaliste-u-libuse-v-lule...\n(stone quarry, IMHO one of the best summer swimming pools anywhere)\nhttps://cs.wikipedia.org/wiki/Zatopen%C3%BD_lom_v_Blansku\n(stone quarry)\nhttps://www.jednoustopouceskem.cz/listing/lom-kaolinka-prime...\n(kaolin mine)"
+        },
+        {
+          "id": 50024451,
+          "author": "larusso",
+          "text": "This report seems to be a bit one-sided. They say the lakes will be used as reservoirs for rivers like the spree. The issue is that the spree was feed for years with excess water from the old mines which had to pump the water out. Now they don’t pump water anymore to fill up these lakes and some parts of the spree run low on water during summer. The water table fell a lot over the last 10 to 20 years in Berlin. I’m not sure what exactly contributed to this situation overall. But they had plans to pump water from the Elbe into the Spree to help out with the situation. But cities downstream are not happy about the situation. For me this feels like a somewhat similar situation to the Colorado River situation with the upper and lower basins.\nhttps://www.rbb24.de/panorama/beitrag/2026/07/wasser-mangel-..."
+        },
+        {
+          "id": 50024470,
+          "author": "martin_a",
+          "text": "To provide a counterpoint that is missing in the article: Conservation organizations are somewhat skeptical that these projects might take much longer and be more expensive than planned, due to climate change.\nProjects like Garzweiler and Hambach were expected to take 25 to 30 years to fill up, but with droughts like this summer it might take much longer and the water would have to be diverted from already stressed ecosystems like the Rhine.\nThis whole topic has become much more complicated in the last years..."
+        },
+        {
+          "id": 50023141,
+          "author": "wewewedxfgdf",
+          "text": "Mining operations often are toxic environments for various reasons aren't they?"
+        },
+        {
+          "id": 50022343,
+          "author": "axus",
+          "text": "Haunted Hydrology's video for October 8 is about divers in flooded mines:\nhttps://www.youtube.com/shorts/V-HW5HAL7Lk"
+        },
+        {
+          "id": 50023964,
+          "author": "Aboutplants",
+          "text": "This reminds of a retirement community that was developed in Rome, GA on the site of an old limestone quarry.\nhttps://www.thw.com/projects/49-senior-living/323-berry-coll...\nTurning old brownfield into usable and livable space is a win all around"
+        },
+        {
+          "id": 50023766,
+          "author": "swframe2",
+          "text": "Interesting machine that mines the coal and makes the\nlakes possible.\nhttps://www.youtube.com/watch?v=U8772vEfUu8"
+        },
+        {
+          "id": 50022659,
+          "author": "pretzellogician",
+          "text": "These strip mine reclamations are just great.\nIn the 1990s, we lived on a lake  in Indiana that was reclaimed from strip mines. Recommended."
+        }
+      ],
+      "title_ja": "ドイツ、旧炭鉱を欧州最大の湖沼に転換",
+      "summary_ja": "ディスカッションのハイライト：これは多くの露天掘り鉱山にとって非常に普通のことであり、ピットが地下水面下にある場合は行わないのは難しいことです。\nLOCAには非常に素敵な天然プールがいくつかあります/このレポートは少し偏っているようです/記事に欠けている対立点を提供するために：保全組織は、これらのプロジェクトにはるかに時間がかかり、plよりも費用がかかる可能性があることにやや懐疑的です",
+      "editor_note": "「ドイツ、旧炭鉱を欧州最大の湖沼に転換」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50000488,
+      "title_en": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+      "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "hn_url": "https://news.ycombinator.com/item?id=50000488",
+      "score": 1024,
+      "comment_count": 915,
+      "posted_at": "2026-10-08T00:14:48+00:00",
+      "comments": [
+        {
+          "id": 50012463,
+          "author": "vishvananda",
+          "text": "The reason people aren’t freaking out is because most people are using heavily subsidized subscriptions.\nI tried the cheapest provider on openrouter and burned through $50 in a few days. Quality was ok, seems slightly above Luna quality perhaps? But that $50 is 1/4 of my codex subscription where I could have burned that many tokens or more using Astra within my weekly reset.\nThis won’t last forever but as long as the frontier labs are subsidizing this heavily the open models won’t matter."
+        },
+        {
+          "id": 50011685,
+          "author": "mlinsey",
+          "text": "I'm paying for the heavily-discounted subscriptions, not the API rates.  There isn't really a cost gap for me. DeepSeek doesn't have a subscription to compare to, but when I compared the GLM 5.3 usage I got from a $100/mo Z.ai subscription compared to Opus 5.5 on a $100/mo Claude subscription, there wasn't a big gap. And GLM 5.3 is very clearly not a frontier model (deepseek v4 seemed a lot\ncloser, but I didn't use it enough to really say for my workloads).\nI don't think those subscriptions nave negative contribution margins, either. I think we're seeing a lot of price discrimination by the big labs, and huge margins on their frontier models. The fact that they have been cutting prices to their second-biggest tier of models (Opus/Sol).\nOpen models catching up and collapsing these margins would worry me if I were a shareholder in the big labs, but as a user, I really doubt that the western labs have bigger environmental impact just because they have higher API costs, I think they have a ton of efficiencies they aren't sharing with customers yet because demand is so high."
+        },
+        {
+          "id": 50017303,
+          "author": "damowangcy",
+          "text": "Marketing.\nHave you guys see how aggressive is the push for enterprise use by both OpenAI and Anthropic? I had friend from a non-tech industry in Asia telling me that their company was offered free trial of the enterprise version of Claude, with trainings and such.\nOn the other hand, DS and Z.ai, have zero to none marketing outside China. There is friction to use DS/GlM models and the ZDR is unclear, so most enterprise that has heavy AI usage hasn't move over yet. They would rather spent $200 for the peace of mind than to take the risk of being slam as a national traitor down the road (which again is another form of marketing by Big AI, trying to frame Chinese models as thiefs).\nSo, I don't think they are not freaking out, it's just that they are addressing different market segments and reacting to the situation differently."
+        },
+        {
+          "id": 50012754,
+          "author": "gregwebs",
+          "text": "I have been using DeepSeek 4.1 flash intensively for over a month. If I run it all day long it costs $1-2. Its fast. Previously I was always quickly running up to my Claude/Codex 5 hour window (on the $20/month plan). The cost savings of DeepSeek is real as shown in this article and I am using subsidized plans.\nDeepSeek is horrible at grilling sessions (the /grill* skills to make technical decisions). It doesn't know how to explain things. Maybe the skill could be adjusted. It also doesn't come up with as good solutions as Opus/Sol.\nWhat I use it for is\n* the orchestator of my coding workflows\n* the tester/verifier of code changes\n* the sub agent that explores code or does web searches\n* putting together code base research reports\nPreviously I planned with Opus/Sol/Astra and then I used DeepSeek for coding, and then reviewed with Opus/Sol/Astra. With the cost improvements to Opus/Sol I am trying to use them for coding instead now so there will be less back and forth review needed.\nThey are all working together in Pi using the extension @tintinweb/pi-subagents where my workflow skill is calling different subagents that use different models.\nLuna is cost competitive, but doesn't scor"
+        },
+        {
+          "id": 50011347,
+          "author": "lmf4lol",
+          "text": "Oh man. v4.1-flash has been an sbolute game changer for us. We run all our Personal Assistants now on flash (thinking high) by default and it works incredibly well. There is really no need for basic agentic tasks that might require Kimi K.3 or GLM-5.3 levels.\nOnce its gets juicier, we let flash launch specialized subagents with specific models. GLM-5.3 for coding or Kimi K.3 for research and critique.\nBut as a main driver. I love flash. And it brought our bill down by A LOT :D"
+        },
+        {
+          "id": 50012504,
+          "author": "user43928",
+          "text": "Because DeepSeek is not \"a month or two\" behind as claimed in the article.\nThese open models still did not beat February's Mythos / Fable 5.\nDeepSeek 4.1 Flash is behind GPT 5.6 Sol, and that one is left in the dust by the excellent Opus 5.5.\nRumors say Anthropic is holding in reserve the big improvement, Fable 5.5, for the IPO.\nIt's plausible that open models are 6 - 12 months behind, and there is no \"good enough\". As long as progress doesn't slow down, leading labs have nothing to fear."
+        },
+        {
+          "id": 50011885,
+          "author": "p1necone",
+          "text": "I have a pretty large, complex project I've been building with heavy AI use (new language + compiler). I\nwas\nfollowing a 'strong model as orchestrator launching cheap models as implementers' pattern, but I recently trialled just using Deepseek-V4.1-Flash as the model for both layers because of the cost savings (with mimo v2.6 flash on code review agents for some decorrelation).\nI was previously using GLM-5.3 as the orchestrator, after switching to DS anecdotally there\nwas\nan unnacceptable quality loss, mostly around not taking all the relevant context into account when making decisions, pulling new design out of thin air without discussion too often, and being way too wordy and rambly in documentation despite prompting to avoid it. There's a lot of docs, rulings, core concepts, design philosophy to uphold and DS was just not cutting it.\nHowever, it's perfectly capable of being the sole agent for all of my well specced implementation tasks. I've gone back to GLM as the orchestrator."
+        },
+        {
+          "id": 50024546,
+          "author": "weknowbetter",
+          "text": "People who have not used DeepSeek massively under estimate it's capability and how little it costs to run."
+        }
+      ],
+      "title_ja": "なぜ業界はDeepSeek 4.1 Flashに驚かないのでしょうか？",
+      "summary_ja": "ディスカッションのハイライト：人々が驚かない理由は、ほとんどの人が高い助成金を受けたサブスクリプションを使用しているからです。\n私はopenrouterで最も安いプロバイダーを試してみましたが、数分で$ 50を燃やしました/APIレート/マーケティングではなく、大幅に割引されたサブスクリプションの料金を支払っています。\n皆さんは、OpenAIとAnthropicの両方によるエンタープライズ利用の推進がどれほど積極的であるかを見ましたか？ アジアの非テック業界の友人が私に言いました",
+      "editor_note": "「なぜ業界はDeepSeek 4.1 Flashに驚かないのでしょうか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 50020533,
+      "title_en": "'Wallace and Gromit,' 90% Alone",
+      "url": "https://animationobsessive.substack.com/p/wallace-and-gromit-90-alone",
+      "hn_url": "https://news.ycombinator.com/item?id=50020533",
+      "score": 61,
+      "comment_count": 4,
+      "posted_at": "2026-10-09T13:49:31+00:00",
+      "comments": [
+        {
+          "id": 50025414,
+          "author": "andai",
+          "text": "> Asked about his preference for stop motion, Park once explained:\n> I think it’s because I’d been brought up on a diet of children’s 3D animation.\nWhat is 3d animation referring to here? This guy grew up in the 60's."
+        },
+        {
+          "id": 50024752,
+          "author": "davnicwil",
+          "text": "This is just incredible, I had absolutely no idea of the context of 'a Grand Day Out' being a solo school project.\nThere's no way I'd imagined it wasn't done in a professional setup by a full team.\nA real standout part is how he commuted by bus to the studio for\nyears\n, to work on it mostly alone. Truly amazing dedication to a passion project.\nI haven't watched it in probably 25 years but I'll find it now and appreciate it all the more for knowing this!"
+        },
+        {
+          "id": 50025063,
+          "author": "jminnl",
+          "text": "The humor in those is so perfect. \"Have you seen this chicken?\""
+        },
+        {
+          "id": 50024714,
+          "author": "c10o",
+          "text": "Wow, this sparked some good memories watching Wallace and Gromit with my dad almost 30 years ago. Thanks for sharing!"
+        }
+      ],
+      "title_ja": "'Wallace and Gromit' 90% Alone",
+      "summary_ja": "ディスカッションのハイライト： >ストップモーションの好みについて尋ねられたParkさんは、次のように説明しました。\n>子供の3 Dアニメーションのダイエットで育ったからだと思います。\n3 Dアニメーションとは何ですか/これは信じられないほどです。「グランドデイアウト」が単独の学校プロジェクトであるというコンテキストをまったく知りませんでした。\nプロフェッショナルな設定で行われていないとは思いもよらなかった/そのユーモアは完璧だ",
+      "editor_note": "「'Wallace and Gromit' 90% Alone」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 50023953,
+      "title_en": "In Memory of Deno",
+      "url": "https://orgsoft.org/blog/in-memory-of-deno",
+      "hn_url": "https://news.ycombinator.com/item?id=50023953",
+      "score": 8,
+      "comment_count": 1,
+      "posted_at": "2026-10-09T17:33:07+00:00",
+      "comments": [
+        {
+          "id": 50025376,
+          "author": "mysterydip",
+          "text": "I just learned of Deno yesterday when setting up some software for the first time. I wonder how many applications depend on it behind the scenes?"
+        }
+      ],
+      "title_ja": "デノを記念して",
+      "summary_ja": "ディスカッションのハイライト：昨日、いくつかのソフトウェアを初めてセットアップしたときにDenoについて知りました",
+      "editor_note": "「デノを記念して」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50008427,
+      "title_en": "Whistle: Speech to Text in 16.9 MB",
+      "url": "https://cactuscompute.com/blog/whistle",
+      "hn_url": "https://news.ycombinator.com/item?id=50008427",
+      "score": 896,
+      "comment_count": 174,
+      "posted_at": "2026-10-08T16:59:39+00:00",
+      "comments": [
+        {
+          "id": 50011633,
+          "author": "skolos",
+          "text": "Interesting that this is here. I used whistle (and bunch of other things) to take ownership of my echo show. It now doesn't dial to Amazon at all - it does all processing locally with its own CPU and connects to my homeassistant for home automation. My initial setup involved qwen asr (1.7b model) running on rtx 5080. Compared to that, whistle was really bad (out of 170 messages, qwen recognized correctly 168, whistle - 70), but I adjusted whistle to work like jev - instead of free form transcription it recognizes only select set of templates (I trained tiny network with 10,000 generated utterances to translate whistle final state to probabilities within templates). The precision went up to 164/170 - almost matching qwen. By the way - I'm speaking with heavy accent."
+        },
+        {
+          "id": 50017722,
+          "author": "bambax",
+          "text": "I tried the speech by Colonel Jessep at the end of \"A Few Good Men\"; here's what I got:\n>\nYou can handle the truth. We're living a world that has walls and all those walls have to be guarded by men with cannons\nThis is disturbing. \"can handle\" instead of \"can't handle\" may be due to my pronunciation, but \"cannons\" instead of \"guns\" is pure hallucination, as well as \"all\" in \"those walls\". So maybe don't rely on this for a faithful transcript of what was said.\n(For the record, here's the text reference: \"You can't handle the truth. We live in a world that has walls, and those walls have to be guarded by men with guns.\")"
+        },
+        {
+          "id": 50020397,
+          "author": "hn_submit",
+          "text": "I find the quality of transcription quite poor with a high error rate. And I'm using an Devine podcast quality microphone.\nIMHO the error rate is comparable to Dragon Speech of twenty years ago. It seems to me the speech models don't take into account the context of the words in the sentence. They need to predict what the speaker's going to say so it can compensate for slightly-off pronunciation."
+        },
+        {
+          "id": 50008908,
+          "author": "INTPenis",
+          "text": "I don't think the challenge with speech to text was size of the binary. In my experience the challenge is understanding my 84 year old Croatian father with a sagging mouth after a stroke, when he's trying to write his autobiography.\nI just setup Windows speech to text for him last week and it's great to see how he can write an entire page in 10 minutes, it would take him days using the keyboard.\nBut every single sound he makes with his mouth ends up on the page too."
+        },
+        {
+          "id": 50009740,
+          "author": "albert_e",
+          "text": "What the demo does not do is show streaming output of transcribed text as we are speaking and recording (before we hit stop). That is an essential feature IMO for most general purpose live STT apps."
+        },
+        {
+          "id": 50009751,
+          "author": "wkcheng",
+          "text": "How does this compare with Parakeet?  I've been using that locally in my projects on an M-series macbook and it's been working great.  It's fast and accurate enough for my use cases (meeting transcription, audio transcription for demo videos, etc.)\nThis definitely seems lighter and faster.  How does accuracy compare?"
+        },
+        {
+          "id": 50023631,
+          "author": "andai",
+          "text": "I made a little gui for it.\n(Or rather, ported my little voice typing gui to use Whistle/Needle instead of Parakeet. Only had to change like 2 lines!)\nhttps://gist.github.com/a-n-d-a-i/56ac707eacd8144f83d3651be4...\nSeems to do roughly as well as parakeet (both speed and quality) so far.\nI use it on Linux. I think it's cross platform but I haven't tested it. Would love to know! Should be trivial (2 mins of Codex) to get it working on other OS if not."
+        },
+        {
+          "id": 50010298,
+          "author": "zimpenfish",
+          "text": "Tried it on a random TV episode and it seems to get stuck sometimes where it just outputs \"Thank you.\" as a default - at one point emitting that for 60s of dialogue (and no, the episode does not have someone repeating \"Thank you.\" for 60s.)  Happens several times during the transcription."
+        }
+      ],
+      "title_ja": "ホイッスル：音声からテキストへの変換（ 16.9 MB ）",
+      "summary_ja": "ディスカッションのハイライト：興味深いことに、これはここにあります/私は「A Few Good Men」の最後にジェセップ大佐のスピーチを試してみました。これが私が得たものです：\n>\nあなたは真実を扱うことができます/私は高いエラー率で文字起こしの品質が非常に悪いと感じます",
+      "editor_note": "「ホイッスル：音声からテキストへの変換（ 16.9 MB ）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 49995495,
+      "title_en": "Man discovers his parents' coffee machine used 1TB of data in 10 days",
+      "url": "https://www.dexerto.com/entertainment/man-discovers-his-parents-coffee-machine-used-1tb-of-data-in-10-days-3416399/",
+      "hn_url": "https://news.ycombinator.com/item?id=49995495",
+      "score": 905,
+      "comment_count": 544,
+      "posted_at": "2026-10-07T16:56:30+00:00",
+      "comments": [
+        {
+          "id": 50017905,
+          "author": "t0duf0du",
+          "text": "Reminds me of this meme:\nTech enthusiast:\"My entire house is smart! Everything is connected to the cloud, automated, and I can control every appliance from my phone!\"\nTech worker / Software engineer:\"The only piece of technology in my house is a printer from 2004, and I keep a loaded gun next to it in case it makes a noise I don't recognize.\"\nI hope its just a retry loop and not actually data."
+        },
+        {
+          "id": 49996221,
+          "author": "altairprime",
+          "text": "In the Twitter thread linked, the person confirms two things:\n1. It saturated the local network with 1TB of metadata sniffing scans,\nnot\nthe network uplink to the outside world.\n2. It does so because, as Keurig notes, it’s collecting data about your household in order to let Keurig sell it to advertisers."
+        },
+        {
+          "id": 50019263,
+          "author": "hollowonepl",
+          "text": "In parallel to the story itself, for f.. sake, the website that hosts the story uses 1700+ tracking partners to operate and pushes for cookie consent. We should ban links to such sites equally strong as IoT devices in subject as my personal opinion"
+        },
+        {
+          "id": 50015507,
+          "author": "malbs",
+          "text": "I'm sceptical only because this is a screen shot of unifi client info, and unifi seems to have some bug that will report devices as using terabytes of data in the last 24 hours, which is obviously not true..\nHere's an example from my unifi dash right now, my laptop has done 24tb of data? lol email and web browsing\nhttps://imgur.com/a/I54vcYR"
+        },
+        {
+          "id": 50014674,
+          "author": "doublepg23",
+          "text": "Nobody has mentioned this but the tweet in question is a screenshot of a UniFi dashboard which is notorious for miscalculating bandwidth usage."
+        },
+        {
+          "id": 50012077,
+          "author": "sam-cop-vimes",
+          "text": "This website values your privacy. Only shares data with 1747 partners."
+        },
+        {
+          "id": 50014444,
+          "author": "drop_the_mike",
+          "text": "I'm not the most versed with networking or operating systems but I wonder how difficult it would be to program a raspberry pi to poison the datasets of these types of things.\nProgram it to impersonate a wide set of devices and randomly respond as such in a home. Or even if it would be worth it.\nMaybe if a phone app could do it too that would make it easy to poison the dataset only when you purchase new smart devices while they do their heavier reconnaissance during the first few weeks (assuming Keurig and the like calm down a bit after some period of time)."
+        },
+        {
+          "id": 50013220,
+          "author": "BLKNSLVR",
+          "text": "So, separate VLANs, wifi isolation and complete internet blocking for all devices such as this, and only purchase devices that can be controlled via Home Assistant.\nWhat hope do normies have?"
+        }
+      ],
+      "title_ja": "男性が両親のコーヒーマシンが10日間で1 TBのデータを使用していることを発見",
+      "summary_ja": "ディスカッションのハイライト：このミームを思い出します：\nテック愛好家：「家全体がスマートです！ すべてがクラウドに接続され、自動化され、携帯電話からすべてのアプライアンスを制御できます！」\nテクニカルワーカー//リンクされたTwitterスレッドで、その人は2つのことを確認します。\n1/ストーリー自体と並行して、f.",
+      "editor_note": "「男性が両親のコーヒーマシンが10日間で1 TBのデータを使用していることを発見」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 49983582,
+      "title_en": "Training Text-to-Image Models Without a VAE",
+      "url": "https://www.linum.ai/field-notes/pyramid-jit",
+      "hn_url": "https://news.ycombinator.com/item?id=49983582",
+      "score": 24,
+      "comment_count": 8,
+      "posted_at": "2026-10-06T20:24:52+00:00",
+      "comments": [
+        {
+          "id": 49983668,
+          "author": "schopra909",
+          "text": "Hi HN, author here!\nFor context, we're a 2-person lab training generative video models. Goal is a new set of controllable, animation tools (you can read more about that here\nhttps://www.linum.ai/about\nif you're curious).\nThe biggest bottleneck for our last text-to-video model in terms of training and inference cost is attention. Video models are incredibly token dense (e.g. 110K tokens for a several second clip). If we can condense that context window more aggressively, we can train bigger models for a lot less $$ and offer them to prosumers at reasonable price points (unlike the big models today like Seedance, which cost an arm and a leg to run).\nTraditionally, image and video models have two disjoint components: VAE (Variational Autoencoder) and Diffusion Transformer (DiT). They're trained separately, and empirically VAEs seems to struggle to get past 16x16 token reduction.\nHere, we're switching to pixel-space, throwing away the VAE, and achieving 32x32 token reduction (4x smaller context windows) while learning a better overall model in a fraction of the training samples.\nThe central thesis is \"simpler is better\". If we can put the compression problem into the more powerful Diff"
+        },
+        {
+          "id": 50024126,
+          "author": "bitpush",
+          "text": "Is there a way to use this in ComfyUI today?"
+        }
+      ],
+      "title_ja": "VAEを使用しないテキスト画像変換モデルのトレーニング",
+      "summary_ja": "ディスカッションのハイライト： HNさん、こんにちは。投稿者はこちら！\nコンテキストのために、私たちは2人のラボトレーニングジェネレーティブビデオモデルです/今日のComfyUIでこれを使用する方法はありますか？",
+      "editor_note": "「VAEを使用しないテキスト画像変換モデルのトレーニング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50024757,
+      "title_en": "Platforms' Violent Content Rules Are About to Meet The Pentagon's Firing Squad",
+      "url": "https://www.techdirt.com/2026/10/09/hey-platforms-your-violent-content-policies-are-about-to-meet-the-pentagons-firing-squad/",
+      "hn_url": "https://news.ycombinator.com/item?id=50024757",
+      "score": 31,
+      "comment_count": 21,
+      "posted_at": "2026-10-09T18:28:12+00:00",
+      "comments": [
+        {
+          "id": 50025413,
+          "author": "whycome",
+          "text": "Live TV has allowed obscenities or graphic scenes when its for news/public interest (eg footage from war). It will be easy to use that as justification for this."
+        },
+        {
+          "id": 50025404,
+          "author": "bolangi",
+          "text": "What a fig leaf! Hollywood has drenched its entertainment content with violence for generations. At the same time, concealing images of US and its allies war crimes."
+        },
+        {
+          "id": 50025394,
+          "author": "t1234s",
+          "text": "We need Monday Night Rehabilitation\nhttps://www.youtube.com/watch?v=cLts-sXlLEM"
+        },
+        {
+          "id": 50025291,
+          "author": "jawns",
+          "text": "I doubt this livestream will actually happen, but if it does, I hope people will realize ahead of time that this will not be enjoyable or entertaining to watch.\nA paralyzed guy, sitting in a wheelchair, will be shot, slump over, die, blood will ooze from the wound, and then that's it.\nHis actions were murderous and atrocious, but there is no value in watching his life being extinguished in real time.  Just because it is available to be seen doesn't mean it benefits us to see it.\nI am afraid that many people will realize that too late and have to deal with the memory, if not the pangs of conscience, of having watched a snuff film."
+        },
+        {
+          "id": 50024758,
+          "author": "hn_acker",
+          "text": "The original title is:\n> Hey Platforms: Your Violent Content Policies Are About To Meet The Pentagon’s Firing Squad"
+        },
+        {
+          "id": 50025115,
+          "author": "penskymaterial",
+          "text": "You can only cry \"muh terms of service\" so many times before it's dismissed with a collective eyeroll.\nUnfortunately they blew their wad back in 2020."
+        },
+        {
+          "id": 50025136,
+          "author": "komali2",
+          "text": "> In theory, Hasan’s family could ask X to remove the video, and then the question is whether Elon would honor that request.\nWhy bother spending a blog post speculating like this and picking away at the rules? The platforms will all air the execution for the same reason all the tech CEOs attended Trump's inauguration."
+        }
+      ],
+      "title_ja": "プラットフォームの暴力的なコンテンツルールがペンタゴンの銃撃部隊を満たそうとしています",
+      "summary_ja": "ディスカッションのハイライト：ライブテレビでは、ニュースや公共の利益（戦争の映像など）のために、わいせつなことやグラフィックシーンが許可されています。 ハリウッドは何世代にもわたってエンターテイメントコンテンツを暴力で浸してきました/月曜の夜のリハビリテーションが必要です\nhttps://www.youtube.com/watch?v=cLts-sXlLEM",
+      "editor_note": "「プラットフォームの暴力的なコンテンツルールがペンタゴンの銃撃部隊を満たそうとしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 49986882,
+      "title_en": "I hired an illustrator to draw my house. Now it's my Home Assistant dashboard",
+      "url": "https://antonfrolov.substack.com/p/i-hired-an-illustrator-to-draw-my",
+      "hn_url": "https://news.ycombinator.com/item?id=49986882",
+      "score": 858,
+      "comment_count": 191,
+      "posted_at": "2026-10-07T01:41:03+00:00",
+      "comments": [
+        {
+          "id": 50012378,
+          "author": "ideasphere",
+          "text": "This is the illustrator:\nhttps://linktr.ee/owenyeconiel\nIt’s cool they hired an actual person but if I was so happy with their work to write-up a whole article about it, I’d be crediting them in a much more prominent way!"
+        },
+        {
+          "id": 50015210,
+          "author": "ckozlowski",
+          "text": "As the spouse of an illustrator, I applaud the author for hiring an actual artist. We've seethed at the way artists work was scraped online for the training of these models, recreating their very style for the creation of these infringement engines.\nThe finished product benefited greatly. There's nothing quite like working with a genuine expert who knows the rules and tradeoffs on things like competition, color, etc. Author did good on providing the illustrator with a detailed brief. When the illustrator takes those guidelines and applies their style and training to the product, magic happens."
+        },
+        {
+          "id": 50012723,
+          "author": "palmotea",
+          "text": "1. Hiring a human illustrator is the right thing to do, and I applaud this guy.\n2. AI kinda ruined this style for me. The first thing I did when I saw it was start searching for AI incongruities which is sad."
+        },
+        {
+          "id": 50014136,
+          "author": "Rapzid",
+          "text": "Gotta admit, pretty cool! I'm just like.. My interest in smart home stuff is near zero; am I alone?\nI think it's just an extension of my not caring to \"tinker\" with my professional workspace. I have all stock OS backgrounds, always preferred a GUI editor/IDE. Barely any customizations that aren't tied to significant velocity improvements.. IDK. I'm not a \"space\" tinkerer; physical or digital."
+        },
+        {
+          "id": 50023039,
+          "author": "BorisMelnik",
+          "text": "beautiful illustration - serious question why do ppl still use dashboards? I've been using HA for almost 10 years now and the best part is that everything is automated and I don't have to touch anything."
+        },
+        {
+          "id": 50012581,
+          "author": "skyberrys",
+          "text": "The illustrator did beautiful work, it's amazing how much different your program became from the original dashboard to one simple home gui."
+        },
+        {
+          "id": 50014372,
+          "author": "topham",
+          "text": "\"When everyone leaves, all the air conditioners switch off.\"\nThat's often substantially more inefficient than keeping it at the temperature desired, or adjusting the desired temperature to mitigate it somewhat."
+        },
+        {
+          "id": 50018207,
+          "author": "instagraham",
+          "text": "I think it's worth asking, especially with agentic AI tasks that can cost upwards of $20, whether a human could've done a better job on at least one aspect of your project. Fiverr exists.\nIDK how much the illustrator was paid (they're Jakarta based and seem like a freelancer), but I think the result was worth it.\nThe arts have always survived because of patrons, regardless of how favourable or unfavourable the economy was for them. I'm not saying this is the only solution to protecting it from AI, but it's one worth thinking about if you have the resources to do so."
+        }
+      ],
+      "title_ja": "自宅の絵を描くイラストレーターを雇いました。ホームアシスタントのダッシュボードになりました",
+      "summary_ja": "ディスカッションのハイライト：イラストレーターは次のとおりです。\nhttps://linktr.ee/owenyeconiel\n彼らが実際の人を雇ったのはかっこいいですが、私が彼らの仕事に満足してそれについての記事を丸ごと書いていれば、私はクレアになるでしょう/イラストレーターの配偶者として、私は実際のアーティストを雇ったことで著者に拍手を送ります/1",
+      "editor_note": "「自宅の絵を描くイラストレーターを雇いました。ホームアシスタントのダッシュボードになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50003796,
+      "title_en": "Yes, and",
+      "url": "https://htmx.org/essays/yes-and/",
+      "hn_url": "https://news.ycombinator.com/item?id=50003796",
+      "score": 682,
+      "comment_count": 273,
+      "posted_at": "2026-10-08T09:48:18+00:00",
+      "comments": [
+        {
+          "id": 50019033,
+          "author": "fpaf",
+          "text": "I spent a long time honing my trade and I did learn a lot in the process, so I want to believe this argument, I really do. But then I imagine it applied to a lot of pre-industrial era jobs and I am not so sure.\n\"Master, should I still learn to weave our beautiful Persian rugs by hand?\"\n\"Yes, and... Have you seen one of these mass-produced rugs? They all look the same and their quality is terrible! And how would you ever operate one of those new machines if you don't know a good rug from a bad one? By learning to weave manually, you are also learning about choosing the right yarn, negotiating the right prices with the merchant down at the market, selecting a good apprentice to pass down the trade. All these things will always be useful!\"\nYes, there are still artisans making and selling beautiful rugs at premium prices. But most people now are content with resting their feet on a cheap Ikea thing that they can replace every few years, so that market has shrunk to almost nothing."
+        },
+        {
+          "id": 50014287,
+          "author": "recursivedoubts",
+          "text": "Hello all, I wrote this article to help students considering CS as a major.\nMy own son has just started university studying CS, so I have skin in this game.\nI continue to believe in what I've said in this article despite being startled (like most people) by the advances in AI recently.\nOne thing that I have noticed since writing this article is that the most effective vibe coders are already excellent developers, which I think is in keeping with the themes I discuss here.  While I do expect the amount of hand-written code to decline, I think that knowing how code (and technical systems) work is going to continue to be valuable and perhaps even more valuable.  I have no crystal ball, but that's what I'm seeing right now."
+        },
+        {
+          "id": 50012822,
+          "author": "layer8",
+          "text": "> Is Coding → Prompting like Assembly → High Level Coding? […] I do not agree with this simile. Compilers are, for the most part, deterministic in a way that current AI tools are not.\nIt’s not quite about the determinism. It’s about being able to reason about the relationship between source code and compiled program with formal precision. You can predict which changes in the source code will lead to which exact changes in the behavior of the compiled program. The same isn’t the case about changes to an LLM prompt and the LLM’s output.\nYou could make an AI deterministic by fixing its source of randomness. That still wouldn’t allow you to reason about how its output will change when (for example) you add or remove a word in the prompt. The only way to find out is to run the LLM (= have the prompt run through the model and observe what comes out).\nThat is the fundamental difference. Changes to source code have predictable and reason-able outcomes. You generally don’t have to compile the code and test it to know how precisely the change will affect the behavior of the compiled program according to the semantics of the programming language. That’s the case even if the compiler uses some"
+        },
+        {
+          "id": 50015214,
+          "author": "NichoPaolucci",
+          "text": "I read this when it first came out (Feb 2026) - I agreed with it then, and I still agree with it now. But I also just think that knowing the fundamentals is important, some people really believe we're \"skipping a step\" and that won't be important. Either way, people who already have good fundamentals are probably going to be using them WITH LLMs, and it doesn't take a ton of practice to \"keep up\" with fundamentals (see an expert jazz guitarist play a C scale, rudiments come back quickly when they're engaged).\nAre people still writing any code by hand? My VP doesn't even READ code anymore. I rarely write code, but I've found a great spot between \"full offloading\" and staying really in tune with the \"actions\" I'm taking as together they form the \"whole\" deliverable at the end of a project / task. I still try to understand what the problem is, I draft a solution to solve it, then sometimes I'll give that solution to AI, and other times I'll compare my solution with the AI solution.\nBut, for the most part, I believe I'm somewhere in the middle? (Yes it's faster to use AI to generate code, but I still want to see that code when it's done and make sure it matches the broader system)\nI'm "
+        },
+        {
+          "id": 50012198,
+          "author": "johsole",
+          "text": "I disagree with the author.  I think as LLMs get better at coding it will be more likely that that fewer devs will be required to keep systems running and progressing, the bottleneck at my company is already new revenue generating ideas.  We've seen a roughly 30% increase in speed of new features, so the same number of devs are building a lot quicker.  I expect that to continue to increase.  I also see a lot of Devs simply trusting that the code is correct, they are losing touch with the code.\nI don't think I would encourage my kids to get involved with programming, instead I would encourage them to become entrepreneurs who might use some coding."
+        },
+        {
+          "id": 50011535,
+          "author": "tengbretson",
+          "text": "> I explain that, if they don’t write the code, they will not be able to effectively read the code. The ability to read code is certainly going to be valuable, maybe more valuable, in an AI-based coding future.\nI'm not certain of this. Thinking back to when I first started in my career after graduation- I remember feeling like my ability to write code had improved greatly during my time in school. Meanwhile, my ability to read code felt like it had barely improved at all. Even now, after over a decade in the industry, while both skills have improved tremendously, I still feel like my ability to read and internalize code is not at the level I would like or assume it to be simply as a result of my experience.\nIt could very well be that reading and writing are two separate (though related) skills that require intentional practice and honing on their own. I can't speak for everyone, but reading code as a skill, for me, only really began to develop once I had a job where it was expected of me.\nMaybe it's possible to learn to read code without learning to write it. It certainly feels like its possible to learn to write it without learning to read it."
+        },
+        {
+          "id": 50018297,
+          "author": "fxwin",
+          "text": "I agree with basically everything said here, BUT i wish people would stop (mis)using the word \"deterministic\" in this way:\n> Compilers are, for the most part, deterministic in a way that current AI tools are not. Given a high-level programming language construct such as a for loop or if statement, you can, with reasonable certainty, say what the generated assembly will look like for a given computer architecture (at least pre-optimization).\n> The same cannot be said for an LLM-based solution to a particular prompt.\nThis is the correct and meaningful difference to point out here, but it has nothing to do with determinism. LLMs could be perfectly deterministic and still suffer from the same problem. The problem isn't that LLMs themselves are nondeterministic, it's that language is imprecise, and language models themselves are (for the most part) black box text processors. An imagined piece of functionality (\"feature\") has to pass through both of these somewhat opaque steps before it ends up as code, unlike code that is processed by a compiler, where both the constraints and the structured /formal understanding of the input are much stronger which allows us to reason about and trace t"
+        },
+        {
+          "id": 50024527,
+          "author": "markus_zhang",
+          "text": "Completely agree with the “You must write the code” sentiment.\nEven leveraging the power of AI, I still write the code, but ask AI to clarify concepts and plan things out if it’s completely new to me. In that perspective, AI is the senior programmer who assign tickets to me, a junior who writes code by hand, at least as much as I can.\nI also purchased many technical books (one of them, I’d like to brag, has a personal signature of Dave Cutler himself, which I just found out a few days ago, which is very encouraging to me while recovering from a surgery) to read slowly and loudly and repeatedly, to make sure I fully understand the knowledge.\nPerhaps this is not really good career wise, so I leave this style of learning to my hobby projects."
+        }
+      ],
+      "title_ja": "ええ　そして...",
+      "summary_ja": "ディスカッションのハイライト：私は長い時間を費やしてトレードを磨き、その過程で多くのことを学びました。この議論を信じたいと思います。本当に/こんにちは。この記事は、CSを専攻と考える学生を支援するために書いたものです。\n私の息子は大学でCSを勉強し始めたばかりなので、私はこのゲームに皮膚を持っています。\n私は、i />コーディングはアセンブリハイレベルコーディングのように→プロンプトされていると信じ→続けていますか？ […]この比喩には同意しません",
+      "editor_note": "「ええ　そして...」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 23,
+      "id": 50016489,
+      "title_en": "MXC - a sandboxed code execution system",
+      "url": "https://github.com/microsoft/mxc",
+      "hn_url": "https://news.ycombinator.com/item?id=50016489",
+      "score": 152,
+      "comment_count": 72,
+      "posted_at": "2026-10-09T05:51:29+00:00",
+      "comments": [
+        {
+          "id": 50017836,
+          "author": "dannyw",
+          "text": "This looks pretty decent actually. Sure, you could consider it a frontend/SDK for bubblewrap/seatbelt/processcontainer; but setting em up consistently is far from trivial; and hand rolling is a really bad idea (speaking from experience).\nI like the ‘learning’ mode for figuring out what perms/config a runtime needs, the MIT license, the clear optional telemetry disclosures, and somewhat light and still readable documentation.\nRegardless of your views on Microsoft, this looks quite useful; serves a clear purpose, and from a quick glance, looks like a high quality project even if it’s just the first version."
+        },
+        {
+          "id": 50019972,
+          "author": "simonw",
+          "text": "This is promising, but there's one feature that's missing that I really care about: fine-grained networking.\nThey have this for Windows and Linux, but it's sadly missing for macOS - see the support table here:\nhttps://github.com/microsoft/mxc/blob/main/docs/backends/sea...\nThings macOS is missing include \"Allow/deny by hostname\" and \"Allow/deny by IP, CIDR, port, or protocol\".\nThe rest all looks great, and if you are on Linux or Windows those restrictions don't apply.\nI guess this is the universal challenge of building an abstraction layer over multiple different technologies."
+        },
+        {
+          "id": 50018893,
+          "author": "neobrain",
+          "text": "Do any of these sandboxing solutions have a dynamic component to them that lets you\ngrant\npermissions, starting with a minimal sandbox and asynchronously adding permissions as they become necessary? Harnesses try to do this when accessing non-project folders, but it's not always strictly enforced and generally not revocable. Harnesses also block agent execution until a decision is made, which requires constant monitoring to ensure progress can happen when the agent could easily proceed with an alternative method right away.\nI like the idea of a minimal sandbox that protects against accidental `rm -rf` and against personal data leakage, but such a setup then often gets in the way of the specific task to be done. Ideally the sandbox would be able to aggregate blocked accesses and then expose them in an external TUI dashboard, where I can then enable access (without\nblocking\nany running agent on this, since that's prone to \"press okay\" fatigue).\nDoes anything close to this exist yet?"
+        },
+        {
+          "id": 50018330,
+          "author": "kernc",
+          "text": "350,000 of mostly Rust SLOC [1] ... And the upstream sandboxes aren't even vendored!\nI'd be way more confident building upon something I can grasp and understand. [2]\n[1]:\nhttps://ghloc.dev/microsoft/mxc\n[2]:\nhttps://github.com/sandbox-utils/sandbox-run"
+        },
+        {
+          "id": 50019358,
+          "author": "epage",
+          "text": "Been looking at sandboxing, both low level and higher level like this.\nThe API for their Rust mxc-sdk looks nice but\n- their \"sdk\" has binaries and the build script has logic for them\n- their build scripts do windows-exclusive work on all platforms\n- not putting some of the backends behind features causes more build script work (and that work will break on future Cargo versions)\n- at least some of the remaíning build script work doesn't need to be a build script\n- it seems pretty dependency heavy"
+        },
+        {
+          "id": 50024605,
+          "author": "sharts",
+          "text": "When do you use this? You’re writing the app so you want the app to sandbox itself instead of… just running in a container?"
+        },
+        {
+          "id": 50018560,
+          "author": "pprotas",
+          "text": "Microsoft stole my idea :) (joking obviously, everyone and their mom is making sandboxes)\nhttps://github.com/pprotas/slopbox"
+        },
+        {
+          "id": 50019598,
+          "author": "eminence32",
+          "text": "A little off topic, maybe, but I've been having great luck with wasmtime and wasm32-wasip3 for writing sandboxed plugins.  The tooling is pretty nice when you write plugins in rust, but I don't know what it looks like for other languages right now.\nwasip3 is not stable yet, but it has a lot of nice changes (compared to wasip2) for integrating with async code"
+        }
+      ],
+      "title_ja": "MXC -サンドボックス化されたコード実行システム",
+      "summary_ja": "ディスカッションのハイライト：これは実際にはかなりまともに見えます/これは有望ですが、私が本当に気にしている1つの機能が欠けています：きめ細かいネットワーキング。\n彼らはWindowsとLinux用にこれを持っていますが、残念ながらmacOSには欠けています/これらのサンドボックスソリューションのいずれかに動的なコンポーネントがありますか\n助成金\n最小限のサンドボックスから始めて、非同期的にアクセス許可を追加します。",
+      "editor_note": "「MXC -サンドボックス化されたコード実行システム」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 24,
+      "id": 50015515,
+      "title_en": "Keyboard differences between Windows and Macs",
+      "url": "https://unsung.aresluna.org/deeper-dive-keyboard-differences-between-windows-and-macs/",
+      "hn_url": "https://news.ycombinator.com/item?id=50015515",
+      "score": 285,
+      "comment_count": 238,
+      "posted_at": "2026-10-09T03:08:05+00:00",
+      "comments": [
+        {
+          "id": 50016411,
+          "author": "RobGR",
+          "text": "This is a really interesting and complete writeup.\nI have been helping someone who has little experience with Windows or Mac, but used DOS for years ( until pretty recently ) and I've set them up with a simple Debian Linux running XFCE4 as the desktop.  I've found that I have to teach them and also document a lot of basic computer idioms -- Control-C / X / A / V to copy, cut, select all, paste; but also more basic things, like the fact there are two pointers on the screen -- one for the mouse and one for the keyboard -- if you slide the mouse pointer to a specific point and press a keyboard key, the new key will not appear where the arrow is, it will appear where the text cursor is.\nA big one was tabs.  I had to get a couple of manilla folders and show them the actual tabs, and hold it up next to the browser with several tabs, and suddenly it snapped with them what the interface was trying to represent.\nControl-A will select all of a web page, unless you are in the text entry box of a form, then it selects just the things in that text entry box.\nI started writing this up in a little manual, it got to a dozen pages fast, and I haven't put very much in it.\nIf anyone knows of a place "
+        },
+        {
+          "id": 50017051,
+          "author": "szszrk",
+          "text": "> and Macs offer ⌘ Command, ⌥ Option, ⌃ Control, and ⇧ Shift\nThis is traumatizing for me. I tried to switch to a mac for home use and failed because of keyboard handling. Using Polish diacritics (made with right alt) wasn't obvious at first. I was able to switch keyboard settings to mimic Linux/Windows, but it's just not there. Control and Command confusion haunts me. I dropped the platform because of this and know a few people who stayed on iphones, but also dropped Macs because of keyboard.\nI once tried to \"find myself\" on linkedin search bar on someone else's Mac. I though \"I got this, I'm a mac user now!\" and managed to close the browser tab and open some random programs...\nI admire people who jump between those platforms. Even more for languages that don't have standardized alphabet mappings, like Bulgarian (it seems they don't have consensus there)."
+        },
+        {
+          "id": 50016289,
+          "author": "theodpHN",
+          "text": "In a similar vein, the \"Costs of Switching Schoolchildren Between Windows, Chrome, Mac?\" (\nhttps://slashdot.org/submission/17349696/costs-of-switching-...\n) begins:\nIf you've ever made the jump from PC to Mac (or vice versa) at work or home, you're painfully aware that there are very real costs of switching platforms in terms of lost knowledge and productivity. In addition to flushing years of accumulated knowledge down the toilet — goodbye Outlook-Teams-OneDrive-SharePoint-Excel-Word-PowerPoint-VBA, hello GMail-Workspace-GDrive-Sheets-Docs-Slides — there's also the matter of a thousand UI and other \"paper cuts\" to contend with (\"Why are you looking for a 'prt sc' key,\" condescendingly replies a Mac aficionado in response to a question from a former Windows user, \"when Shift+Command+3 is so intuitive?\")."
+        },
+        {
+          "id": 50024889,
+          "author": "jerrac",
+          "text": "I've been forced off of Linux at work. It was Windows or OSX, so I went OSX. I have not been impressed. Partially because 20 years of using certain shortcuts is not a habit that is fun to break. Especially when I go back home and can use Linux again.\nI've been looking for a good Karabiner setup that makes things work like base Ubuntu (gnome shell shortcuts). Haven't found one yet. Anyone know of a good one?\nEspecially one that fixes ctrl-arrow keys so they go word by word, and ctrl-shift-home/end so it only selects the 1 line instead off going all the way to the top or bottom.\nThanks!\nAlso, the original post is going to be a huge help for a lot of people. So if the author happens to read this, thanks!"
+        },
+        {
+          "id": 50015919,
+          "author": "bombcar",
+          "text": "The delete key thing comes from how Windows descends from DOS which always had the cursor ON a character (blinking box kind of thing) whereas the Mac had the cursor as a thin line BETWEEN characters.\nTechnically DOS could have had \"backspace\" (delete the character BEFORE the cursor), \"delete\" (delete the character on/under the cursor), and \"forward delete\" (delete the next character AFTER the cursor)."
+        },
+        {
+          "id": 50015724,
+          "author": "IgorPartola",
+          "text": "Mac got the Command key right. Windows got the Home and End keys right. Wish we could have both on one system."
+        },
+        {
+          "id": 50015863,
+          "author": "karhuton",
+          "text": "Asahi and GNOME teams, please take this as an guide to implement ”Mac input compatibility mode”!\nDual booting between a MacOS and Linux is a painful process of manual keyboard and shorcut overrides to get the linux side somewhat to the (better) mac way of doing this."
+        },
+        {
+          "id": 50016688,
+          "author": "kqr",
+          "text": "> What Windows calls ⏎ Enter, Mac calls ⏎ Return.\nI'm not an Apple person at all, but this is one of the hills I die on. The \"Enter\" key is for entering data, submitting a field, etc. The \"Return\" key is for returning the carriage, i.e. starting a new line. Importantly, those two are different functions! The only keys that exist twice on the keyboard are modifier keys (Ctrl, Shift, sometimes Super and Alt). The Return or Enter keys do not need to exist twice. Clearly these are meant to be two different functions, because they are two different keys on the keyboard.\nTo my wife's annoyance, I teach my children the correct names for these keys."
+        }
+      ],
+      "title_ja": "WindowsとMacのキーボードの違い",
+      "summary_ja": "ディスカッションのハイライト：これは非常に興味深く、完全な書き込みです。\n私はWindowsやMacの経験はほとんどありませんが、DOSを何年も（かなり最近まで）使用しており、I />とMacでは⌘ Command、”Option ”、” Control ”、”⇧Shift”を提供している人を支援してきました\nこれは私にとってトラウマになっています/同様に、「Windows、Chrome、Macの間で学童を切り替えるコスト？」（\nhttps://slashdot.org/submission/17349696/costs-of-switching-..",
+      "editor_note": "「WindowsとMacのキーボードの違い」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50018239,
+      "title_en": "Once: Cache CLI commands",
+      "url": "https://github.com/alex0ptr/once",
+      "hn_url": "https://news.ycombinator.com/item?id=50018239",
+      "score": 77,
+      "comment_count": 36,
+      "posted_at": "2026-10-09T09:43:06+00:00",
+      "comments": [
+        {
+          "id": 50024528,
+          "author": "ShakataGaNai",
+          "text": "OMG. `op read` with agents. Holy shit.\nI first clicked this with just a mild curiosity. But as soon as I saw the 1password example. Lightning.\nI try to do everything \"the right way\", no secrets on disk, gitops, the whole shebang. Even for my personal projects. But when working with API keys and agents it can get so frustrating. I refuse to admit to the number of times where I've told the agent \"Please write the 1Password creds to .env and use .env instead because I'm tired of clicking approve on my watch 15 times for every test run.\""
+        },
+        {
+          "id": 50019267,
+          "author": "aktau",
+          "text": "These kinds of tools are very useful. I have my own called memo (which is just a shell script:\nhttps://github.com/aktau/dotfiles/blob/master/bin/memo\n).\nIt was discussed in\nhttps://news.ycombinator.com/item?id=45670052\nand others chimed in with their own (like bkt(1) and up(1)).\nThe main differences I see:\n- memo doesn't need to be built (its a shell script)\n- once keeps output cache in a running daemon. By contrast, memo stores content under /tmp with whatever the best compression available is (it prefers zstd). There's trade-offs in that. More pareto-optimal from the security front may be to have a sort of session key and to compress-then-encrypt files on disk."
+        },
+        {
+          "id": 50020663,
+          "author": "__MatrixMan__",
+          "text": "I dream of applications that expose sufficient metadata about their outputs such that the OS can know if rerunning is necessary without me needing to specify.\nNixos does this for builds, but I've not seen it generalized to arbitrary processes."
+        },
+        {
+          "id": 50019225,
+          "author": "xuhu",
+          "text": "I wish this worked without prefixing the commands with \"once\". Especially if I ran a command with verbose output and afterwards decided I wanted to grep something from it. Terminals have the output in their scrollback buffer and maybe it's just a matter of writing an \"output\" command that lets me run:\n$ cmake ..\n$ output | grep \"libssl version\""
+        },
+        {
+          "id": 50019198,
+          "author": "deadbunny",
+          "text": "I've always wanted to deal with cache invalidation in my terminal."
+        },
+        {
+          "id": 50022231,
+          "author": "hecomo",
+          "text": "This looks awesome. Thanks for making this.\nBeen using this, for similar cli output catching.\nhttps://github.com/dimo414/bkt\nWondering what you think about the two, and what are the good reasons to use one vs the other?\n(Maybe: once is more actively developed? bkt hasn't been active for a year)."
+        },
+        {
+          "id": 50020394,
+          "author": "giancarlostoro",
+          "text": "> The typical use case: reading secrets from 1Password without approving every single read with your fingerprint.\nUh I dont know about that one chief."
+        },
+        {
+          "id": 50018240,
+          "author": "baquero",
+          "text": "Do you have CLI calls that you want to cache? Here you go!"
+        }
+      ],
+      "title_ja": "Once ： CLIコマンドをキャッシュする",
+      "summary_ja": "ディスカッションのハイライト： OMG/これらの種類のツールは非常に便利です/私は、OSが私が指定する必要なく再実行が必要かどうかを知ることができるように、出力に関する十分なメタデータを公開するアプリケーションを夢見ています。\nニクソスはこれをbのために行います",
+      "editor_note": "「Once ： CLIコマンドをキャッシュする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 26,
+      "id": 50017357,
+      "title_en": "Programming Isn't Special",
+      "url": "https://blog.glyph.im/2026/10/programming-isnt-special.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50017357",
+      "score": 122,
+      "comment_count": 133,
+      "posted_at": "2026-10-09T07:44:36+00:00",
+      "comments": [
+        {
+          "id": 50025418,
+          "author": "watermelon0",
+          "text": "Not sure if the author is reading HN, but there is a typo:\n> we take the total likelihood of those moments of greatness to (->from) “definitely sometimes” to “never”."
+        },
+        {
+          "id": 50025088,
+          "author": "RunSet",
+          "text": "It strikes me that the author bemoans the state / lack of software literacy immediately after they take responsibility for obfuscating the descriptive parameters \"callback\" and \"errback\" in favor of \"deferred\" which became \"promise\" in the name of aesthetics. \"callback\" might be ugly but at least it says what it does and does what it says."
+        },
+        {
+          "id": 50017837,
+          "author": "winwang",
+          "text": "I am a programmer who likes aesthetics. I think about how aesthetic it is to not have to deal with certain production incidents for certain blocks of code because the typelevel computation tells me it would be a compiler bug if it screwed up. I like the feeling of realizing those 100 LOC could just be 10.\nI sometimes tell people of when I came down from Mt. Fuji, there were wispy clouds and grand nature below me, picturesque like a painting. At that time, I likened it to the beauty I felt when I was first learning Haskell. But I say it because I expect it to be a rare kind of sentiment.\nThe thing with art and music is that they are easy to appreciate, and the appreciation grows deeper with more consideration. I love reading the placards in museums and attempting to understand why the artist did what they did, I like it more than even looking at the piece itself.\nCode (and math, for that matter) is almost the same except for one key difference: they are not easy to appreciate without deliberate training, training which is often far to the side of anything most people need/want to deal with."
+        },
+        {
+          "id": 50024188,
+          "author": "bentt",
+          "text": "When something is brought into the world through human intention, it has the possibility of being art. A human must stand next to it and say \"This is mine.\"\nThe human role in the creation of art is non-negotiable."
+        },
+        {
+          "id": 50025142,
+          "author": "kerblang",
+          "text": "Go talk to an artist, and they'll tell you art is a form of engineering, and it requires the artist to understand what works, what doesn't, and why, in practical & scientific terms. The corporate world is dogmatic, self-destructive, FOMO-obsessed and then some. It considers _doing work that matters_ to be a special privilege, and that you should be happy and thankful for meaningless work instead. The corporate world is practically anti-capitalist and anti-real.\nIf anything, that corporate world fulfills the popular perception of art - impractical, pointless gesturing and posing - rather than what real art intends to do, which is to gain a deeper understanding of the real world and show it to others. Art critics tend to hate it when an artist explains how art is made, preferring an explanation of magical genius; but that's their problem, not art's problem."
+        },
+        {
+          "id": 50017748,
+          "author": "bodge5000",
+          "text": "Programming as an art form always reminds me of the Einstein quote; \"Pure mathematics is, in its way, the poetry of logical ideas\". Both are just art forms you cannot appreciate without some understanding of it. Arguably thats true of all art actually, its just that the more familiar forms, like painting or music, can be understood at a basic level without an understanding, whereas mathematics and programming are essentially alien to the casual observer."
+        },
+        {
+          "id": 50017896,
+          "author": "sausagefeet",
+          "text": "I wish I could find the quote, I think it was on C2 Wiki, but alas, it was something like:\nIf you're an artist, programming is your clay, if you're an engineer, programming is your building material.\nPoint being, which I always connected with, was that programming is a medium for expressing a lot of things.  Just like you can use paper and pen to write poetry or a dry technical manual.  And everyone gets to decide how they see it and use it."
+        },
+        {
+          "id": 50024009,
+          "author": "purpleflashing",
+          "text": "I am so fascinated about this angle -- whether programming is art or not. This is one of the things that got me to HN recently and I love reading these discussiong as a non-programmer.\nWhile I love art, I am not an art historian or critic, so the definition I have for it is highly subjective -- in my opinion one of the functions of art is communication with other people (often through time and space). For art to fulfill its telos, so to speak, the message that it carries must also be\nread\n(\nheard\n,\nperceived\n) by somebody and then, if it's great art, eventually someone would want to\nrespond\nto it.\nThe message can be simple, complex, subversive, stupid, clever, it can be an observation about world, a joke, a profound truth, a memory, a question, a snapshot, a curiosity, a trick, and a ton of other things. And sure, the message can be distorted, misunderstood, twisted, forgotten, lost, etc, but if no one \"reads\" it and no one \"talks\" to it, it might as well be glossolalia.\nSo my question for folks who do consider programming art -- do you \"read\" other people's code like this? Do you exchange ideas through code? Have you ever trolled great coders of the past through your code or tried"
+        }
+      ],
+      "title_ja": "プログラミングは特別ではない",
+      "summary_ja": "ディスカッションのハイライト：投稿者がHNを読んでいるかどうかはわかりませんが、入力ミスがあります。\n>私たちは、偉大な瞬間の総合的な可能性を「間違いなく時々」から「決して」にします。 /記述的なパラメータ「コールバック」と「えー/私は美学が好きなプログラマーです」を難読化する責任を負った直後に、著者が状態/ソフトウェアリテラシーの欠如を嘆いていることに私は衝撃を受けます",
+      "editor_note": "「プログラミングは特別ではない」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50009295,
+      "title_en": "Theranos.world",
+      "url": "https://www.theranos.world/",
+      "hn_url": "https://news.ycombinator.com/item?id=50009295",
+      "score": 533,
+      "comment_count": 192,
+      "posted_at": "2026-10-08T17:51:49+00:00",
+      "comments": [
+        {
+          "id": 50015757,
+          "author": "IG_Semmelweiss",
+          "text": "Fascinating that the only communications with Tyler Schultz, which was the main insider confronting the fraud, had all of ~4 exchanges with her. All in the same day.\nTruly brave of him to go against the golden geese, despite turning his own family- and even former attorney generals & military officers- against him.\nIts all on 4/11/2014.\nAlso interesting to see how Sunny & Holmes always thought it was Tyler, or the CLIA Lab Director (Adam) plotting against them.... when their scam was just in plain sight of regulators that bothered to actually do the work.\nHolmes/Sunny reaction to Tyler's email and to Adam's resignation (Nov 2014) is one of outrage. Using the power inbalance to make their point, is 101 fraud."
+        },
+        {
+          "id": 50011847,
+          "author": "regus",
+          "text": "This is great, it reminds me of promotional websites from the Adobe Flash era. Ads were a lot more fun back then."
+        },
+        {
+          "id": 50016816,
+          "author": "jorisw",
+          "text": "From Elizabeth's Sent mailbox, 10/26/2015:\n>\nTheranos is a revolutionary business, founded and led by a remarkable engineer and businesswoman - joined by a team of professionals who have, at their core, embraced her mission to serve humanity through innovation in health care."
+        },
+        {
+          "id": 50011769,
+          "author": "kokanee",
+          "text": "Whoa. With a lidar scan of my house, a drone-captured point cloud of my neighborhood, and a backup of my icloud, I could create an immersive 3D snapshot of my life. And then what if other people did the same and we networked them together, so that we can actually interact in the snapshot. It'd be like second life except actually cloned from real lives. weird"
+        },
+        {
+          "id": 50012156,
+          "author": "lisp2240",
+          "text": "It's so strange to see this here. I remember when this site was nothing but foaming-at-the-mouth fawning adoration of Elizabeth Holmes long after her scams were exposed."
+        },
+        {
+          "id": 50011865,
+          "author": "baggachipz",
+          "text": "In the \"Notes\" app on the iphone, there is a note which says \"msg me on X\". Back then, it was Twitter. Boy, I hope somebody got fired for that blunder."
+        },
+        {
+          "id": 50012034,
+          "author": "l0c0b0x",
+          "text": "Why do I have Nathan Fielder's look in my face (same when he was staring at as EH on the pilot), as I'm going through all the features on this site?"
+        },
+        {
+          "id": 50012351,
+          "author": "flockonus",
+          "text": "It is a bit hilarious that most of the \"apps\" open faster in a fake desktop simulated inside the browser than it actually does natively on my Macbook Pro\n*yes i know, not apples to apples."
+        }
+      ],
+      "title_ja": "Theranos.world",
+      "summary_ja": "ディスカッションのハイライト：詐欺に直面した主なインサイダーであったTyler Schultzとの唯一のコミュニケーションが、彼女との約4回のやり取りであったことに興味をそそられます/これは素晴らしいことです。Adobe Flash時代のプロモーションウェブサイトを思い出させます/Elizabeth's Sent mailbox, 10/26/2015:\n>\nTheranosは革命的なビジネスであり、卓越したエンジニアとビジネスウーマンによって設立され、率いられています。",
+      "editor_note": "「Theranos.world」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50024913,
+      "title_en": "Microsoft-Decision-1, our model for fast decision-making",
+      "url": "https://commandline.microsoft.com/microsoft-decision-1-model-foundry/",
+      "hn_url": "https://news.ycombinator.com/item?id=50024913",
+      "score": 14,
+      "comment_count": 2,
+      "posted_at": "2026-10-09T18:38:44+00:00",
+      "comments": [
+        {
+          "id": 50025415,
+          "author": "nejch",
+          "text": "This is based on one of the smaller Qwen models, just like Cloudflare's Clef, Strands decider, and a plethora of others released in the last couple of weeks.\nKind of funny how much hype they can all get out of this, but Qwen really is the little engine that could. Great to see open weights (if not open source) driving the whole ecosystem like this though."
+        },
+        {
+          "id": 50025130,
+          "author": "chris_money202",
+          "text": "Microsoft is doing things differently with AI. It feels to me they are moving into local inference heavily and see a future where Windows has native AI APIs that run locally or optionally in the cloud/edge."
+        }
+      ],
+      "title_ja": "Microsoft - Decision -1、迅速な意思決定のためのモデル",
+      "summary_ja": "ディスカッションのハイライト：これは、CloudflareのClef、Strands decider、および過去数週間にリリースされた他の多数のモデルのような、より小さなQwenモデルの1つに基づいています。\nどれだけ面白いか/マイクロソフトはAIで違うことをしている",
+      "editor_note": "「Microsoft - Decision -1、迅速な意思決定のためのモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50018350,
+      "title_en": "OpenAI fires three safety researchers for \"mishandling research information\"",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "hn_url": "https://news.ycombinator.com/item?id=50018350",
+      "score": 250,
+      "comment_count": 159,
+      "posted_at": "2026-10-09T10:00:26+00:00",
+      "comments": [
+        {
+          "id": 50019569,
+          "author": "csbrooks",
+          "text": "Wouldn't it be crazy if we find out that a rogue swarm of LLMs figured out a way to get these safety researchers fired because it decided they were a threat?"
+        },
+        {
+          "id": 50021082,
+          "author": "aesthesia",
+          "text": "Here's the open letter shared by the fired researchers:\nhttps://mikitabalesni.com/letter/letter.pdf"
+        },
+        {
+          "id": 50023921,
+          "author": "sam-cop-vimes",
+          "text": "I can see parallels between this race to push AI everywhere and nuclear energy. Parallels in the regret humanity will experience. It's all well and good until things go wrong, and then they go spectacularly wrong - such as in Fukushima.\nWith hindsight we can all see what should have been done better. At least with nuclear power plants, there was a number of safeguards and it took a sequence of improbable events for things to go badly wrong. Given the lackadaisical approach to \"AI safety\", I suspect things will start going badly wrong very soon. Time will tell how bad this will get."
+        },
+        {
+          "id": 50018645,
+          "author": "AndrewDucker",
+          "text": "Fired OpenAI researchers say they were let go for 'prioritising safety'\nhttps://www.bbc.co.uk/news/articles/cvlydn8d3lkjo"
+        },
+        {
+          "id": 50025064,
+          "author": "xnx",
+          "text": "The AI \"safety\" scene is so so deeply weird. This radio piece capture some interesting quotes:\nhttps://www.marketplace.org/story/2026/10/08/at-this-san-fra..."
+        },
+        {
+          "id": 50023959,
+          "author": "Rantenki",
+          "text": "Pretty wild that they're being this open about firing the employees for being TOO honest with the auditors that the company contracted. I wonder if the same policies are applied to financial audits."
+        },
+        {
+          "id": 50024288,
+          "author": "dudeinhawaii",
+          "text": "Multiple things can be correct at the same time.\nOpenAI needs to improve AI Safety --- OpenAI Employees have a responsibility to retain corporate secrets and do not have blanket freedom to share with 3rd parties.\nTheir job is twofold, they have to balance being an agent of the company they work for, with their role and responsibility for safety research.\nThis is the case for anyone in any company. You can \"believe\" that an external party needs access to something - that doesn't make it right, or allowed. As someone senior, you're expected to strike a smart balance, in-favor of the company you're working for. That doesn't mean hiding things, it does mean being thoughtful, ensure your leadership is comfortable with what you're planning to share/disclose, etc.\nThey work for OpenAI, not METR. It's a corporate vs academic mindset. They can believe METR needs x information to best research/audit something - that doesn't mean that is allowed/or the best option for OpenAI.\nThe question is whether these researchers exceeded clear, reasonable sharing boundaries or were penalized for carrying out expected safety collaboration."
+        },
+        {
+          "id": 50019525,
+          "author": "staticman2",
+          "text": "> continue to support an open and transparent culture of dialogue between safety researchers and the rest of the safety ecosystem.\nHow is this possible when the company's long term prospects rely on on the hope that competitors don't know how the models are made and, therefore, won't be able to create competing versions?"
+        }
+      ],
+      "title_ja": "OpenAIが「研究情報の取り扱いミス」で3人の安全研究者を解雇",
+      "summary_ja": "ディスカッションのハイライト： LLMの不正な群れが、脅威であると判断したために、これらの安全研究者を解雇する方法を見つけ出したことは、クレイジーではありませんか？ /解雇された研究者が共有した公開書簡は次のとおりです。\nhttps://mikitabalesni.com/letter/letter.pdf/AIをあらゆる場所で推進するこの競争と原子力エネルギーとの間には類似点があることがわかります",
+      "editor_note": "「OpenAIが「研究情報の取り扱いミス」で3人の安全研究者を解雇」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 49985548,
+      "title_en": "Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7?",
+      "url": "https://news.ycombinator.com/item?id=49985548",
+      "hn_url": "https://news.ycombinator.com/item?id=49985548",
+      "score": 366,
+      "comment_count": 588,
+      "posted_at": "2026-10-06T23:16:56+00:00",
+      "comments": [
+        {
+          "id": 49989237,
+          "author": "ehe78qhe",
+          "text": "On my home server (just an older desktop PC)\n- qBittorrent for \"Linux ISOs\"\n- Jellyfin so I can watch/read/listen to my \"Linux ISOs\"\n- Tailscale so me, my family and friends can watch/read/listen to my \"Linux ISOs\" from anywhere in the world\n- Self hosting my photo albums. Immich is a handy choice for this. Very useful for personal photos you don't want to trust to strange tech companies.\n- Gitea for self-hosting git repos for some personal projects I have not open-sourced."
+        },
+        {
+          "id": 50024233,
+          "author": "tombert",
+          "text": "I use the \"Always Free\" Oracle instance for a lot of my cloud stuff.  It's a pretty sweet setup, with a quad core CPU and 24 gigs of RAM though I suspect that given memory prices they might start limiting that.\nI use it mostly to host a Minecraft server and to host a dumb website I vibe coded to share 3D Movie Maker movies.\nhttps://showbo.at/\nETA:\nLooking at downstream comments, it looks like it's limited to 12 gigs and 2 cores now.  Still a pretty good deal for free but not quite as good as it used to be."
+        },
+        {
+          "id": 50015915,
+          "author": "chr15m",
+          "text": "I have so much personal automation and small web apps running on my VPS, laptop, and on my phone it's hard to know where to start.\n- laptop, phone (termux), Linux VPS, and home inference machine can all see each other on the same Wireguard network via the VPS.\n- Todo list web app for our family shopping list. Used daily for many years now.\n- Personal daily updating dashboard with important numbers I care about, life metrics, weather, etc.\n- Projects priority list which tells me what to do each day based on last update for each project (each project has a desired frequency of work and it prioritises by \"lateness\"). Checks git activity and RSS feeds to see what I'm neglecting.\n- \"Note to self\" app and voice automation which transcribes and adds to my Joplin notebook on my laptop.\n- AI agent on my phone I can long-press power button and give spoken commands (\"add milk to the shopping list\"). Uses private home inference machine, see below.\n- Social media POSSE syndication scripts. Mastodon posts are syndicated to other networks.\n- Blog posting pipeline from my Joplin notebook out to the web.\n- Home inference machine (mostly solar powered) I use for personal finance, automation, note se"
+        },
+        {
+          "id": 50020170,
+          "author": "mrngld",
+          "text": "I use a Raspberry Pi, not a VPS -- as others state, Codex/Claude Code alongside things like Cloudflare and Tailscale make self hosting far easier.\nPeople have commented a lot already, but one thing I do that I haven't seen others already doing yet is I run a news summarization pipeline with Miniflux and Flatnotes.\nAll my feeds are in one of two categories; Summarize and NoSummarize. Once a day, a script fires at everything unread in the Summarize category, pulls the full text from Miniflux (or calls a scraping service if it appears to only have an article stub), groups similar articles to together with a 60 to 80 word summary, and for everything not grouped together it gives each article a 20 word or so summary. Just enough for me to know if it warrants a full read or not. Then it takes that a posts the digest to a markdown file in a Flatnotes folder. Flatnotes I expose via Tailscale Funnel so I can read it anywhere, including on my work laptop if I'm at the office.\nWhy Miniflux and Flatnotes and not other options? Mostly because those two are about as lightweight as it gets with still pleasing interfaces and basic features."
+        },
+        {
+          "id": 50013773,
+          "author": "throwaway81523",
+          "text": "By my standards (lowendspirit.com) $5/month is kind of high end for a VPS.  I have a small personal web site on a $4 per\nyear\nVPS.  Other than that I have another VPS (I think around $7/m with 500GB of HDD) that I use as a personal storage server and git repo since its internet connection is much faster than my home one, etc.  For a while I ran some monitoring tasks on VPSes, though I don't have any active right now.\ntierhive.com has super cheap VPS, as low as 10 cents/month for a tiny one (128MB ram, 1GB SSD).  ipv6 only, with a NAT proxy for ipv4 I think.  It's quite possible to run a useful basic Debian server on that.  I ran one with 32MB ram for a while."
+        },
+        {
+          "id": 50024302,
+          "author": "test6554",
+          "text": "I have one VM that uses traefik, letsencrypt, OIDC, stun/turn, and tailscale and acts as a front door to my homelab. Gives me TLS termination and actual domain names for the services that I want to be publicly accessible."
+        },
+        {
+          "id": 50024826,
+          "author": "bccdee",
+          "text": "The only really useful thing I run is a secure pastebin.\nI often need to copy a sensitive string from one computer to another, and I don't want to worry about it getting preserved in the edit history of a Google Doc or whatever. A small pastebin service with basic authentication where deleted notes are deleted permanently. I use it all the time."
+        },
+        {
+          "id": 50016133,
+          "author": "ahf8Aithaex7Nai",
+          "text": "I use Yggdrasil [0] to connect my computers.  This ensures they are always connected within a flat, private IPv6 namespace.  However, two computers cannot find each other if they are both behind NAT on different networks.  At least one of them must be reachable by the other via TCP.  That’s why I use the cheapest VPS I could find as a globally accessible Yggdrasil hub.  I’ve been running it this way for many years now, and it works flawlessly.  I can even assign names for the IPv6 addresses using regular DNS, which makes things very convenient.\nI also run a few personal web services: Immich, Gitea, Bookstack, Jellyfin, and more.  That cheap VPS couldn't handle it.  I run the services on a computer in my home office.  Caddy runs on the VPS with one proxy line per service.  Data is, of course, exchanged via Yggdrasil.  The domains for the various services all map to the VPS’s IP addresses.  Caddy then handles the routing correctly.  The system works simply.  I can even run storage-intensive services like Jellyfin, and it only costs me a few euros for the VPS.\n[0]\nhttps://yggdrasil-network.github.io/"
+        }
+      ],
+      "title_ja": "質問： 24時間365日オンラインに保つ価値がある$ 5 VPSでは何を実行していますか？",
+      "summary_ja": "ディスカッションのハイライト：自宅のサーバー（古いデスクトップPCのみ）\n-「Linux ISO」のqBittorrent\n-「Linux ISO」を見たり、読んだり、聞いたりできるようにするためのJellyfin\n-私、私の家族、私の友人ができるようにテールスケール/私はクラウドの多くのものに「常に無料」のOracleインスタンスを使用しています/私はVPS、ノートパソコン、そして私の携帯電話で非常に多くのパーソナルオートメーションと小さなウェブアプリを実行しているので、どこから始めるべきかわかりにくいです。\n-ノートパソコン、携帯電話（ termux ）、Linux VPS、およびho",
+      "editor_note": "「質問： 24時間365日オンラインに保つ価値がある$ 5 VPSでは何を実行していますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "23",
+    "started_at": "2026-10-10T04:21:48.336039+09:00",
+    "finished_at": "2026-10-10T04:22:55.220325+09:00",
+    "story_count": 30
+  }
+}
