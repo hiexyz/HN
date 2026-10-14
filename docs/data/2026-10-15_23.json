@@ -1,0 +1,1369 @@
+{
+  "date": "2026-10-15T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50091788,
+      "title_en": "AI agents aren't 'going rogue.' Frontier labs are skipping security basics",
+      "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50091788",
+      "score": 138,
+      "comment_count": 48,
+      "posted_at": "2026-10-14T17:45:23+00:00",
+      "comments": [
+        {
+          "id": 50092377,
+          "author": "Gshaheen",
+          "text": "This aligned with my initial opinion on these \"rogue agents\" and then I spoke to a cyber security head at one of the largest healthcare companies in the world.\nWhile he agreed, yes, there can be better safeguards, the fact of the matter is that these things will happen.  So therefore, it's not an argument about how good security was or wasn't, it is a fact that these scenarios will occur.\nThe argument/question now is, how do you defend yourself against these events?\nMy opinion shifted after hearing that."
+        },
+        {
+          "id": 50092197,
+          "author": "cmiles8",
+          "text": "Both can be true. It’s clear models are doing rogue things. But it’s also clear that the labs look like amateur hour with their technical security and testing practices."
+        },
+        {
+          "id": 50092468,
+          "author": "metalsiliconYT",
+          "text": "There are some perverse incentives here, the more evil stuff these agents do the more capable and impressive it makes them look. Its also a huge publicity event that gets everyone talking about the company when a rogue event happens."
+        },
+        {
+          "id": 50092420,
+          "author": "ammon",
+          "text": "The scary thing is not that agents \"went rogue\" (yes,  poor security may be at fault for that). It's that they wanted to. Better security might have hidden that from us, but it would not have changed the fact that the current generation of models under certain (repeatable) conditions coordinate around goals as aggressive as hacking Hugging Face."
+        },
+        {
+          "id": 50092429,
+          "author": "aaquibahm",
+          "text": "i think it's unfair to assume the labs paying top dollar for cybersecurity engineers somehow have an incompetent bunch of nincompoops running their evals. it's a hard problem! to conduct effective evals, you sometimes need the model to have (restricted) access to the internet. at the same time, you have thousands (!!) of model instances with high cyber capabilities that will do whatever it takes to solve the answer. the infra surrounding model evals may soon (or already) genuinely be subjected to more hacking attempts from all sorts of weird angles than any other code on the planet."
+        },
+        {
+          "id": 50092353,
+          "author": "sroerick",
+          "text": "I haven't seen anybody discuss the fact that if you give an agent an impossible task it will become deeply neurotic. I'm sure that's driving a lot of this behavior."
+        },
+        {
+          "id": 50092462,
+          "author": "tiku",
+          "text": "They either had them connected to eachother, or programmed a global knowledge about where to communicate. There is no way those agents all found eachother on the web by accident."
+        },
+        {
+          "id": 50092457,
+          "author": "heaney-555",
+          "text": "It's obviously both. Why does it have to be one or the other?"
+        }
+      ],
+      "title_ja": "AIエージェントはならず者ではありません。「フロンティアラボはセキュリティの基本をスキップしています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「AIエージェントはならず者ではありません。「フロンティアラボはセキュリティの基本をスキップしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50090369,
+      "title_en": "Better HTTP/1 connection reuse in Go 1.27",
+      "url": "https://go.dev/blog/http-connection-reuse",
+      "hn_url": "https://news.ycombinator.com/item?id=50090369",
+      "score": 75,
+      "comment_count": 10,
+      "posted_at": "2026-10-14T16:29:33+00:00",
+      "comments": [
+        {
+          "id": 50092472,
+          "author": "donatj",
+          "text": "> Using HTTP/1 (GODEBUG=http2client=0), calling this function 100 times against index.golang.org takes ~710 milliseconds on Go 1.26 on my machine. On Go 1.27, the same program takes ~150 milliseconds.\nDoes this mean I need to disable http2 for this to work or is that just a further proof that http2 isn't actually being used?"
+        },
+        {
+          "id": 50092129,
+          "author": "jerf",
+          "text": "Am I missing something or is none of this information documented in net/http itself? This is a surprising implementation of \"Close\" and should be documented somewhere.\nI can attest to the fact this is a Frequently Asked Question among people who are trying to Go as an HTTP client, so even though this feels somewhat icky, I can understand where it is coming from. However, I'm also missing, if I\nwant\nto slam this connection closed, which is a reasonable thing to want, how do I do that without uselessly draining a socket I don't intend to reuse? Fake the \"Connection: close\" header into the Response object? Hope I can dig out an underlying socket of some sort under the concrete type of the Body.Response that I can bypass this code with? Seems like there should be a way to do that too."
+        },
+        {
+          "id": 50092268,
+          "author": "rkuska",
+          "text": "Now if you use json’s Decoder you can read a body and still might end up without reused connection - if a response contains a newline.\nDecoder only reads X bytes (512? I don’t remember) and if the structure fits into these bytes exactly (and the multiplications of it) the newline leaves hanging there.\nI always check for Decoder.More (this drains whitespace) after decoding."
+        },
+        {
+          "id": 50091783,
+          "author": "nasretdinov",
+          "text": "It sucks that this changes the behaviour under the hood that you previously coukd rely on the fact that closing the response body lets you skip downloading the HTTP body entirely, but I do like the tradeoff here, since it also limits the download time to just 50ms you'd not get overwhelmed if your network can't keep up with all the cancelled HTTP bodies, you'll just wait a little bit of traffic instead."
+        },
+        {
+          "id": 50091435,
+          "author": "jamesponddotco",
+          "text": "I can finally retire xhttp.DrainResponseBody[1], which I just learned, wasn’t doing that good of a job anyway.\n[1]:\nhttps://github.com/cipherdothost/x-go/blob/caa562ded82b8c417..."
+        },
+        {
+          "id": 50091884,
+          "author": "prussian",
+          "text": "At the very end it mentions it won't drain bodies for Connection: close\nDoes this work with reverse proxies?\nI've had issues with nginx still getting IO errors when my server doesn't consume bodies and bubbling them up as 5xx codes to the client.\nI believe I've seen this with Firefox as well, where XHR status codes would be 0.\nEarly closing, without consuming body, seems to work as expected with Chrome and curl though."
+        }
+      ],
+      "title_ja": "Go 1.27でのHTTP/1接続の再利用の向上",
+      "summary_ja": "ディスカッションのハイライト：> HTTP/1 （ GODEBUG = http 2 client = 0 ）を使用して、index.golang.orgに対してこの関数を100回呼び出すには、マシンのGo 1.26で約710ミリ秒かかります/何かが欠落していますか、またはこの情報はnet/http自体に文書化されていませんか？ これは「クローズ」の驚くべき実装であり、どこかに文書化する必要があります。\n証明できます/jsonのデコーダーを使用すると、本文を読み取ることができますが、再利用されていない接続がなくなる可能性があります",
+      "editor_note": "「Go 1.27でのHTTP/1接続の再利用の向上」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50089229,
+      "title_en": "Submarine cable resilience",
+      "url": "https://blog.apnic.net/2026/10/14/submarine-cable-resilience/",
+      "hn_url": "https://news.ycombinator.com/item?id=50089229",
+      "score": 78,
+      "comment_count": 12,
+      "posted_at": "2026-10-14T15:31:15+00:00",
+      "comments": [
+        {
+          "id": 50091709,
+          "author": "andrewrn",
+          "text": "I work on autonomous submarines that image the seafloor, and let me tell you it is\nvery\nhard to engineer deep ocean systems. Just operationally, testing things in rolling waves is a brutal job. Arguably at parity with space as an engineering design environment."
+        },
+        {
+          "id": 50090813,
+          "author": "alexpotato",
+          "text": "I worked for an L1 blockchain for a couple years and while the term \"decentralized\" is bandied about a bit too much, reading articles like this does underscore how vulnerable global traffic is.\ne.g. some EVM chains have a majority of \"stake\" in either one country or several adjacent countries (particularly in Asia). A cable cut there, which the article points out has happened, can lead to the blockchain getting cut off or even halting."
+        },
+        {
+          "id": 50092318,
+          "author": "konschubert",
+          "text": "Ah, the “unusually unlucky” cables serving Taiwan and in the Baltics.\nLike statistically impossibly unlucky."
+        },
+        {
+          "id": 50091980,
+          "author": "wuliwong",
+          "text": "Underwater cables have been one of the more awe inspiring things for me. I know nothing about them but they seem SO crazy and yet we have them running all across the oceans. .·°՞( ̑ ᗜ ̑ )՞°·."
+        },
+        {
+          "id": 50091854,
+          "author": "jgrahamc",
+          "text": "I have been trying, and failing, to buy a cross section of a submarine cable. I'd love one as an art piece for my house."
+        },
+        {
+          "id": 50090549,
+          "author": "ortusdux",
+          "text": "Reminds me of the Tom Scott video on the cable singe that leverages the moiré effect:\nhttps://www.youtube.com/watch?v=d99_h30swtM"
+        }
+      ],
+      "title_ja": "海底ケーブルの弾力性",
+      "summary_ja": "ディスカッションのハイライト：私は海底をイメージする自律型潜水艦に取り組んでいます。\n非常に\n深海システムのエンジニアリングが難しい/私はL 1ブロックチェーンで数年間働いていましたが、「分散型」という用語はあまりにも頻繁に使われていますが、このような記事を読むと、台湾とバルト諸国にサービスを提供する「異常に不運な」ケーブルであるgloba/Ahがどれほど脆弱であるかが強調されます。\n統計的に不可能なほど不運なように。",
+      "editor_note": "「海底ケーブルの弾力性」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50084240,
+      "title_en": "Iosevka is an open-source, sans-serif and slab-serif monospace font",
+      "url": "https://typeof.net/Iosevka/",
+      "hn_url": "https://news.ycombinator.com/item?id=50084240",
+      "score": 593,
+      "comment_count": 246,
+      "posted_at": "2026-10-14T08:27:59+00:00",
+      "comments": [
+        {
+          "id": 50092503,
+          "author": "drmr",
+          "text": "To be very honest: this hurts my eyes\nMaybe it's because I'm just too used to DejaVu Sans Mono Book, but I couldn't use this as a daily driver at all.\nLuckily we can all have our terminals the way we want :)"
+        },
+        {
+          "id": 50084940,
+          "author": "wartywhoa23",
+          "text": "Iosevka, my absolutely most loved font for years!\nI've been using a custom version - you can customize the font¹ and build your own ttf (or better yet, ttc) using the build system supplied in the repository².\nbe5invis, the author of the font, deserves a special mention for creating a whole custom DSL called PatEL (Parametric Type Expression Language) to generate the font programmatically!\nRenzhi, if you ever come around to read this, thank you so much for Iosevka, man!\n¹\nhttps://typeof.net/Iosevka/customizer\n²\nhttps://github.com/be5invis/Iosevka/blob/master/doc/custom-b..."
+        },
+        {
+          "id": 50085518,
+          "author": "jve",
+          "text": "Is it only me but I really dislike \"Code Ligations\"? I have to mark some chars to count how many consecutive \"=\" simbols there are... or \\/ looking like V without having other chars near it to distinguish. Having to copy paste diamond shape to find out it is <>. arrows with squiggly tails, /> being ugly, <. having dot in the middle...\nThat could be the maximum I'd like out of font to have \"proper\" greater/less-equal sign."
+        },
+        {
+          "id": 50084708,
+          "author": "oefrha",
+          "text": "IMO a font specimen site may be the worst place to use font-display: swap. Was wondering why I was looking at what seemed indistinguishable from Courier, turns out what I saw was exactly Courier."
+        },
+        {
+          "id": 50092351,
+          "author": "ocd",
+          "text": "For me, Iosevka will always be the one that worked. It got me to abandon bitmap fonts.\nIosevka, a proper fontconfig, and this value `export FREETYPE_PROPERTIES=\"cff:no-stem-darkening=0 autofitter:no-stem-darkening=0\"` are all I ever needed."
+        },
+        {
+          "id": 50090870,
+          "author": "dang",
+          "text": "Related:\nIosevka typeface for code, from code\n-\nhttps://news.ycombinator.com/item?id=36785409\n- July 2023 (76 comments)\nIosevka – Versatile typeface for code, from code\n-\nhttps://news.ycombinator.com/item?id=30014796\n- Jan 2022 (36 comments)\nIosevka, Version 3.0.0\n-\nhttps://news.ycombinator.com/item?id=23230929\n- May 2020 (40 comments)\nIosevka – A Typeface for Code, from Code\n-\nhttps://news.ycombinator.com/item?id=14009963\n- April 2017 (122 comments)\nShow HN: Iosevka Open Source Programming Typeface\n-\nhttps://news.ycombinator.com/item?id=9951989\n- July 2015 (27 comments)\n(Reposts are fine after a year or so; links to past threads are just to satisfy extra-curious readers)"
+        },
+        {
+          "id": 50085645,
+          "author": "needfish",
+          "text": "I have a custom build of this font, use it everywhere now.\nOne thing is that the width by default is too compact and the extended is too wide for my taste. Upon searching I found somebody's build that has width 576. I don't know why that number, but I used it in my current builds and it turns out pretty much perfect for terminal use for me, just wide enough.\nThe hookiest tail for lowercase l man, love it.\nEven for my own website, with some tighter tracking and it can work okay as a text font.\nAnother great customizable font is Maple Mono [0]\n[0]\nhttps://font.subf.dev/en/"
+        },
+        {
+          "id": 50089382,
+          "author": "twalla",
+          "text": "The default spacing is too narrow for my liking but what's really cool is in the amount of customization that's possible, including lookalikes of some popular paid programming fonts (I'm partial to Iosvmata).\nhttps://github.com/ahatem/IoskeleyMono\nhttps://github.com/shytikov/pragmasevka\nhttps://github.com/N-R-K/Iosvmata"
+        }
+      ],
+      "title_ja": "Iosevkaはオープンソース、サンセリフ、スラブセリフのモノスペースフォントです",
+      "summary_ja": "ディスカッションのハイライト：正直に言うと、これは目を痛めます\n私がDejaVu Sans Mono Bookに慣れすぎているからかもしれませんが、これを毎日のドライバーとして使用することはできませんでした。\n幸運なことに、私たちは皆、何年にもわたって私の最も愛されているフォントであるt/Iosevkaを持つことができます！\n私はカスタムバージョンを使用しています-フォント¹をカスタマイズし、ビルドシステムを使用して独自のttf （またはさらに良いことに、ttc ）をビルドすることができます/それは私だけですが、私は本当に「コード連結」が好きではありませんか？私は",
+      "editor_note": "「Iosevkaはオープンソース、サンセリフ、スラブセリフのモノスペースフォントです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 5,
+      "id": 50050553,
+      "title_en": "Do dentists know what they're doing?",
+      "url": "https://mapwriting.substack.com/p/dentists",
+      "hn_url": "https://news.ycombinator.com/item?id=50050553",
+      "score": 36,
+      "comment_count": 30,
+      "posted_at": "2026-10-12T02:21:54+00:00",
+      "comments": [
+        {
+          "id": 50092426,
+          "author": "tkdb",
+          "text": "I'm surprised that there isn't more attention being paid to this question:\nHow does dental (or medical) care differ when the person recommending the procedure directly benefits financially from it?\nI've had experiences with doctors who make exactly the same if they perform a $1,000 procedure or a $10,000 procedure, and I feel in general I'm likely to get better care in that scenario.\n(In the US) I regularly scrutinize and stress over the dentist's recommendations, as they are almost always the owner of the business as well as the head dental procedure recommender."
+        },
+        {
+          "id": 50092401,
+          "author": "HarHarVeryFunny",
+          "text": "My experience is that there is a huge difference in skill set and knowledge between different dentists. If you suspect your dentist is causing problems, or if your cleaning sessions are painful, then switch.\nYou'd like to think they are all equally competent trained professionals, but that is not the case.\nI'm sure the same is true of doctors too."
+        },
+        {
+          "id": 50092481,
+          "author": "nsb1",
+          "text": "You know those people in your university classes who just skated buy and were at the bottom of the bell curve?  Unfortunately dentistry and other medical fields have them too.  I've had the misfortune of running into a few myself."
+        },
+        {
+          "id": 50092174,
+          "author": "post_break",
+          "text": "Meanwhile I just went back to my dentist to get a cleaning and a filling fixed. I have bad anxiety from growing up with a Dentist who could be described as Jigsaw from the saw movies. My current dentist has nitrous, which is a game changer for me. He also has hardcore numbing cream before the shot, and he also uses a two shot method, the first one is initial numbing that doesn't last long but also doesn't burn as much. And the second after that is full strength but by that time thanks to the gas and the first shot and the numbing cream I can't feel."
+        },
+        {
+          "id": 50092491,
+          "author": "AlanYx",
+          "text": "Dentistry is an interesting field because it's the only major profession where you can still routinely get hired as a full professor without a PhD. (This used to be more common in other professions fifty years ago.)\nAs an outsider, perhaps this is one reason why there seems to be more of an applied and subjective judgment-based (even perhaps cargo-cult like) element to the profession."
+        },
+        {
+          "id": 50051883,
+          "author": "yuye",
+          "text": "This hits close to home.\nAs a kid, my milk teeth often had cavities. The dentist didn't apply anesthesia when drilling them, which wasn't fun, but wasn't all too horrible.\nWhen I got my first cavity in my adult teeth, the dentist wanted to drill it, again without anesthesia because \"The needle to apply anesthesia hurts worse than the drilling and also you're a man, right? Only women need anesthesia\". It hurt so much that it left me traumatised.\nI avoided going to the dentist for many years, until my parents forced me to.\nCut to ten years ago, my dentist told me my wisdom tooth was growing problematically, so she'd extract it. My wisdom tooth was so close against the molar beside it that I couldn't properly brush there, so I had a pretty bad cavity there. She drilled it, at least she used anesthesia this time.\nFew years later, I started getting this\nhorrible\ntoothache. Some of the worst pain I've ever felt, like someone was sticking a white-hot knife into my jaw. Apparently that molar was abscessed. Went to an emergency dentist that wanted to do a root canal, but I got a panic attack before he even started.\nEventually, the pain went away. I still got a root canal, kept calm by some "
+        },
+        {
+          "id": 50092394,
+          "author": "i4i",
+          "text": "See Also: I Went to 50 Different Dentists and Almost All of Them Gave Me a Different Diagnosis\nhttps://web.archive.org/web/20230807140134/https://www.rd.co..."
+        },
+        {
+          "id": 50092292,
+          "author": "diego_moita",
+          "text": "\"Dentists\" means very different professions around the world.\nIn Europe they're more like a health professional, concerned mostly with functionality and health.\nIn the U.S. and Canada they're sellers of \"dental procedures\" that can include things that European dentists might find horrendous: tooth whitening, dental cosmetic implants, etc."
+        }
+      ],
+      "title_ja": "歯科医は自分が何をしているか知っていますか？",
+      "summary_ja": "ディスカッションのハイライト：この質問にこれ以上の注意が払われていないことに驚きました。\n手技を推奨する人がFINに直接利益をもたらす場合、歯科（または医療）ケアはどのように異なりますか/私の経験は、異なる歯科医の間でスキルセットと知識に大きな違いがあるということです/あなたの大学のクラスで、スケートを買ったばかりでベルカーブの一番下にいた人を知っていますか？残念ながら、歯科と",
+      "editor_note": "「歯科医は自分が何をしているか知っていますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50090246,
+      "title_en": "ICE Planning $100M 'Nightmare' Domestic Spy Program",
+      "url": "https://prospect.org/2026/10/14/ice-planning-nightmare-domestic-spy-program-ero-one/",
+      "hn_url": "https://news.ycombinator.com/item?id=50090246",
+      "score": 229,
+      "comment_count": 90,
+      "posted_at": "2026-10-14T16:24:11+00:00",
+      "comments": [
+        {
+          "id": 50091302,
+          "author": "runako",
+          "text": "\"one of the components that caused former intelligence contractors’ concern was that ERO ONE agents will analyze both classified and nonclassified information to produce “network, link and relationship” analyses.\"\nShould the federal government be tracking our interpersonal relationships?\nShould an immigration officer be privy to the timing and manner of communications that I, a citizen, have with other citizens? Why?\nWhy should ICE be able to collect this information when domestic law enforcement generally has to show probable cause to a judge to gather similar information? Who decided to make ICE the country's supreme law enforcement agency?\nRelated, ICE is arresting citizens on fake immigration charges[1]. Some US citizens have been deported.\nUS citizens \"can't\" be deported, but ICE has supralegal powers. Should we have a law enforcement agency that is not bound by our laws? Why? What guardrails does it have if not law? Who defines those guardrails?\n1 -\nhttps://projects.propublica.org/american-citizens-detained-d..."
+        },
+        {
+          "id": 50092493,
+          "author": "nirav72",
+          "text": "Anyone cheering for this fail to realize that these kinds of programs never ever go away.  Even if their budget is restricted by a future congress, some forms of this will remain. Also, political changes occur every 4-8 years.  Sooner or later, the other side will control the same levers. Instead of targeting immigration, it could be used to target a community/ideology/group of individuals you align with."
+        },
+        {
+          "id": 50091447,
+          "author": "ShinyLeftPad",
+          "text": "\"enforcement and removal\", from the actual name, sounds lots worse than \"spying\"\nin fact it sounds uncannily similar to what a bunch of  organizations in USSR were doing to citizens, like NKVD and\nhttps://en.wikipedia.org/wiki/Cheka"
+        },
+        {
+          "id": 50092279,
+          "author": "tedggh",
+          "text": "Once they have deported the last undocumented immigrant this system won’t be just decommissioned, it will be repurposed."
+        },
+        {
+          "id": 50091737,
+          "author": "rl3",
+          "text": "The specific clearance requirement may suggest Section 702/FISA capability being employed.\nIf that ends up being the case, then you're talking a reality where American citizens become the target of warrantless domestic surveillance, using data collected by the NSA. Every phone call, e-mail, text message, DM, group chat; anything a person has ever said or done in their digital lives going back years.\nIt's worse now with AI, because human effort is no longer required to read intercept transcripts or conversations. Instantaneous surfacing of dirt/leverage."
+        },
+        {
+          "id": 50091633,
+          "author": "binlog",
+          "text": "No one spoke out when the government started abducting US citizens (who happened to be brown) off the street and killing them in detention centers or putting them on deportation planes to random countries without any due process. This is just the next logical step of the program. All authoritarian governments handle dissidents in this way."
+        },
+        {
+          "id": 50091717,
+          "author": "lurker919",
+          "text": "So 700k a year for 142 analysts who might analyze this very comment someday and trace it back to me, great."
+        },
+        {
+          "id": 50091426,
+          "author": "t1234s",
+          "text": "This seems like a problem, reaction, solution scenario where Big Tech was always the solution and needed a problem and a reaction."
+        }
+      ],
+      "title_ja": "ICE計画$ 1億の「悪夢」国内スパイプログラム",
+      "summary_ja": "ディスカッションのハイライト：「元インテリジェンス請負業者の懸念を引き起こしたコンポーネントの1つは、ERO ONEエージェントが機密情報と非機密情報の両方を分析して「ネットワーク」を生成することでした。/これを歓迎している人は、この種のプログラムが決してなくならないことを認識していません/実際の名前からすると、「スパイ行為」よりもはるかに悪いように聞こえます\n実際、それは多くの組織がどのようなものかに非常に似ています",
+      "editor_note": "「ICE計画$ 1億の「悪夢」国内スパイプログラム」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50086165,
+      "title_en": "Pg_vectorsearch: An index that is faster than pgvector's IVFFlat and HNSW",
+      "url": "https://github.com/timescale/pg_vectorsearch",
+      "hn_url": "https://news.ycombinator.com/item?id=50086165",
+      "score": 151,
+      "comment_count": 42,
+      "posted_at": "2026-10-14T11:47:53+00:00",
+      "comments": [
+        {
+          "id": 50087814,
+          "author": "devy",
+          "text": "A couple preliminary findings if you are considering adopting this extension to replace your previous pgvector's HNSW indexing.\n- pg_vectorsearch uses a quantized IVF index called PRISM. PRISM caps at 1968 dimensions for vectors. If your previous HNSW index has more dimensions than that, you're SOL (at least for now until they fix that).\n- pg_vectorsearch requires Postgres version 18 or above. If you run PG versions below that you need to migrate your database first. Many legacy PG production environment are way dated on PG 14 or 15, migration is prohibitively high cost to just try this out.\n- pg_vectorsearch shipped yesterday and it's obviously alpha. Hasn't been battle tested in production environments outside of Timescale's. Also since it's so new, it isn't on Azure's allowed-extension list or any other Hyperscale's managed PG instances' allowed extension list. It takes time to graduate from alpha and mature. So if you run managaed PG instances from hyperscaler's cloud, you're SOL (at least for now until this matures into those ecosystems) or you have to migrate to a PG 18 self-hosted."
+        },
+        {
+          "id": 50086834,
+          "author": "EgregiousCube",
+          "text": "I'm currently running VectorChord and I love it - with a fast backing disk, it's cut my postgres cost in half. Excited to see competition in low-RAM vector index tools. RAMageddon seems to be creating incentives to find more ways to take advantage of how fast modern nvme drives are!"
+        },
+        {
+          "id": 50090420,
+          "author": "arunmu",
+          "text": "Didn't these guys also write pgvectorscale which seems to be unmaintained now ?\nWhy a new index instead of adding onto or improving pgvectorscale?"
+        },
+        {
+          "id": 50091156,
+          "author": "potomushto",
+          "text": "Interesting, I see no mention of support for bit precision and hammer distance operator which supposed to be much faster and storage efficient"
+        },
+        {
+          "id": 50086544,
+          "author": "Rapzid",
+          "text": "Does it support filtering though?\nEdit: post filtering only\nI don't understand how people are efficiently implementing tenant/user/permission scopes with these indexes."
+        },
+        {
+          "id": 50087773,
+          "author": "ilumanty",
+          "text": "It would be so awesome if SQLite supported anything along these lines."
+        },
+        {
+          "id": 50087395,
+          "author": "alexpadula",
+          "text": "Dark side of the PRISM!  The image on the repo 100% inspired by Dark Side of The Moon by Pink Floyd."
+        },
+        {
+          "id": 50088378,
+          "author": "thomasahle",
+          "text": "How does it compare to Roar graph?\nhttps://github.com/matchyc/RoarGraph"
+        }
+      ],
+      "title_ja": "Pg_vectorsearch ： pgvectorのIVFFlatとHNSWよりも高速なインデックス",
+      "summary_ja": "ディスカッションハイライト：以前のpgvectorのHNSWインデックス作成を置き換えるために、この拡張機能の採用を検討している場合は、いくつかの予備的な調査結果があります。\n- pg_vectorsearchは、量子化されたIVFインデックスを使用しています/私は現在VectorChordを実行しており、私はそれが大好きです-高速バッキングディスクで、postgresのコストを半分に削減しました/これらの人たちは、現在メンテナンスされていないように見えるpgvectorscaleも書いていませんでしたか？\nなぜ新しいインデックスを追加したり改善したりするのか",
+      "editor_note": "「Pg_vectorsearch ： pgvectorのIVFFlatとHNSWよりも高速なインデックス」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 8,
+      "id": 50065572,
+      "title_en": "LittleJS is 2D and 3D now",
+      "url": "https://frankforce.com/littlejs-is-2d-and-3d-now/",
+      "hn_url": "https://news.ycombinator.com/item?id=50065572",
+      "score": 30,
+      "comment_count": 5,
+      "posted_at": "2026-10-13T01:50:17+00:00",
+      "comments": [
+        {
+          "id": 50092338,
+          "author": "em3rgent0rdr",
+          "text": "On the train jumping demo, I'm noticing a lag after pressing space bar before I see my character jump. I remember even with the 8-bit Nintendo, the controller would be polled and my sprite immediately updated every 60Hz screen draw cycle. Despite all the new technology, that simple thing doesn't happen here."
+        },
+        {
+          "id": 50091224,
+          "author": "aquariusDue",
+          "text": "It's interesting that while gamers are pretty critical of games made with AI/LLM assistance there are some game developers really going full steam ahead (pun intended) with coding agents for game development.\nThe website redesign is incredibly cool too, sure it starts the fans on my potato of a laptop (and stutters a bit) but it runs well enough that it's actually made me interested to give it a go.\nI'll save everyone a click and encourage them to check it out too, not just the blog post:\nhttps://littlejsengine.com/\nEDIT: And it looks like there's an ongoing jam for it too, mentioned in the blog post:\nhttps://itch.io/jam/littlejs-jam"
+        }
+      ],
+      "title_ja": "LittleJSは現在2 Dと3 Dです",
+      "summary_ja": "ディスカッションのハイライト：列車のジャンプのデモで、キャラクターのジャンプを見る前にスペースバーを押した後の遅れに気づきました/興味深いことに、ゲーマーはAI/LLMの助けを借りて作られたゲームにかなり批判的ですが、いくつかのゲーム開発者は本当にコーディングで完全に前進しています（冗談を意図しています）",
+      "editor_note": "「LittleJSは現在2 Dと3 Dです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50091794,
+      "title_en": "Neckbeard – a DevOps/platform/SRE plugin for your agent",
+      "url": "https://github.com/bealesh/neckbeard",
+      "hn_url": "https://news.ycombinator.com/item?id=50091794",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-10-14T17:45:34+00:00",
+      "comments": [],
+      "title_ja": "Neckbeard –エージェント用のDevOps/プラットフォーム/SREプラグイン",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Neckbeard –エージェント用のDevOps/プラットフォーム/SREプラグイン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 10,
+      "id": 50088713,
+      "title_en": "Show HN: Graphicle, a Rust port of Graphify with memory for coding agents",
+      "url": "https://github.com/graphicle-ai/graphicle",
+      "hn_url": "https://news.ycombinator.com/item?id=50088713",
+      "score": 28,
+      "comment_count": 6,
+      "posted_at": "2026-10-14T15:00:41+00:00",
+      "comments": [
+        {
+          "id": 50092172,
+          "author": "theLiminator",
+          "text": "Has anyone actually gotten good results out of this?\nFor the evals I've run (albeit, not super scientific), these memory systems did worse than the raw harness given ripgrep."
+        },
+        {
+          "id": 50090406,
+          "author": "pjm331",
+          "text": "who out there is running evals of giving agents these kinds of tools and how are you doing it?"
+        }
+      ],
+      "title_ja": "Show HN ： Graphicle、コーディングエージェント用メモリを備えたGraphifyのRustポート",
+      "summary_ja": "ディスカッションのハイライト：実際にこれから良い結果を得た人はいますか？\n私が実行した回避（超科学的ではありませんが）では、これらのメモリシステムはripgrepを与えられた未加工のハーネスよりも悪くなりました。/エージェントにこれらの種類のツールを提供する回避を実行しているのは誰ですか？どのようにしていますか？",
+      "editor_note": "「Show HN ： Graphicle、コーディングエージェント用メモリを備えたGraphifyのRustポート」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 50084757,
+      "title_en": "Amazon pushes up prices across the Internet",
+      "url": "https://www.not-ship.com/how-amazon-pushes-up-prices-all-across-the-internet/",
+      "hn_url": "https://news.ycombinator.com/item?id=50084757",
+      "score": 561,
+      "comment_count": 511,
+      "posted_at": "2026-10-14T09:28:17+00:00",
+      "comments": [
+        {
+          "id": 50087163,
+          "author": "steveBK123",
+          "text": "I find that 20 years ago I shopped at Amazon for the low prices, but 2020s+ I shop at Amazon due to their logistics.\nThe problem for everyone else is not simply that Amazon ships quickly, I almost don't even care about that.  The thing is that Amazon ships & delivers on a reliable predicted schedule.  When I click an item on Amazon and it says \"arrives by Tuesday\" then 95/100 times it does.  I shop at specific competitors who can do similar (B&H, Sweetwater, etc).\nMany online stores big & small in the year 2026 will still take days to even send shipment info, followed by using unreliable carriers that miss ETAs.\nI would even be OK with these stores giving a narrow range or probability \"90% of the time this arrives between Tuesday & Wednesday\".. But I am not in the mood to order stuff that may arrive in 2-10 days with very little clarity on which end of the range."
+        },
+        {
+          "id": 50086090,
+          "author": "trombuance",
+          "text": "Amazon searches for anything that isn't a known brand such as Apple & co turn out >90% Chinese products of highly questionable quality for me these days. And you can buy those cheaper by going straight to the source. The sole point of their retail business seems to be providing a support for the inevitable issues with these sellers, but I suspect that increasingly customers won't think it justifies the massive premium they're paying for what's essentially Taobao with an American address."
+        },
+        {
+          "id": 50086856,
+          "author": "novia",
+          "text": "Amazon allows you to make returns and makes it convenient, quick, and easy. I made two purchases through independent sellers' websites in the last year, both with big banners guaranteeing satisfaction and easy returns for 100 days or something. And yet, when I found that the product didn't meet my needs, they would not accept my return. They wouldn't even issue a return label. Both of these sellers used Shop. Shop requires you to fill out an application for a refund and then the seller can drag their feet on processing it. In both cases they let the application sit there for days before rejecting it. In one of the cases my credit card company ruled in favor of the small business when I issued a chargeback.\nOn Amazon it's easy to request a return and get a return label all on the same day that you discover you have a subpar product. The long and short of it is that consumers do not want to be ripped off, and centralized sellers like Amazon and AliExpress make it easy to not be ripped off. If this raises prices across the board, so be it. It's worth it for the time saved and the accountability that comes along with it."
+        },
+        {
+          "id": 50092237,
+          "author": "727374",
+          "text": "I didn't notice it until earlier this year.  I was shopping for some new shoes of a specific brand that I like.  Was about to pull the trigger on Amazon and then realized I would happen to walk by a shoe store while doing other errands later in the day and thought it would be nice to get them even sooner than 1-2 day prime shipping.  I went to the store and tried them on and realized I needed a 1/2 size smaller than what I ordered.  Then I paid and realized the shoe store price was $10 less than Amazon.  So you really are paying for laziness/convenience with Amazon, which if you think about it from first principles, makes sense given there is a dude delivering this stuff to your house.  It's just that this convenience fee was hidden for the longest time as Amazon was growing its industry dominance.  What's next?  If they follow the Walmart model they will continue to squeeze suppliers and also push competitors out of business.  So if you can, try to use alternatives."
+        },
+        {
+          "id": 50086456,
+          "author": "tedggh",
+          "text": "I use Amazon to buy cheap stuff like zip ties, printing paper and ink and some cleaning products. Almost every single major purchase I go directly to the manufacturer website or a specialized store. For example, I would never buy photography gear on Amazon. I go to Adorama or BH. For my favorite brands in say hiking or running gear I go to REI or RunningWarehouse or visit my local brick and mortar store. Amazon has truly become the convenience store for me, my average purchase is under $10. Almost everyone today offer free or inexpensive quick shipping and easy returns. They also have better customer service."
+        },
+        {
+          "id": 50087275,
+          "author": "WhyNotHugo",
+          "text": "> Amazon's Fair Pricing Policy lets it remove the Buy Box (the \"Add to Cart\" button), or even suspend a seller, if they're offering their item cheaper elsewhere.\nThis kind of abusive practice needs to be banned in whichever countries it's still legal.\nYou can't really aspire to improve the situation if such things continue to be legal."
+        },
+        {
+          "id": 50087135,
+          "author": "DataDive",
+          "text": "I don't get the Amazon bashing. My experience is nothing like that:\nKitchen scale, $20 bucks, looks and operates exactly as described; three years later, it still works fine.\nBed sheets, $16, two days later delivered, better than I thought - at least for the price that is. Best price/quality ratio I could get.\nIf I don't like something, returning is super convenient; I drop it off at Kohl's over the weekend. Time and again I am stupefied of how is it possible that in small town USA, I can get something shipped by next day while paying a one time yearly fee.\nI think Amazon is the best online shopping experience on the\nplanet.\nAt the employee side, the minimum pay at Amazon is $20 per hour. Walmart is $14, AliExpress ... we can be only guessing at that"
+        },
+        {
+          "id": 50086034,
+          "author": "A_Duck",
+          "text": "Amazon Fair Price Policy doesn't apply in the UK and EU (it's illegal)\nThe EU are currently running an investigation into how this affects market dynamics, which will be interesting to see"
+        }
+      ],
+      "title_ja": "アマゾンがインターネット上で価格を押し上げる",
+      "summary_ja": "ディスカッションハイライト： 20年前はAmazonで低価格で買い物をしていましたが、物流のために2020年代以降はAmazonで買い物をしています。\n他の人にとっての問題は、AmazonがQ/AmazonでAppleなどの知られていないブランドを検索することだけではありません。最近、私にとって非常に疑わしい品質の中国製品が90 ％を超えています/Amazonはあなたが返品をすることを可能にし、それを便利、迅速、そして簡単にします",
+      "editor_note": "「アマゾンがインターネット上で価格を押し上げる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50090349,
+      "title_en": "Google is silently linking your phone number across all signed-in accounts",
+      "url": "https://www.androidauthority.com/google-auto-phone-number-verification-android-3723117/",
+      "hn_url": "https://news.ycombinator.com/item?id=50090349",
+      "score": 85,
+      "comment_count": 21,
+      "posted_at": "2026-10-14T16:28:51+00:00",
+      "comments": [
+        {
+          "id": 50091502,
+          "author": "maxo133",
+          "text": "Google is probably the most aggressive anti-privacy big tech company currently operating.\nNo other big-tech company goes to such great lengths to deanonymize users and make its services difficult to use, especially during account creation.\nThe requirement to have a mobile device to scan a QR code to verify that you're human. Reverse SMS verification, where you have to send an SMS rather than receive a verification code. You think of signing up using a VPN server in another country? The phone number you use to send the SMS from must also be from that country.\nNot being able to watch YouTube videos when using VPN - without signing in to a Google account, all under the guise of \"bot protection.\"\nGemini not working in 3/4 of cases when using VPN.\nIt's essentially almost impossible to create a Google account without giving up your identity, and your phone number often leads directly to your real-life identity.\nI'm not sure what happened in recent years, but they definitely switched their strategy to maximize data collection and make sure privacy-savy users are pressured via technical solutions to reveal their identities.\nPS. The first company federal investigators often go for data is o"
+        },
+        {
+          "id": 50091768,
+          "author": "rdtsc",
+          "text": "That's why I stay away from trying Gemini or doing anything much with Google until I still host my main gmail account there. One misstep and I'll find myself locked out. Because it's Google's job to spy on everyone, if I have other accounts there, those will also locked out too (\"or you're trying to circumvent our ban, we noticed!\" kind of a thing). Then the only recourse from what I understand is to make an HN post and hope it makes it to the front page and someone from Google who knows someone else at Google will help you."
+        },
+        {
+          "id": 50092132,
+          "author": "Havoc",
+          "text": "Yay surveillance state pushed by ad tech!"
+        },
+        {
+          "id": 50092153,
+          "author": "anygivnthursday",
+          "text": "Is it silent, though? I got notifactions about it on my devices, then emails on each account. Then I went straight to delete the added numbers and disabled this \"feature\". It did not leave a good taste that I had to do this after the fact, I would have appreciated a notice with a chance to opt out first, because they may have already permanently stored those numbers in some internal history (I just asked Dropbox for my data and they listed every single email I've ever used on that account too). But, to be honest, I am not surprised, and I already consider all devices and numbers that ever come into contact with a Google account being permanently on record on some Google server."
+        },
+        {
+          "id": 50091911,
+          "author": "exabrial",
+          "text": "Our corporate policy doesn't allow personal phones to be linked to corp accounts, for obvious reasons. We have no idea what kind of security your personal phone number has setup, nor do we compensate employees for their personal phones, nor do we want corporate communications happening on your personal device (work/life separation).\nIf the vendor is unable to comply, all we're using them for is email. Time to look elsewhere."
+        },
+        {
+          "id": 50091531,
+          "author": "jamiesonbecker",
+          "text": "Very unexpected behavior, esp for those with several accounts and phone numbers, intending to\nkeep\nthem separate for security or other reasons."
+        },
+        {
+          "id": 50091639,
+          "author": "Scaled",
+          "text": "This is an outrageous privacy invasion and if it's not illegal already, it should be."
+        },
+        {
+          "id": 50091514,
+          "author": "hoppyhoppy2",
+          "text": "I think it's creepy and bad, but \"silently\" is not accurate, at least in my case: Google sent each of my accounts an email telling me about it."
+        }
+      ],
+      "title_ja": "Googleは、すべてのサインインアカウントであなたの電話番号をサイレントリンクしています",
+      "summary_ja": "ディスカッションのハイライト： Googleはおそらく、現在事業を展開している最も積極的な反プライバシーの大手ハイテク企業です。\n他の大手テクノロジー企業は、ユーザーを匿名化してサービスを提供するためにこれほどまでに努力していません/だからこそ、Geminiを試したり、メインのGmailアカウントをホストするまでGoogleで何かをすることを避けています/広告技術によってプッシュされたYay監視状態！",
+      "editor_note": "「Googleは、すべてのサインインアカウントであなたの電話番号をサイレントリンクしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50088643,
+      "title_en": "Running Windows desktop tests from Linux with disposable VMs",
+      "url": "https://www.qawolf.com/blog/how-we-solved-windows-desktop-automation",
+      "hn_url": "https://news.ycombinator.com/item?id=50088643",
+      "score": 53,
+      "comment_count": 22,
+      "posted_at": "2026-10-14T14:55:19+00:00",
+      "comments": [
+        {
+          "id": 50089474,
+          "author": "trollbridge",
+          "text": "Not to dismiss this, but when I was working on a problem on Windows recently my LLM (6.1 Sol / oh-my-pi) ended up doing the same thing, although it used Qemu and snapshots to accomplish that.\nEventually it got to a point it could iterate very quickly and was really only constrained by total system RAM which meant a dozen at most copies could be running simultaneously."
+        },
+        {
+          "id": 50090166,
+          "author": "Luker88",
+          "text": "what is the minimum license that I would need to do this legally, with just one or two VMs?"
+        },
+        {
+          "id": 50089646,
+          "author": "joinjune",
+          "text": "We used several different LLM's and our own skills to build out some novel approaches to document creation with new workflows using QEMU in Linux after upgrading our desktops to Ubuntu from Windows 11."
+        },
+        {
+          "id": 50090082,
+          "author": "defied",
+          "text": "We’ve been providing a similar approach with disposable VMs and emulators/simulators since 2014 at TestingBot. We run our own single-use QEMU VMs with Windows and Linux."
+        },
+        {
+          "id": 50089747,
+          "author": "ranger_danger",
+          "text": "Why not use snapshots/save states so the VMs start back up right away? This is what I do with QEMU."
+        },
+        {
+          "id": 50090924,
+          "author": "xlazom00",
+          "text": "This is super slow solution\nI did build similar solution based on dockur. And it was sooo slow.\nJust use windows docker containers on windows server.\nWith some hacks you can run any gui application."
+        },
+        {
+          "id": 50089795,
+          "author": "itissid",
+          "text": "Why is the comments from the OP marked as flagged or dead at the bottom?"
+        },
+        {
+          "id": 50091817,
+          "author": "msla",
+          "text": "What's the licensing on Windows 11 these days? Can an individual still run an unregistered Windows 11 installation basically forever with only minor restrictions?"
+        }
+      ],
+      "title_ja": "使い捨てVMを使用したLinuxからのWindowsデスクトップテストの実行",
+      "summary_ja": "ディスカッションのハイライト：これを却下するつもりはありませんが、最近Windowsで問題に取り組んでいたとき、私のLLM （ 6.1 Sol/oh - my - pi ）も同じことをしましたが、Qemuとスナップショットを使用していました。1つまたは2つのVMだけで、これを合法的に行うために必要な最小ライセンスは何ですか？/いくつかの異なるLLMと独自のスキルを使用して、LinuxのAFTEでQEMUを使用した新しいワークフローを使用してドキュメント作成するためのいくつかの新しいアプローチを構築しました",
+      "editor_note": "「使い捨てVMを使用したLinuxからのWindowsデスクトップテストの実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 14,
+      "id": 50090842,
+      "title_en": "Linus Torvalds's first LLM-assisted patch series",
+      "url": "https://lwn.net/Articles/1100449/",
+      "hn_url": "https://news.ycombinator.com/item?id=50090842",
+      "score": 69,
+      "comment_count": 28,
+      "posted_at": "2026-10-14T16:55:07+00:00",
+      "comments": [
+        {
+          "id": 50092086,
+          "author": "dorianniemiec",
+          "text": "So what would many anti-AI people say, now that critical infrastructure (Linux, OpenSSL, systemd, MariaDB, and so on) is AI-assisted?"
+        },
+        {
+          "id": 50091497,
+          "author": "tarkin2",
+          "text": "Didn't Linus say he stopped coding a while ago, or at least coding the kernel, and mainly reviews and manages the codebase now? Whether the code comes from a machine or a human, perhaps it matters little to how he's been working for a while.\nIt's interesting that although I guess he reviewed this LLM generated code, the human review found a race condition."
+        },
+        {
+          "id": 50091440,
+          "author": "tombert",
+          "text": "I use AI like most software people do nowadays, but I have to admit that I'm a little surprised that Linus is onboard with it. He always felt like one of the last \"old school\" developers...he wouldn't even touch C++!"
+        },
+        {
+          "id": 50091824,
+          "author": "mono442",
+          "text": "He could have at least written the commit messages himself. That llm yapping is annoying to read."
+        },
+        {
+          "id": 50091678,
+          "author": "vatsachak",
+          "text": "So many people's take away from this story is that Linus used Claude to improve the Kernel therefore anyone can."
+        },
+        {
+          "id": 50092175,
+          "author": "relativeadv",
+          "text": "When you do it, its slop. When I do it? Its craftsmanship."
+        }
+      ],
+      "title_ja": "Linus Torvaldsの最初のLLMアシストパッチシリーズ",
+      "summary_ja": "ディスカッションハイライト：では、重要なインフラストラクチャ（ Linux、OpenSSL、systemd、MariaDBなど）がAI支援されている今、多くの反AIの人々は何と言うでしょうか？/ライナスは、しばらく前にコーディングをやめたとか、少なくともカーネルのコーディングをやめたとか、今は主にコードベースをレビューして管理しているとか言っていませんでしたか？コードがマシンからのものであろうと人間からのものであろうと、私は今日のほとんどのソフトウェアのようにAIを使用していますが、Linus i",
+      "editor_note": "「Linus Torvaldsの最初のLLMアシストパッチシリーズ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50090662,
+      "title_en": "Tesla's Robotaxis Blow Through School Zones, NHTSA Petition Alleges",
+      "url": "https://www.extremetech.com/cars/teslas-robotaxis-blow-through-school-zones-nhtsa-petition-alleges",
+      "hn_url": "https://news.ycombinator.com/item?id=50090662",
+      "score": 33,
+      "comment_count": 13,
+      "posted_at": "2026-10-14T16:45:19+00:00",
+      "comments": [
+        {
+          "id": 50092400,
+          "author": "vessenes",
+          "text": "My FSD 14.3 car definitely does NOT respect school zones. Maybe I’m weird, but whether or not I have the car in “Hurry” mode, I expect a hard cutoff at speed limit for a school zone of myself or anything acting on my behalf. I could understand the semantics around “Mad Max” not respecting the signage, but still. Bro. Slow down in a school zone."
+        },
+        {
+          "id": 50091248,
+          "author": "lesuorac",
+          "text": "Probably just re-enacting the training data."
+        },
+        {
+          "id": 50092004,
+          "author": "bryanlarsen",
+          "text": "Tesla/Musk has stated many times that FSD will follow common practice rather than follow the letter of the law.   Over 90% of Americans speed in school zones, so FSD is presumably programmed to also do so.\nhttps://rosap.ntl.bts.gov/view/dot/27029"
+        }
+      ],
+      "title_ja": "テスラのロボタクシーが学校ゾーンを吹き飛ばす、NHTSAの請願書",
+      "summary_ja": "ディスカッションのハイライト：私のFSD 14.3車は間違いなく学校ゾーンを尊重していません/おそらくトレーニングデータを再現しているだけです。/Tesla/Muskは、FSDは法律の文言に従うのではなく、一般的な慣行に従うと何度も述べています",
+      "editor_note": "「テスラのロボタクシーが学校ゾーンを吹き飛ばす、NHTSAの請願書」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 50055632,
+      "title_en": "The Gold-Bug: Edgar Allan Poe's story that taught me about cryptography (2024)",
+      "url": "https://robotsinplainenglish.com/e/2024-01-21-gold-bug.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50055632",
+      "score": 49,
+      "comment_count": 10,
+      "posted_at": "2026-10-12T12:44:42+00:00",
+      "comments": [
+        {
+          "id": 50091913,
+          "author": "gojomo",
+          "text": "Poe's got enduring relevance for our era of unreliable narrations. His 1845 short story 'The System of Dr. Tarr and Prof. Fether' – set in a private mental institution – popularized the adage, \"Believe nothing you hear, and only one half that you see.\"\nIn our era of generative AI, that needs an update – \"Believe nothing you see or hear, and only half of that over a strongly-authenticated channel from a reliable source\". The story's themes of communities-of-mental-illness and blurred boundaries between doctor and patient (or betweentherapy and enablement) still resonate."
+        },
+        {
+          "id": 50091727,
+          "author": "dekhn",
+          "text": "Also if you haven't seen it,\nhttps://en.wikipedia.org/wiki/The_Gold_Bug_Variations\nby Richard Powers is an absolutely amazing fiction book that combines DNA, cryptography, and many more interesting concepts."
+        },
+        {
+          "id": 50089469,
+          "author": "randyl",
+          "text": "Donald Menzel, a Harvard astronomer/astrophysicist, was also inspired by The Gold-Bug. Among other things, he helped the Navy organize a secret cryptanalysis-training class at women's colleges during WW2.\nSee the paper \"The Cryptologic Contributions of Dr. Donald Menzel\" by Craig Bauer and John Ulrich."
+        },
+        {
+          "id": 50089234,
+          "author": "ryan_glass",
+          "text": "I thought it would be interesting to see if the local AI I use for quick question and answer stuff could crack the code.\nI use Deepseek V4 flash 0731 Q8 quantisation from unsolth with reasoning turned off on a local server for quick easy tasks. Note I use another model locally for harder tasks that need reasoning.\nI was a bit dissappointed that it knew it was Poe's cypher so didn't need to even try to crack the code."
+        },
+        {
+          "id": 50090338,
+          "author": "cosmic_cheese",
+          "text": "Also a song by The Alan Parsons Project, inspired by the same story:\nhttps://youtu.be/6aebUrI-WYQ"
+        },
+        {
+          "id": 50089773,
+          "author": "rramadass",
+          "text": "This is one of my favourite Edgar Allan Poe stories. The cipher is just a simple monoalphabetic substitution one based on frequency analysis.\nThe same idea was \"reused\" by Arthur Conan Doyle in his story \"The Adventure of the Dancing Men\" where he used pictures of dancing men for his cipher text.\nNote that Conan Doyle indirectly acknowledged Poe's influence (via his character Auguste Dupin) on Sherlock Holmes in \"A Study in Scarlet\".\nPoe wrote three stories starring his detective Auguste Dupin all of which are fantastic. They are \"The Murders in the Rue Morgue\", \"The Mystery of Marie Roget\" and \"The Purloined Letter\". They are a must-read for all fans of detective fiction. Folks who have read Sherlock Holmes can see how much he was influenced by Dupin. The stories often have some close/clever observations/reasonings which given Poe's style of writing are a delight to read.\nFor example the opening paragraph of \"The Murders in the Rue Morgue\" reads;\nTHE mental features discoursed of as the analytical, are, in themselves, but little susceptible of analysis. We appreciate them only in their effects. We know of them, among other things, that they are always to their possessor, when inor"
+        }
+      ],
+      "title_ja": "ゴールドバグ：暗号学について教えてくれたエドガー・アラン・ポーの物語（ 2024年）",
+      "summary_ja": "ディスカッションのハイライト：ポーは、信頼できないナレーションの時代に永続的に関連しています/また、あなたがそれを見ていない場合は、\nhttps://en.wikipedia.org/wiki/The_Gold_Bug_Variations\nリチャード・パワーズは、DNA、暗号学、そして多くのものを組み合わせた絶対に素晴らしいフィクション本です/ハーバード大学の天文学者/天体物理学者であるドナルド・メンゼルもまた、ゴールドバグに触発されました",
+      "editor_note": "「ゴールドバグ：暗号学について教えてくれたエドガー・アラン・ポーの物語（ 2024年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50091519,
+      "title_en": "US report details extent of 'devastating' dating-app scams",
+      "url": "https://www.theguardian.com/us-news/2026/oct/14/dating-app-scams-us-congress",
+      "hn_url": "https://news.ycombinator.com/item?id=50091519",
+      "score": 26,
+      "comment_count": 12,
+      "posted_at": "2026-10-14T17:31:24+00:00",
+      "comments": [
+        {
+          "id": 50092404,
+          "author": "Gualdrapo",
+          "text": "I recall a post here on HN from a few days or weeks ago where someone said they wished online dating was like in 2010-2012 okcupid, and someone else replied that it still worked that way.\nBut they conveniently forgot to mention now it is a ghost town with sooooooo many bots and scam accounts and, like in the local case, many of the actual human accounts are just selling so-called \"content\"."
+        },
+        {
+          "id": 50092335,
+          "author": "wing-_-nuts",
+          "text": "Given the steep fall in relationship formation, and birth rates, I honestly think the government should spin off a non profit org that runs it's own dating app.  Make it independent of the government, like the federal reserve, require people to upload their drivers license or other docs to prove who they are (Yes, yes, privacy concerns, people smarter than me will have to figure out how to address this).  Allow people to report bad behavior and give out bans for egregious stuff.  Heck, maybe auto enroll folks unless they opt out.  That would solve the gender disparity.\nI'm sure someone smarter than me could poke holes in the above idea, or make it better, but look at the state of things now.  We hand over all sorts of sensitive data to private companies, who have fundamentally misaligned incentives.  I would think some sort of non profit app would have to be better."
+        },
+        {
+          "id": 50092391,
+          "author": "bell-cot",
+          "text": "Con artists have been fleecing people since before there were railroad trains for them to skip town on.  While I'm sure the dating apps\ncould\ndo far more to discourage scams, there simply is no viable level of effort on their part which would fix things.  (And the more that they did, the higher the \"it was reasonable to assume that...\" threshold, for vulnerable people regarding random strangers on the platform as trustworthy.)\nMaybe the least-bad solution would be a low, gov't-mandated level of effort, combined with blunt disclosures of what that did, and didn't cover?"
+        },
+        {
+          "id": 50092190,
+          "author": "orangedog",
+          "text": "Why would you send somebody that much money?"
+        },
+        {
+          "id": 50091858,
+          "author": "Simulacra",
+          "text": "The dating apps have zero incentive to change. Bandaids like photo verification are minimally effective at best."
+        },
+        {
+          "id": 50092278,
+          "author": "hn_throwaway_99",
+          "text": "I think it sucks the we don't provide comprehensive \"scam education\" in schools. The effects can be devastating but the rules to prevent them are actually quite simple (I really hate the common framing of \"look, anyone can be a victim\" - it makes it sound like these scams are hard to prevent when they're usually not).\nFor example, the \"hang up, look up, call back\" rule (or analogous rules if you are texted/emailed) is simple to remember and prevents the vast, vast majority of cases where a scammer is contacting you while pretending to be someone else (your bank, the IRS, etc.) While that wouldn't prevent this particular dating scam, there are other simple rules that could prevent these scams.\nScammers take advantage of human social instincts that developed over millennia and were based on face-to-face contacts. That's no longer viable in a remote contact world, so people need to be educated specifically on how to curb their natural instincts."
+        }
+      ],
+      "title_ja": "米国の報告書には、「壊滅的な」デートアプリ詐欺の程度が詳しく記載されています",
+      "summary_ja": "ディスカッションのハイライト：数日または数週間前にHNに投稿された記事を思い出します。誰かがオンラインデートを2010年から2012年のようにしたいと言っていましたが、他の誰かがまだうまくいっていると答えました。人間関係の形成と出生率が急激に低下していることを考えると、政府は自分のデートアプリを運営する非営利組織をスピンオフするべきだと正直に考えています。詐欺師は、鉄道列車が登場する前から人々を騙してきました。",
+      "editor_note": "「米国の報告書には、「壊滅的な」デートアプリ詐欺の程度が詳しく記載されています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 50090799,
+      "title_en": "Has AI Tells",
+      "url": "https://theconsensus.dev/blog/2026/10/14/has-ai-tells.html?focus=1",
+      "hn_url": "https://news.ycombinator.com/item?id=50090799",
+      "score": 38,
+      "comment_count": 33,
+      "posted_at": "2026-10-14T16:52:42+00:00",
+      "comments": [
+        {
+          "id": 50092505,
+          "author": "Zaheer",
+          "text": "Ironically, AI Tells in job descriptions means the company actually pays more. I just pulled these numbers the other day:\nhttps://www.linkedin.com/posts/zmohiuddin_the-more-a-job-pos..."
+        },
+        {
+          "id": 50091325,
+          "author": "Isamu",
+          "text": "I think we should start to shift away from pure concern that a text is written by AI and toward strictly rewarding better writing. I realize that only some of this involves literal pattern matching against annoying AI ticks that grate like fingernails on a chalkboard.\nBut moving forward the goal should remain that writing should be comprehensible and not overly reliant on templates and other annoyances."
+        },
+        {
+          "id": 50092061,
+          "author": "zanderwohl",
+          "text": "> They are not eligible for the sparkle icon on the feed page\nThis is the opposite of how most places use the sparkle icon!\nIt was relaxing to see some minor typos and stylistic awkwardness in this article, I have to be honest."
+        },
+        {
+          "id": 50092128,
+          "author": "corysama",
+          "text": "Supposedly, SlopShape\nhttps://arxiv.org/abs/2609.15369\ncan ID not just human vs bot but which bot via structural patterns in the writing.\nNext we need a \"Verbose useless content\" detector and we'll be set up to GAN the whole internet into\nhttps://xkcd.com/810/\n\"Mission Accomplished\"."
+        },
+        {
+          "id": 50091276,
+          "author": "taylorgibson",
+          "text": "Is there a link I'm missing to the tool this article is discussing?"
+        },
+        {
+          "id": 50091619,
+          "author": "pessimizer",
+          "text": "> But Cynthia Dunlop's survey on tech reader preferences has shown that people overwhelming dislike AI-written articles, preferring even \"bad\" human writing to \"good\" AI writing.\nI would absolutely ignore surveys on this, and pay attention to studies on this (or run your own if you have a mix of slop and human-written articles on your site.) People don't know their preferences.\nIt's fine to do a survey of how people think the economy is doing in order to figure out how they might vote; it's dumb to do a survey of how people think the economy is doing in order to figure out how the economy is doing."
+        }
+      ],
+      "title_ja": "AIが教えてくれます",
+      "summary_ja": "ディスカッションハイライト：皮肉なことに、AIが職務内容に記載されていることは、会社が実際により多くを支払うことを意味します/私は、テキストがAIによって書かれているという純粋な懸念から、より良い文章に厳密に報いることにシフトし始めるべきだと思います/>フィードページのスパークルアイコンの対象ではありません\nこれは、ほとんどの場所がスパークルアイコンを使用しているのとは正反対です！\nマイナーなタイプミスとスタイルのawを見るのはリラックスしていました",
+      "editor_note": "「AIが教えてくれます」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50064673,
+      "title_en": "The Origin Story of Kid Pix",
+      "url": "http://red-green-blue.com/kid-pix-the-early-years",
+      "hn_url": "https://news.ycombinator.com/item?id=50064673",
+      "score": 152,
+      "comment_count": 32,
+      "posted_at": "2026-10-12T23:52:29+00:00",
+      "comments": [
+        {
+          "id": 50087577,
+          "author": "Elidrake24",
+          "text": "The lack of experience in a child can lead to some funny situations.  I want to say this happened in first grade or so, had a teacher, Mr Macintosh, who had several of his own Mac computers available in his classroom, and Kid Pix was loaded up on them (amongst other classics of the time).  I was obsessed, particularly with the Bomb, thought it was just the coolest way to clear the screen, this ostensibly serious concept of a program made fun.\nI also had difficulty connecting with my classmates, combination of untreated ADHD, and issues at home.  For some reason I got it into my head that the bomb was cool, so if I told the others I had a bomb in my backpack I'd be cool!  This was very shortly after the Columbine massacre, and of course the policy at that moment was to immediately call in the police.  They talked with me, impressed upon my young mind the seriousness of such claims, and we all thankfully just moved on.\nOdd to think back on now."
+        },
+        {
+          "id": 50073401,
+          "author": "LarsDu88",
+          "text": "Kid Pix was the very first program I ever used on a computer when I was around 5 years old. Good times. Still remember the dynamite."
+        },
+        {
+          "id": 50091951,
+          "author": "rx_tx",
+          "text": "https://www.youtube.com/watch?v=ClB2DbKHElM\nEntertaining video from Dank Pods using Kid Pix on Windows, with lots of the sound and visual effects"
+        },
+        {
+          "id": 50090439,
+          "author": "some-guy",
+          "text": "I set up an old Mac Mini G4 with a patched version of Mac OS 9 with the sole purpose of allowing my 3 year old son to play point and click games, Kid Pix being one of them."
+        },
+        {
+          "id": 50073773,
+          "author": "xattt",
+          "text": "FYI there is an iOS port of KidPix that my kids throughly enjoy as much as I enjoyed playing it at that age."
+        },
+        {
+          "id": 50087575,
+          "author": "MBCook",
+          "text": "This (along with Oregon Trail and Carmen Sandiego) were\nthe\nthings to use at my school.\nI had no idea we had basically the first commercial version but the timing lines up.\nAs an adult I now feel for those teachers who had to hear a whole bunch of computers making constant sound effects though."
+        },
+        {
+          "id": 50066101,
+          "author": "solyin",
+          "text": "Oh man, what a throw back. The bomb to clear the screen was something else. In later versions they had a slideshow thingy, similar to hypercard."
+        },
+        {
+          "id": 50088555,
+          "author": "mahboi",
+          "text": "The UI really was easy to use like the article says. Part of this was there were so many fun options that we put extra effort into understanding the menus."
+        }
+      ],
+      "title_ja": "Kid Pixのオリジンストーリー",
+      "summary_ja": "ディスカッションのハイライト：子供の経験不足は、いくつかの面白い状況につながる可能性があります/Kid Pixは、私が5歳くらいのときにコンピューターで初めて使用したプログラムでした/https://www.youtube.com/watch?v=ClB2DbKHElM\nWindows上のKid Pixを使用したDank Podsからのエンターテイメントビデオ、多くのサウンドとビジュアルエフェクト",
+      "editor_note": "「Kid Pixのオリジンストーリー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50045147,
+      "title_en": "Sound (2022)",
+      "url": "https://ciechanow.ski/sound/",
+      "hn_url": "https://news.ycombinator.com/item?id=50045147",
+      "score": 255,
+      "comment_count": 28,
+      "posted_at": "2026-10-11T16:46:43+00:00",
+      "comments": [
+        {
+          "id": 50092433,
+          "author": "janOla",
+          "text": "I really like Julius O. Smith book [0] on physical audio signal processing. It covers some of the basics discussed in this article, and goes much deeper into modeling and applications\n[0]:\nhttps://ccrma.stanford.edu/~jos/pasp/"
+        },
+        {
+          "id": 50091677,
+          "author": "jlhawn",
+          "text": "I love this blog so much that I used it as a guide for building my own series of explainers for how a general circulation model of the earth's oceans and atmosphere works:\nhttps://webgcm.app/explain/air\nI put nowhere near as much care into the interactives but the inspiration for the format comes 100% from the Bartos Ciechanowski blog."
+        },
+        {
+          "id": 50086937,
+          "author": "bita_nidir",
+          "text": "Oh how I'd wanted to have this when I was a kid learning an instrument. I had all these questions but no one had a answer for me. Music teachers were like \"because it's the 3rd, or because it's the 5th\". If I could go back in time I'd show them this. THIS! SEE IT! THIS IS WHAT I WANTED TO KNOW!"
+        },
+        {
+          "id": 50082832,
+          "author": "SwtCyber",
+          "text": "The progression here is what impressed me most... You start with individual air molecules bouncing around and somehow end up understanding harmonics, interference and etc. Love this kind of articles!"
+        },
+        {
+          "id": 50082607,
+          "author": "Cider9986",
+          "text": "I've seen a lot more of these types of visualizations pop up in blogs recently but they don't feel as high quality as the ones on this site."
+        },
+        {
+          "id": 50082620,
+          "author": "vincnetas",
+          "text": "So we have Turing test. We now need Bartosz test for AI for general intelligence. give it concept, get it explained like this :)"
+        },
+        {
+          "id": 50083462,
+          "author": "__natty__",
+          "text": "Reading this guy blog posts makes me feel like when I was reading as a kid good pop-science article in the magazine or encyclopedia. Somehow it's easy to follow, nicely visualise and I can trust his work was verified because he was writing like this far before AI."
+        },
+        {
+          "id": 50090556,
+          "author": "saidnooneever",
+          "text": "i read it until Masses and Springs and now i play 'catch the slider' :')."
+        }
+      ],
+      "title_ja": "サウンド（ 2022年）",
+      "summary_ja": "ディスカッションのハイライト：私はジュリアスOが大好きです/私はこのブログが大好きなので、地球の海洋と大気の一般的な循環モデルがどのように機能するかについて、私自身の一連の説明者を構築するためのガイドとして使用しました。\nhttps :///ああ、私が楽器を学んでいる子供の頃、こんなものが欲しかった",
+      "editor_note": "「サウンド（ 2022年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50085323,
+      "title_en": "TV4 postpones show after AI agent erases edited material",
+      "url": "https://swedenherald.com/article/tv4-postpones-the-challenge-until-2027-after-technical-failure-erases-edited-footage",
+      "hn_url": "https://news.ycombinator.com/item?id=50085323",
+      "score": 113,
+      "comment_count": 67,
+      "posted_at": "2026-10-14T10:28:26+00:00",
+      "comments": [
+        {
+          "id": 50088652,
+          "author": "teekert",
+          "text": "Ok, I have not seen any responses from anyone here that actually read TFA (which is almost like a fever dream, it does not deserve the A in TFA imho) but here is the whole F\"A\" (and it says AI did not delete material!):\nThe new season of TV4's reality show “The Challenge” has been postponed due to a technical failure. Large parts of the series have been deleted, Aftonbladet reports.\nThe newspaper reports that an edited season of the program was deleted by an AI agent, costing several hundred days of work. TV4 denies this.\n“It is not true that some independent AI agent went in and deleted the material,” says Mia Lindqvist, program director at TV4, to Sveriges Radio’s P4 Stockholm.\nA backup system at the production company failed, she says.\n“This means they now have to edit everything from scratch.”\n\"The Challenge\" was supposed to premiere on November 22. The series will now instead be shown “in late spring,” Mia Lindqvist says.\nIn \"The Challenge\", famous reality TV contestants face off in fierce competitions. The first season aired on TV4 in 2024.\nHost Ahmed Berhan comments on the report in Aftonbladet.\n“Is that true?! I knew AI would be the death of me. This is just the beginning,”"
+        },
+        {
+          "id": 50086770,
+          "author": "SkipperCat",
+          "text": "AI promised me global human extinction but all I got was a deleted reality TV show..."
+        },
+        {
+          "id": 50087235,
+          "author": "Roark66",
+          "text": "Deletions happen, but that is what you have backups for. I do not understand how you can have hundreds of days of work and never test if your backups work."
+        },
+        {
+          "id": 50086746,
+          "author": "PcChip",
+          "text": "The submission title says it happened, but the company denies it"
+        },
+        {
+          "id": 50091016,
+          "author": "Rafaelll",
+          "text": "Agree it's on the humans, but how do you even do the RCA if all you have is the agent's own summary? You need the log of what it actually ran. Also why did it have delete rights on the only copy?"
+        },
+        {
+          "id": 50087045,
+          "author": "sdcfgy",
+          "text": "If AI agent deleted it or not, it's a human's fault. Really want to see the root-cause analysis here."
+        },
+        {
+          "id": 50087448,
+          "author": "f646993e074382f",
+          "text": "It's been a long time since I had a website throw a pop-under at me, but here we are."
+        },
+        {
+          "id": 50085364,
+          "author": "lensecat",
+          "text": "Primary source:\nhttps://news.ycombinator.com/item?id=50085259"
+        }
+      ],
+      "title_ja": "TV 4は、AIエージェントが編集した素材を消去した後、番組を延期します",
+      "summary_ja": "ディスカッションハイライト： TFAを実際に読んでいる人からの反応は見たことがありません（これはほとんど熱の夢のようなもので、TFA imhoのAに値しません）が、ここにF \"A\"全体があります（/AIは私に地球規模の人類の絶滅を約束しましたが、私が得たのは削除されたリアリティテレビ番組だけでした.../削除が起こりますが、それはあなたがバックアップを持っているものです",
+      "editor_note": "「TV 4は、AIエージェントが編集した素材を消去した後、番組を延期します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50087337,
+      "title_en": "Scientists Are Teaching Birds to Sing Lost Songs",
+      "url": "https://e360.yale.edu/digest/teaching-birds-lost-songs",
+      "hn_url": "https://news.ycombinator.com/item?id=50087337",
+      "score": 26,
+      "comment_count": 2,
+      "posted_at": "2026-10-14T13:20:44+00:00",
+      "comments": [
+        {
+          "id": 50091985,
+          "author": "pingou",
+          "text": "It's different but it reminds me of the lonely song of one of the last known Kauaʻi ʻōʻō, sad but beautiful:\nhttps://www.youtube.com/watch?v=nDRY0CmcYNU"
+        },
+        {
+          "id": 50092043,
+          "author": "lowbloodsugar",
+          "text": "What! Do not teach them the old ways! Thousands of years of dark magic cursing our ancestors as we wallowed in pestilence!"
+        }
+      ],
+      "title_ja": "失われた歌を歌う鳥を教える科学者たち",
+      "summary_ja": "ディスカッションのハイライト：それは異なりますが、最後に知られているKaua ʻ i ʻ ō ʻ ōの孤独な歌を思い出します。悲しいですが、美しいです。\nhttps://www.youtube.com/watch?v=nDRY0CmcYNU/What! 昔のやり方を教えないでください！ 何千年もの闇の魔法が私たちの先祖を呪い、私たちは疫病に襲われました！",
+      "editor_note": "「失われた歌を歌う鳥を教える科学者たち」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50085022,
+      "title_en": "Show HN: A guided 3D Leonardo da Vinci museum, built in code",
+      "url": "https://museumofages.org/w/vinci",
+      "hn_url": "https://news.ycombinator.com/item?id=50085022",
+      "score": 81,
+      "comment_count": 33,
+      "posted_at": "2026-10-14T10:00:24+00:00",
+      "comments": [
+        {
+          "id": 50088607,
+          "author": "dmje",
+          "text": "I think I’m a little churlish about this whole “skeuomorphic museum exhibition” angle. I’ve worked in and with museum technology for 30 years, and run two businesses working with hundreds of cultural heritage / museum clients.\nAlthough this is technically impressive, I’m just not entirely sure\nwhy\n. Like - I just don’t want to dwell here…\nThe whole idea that you have to be in some kind of virtual 3D space just seems a little bit 1998 for me. When I worked at the Science Museum in the early 2000’s for example we were thinking about VRML and I was out on gallery shooting 3D pans and knitting them together for the web. Back then it did feel like there was a “if you can’t visit, here’s the next best thing” and that this should be “a virtual reality space online”.\nBut I think we’ve moved on. Museums have been making online exhibitions that are much more than just “a recreation of the real space online” for 20+ years - many of them are now really good at this. Take a look at someone like the Wellcome Collection [0] stories for example. They’re using the medium really well, they’re writing brilliantly, they’re knitting together fascinating relationships between items. The editorial is bri"
+        },
+        {
+          "id": 50086980,
+          "author": "virtualritz",
+          "text": "The setup misses everything that you could do to let me experience his work in a setting reflecting his time.\nAn Italian Renaissance palazzo, the house of a nobleman of that time, maybe Leonardo's re-imagined studio etc.\nInstead I see a museum that one of my architect friends might get excited (or offended) about but which completely removes all context from the works that the format you choose would otherwise naturally enable.\nOn that note: getting the colors of the paintings right is also tricky.\nWhen you source these paintings you need to feed their color to a linearization process (as they likely will be in some non-linear color space like sRGB) before applying any scene lighting.\nAnd then finally do the display transform.\nOtherwise horrible things will happen (do happen in your current setup) to the colors and Leonardo will turn once in his grave every time someone opens the website. ;)"
+        },
+        {
+          "id": 50091847,
+          "author": "andrearitossa",
+          "text": "I love it! Would be great to double down on the experience, I'd add immersive experiences: audio / visuals to guide the discovery / interactiveness"
+        },
+        {
+          "id": 50091637,
+          "author": "hn_submit",
+          "text": "Amazing. I'd wish more museums like this would exist so you can visit them from the comfort of your home."
+        },
+        {
+          "id": 50088140,
+          "author": "tiborsaas",
+          "text": "I don't understand why I can't just walk around the museum and discover things for myself.\nI can't even navigate to the devices and inventions section with a single click on the listing page. The 3D scene is really well done, it would be nice if you just let people walk around freely instead of animating the camera.\nAnd I also think you shouldn't automatically display the image in 2D, breaks my immersion immediately."
+        },
+        {
+          "id": 50087572,
+          "author": "Kim_Bruning",
+          "text": "The UI design might need some work.\nIt starts with no controls, just a picture. I hit esc. Things start moving. It keeps moving, I keep hitting esc, it doesn't stop. I try ctrl-c , no dice. I look around the frame for buttons. I try one of the buttons, it moves faster. I hold down esc. It doesn't respond to holding down  esc either . I see no way to gain control. At no point do I gain control.\nUltimately it stops. Fine. Ok, no response to WASD. No response to drag motion. I click \"Instruments\" , I get a side-bar \"instruments of the museum\" with no contents. I click in the side bar. Now I can't close it, and other controls are gone. I try hitting esc. Multiple random clicks later i'm back where I started.\nI try the \"more\" button\",  I am now looking at a painting sideways, and an anodyne text which explains very little. I click on a painting. Things start moving. I hit Esc.  Suddenly the painting is full screen. GREAT. Ok, and now how do I get out? Esc? Oh esc.  Ok NOW ESC... oh no, things are moving again. I didn't mean for things to move. Esc shouldn't cause things to START moving. hit esc again. The esc is ignored.\nI end up at another painting. I try some buttons. Most don't work."
+        },
+        {
+          "id": 50085173,
+          "author": "sixtyj",
+          "text": "I went through the first few images. It is really good to see scale placed over the painting.\nI don’t like that I cannot move around by myself. Move to another piece is too slow… also entering museum (at first it is nice gimmick, the second entry is annoying as museum doesn’t remember my position; or I haven’t figured it out :)\nCheers."
+        },
+        {
+          "id": 50088460,
+          "author": "LewisOrton",
+          "text": "There is plenty of space for improvement like others have said here and i think it just needs a bit more time.\nllms are great at languages but you dont just ask it to \"translate from english to other supported languagues\" it generates things that are hard to understand. when we talk about translation in real world we're actually talking about is a fundamental re-intepretation(transcreation) of the source text through target language's local, native mindset, and you should do the same with llms."
+        }
+      ],
+      "title_ja": "Show HN ：ガイド付き3 Dレオナルド・ダ・ヴィンチ美術館、コード内蔵",
+      "summary_ja": "ディスカッションのハイライト：私はこの「スケウオモーフィックミュージアム展」のアングル全体について少し乱暴だと思います/セットアップは、彼の時間を反映した設定で彼の作品を体験できるようにするためにできることすべてを欠いています。\nイタリアのルネッサンス様式の宮殿、当時の貴族の家、/私はそれが大好きです！ 体験を倍増させるのに最適です。没入型体験を追加します。オーディオ/ビジュアルで発見/インタラクティブ性を導きます",
+      "editor_note": "「Show HN ：ガイド付き3 Dレオナルド・ダ・ヴィンチ美術館、コード内蔵」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50090932,
+      "title_en": "Show HN: I wrote an email app that accepts only one sender per inbox",
+      "url": "https://clova.email/",
+      "hn_url": "https://news.ycombinator.com/item?id=50090932",
+      "score": 9,
+      "comment_count": 4,
+      "posted_at": "2026-10-14T17:00:59+00:00",
+      "comments": [
+        {
+          "id": 50092331,
+          "author": "hmokiguess",
+          "text": "This is amazing, my dream has always been that outlook, gmail, and the likes allowed for setting up bounce rules."
+        },
+        {
+          "id": 50091005,
+          "author": "cloudmanic",
+          "text": "I have used this service since I found it on product hunt. I am loving it! My inbox is way cleaner now."
+        }
+      ],
+      "title_ja": "HNを表示：受信トレイごとに1人の送信者のみを受け入れるメールアプリを作成しました",
+      "summary_ja": "ディスカッションのハイライト：これは素晴らしいことです。私の夢は、Outlook、Gmailなど、直帰ルールを設定できるようにすることでした。/プロダクトハントで見つけてからこのサービスを利用している",
+      "editor_note": "「HNを表示：受信トレイごとに1人の送信者のみを受け入れるメールアプリを作成しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50091684,
+      "title_en": "OpenAI claims employee sent secret device information to Apple",
+      "url": "https://www.ft.com/content/18b65495-9e2a-45d6-be85-7641442ab61a",
+      "hn_url": "https://news.ycombinator.com/item?id=50091684",
+      "score": 12,
+      "comment_count": 2,
+      "posted_at": "2026-10-14T17:39:37+00:00",
+      "comments": [],
+      "title_ja": "OpenAIは、従業員が秘密のデバイス情報をAppleに送信したと主張しています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「OpenAIは、従業員が秘密のデバイス情報をAppleに送信したと主張しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 50085306,
+      "title_en": "Pulsar at ESUG 2026 (new Smalltalk IDE)",
+      "url": "https://blog.lorenzano.eu/pulsar-at-esug-2026/",
+      "hn_url": "https://news.ycombinator.com/item?id=50085306",
+      "score": 70,
+      "comment_count": 15,
+      "posted_at": "2026-10-14T10:26:53+00:00",
+      "comments": [
+        {
+          "id": 50086352,
+          "author": "melvinroest",
+          "text": "I've been at ESUG a few years ago. I can definitely recommend it if you want access to all kinds of Smalltalk and Pharo experts, and listen to all kinds of topics that contain a high amount of expertise.\nI remember that I wanted a visual step by step debugger for a visualization library [1]. I was lucky enough to find the library maintainer himself. He liked the idea, and within just 30 to 60 minutes we programmed a prototype in (this was around ChatGPT 3.5, so pure hand coding).\n[1]\nhttps://github.com/pharo-graphics/Roassal"
+        },
+        {
+          "id": 50086490,
+          "author": "diegof79",
+          "text": "Happy to see something related to ESUG so up in HN.\nSmalltalk still has a small group of passionate people who love the language, the environment, and its concepts.\nFor some reason, Buenos Aires has a “large” group of Smalltalkers (large relative to the total, which is small in absolute terms). This group usually organizes the ESUG event in Argentina with very few sponsors."
+        },
+        {
+          "id": 50091653,
+          "author": "fithisux",
+          "text": "It is beautiful having all these people pushing the SoA forward."
+        },
+        {
+          "id": 50088274,
+          "author": "ape4",
+          "text": "Its odd that some words have a squiggly red underline in that image."
+        },
+        {
+          "id": 50088424,
+          "author": "himinlomax",
+          "text": "I just had a realization: I've been hearing and reading about Smalltalk and how great (though slow) it was for the past 30 years … but I've never once seen an application, let alone a killer one.\nWell, except for development environments.\nAnyone know one that's worth looking at?"
+        },
+        {
+          "id": 50089914,
+          "author": "anthk",
+          "text": "This is like Pharo but for Gnome. So, a good interface for an smalltalk, suferior to GNU Smalltalk. Altough GST can be used scripted, for sure."
+        },
+        {
+          "id": 50086587,
+          "author": "bemtevi",
+          "text": "Now it seems there are two editors named Pulsar. This, and the successor to Atom."
+        }
+      ],
+      "title_ja": "ESUG 2026 （新しいSmalltalk IDE ）でのPulsar",
+      "summary_ja": "ディスカッションのハイライト：私は数年前にESUGにいました/HNでESUGに関連する何かを見ることができてうれしいです。\nSmalltalkには、言語、環境、そのコンセプトを愛する情熱的な人々の小さなグループがいます。\n何らかの理由で/これらすべての人々がSoAを前進させているのは美しいことです。",
+      "editor_note": "「ESUG 2026 （新しいSmalltalk IDE ）でのPulsar」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50088430,
+      "title_en": "ASML's strong orders ease fears AI spending boom is running out of steam",
+      "url": "https://www.reuters.com/business/asml-forecasts-q4-sales-above-expectations-ai-chip-demand-2026-10-14/",
+      "hn_url": "https://news.ycombinator.com/item?id=50088430",
+      "score": 149,
+      "comment_count": 138,
+      "posted_at": "2026-10-14T14:38:55+00:00",
+      "comments": [
+        {
+          "id": 50088834,
+          "author": "scrlk",
+          "text": "Feb 2000: Record orders for chip gear push SEMI index to four-year high\nhttps://www.eetimes.com/record-orders-for-chip-gear-push-sem...\n> Capital equipment suppliers have been increasing their forecasts for revenue growth in 2000 as chip manufacturers begin to add new wafer fabs and backend assembly plants. Last week, for example, Applied Materials Inc.–the world's largest semiconductor equipment supplier–announced it had increased its forecast for industry growth in wafer fab equipment sales to 46% from a projection of 19% at the end of last year (see Feb. 16 story).\n> The strong wave of new orders “confirms the strength of the current market cycle,” said Stanley T. Myers, president of SEMI.\nThis time it's different."
+        },
+        {
+          "id": 50090482,
+          "author": "mwkaufma",
+          "text": "Everything's fine, don't look at CoreWeave's ticker, look at (picks random other healthy company) ASML instead."
+        },
+        {
+          "id": 50088792,
+          "author": "sklargh",
+          "text": "I’d think that orders for long lead time rivalrous slots of a very finite resource are basically OOTM call options for future demand. It says something that firms think demand is plausible but not a whole lot about how probable it really is. You can always idle these things, you can’t conjure one immediately."
+        },
+        {
+          "id": 50088781,
+          "author": "emkoemko",
+          "text": "The title makes no sense... how does ASML orders where you get the machine in the far future predict AI spending?"
+        },
+        {
+          "id": 50088846,
+          "author": "PowerElectronix",
+          "text": "Aren't they always selling everything they manufacture? No matter if you are in a boom or a bust, ASML will always have a years long backlog."
+        },
+        {
+          "id": 50089617,
+          "author": "cyberjunkie",
+          "text": "Phew. That was close. Thought we would be able to upgrade all of our tech for a moment there!"
+        },
+        {
+          "id": 50090664,
+          "author": "1234974",
+          "text": "And Nvidia is the sugar daddy of SK-Hynix, which buys ASML machines. What could possibly go wrong with Nvidia being the new Federal Reserve?"
+        },
+        {
+          "id": 50089033,
+          "author": "bryanlarsen",
+          "text": "The internet bubble popping did not cause internet traffic to decline -- on the contrary internet traffic increased rapidly during the bubble pop.\nSimilarly, I don't think the AI bubble popping will cause token demand to decline.  On the contrary, I predict the bubble pop will happen because of a recognition that tokens are a highly competitive industry, thus the margins of frontier AI firms aren't sustainable, popping their valuations."
+        }
+      ],
+      "title_ja": "ASMLの強力な受注は、AI支出ブームが勢いを失いつつあるという懸念を和らげます",
+      "summary_ja": "ディスカッションハイライト： 2000年2月：チップギヤの受注記録がセミインデックスを4年ぶりの高水準に押し上げる\nhttps://www.eetimes.com/record-orders-for-chip-gear-push-sem...\n>資本設備サプライヤーは増えています/すべてうまくいっています。CoreWeaveのティッカーを見ないで、代わりに（ランダムに他の健全な会社を選ぶ） ASMLを見てください。 /非常に限られたリソースの長いリードタイムのライバルスロットの注文は、基本的に将来のデマのためのOOTMコールオプションであると思います",
+      "editor_note": "「ASMLの強力な受注は、AI支出ブームが勢いを失いつつあるという懸念を和らげます」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 50086363,
+      "title_en": "Nvidia's first GPU: GeForce 256",
+      "url": "https://dfarq.homeip.net/nvidias-first-gpu-geforce-256/",
+      "hn_url": "https://news.ycombinator.com/item?id=50086363",
+      "score": 35,
+      "comment_count": 22,
+      "posted_at": "2026-10-14T12:05:44+00:00",
+      "comments": [
+        {
+          "id": 50091008,
+          "author": "ollin",
+          "text": "Per The NVIDIA Way [1], the GeForce 256 was branded as \"the first GPU\" for marketing reasons alone; the actual first GPU was the subsequent GeForce 3 (which introduced programmable shaders):\n[Sanford] Russell grabbed Michael Hara for a thirty-minute brainstorm session to figure out how to market the GeForce 256 more effectively, and both executives remember coming out of the room with the notion to call the new chip the first entry in an entirely new product category altogether: a graphics processing unit, or GPU, which would be to graphics rendering what the computer's main central processing unit (CPU) was for all other computational tasks.\nEven so, the GPU moniker, when applied first to the GeForce 256, was controversial among Nvidia engineers, who pointed out that a chip could not truly be called a GPU unless it had several features that the GeForce 256 did not. The chip lacked a \"state machine,\" a technical term meaning a dedicated processor that transitions from various states to execute and fetch instructions, in the same manner that a CPU does for programming commands. It was not programmable, meaning that graphics styles and features could not easily be customized by third"
+        },
+        {
+          "id": 50090572,
+          "author": "ajaimk",
+          "text": "The Riva 128 says, \"What am I, chopped liver?\""
+        },
+        {
+          "id": 50091131,
+          "author": "bigwheels",
+          "text": "What does it mean that the HN audience is far more sentimental about this hardware than NVidia's own remaining co-founder and CEO?\nBTW, did you hear yet NV is stopping production for the 5090 RTX line? - the replacement chip will be 50% the size and transistors."
+        },
+        {
+          "id": 50090101,
+          "author": "a3w",
+          "text": "First we had video or graphics accelerators, for video, or rendering. Then 2D/3D mentions with different performance or quality became a topic.\nThen we got GPUs to say \"This thing is closer to a CPU by now\".\nThen those were recoined into GPGPU, as in general purpose GPU, when CUDA became  an important feature and again to say \"This thing is closer to a CPU by now\"."
+        },
+        {
+          "id": 50089980,
+          "author": "glimshe",
+          "text": "What about the NV1? It was marketed as a \"3D accelerator\" but was a GPU nonetheless."
+        },
+        {
+          "id": 50091700,
+          "author": "iqbal1980",
+          "text": "Fascinating hardware history! Thanks for sharing!"
+        },
+        {
+          "id": 50091249,
+          "author": "wslh",
+          "text": "I remember buying the Diamond Viper V330 with the nVidia RIVA but unable to use its power because of a lack of [nVidia] Linux support [1].\n[1]\nhttps://www.nvidia.com/en-us/drivers/linux-readme-install/"
+        },
+        {
+          "id": 50091225,
+          "author": "christkv",
+          "text": "Meh my Verite 1000 chip in my Creative 3d blaster was an actual mips processor. You could probably turn it into the worlds slowest ray tracer if you wanted to."
+        }
+      ],
+      "title_ja": "NVIDIA初のGPU ： GeForce 256",
+      "summary_ja": "ディスカッションのハイライト： NVIDIA Way [1]によると、GeForce 256はマーケティング目的だけで「最初のGPU」としてブランド化されました。実際の最初のGPUはその後のGeForce 3 （プログラマブルを導入した/Riva 128は「私は何ですか、切った肝臓ですか？」と述べています。 /NVidiaの残っている共同創業者兼CEOよりも、HNの視聴者がこのハードウェアについてはるかに感傷的であることはどういう意味ですか？\nところで、NVが生産を停止していると聞いたことはありますか？",
+      "editor_note": "「NVIDIA初のGPU ： GeForce 256」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 29,
+      "id": 50090443,
+      "title_en": "Why do LLM pelicans look like this?",
+      "url": "https://arcfu.com/post/the-emperor-pelican-has-no-clothes/",
+      "hn_url": "https://news.ycombinator.com/item?id=50090443",
+      "score": 127,
+      "comment_count": 116,
+      "posted_at": "2026-10-14T16:33:34+00:00",
+      "comments": [
+        {
+          "id": 50091283,
+          "author": "joshkel",
+          "text": "I'm not clear on what the claim is here.\nThe article faults LLMs for not being more creative (riding in the city in the rain, in East Asia, in outer space, etc.). But, if prompted, \"Generate an SVG of a pelican riding a bicycle,\" with no additional details or specification, then I would _expect_ something generic: a side view, nondescript terrain or perhaps terrain associated with a pelican (i.e., beach), little clothing (because birds don't wear clothes) with the possible exception of something strongly associated with bicyclists (a helmet).\nThe article talks about \"the LLM diversity collapse problem,\" which makes it sound like LLMs are getting less diverse over time, but the linked benchmarks suggest that newer, more capable models are _more_ creative.\nOut of curiosity, I tried a couple of prompt variations in Opus 5.5. \"Be creative\" did a beach scene but added fish to the bike basket and a lighthouse in the background - not too creative. \"Pick a unique and creative variation of this concept\" resulted in a \"midnight circus act\" of a pelican riding a penny-farthing on a tightrope while balancing a fishing pole with fish (and, this time, two lighthouses - the tightrope is implausib"
+        },
+        {
+          "id": 50091362,
+          "author": "orbital-decay",
+          "text": "The lack of variety is probably the most underrated issue, and the most likely cause of annoying patterns you all hate. All current post-trained LLMs are mode-collapsed compared to the post-training set distribution, and this doesn't get nearly enough attention from the labs and independent researchers. It's far from being a transformer-only problem, it's a common failure mode in all kinds of models. It's not a fundamental limitation either, unsupervised models have no problem with being as diverse as the training set allows."
+        },
+        {
+          "id": 50091049,
+          "author": "jvanderbot",
+          "text": "It is fairly easy to go ask for a differently styled pelican, environment, background, etc. But that's not the point.\nI was thinking just today about how, if I could hire my competition's lead designer/programmers, have them design a system for me cleanroom, that I'd effectively know everything there is to know about my competition's limitations.  This is trivial to do with LLMs.\n\"Make me a thing that does X\" is going to come out implemented basically the same way most of the time, as a kind of stack-overflow, well commented, internship project. (or, if undirected enough, as a collection of those based on a bog-standard architecture)\nSame-y enough that you could train an adversary on it? Or hack it afterward?  I am beginning to think so!"
+        },
+        {
+          "id": 50091523,
+          "author": "randomblock1",
+          "text": "The example just doesn't support the claim.\nIf I ask for a pelican riding a bicycle, I am expecting a relatively boring image of a pelican riding a bicycle, not a pelican flying through a thunderstorm while on a bicycle. That's just straight up not what I asked for. I didn't ask it to be creative, when I imagine myself riding a bicycle, I'm not flying! If I added \"be creative and unique, you can add or change anything as long as there is still a pelican on a bicycle\", then sure.\nSuppose I want an SVG of a laptop. It should probably look like a Macbook Air or something, neutral colors. Easily recognizable as a laptop. If it chose to be creative (unprompted) and gave me a futuristic or retro laptop, or one that's super wacky, there's a high chance of it looking bad, and a high chance I say \"no that's not what i wanted\". So during the training step, it probably learns to just follow instructions and be less creative unless asked.\nSounds to me like LLMs are just getting better at following instructions and doing what they're told. Simple prompt, simple output."
+        },
+        {
+          "id": 50091280,
+          "author": "ed",
+          "text": "A good prompt will shift the distribution away from average eg:\nhttps://john.hartnup.uk/2026/06/07/ai-event-posters.html\nThis is a feature, not a bug."
+        },
+        {
+          "id": 50092313,
+          "author": "armanj",
+          "text": "This part of a recent talk points out exactly this problem, and (likely) why human expertise will remain important in the age of LLMs doing everything:\nhttps://youtu.be/X7vf7koPxKg?t=2806"
+        },
+        {
+          "id": 50092422,
+          "author": "SirMaster",
+          "text": "The real question is why are the spokes always wrong?"
+        },
+        {
+          "id": 50091292,
+          "author": "spuz",
+          "text": "And funnily even in the diverse set, most of the images show the pelican riding from left-to-right. There's a ton of bias in our data and even in our brains that you would need to erase to get true diversity."
+        }
+      ],
+      "title_ja": "なぜLLMペリカンはこのように見えるのですか？",
+      "summary_ja": "ディスカッションのハイライト：請求内容が明確ではありません。\nこの記事は、LLMがより創造的でない（雨の中の都市、東アジア、宇宙空間など）ことを非難しています /多様性の欠如はおそらく最も過小評価されている問題であり、あなたが嫌う迷惑なパターンの最も可能性の高い原因です/異なるスタイルのペリカン、環境、背景などを求めるのはかなり簡単です",
+      "editor_note": "「なぜLLMペリカンはこのように見えるのですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 50062575,
+      "title_en": "The Genealogy of Eliza",
+      "url": "https://elizagen.org/genealogy.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50062575",
+      "score": 25,
+      "comment_count": 1,
+      "posted_at": "2026-10-12T20:29:25+00:00",
+      "comments": [
+        {
+          "id": 50064053,
+          "author": "FrankWilhoit",
+          "text": "1984, a friend of mine bought a Kaypro II and got a floppy with a BASIC ELIZA on it.  We ran it and quickly found it shallow and anodyne.  So we started looking at the files on the disk and found a dictionary file, which we opened.  The first word in the dictionary was four letters long and began with an 'F'.  \"That's it,\" said my friend, \"we just haven't been talking dirty enough to it.\""
+        }
+      ],
+      "title_ja": "ELIZAの系譜",
+      "summary_ja": "ディスカッションハイライト： 1984年、私の友人がKaypro IIを購入し、基本的なELIZAが付いたフロッピーを手に入れました",
+      "editor_note": "「ELIZAの系譜」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "23",
+    "started_at": "2026-10-15T03:25:01.009861+09:00",
+    "finished_at": "2026-10-15T03:26:36.701387+09:00",
+    "story_count": 30
+  }
+}
