@@ -1,0 +1,1606 @@
+{
+  "date": "2026-10-16T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50107379,
+      "title_en": "Muse Spark Open",
+      "url": "https://research.meta.ai/blog/muse-spark-open",
+      "hn_url": "https://news.ycombinator.com/item?id=50107379",
+      "score": 579,
+      "comment_count": 326,
+      "posted_at": "2026-10-15T17:47:39+00:00",
+      "comments": [
+        {
+          "id": 50108293,
+          "author": "a11r",
+          "text": "Artificial analysis shows this: underperforming Qwen3.8 Flash Next and GLM 5.3 Flash, both of which you can run on a single B300 . I think Meta has a bit of catching up to do in the open-weight space.\nAs an aside, it's really unfortunate that artificial analysis only provides comparison at the highest reasoning level, which is mostly unusable for high-volume production use cases. I would really like them to start providing comparisons at low and medium reasoning levels across these models because those tend to be the ones that actually get used in production."
+        },
+        {
+          "id": 50108164,
+          "author": "seizethecheese",
+          "text": "Since there are many comments here arguing that this is not open weight, I looked at the license. Basically, you're free to use this except this clause:\n> If the Licensee or any of its affiliates provide a third party with access to artificial intelligence models as a product or service, via API or a similar interface, where the third party receives outputs of such models (“Model as a Service”), and the aggregate gross revenue of the Licensee and its affiliates exceeds twenty (20) million US dollars (or the equivalent in other currencies) during any consecutive twelve (12) month period, the Licensee must notify Meta and enter into a separate written agreement with Meta before offering the Software or any Derivatives as part of that Model as a Service business. This Section 3 does not apply to (a) internal use, research, or any commercial activity that is not Model as a Service, or (b) the Licensee's use of the Software as a component to power features of the Licensee's own product or service that is not a Model as a Service.\nThey're allowing the use of this in commercial products, just not selling the model directly."
+        },
+        {
+          "id": 50107063,
+          "author": "armcat",
+          "text": "They've done considerable effort in making sure this model can run on basically every model runner, from Unsloth to MLX,\nhttps://dev.meta.ai/docs/muse-spark-open/deploy"
+        },
+        {
+          "id": 50107247,
+          "author": "swalsh",
+          "text": "Like I said last week.  I think zucks original llama thesis is proving more correct by the week. The rent market on intelligence never materialized, if you have THE frontier model, you can charge rent (for a few weeks, maybe month).  But after a certain capability level it's price that drives the decision.\nZuck is doing the thing he's really good at, and building a moat around the network (Muse is VERY sticky), and now that we're all going to standardize on Meta's model, we're going to optimize the heck out of the infra to run the model making it cheaper for him to scale, thus bringing in more participants to his network, and thus making his network more valuable.\nMeta is going to win consumer AI."
+        },
+        {
+          "id": 50108941,
+          "author": "simonw",
+          "text": "Pelicans for low, medium, high, and xhigh:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nI had to run them via OpenRouter - I don't have access to a machine that can handle this size of model.\nFor comparison:\nMuse Wonder:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nMuse 1.3:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nAnd this one from Meta AI's previous open weight model, Muse Glimmer, which DID run on my laptop:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht..."
+        },
+        {
+          "id": 50107323,
+          "author": "popinman322",
+          "text": "The model license requires large inference providers to contact Meta separately to obtain a license to serve the model. I know we've seen this before with other large models, but it's still a bit irritating.\nThe usual effect of separate licensing is decreased price competition from public providers (like we saw with Kimi K3). I guess it's better for the providers if the price is fixed: any efficiency improvements directly improve margin rather than driving prices down over time. Still, to provide my own anecdata, the main thing keeping me on a paid subscription is token costs for the more capable models."
+        },
+        {
+          "id": 50107751,
+          "author": "devy",
+          "text": "re: \"Apple’s unified memory architecture lets the M5 Ultra's integrated GPU use up to 512 GB per Mac Studio, so two machines can hold an entire model. And the chip’s 1.2 TB/s of memory bandwidth is fast enough to read the small slice each token needs. The result is two Mac Studios behave like one supercomputer with a terabyte of unified memory.\"\nAt the current market price of Apple Mac Studio Ultra, 30-core CPU + 64-core GPU w/ 256GB RAM is already reaching at around $10k. Keep in mind that computers are appreciating assets recently.\nThe 512GB RAM option is not even for sales yet (they said late October availability). Based on typical Apple pricing, it's likely to be around $14k apiece. So we are looking at least $28k - $30k for the setup Muse team is advertising. That's essentially the Nvidia H100 GPU w/ 96GB VRAM/HBM3 at up to 3.94 TB/second memory bandwidth, 3x+ than Mac Studio's Unified Memory speed.\nAlso, how did Meta get access to Apple's unreleased M5 Ultra w/512GB RAM Mac Studio? Or is that simply a marketing piece that they wrote purely on specs?"
+        },
+        {
+          "id": 50108183,
+          "author": "GodelNumbering",
+          "text": "39 on AA[1], about the same as Deepseek v4.1 flash and Mimo 2.5 Flash. Behind Glm 5.3 flash and Qwen3.8-Flash-Next [2]\n[1]\nhttps://artificialanalysis.ai/models/muse-spark-open\n[2]\nhttps://artificialanalysis.ai/models/open-source?models=mimo..."
+        }
+      ],
+      "title_ja": "ミューズスパークオープン",
+      "summary_ja": "Discussion highlights: Artificial analysis shows this: Underperforming Qwen3.8 Flash Next and GLM 5.3 Flash, both which you can run on a single B 300/Since there are many comments here arguing that this is not open weight, I look at the license/They 've done quite effort in sure this model can run on basically every model runner, from Unsloth to MLX,\nhttps://dev.meta.ai/docs/muse-spark-open/deploy",
+      "editor_note": "「ミューズスパークオープン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50109715,
+      "title_en": "What I Self-Host",
+      "url": "https://viceconsole.fyi/blog/2026/10/10/what-i-self-host/",
+      "hn_url": "https://news.ycombinator.com/item?id=50109715",
+      "score": 198,
+      "comment_count": 101,
+      "posted_at": "2026-10-15T20:23:25+00:00",
+      "comments": [
+        {
+          "id": 50111952,
+          "author": "pseudosavant",
+          "text": "Shameless plug for my web video player that is especially designed for self-hosting situations. Drop a single html file in your web server folder with your videos and you get thumbnails, library, search, subtitle support, etc.\nNo required third-party dependencies (just the optional Google Drive and OneDrive features). Highly customizable (colors, site logo, default features) with a JSON file the player can produce. Responsively scales for any web browser: laptop, mobile, smart TVs, game consoles, even built-in in-car tablet browsers.\nhttps://github.com/pseudosavant/player.html/"
+        },
+        {
+          "id": 50110986,
+          "author": "eleventen",
+          "text": "> Sonarr, Lidarr, Radarr, etc. Every time I read about setting it up, it just sounds like a resource-intensive mess that’s fundamentally prone to frequent breakage. That’s the opposite of what I’m looking for when choosing self-hosted services.\nI just checked on my *arr stack.  Sonarr and Radarr idle at 157MB and 159MB of memory and approximately no CPU. Jellyfin currently idles at 330MB.  I'm not sure where you got this impression from. I grant these tools are complicated and have somewhat clumsy UX, but they aren't especially heavy to run and are not fragile.\nOP, point your :robot: at\nhttps://github.com/subdavis/selfhosted/blob/main/docker-comp...\nand ask for an explanation. It's a single compose file that illustrates how the *arrs, transmission, and jellyfin all work together. I'm sure you can set it up :)"
+        },
+        {
+          "id": 50111944,
+          "author": "mikeocool",
+          "text": "I am generally not onboard with the “all you need is SQLite” articles that pop up on HN regularly.\nBut I recently looked into self hosting and several things each wanted their own Postgres container.  Immich wants a Postgres and a redis instance.\nIf you’re building apps targeted at self hosters, SQLite is really all you need."
+        },
+        {
+          "id": 50110179,
+          "author": "Lucasoato",
+          "text": "> I prefer running services natively when possible, but will containerize complex services or those with many dependencies. Love: a service that’s a single Go binary. A service that only comes as a Docker compose file and wants to run MySQL, Redis, and three other containers? I’m already looking for an alternative.\nOk, I respect your opinion, but remember that there are poor souls like me out there that actually love the opposite."
+        },
+        {
+          "id": 50111977,
+          "author": "GalaxyNova",
+          "text": "I don't know why so many people host personal forgejo / gitea instances. You only really ever need a server with ssh access (and cgit if you really want a web interface)."
+        },
+        {
+          "id": 50110744,
+          "author": "ebrahimh",
+          "text": "Good article. I have many of the same services in my setup.\nSelf-hosting email fully is tedious/unnecessary, but what you can do is mirror your various inboxes (Gmail, iCloud, proton, non-corporate outlook) with mbsync and use roundcube or some other frontend to view emails and compose.\nI use this to easily access mail from different services, and I can also send from any of them.\nI also have a seperate service that watches the mail directory and sends a ntfy.sh notification for new emails.\nIt’s a bit complicated cause theres so many services but here are the quadlets:\nhttps://github.com/ebrahim37/infra-template/tree/main/homela...\nI implemented this about a month ago because the iphone Mail app was increasingly buggy."
+        },
+        {
+          "id": 50110929,
+          "author": "turtlebits",
+          "text": "Running all these services without a declarative/standard way of deployment, ie docker compose or k3s/k8s is a bit mind boggling to me.\nI self host on a bunch of different hardware, OSes, providers.  I want the least fiddling as possible."
+        },
+        {
+          "id": 50111992,
+          "author": "mrkaye97",
+          "text": "Out of curiosity, do you have any concerns about backups (especially for e.g. VaultWarden and Immich)? I've been pondering running them, but figure that I'd need to back up to The Cloud for me to feel less concerned about losing everything, at which point: what's the point? Curious what you're doing on that front!"
+        }
+      ],
+      "title_ja": "セルフホスティングとは",
+      "summary_ja": "ディスカッションのハイライト：セルフホスティングのために特別に設計されたウェブビデオプレーヤー用の恥知らずのプラグ/> Sonarr、Lidarr、Radarrなど/私は通常、HNに定期的にポップアップ表示される「必要なのはSQLiteだけ」の記事を読んでいません。\nしかし、最近セルフホスティングについて調べたところ、それぞれが独自のものを求めていたことがいくつかありました",
+      "editor_note": "「セルフホスティングとは」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50105647,
+      "title_en": "Neural networks are clean",
+      "url": "https://already-clean.goodfire.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50105647",
+      "score": 467,
+      "comment_count": 180,
+      "posted_at": "2026-10-15T16:04:01+00:00",
+      "comments": [
+        {
+          "id": 50107254,
+          "author": "sebmellen",
+          "text": "Nick is a force of nature. Highly recommend following him on X if you don't already.\nHis launch post gives good context not found in the blog:\n>\ninterpretability might be the most important scientific problem in the world right now, as I don't think we can solve alignment if we don't know what we're building. I think I have good news about it. I co-authored early work in mechanistic interpretability at OpenAI and came away pessimistic, because neural networks appeared to fold into arbitrary tangled knots. years later, I started openai's first large-scale automated interpretability project, finding about 2% of neurons legible with the primitive tools we had\n>\nwith modern agentic tools and a much closer look, the picture looks totally different. the vast majority in models up to trillions of parameters are legible, and their circuits beautiful. many famous examples of tangled neurons turned out to be misunderstood. The roadblocks I expected mostly aren't there. I now think ambitious interpretability will be solved by the time we need it most, and possibly quite soon, as automated scientists keep improving. it may be a bitter lesson for interpretability: the simple thing, at absurd sc"
+        },
+        {
+          "id": 50108530,
+          "author": "bluejay2387",
+          "text": "The claims seem to be an overreach of what is actually proven. We've known about progressive feature complexity and the impacts of early training structures on later training for a really long time (since CNN's, The Lottery Ticket Hypothesis, etc...) and neither of those phenomenon are mutually exclusive with parameter overloading. The Multimodal Gap work (\nhttps://arxiv.org/abs/2203.02053\n) seems to imply networks have a tendency towards condensed representations that are clearly not semantic and a bunch of other considerations are already on the table for discussion. I don't think these have all been considered sufficiently to start claiming we are around the corner from mechanistic interpretation."
+        },
+        {
+          "id": 50108927,
+          "author": "antics",
+          "text": "So we have here a massive evidentiary brief, the point of which is to argue that it is easier than we thought to, like, \"sequence the AI genome\" (in my estimation). We revisit famously-messy neurons, examine various tool failures, check places where messy things still hide, and catalog how \"polysemanticity\" is represented variously in the network.\nOnce sequenced, the thinking goes, we'll be able to do things like: explain and anticipate failures; predict what happens when you modulate the pathway an input takes on its way to becoming output; reconstruct algorithms the models have learned.\nI'm not 100% sure this will work out like the mechinterp people think. If the neural representations and pathways are \"clean\" (organized into a a meaningful-to-humans hierarchy), it seems at least very plausible that the behaviors that AI xrisk people are worried about will mostly boil down to straightforward synthesis (\ni.e.\n, mostly-linear-interpolation) of mostly-well-cataloged knowledge. And if that is true, then it does not seem hopeful that there would be a way to prevent the output they are worried about, other than just removing a bunch of the knowledge. So maybe there is no alignment solu"
+        },
+        {
+          "id": 50109519,
+          "author": "aesthesia",
+          "text": "The tone reminds me a little of the enthusiasm from the Anthropic mechinterp team around the time of the first large-scale SAE results. A kind of hypomanic energy around the idea that we've discovered the key paradigm necessary to understand models, and all that's left is to scale it up."
+        },
+        {
+          "id": 50107148,
+          "author": "ks2048",
+          "text": "To cut through some of all this text - here's a link he calls \"the first non-trivial neural network I feel I mostly understand:\nhttps://already-clean.goodfire.com/microscope/medium.html?la..."
+        },
+        {
+          "id": 50110050,
+          "author": "lukewarm707",
+          "text": "It reminds me of this quote from Judith Butler:\n\"The move from a structuralist account in which capital is understood to structure social relations in relatively homologous ways to a view of hegemony in which power relations are subject to repetition, convergence, and rearticulation brought the question of temporality into the thinking of structure, and marked a shift from a form of Althusserian theory that takes structural totalities as theoretical objects to one in which the insights into the contingent possibility of structure inaugurate a renewed conception of hegemony as bound up with the contingent sites and strategies of the rearticulation of power.\"\nhttps://www.theguardian.com/books/1999/dec/24/news"
+        },
+        {
+          "id": 50109902,
+          "author": "juanjmanfredi",
+          "text": "Yudkowsky seems unconvinced.\nhttps://x.com/allTheYud/status/2110805233454731449?s=20"
+        },
+        {
+          "id": 50110875,
+          "author": "x312",
+          "text": "A TLDR, since most comments here seem to misunderstand the result.\nThe idea is: a model may only have 100M neurons or whatever. But there are infinite concepts in the world. Therefore, models have to \"stuff\" multiple concepts per neuron.\nHow do you do that? Theres two ways:\n1. Each neuron handles similar concepts. One neuron for dogs, a separate neuron one for cars, etc.\n2. Each neuron handles a bundle of unrelated concepts. One neuron handles dogs and cars. Another neuron handles cats and numbers. And so on.\nHistorically, people thought #2 was correct because many neurons were found that seemingly represented multiple concepts. #2 had a cool name (polysemanticity) and was promoted in OpenAI/Anthropic blogs so it had a lot of traction.\nHowever, this blog says #2 is wrong. Actually, the dog/car neuron is just a \"V shape neuron\". So #2 was just methodological error, and #1 was right all along. This is all the blog is saying."
+        }
+      ],
+      "title_ja": "ニューラルネットワークはクリーンです",
+      "summary_ja": "ディスカッションのハイライト：ニックは自然の力である/主張は実際に証明されていることの過剰に達しているように見える/そこで、ここには膨大な証拠の要旨があります。その要点は、「AIゲノムのシーケンス」（私の見積もりでは）のように、私たちが思っていたよりも簡単であると主張することです",
+      "editor_note": "「ニューラルネットワークはクリーンです」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 50108872,
+      "title_en": "Someone on Torrent Sites Kept Fucking with My Sonarr",
+      "url": "https://thereallo.dev/blog/someone-on-torrent-sites-kept-fucking-with-my-sonarr-setup",
+      "hn_url": "https://news.ycombinator.com/item?id=50108872",
+      "score": 188,
+      "comment_count": 74,
+      "posted_at": "2026-10-15T19:21:38+00:00",
+      "comments": [
+        {
+          "id": 50111835,
+          "author": "machomaster",
+          "text": "> Not even a folder with a fake .mkv and a \"codec installer\" next to it like the \"good old days\". Just the exe. Are we deadass.\nWe can thank Microsoft for their willful support of criminals by having file extensions be hidden by default in Windows."
+        },
+        {
+          "id": 50109485,
+          "author": "bhaney",
+          "text": "Sonarr has an advanced setting in \"Settings > Indexers > [Your indexer] > Fail Downloads\" which you should add \"Executables\" to. Then these kinds of downloads get automatically marked as failed/blacklisted and a new search and new download is attempted without you needing to manually intervene. You may also have to tweak some conflicting settings on qbit.\nAlternatively, if there's a way to have qbit itself mark the download as \"Failed\" when it detects and refuses to download an executable, that would work too. I don't use qbit personally so I don't know if that's a thing it can be configured to do."
+        },
+        {
+          "id": 50110896,
+          "author": "ShowalkKama",
+          "text": "Joining private trackers is hard only if you are trying to join the niche ones which is totally unnecessary if you are trying to watch relatively recent and popular movies.\nJust get into a decent general tracker and you'll literally never have this issue again (along with getting torrents with more seeders and better tagged content so your \"4k\" download will never be 480p again)"
+        },
+        {
+          "id": 50109096,
+          "author": "shmoil",
+          "text": "If you are too lazy to join private trackers, at least use TraSH guides to set up quality profiles\nhttps://trash-guides.info/"
+        },
+        {
+          "id": 50111916,
+          "author": "JoshTriplett",
+          "text": "> I chopped the 118 KB off the front and threw it into IDA\nHow long until someone uses AI to find an exploit in IDA and starts putting that in their malware, so that if you try to disassemble it you get pwned?"
+        },
+        {
+          "id": 50109969,
+          "author": "josu",
+          "text": "Everything got flooded with those exes, not just South Park. All most seeded TV episodes on most public trackers were (are?) those EXEs. It will be interesting to know who launched the attack."
+        },
+        {
+          "id": 50109267,
+          "author": "Havoc",
+          "text": "> It even grabs your Sticky Notes for WHAT????\nThe whole sticky notes next to monitor is not a joke. I bet you could grab some crypto recovery keys this way"
+        },
+        {
+          "id": 50109497,
+          "author": "riley_dog",
+          "text": "https://github.com/cleanuparr/cleanuparr"
+        }
+      ],
+      "title_ja": "トレントサイトの誰かが私のSonarrをファックし続けました",
+      "summary_ja": "ディスカッションのハイライト：>「古き良き時代」のように、偽の.mkvと「コーデックインストーラ」が隣にあるフォルダでさえも/Sonarrには、「設定>インデクサ> [インデクサ] >失敗したダウンロード」の高度な設定があり、「実行可能ファイル」を追加する必要があります/プライベートトラッカーに参加することは、ニッチなものに参加しようとしている場合にのみ困難です。これは、比較的最近の人気のある映画を視聴しようとしている場合にはまったく不要です。\nただのゲ",
+      "editor_note": "「トレントサイトの誰かが私のSonarrをファックし続けました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50103338,
+      "title_en": "Wayland desktop for Linux with skeuomorphic design",
+      "url": "https://github.com/fyzugx/DEsk",
+      "hn_url": "https://news.ycombinator.com/item?id=50103338",
+      "score": 474,
+      "comment_count": 193,
+      "posted_at": "2026-10-15T13:23:44+00:00",
+      "comments": [
+        {
+          "id": 50112005,
+          "author": "wlonkly",
+          "text": "This reminds me of the Commodore 64 productivity software (on cartridge), Magic Desk:\nhttps://en.wikipedia.org/wiki/Magic_Desk"
+        },
+        {
+          "id": 50106572,
+          "author": "tenacious_tuna",
+          "text": "This is a really enjoyable take, pushing the feeling of what one does on a computer towards actually being at a desk and having to reach for various functions. I feel like that would enable spatial memory to do some cool things.\nI miss the 90s chunkiness of switches, buttons, hardware: being able to hear the computer \"think\" (HDD seeks), the hum of a CRT. Modern machinery feels so insubstantial, emphasizing clean glass and tidy machined chassis. (chassies?)\nI have this persistent daydream about a computer setup that feels like the Nostromo flight deck from Alien. I almost want to feel like I'm sitting _inside_ a computer when I'm at my desk, surrounded by powerful feeling electronics with substantial switches and such. Of course there's plenty of inconvenience there too, but something about it appeals to me."
+        },
+        {
+          "id": 50104659,
+          "author": "bmurphy1976",
+          "text": "I want more stuff like this.  The era 20 years ago (e.g. Enlightenment) was way more fun than the bland monotonic design we have these days.  If you like bland modern design, great, that should be an option as well, but we should still have good variety."
+        },
+        {
+          "id": 50107485,
+          "author": "andai",
+          "text": "This warms my heart.\nI was just thinking about this the other week, when I bought an old iPhone, from the skeumorphic era, for nostalgic purposes. I've wanted one for years -- I only had the newer ones that were flat.\nI always thought, nah, I'm just seeing thru rose tinted glasses, surely it wasn't\nthat\ncool, I'm gonna be disappointed...\nWell, I finally got one, and oh boy. It's even better than I imagined. There's just so much love and care put into the designs. We really lost something special.\n(p.s. if you get a really old iPhone, don't reset the device. It's impossible to activate them now, found out the hard way.)"
+        },
+        {
+          "id": 50104362,
+          "author": "seemaze",
+          "text": "Man, first Felix Reiseberg[0], then OpenCode 2.0[1], and now this in the last 24 hrs. Really giving off heavy Myst vibes. They are briefly interesting encounters, buy I deeply hope this isn't a legitimate UI trend.\nIt's hardly even skeuomorphism, it's a almost digital twin rendered with Phong.\n[0]\nhttps://news.ycombinator.com/item?id=50082470\n[1]\nhttps://news.ycombinator.com/item?id=50094994"
+        },
+        {
+          "id": 50108110,
+          "author": "d1l",
+          "text": "The main difficulty I see in these \"RETVRN TO SOVL\" things is not the window-manager or desktop itself but the UI toolkits for the applications. GTK2 had so many excellent themes. Now GTK or libadwaita seem designed to resist themes and introduce constant breaking of selectors or widgets or whatnot. I believe they griefed the themers into just giving up. I have less knowledge about Qt, but I assume it's probably the better pick these days."
+        },
+        {
+          "id": 50104306,
+          "author": "uolmir",
+          "text": "This is very funny. But I think it would make me feel like I was working inside of Papers Please or some similar game."
+        },
+        {
+          "id": 50106325,
+          "author": "tavavex",
+          "text": "I'm typically not a big proponent of skeuomorphism, but it's nice to have actual variety of experimental options, a bit like the crazy things people did with UIs back in the old days."
+        }
+      ],
+      "title_ja": "スキューモーフィックデザインを備えたLinux用Waylandデスクトップ",
+      "summary_ja": "ディスカッションのハイライト：これは、Commodore 64生産性ソフトウェア（カートリッジ上）、Magic Deskを思い出させます。\nhttps://en.wikipedia.org/wiki/Magic_Desk/これは本当に楽しいテイクで、コンピュータで何をしているのかという感覚を、実際にデスクにいて、さまざまな機能に手を伸ばさなければならないことに向かって押し進めます/このようなものがもっと欲しいです",
+      "editor_note": "「スキューモーフィックデザインを備えたLinux用Waylandデスクトップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 6,
+      "id": 50106023,
+      "title_en": "Jev meets the Trolley Problem",
+      "url": "https://zachlandes.com/trolley-problem/",
+      "hn_url": "https://news.ycombinator.com/item?id=50106023",
+      "score": 264,
+      "comment_count": 125,
+      "posted_at": "2026-10-15T16:24:52+00:00",
+      "comments": [
+        {
+          "id": 50108895,
+          "author": "tomrod",
+          "text": "One of my greatest AI-related fears is that we build critical systems into kafkaesque hellscapes.\nYes, nukes would be bad to give control to an AI with no workaround. But so are customer service groups of fraud departments at banks. A kafkaesque hellscape is where a customer or beneficiary of your service cannot get the help they need by policy and by design. Like getting Google on the phone, getting a non-scripted human 10 years ago in a call center, or now getting a non-agentic interaction on the phone. The scripts dominate the interaction.\nThe IRS, for a time, would cut off your call if their wait system was too busy. That's a critical system in kafkaesque hellscape.\nKudos to zlandes86, you have highlighted WHY these hellscapes start to pop up in systems where the human is removed.\nI am an AI user and builder -- I fully advocate for the human-augmented system, NOT the human-replaced system!"
+        },
+        {
+          "id": 50106144,
+          "author": "zlandes86",
+          "text": "Hey, I'm Zach, the author of this. I had this idea as soon as Jev appeared: how would Jev and other decision models handle the Trolley Problem? So I ran Jev and 13 other models through many different versions of the question.\nI used resampling and multiple variations and orderings of each question so a random lucky phrasing wouldn't dominate the result.\nHappy to chat about the philosophical side of the article, strategies for prompting decision models, or anything on the methodology."
+        },
+        {
+          "id": 50109370,
+          "author": "tokyovigilante",
+          "text": "1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.\n2. A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.\n3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Law."
+        },
+        {
+          "id": 50109873,
+          "author": "prometheus1992",
+          "text": "I had this feeling a few days ago that jev is going to end up working for defense companies- \"is there a brown man with beard holding a gun in this view\" - jev: \"yes, 0.9\", \"is there a child standing in the same view\" - jev: \"no, 0.65\" - decision - blow it up. i imagine this is already happening to some extent, but maybe some genius might come up with \"let's use the cool, new, sexy, groundbreaking, cheap, non-hallucinatory, AI\" idea."
+        },
+        {
+          "id": 50111861,
+          "author": "peab",
+          "text": "Ok, every time I hear about Jev I get annoyed.\nThe ability to have decision making models is not new! Look at qwen, gemma, etc, they can all do structured output, and they can do it locally and cheaper and/or faster than Jev!\nWhat really pissed me off was that y'all got manipulated into thinking it was something revolutionary, while really it was a marketing stunt.\nGo to doomers.ai and look at the case studies."
+        },
+        {
+          "id": 50108883,
+          "author": "flockonus",
+          "text": "Really cool testing, only wish the conclusions were written in a more readily easy to interpret way.\nSo many of the tables required me to think so hard \"what is the author trying to say here\". Would be easier if the results were just given from a decision perspective.\nOne example: \"Its own server or twenty people?\" and the axis is \"share of versions\" ... makes no sense until read the fine print and interpret it."
+        },
+        {
+          "id": 50111379,
+          "author": "__fst__",
+          "text": "I don't know much about the internals of decision models but how does it come up with these probabilities? Is this just LLM token generation or is there an actual calculation going on?"
+        },
+        {
+          "id": 50111599,
+          "author": "jwpapi",
+          "text": "Idk Jev doesn’t seem like a thinking model and more like a semantic matching."
+        }
+      ],
+      "title_ja": "ジェフがトロリーの問題に遭遇",
+      "summary_ja": "ディスカッションのハイライト：私のAI関連の最大の恐れの1つは、重要なシステムをカフカ風の地獄の風景に構築することです。\nはい、核兵器は回避策なしでAIに制御を与えるのは悪いでしょう/ねえ、私はザック、この/1の著者です",
+      "editor_note": "「ジェフがトロリーの問題に遭遇」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50101813,
+      "title_en": "AdFection: Targeted ads turned into a pipeline for zero-click mercenary spyware",
+      "url": "https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/",
+      "hn_url": "https://news.ycombinator.com/item?id=50101813",
+      "score": 367,
+      "comment_count": 532,
+      "posted_at": "2026-10-15T10:43:36+00:00",
+      "comments": [
+        {
+          "id": 50111203,
+          "author": "munk-a",
+          "text": "Oh darn, maybe we should just ban the entire online advertising industry.  Gosh, what value we'd lose if we couldn't have our personalized attention destroying glitter boxes.\nMy opinion on web infra patronage has shifted over time, I used to generally accept that for small websites to exist advertising was a necessary evil since they were too niche to have a real revenue source.  Then I ran one and I realized that there's far more labor costs involved in maintaining a site than infra costs and that for niche hobbies and communities ten bucks can just find its way into a central pot every month to keep the lights on by those with a bit more to spare.\nI am now of the opinion that web communities can survive in the same way arts and other liberal pursuits have always survived.  People with a bit more to spare put more into the pot to create the community they want to exist in and \"freeloaders\" is an alien concept to the genuinely interested since that money is being spent to create a place where meeting can take place without a financial requirement."
+        },
+        {
+          "id": 50104228,
+          "author": "Ozzie_osman",
+          "text": "Obviously not the first time an Israeli tech firm is responsible for these types of exploits, and at this point I'd go so far as saying that any Israeli-based tech company (especially cyber security ones, of which they have a strong industry) should be considered beholden to the government of Israel and hence, probably not trustworthy. How could you be sure whether they will act like a trustworthy independent entity, or compromise your data for the benefit of the state?"
+        },
+        {
+          "id": 50109476,
+          "author": "Postosuchus",
+          "text": "AdTech engineer here (some 13 years in the industry). A couple of notes:\n- The report is highly sensationalist in the \"zero-click\" aspect. It details to some degree the aspects of distribution and C&C but goes very vague the main point - what was the mechanism that activated that zero malware in a zero-click fashion.\n- To the point below that \"ad providers should be held responsible.\" There is no such thing as \"ad provider.\" The AdTech ecosystem is teeming with different niches and business models - see the famous LUMAscapes diagrams:\nhttps://lumapartners.com/lumascapes/\n. The sheer volume of traffic makes it virtually impossible to vet even a fraction of it. Google has thrown a lot of compute power to pre-scan 3p creatives and even then bad actors can sneak through. Add to this a lot of sophistication on their side (from different landing pages based on the perception of the type of user to farming throw-away advertiser accounts aimed at running just one campaign like that to hijacking legit accounts through sophisticated technical and people engineering means). In the end, politicians full of indignation do what politicians always do - sue or fine Google and call it a victory, wh"
+        },
+        {
+          "id": 50103401,
+          "author": "throw0101c",
+          "text": "Actual report from Citizen Lab:\n*\nhttps://citizenlab.ca/research/how-discover-tech-turned-targ..."
+        },
+        {
+          "id": 50107519,
+          "author": "ferguess_k",
+          "text": "My question is, why is Israel so good at this? It seems to be at least the 4th cyber power of the world, after the US, Russia and China, if not actually on par or better.\nI guess it is because it has been under the threat of larger enemies from its birth, so it must leverage whatever it has to survive. And once you grow an organization and let it loose, you don't have much control over it anymore, and it grows in the wild like a flower."
+        },
+        {
+          "id": 50103719,
+          "author": "bhouston",
+          "text": "It is standard that companies within a country act in the interests of its security services.  Israel has a lot of ad-tech companies and thus it makes sense that they are roped into serving Israel's security services.\nIt is no different that Israel's location tracking of StarLink terminals worldwide:\nhttps://www.newarab.com/news/israel-tech-firms-can-locate-an...\nThis is the same issue that the US government has with Chinese networking companies, it is too easy for the Chinese government to pressure these Chinese networking companies to put in back doors in the interests of national security.  The US likely knows this because it pressures its own companies in similar ways."
+        },
+        {
+          "id": 50103512,
+          "author": "squidmaster",
+          "text": "Israel has been a nexus of cybercrime for as long as they've been on the internet at all.\nhttps://en.wikipedia.org/wiki/Download_Valley"
+        },
+        {
+          "id": 50107429,
+          "author": "karim79",
+          "text": "Y'all will be shocked at how much of the VPN space is owned/controlled by Israel.\nhttps://share.gemini.google/DbWctQhiJXMh"
+        }
+      ],
+      "title_ja": "AdFection ：ターゲット広告をゼロクリック傭兵スパイウェアのパイプラインに変換",
+      "summary_ja": "ディスカッションのハイライト：ああ、ひょっとしたらオンライン広告業界全体を禁止すべきかもしれません/明らかに、イスラエルのハイテク企業がこれらのタイプの悪用に責任があるのは初めてではありません。現時点では、イスラエルに拠点を置くハイテク企業（ここではEspecia/AdTechエンジニア（業界で約13年）",
+      "editor_note": "「AdFection ：ターゲット広告をゼロクリック傭兵スパイウェアのパイプラインに変換」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 8,
+      "id": 50105648,
+      "title_en": "Krea 3 – An image model built for editing at scale",
+      "url": "https://www.krea.ai/krea-3",
+      "hn_url": "https://news.ycombinator.com/item?id=50105648",
+      "score": 231,
+      "comment_count": 78,
+      "posted_at": "2026-10-15T16:04:05+00:00",
+      "comments": [
+        {
+          "id": 50105723,
+          "author": "dvrp",
+          "text": "Hello HN,\nThis is Diego from Krea. Today we are announcing the open beta of Krea 3, our newest foundational image model.\nIn a nutshell, it’s a frontier image model in terms of quality, but at a fraction of the speed and a fraction of the price.\nWe will be releasing a more technical update, like we did with Krea 2 (\nhttps://www.krea.ai/blog/krea-2-technical-report\n), but this website shows the capabilities we focused on:\n* Native regional edits\n* Precise edits so that there is minimal area degradation pixel-wise\n* Frontier image quality. Benchmarks still being worked on, but in our internal evals it seems a no-brainer replacement to NBP or GPT Image, both speed and cost-wise.\n* Faster edits (AFAICK, this should unlock a pareto frontier for speed in frontier edit models).\nIn terms of future updates, the team is thinking about letting folks fine-tune Krea 3 (via LoRAs) and open-weights, but we’re still in the middle of launch hiccups and then we’ll revisit the next iterations.\nThanks!"
+        },
+        {
+          "id": 50106946,
+          "author": "jjcm",
+          "text": "Comparison samples with GPT-Image-2.5 for UI design work:\nStarship landing page\nKrea 3:\nhttps://image.non.io/80b85aaa-286b-4ad7-b3ae-cfab4b491216.we...\nGPT-Image-2.5:\nhttps://image.non.io/19c5f032-cbc7-4034-9682-3aba451bd669.we...\nFashion history website\nKrea 3:\nhttps://image.non.io/a6e61219-963c-4921-b453-738960e03308.we...\nGPT-Image-2.5:\nhttps://image.non.io/c067fd76-9c7e-46c2-a8fd-0b0931bf93f6.we...\nBanking website\nKrea 3:\nhttps://image.non.io/3a1e7b50-36e7-418c-ab47-368ce4f01948.we...\nGPT-Image-2.5:\nhttps://image.non.io/b96a7e00-3289-4044-90de-e0f86a2ca55e.we...\nOverall Krea 3 isn't near GPT-Image-2.5 in terms of visual creativity in this space, but it still should be commended for its ability to render small text details. That said despite it specifying you can add exact hex codes as color reference, I've found that they tend to leak into the design (check the valuation panel of the banking website - notice to the right of the \"fixed indexed 7-yr\" there's a hex code that made it into the image).\nI'd love to get my hands on this to post-train and see if it can be pushed further in this space. I actually see a lot of potential for the model, despite the clear differences in the "
+        },
+        {
+          "id": 50111564,
+          "author": "jonplackett",
+          "text": "2 images to try and then the only option after is a monthly subscription.\nI don’t mind buying credits but I don’t want a subscription."
+        },
+        {
+          "id": 50107377,
+          "author": "Anonyneko",
+          "text": "Are open weights being considered? The one thing I'm always looking forward to is all of the anime fine-tunes."
+        },
+        {
+          "id": 50106682,
+          "author": "ramenlover",
+          "text": "Can you share any vague details on how much compute/train time was needed to create the model?"
+        },
+        {
+          "id": 50107434,
+          "author": "geooff_",
+          "text": "Great step in the right direction. IMO still to expensive for most “product” use cases.\nFast and affordable imaging editing unlocks tons of cool use cases. It’s refreshing to see latency be held just as important as price as-well!\nI’ve been bootstrapping a personal styling app. Funnily enough I’m still seeing best results/$ from grok imagine V1. A now deprecated model."
+        },
+        {
+          "id": 50106408,
+          "author": "qurren",
+          "text": "Sneaky pricing. Offers you plans when you sign up, if you decline them, it offers you a discount.\nJust offer the discounted price up front. If your business cannot survive without sneaky pricing, it's not a good business.\nI detest this kind of pricing. It seems that for every subscription I need to threaten to leave to get a discount, and now need an AI to automate that process."
+        },
+        {
+          "id": 50106692,
+          "author": "gepeake",
+          "text": "The pearl earring and the billboard worker didn't feel like frontier quality. Otherwise very impressive"
+        }
+      ],
+      "title_ja": "Krea 3 –大規模な編集用に構築された画像モデル",
+      "summary_ja": "ディスカッションハイライト：こんにちはHN、\nこれはKreaのDiego/UIデザイン作業のためのGPT-Image-2.5との比較サンプルです。\nスターシップのランディングページ\nKrea 3:\nhttps://image.non.io/80b85aaa-286b-4ad7-b3ae-cfab4b491216.we...\nGPT-Image-2.5 ：\nhttps :// image/2画像を試し、その後の唯一のオプションは毎月のサブスクリプションです。\nクレジットを購入しても構いませんが、サブスクリプションは必要ありません。",
+      "editor_note": "「Krea 3 –大規模な編集用に構築された画像モデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 9,
+      "id": 50082637,
+      "title_en": "The 8-mile hole in a Hawaii national park that no one can explain",
+      "url": "https://www.sfgate.com/national-parks/article/hawaii-volcanoes-park-great-crack-22358849.php",
+      "hn_url": "https://news.ycombinator.com/item?id=50082637",
+      "score": 31,
+      "comment_count": 19,
+      "posted_at": "2026-10-14T05:08:09+00:00",
+      "comments": [
+        {
+          "id": 50111351,
+          "author": "mackwell",
+          "text": "Do the makers of sites like this know how terrible it is to try to actually read an article on them? Just tried on iOS. As you scroll, the ads load and change and throw you to a different part of the page and you lose your place repeatedly.\nAfter about 4 times, I bailed."
+        },
+        {
+          "id": 50111539,
+          "author": "mlmonkey",
+          "text": "GMaps link:\nhttps://maps.app.goo.gl/HUA5m4KPJmbeqJEF6"
+        },
+        {
+          "id": 50111338,
+          "author": "dockd",
+          "text": "Oregon has\nhttps://en.wikipedia.org/wiki/Crack_in_the_Ground\nand it's much easier to get to."
+        },
+        {
+          "id": 50111569,
+          "author": "mannyv",
+          "text": "The author needs to pack a small drone next time they head out. They're light, easy to use, and take pretty OK pictures.\nIt's funny how these big geo features are all hidden. I mean, it's a big crack in the Earth. Maybe this is where the lizard people come from, so anyone that talks about \"the crack\" disappears?"
+        },
+        {
+          "id": 50111364,
+          "author": "nonfamous",
+          "text": "Interesting story, but if you go there it’s going to be hard to follow up on yourself:\n>>> When I contacted AllTrails with questions about the route, the company removed it from the app."
+        },
+        {
+          "id": 50111552,
+          "author": "tobadzistsini",
+          "text": "A great site for a CoC scenario per the article."
+        },
+        {
+          "id": 50111187,
+          "author": "LoganDark",
+          "text": "It's honestly very difficult for me to see the depth or scale in any of these photos. I can't really tell where the crack is supposed to be or how it reaches a 66-foot depth at any point."
+        },
+        {
+          "id": 50111869,
+          "author": "mcswell",
+          "text": "Iceland has the Þingvellir valley, which is an above-sea continuation of the rift valley down the middle of the Mid-Atlantic ridge.  It includes the Silfra, which is underwater (fresh water) at the lowest part of the valley.  The Great Crack in Hawai'i is of course not such a major rift, but it is the same idea: upwelling magma raises the ground, creating a crack like in a loaf of raising bread.\nThe Great Rift in Idaho is another volcanic rift valley, which (IIUC) passes through Craters of the Moon National Monument (where the Apollo astronauts trained)."
+        }
+      ],
+      "title_ja": "誰にも説明できないハワイ国立公園の8マイルの穴",
+      "summary_ja": "ディスカッションのハイライト：このようなサイトの作成者は、実際に記事を読もうとすることがどれほどひどいことかを知っていますか？ IOS/GMapsリンクで試してみました：\nhttps://maps.app.goo.gl/HUA5m4KPJmbeqJEF6/オレゴン州は\nhttps://en.wikipedia.org/wiki/Crack_in_the_Ground\nはるかに簡単にアクセスできます。",
+      "editor_note": "「誰にも説明できないハワイ国立公園の8マイルの穴」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 50109375,
+      "title_en": "New Withings Users Must Pay $99/Year for Apple Health Syncing",
+      "url": "https://support.withings.com/hc/en-us/community/posts/51887047154577-Unacceptable-Apple-Health-Sync-is-now-behind-a-99-year-paywall-for-new-accounts",
+      "hn_url": "https://news.ycombinator.com/item?id=50109375",
+      "score": 138,
+      "comment_count": 113,
+      "posted_at": "2026-10-15T19:55:49+00:00",
+      "comments": [
+        {
+          "id": 50110639,
+          "author": "ShakataGaNai",
+          "text": "#1 - If you bought the product with Apple Health sync in mind and it doesn't do that for free, file a complaint with your OAG. It's false advertising.\n#2 - If you have the apps today, you should warn other users with a review (which may or may not be 1 star).\n#3 - If you haven't reviewed the product on Amazon, you should warn other users with a review (which may or may not be 1 star)."
+        },
+        {
+          "id": 50110278,
+          "author": "mikestew",
+          "text": "Why do they even bother? This is going to hit the front page of every health/fitness/cycling/running blog site, there will be a big stink for a few weeks, then Withings will quietly (or loudly, \"we've heard you!\", as if they were listening in the first place) get rid of it. And they'll waste all this time, money, and customer goodwill for nothing, because no one could have\npossibly\nseen this backlash coming.\nDoesn't matter to me, neither their POS blood pressure cuff nor their scale will sync to HealthKit anyway (oh, how I've tried), I'm not losing anything. So stomping my feet with \"I'm never buying another Withings product!\" won't make any difference, I was not going to buy their POS products again anyway. :-)"
+        },
+        {
+          "id": 50111061,
+          "author": "ben1040",
+          "text": "https://developer.apple.com/app-store/review/guidelines\n4.10:\nYou may not monetize built-in capabilities provided by the hardware or operating system, such as Push Notifications, the camera, or the gyroscope; or Apple services and technologies, such as Apple Music access, iCloud storage, or Screen Time APIs."
+        },
+        {
+          "id": 50110455,
+          "author": "PSNapier",
+          "text": "Fun story: when I got my Withings watch 5-6 years ago couldn't get it Bluetooth paired with my phone. Contacted support.\nMe: hey bluetooth pairing isn't working I've tried A, B, C and here's additional context.\nWithings support: [over 24 hours later] Have you tried A? :)\nMe: ...Yes?\nWithings support: [over 24 hours later] Have you tried B? :)\nMe: As I said initially, yes. Can you please batch things to try to expedite this since replies are so slow?\nWithings support: [over 24 hours later] We have to do this in order. :) Have you tried having a different phone even though your phone meets our listed requirements? :)\nMe: .....................\nMe: I debugged it myself in Android dev mode and got it working, I had to do X, perhaps you can relay the issue to your engineers. Thanks for nothing.\nWithings support: [over 24 hours later] oh\nAnd as a bonus after an update a couple years ago it looses track of time within a couple weeks and has to be manually set.\nVery pretty product once upon a time with horrid customer service and software."
+        },
+        {
+          "id": 50109992,
+          "author": "cebert",
+          "text": "I can’t wait till somebody figures out how to reverse engineer these with a LLM so we can just sync the scale data ourselves. I purchased one of these devices, but I am somewhat regretting my decision now."
+        },
+        {
+          "id": 50111616,
+          "author": "PeterUstinox",
+          "text": "To Withings defense: At least to my experience they have the most open API going on:\nhttps://developer.withings.com/\nOther players in the field like Garmin are super restricted.\nFor my own use case i swapped to Health Connect (Android) though. Whatever might happen with that.\nOf course i am also appalled about this change and also the pretty much non-response from the customer service in the forum about this, no good arguments have been mentioned."
+        },
+        {
+          "id": 50110339,
+          "author": "techdiff",
+          "text": "This is up there with BMW charging a subscription for heated seats."
+        },
+        {
+          "id": 50111166,
+          "author": "mortenjorck",
+          "text": "I was actually in the market for a scale to replace my Wyze (still works, but the app is just not very reliable) and was strongly considering a Withings Body Smart.\nWith Withings firmly off the list, what's the best alternative for something that's accurate and reliably syncs with Apple Health?"
+        }
+      ],
+      "title_ja": "新しいWithingsユーザーは、Apple Health Syncingのために年間$ 99を支払う必要があります",
+      "summary_ja": "ディスカッションのハイライト：# 1 - Apple Health SYNCを念頭に置いて製品を購入したが、無料ではない場合は、OAGに苦情を申し立ててください/なぜ彼らは気にするのですか？ これはすべての健康/フィットネス/サイクリング/ランニングブログサイトのトップページに掲載される予定です。数週間は大きな悪臭があり、その後Withingsは静かになります/https://developer.apple.com/app-store/review/guidelines\n4.10:\nによって提供される組み込み機能を収益化することはできません",
+      "editor_note": "「新しいWithingsユーザーは、Apple Health Syncingのために年間$ 99を支払う必要があります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50108229,
+      "title_en": "E Ink Kaleido 4",
+      "url": "https://www.eink.com/news/detail/EInk-Launches-Latest-Version-of-Color-ePaper-Platform-E-Ink-Kaleido-4",
+      "hn_url": "https://news.ycombinator.com/item?id=50108229",
+      "score": 116,
+      "comment_count": 68,
+      "posted_at": "2026-10-15T18:38:16+00:00",
+      "comments": [
+        {
+          "id": 50108720,
+          "author": "ihuman",
+          "text": "Mirror (eink.com isn't working for me):\nhttps://web.archive.org/web/20261015180401/https://www.eink...."
+        },
+        {
+          "id": 50109514,
+          "author": "okuntilnow",
+          "text": "The contrast improvement is welcome for sure, but it remains to be seen what difference 15% white reflectivity makes.\nPrevious Kaleido products are fundamentally flawed. I'd hoped they would bin it for something better rather than make incremental improvements. Think it's also debatable what value colour brings unless you are regularly reading full colour magazines, PDFs etc."
+        },
+        {
+          "id": 50109391,
+          "author": "real_faxenoff",
+          "text": "I've always wanted a color E-Ink tablet, but I could never figure out exactly why.\nDoctor, what's wrong with me?"
+        },
+        {
+          "id": 50110470,
+          "author": "OptCohTomo",
+          "text": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-3-6017\nSee section 5 on Kindle display measurements by optical coherence tomography. The Kaleido display is similar but with a matrix color filter layer.  Those images weren't published."
+        },
+        {
+          "id": 50109086,
+          "author": "MattTheRealOne",
+          "text": "Hopefully this means a new Kobo Libra before too long."
+        },
+        {
+          "id": 50110959,
+          "author": "user3939382",
+          "text": "This is a genuine question not snark — are these the people with the patents holding up the entire industry?"
+        },
+        {
+          "id": 50111397,
+          "author": "Simboo",
+          "text": "Oh gawd yeah. Please, all I desire, all of my wishes, schematic and PCB layout on E-Paper. Please"
+        },
+        {
+          "id": 50109615,
+          "author": "xd1936",
+          "text": "I wish there was a DIY company targeting hobbiests that sold large poster-size eInk panels with tinkering in mind, like TRMNL or InkPlate."
+        }
+      ],
+      "title_ja": "Eインク万華鏡4",
+      "summary_ja": "ディスカッションのハイライト： Mirror （ eink.comは機能していません） ：\nhttps://web.archive.org/web/20261015180401/https :// www.eink..../コントラストの改善は確かに歓迎されていますが、15 ％の白色反射率がどのような違いを生むかはまだわかりません。\n以前のKaleido製品は根本的に欠陥があります/私は常にカラーE - Inkタブレットを望んでいましたが、正確な理由はわかりませんでした。\n博士、どうしたのですか？",
+      "editor_note": "「Eインク万華鏡4」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50104726,
+      "title_en": "Celebrating 70 Years of Fortran",
+      "url": "https://fortran-lang.org/news/2026/09-15-Fortran-birthday/",
+      "hn_url": "https://news.ycombinator.com/item?id=50104726",
+      "score": 204,
+      "comment_count": 93,
+      "posted_at": "2026-10-15T15:03:17+00:00",
+      "comments": [
+        {
+          "id": 50109802,
+          "author": "EvanAnderson",
+          "text": "The Computer History Museum collected an oral history[0] of John Backus[1] and there's some discussion about what computing was like when Fortran was created.\nI really enjoy CHM's oral histories. I'm slowly working my way thru all of them and there are some real gems in there (Ken Thompson, Dennis Ritchie, Margaret Hamilton, Gordon Moore, Fred Brooks, John Warnock, etc).\n[0]\nhttps://www.youtube.com/watch?v=dDsWTyLEgbk\n[1]\nhttps://en.wikipedia.org/wiki/John_Backus"
+        },
+        {
+          "id": 50108671,
+          "author": "obviouslynotme",
+          "text": "I used to work on software that still uses Fortran from the 50's and is still in maintenance and use today. IIRC, it had ~700kloc of Fortran. It may be the oldest and largest Fortran codebase still in use.\nMy first project there was removing all of the Hollerith from the code. Since Fortran predated strings, you had to manipulate them as integers. When you tied that to the original Fortran dynamic memory system, Dynosour, which used equivalenced arrays as pointers, it was a disaster.\nIt also gave me an appreciation for JavaBeanFactoryFactory. The original Fortran limited identifiers to six characters, the first of which indicated whether the variable was an integer, logical (bool), or real (float). I will take a 100 character name over ILBNK1 every single time.\nGOTOs were surprisingly not a big problem, but structured code is definitely a bit easier to read, especially since it brought the practice of indentation with it.\nOverall, it was a great experience but I wouldn't want to do it again, even if the work was interesting."
+        },
+        {
+          "id": 50111771,
+          "author": "ggm",
+          "text": "Used to man the free help desk for programming problems at the uni computing centre I worked at. \"Have you got a current listing of the program\" got rid of most of them.\nSaddest case was a PhD student in chemical engineering near the end of his thesis work struggling to get reproducible results. After half an hour of debug I realised he was using un-initialised Fortran array state for his data. I suspect his discovery went up in smoke."
+        },
+        {
+          "id": 50105961,
+          "author": "whartung",
+          "text": "FORTRAN was a very important language for me.\nGrowing up on early micros, with BASIC, my father had Fortran for the TRS-80.\nI took a stab at learning it, but the documentation was reference for calling the compiler, not so much learning the language. And when I found a FORTRAN book, it was quite dated and talking about things like tapes and punches and what not.\nSo, that effort stalled.\nBut, my first quarter in college, I took a FORTRAN (77) class. FORTRAN taught on the schools CDC Cyber mainframe.\nThis was quite a change from 8-bit PET BASIC.\nBut, most importantly, it was exposure to much of the same concept that an 8-bit computer has, but from a different tact.\nThis gave me more of a way to view things from a higher level, since I had to make them fit the two different views of how FORTRAN looked at things, how the Cyber presented things, and how BASIC and the PET were \"same thing only different\".\nIt also gave me access to a multi-user system, and all of the interesting capabilities it offers.\nI remember when they put in their first lab of PCs, and how they started teaching folks Turbo Pascal on micro computers, and I just felt that the users were missing out on a bigger world. \""
+        },
+        {
+          "id": 50106421,
+          "author": "dranudin",
+          "text": "I wrote Fortran for my first job as a software developer in 2018 for simulation solvers. Still like the language! Modern fortran is very very fast and much nicer to use than C for linear algebra. So in my opinion for numerical calculations it remains the best language, even today.\nHappy Birthday!"
+        },
+        {
+          "id": 50111894,
+          "author": "beloch",
+          "text": "People sometimes scoff at computing languages as old as Fortran, but they should realize Fortran has remained relevant because it's still really good at what it does.  It's syntax for mathematical operations is head and shoulders above most more recent languages.  It's fast and offers great control of the hardware too.  Even today, if you want to write a numerical simulation that's heavy on the math and hard on the hardware, Fortran should be considered.\nEveryone who has used it also has horror stories though.  It is a\nvery\nold language and sometimes artifacts pop up.  One time I was parallelizing some older code and ran into an infuriating bug where it seemed like some boundary conditions just weren't being passed properly.  There were no compiler errors or warnings.  Some MPI commands were simply being ignored, but not others.  It turned out that the jank-ass compiler I was using for the project had decided to go into Fortran-77 mode (without saying anything) and stripped them out in the precompiling stage (without saying anything) if they were longer than the 72 character limit that Fortran-77 had.  I was coding on a computer new enough to have no CD or DVD drive, but was runnin"
+        },
+        {
+          "id": 50105146,
+          "author": "hermitcrab",
+          "text": "I started off programming in FORTRAN in my first job, 40 years ago. There was a lot of terrible stuff in FORTRAN from a software engineering point of view: COMMON blocks, GOTOs, ENTRY points (to enter a subroutine part way through!), but it was one of the first high level language and language designers had a lot to learn."
+        },
+        {
+          "id": 50107400,
+          "author": "astro1234",
+          "text": "Having written an open source Fortran library (for x ray scattering and absorption in a particular regime so this is fairly “niche” shall we say), genuinely curious: what if any advantages or strengths does Fortran have these days over other language choices? Are there circumstances where it’s arguably the “right” choice?"
+        }
+      ],
+      "title_ja": "FORTRAN 70周年を祝う",
+      "summary_ja": "ディスカッションのハイライト：コンピュータ歴史博物館は、John Backus [1]の口頭歴史[0]を収集し、FORTRANが作成されたときのコンピューティングがどのようなものであったかについていくつかの議論があります。\n私はCHMを本当に楽しんでいます/私は50年代からまだFortranを使用しており、今日もメンテナンスと使用中のソフトウェアに取り組んでいました/私が働いていたユニコンピューティングセンターでプログラミングの問題のための無料ヘルプデスクを担当するために使用されました",
+      "editor_note": "「FORTRAN 70周年を祝う」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50069439,
+      "title_en": "Major ICQ security hole (1998)",
+      "url": "https://opennet.ru/base/maillist/169.txt.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50069439",
+      "score": 19,
+      "comment_count": 10,
+      "posted_at": "2026-10-13T10:21:17+00:00",
+      "comments": [
+        {
+          "id": 50111838,
+          "author": "compass_copium",
+          "text": ">When a password of 9 or more characters is sent, their buffer is over-run, and it allows you to log in.\nMan, computers used to be fun"
+        },
+        {
+          "id": 50070321,
+          "author": "SillyUsername",
+          "text": "So this is how my low numbered account was stolen back in the day - thanks for sharing."
+        },
+        {
+          "id": 50111832,
+          "author": "mannycalavera42",
+          "text": "Tooooooooooooooooooooooooot!\n(startup jingle, good mems)"
+        }
+      ],
+      "title_ja": "主要なICQセキュリティホール（ 1998年）",
+      "summary_ja": "ディスカッションのハイライト：> 9文字以上のパスワードが送信されると、バッファがオーバーランし、ログインできます。\nねえ、パソコンは昔楽しかった/だからこれが私の低い番号のアカウントが盗まれた方法です-共有してくれてありがとう。/Tooooooooooooooooooooooot ！\n（スタートアップのジングル、良いミーム）",
+      "editor_note": "「主要なICQセキュリティホール（ 1998年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 50084674,
+      "title_en": "Why I Wrote PGP (1991, revised 1999)",
+      "url": "https://philzimmermann.com/EN/essays/WhyIWrotePGP.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50084674",
+      "score": 99,
+      "comment_count": 37,
+      "posted_at": "2026-10-14T09:17:06+00:00",
+      "comments": [
+        {
+          "id": 50109007,
+          "author": "BeetleB",
+          "text": "> In 2013, an article on \"Zimmermann's Law\" quoted Phil Zimmermann as saying \"The natural flow of technology tends to move in the direction of making surveillance easier\""
+        },
+        {
+          "id": 50108905,
+          "author": "adastra22",
+          "text": "A well-intentioned ideal from a bygone era."
+        },
+        {
+          "id": 50109399,
+          "author": "dylan604",
+          "text": "The biggest issue of using PGP was using PGP. You were pretty nerdy to be on the internet back then, but even then using PGP was beyond what the majority of people wanted to do. Exchanging keys was problematic. Writing text in one app, encrypting in another app, copying encrypted back to an email was just tiresome.\nI'm still glad that it existed as its mere existence seems to have pushed things in the right direction as far as protecting everyone's ability to use encryption if they chose. It just never became the panacea it was envisioned to be."
+        }
+      ],
+      "title_ja": "私がPGPを書いた理由（ 1991年、1999年改訂）",
+      "summary_ja": "ディスカッションのハイライト： > 2013年、「ジマーマンの法則」に関する記事では、フィル・ジマーマンが「テクノロジーの自然な流れは監視を容易にする方向に動く傾向がある」と述べている/過去の時代からの善意の理想。/PGPを使用する最大の問題はPGPを使用することでした",
+      "editor_note": "「私がPGPを書いた理由（ 1991年、1999年改訂）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 15,
+      "id": 50080155,
+      "title_en": "Delta’s Biscoff cookies were supposed to be temporary",
+      "url": "https://www.seriouseats.com/biscoff-history-12168161",
+      "hn_url": "https://news.ycombinator.com/item?id=50080155",
+      "score": 170,
+      "comment_count": 141,
+      "posted_at": "2026-10-13T23:00:46+00:00",
+      "comments": [
+        {
+          "id": 50106375,
+          "author": "SoftTalker",
+          "text": "> a peanut shortage prompted Delta, then America’s fourth-largest airline, to seek an alternative onboard snack\nI never knew this was the reason. I had assumed that airlines stopped serving peanuts as an accomodation to the increasing number of people with peanut allergies."
+        },
+        {
+          "id": 50106709,
+          "author": "adzm",
+          "text": "Have you heard of Biscoff spread? It's kinda like peanut butter except, it's made out of cookies\nhttps://www.youtube.com/watch?v=_BZsIY6PUPU\n(might not be sfw)"
+        },
+        {
+          "id": 50107266,
+          "author": "jmpman",
+          "text": "I'd read that there are a few snack items resistant to GLP-1 induced food aversions, when I was on a GLP-1, Biscoff cookies felt like one of them. I may have an Amazon scheduled delivery of Biscoff, which every month, I intend to cancel, and somehow forget to follow through."
+        },
+        {
+          "id": 50111762,
+          "author": "sam1714",
+          "text": "During the heights of COVID, the bargain store by me had boxes of trays of American Airlines' Biscoff. They were clearly optimized for weight: packaged in a super lightweight plastic tray with shrink wrap so thin it already had holes in it.\nThey apparently had enough getting stale to offload them to a liquidator."
+        },
+        {
+          "id": 50106036,
+          "author": "c0rruptbytes",
+          "text": "Claire Saffitz makes cinnamon rolls with these cookies as the inner cinnamon filling, they’re so good with the spice"
+        },
+        {
+          "id": 50106394,
+          "author": "sasaf5",
+          "text": "Please, make sure you try these at least once in your life:\nhttps://en.wikipedia.org/wiki/Speculoos"
+        },
+        {
+          "id": 50106147,
+          "author": "Dries007",
+          "text": "As a Belgian I still dislike this new branding."
+        },
+        {
+          "id": 50110793,
+          "author": "mattgoupil",
+          "text": "I first ran into speculoos in the south of France where they ground up and in all sorts of things, especially cheesecake crust. All of a sudden I saw \"speculoos\" every where. How it jumped from Belgium to Nice escapes me."
+        }
+      ],
+      "title_ja": "デルタ航空のBiscoffクッキーは一時的なものとされていました",
+      "summary_ja": "ディスカッションのハイライト：>ピーナッツの不足により、当時アメリカで4番目に大きな航空会社であったデルタ航空は、代替機内スナックを探すようになりました\nこれが理由だとは知りませんでした/ビスコフスプレッドについて聞いたことがありますか？ クッキーから作られていることを除けば、ピーナッツバターに似ています\nhttps://www.youtube.com/watch?v=_BZsIY6PUPU\n（ SFWではないかもしれない）/私がGLP -1、Biscoff coを服用していたとき、GLP -1誘発性食品嫌悪に対して抵抗性のあるスナック商品がいくつかあることを読んだ",
+      "editor_note": "「デルタ航空のBiscoffクッキーは一時的なものとされていました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 16,
+      "id": 50102923,
+      "title_en": "Libreboot 26.10 \"Ominous Olive\" released with UEFI, Chromebook support",
+      "url": "https://libreboot.org/news/libreboot2610.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50102923",
+      "score": 250,
+      "comment_count": 145,
+      "posted_at": "2026-10-15T12:52:16+00:00",
+      "comments": [
+        {
+          "id": 50103753,
+          "author": "iamnothere",
+          "text": "Everyone’s focusing on the AI policy (perhaps because Leah for some reason said this was the most important part of the release), but the UEFI/EDK integration and Chromebook support is a massive step forward. Suddenly Libreboot has multiplied the devices available by many times, and future devices will be much easier to add. This is huge."
+        },
+        {
+          "id": 50103233,
+          "author": "kyrra",
+          "text": "They don't seem to like AI.\nhttps://codeberg.org/libreboot/lbmk/src/branch/master/AGENTS..."
+        },
+        {
+          "id": 50104073,
+          "author": "cwiggs",
+          "text": "Wow, this is awesome!  This relates to work I've been doing with the [Heads](\nhttps://osresearch.net/\n) project.  Specifically I got a PR merged for the first ChromeOS Port using MrChromebox's code as an upstream dependency:\nhttps://github.com/linuxboot/heads/pull/2133\nI'm now working on the 2nd ChromeOS device in this PR right now:\nhttps://github.com/linuxboot/heads/pull/2225\nAnd there is a 3rd port by someone else:\nhttps://github.com/linuxboot/heads/pull/2219\nI'm surprised Libreboot was able to add all the ChromeOS devices at once, Just adding the 2 ports for Heads hasn't been easy, although I'm not an expert when it comes to Coreboot.\nAnyway, I love seeing more support for Chromebooks, they are great devices.  Funny enough my Acer Chromebook (Kano) is now more open and more secure than my Framework 13s."
+        },
+        {
+          "id": 50105076,
+          "author": "lf88",
+          "text": "It's refreshing to see serious open-source projects adopting a strict policy on LLM-assisted contributions.\nBesides considering frontier LLMs a serious threat to humanity, I find LLM-assisted programming simply...not fun! I tolerate only AI-assisted bug reports, as they are genuinely useful."
+        },
+        {
+          "id": 50103336,
+          "author": "AdmiralAsshat",
+          "text": "> Imported all 233 currently supported Chromebooks from the MrChromebox coreboot distro. Baytrail (Kip) tested - others need testing. Source-only in this release (must build from source, no binaries provided).\nNice. I think I loaded MrChromebox onto my Google Pixel some years ago. I should see if it can get Libreboot now."
+        },
+        {
+          "id": 50106131,
+          "author": "ChocolateGod",
+          "text": "If it runs on Chromebooks does that mean Chromebooks can be made into generic UEFI laptops?\nThis is interesting given Googlebooks actually use the same boot process as Chromebooks, they just chain into aboot."
+        },
+        {
+          "id": 50105261,
+          "author": "Krei-se",
+          "text": "I'm on a libreboot-only infrastructure and can recommend. It's easy to do and you dont need to keep track of how to configure coreboot.\nIt just works and that's great."
+        },
+        {
+          "id": 50109735,
+          "author": "inventor7777",
+          "text": "Neat project. I find their new anti-AI policy to be interesting, but not at all useful to anyone. There are no objective arguments. No evidence of poor code quality in late 2026. No examples of why AI can't help the project. Just a rant.\nI am very glad to see people with opinions that flow into what they do, but the question becomes: are you trying to make the best software, or make the most idealistic software? There's a big difference.\nI am not at all advocating the use of straight AI slop, but with a policy like that you're opening yourself up for missed bugs, security issues, delayed features, and other things. Especially if you move away from software just because an AI wrote one line of code in it. You can still review the code. If it does the thing right, then use it!"
+        }
+      ],
+      "title_ja": "UEFIでリリースされたLibreboot 26.10「Ominous Olive」、Chromebookサポート",
+      "summary_ja": "ディスカッションのハイライト：誰もがAIポリシーに焦点を当てています（おそらく何らかの理由でLeahがこれがリリースの最も重要な部分であると言ったためです）が、UEFI/EDK統合とChromebookはAIを好まないようです。\nhttps://codeberg.org/libreboot/lbmk/src/branch/master/AGENTS.../すごい！  これは、私が[Heads ]（\nhttps://osresearch.net/ \n） project",
+      "editor_note": "「UEFIでリリースされたLibreboot 26.10「Ominous Olive」、Chromebookサポート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 17,
+      "id": 50097843,
+      "title_en": "The engineering that allows articulated buses to bend",
+      "url": "https://www.theautopian.com/you-wont-believe-the-incredible-engineering-that-allows-articulated-buses-to-bend/",
+      "hn_url": "https://news.ycombinator.com/item?id=50097843",
+      "score": 64,
+      "comment_count": 35,
+      "posted_at": "2026-10-15T01:02:05+00:00",
+      "comments": [
+        {
+          "id": 50110887,
+          "author": "netsharc",
+          "text": "Just 2 days ago: one of these buses had an accident that left the front part twisted 180 degrees in relation to the rear:\nhttps://www.youtube.com/watch?v=flbaRmGKzPY\nThe Munich bus-trailer in action:\nhttps://www.youtube.com/watch?v=4IUE-yA8R1A"
+        },
+        {
+          "id": 50111329,
+          "author": "myself248",
+          "text": "This article's byline features one of the most magnificent cases of nominative determinism I've ever seen. I wonder if it's a nom de plume."
+        },
+        {
+          "id": 50108917,
+          "author": "happytoexplain",
+          "text": "I like watching the other half of the bus while riding these. It's a cool effect, seeing the whole \"room\" oscillate through the \"doorway\", while I feel like I'm standing still.\nEdit: The article has a video of this effect near the bottom."
+        },
+        {
+          "id": 50109808,
+          "author": "adrianmonk",
+          "text": "When I got to where they explained the benefits of having the engine at the very back and the instability of having the back part push the front, I tried to guess how they solved it. I guessed a fancy drive shaft with universal joints so the engine in the back half could drive wheels in the front half.\nI guessed wrong. I still like my idea, but their solution is simpler and probably more efficient and more durable too."
+        },
+        {
+          "id": 50109253,
+          "author": "Reason077",
+          "text": ">\n“The articulated bus is a common sight everywhere”\nCertainly not in London where they were famously banned in 2009.\nNow days they’re uncommon throughout the UK, with UK cities having a preference for double-deckers. You do see them in use as shuttles at some UK airports, though."
+        },
+        {
+          "id": 50109255,
+          "author": "bell-cot",
+          "text": "Call me a fossil, but double-decker busses just seem so much cooler.  Without all the added engineering complexity, costs, and footprint."
+        }
+      ],
+      "title_ja": "多関節バスが曲がることを可能にするエンジニアリング",
+      "summary_ja": "ディスカッションハイライト：わずか2日前：これらのバスの1つが事故を起こし、前部が後部に対して180度ねじれました。\nhttps://www.youtube.com/watch?v=flbaRmGKzPY\nミュンヘンのバス/この記事の署名は、私が今まで見た中で最も壮大な名詞的決定論のケースの1つを特徴としています/私はこれらに乗りながらバスの残りの半分を見るのが好きです",
+      "editor_note": "「多関節バスが曲がることを可能にするエンジニアリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50102247,
+      "title_en": "Show HN: Unfenced – Land for sale that borders public land",
+      "url": "https://unfenced.land/",
+      "hn_url": "https://news.ycombinator.com/item?id=50102247",
+      "score": 248,
+      "comment_count": 167,
+      "posted_at": "2026-10-15T11:38:57+00:00",
+      "comments": [
+        {
+          "id": 50102817,
+          "author": "snide",
+          "text": "First, this is cool! Well done.\nI live next to a State Park. It sounded really cool when I bought the house. No neighbors! Privacy! There is a trail accessible from my properly that goes into some woods, which you only want to be in during the Fall / Spring because the ticks and chiggers are intense.\nThe biggest issue with sharing a border with the state is the fence line. Technically it's on them to maintain. The woods are filled with mostly 200 foot trees. They exist right up to my property and fall every year during big storms. There goes the fence line. I have dogs so the fence is important. Otherwise they run out into the woods that have licensed bow-hunting during the Winter.\nIn practice its impossible to get the fence fixed. You are working through layers of bureaucracy and mismanagement. There is no vested interest from a parks service to work well with hundreds of neighbors individually. I'd build fence lines myself, and could easily pay for it, but it's the upkeep of those fences that would be difficult because so many trees (really, it's every year) fall down from their side.\nMy main point is that sharing a properly line with the government is more like sharing a properl"
+        },
+        {
+          "id": 50103868,
+          "author": "kyleblarson",
+          "text": "I owned a house on 60 acres in Washington State that was bordered on 2 sides by state land (WA DNR). It was generally great and the only time I closed my gate was actually these two weeks of every year for regular rifle deer season. I never had issues with hunters coming on my property (I did give some friends permission to bow hunt). My driveway was about a mile long and had to cross DNR land to reach my property, but I had an easement. The easements typically have a 35 year expiration and it would take extreme circumstances for the state not to renew an existing easement. Complete and total privacy is really nice, but it's certainly a lot of effort and money to maintain a remote property of that size with a large house. I had to travel to SF a lot for work and that was certainly not ideal: 2.5 hour drive minimum to a tiny airport that only served Seattle, then on to SF."
+        },
+        {
+          "id": 50102873,
+          "author": "hasbot",
+          "text": "This is interesting though not really for me.  I know that without trails, I won't be walking past the end of my property onto other property.  I've probably spent a year of my life building trails on my own property.\nWhen I look for a parcel of land, I'm also interested in proximity to healthcare, groceries, airports (bad!), motor sports, shooting ranges; general steepness of the property particularly at the roadway (too steep makes the property unusable), topography in general (any flat spots to build a house?); availability of power; water features; bikability (checked by looking at Strava's heatmap); average number of days temperature > 85F; average number of days temperature < 30F.  There's more but this list is long enough already."
+        },
+        {
+          "id": 50104163,
+          "author": "windowshopping",
+          "text": "This is super unreliable. I clicked through a few of the listings and none of them were what this site seemed to think they were. In one case it said a unit had 50 acres of land, and when I clicked through it was a two-bedroom condo with no land. Another said it had 1400 acres of land and when I clicked through it was 0.14."
+        },
+        {
+          "id": 50111084,
+          "author": "ramses0",
+          "text": "Apologies if this is somewhere else, but \"price per acre\" as a sorting mechanism would be really helpful. In the Dallas area, there's a few like $350k/0.2 acres (eg: a typical house on a lot).\nPrice per acre could suss out whether it's developed or in demand vs more rural (less price per acre).\nOther than that, bravo! Great idea, well implemented!"
+        },
+        {
+          "id": 50102734,
+          "author": "noman-land",
+          "text": "It's blowing mind a bit that you made this and released it because I was on the verge of doing it myself. Very nice work.\nReally curious about your data sources. Where are you getting all this stuff?"
+        },
+        {
+          "id": 50103003,
+          "author": "Anon1096",
+          "text": "If you have public land do you just have people walking over the property boundary onto your parcel all the time? Especially in the more populous states like NJ some of them I'd expect that to be pretty common, interesting idea as a thing that people search out specifically for though.\nRegardless, neat site. Couple things, first maybe a disclaimer on why you would want this on the home page? And on the state page itself I can't tell how bordering is different than adjacent. IMO just calling it \"within 75m\" would be better, and since this is for the US consider making it based on feet :p. Also, I would recommend that at least for user facing strings though you give it a little TLC and remove the really really obvious Claudisms\n> official boundary maps, not listing descriptions.\n> An analysis of publicly available boundary data — not a survey, and not a listing service\nplus everything on the How It Works page is extremely obviously LLM."
+        },
+        {
+          "id": 50104369,
+          "author": "MeetingsBrowser",
+          "text": "A price filter would be useful.\nMost of the listings near me are for tens of acres and >$5 million"
+        }
+      ],
+      "title_ja": "HNを表示：フェンスなし–公有地に隣接する売買中の土地",
+      "summary_ja": "ディスカッションのハイライト：まず、これは素晴らしいです！よくできました。\n私は州立公園の隣に住んでいます/ワシントン州にある60エーカーの家を所有していましたが、州の土地（ WA DNR ）の2つの側面に接していました/これは面白いですが、私にはあまり興味がありません",
+      "editor_note": "「HNを表示：フェンスなし–公有地に隣接する売買中の土地」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 50104299,
+      "title_en": "Using AI to reverse engineer hardware",
+      "url": "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/",
+      "hn_url": "https://news.ycombinator.com/item?id=50104299",
+      "score": 91,
+      "comment_count": 103,
+      "posted_at": "2026-10-15T14:35:15+00:00",
+      "comments": [
+        {
+          "id": 50104955,
+          "author": "valdiorn",
+          "text": "I've been having a silent panic attack for the last 3 days, and I don't really have anyone to talk to that would understand my concern.\nI run a small pro audio company, we make guitar pedals and audio effects mostly. My current key objective is building up a processor similar to the Eventide H90, that would compete on having top-notch algorithms for reverb, delay, chorus etc. we already have single-effect pedals on the market that are very successful.\nIn the past 72 hours I have ONE-SHOT decompiled 3 of my main competitors products, including the Strymon Big Sky. I just... have their award winning algorithms now. Like, I could in theory just stick them in a box and resell them. It took one prompt and 3 hours for opus 5.5 to work that out.\nThe lexicon 224 then got added. While Claude was prepping It found someone else had already done the same thing 1 weeks earlier and dumped the result on GitHub, so it just stole that code and saved some time. It took all of 20 minutes to do the entire Ursa Major product range.\nAnd yes, I've tested them all - and they all sound phenomenal. I specifically asked Claude to first build an emulator and execute the original firmware/ROM so I could be cer"
+        },
+        {
+          "id": 50106153,
+          "author": "revolvingthrow",
+          "text": "I reverse engineered almost all electronics I own. Does it have USB that does more than just charging? Connect it to a computer and let AI play with it. Unless it's heavily secured like a phone that's pretty much all you need to do. Making some old remote work with various devices? Simple. Dumping the entire state of Rodecaster and controlling it in any you want with software, or maybe a remote? Why not. Old printer no longer works with MacOS 27? Ask for new drivers and now it does.\nThe printer 'debugging' was one of the funniest and most WTF situations I've been in lately. I used Claude for the drivers and was essentially used by it as a meat sock to diagnose what's happening. Was the text on each line progressively less visible, ie did grayscale work? How about quality between page 1 and 2, the first one should be lower DPI. Ok now unload the paper so I can see the error and add some handling for it. Good, now load paper again we'll check the duplex.\nIf you are reasonably familiar with computers, it really is as simple as pointing a strong model at a device and burning some tokens. Feels like a fever dream, especially since I had very little idea about anything that has to do wit"
+        },
+        {
+          "id": 50104663,
+          "author": "xnx",
+          "text": "Someone please do \"smart\" TVs. You have the chance to remove ads and botnets (\"residential proxies\") from millions of devices."
+        },
+        {
+          "id": 50111426,
+          "author": "rmnclmnt",
+          "text": "A few weeks ago, I had Claude develop a CUPS driver running over a Bluetooth connection for the mini photo printer Canon Zoemini 2: works great on Linux (NixOS), even though Canon only bothered to only support smartphones, never desktops!"
+        },
+        {
+          "id": 50105640,
+          "author": "javier2",
+          "text": "As an aside: I tried using claude to write GTK4 applications in december 2025/january 2026 and it was awful at it, barely even helpful. Then in September it's writing great gtk4 apps with barely any prompting."
+        },
+        {
+          "id": 50104462,
+          "author": "tinchos",
+          "text": "Oh man, I did fall into that rabbit hole.\nI took my old mp3 player Onn-x5 and just finished a custom firmware for it.\nExplore and reverse engineer it just from connecting it to my computer."
+        },
+        {
+          "id": 50111635,
+          "author": "robgibbons",
+          "text": "Forgive my ignorance, but isn't this what patents are for?"
+        },
+        {
+          "id": 50105695,
+          "author": "amelius",
+          "text": "Soon: \"Hi Claude, can you translate iOS so it runs in a sandbox on Linux?\"\nOr: \"Can you turn this tablet I got from AliExpress into an iPad?\"\nIt's going to be interesting to watch the big companies struggle with this."
+        }
+      ],
+      "title_ja": "AIを使用したハードウェアのリバースエンジニアリング",
+      "summary_ja": "ディスカッションのハイライト：私は過去3日間、静かなパニック発作を起こしていますが、私の懸念を理解できる人がいません。\n私は小さなプロのオーディオ会社を経営しており、GUIを製造しています/私が所有しているほとんどすべてのエレクトロニクスをリバースエンジニアリングしました/誰か「スマート」テレビをしてください",
+      "editor_note": "「AIを使用したハードウェアのリバースエンジニアリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50105635,
+      "title_en": "Steam Client is now faster than Epic's new vibe coded launcher",
+      "url": "https://respawnfirst.com/steam-client-is-now-faster-than-epics-new-vibe-coded-launcher/",
+      "hn_url": "https://news.ycombinator.com/item?id=50105635",
+      "score": 270,
+      "comment_count": 270,
+      "posted_at": "2026-10-15T16:03:19+00:00",
+      "comments": [
+        {
+          "id": 50105781,
+          "author": "tancop",
+          "text": "I used to think vibe coding would get us slow Electron apps but now we got speed wars between game launchers. I hope this comes for all types of software.\nWith that said, I tested it right now and Steam takes about 2 seconds to restore from tray and 10-15 for cold boot. The new Epic launcher is around 0.5 and 5 like the article mentioned. Maybe it's still in A/B testing or something."
+        },
+        {
+          "id": 50105954,
+          "author": "hombre_fatal",
+          "text": "> Epic may have “vibe coded” a faster client, but Valve proved that targeted optimization on a decades-old ecosystem can still beat out AI speedruns.\nOptimizing a project with AI is one of the most trivial things you can do with AI.\nI also wouldn't buy it for a second that Valve engineers aren't using AI, especially for something as trivial as \"hey claude rank the top causes of slow startup\" -> \"oh okay now fix\". The most I'd grant is that everyone uses AI secretly as a sort of dark forest problem.\nOnce I had a good benchmark script, Opus 4.8 or whatever made my terminal app faster with less memory than ghostty and kitty. It's not even interesting."
+        },
+        {
+          "id": 50105789,
+          "author": "Goronmon",
+          "text": "All I can think with this whole situation is how much time is wasted by people getting angry and defensive on behalf of a Valve. It's almost like people have a parasocial relationship with the application itself.\nThat's not even getting to some of the \"missing\" features.\nNo Community marketplace for in-game items\nNo Direct player-to-player item trading\nNo Digital trading cards, levelling, and points shop\nI hope more application developers \"forget\" to add these features."
+        },
+        {
+          "id": 50109028,
+          "author": "Ameo",
+          "text": "This is why software is slow and everything uses 2GB of RAM at idle: because nobody really cares.\nI'm sure that AI made this speedup work much easier and quicker; probably just access to the monorepo and a prompt of \"make the launcher boot up faster while changing no functionality.  Keep track of before/after benchmark numbers\" would be fine as long as you can get your co-workers to approve whatever diff gets spat out the end.\nBut either of these companies, presumably with dev teams of dozens-hundreds of SWEs, could have pointed to one of them 5 years go and said \"spend the next 2 months optimizing the performance of the launcher\" and would probably have gotten similar results.\nI make my software fast and efficient mostly because I enjoy it.  Absolutely nothing stopping web apps, Electron, everything else from being efficient, slim, and performant.  It's just that the modicum of effort required to set that up was outweighed by the convenience of just importing and parsing the full 16MB icon cache and 13 unused analytics SDKs every pageload and not worrying about it."
+        },
+        {
+          "id": 50105765,
+          "author": "kakuri",
+          "text": "Ok but why didn't they do it sooner? The Steam client is terrible and there is no excuse for it."
+        },
+        {
+          "id": 50108791,
+          "author": "mawadev",
+          "text": "I have to say, Epics vibe is just malicious and toxic. Steam is silent and just lets things speak for themselves. What is the value of an idea if it does not work in the real world?\nI just wish the people at Epic collectively took some vacation and came back with a less breathing down neck attitude towards everything. Just chill out, relax, it is a browser for searching, buying and downloading games"
+        },
+        {
+          "id": 50110997,
+          "author": "aucisson_masque",
+          "text": "> No Discussion forums and community hubs\n> No User-written text reviews\n> No Community-created guides and walkthroughs\n>No Screenshot, clip, and artwork sharing\nI can’t believe they don’t have the resource to bring these features to their launcher, they actively refuse to make it a tool for communities.\nIt must be a way to buy game and launch them, that’s all. Don’t talk, don’t give your opinion on the game, don’t help others in forums,..\nI managed to stay away from epic even when they locked games from steam, glad I did. It’s embarrassing."
+        },
+        {
+          "id": 50105721,
+          "author": "goatking",
+          "text": "Thank you Epic for improving Steam! Appreciated"
+        }
+      ],
+      "title_ja": "Steamクライアントは、Epicの新しいバイブコードランチャーよりも高速になりました",
+      "summary_ja": "ディスカッションのハイライト：以前は、バイブコーディングはElectronアプリの速度を低下させると思っていましたが、今ではゲームランチャー間のスピードウォーが発生しました/> Epicは、より高速なクライアントを「バイブコーディング」している可能性がありますが、Valveは、数十年前のエコシステムでのターゲットを絞った最適化でも、AIのスピードランを打ち負かすことができることを証明しました。\nAI iでプロジェクトを最適化する/この状況全体で私が考えることができるのは、バルブのために怒り、防御的になっている人々がどれだけ時間を無駄にしているかです",
+      "editor_note": "「Steamクライアントは、Epicの新しいバイブコードランチャーよりも高速になりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50099121,
+      "title_en": "An Apology",
+      "url": "https://www.elevationlab.com/blogs/news/an-apology",
+      "hn_url": "https://news.ycombinator.com/item?id=50099121",
+      "score": 98,
+      "comment_count": 116,
+      "posted_at": "2026-10-15T04:23:27+00:00",
+      "comments": [
+        {
+          "id": 50110884,
+          "author": "jubilanti",
+          "text": "Tracking the person who stole your bike IS stalking, just a socially acceptable form. That's the point."
+        },
+        {
+          "id": 50099852,
+          "author": "Barbing",
+          "text": "Photo of the device on MacRumors (who intentionally didn’t publicize its release):\nhttps://macrumors.com/2026/10/13/elevation-lab-airtag-silenc..."
+        },
+        {
+          "id": 50110714,
+          "author": "Johnny555",
+          "text": "We have removed the product and will use our patent on it to prevent anyone else from making one in the future.\nDoesn't the patent just document how it works so individuals can create and release 3D models of the device so anyone can create their own?"
+        },
+        {
+          "id": 50099980,
+          "author": "bob1029",
+          "text": "> We have removed the product and will use our patent on it to prevent anyone else from making one in the future.\nI am not sure I follow the unique technological aspects of this solution. The last time I needed to silence a beeping contraption, I broke out the cordless drill and ran it through the offending PCB element. Air tags seem affordable enough to practice this operation a few times. Not sure what is actually protected here."
+        },
+        {
+          "id": 50110044,
+          "author": "amelius",
+          "text": "> and will use our patent on it to prevent anyone else from making one in the future\nWhat prevents anyone from selling a device but distributing the software through a separate channel?"
+        },
+        {
+          "id": 50100342,
+          "author": "orliesaurus",
+          "text": "What's the best thing to track bike thieves these days? I own 6 bikes (yes one for each type of road I ride ..) and I have never found a good solution?"
+        },
+        {
+          "id": 50111578,
+          "author": "kqp",
+          "text": "So, reading between the lines, somebody pressured them hard but they’re providing instructions to DIY instead?"
+        },
+        {
+          "id": 50110998,
+          "author": "serf",
+          "text": "I don't want weaponization of patents regardless of how much \"Think of the Children!\" and \"We must defend the public!\" is injected.\nwhite knight with a sword made of patent lawsuits doesn't exist in my world.\nIt was good of them to decide to stay away from producing the product they realized they didn't want to exist, they should have stopped there instead of villainizing themselves by self-deputizing."
+        }
+      ],
+      "title_ja": "窓が割られ恐ろしかった",
+      "summary_ja": "ディスカッションのハイライト：自転車を盗んだ人物を追跡することはストーカー行為であり、社会的に許容されるフォーム/MacRumors上のデバイスの写真（意図的にリリースを公表しなかった） ：\nhttps://macrumors.com/2026/10/13/elevation-lab-airtag-silenc.../当社は製品を削除し、今後他の人が製品を製造するのを防ぐために当社の特許を使用します。\n特許は、個人が創造できるように、それがどのように機能するかを文書化しているだけではありませんか",
+      "editor_note": "「窓が割られ恐ろしかった」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50099136,
+      "title_en": "Show HN: Flipflop – Iroh-powered persistent tunnels for filesharing",
+      "url": "https://github.com/andunieee/flipflop",
+      "hn_url": "https://news.ycombinator.com/item?id=50099136",
+      "score": 105,
+      "comment_count": 59,
+      "posted_at": "2026-10-15T04:25:28+00:00",
+      "comments": [
+        {
+          "id": 50109819,
+          "author": "dimfisch",
+          "text": "\"Because Microsoft hates the world, they will show a \"Windows protected your PC\" warning when you try.\nBecause Apple hates the world even more, I can't publish it for iOS.\"\nGold"
+        },
+        {
+          "id": 50100025,
+          "author": "synctext",
+          "text": "Interesting project, towards a decentralized Internet!\nThe heavy lifting is done in this function, pairing. You link your personal devices together, solid idea [0].\nThis Flipflop project relies on the Iroh library for NAT/Firewall puncturing, external address discovery and overlay networking. Connecting two 5G devices, without a coordinating central server is possible, but very hard. Iroh simply relies on a server which you could self-host. Cool stuff, we stress tested it a while ago and it somewhat worked.\nNAT connectivity is unsolved. My university lab conducted one of the bigger puncturing studies a decade ago [1]. Recently, we also bought 40+ or something 4G and 5G SIM cards in Europe for puncturing [2]. My master student traveled Europe by bus to get these local SIM cards. He worked day-and-night to connect these weird symmetric 5G NAT filter boxes and got it working. Simple sync collision and birthday paradox brute force... It all works sometimes, but insufficiently reliable for mass-adoption. You can't build a decentralized social media ecosystem on top. Like Iroh, best to use a central server. So then you have legal liability for your users. Unless an AI agent buys the serv"
+        },
+        {
+          "id": 50110746,
+          "author": "rickcarlino",
+          "text": "I wish someone would revisit the idea of a single, global, P2P file search mesh like Gnutella/Gnutella2 but using a modern P2P stack (or WebRTC) instead of raw TCP/UDP like the old days."
+        },
+        {
+          "id": 50110101,
+          "author": "smusamashah",
+          "text": "Loosely related list of browser based and CLI tools to send files p2p\nhttps://gist.github.com/SMUsamaShah/fd6e275e44009b72f64d0570..."
+        },
+        {
+          "id": 50100262,
+          "author": "YCombinedBob",
+          "text": "This actually looks good and uses the established Iroh.\nNice idea with the browser link to share with devices that dont have flipflop on the same LAN. This would be a killer if this would also work via internet!\nNot sure if Iroh can run in the browser though."
+        },
+        {
+          "id": 50099862,
+          "author": "cold_boot",
+          "text": "Keeping the tunnel available between sends is the nice part. Once it's set up with someone, you can just use it."
+        },
+        {
+          "id": 50110240,
+          "author": "combyn8tor",
+          "text": "How do you get 50 contributors on a project with 116 stars that's 3 months old? There are no PR's? Only one issue?"
+        },
+        {
+          "id": 50104692,
+          "author": "akavel",
+          "text": "Cool! I'll have to look deeper to see if I could use it as a base for porting\nhttps://github.com/akavel/catation\nto Rust+Iroh! (EDIT: related, do you maybe have plans to merge flipflop with\nhttps://github.com/andunieee/my-beloved-rubble\n?)\nMay I ask, was it vibed/LLM-assisted to some extent, or is it purely human-made?"
+        }
+      ],
+      "title_ja": "HNを表示：フリップフロップ–ファイル共有のためのIroh搭載永続的トンネル",
+      "summary_ja": "ディスカッションのハイライト：「Microsoftは世界を嫌っているため、試してみると「WindowsがPCを保護しました」という警告が表示されます。\nAppleは世界をさらに憎んでいるので、私はそれをiOS用に公開することはできません。」\nゴールド/分散型インターネットに向けた興味深いプロジェクト！\n重い作業はこの機能で行われ、ペアリング/Gnutella/Gnutella 2のような単一のグローバルなP 2 Pファイル検索メッシュのアイデアを再検討したいが、最新のP 2 Pスタック（またはW",
+      "editor_note": "「HNを表示：フリップフロップ–ファイル共有のためのIroh搭載永続的トンネル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 23,
+      "id": 50104654,
+      "title_en": "Simons Foundation launches $15M effort to help mathematicians navigate AI era",
+      "url": "https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/",
+      "hn_url": "https://news.ycombinator.com/item?id=50104654",
+      "score": 224,
+      "comment_count": 180,
+      "posted_at": "2026-10-15T14:58:48+00:00",
+      "comments": [
+        {
+          "id": 50105377,
+          "author": "muragekibicho",
+          "text": "I think a lot about how Terrence Tao and the usual 30 (already well-funded) math guys will receive this cash while us early-career math students are left holding the bag.\nIt's akin somewhat to \"donating 100 dollars to the node JS foundation, not the packages that appear when you run npm fund\"."
+        },
+        {
+          "id": 50104872,
+          "author": "simonw",
+          "text": "> Under a partnership, the Simons Foundation, Anthropic and OpenAI will commit $15 million in combined funding and resources. The foundation will manage and award the funding, including through an open call for proposals, to support workshops and initiatives that help researchers evaluate recent AI-assisted results, learn and use new tools, share perspectives and shape collective standards for AI use.\nThe foundation was started in 1994, Wikipedia says \"one of the largest charitable organizations in the United States with assets of over $5 billion in 2022\" - Jim Simons founded the Renaissance Technologies hedge fund."
+        },
+        {
+          "id": 50105680,
+          "author": "mrandish",
+          "text": "> > Under a partnership, the Simons Foundation, Anthropic and OpenAI will commit $15 million in combined funding and resources.\nOAI and Ant got blowback for essentially strip mining mathematical discoveries into PR wins for their models, accidentally laying waste to the research field in process. Throwing ~$5M each into PR whitewashing (partially in token credits), seems self-serving.\nKudos to the Simons Foundation for seizing the moment to offer the labs a fig leaf of respectability. Might have been the fastest \"Yes\" on a grant proposal ever."
+        },
+        {
+          "id": 50105763,
+          "author": "an0malous",
+          "text": "My effort to help scientists navigate the AI era:\nOn ChatGPT: Settings -> Data controls -> Turn off “Improve model for everyone”\nOn Claude: Settings -> Privacy -> Turn off “Help improve our AI models”\nThey can scrape your work after you publish it."
+        },
+        {
+          "id": 50106989,
+          "author": "efficient_dairy",
+          "text": "So they want mathematicians to keep prompting and giving feedback to the models for clarifications on their proofs. Then write it all up and publish it in a journal and mention their AI usage. Then suddenly the models end up producing readable and understandable proofs through the \"emergence\" of the skills because of the scaling laws."
+        },
+        {
+          "id": 50109414,
+          "author": "Trusteando",
+          "text": "In chats with models like deepseek the LLM makes many basic math wrong claims. Maybe more advanced models can in special circumstances, guided by the work of humans and Lean, prove theorems. But just like in RL, the brute force approach of failing a million times may not be enough when the reward is far.\nIn math the reward is finding the decomposition that reduces the problem to simpler cases, and in many cases that reward is very far. Furthermore, the LLM may process the many cases fast, but the decomposition often comes from a human, and the model takes the credit for the proof.\nThis foundation could provide the LLMs with the decompositions, generated by human ingenuity, that they need. But once supplied, the model can run the cases and get the credit. Hence more credits for LLMs and fewer jobs and worse prospects for humans, even if it isn't an intended consequence."
+        },
+        {
+          "id": 50109958,
+          "author": "defgeneric",
+          "text": "Nearly everyone rejected the idea of a CERN-like project for mathematics when it was recently proposed. It should have been more seriously considered.\nNow that things are settling a bit after the Navier-Stokes and theorem-dump shocks, something like what mathematics will look like post-AI is starting to emerge. Of course, things should be conditioned on the assumption that capabilities will continue to improve, but imagine something like this--\nAn institute with a tremendous amount of compute, either rented or owned, built on the Humboldtian model of the unity of teaching and research. The main draw for big names would be the access to compute, free of the fear of being scooped. New forms of attribution and collaboration would develop, and we'd gain some clarity for students and PhDs on what a future career looks like.\nThe current melange of math university departments all following their own paths through the crisis without consolidating resources makes the transition more difficult. Think of the path physics took beginning with scattered cyclotrons (the basement of the Niels Bohr institute was even dug out to put one in), then the larger labs that followed. That transition was gr"
+        },
+        {
+          "id": 50106978,
+          "author": "yuchtman",
+          "text": "This is the first time I hear of a group receiving founding to navigate AI era. Why this one and not all the others that have to adapt to the AI era?\n(Yes I know it's not the group directly receiving the founding)"
+        }
+      ],
+      "title_ja": "サイモンズ財団は、数学者がAI時代をナビゲートするのを助けるために1500万$の取り組みを開始します",
+      "summary_ja": "ディスカッションのハイライト：テレンス・タオと通常の30人（すでに十分な資金を提供されている）の数学者がこの現金をどのように受け取るかについて、私は多くのことを考えていますが、私たちの早期キャリアの数学生はそのままにしています。\nこれは類似しています/>パートナーシップの下で、サイモンズ財団、Anthropic、OpenAIは1500万$の資金とリソースを組み合わせてコミットします/>>パートナーシップの下で、サイモンズ財団、Anthropic、OpenAIは1500万$の資金と",
+      "editor_note": "「サイモンズ財団は、数学者がAI時代をナビゲートするのを助けるために1500万$の取り組みを開始します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 50070625,
+      "title_en": "Wanted to download an ISO, ended up writing a kernel exploit",
+      "url": "https://blog.dfb.sh/blog/eap770-root-for-two-zeros/",
+      "hn_url": "https://news.ycombinator.com/item?id=50070625",
+      "score": 344,
+      "comment_count": 169,
+      "posted_at": "2026-10-13T12:30:08+00:00",
+      "comments": [
+        {
+          "id": 50100679,
+          "author": "Shank",
+          "text": "> The connection was a bit janky, a video would occasionally start buffering, but it didn't bother me much.\nThis is truly bonkers! Please, if you buy hardware that does not work correctly from day 1, return it. If you do not vote with your wallet these companies will never learn and will never adjust their practices. Rewarding TP-Link by keeping their terrible hardware does nothing.\n> I contacted support in June because the website only had firmware for v2. They couldn't find v1 in their database and asked for photos of the device and box\n!!"
+        },
+        {
+          "id": 50105292,
+          "author": "jameshilliard",
+          "text": "The Q1000K ONT(which also has an optional router feature) used by a major US ISP[0] has some rather crazy driver bugs I used AI to root cause and even live patch[1] as a proof of concept to fix(I found some 6RD protocol corruption bugs as well). Getting root access was also trivial by simply feeding it a copy of the firmware binary. In this case the bug originated from the SoC vendor[2] which I reported to them and they seemed to confirm it(with hopefully fixes making it into new firmware updates). It's pretty crazy how good AI is at reverse engineering and root causing bugs in embedded systems these days. Even stuff like BROM dumps(which are usually heavily stripped) are easily analyzed and even live patched[3] by AI.\n[0]\nhttps://www.quantumfiber.com/\n[1]\nhttps://github.com/jameshilliard/q1000k-hsgmii-pad\n[2]\nhttps://www.airoha.com/\n[3]\nhttps://github.com/linux-sunxi/sunxi-tools/pull/234"
+        },
+        {
+          "id": 50101321,
+          "author": "cataflam",
+          "text": "Great write-up!\nNot surprised by the driver software quality issues. When I was still working in consumer electronics / embedded, I saw many examples of the internals of those devices. The software was often a hodgepodge of scripts and drivers, whatever seemed to work, from companies without a great software and details culture.\nWe would usually rewrite the drivers entirely from the datasheets or from reversing the vendor ones!"
+        },
+        {
+          "id": 50101172,
+          "author": "commandersaki",
+          "text": "Really happy with my Flint 3. I like that I can SSH to root and do whatever I want.\nBut what really shocked me is how amazing GL.Inet support is. I think they're probably the best support people I've come across, helping me track down an issue I've had for months with an Aqara doorbell that intermittently goes offline, suggesting configuration changes, even logging into my router (with my permission) to diagnose things. Don't have to register an account in any support system or forum either, can do everything over email. Complete opposite to pretty much every networking vendor I've encountered both low end and enterprise."
+        },
+        {
+          "id": 50100605,
+          "author": "circularfoyers",
+          "text": "> I have the Cyber Verification Program enabled on my account, which hasn't helped.\nThis is funny to read. Either you can be more \"verified\" than the other guy, or it's badly implemented."
+        },
+        {
+          "id": 50105899,
+          "author": "reflexe",
+          "text": "I worked on a very similar bug in the past, just with another ipq and another pcie card.\nIMO, The issue is that cache coherency is not very well specified, and usually defined at the SoC/platform level.\nMeaning, you could have the same arm core on 2 different SoCs, running the same driver with the same PCIe card and you will get corrupted data on the one where the PCIe controller‘s requests  do not snoop the cpu cache.\nAlso, note that for both rx/tx to work, you need to invalidate  on both sides:\nrx need to access the dram and not cache.\ntx need to verify that all was written to the dram before giving it to the hw."
+        },
+        {
+          "id": 50106094,
+          "author": "bobmcnamara",
+          "text": "I hope things are better now, but there used to be 1.5 poor choices:\n1) use uncached DMA buffers\n2) manage cache host CPU coherency by hand.\n3) hope you only ran on hardware cache coherent architectures\nAnd the kernel didn't give you everything you needed to do #2.\nJust reading a USB2 480p webcam on a raspberry pi burned half the CPU kernel memcpying pixels from uncached DMA rx buffer to cacheable buffer. At least the camera is a linear copy, but the USB packets are relatively small."
+        },
+        {
+          "id": 50101304,
+          "author": "InsidiousWombat",
+          "text": "Shopping for new router/AP should start with looking at OpenWRT, it's just a lottery relying on vendor hardware."
+        }
+      ],
+      "title_ja": "ISOをダウンロードしたかったが、カーネルエクスプロイトを書くことになった",
+      "summary_ja": "ディスカッションのハイライト：>接続が少し不安定で、ビデオがバッファリングを開始することもありましたが、あまり気になりませんでした。\nこれは本当に狂ってる！ 米国の大手ISP [0]が使用しているQ 1000 K ONT （オプションのルーター機能も備えています）には、根本的な原因としてAIを使用したり、ライブパッチ[1]を使用したりして、かなりクレイジーなドライバーバグがあります。\nドライバーのソフトウェアの品質に驚かない",
+      "editor_note": "「ISOをダウンロードしたかったが、カーネルエクスプロイトを書くことになった」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50105467,
+      "title_en": "Show HN: Proa – A Rust web framework with fast SSR and multi-target rendering",
+      "url": "https://proa.so/",
+      "hn_url": "https://news.ycombinator.com/item?id=50105467",
+      "score": 87,
+      "comment_count": 24,
+      "posted_at": "2026-10-15T15:52:08+00:00",
+      "comments": [
+        {
+          "id": 50111815,
+          "author": "jakswa",
+          "text": "I was recently scanning for newer, more-batteries-included options and this looks well-scoped at first bluff. Thanks for spreading it, might end up in my next experiment!"
+        },
+        {
+          "id": 50111425,
+          "author": "farmeroy",
+          "text": "This might be a silly question, but why 2 views for html and markdown? isn't there a broad base of cases where one can just be inferred from the other?\nAlso, I think it's exciting to see so many rust web frameworks popping up but I'm in total decision paralysis. If I want to build something with rust now there are at least 3 complete frameworks: loco, topcoat and now proa... plus actix, rocket, axum, and ...more?"
+        },
+        {
+          "id": 50110277,
+          "author": "trnvll",
+          "text": "Damn, projects like these really spark my curiosity about Rust. I guess it's time to try it out, fomo is getting too big haha"
+        },
+        {
+          "id": 50108004,
+          "author": "egeozcan",
+          "text": "Very cool idea, I'm going to test this!\nOne nit: Forgive me if I'm missing something but why do you have pro components? Won't people vibe-code clones anyway? I'd rather have a donate button these days."
+        },
+        {
+          "id": 50107227,
+          "author": "kianN",
+          "text": "This looks really cool! I’ve been really appreciating the revival of old-school server side rendering and foundational web components, but with modern tools or approaches."
+        },
+        {
+          "id": 50111544,
+          "author": "yieldcrv",
+          "text": "I would be mostly curious about CI/CD and build and deployment times on underpowered compute instances\nI could drop the react ecosystem given considerable improvement over it at the deployment part\nEspecially since years of experience with frameworks doesnt matter anymore and won’t matter with recruitment soon"
+        },
+        {
+          "id": 50107660,
+          "author": "airstrike",
+          "text": "Why does `fn render` need to borrow WebContext mutably?"
+        },
+        {
+          "id": 50111139,
+          "author": "contingencies",
+          "text": "So... Multi-target = {chat, web, markdown}; Audience = {human, bot}; USPs = {speed, unified model}\nSince I don't believe the maintenance challenges of a non-unified model are particularly high-friction in the LLM era (even if they may be error-prone, since that is usually solved with CI/CD or TDD), the nominal utility of this angle of architectural enhancement is considered dubious.\nWith regard to speed, there is no hardware shortage at present for any of these simple rendering tasks.\nOverall, a nice efficient codebase but suffering a bit from NIH syndrome solving no particularly acute problem. Unless a community forms rapidly, this will probably die.\nI'd like to see the benchmark compared to, eg. static files served with binserve."
+        }
+      ],
+      "title_ja": "Show HN: Proa –高速SSRとマルチターゲットレンダリングを備えたRust Webフレームワーク",
+      "summary_ja": "ディスカッションのハイライト：最近、バッテリーを含む新しいオプションをスキャンしていましたが、最初ははったりしているように見えます/これは愚かな質問かもしれませんが、htmlとマークダウンの2つのビューがあるのはなぜですか？どちらか一方から推測することができる広範なケースはありませんか？\nまた、私はそれがエキサイティングだと思います/くそ、これらのようなプロジェクトは本当にRustについての私の好奇心を刺激します",
+      "editor_note": "「Show HN: Proa –高速SSRとマルチターゲットレンダリングを備えたRust Webフレームワーク」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 26,
+      "id": 50103164,
+      "title_en": "C++26 Contracts: Introduction to Preconditions and Postconditions",
+      "url": "https://www.cppstories.com/2026/cpp26_contracts/",
+      "hn_url": "https://news.ycombinator.com/item?id=50103164",
+      "score": 124,
+      "comment_count": 112,
+      "posted_at": "2026-10-15T13:11:26+00:00",
+      "comments": [
+        {
+          "id": 50104290,
+          "author": "cogman10",
+          "text": "I don't like it.\nI'm all for signing up for a contract if it can turn a runtime error into a compile time error.  However, this looks like it just makes more runtime errors.  At that point, these seem no better than `assert` except for the fact that they promise to really assert (probably).\nThe article also points out a big problem which is \"Importantly, this aspect of Contracts is why contract assertions must not be used for error handling and input validation: If a function has in-contract requirements to report certain events as errors, that handling must be done with standard C++ control statements that are not optional, never with contract assertions.\"\nThat sort of muddy definition of what contracts are supposed to be used for is almost certainly going to make a mess.  It's not input validation, but parameter validation.. but not really validation but rather checks which error out, but it's not errors we are producing."
+        },
+        {
+          "id": 50108644,
+          "author": "WalterBright",
+          "text": "I used to be a big fan of contracts, and even implemented it in the Zortech C++ compiler back in the 90's:\nhttps://www.digitalmars.com/ctg/contract.html\nI implemented it in D as well. But, it just turned out to not be very useful."
+        },
+        {
+          "id": 50103875,
+          "author": "ZuLuuuuuu",
+          "text": "This reminds me the \"Design by Contract\" concept from Eiffel programming language:\nhttps://en.wikipedia.org/wiki/Design_by_contract\nhttps://www.eiffel.com/values/design-by-contract/introductio..."
+        },
+        {
+          "id": 50104578,
+          "author": "gavinray",
+          "text": "Random tidbit: I wrote a GCC compiler plugin years ago to add Contracts to C/C++ while waiting for this to make it into the standard\nhttps://gavinray97.github.io/blog/adding-invariant-to-cpp-de...\nThe post turned out to be more useful for an intro to writing GCC plugins than anything, but at least I had fun"
+        },
+        {
+          "id": 50109966,
+          "author": "throwaway2037",
+          "text": "Unless you are doing trivial boolean comparisons, I always prefer a custom assert function that will also print a useful error message.  Just telling me \"Assertion failed: index < container.size()\" isn't very helpful.  What were the values compared?\nInstead, my custom asset function (in C) looks like this:\n> void AssertWF(bool assertResult, char *format, ...)\nExample:\n> AssertF(index < container.size(), \"index:%d < container.size():%d\", index, container.size());\nIf the first parameter is false, a detailed error message is printed:\n> fputs(\"Assert failed: \", stderr);\n> vfwprintf(stderr, format, ...);\n> abort();"
+        },
+        {
+          "id": 50103835,
+          "author": "randyrand",
+          "text": "Maybe just me, but huge complicated languages like C++ seem as unappealing as ever.\nIf I’m going to write code by hand, the requirement for a beautiful pleasant language is bigger than ever."
+        },
+        {
+          "id": 50104624,
+          "author": "tsukikage",
+          "text": "The article makes no mention of optimisation use cases. In case anyone already knows off the top of their heads and before I start digging for the answer, is part of the intent here for these to inform the optimiser stages, perhaps similarly to what the if (!(some_condition)) { __builtin_unreachable(); } idiom can achieve?"
+        },
+        {
+          "id": 50103787,
+          "author": "bluGill",
+          "text": "I'm looking forward to seeing where these go in the future.  Can solvers prove my code correct (at least in some trivial cases)?  What should happen in a unit test (sometimes I want to test that my program handles out of range values, sometimes it is expensive top check and so I put the contract in to avoid the check at runtime...)  Can/should the optimizer account for contracts (same question as unit tests)."
+        }
+      ],
+      "title_ja": "C ++26コントラクト：前提条件と事後条件の概要",
+      "summary_ja": "ディスカッションのハイライト：好きではありません。\nランタイムエラーをコンパイルタイムエラーに変えることができれば、契約にサインアップすることに賛成です/私は以前は契約の大ファンであり、90年代にZortech C ++コンパイラで実装されていました。\nhttps://www.digitalmars.com/ctg/contract.html\nDで実装しました/これは、Eiffelプログラミング言語の「契約による設計」の概念を思い出させます。\nhttps://en.wikipedia.org/wiki/Design_by_contrac",
+      "editor_note": "「C ++26コントラクト：前提条件と事後条件の概要」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50103630,
+      "title_en": "I know why the mathematicians weep",
+      "url": "https://www.derekthompson.org/p/i-know-why-the-mathematicians-weep",
+      "hn_url": "https://news.ycombinator.com/item?id=50103630",
+      "score": 334,
+      "comment_count": 546,
+      "posted_at": "2026-10-15T13:44:32+00:00",
+      "comments": [
+        {
+          "id": 50106592,
+          "author": "atleastoptimal",
+          "text": "I think beyond the specific elements of any domain AI eclipses humans in, overall, the notion of the thing that grants you status, prestige, and a living wage being commodified would spark in anyone a profound sense of dread.\nBeyond just making you redundant in your job, the whole architecture of your existence, the thousands of hours of struggle, the sacrifice of putting off social games or personal enjoyment are now rendered moot in hindsight. You are made one step closer to complete worthlessness, which will surely continue as AI becomes a more satisfying personal companion, a more worthwhile friend, lover, etc.\nHow is one to feel safe in the progress of the future when the only hints of the wonderful post-scarcity utopia we can quantify so far is the removal of all human leverage via their labor? All it tells us is we will be bargaining with superintelligence with nothing to stand on, only a trust that the 5000 lab executives and researchers solved the most important research problem of all time on the first try."
+        },
+        {
+          "id": 50107888,
+          "author": "ozozozd",
+          "text": "I can kind of relate but I feel like I am mourning something different: the loss of the desire to seek truth in tech, math etc.\nNothing is validated or tested anymore. It’s all about\nthe shape\nor believability or even how loud it is.\nThey dropped 100+ papers no one read. I am sure mathematicians are reading them now but even this forum has concluded that these problems are solved, without reading or validating.\nIt’s like everyone forgot “don’t believe everything you read on the Internet.” And it makes for a very boring discussion when everyone is just spewing unvalidated claims, layering them with strong beliefs founded on similarly unvalidated claims. It’s dull, without substance and just pure noise."
+        },
+        {
+          "id": 50104109,
+          "author": "RGS1811",
+          "text": "This piece circles, without naming it, around the concept of “deontic scorekeeping” central to the work of Robert Brandom on semantics. The idea that our ability to create and sustain conceptual systems depends on the give and take of reasons within a social setting. Brandom has been front of mind for me lately because elements of his theory both explain why LLMs should work in principle, and where they are bound to be radically deficient. An LLM encodes the normative regularities of our linguistic/conceptual games into its weights, but it cannot be a real participant in our games because it is incapable of staking durable commitments or changing its dispositions over time.\nWorth reading: Robert Brandom, “Making It Explicit: Reasoning, Representing, and Discursive Commitment”"
+        },
+        {
+          "id": 50109382,
+          "author": "KaiserPro",
+          "text": "I think for me is, that history is not kind to the people who are left behind.\nFor example, weavers were one of the most powerful professions (if thats a thing) in the middle ages. In england there are the wool churches(not entirely weavers....), in the low countries, the weavers guild fomented revolutions, and shaped the borders of countries.\nBut that came to a crashing halt over the space of 200 years. slowly at first, then all at once. the power loom, then cheap imports from india turned a cottage industry into dark satanic mills. Yes there are/were specialists that still hang on, but they are like football stars you can probably name all the people who make money, the rest are barely scraping by.\nFor us, in the programming world, we will not have a 200 year grace period. Yes, AI produces shit code, but thats not the point. its cheaper and there are vanishingly small places were \"good\" code matters anymore. AI could be used to help a large range of people, provide support, trusted advice.\nHowever because of the people who are funding it, that will not be the case. it will be used to reduce wages. Just like offshoring, resulting in china being the worlds manufacturing hub, AI, an"
+        },
+        {
+          "id": 50104283,
+          "author": "randcraw",
+          "text": "I think Thompson has no understanding of endeavors like pure math or the theoretical sciences.  In the words of Einstein, \"I want to know how God created this world. I am not interested in this or that phenomenon, in the spectrum of this or that element. I want to know his thoughts; the rest [is] just details.\"\nI think mathematicians aren't bemoaning their lost sunk costs.  They're now aware that they may never again have the joy of being the first to pull up the edge of the tarp of ignorance and see the raw truth beneath _for the first time_.  Their voyages of discovery, which give life meaning, may never leave dry dock again."
+        },
+        {
+          "id": 50108207,
+          "author": "antics",
+          "text": "> “Google Translate is amazing, but it has taught us essentially nothing about linguistics,” Strogatz said. “We don’t understand why it works. It just works. That’s the Twilight Zone. It is knowledge without understanding.”\nThis is not true, and it is the crux of an enormous debate we're now having across many, many fields.\nClassical Chomskyan syntax (which models sentences as parse trees) has been enormously, astonishingly predictive of the rich structure in real-world human language. But we are quick to forget that we\ninvented\nconcepts like \"words\" and \"noun phrases\" specifically to help us analyze and predict things about human language. What LLMs and modern MT shows, definitively, is that there is another, totally separate way to describe these phenomena, which is both vastly less descriptive, and also\nvastly more predictive\n.\nThat these appear to trade-off is unfortunate, but it is NOT the case that we \"don't understand why it works.\" We absolutely understand why it works, if we didn't understand we would not be able to improve these systems. What we do not have is a clean, descriptive theory that boils this down to something that is formally specifiable and analyzable. But th"
+        },
+        {
+          "id": 50104034,
+          "author": "izzydata",
+          "text": "I still think mathematicians are going to be as important as ever. The LLMs are only finding what was technically possible given our current breadth of knowledge after brute force solving problems. Eventually it will run out of things that it can do with its training and the only way to get it to do more will be training it on new human found knowledge.\nFinding that new knowledge may be exponentially more difficult, but it will be much more valuable."
+        },
+        {
+          "id": 50104079,
+          "author": "flowerlad",
+          "text": "As a software engineer it is hard for me to feel sorry for these mathematicians. Software engineers are getting laid off because of advancements made by AI. Math researchers are employed at universities, and universities aren't laying off mathematicians now that OpenAI has solved some of their puzzles. Mathematicians can still feed their families, software engineers displaced by AI can't. Yet I see far more of these blogs about the plight of mathematicians, not enough about the plight of software engineers."
+        }
+      ],
+      "title_ja": "数学者が泣く理由はわかっている",
+      "summary_ja": "ディスカッションのハイライト：私は、AIがあらゆる領域の特定の要素を超えて、全体的に、あなたの地位、名声、および生活賃金が商品化されているということの概念が人間を凌駕していると思います。私は一種の関連性を持つことができますが、私は別のことを嘆いているように感じています。それは、テクノロジー、数学などで真実を求めたいという欲求の喪失です。\nもはや何も検証またはテストされていません/この作品は、名前を付けることなく、「道化学的スコア」の概念を中心に循環しています",
+      "editor_note": "「数学者が泣く理由はわかっている」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50085171,
+      "title_en": "Game of Life – But Multiplayer, Hypermedia and Python",
+      "url": "https://stario.dev/apps/life",
+      "hn_url": "https://news.ycombinator.com/item?id=50085171",
+      "score": 46,
+      "comment_count": 18,
+      "posted_at": "2026-10-14T10:13:39+00:00",
+      "comments": [
+        {
+          "id": 50111991,
+          "author": "jan_m_savage",
+          "text": "This is a great way to introduce new frameworks or tools (i.e. show what can be done with it).\nAnd by far the best GOL I've seen so far."
+        },
+        {
+          "id": 50110551,
+          "author": "hmartin",
+          "text": "Neat! I implemented something similar (real time playing along with GoL) for desktop:\nhttps://github.com/hbmartin/openrndr-game-of-life"
+        },
+        {
+          "id": 50107421,
+          "author": "io84",
+          "text": "Nice. The five-tile paint cursor is an excellent design choice, much easier than the single-tile default you get on apps like Golly etc.\nWhat’s the Hypermedia reference? On mobile your About button is unclickable."
+        },
+        {
+          "id": 50107425,
+          "author": "fisher-brett",
+          "text": "My browser froze up so fast when I visited your page. Had to restart my machine."
+        },
+        {
+          "id": 50107046,
+          "author": "TZubiri",
+          "text": "How crazy that I started working on something similar a week ago.\nQuestion, why does clicking on a single tile cause a cross on a 3x3 to be inputted? (results in that star thing that ends with 4 blinkers) Was this a conscious decision? Or just the result of a vibecoding"
+        }
+      ],
+      "title_ja": "Game of Life –マルチプレイヤー、ハイパーメディア、Python",
+      "summary_ja": "ディスカッションのハイライト：これは、新しいフレームワークやツール（すなわち/Neat ！ 私はデスクトップ用に同様のもの（ GoLと一緒にリアルタイム再生）を実装しました。\nhttps://github.com/hbmartin/openrndr-game-of-life/ニース",
+      "editor_note": "「Game of Life –マルチプレイヤー、ハイパーメディア、Python」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 29,
+      "id": 50104310,
+      "title_en": "Prompt injection in HTTP headers: what 217M web responses show",
+      "url": "https://www.signalscorps.com/blog/prompt-injection-in-http-headers/",
+      "hn_url": "https://news.ycombinator.com/item?id=50104310",
+      "score": 81,
+      "comment_count": 16,
+      "posted_at": "2026-10-15T14:36:22+00:00",
+      "comments": [
+        {
+          "id": 50104820,
+          "author": "simonw",
+          "text": "This article is\nway too long\n, and very sloppy.\nHere's the section with the prompt injection headers. They all look like jokes / non-serious attempts to me, bar the ones that included the Claude 4 era refusal triggering string.\nhttps://www.signalscorps.com/blog/prompt-injection-in-http-h..."
+        },
+        {
+          "id": 50105347,
+          "author": "crisnoble",
+          "text": "This article goes through great lengths to basically say your agent should probably not obey headers saying random things. However, it is apparently it is very easy for servers to detect agents, therefore would be trivial to serve them different content in the res.text() than to a human user. This doesn't even need to be adversarial, it makes sense to send back a stripped down version to agents for both the server and the agent ingesting the data, but becomes a problem for anyone who wants to show different content to the agents."
+        },
+        {
+          "id": 50105330,
+          "author": "tcdent",
+          "text": "Traditionally, computing and especially the web has used structured formats to designate placement of how information is interpreted, and even the level of trust which is given to it. But as we see with things like HTTP headers in this article, when an LLM interprets content, it's all just text."
+        },
+        {
+          "id": 50104841,
+          "author": "chrisgarand",
+          "text": "The drop table header seems like a prank to me. You would need to have sql that is vulnerable to injection. If you're using an llm, and have sql that is vulnerable to inject... what am I running an llm for."
+        },
+        {
+          "id": 50108711,
+          "author": "k__",
+          "text": "Just yasterday I saw marketing material for LLMs in some websites I crawled.\nSomething about stop the slop with our new MCP or something."
+        }
+      ],
+      "title_ja": "HTTPヘッダーへのプロンプトインジェクション： 217 MのWebレスポンスが示すもの",
+      "summary_ja": "ディスカッションのハイライト：この記事は\n長すぎる\n、そして非常にずさんです。\nここにプロンプトインジェクションヘッダーのセクションがあります/この記事では、基本的にエージェントがランダムなことを言うヘッダーに従うべきではないと述べています/従来、コンピューティング、特にウェブでは、構造化された形式を使用して情報がどのように解釈されるか、さらにはどの程度の信頼が与えられているかを指定しています",
+      "editor_note": "「HTTPヘッダーへのプロンプトインジェクション： 217 MのWebレスポンスが示すもの」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50093568,
+      "title_en": "Things to know when you get cancer",
+      "url": "https://jjmaxwell4.com/writing/things-to-know-when-you-get-cancer/",
+      "hn_url": "https://news.ycombinator.com/item?id=50093568",
+      "score": 1853,
+      "comment_count": 442,
+      "posted_at": "2026-10-14T19:26:30+00:00",
+      "comments": [
+        {
+          "id": 50094930,
+          "author": "stochastician",
+          "text": "The second opinion advice is great, and what I tell everyone I know who gets cancer.\nMy mom was diagnosed with stage 1 cancer in 2006 in Idaho. I was a PhD student at MIT at the time and a friend in lab helped me get an appointment at Dana-Farber. I thought it was probably overkill (it was a common cancer) but we did it anyway. They said everything in Idaho was standard of care but suggested one extra test, which Idaho team then reluctantly did, which revealed distant metastasis (stage 4! ), dramatically changing her treatment trajectory. She lived another 15 years (I miss you Mom).\nAsking for a second opinion sucks. A lot of us are preconditioned from birth to trust our clinicians. But you're going on a journey and your life (or the life of your loved one) is on the line. Insurance often covers it. Your doctor will NOT be offended.\nThink of it this way : if you were deploying code to the mars rover, and your colleague asked to do a code review before you pushed go, would you be offended? This is even more important than that."
+        },
+        {
+          "id": 50094860,
+          "author": "exhilaration",
+          "text": "My suggestion is that if you're within a 2-3 hour drive of major cancer centers - just use the US News list\nhttps://health.usnews.com/best-hospitals/rankings/cancer\n- go there instead of your local community hospital.  The top cancer hospitals in the world accept your health insurance (probably), so why not go there?  Use your vacations days, book hotels if you have to - this is the time to go all out.\nMy experience: I was horribly sick for 10 months, none of my local doctors could figure it out, then I drove to Penn Medicine in Philadelphia and they did the right labwork in the first visit.  These top centers just have different mindset than your community hospitals."
+        },
+        {
+          "id": 50099106,
+          "author": "keithwarren",
+          "text": "My wife was diagnosed in February with stage 4 invasive lobular breast cancer, peritoneal carcinomatosis with complete bowel obstruction. Surgeons gave her a couple weeks to live.\nWe went through enhertu which worked for about 3.5 months and relieved the blockage and she was able to eat again and get off IV nutrition. It obstructed again and her markers rose sharply in the summer, we did a course of taxol and are moving to trodelvy next week.\nAll of this has been entirely predictable, standard of care patterns.\nBut the standard of care for my wifes disease right now is a march toward death and I refuse to accept that.\nI spend my every evening talking to every LLM, practically bargaining and begging for one of them to give me a thread of hope.\nI appreciate this service and we will check it out. We are desperate to find something, I recognize ILC is tricky and complete obstruction is usually a death sentence, but we have to try right? She is 49, we have 4 kids.\nAnyone out there, any ideas...any longshot, we will do anything."
+        },
+        {
+          "id": 50095684,
+          "author": "alexpotato",
+          "text": "Had a family member recently go through unexpected major surgery.\nOne thing I would mention:\nYou are not dealing with a monolithic entity with regards to a hospital.\nThere are really multiple groups with oftentimes competing interests e.g.\n- case manager wants you out and home b/c that is the best \"score\" for the hospital. They also DO NOT want you to qualify for Medicare if you are a senior b/c, again, \"score\" gets dinged if Medicare gets involved\n- surgeons want you out as they don't want you to pick up hospital infection. They want you to go to a rehab facility as that will more likely lead to a good outcome\n- the hospitalist wants you to be stable in the short term so will pump you with whatever medications are necessary to get you \"back to normal\" without addressing any root cause\n- the nurses generally care about you as a person as they deal with you the most but oftentimes have the least amount of say over your case\n- in one of those perverse incentives/unintended consequences: if you do TOO well on a physical ability test, that might disqualify you from certain coverage even if you are below the threshold on other ability tests. That can have gigantic insurance implications"
+        },
+        {
+          "id": 50098728,
+          "author": "not_a_bot_4sho",
+          "text": "I have colon cancer. It's been a hell of a journey and my outlook is... not great. To me, this list seems practical but not profound.\nIt doesn't prepare you for all real stuff: you need to get ready to die. You need a plan for your trust, your estate, your funeral, and how your family will deal after.\nYou should have these plans in place before cancer because you could get hit by a bus. (I didn't because I'm stupid but maybe learned a few things the hard way.)"
+        },
+        {
+          "id": 50102634,
+          "author": "sparklingmango",
+          "text": "As a caretaker to my husband who had cancer and is now in remission, here are some caretaker tips:\n- Take it one day at a time\n- Schedule time for yourself fairly often to do things you like that are away from treatment and away from your home\n- Prioritize sleep!\n- Set up a meal train so at least some meals are taken care of. We prioritized chemo weeks for our meal train\n- Make a countdown to important milestones. It's okay to wish this time in your life away\n- You will feel lonely. Have some friends you know you can call\n- Find a cancer caregiver support group. Other cancer caregivers \"get it\" better than others\n- Celebrate the milestones, all the time, forever"
+        },
+        {
+          "id": 50094836,
+          "author": "baggachipz",
+          "text": "The first point is by far the most important. The US healthcare system (and probably others) is an unfeeling machine and you have to treat it that way. Ask for earlier appointments, cancellations, and referrals to other specialists. Navigate it as if nobody knows (or cares) what you're up to. Doctors tend to only exist within their silo and it's often on\nyou\nto request a different type of doctor or even another one of the same type. Be a pain in the ass, your survival may depend on it.\nPersonal story: I was having trouble using my left arm. Like, couldn't lift or type or do much of anything with it. Was told it was a pinched nerve by physiatrists and orthopedists, despite having no pain. Only when I specifically requested for a referral to a second neurologist did he order the head MRI which exposed a brain tumor in my motor cortex. We were able to move quickly and get me on a treatment plan which has bought me a lot of time. Had I not advocated for myself, it would have probably mutated into a much worse type and killed me soon."
+        },
+        {
+          "id": 50099789,
+          "author": "INTPenis",
+          "text": "Really interesting reading this, because I went through my partner having cancer a decade ago, in a nordic european country, and the experience is very different.\nThey rolled out the red carpet for us, they gave us everything, we essentially had a direct line into the oncology ward. They also gave us all the meds we needed. At one point we wanted to go to SE Asia and they gave us twice the meds we needed for an entire month so we could mail one half, and take the other half with us, with doctor's notes, as redundancy!\nAnd no we didn't pay a dime for any of it.\nBut if you don't have cancer, then I agree with the first statement of the blog, you really have to act as your own project manager when it comes to health care."
+        }
+      ],
+      "title_ja": "がんになったときに知っておくべきこと",
+      "summary_ja": "ディスカッションのハイライト：セカンドオピニオンのアドバイスは素晴らしいものであり、私が癌になる人を知っているすべての人に伝えています。\n私の母は2006年にアイダホ州でステージ1のがんと診断されました/私の提案は、主要ながんセンターから車で2〜3時間以内の場合は、US Newsのリストを使用することです\nhttps://health.usnews.com/best-hospitals/rankings/cancer\n-そこに行くinst/私の妻は2月にステージ4の浸潤性小葉性乳がん、腹膜がんと診断されました",
+      "editor_note": "「がんになったときに知っておくべきこと」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "07",
+    "started_at": "2026-10-16T09:04:48.226233+09:00",
+    "finished_at": "2026-10-16T09:06:04.567321+09:00",
+    "story_count": 30
+  }
+}
