@@ -1,0 +1,1464 @@
+{
+  "date": "2026-10-20T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50159616,
+      "title_en": "France's Supermarket Fridges Were Vulnerable Online for Months",
+      "url": "https://ipinfo.io/blog/france-fridges-hack",
+      "hn_url": "https://news.ycombinator.com/item?id=50159616",
+      "score": 28,
+      "comment_count": 18,
+      "posted_at": "2026-10-20T00:00:49+00:00",
+      "comments": [
+        {
+          "id": 50159821,
+          "author": "Confiks",
+          "text": "So the author charitably calls the 2025 vulnerability a \"login bypass\", but it's much worse than that. The firmware included a \"datetime-based password\" mechanism: a built-in backdoor password, like it's the 90s again.\nThe original researcher published about this in August of this year [1], a year after reporting it, titling the report \"Defrost the Food\", which the attackers apparently took to be a good suggestion.\nAs the firmware is open for anyone to download [2], blurring the affected function seems more like an invitation to find out more. I know I was curious when the news about the fridges in France broke. The function's actually called \"check_code_of_the_day\", and this is the implementation:\nuchar check_code_of_the_day(LPCTSTR pass) {\nuchar uVar1;\nLPCTSTR pass_local;\nDATE_STRUCT date;\nINT32 tothex;\nINT32 hex;\nUTF8_STR buff;\nGet_syst_current_tds(&date);\nftext_s(buff,0x1ff,\"%02d%02d%02d%02d\",date.month,date.day,date.year,date.month);\nsscanf(buff,\"%lx\",&tothex);\nftext_s(buff,0x1ff,,date.day);\nsscanf(buff,\"%lx\",&hex);\ntothex = __aeabi_idiv(tothex,hex);\nftext_s(buff,0x1ff,\"%05ld\",tothex % 100000);\nif ((((*pass == buff[0]) && (pass[1] == buff[1])) && (pass[2] == buff[2])) &&\n((pas"
+        },
+        {
+          "id": 50159783,
+          "author": "SOLAR_FIELDS",
+          "text": "Through my work I deal with grocery software and I can tell you that grocery software is ages behind the times. For most small retailers (small being a business owner with less than 10 stores in their retail chain, mostly local grocers) you are dealing with processes that would have been considered antique for the year 2000"
+        },
+        {
+          "id": 50159825,
+          "author": "xp84",
+          "text": "Sadly, I guess they won't have to worry about patching this issue now that everything's been looted and burned down."
+        },
+        {
+          "id": 50159791,
+          "author": "Thaxll",
+          "text": "No one at Danfoss got alerts than sudently hundred of fridges entered defrost mode? Reminds me of those computer you see at stores running weird ms-dos software."
+        },
+        {
+          "id": 50159951,
+          "author": "gz5",
+          "text": "fridges are very reliable. but let's IoT them anyways so they can theoretically notify us if there is a problem.\nso of course that creates/enables the problem\nand\ndoesn't notify us.\ndeliciously ironic and rottingly sad.\nthis case was egregious - built-in backdoor pw - but that is downstream of the decisions to IoT them and to default them to listen on the network."
+        },
+        {
+          "id": 50159835,
+          "author": "achillean",
+          "text": "From 2017 through 2022 there was a large increase in the number of exposed refrigerators:\nhttps://trends.shodan.io/search?query=http.favicon.hash:-853...\nOver the past few years it has fluctuated but not the same continued growth as before. If you don't have a Shodan account you can see a chart on twitter:\nhttps://x.com/shodanhq/status/2110526116679021055"
+        },
+        {
+          "id": 50159971,
+          "author": "NordStreamYacht",
+          "text": "Backdoors on French fridges? I think they have a bigger problem right now with their front doors."
+        },
+        {
+          "id": 50159918,
+          "author": "drillsteps5",
+          "text": "To be fair, their entire threat model was likely \"who TF would want to break in to change the settings on a thermostat on a fridge at a grocery store\".\nA valid question which has yet to be answered (at least not publicly)."
+        }
+      ],
+      "title_ja": "フランスのスーパーマーケットの冷蔵庫が数ヶ月間オンラインで脆弱だった",
+      "summary_ja": "ディスカッションのハイライト：筆者は慈悲深く2025年の脆弱性を「ログインバイパス」と呼んでいますが、それよりもはるかに悪いです/私の仕事を通して私は食料品ソフトウェアを扱っており、食料品ソフトウェアは時代遅れであることを伝えることができます/悲しいことに、すべてが略奪されて焼失したので、この問題のパッチを適用することを心配する必要はないと思います。",
+      "editor_note": "「フランスのスーパーマーケットの冷蔵庫が数ヶ月間オンラインで脆弱だった」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 2,
+      "id": 50154540,
+      "title_en": "MiniMax M3.1 Flash",
+      "url": "https://www.minimax.io/blog/minimax-m31f",
+      "hn_url": "https://news.ycombinator.com/item?id=50154540",
+      "score": 371,
+      "comment_count": 161,
+      "posted_at": "2026-10-19T16:39:09+00:00",
+      "comments": [
+        {
+          "id": 50157109,
+          "author": "DCKing",
+          "text": "This model seems to be pretty benchmaxed. In actual use, it doesn't survive the comparison to models in the benchmark.\nThis model was released as a \"stealth model\" in OpenCode Go for a while as \"Space Bunny\" (they mention this in the blog). So people have been using without knowing what the model was exactly, but it failed to impress anyone as far as I can tell. This is despite the model being served for free (with some asterisks). GLM 5.3 Flash and DeepSeek V4.1 Flash, even before last week's update, seemed to be much preferred. Stealth releases happen often with OpenCode subscriptions, and GLM 5.3 Flash (stealth name \"Ox Alpha\") impressed a lot for example.\nThe perverse incentives around benchmarks are now so bad that benchmark scores are effectively meaningless. Models can score highly and still be crap to use. It doesn't matter whether it's Minimax or Google, or anyone really."
+        },
+        {
+          "id": 50159118,
+          "author": "Perenti",
+          "text": "I'm finding these LLM announcements to be pretty meaningless.  They all look the same, with different numbers and graphs, even though the graphs are almost all identical.  The offered model is compared with models that it can beat, with a couple of entries that \"show\" they haven't engineered the whole benchmark presentation to mislead.\nI've become incredibly skeptical of new model announcements until I can find evidence of someone else using it for something effective.   I'd love to see an announcement that wasn't structured around attracting investors with too much money and too little domain knowledge."
+        },
+        {
+          "id": 50159924,
+          "author": "TheArcane",
+          "text": "Doesn't hold a handle to Deepseek v4.1 Flash\nI have both platform.deepseek.com (hooray off-peak pricing) and the $100/m Claude subscription and boy do I find myself mostly using DS-flash pretty much every time.\nThere's something to be said for the speed with which it gets word done - I take fewer \"it's compiling\" breaks, and lose my train of thought less frequently. What's crazy is that the speedy work it does is pretty much always correct - which is a reason why I don't feel the need to spin up claude-code and \"ask the expert\".\nThis speed & good-work combo is the DS signature IMO"
+        },
+        {
+          "id": 50156105,
+          "author": "syntaxing",
+          "text": "The cost vs performance is insane for all these new models. I’ve been using Deepseek Flash 1017 and it does whole projects and asks for $0.10 on US provider with ZDR on Openrouter. I convinced a few friends to drop their Claude $20 subscription because DS Flash 1017 brings so much better value. They can still use Opus 5.5 for planning though each call will cost north of $2. Excited to try this model out too once there are US providers."
+        },
+        {
+          "id": 50159928,
+          "author": "mlmonkey",
+          "text": "What makes a \"flash model\" a flash model? Sorry for the ignorance!"
+        },
+        {
+          "id": 50156659,
+          "author": "mawadev",
+          "text": "I go off of marketing obviously, but how is every new announcement of any vendor always on top of all others and then cheaper, while next day the next best and even cheaper model pops up? Is there anyone who independently verifies this? Its kind of pointless to comment on this announcement, much like how its pointless to comment on all the other announcements..."
+        },
+        {
+          "id": 50156178,
+          "author": "minimaxir",
+          "text": "> For agentic tasks, the model’s overall usage cost is 70% lower than its predecessor.\nFor this release, the cost is $0.15 input MToK/$0.60 output MTok/$0.015 cache read MTok, In this case the predecessor is MiniMax M3 (not Flash), which was $0.30 input MToK/$1.20 output MTok/$0.06 cache read MTok. So a 50% cut to input costs and a 50% proportional cut to cache read costs (20% of input -> 10% of input) makes the ~70% cost reduction plausible.\nA 70% cost reduction is very funny in light of reports saying LLMs are becoming too expensive. That is likely due to the need to compete with DeepSeek V4.1 ($0.15 input MToK/$0.60 output MTok/$0.003 cache read MTok), which this new model still does not beat because DeepSeek's cache costs are still confusingly low, but it's pretty close."
+        },
+        {
+          "id": 50155686,
+          "author": "terhechte",
+          "text": "The weights have yet to be released. The previous MiniMax M3 had (I think) ~428B parameters. Since this one is called Flash and they advertise it as inference being 3 times faster, there's the possibility that this will be a ~150B size model which would (quantized) run on DGX Spark or 128GB Macs or the new AMD AI systems."
+        }
+      ],
+      "title_ja": "MiniMax M3.1フラッシュ",
+      "summary_ja": "ディスカッションのハイライト：このモデルはかなりベンチマックスされているようです/これらのLLMの発表はかなり意味がないと感じています/Deepseek v4.1 Flashに対応していません\n私はplatform.deepseek.com （最高のオフピーク価格）と$ 100/mのクロードサブスクリプションの両方を持っていますが、私は主にDSを使用しています",
+      "editor_note": "「MiniMax M3.1フラッシュ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50150089,
+      "title_en": "I built a drone with only one motor [video]",
+      "url": "https://www.youtube.com/watch?v=Ndftcft6XhU",
+      "hn_url": "https://news.ycombinator.com/item?id=50150089",
+      "score": 369,
+      "comment_count": 77,
+      "posted_at": "2026-10-19T09:05:07+00:00",
+      "comments": [
+        {
+          "id": 50159677,
+          "author": "mrandish",
+          "text": "Just want to mention that hobbyists into fixed wing RC aerobatics have been doing crazy stuff with variable pitch propellers (VPP) for several years. RC motors with integrated variable pitch propellers exist in small sizes, so no need to DIY the propeller for that application. Here's an example of the 4D aerobatics they enable:\nhttps://www.youtube.com/watch?v=j5EsvZNvVRs\n.\nThis is similar to but different than what the creator of the one motor drone is doing since he's spinning at higher RPM with the pitch varying  under CPU control\nmuch\nfaster than fixed wing aerobatic pilots who are controlling everything manually with insane skill. I assume the one motor drone guy already knows fixed wing RC VPP exist, just mentioning for others who might not."
+        },
+        {
+          "id": 50156691,
+          "author": "TGower",
+          "text": "Underactuated robotics are so cool. In the hobby BattleBots community, there is a design where the whole robot only has a single motor, but it's able to move in any direction and damage the opponent, all just by controlling the single motor's speed.\nMost robots have at least three motors, two drive sides and a weapon motor. The trick to getting away with one is integrating an impactor into the chassis of your bot, using the single wheel to spin up to ~3k RPM, then by tracking the rotation angle of the bot as it spins, you speed up a little while the wheel is pointing where you want to go, and slow it down a little when it's pointing the other direction."
+        },
+        {
+          "id": 50157548,
+          "author": "nadermx",
+          "text": "This is well worth the entire watch.  It feels like what would any hacker do in trying to figure out how to make something they want to exist.  Also very well presented and good pace.\nInspires me to try and start doing some robotics."
+        },
+        {
+          "id": 50159760,
+          "author": "jacquesm",
+          "text": "Very cool. I\nalso\nbuilt a drone with only one motor and only one rotor, it took about three months and I learned more about drone firmware than I ever wanted to. I can't fly it but one of my sons is an absolute genius with this kind of thing and he can make it do tricks.\nThis kind of project is extremely rewarding. What's interesting here is how many things we did different. I used four servos and vanes in the airstream so that the whole thing would be mechanically as simple as possible, which makes this solution even more impressive to me (though I think mine is a lot more stable in flight judging by the video).\nI think I went through 10 prototypes before the first one actually flew and #13 flies very well."
+        },
+        {
+          "id": 50157954,
+          "author": "_joel",
+          "text": "This is from the same guy (Joshua Bird) that built the 4 axis 3d printer (and special algo for it too)\nhttps://www.youtube.com/watch?v=VEgwnhLHy3g"
+        },
+        {
+          "id": 50150780,
+          "author": "leoedin",
+          "text": "A really neat concept. It uses a special hinge design, a magnetic encoder and torque modulation to control the lift of the rotor as it spins. Completely negates the need for a conventional helicopter's swash plate.\nThe single motor does have the pretty major downside that it spins the moment it's in the air. I suspect a 2 motor drone with a tail motor would be a lot more practical. But I really like how mechanically simple the rotor hinge design is - it pushes all the complexity into the control algorithm."
+        },
+        {
+          "id": 50157445,
+          "author": "sastra",
+          "text": "The Picocolissimo also uses only one motor:\nhttps://www.youtube.com/watch?v=UE47bcCxT_I"
+        },
+        {
+          "id": 50157318,
+          "author": "jcims",
+          "text": "Side note, I used those same moteus controllers for a decidedly less energetic use case (two axis gimbal for RF satellite tracking) and found them to be super high quality and the lead developer always super helpful.  Been a few years but def worth a look if you want to get into motor control."
+        }
+      ],
+      "title_ja": "モーターが1つしかないドローンを作りました[ビデオ]",
+      "summary_ja": "ディスカッションのハイライト：固定翼RCエアロバットへの愛好家が数年前から可変ピッチプロペラ（ VPP ）でクレイジーなことをしていることに言及したいだけです/ロボット工学は非常にクールです/これは時計全体の価値があります",
+      "editor_note": "「モーターが1つしかないドローンを作りました[ビデオ]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50152307,
+      "title_en": "Wine ported to OpenBSD",
+      "url": "https://marc.info/?l=openbsd-ports&m=179236125692175",
+      "hn_url": "https://news.ycombinator.com/item?id=50152307",
+      "score": 490,
+      "comment_count": 163,
+      "posted_at": "2026-10-19T13:35:34+00:00",
+      "comments": [
+        {
+          "id": 50153377,
+          "author": "haunter",
+          "text": "Gameplay videos\nDisco Elysium\nhttps://video.gamerstavern.online/w/qYjXr8dBauynzvEquJ7cP4\nHollow Knight\nhttps://video.gamerstavern.online/w/8tjjFRDtGJQZwxfE4ojVoC\nPrey 2017\nhttps://video.gamerstavern.online/w/vNxVThRcpijbT9FAQPcKdz\nDeath Stranding\nhttps://video.gamerstavern.online/w/rzz2TLCxcmneHsydukAFLU\nWitcher 3 Remastered\nhttps://video.gamerstavern.online/w/oZcTRKL5JMiU4M4FqGKcNH\nAccording to the reddit post:\nAMD Ryzen 9 9900X, 16GB RAM, AMD Radeon RX 9070"
+        },
+        {
+          "id": 50153536,
+          "author": "t-3",
+          "text": "https://marc.info/?l=openbsd-ports&m=179241414029592\n> I doubt much will be merged upstream. Many updates we have can technically\nrun on other OSes (%gs stubs won't be built on Linux because %gs is correctly set, SIGUSR1 will work but less optimally, etc). However I picked an approach where everything that is done for OpenBSD is just marked as OpenBSD only. I did that purely to simplify my life while I was working on it and clearly mark the changes.\n> When I was talking to Wine maintainers a month ago, they were hesitant to accept even patching Wine so it compiles for OpenBSD, mostly because it's another OS they will have to support and keep operational, while the %gs stub fix is something they definitely cannot take upstream. They are very hesitant to take anything that is changing the \"emulated\" application code."
+        },
+        {
+          "id": 50153292,
+          "author": "RunSet",
+          "text": "Especially welcome news now that OpenBSD is shaping up to be a refuge from slopcode.\nhttps://marc.info/?l=openbsd-tech&m=177411620801633&w=2"
+        },
+        {
+          "id": 50153821,
+          "author": "ataraxia937",
+          "text": "I find it amusing and appropriate that the surname of the author of that message is Frohwein. \"Happy wine\" in German."
+        },
+        {
+          "id": 50155658,
+          "author": "Xunie",
+          "text": "2026 is finally the year of the BSD gaming desktop!"
+        },
+        {
+          "id": 50153525,
+          "author": "brynet",
+          "text": "I OK'd this port. I apologize in advance."
+        },
+        {
+          "id": 50153992,
+          "author": "simonw",
+          "text": "OpenBSD apparently still uses CVS. I found this GitHub mirror of their ports repo which has the new wine port:\nhttps://github.com/openbsd/ports/tree/master/emulators/wine\nThat has a static import from 13 hours ago. Anyone know if this wine port has its own repository somewhere else tracking the history of the development effort?"
+        },
+        {
+          "id": 50157540,
+          "author": "StarlaAtNight",
+          "text": "I wish every post like this had an intro section that said:\n“what is {insert obscure tech thing}”\n“why do people typically use {insert obscure tech thing}”"
+        }
+      ],
+      "title_ja": "OpenBSDに移植されたワイン",
+      "summary_ja": "ディスカッションハイライト：ゲームプレイビデオ\nディスコ・エリジウム\nhttps://video.gamerstavern.online/w/qYjXr8dBauynzvEquJ7cP4\nホローナイト\nhttps://video.gamerstavern.online/w/8tjjFRDtGJQZwxfE4ojVoC\n獲物2017\nhttps :/// https://marc.info/?l=openbsd-ports&m=179241414029592\n>多くのことがアップストリームに統合されるとは思いません/OpenBSDがslopcodeからの避難所になるようになった今、特に歓迎すべきニュースです。\nhttps://marc.info/?l=openbsd-tech&m=177411620801633&w=2",
+      "editor_note": "「OpenBSDに移植されたワイン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50158138,
+      "title_en": "OpenBSD 8.0 release will have inteldrm/radeondrm/amdgpu drivers from Linux 6.18",
+      "url": "https://bsd.network/@brynet/117407035545900963",
+      "hn_url": "https://news.ycombinator.com/item?id=50158138",
+      "score": 75,
+      "comment_count": 10,
+      "posted_at": "2026-10-19T21:11:45+00:00",
+      "comments": [
+        {
+          "id": 50158876,
+          "author": "brynet",
+          "text": "OpenBSD 7.9 was already on the 6.18.y longterm support version for the drm(4) drivers, Jonathan Gray (jsg@) completed the update back in March, sponsored by the OpenBSD Foundation.\nhttps://marc.info/?l=openbsd-cvs&m=177310343311915&w=2\nI just wanted to highlight Jonathan's continued efforts backporting updates in my usual \"HYPE\" post series for the upcoming OpenBSD 8.0 release.\n(I'm the author of the mastodon post that was shared.)"
+        },
+        {
+          "id": 50158957,
+          "author": "alberth",
+          "text": "Note that OpenBSD is on 7.9 now and all releases are possible breaking changes.\nThey release every six month and increment by 0.1. And after 0.9 they rollover to the next whole number.\nSo don’t think of version “8.0” as a major release per se, since OpenBSD is a fixed schedule release - not a Major.Minor release."
+        },
+        {
+          "id": 50158141,
+          "author": "doener",
+          "text": "Via\nhttps://news.ycombinator.com/item?id=50154649"
+        },
+        {
+          "id": 50158758,
+          "author": "oblio",
+          "text": "There are parts of me that don't want to say this but will LLMs actually help Linux and smaller OSes by accelerating reverse engineering hardware that doesn't have open/good enough specs? Will we reach a point where hibernate works reliably on Linux? Weird hardware can be used well by FreeBSD?"
+        }
+      ],
+      "title_ja": "OpenBSD 8.0リリースには、Linux 6.18からのinteldrm/radeondrm/amdgpuドライバが搭載されます",
+      "summary_ja": "ディスカッションのハイライト： OpenBSD 7.9はすでにdrm （ 4 ）ドライバの6.18.y長期サポートバージョンにあり、Jonathan Gray （ jsg @）はOpenBSD Foundationの後援で3月にアップデートを完了しました。 /OpenBSDは現在7.9になっており、すべてのリリースは重大な変更の可能性があることに注意してください。\n6か月ごとにリリースされ、0.1/経由で増加します\nhttps://news.ycombinator.com/item?id=50154649",
+      "editor_note": "「OpenBSD 8.0リリースには、Linux 6.18からのinteldrm/radeondrm/amdgpuドライバが搭載されます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 6,
+      "id": 50157865,
+      "title_en": "One Hash Bloom Filters",
+      "url": "https://calabro.io/ohbf",
+      "hn_url": "https://news.ycombinator.com/item?id=50157865",
+      "score": 42,
+      "comment_count": 2,
+      "posted_at": "2026-10-19T20:50:08+00:00",
+      "comments": [
+        {
+          "id": 50159456,
+          "author": "gwittel",
+          "text": "I hadn’t seen that one hash paper before.  This is a really cool optimization over Miztenmacher.  Do you have benchmark numbers with different input sizes you can share?\nI’ll have to read the paper and code more, but it seems like this would be amenable to supporting filter merges as well (as long as the new size doesn’t exceed the filters’ capacity)."
+        },
+        {
+          "id": 50159640,
+          "author": "FreakLegion",
+          "text": "NB: You're trading non-negligible space efficiency here, which gets worse as you lower the false positive rate. Partitioning means uneven occupancy rates across partitions, and either you accept low occupancy (increased filter size overall) or you're pretty much guaranteed to have hot blocks (increased false positive rate for specific partitions)."
+        }
+      ],
+      "title_ja": "ワンハッシュブルームフィルター",
+      "summary_ja": "ディスカッションのハイライト：以前に1枚のハッシュペーパーを見たことがありませんでした/注：あなたはここで無視できないスペース効率を取引しています。これは誤検知率を下げるにつれて悪化します",
+      "editor_note": "「ワンハッシュブルームフィルター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50136126,
+      "title_en": "RuneScape Bench: MMOs for Agents [video]",
+      "url": "https://www.youtube.com/watch?v=cNm4zyUtWj0",
+      "hn_url": "https://news.ycombinator.com/item?id=50136126",
+      "score": 146,
+      "comment_count": 59,
+      "posted_at": "2026-10-17T23:24:05+00:00",
+      "comments": [
+        {
+          "id": 50156939,
+          "author": "Confiks",
+          "text": "What a great talk. My introduction to programming as a kid was also writing Runescape bots, using some Delphi tool called SCAR [1] (together with writing plugins for my Counter Strike 1.6 server using AMX Mod X). Start at Varrock bank, wizard hut, dialogue picker, teleport, find out where you are, mine, mine, mine, teleport back, back to bank, deposit, and again.\nMy great essence mining bot contraption horribly broke when Runescape started randomizing all colors slightly, after making a paltry amount in dollars selling the essences.\n[1]\nhttps://scar-divi.com/"
+        },
+        {
+          "id": 50157438,
+          "author": "pokpokpok",
+          "text": "Thanks HN Author here to answer questions if helpful!\nIf this inspired you, would encourage people to try it out by pointing their agents to this repo and giving a goal:\nhttps://github.com/MaxBittker/rs-sdk\nYou can also view the realtime activity of the server here:\nhttps://maxbittker.github.io/rs-world/"
+        },
+        {
+          "id": 50155777,
+          "author": "jparishy",
+          "text": "I've wondered if these types of casual open world, resource collection games-- which are basically a series of mini-games-- would make good model training envs. Each mini-game has a pretty simple mechanic that needs to be learned, as well as the navigation and interactions to begin it. Those could be pretty useful generic skills I think.\nOne of my side projects is a game, and I've made it so agents can spawn off their own world shard to play in. There's a little Chrome-driven agent harness that can grab low res screenshots while it speaks directly to the game over the wire to control things.\nI've had Luna play it and it can drive around (you play as a bike) but it did struggle to play one of the mini-games (Disc Golf). My idea was that model trainers could run it an RL loop using the harness to get feedback data and screenshots to use, then reset the game world as needed during the process.\nA smart model capable of multi-modal inference on screenshots/game context at 30-60fps could be pretty interesting, and I'm sure it's coming. No idea how much it would generalize but would be fun to see done."
+        },
+        {
+          "id": 50155774,
+          "author": "pprotas",
+          "text": "Saw it this morning, this video is a goldmine of ideas on how to build agent harnesses and benchmark them."
+        },
+        {
+          "id": 50155820,
+          "author": "akersten",
+          "text": "The author did a great job capturing the essence of what made RS such a great game, and the soul that Jagex has totally lost over the years with updates to make the game a softer place.\nThis formative moment could never happen today, because the wilderness is behind 3 confirmation screens instead of just being something you get to discover in the game:\n> You have to know that [items] are worth something in order to not get taken advantage of. And it goes to kind of extreme levels too because not only will people, try to give you a bad price, but the game is just really well known for the scamming and the lying and stealing your password. And it's really the wild west out there.\n> And so, and really this is true. My very first memory of the very first time that I entered the world of RuneScape, I was asking somebody for help. I said like I was trying to make bread and I was like, \"Where can I find a mill so I can make some bread?\" And a guy was like, \"Follow me. I'm going to show you.\" And I followed him like into these woods. And you know, you can imagine he turned around. He started to attack me. And I realized what was happening. I was probably 11 years old. I realized what was h"
+        },
+        {
+          "id": 50155529,
+          "author": "zatkin",
+          "text": "RuneScape was what led me to become a software engineer (through the private server communities) and it's refreshing to see someone describe this game in layman terms, all the way up through to having AI agents drive the player interactions. I worry, though, about Jagex's stance on all of this. Perhaps this is what pushed them towards the recent RuneScape 4 announcement?"
+        },
+        {
+          "id": 50157016,
+          "author": "zshn",
+          "text": "Was fun exploring this months ago. Back then even the smallest amount of game knowledge you could provide a model would drastically improve their performance. Most of it is in their training data but they hallucinate a ton of incorrect information."
+        },
+        {
+          "id": 50157999,
+          "author": "almostlit",
+          "text": "This is a great talk. I've been working on a very similar concept for World of Warcraft at\nhttps://github.com/agent-wow/agent-wow\n.\nA lot of the techniques and pitfalls he talks about also aligns with my experience on WoW agents too. It's also interesting to see how agents coordinate in these kinds of game environments."
+        }
+      ],
+      "title_ja": "RuneScapeベンチ：エージェント向けMMO [ビデオ]",
+      "summary_ja": "ディスカッションのハイライト：素晴らしいトークですね。質問にお答えいただけるHN Authorさんに感謝します！\nこれがあなたにインスピレーションを与えた場合、はエージェントにこのリポジトリを指摘し、目標を与えることで、試してみることを奨励します。\nhttps :// gi/これらのタイプのカジュアルなオープンワールド、基本的には一連のミニゲームであるリソースコレクションゲームが、良いモデルトレーニング環境を作るかどうか疑問に思いました",
+      "editor_note": "「RuneScapeベンチ：エージェント向けMMO [ビデオ]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50154624,
+      "title_en": "Android apps running native on macOS",
+      "url": "https://github.com/kksimp/Mac.apk",
+      "hn_url": "https://news.ycombinator.com/item?id=50154624",
+      "score": 251,
+      "comment_count": 127,
+      "posted_at": "2026-10-19T16:45:30+00:00",
+      "comments": [
+        {
+          "id": 50158133,
+          "author": "qalmakka",
+          "text": "> Run Android apps natively on Apple Silicon Macs. No emulator, no virtual machine, no Linux underneath.\nGod damnit Dario fix Claude already so that it stops using this sentence structure once and for all. Opus is so annoyingly recognisable that it has started to irk me badly lately"
+        },
+        {
+          "id": 50155842,
+          "author": "bilalq",
+          "text": "In practice, the Google Play Services dependencies and other walled-garden initiatives from Google will make this less useful than it could otherwise be. But still, this is really cool."
+        },
+        {
+          "id": 50159614,
+          "author": "publlus_enigma",
+          "text": "I can't take any more AI generated verbiage.\nMy collection of pre-AI technical books and manuals is becoming increasingly valuable to me."
+        },
+        {
+          "id": 50156092,
+          "author": "f17428d27584",
+          "text": "Handy for Minecraft players on Mac: windows players may be on Java or on bedrock versions, but mobile and console players are all only on bedrock. Being able to run the Android version on Mac means I can play with local console players or join a bedrock realm.\n(There are compatibility workarounds if you run your own server but I don’t want the headache of doing so).\nPerhaps one day Mojang will enable Macos users to run the iPad (bedrock) version of Minecraft as well.."
+        },
+        {
+          "id": 50159588,
+          "author": "erickhill",
+          "text": "I bet a lot of people have been doing this conversion work independently on one-off AI-assisted personal projects this year. But now someone made a thing so all those tokens (and time) can be saved!\nNow for someone to make another one of these converters for webapps to become Mac apps. That would be nice, too. =) (Now I wonder if it has already been done…?)"
+        },
+        {
+          "id": 50155699,
+          "author": "hypfer",
+          "text": "Arguably not a bad use of a claude subscription, provided that it actually works."
+        },
+        {
+          "id": 50157630,
+          "author": "012973981605",
+          "text": "Meanwhile I ignore most of the posts here that are Apple-related, this one was able to draw my attention. Checked the 'how it works' page and was impressed how easily Claude made the 32-to-64 bit ARM translator for you. We need more effort of this kind for the x86 ecosystem, generated or not, but the mobile-app-everything culture becomes really annoying and needs to be fought this way."
+        },
+        {
+          "id": 50158844,
+          "author": "jawiggins",
+          "text": "Recently I've seen these game mods where people combine the game engines of two unrelated games (eg, minecraft and grand theft auto) and end up with a play-able and fun product.\nI wonder how many areas of computing are about to be transformed by the class of things that used to be impossible because the engineering needed to make it happen has just gone from enterprise level to \"claude please do this\" level."
+        }
+      ],
+      "title_ja": "MacOSでネイティブに実行されているAndroidアプリ",
+      "summary_ja": "ディスカッションのハイライト： > Apple Silicon MacでAndroidアプリをネイティブに実行/実際には、Google Playサービスの依存関係やGoogleのその他のウォールガーデンのイニシアチブにより、これは他の方法よりも役に立たなくなります/これ以上AIが生成した言葉遣いは受け入れられません。\n私のAI前の技術書やマニュアルのコレクションは、私にとってますます価値が高まっています。",
+      "editor_note": "「MacOSでネイティブに実行されているAndroidアプリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 9,
+      "id": 50134472,
+      "title_en": "It's still ok to enjoy programming",
+      "url": "https://chriskiehl.com/article/it-is-still-ok-to-enjoy-programming",
+      "hn_url": "https://news.ycombinator.com/item?id=50134472",
+      "score": 427,
+      "comment_count": 405,
+      "posted_at": "2026-10-17T19:53:20+00:00",
+      "comments": [
+        {
+          "id": 50158159,
+          "author": "etra0",
+          "text": "Even if work is not life, hobby programming also has been affected.\nI worked hard a couple of years ago to reverse engineer a game to produce a very specific tool. Recently, the game was updated, so I worked on my free time to do a free contribution to the community, and then, a few hours later a tool that does the same thing appeared entirely vibecoded.\nEven if some parts of the community care about how a tool was made – Most don't, they just want something that fulfill the goal.\nNow even my hobby programming was overtaken by AI, something I did for love and expected no pay out of it whatsoever, which is... depressing, to say the least."
+        },
+        {
+          "id": 50154094,
+          "author": "searls",
+          "text": "I suspect that many of the loudest voices pushing back against AI coding tools never practiced programming as a hobby or saw it as especially fun, and the fact their job is changing won't make them start now.\nI think just about everyone in the industry appreciated hand-typed programming as a job, because it was a pleasant enough craft to practice and for a solid couple of decades programmers were treated extremely well in comparison to the vast majority of other careers out there.\nToday, juggling a bunch of agents to do what you want them to do, figuring out how to verify their work, remediating problems, and spreading yourself thin cognitively—all the while looking over your shoulder at an increasingly precarious job market—is notably less pleasant for a lot of people. It sounds and feels a lot more like an engineering or product management role—something a lot of programmers would never in a million years have signed up to do voluntarily.\nI'm probably an 8 out of 10 on the cooked scale—I'm juggling a suite of ten iOS apps and haven't written or read a line of code in over a year—but I get where these people are coming from. I think the suggestion that they can reclaim what they'v"
+        },
+        {
+          "id": 50158486,
+          "author": "iqp",
+          "text": "As someone whose whole identity was built around programming  I mourn it daily. But I do think it's wonderful that people can realize their ideas now. E.g. I've seen a lot of vibe coded retro games lately, and while they're clearly lacking craftsmanship in some areas (e.g. not crunching your binary, bad looking AI load screens, & just a general lack of polish) I have to remind myself that these games probably wouldn't exist without AI, and TBH some of them are not half bad."
+        },
+        {
+          "id": 50155595,
+          "author": "hollowturtle",
+          "text": "> Yes, at work, where you are paid to produce value for a business, the economics of purely hand-written code have changed\nI'd love to genuinely love these blog posts but they are all the same! They're all like \"now that machine are better than us $xyzargument\". I'm so pissed off when I read so blantant lies like AI \"writing code better than me\" maybe better than you! But in general it's just a big lie.\n> the economics of purely hand-written code have changed\nwho are you to know? I still hand code and produce a lot of value because I do care and polish everything I do. There are some pieces of the software that I wrote that I never touched again, they work perfectly, no errors no customer complaints"
+        },
+        {
+          "id": 50159707,
+          "author": "GlobalChubby",
+          "text": "Corollary: there will now be a new generation of programmers who will never know the joy of building, designing, or debugging a system by hand, using their own thinking in collaboration with other humans.\nJust today I suggested to a very junior engineer (more of an FDE, really) to write a short design / implementation proposal on an infrastructure change that spans about 8-10 code reviews. He replied with a link to a short, Claude artifact, clearly written by AI.\nIt dawned on me: to him, this approach of offloading thinking and understanding to AI, from design to implementation, is totally natural. He sees nothing wrong with his job being reduced to a middle-man between more senior engineers and AI."
+        },
+        {
+          "id": 50155567,
+          "author": "rglover",
+          "text": "The frustrating part isn't so much being asked to use AI to program—it makes sense in a lot of cases—it's watching people\nblindly\nuse AI in a way that you know, being experienced, will end in disaster. And knowing that any argument will be dismissed under the pretense of obsolete thinking.\nI've resolved to just building stuff for my own businesses and myself for fun. If an opportunity or enlightened soul comes along that wants to benefit from my knowledge, great. But I think it's best to just let people feel the full brunt of what's coming. Sometimes the only way to learn the lesson is to stick the fork in the socket."
+        },
+        {
+          "id": 50153974,
+          "author": "dleslie",
+          "text": "I have friends that enjoy knitting and sewing. Those are great pastimes made commercially unviable for most because of great leaps in logistics and automation. But they are absolutely valid and enjoyable hobbies.\nAnd the skills they provide are transferable. Patience, attention to detail, staying on task."
+        },
+        {
+          "id": 50155860,
+          "author": "thayne",
+          "text": "> Work is not life.\nWork is a significant amount of my waking life. I chose this career because it is something I enjoy. But AI is removing a lot of the enjoyment for me. And saying \"if you don't like it, just switch careers\" is not helpful, and ignores the difficulty and cost of doing so."
+        }
+      ],
+      "title_ja": "プログラミングを楽しんでも大丈夫です",
+      "summary_ja": "ディスカッションハイライト：仕事が人生でなくても、趣味のプログラミングにも影響があります。\n数年前、ゲームをリバースエンジニアリングして非常に特定のツールを作成するために懸命に働きました/AIコーディングツールに反対する最も大きな声の多くは、プログラミングを趣味として練習したことがないか、特に楽しいと感じたことがないと思います。彼らの仕事はチェンジインです/プログラミングを中心に構築されたアイデンティティを持つ人物として、私は毎日それを嘆いています",
+      "editor_note": "「プログラミングを楽しんでも大丈夫です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50158100,
+      "title_en": "Putting Linux on my RTX Spark laptop because I don't have a Microsoft account",
+      "url": "https://josie.lol/blog/linux-rtx-spark",
+      "hn_url": "https://news.ycombinator.com/item?id=50158100",
+      "score": 169,
+      "comment_count": 73,
+      "posted_at": "2026-10-19T21:08:18+00:00",
+      "comments": [
+        {
+          "id": 50158409,
+          "author": "chem83",
+          "text": "Not sure there's a strong use case for one of these $6K laptops yet, considering you can get a mini PC running AMD Ryzen 495 or 395 with 96, 128 and 192 GB of memory for similar amount of money and connect remotely from a cheaper/smaller/more battery-efficient laptop. Microsoft also has this same chip in non-laptop form factor:\nhttps://www.microsoft.com/en-us/surface/devices/surface-rtx-...\n.\nCoding while flying is often the use case people bring up, but the power brick these laptops come with sometimes trip the plane's power plug in coach and you can't run local AI on battery for long. Also, over time planes will get better connectivity (Starlink etc.) and that particular full-offline scenario will go away.\nFor gaming, there are better options with dedicated GPUs like the Asus Zephyrus and similar.\nWhat am I missing?"
+        },
+        {
+          "id": 50158651,
+          "author": "TIPSIO",
+          "text": "Being forced to login to use your own hardware is one issue for sure…\nbut separately everything about Microsoft’s login experience is pure pain.\nMultiple broken redirects, broken links, buttons that loop, and more just to hit a CAPTCHA AI can solve anyway.\nThe only thing worse is for the poor soul developers who have had to login to their dev portal to setup SSO Microsoft for an app. It’s the worst I have ever seen in my life (even using Supabase that hand holds you through it)."
+        },
+        {
+          "id": 50158833,
+          "author": "74948494i4",
+          "text": "I got the HP version of this 128GB for 3.8k. I have yet to see a better deal for that ram.\n(Expired but there was coupon\nhttps://slickdeals.net/f/20164014-hp-omnibook-x-14-nvidia-rt...\n)"
+        },
+        {
+          "id": 50158268,
+          "author": "bitmasher9",
+          "text": "Is a Microsoft account required to use Windows on these RTX spark laptops?\nAm I being too stubborn for not wanting a cloud account tied to my desktop operating system?"
+        },
+        {
+          "id": 50158645,
+          "author": "jasoneckert",
+          "text": "I have a DGX Spark (Ubuntu), and when Microsoft and NVIDIA announced the RTX Spark running Windows, I thought to myself: Why would I get that instead of the DGX Spark?\nThe OS makes a big difference for most developers, and the DGX Spark stack and experience is mature."
+        },
+        {
+          "id": 50158956,
+          "author": "pshc",
+          "text": "Only 30 tok/s on Qwen 3.8 Flash Next? These days thanks to those specialized engines out there I can get ~2x that speed on a 24 GB video card with RAM offload. Thermal limits, I assume...\nI wonder how its performance is on dense models."
+        },
+        {
+          "id": 50158387,
+          "author": "hypfer",
+          "text": "Hm, what's the learning here?\nWhat challenge has been overcome?\nI can see that hardware was bought, and that's cool hardware and all, but consumption is rather uninspiring.\nI suppose it's the arm64 part?\nOr the review of some new hardware other people might be interested in?"
+        },
+        {
+          "id": 50158989,
+          "author": "LoganDark",
+          "text": "> When rumours started circulating about a laptop with over 100 GiB of RAM the GPU could access\nThat was like three years ago with the release of M3, do you not count MacBooks as laptops or something? Not that you could run Linux on it back then, but you don't even mention the existence of Apple silicon at all?"
+        }
+      ],
+      "title_ja": "Microsoftアカウントを持っていないため、RTX SparkノートパソコンにLinuxをインストールする",
+      "summary_ja": "ディスカッションのハイライト： AMD Ryzen 495または395を搭載し、96、128、および192 GBのメモリを搭載したミニPCを同様のAMで入手できることを考えると、これらの$ 6 Kノートパソコンの1つにまだ強力なユースケースがあるかどうかはわかりません/自分のハードウェアを使用するためにログインを強制されることは確かに1つの問題です...\nしかし、別にMicrosoftのログインエクスペリエンスに関するすべては純粋な苦痛です。\n複数の壊れたリダイレクト、壊れたl/私はこの128 GBのHPバージョンを3.8kで入手しました",
+      "editor_note": "「Microsoftアカウントを持っていないため、RTX SparkノートパソコンにLinuxをインストールする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 11,
+      "id": 50140584,
+      "title_en": "Weball: Play Katamari on Websites",
+      "url": "https://www.funwithcomputervision.com/weball/",
+      "hn_url": "https://news.ycombinator.com/item?id=50140584",
+      "score": 21,
+      "comment_count": 4,
+      "posted_at": "2026-10-18T12:39:56+00:00",
+      "comments": [
+        {
+          "id": 50141781,
+          "author": "vunderba",
+          "text": "Wow - this is surprisingly well done. I really like that it goes from picking up text elements to eventually being able to grab physical images off the site as the ball grows larger.\nTangential but I was playing \"Kirby and the Forgotten Dreamland,\" a little while ago and in the game there's an ability you can absorb called 'needle.' It initially gives you the appearance of a spiky porcupine rolling around in a ball.\nHowever, the evolved version of this ability lets you attach random objects to you, like a tower, a corkscrew, and a cactus, among other things. Rolling around with all these items attached to you seems to be a nod to the game\n\"Katamari Damacy.\"\nhttps://youtube.com/watch?v=4aa4xR8zAJk"
+        },
+        {
+          "id": 50159593,
+          "author": "OuterVale",
+          "text": "This is such fun. I just went along and rolled up a few websites, including my own. Great little bit of web whimsy."
+        },
+        {
+          "id": 50159738,
+          "author": "allenu",
+          "text": "Google also has their own take on this when you search for Katamari. Click on the little katamari ball."
+        }
+      ],
+      "title_ja": "Weball ：ウェブサイトでカタマリをプレイ",
+      "summary_ja": "ディスカッションのハイライト：すごい-これは驚くほどよくできています/これはとても楽しいです/カタマリを検索すると、Googleもこれについて独自の見解を持っています",
+      "editor_note": "「Weball ：ウェブサイトでカタマリをプレイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50150434,
+      "title_en": "Timestral: Mistral's time-series foundation models",
+      "url": "https://mistral.ai/news/timestral/",
+      "hn_url": "https://news.ycombinator.com/item?id=50150434",
+      "score": 539,
+      "comment_count": 101,
+      "posted_at": "2026-10-19T09:59:32+00:00",
+      "comments": [
+        {
+          "id": 50151552,
+          "author": "joefourier",
+          "text": "My field is primarily audio/vision ML so I don't have any particular domain expertise, but I don't get how you can lump all \"time-series\" together in one big bucket. My naive understanding is that the way to improve the accuracy is to gain as much joint information as possible. Like:\n> Known-future covariates. Some drivers of sensor behaviour are known in advance, such as production schedules, planned shutdowns, weather forecasts. Timestral can condition on them to improve forecast quality, so a scheduled load increase is expected rather than flagged as a surprise.\nTo me this should be the entire basis of the system, not a condition to improve forecast quality? Like if you're modelling electricity consumption, if all you have is a window of N previous samples, you're going to get completely beaten by a comparatively simple system that knows the time of day, that there's holidays coming up, the weather forecast, etc.\nI would also think that these time-series forecasting models would gain from a sophisticated understanding at least the labels of the covariates? A 5M model has no idea what a \"bank holiday\" is, it just sees an arbitrary class go from 0 to 1, and won't have any useful i"
+        },
+        {
+          "id": 50152506,
+          "author": "logancbrown",
+          "text": "A lot of misconception around the utility of foundational time series models on HN.\nSure, you could train a XGboost model on a time series with holiday or event covariates, but what if you have 10k different series to forecast for?\nYou could train 10k different models, one for each series, but then they have very little history to learn from. Alternatively, you could train a single generic model to cover all 10k, but then you have to deal with scale mismatch between series in addition to the feature dev overhead between series. A TSFM saves a ton of work in modeling each of these series and could potentially generalize better to produce more accurate forecasts."
+        },
+        {
+          "id": 50151355,
+          "author": "ritzaco",
+          "text": "Any 'vibe check' on these; I don't have benchmarks but I tried out Le Chonk for general coding work that they claim it works really well at and I was very disappointed, it seemed to make all kinds of obvious errors of the kind that I haven't seen from opus, sol, deepseek flash etc in over a year"
+        },
+        {
+          "id": 50154376,
+          "author": "Trusteando",
+          "text": "To meaningfully test a forecasting model, use a data-generating process with a high signal-to-noise ratio where a classical method (empirical conditional distributions, i.e., counting) can capture most of the signal. Then check whether the model captures that signal too. If you only test on high-noise processes, any model looks comparable to SOTA because there's little signal to differentiate them. Also testing on a range of signals with different signal-to-noise ratio would allow us to know how much of the signal the model captures in different scenarios."
+        },
+        {
+          "id": 50151172,
+          "author": "edot",
+          "text": "Very nice. It’s mind-blowing to me that it used to take me months to build and deploy a forecasting model five years ago. Now in minutes I can use something like this, implemented with help from an LLM, and get apparently quite good results (and fine-tune on my data, it seems).\nSpeed looks nice too. I want an open weight model with this performance now."
+        },
+        {
+          "id": 50152944,
+          "author": "rubenfiszel",
+          "text": "It's quite impressive that they get performance so close to the leader t0-gamma but unfortunate about the restrictive license"
+        },
+        {
+          "id": 50155281,
+          "author": "kooi",
+          "text": "My question: What kind of dynamical system observability does Timestral provide? Is it a blackbox y = F(x, params) model for offline use? Can it provide the actual dynamical system equations? Or are you stuck forever querying the Timestral server (which is bad, think about if you're grid system operator doing day ahead, month ahead forecasts, and Timestral goes down)\nTypically, in linear, non-linear, and NN models, we fit some noisy data to A) An underlying model with unknown parameters or B) A model free search which attempts to construct combination of \"basis\" functions or C) A purely black box model which we only care about Input/Output error.\nA) is useful because often we know an underlying model we want to match, but don't know the parameter values. If we can determine the parameters, we get insights about the real system. E.g, how are these two variables coupled and how strongly -> We can make business decisions about what happens if we adjust some parameters.\nSo what exactly does this timeseries foundation model do and provide?\nMaybe, the observability is that you have a forecast, and you adjust the covariates and see what happens. But one would want much more insights than "
+        },
+        {
+          "id": 50151181,
+          "author": "nelaggy",
+          "text": "crazy how they make an improvement of 0.03 look like a 5x difference"
+        }
+      ],
+      "title_ja": "タイムストラル：ミストラルの時系列基礎モデル",
+      "summary_ja": "ディスカッションのハイライト：私の分野は主にオーディオ/ビジョンMLなので、特定の分野の専門知識はありませんが、すべての「時系列」を1つの大きなバケットにまとめる方法がわかりません/HNの基本的な時系列モデルの有用性に関する多くの誤解。\nもちろん、休日やイベントの共変量を持つ時系列でXGboostモデルをトレーニングすることはできますが、これらを「雰囲気チェック」してください。ベンチマークはありませんが、Le Chonk fを試してみました",
+      "editor_note": "「タイムストラル：ミストラルの時系列基礎モデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 50147233,
+      "title_en": "Starcraft: Ashfall",
+      "url": "https://starcraft-shooter-2026.pages.dev/",
+      "hn_url": "https://news.ycombinator.com/item?id=50147233",
+      "score": 298,
+      "comment_count": 102,
+      "posted_at": "2026-10-19T01:18:02+00:00",
+      "comments": [
+        {
+          "id": 50158528,
+          "author": "ggnore7452",
+          "text": "Wow, thanks to whoever posted this! I made this game.\nLike many, I was frustrated there's no new StarCraft coming till 2030, so I half-jokingly made the mini-game those mobile ads always promise and never deliver. Something you can play with one hand, that your friends who've never played StarCraft can just pick up.(Turns out you can squeeze a lot of extra gameplay/design on top of it.)\nAlso, if you're going to copy Blizzard you might as well copy the whole package right, so there's a CG trailer too:\nhttps://www.youtube.com/watch?v=rVDao71LC7A\nHonestly didn't expect people to grind this. I designed the endgame to be layer 50 and thought ppl can get at most ~70 if they really try, and somehow there are people on the leaderboard past 100 (without cheating). That's StarCraft players for you."
+        },
+        {
+          "id": 50156963,
+          "author": "gbnwl",
+          "text": "Reddit thread from about a month ago where creator introduced this:\nhttps://www.reddit.com/r/starcraft/comments/1wqdabw/i_made_t..."
+        },
+        {
+          "id": 50149468,
+          "author": "bulbar",
+          "text": "Cool visuals, but doesn't count as a game for me. Can you do anything that make sense, except selecting the upgrade?\nCould be a nice little game, though. Strip the IP and let the AI implement a bit more for the user to do."
+        },
+        {
+          "id": 50156968,
+          "author": "an0malous",
+          "text": "I've been seeing a lot of Pokemon games recently as well, are companies just not enforcing their copyright/trademarks anymore?"
+        },
+        {
+          "id": 50159589,
+          "author": "mikenew",
+          "text": "I have around 15k games in SC2 and I can honestly say; this is awful. I love it."
+        },
+        {
+          "id": 50159712,
+          "author": "satellites",
+          "text": "Fun! Just sunk a couple hours into it. Super addicting and deeper than it looks. But the difficulty spike at around layer 30 is insane."
+        },
+        {
+          "id": 50159643,
+          "author": "iLemming",
+          "text": "Better than the original game - works on ultra-wide."
+        },
+        {
+          "id": 50159556,
+          "author": "trismus",
+          "text": "This is the equivalent of asking an LLM for a new harry potter novel and then showing it off as if you wrote it, and it's disappointing that HN approves."
+        }
+      ],
+      "title_ja": "スタークラフト：アッシュフォール",
+      "summary_ja": "ディスカッションのハイライト：これを投稿した人のおかげです！ 私はこのゲームを作りました。\n多くの人と同様に、2030年まで新しいStarCraftが登場しないことに不満を感じていたので、約1か月前にクリエイターが紹介したモバイル広告/Redditスレッドを半分冗談でミニゲームにしました。\nhttps://www.reddit.com/r/starcraft/comments/1wqdabw/i_made_t.../かっこいいビジュアルですが、私にとってはゲームとしてカウントされません",
+      "editor_note": "「スタークラフト：アッシュフォール」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50153664,
+      "title_en": "Ukraine claims first drone evacuation of wounded soldier",
+      "url": "https://www.nbcnews.com/world/ukraine/ukraine-first-drone-evacuation-wounded-soldier-frontlines-hexacopter-rcna604310",
+      "hn_url": "https://news.ycombinator.com/item?id=50153664",
+      "score": 91,
+      "comment_count": 77,
+      "posted_at": "2026-10-19T15:31:34+00:00",
+      "comments": [
+        {
+          "id": 50156173,
+          "author": "1970-01-01",
+          "text": "If they can pull them out, they can also drop fresh ones down.\nNot sure if that is better than just using a helicopter however."
+        },
+        {
+          "id": 50159770,
+          "author": "expedition32",
+          "text": "I hope in the future all wars are fought by drones. Just don't make them unstoppable like in that Horizon videogame."
+        },
+        {
+          "id": 50156201,
+          "author": "vzaliva",
+          "text": "It reaffirms that Ukrainians are:\n1. very advanced with drones\n2. caring about their soldiers\nDisclaimer: I am a proud Ukrainian."
+        },
+        {
+          "id": 50159364,
+          "author": "dgudkov",
+          "text": "Another Ukrainian innovation using drones: transporting transplant organs.\nhttps://ukrspecsystems.com/blog/pd-2-uav-tested-for-organ-de..."
+        },
+        {
+          "id": 50156736,
+          "author": "skeledrew",
+          "text": "NGL, reading this gave me the feels...\nAlso, next wartime invention: air mines."
+        },
+        {
+          "id": 50156814,
+          "author": "walrus01",
+          "text": "The German company Avilus has shown a medevac drone, I don't know if it's been used to transport a live human (even uninjured) for a test yet.\nhttps://www.xponential-europe.com/en/Media_News/Magazine/Art...\nhttps://www.google.com/search?num=10&client=firefox-b-d&hs=p..."
+        },
+        {
+          "id": 50155983,
+          "author": "tokai",
+          "text": "Was it two years ago, or even longer, that Akhmat troops claimed Ukrainian drones tried to abduct their men in the field? Who knows, it might end up actually happen one day. Wild."
+        },
+        {
+          "id": 50155975,
+          "author": "egorfine",
+          "text": "As a Ukrainian, I really wish my country could innovate in areas other than evacuation of wounded people from our own soil."
+        }
+      ],
+      "title_ja": "ウクライナ、負傷兵の無人機による初の避難を主張",
+      "summary_ja": "ディスカッションのハイライト：抜き取ることができれば、新鮮なものを落とすこともできます。\nしかし、それがヘリコプターを使用するよりも優れているかどうかはわかりません。 /私は将来、すべての戦争がドローンによって戦われることを願っています/それはウクライナ人が次のことを再確認します：\n1",
+      "editor_note": "「ウクライナ、負傷兵の無人機による初の避難を主張」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50134359,
+      "title_en": "The fire retardant in the seafood chain",
+      "url": "https://insideclimatenews.org/news/14102026/ethoxyquin-fire-retardant-in-seafood-chain/",
+      "hn_url": "https://news.ycombinator.com/item?id=50134359",
+      "score": 103,
+      "comment_count": 34,
+      "posted_at": "2026-10-17T19:37:54+00:00",
+      "comments": [
+        {
+          "id": 50156843,
+          "author": "jazzyjackson",
+          "text": "> if left untreated, is known for spontaneously combusting as it decays and oxidizes.\nDoes anyone remember the 90s when as a laymen it seemed like an open debate whether humans would occasionally combust spontaneously? I guess it stopped happening once falling asleep with a cigarette lost popularity\nBut my point is I wasn’t aware that “spontaneous combustion” was a real thing one has to worry about it. Linseed oil rags will do this too, and that’s why patent leather shoes are coated in plastic now instead."
+        },
+        {
+          "id": 50159866,
+          "author": "kalabrium",
+          "text": "Sad results of the system the optimizes for ease and efficiency rather than health and quality. The same mind set carries over to bread, pesticides, and food coloring that has been banned in European countries."
+        },
+        {
+          "id": 50143825,
+          "author": "gumby",
+          "text": "I don't know why they don't just use nitrogen in the storage vessels.  Ship holds, for example, already have this capability."
+        },
+        {
+          "id": 50134753,
+          "author": "enoint",
+          "text": "I make a lot of chili. Ethoxyquin is a good reason to mix your own chili powder."
+        },
+        {
+          "id": 50144437,
+          "author": "brudgers",
+          "text": "About Ethoxyquin,\nhttps://en.wikipedia.org/wiki/Ethoxyquin"
+        },
+        {
+          "id": 50158642,
+          "author": "hackernud3s",
+          "text": "There's a video of Vietnamese fish farmers on the side of the screen that clearly relates to this story but I don't speak Vietnamese so I guess I just have to wonder how."
+        },
+        {
+          "id": 50157461,
+          "author": "sarabarasa100",
+          "text": "I just find it wonderfully weird that no process has been found to just handle powdery flammable things better, instead of adding stuff to it to make it less risky to handle it wrong."
+        },
+        {
+          "id": 50157212,
+          "author": "kevmo",
+          "text": "Americans' breast milk is full of fire retardants, found in 100% of samples taken.\nhttps://www.npr.org/sections/health-shots/2023/08/24/1194759..."
+        }
+      ],
+      "title_ja": "シーフードチェーンの難燃剤",
+      "summary_ja": "ディスカッションのハイライト：>未処理のまま放置すると、腐食して酸化すると自発的に燃焼することで知られています。\n90年代を覚えている人はいますか？素人として、人間がそうであるかどうかはオープンな議論のように思えました/システムの悲しい結果は、健康と品質ではなく、簡単さと効率性を最適化します/なぜ貯蔵容器に窒素を使用しないのかわかりません",
+      "editor_note": "「シーフードチェーンの難燃剤」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50159464,
+      "title_en": "Token-maxxing is dead, OpenRouter's token usage plateaus",
+      "url": "https://openrouter.ai/rankings",
+      "hn_url": "https://news.ycombinator.com/item?id=50159464",
+      "score": 26,
+      "comment_count": 24,
+      "posted_at": "2026-10-19T23:40:15+00:00",
+      "comments": [
+        {
+          "id": 50159711,
+          "author": "simonw",
+          "text": "There are a few problems with using OpenRouter's public statistics to make statements about the wider field:\n- It only tracks companies that have decided to use OpenRouter to help them switch models - which biases towards companies that like open weights. Anyone using OpenAI or Anthropic directly is much less likely to be represented.\n- OpenRouter don't share the number of\nunique\nusers represented in those numbers. I worry a lot about whales - are there a few giant users of OpenRouter who, if they change their preferred model, instantly affect the global leaderboards?\nIn this case I suspect the numbers are affected by the release of Claude Haiku 5.5 and GPT-6 Luna - both\nexcellent\ninexpensive models, which may well take market share from some of the models that OpenRouter is serving. OpenAI and Anthropic have the most mature client support so I expect it's more likely people will switch away from OpenRouter if those are their daily drivers.\nHappy to be convinced otherwise if anyone has useful data that I've missed."
+        },
+        {
+          "id": 50159982,
+          "author": "zetamax",
+          "text": "Is this 7 days rolling, or for the week that just started, compared to the last full week? Everything up for the day chart."
+        },
+        {
+          "id": 50159872,
+          "author": "CoolestBeans",
+          "text": "I don't think you can draw an accurate narrative from two data points but I'm going to do it anyway. This and the slowing in revenue growth at Anthropic are not terrific signs. This should be the era of exponential growth for the AI industry. Even if the unit economics are sound at these prices, companies really need more revenue to service their current debt obligations and for now that can't come from price it has to come from volume. Furthermore, this is OpenRouter's statistics which partially represents the cost conscious section of the market and this doesn't line up with an induced demand story.\nAgain, two data points do not make a full story but if you're an AI bull this is not what you want to see."
+        },
+        {
+          "id": 50159713,
+          "author": "jedberg",
+          "text": "Or maybe Codex/Claude Code got better and more people are just using those?\nOr more people are using harnesses that do what openrouter does so they don't need it anymore?\nOr they are using other GPU providers directly to run their open source models?\nI don't think this data is conclusive.  It's a very unique subset who are using openrouter."
+        },
+        {
+          "id": 50159884,
+          "author": "bunderbunder",
+          "text": "I don’t think we can conclude that from this graph. Look at all the earlier points in time where it “flattened out” for about as many months. We tend to unconsciously overlook them because, with a sharp rise on either side, it obviously looks like noise.\nI can’t make the same assumption here because I can only see what’s on the left, but that in no way implies that the opposite assumption is any more warranted."
+        },
+        {
+          "id": 50159859,
+          "author": "obilgic",
+          "text": "The bigger problem is not token consumption plateauing, total token spent is lot lower than before. we are at %20 of our total peak spent. compared to couple months ago.\nWe are able to purchase similar level intelligence at much lower prices now. Even sonnet 5.5 is becoming an overkill for most of our agentic workload.\nps. our total token usage last 30 days is around 30B"
+        },
+        {
+          "id": 50159757,
+          "author": "abalashov",
+          "text": "While we don't \"token-maxx\", our usage of Kimi K3, GLM 5.3, MiMo and Qwen goes up, up, up -- with Kimi K3 dominating. Our usage of Claude Code and OpenAI has been nonexistent for a year and a half..."
+        },
+        {
+          "id": 50159838,
+          "author": "noosphr",
+          "text": "I've had a hell of a time with more complex model setups in open router and have gone to just using the underlying APIs directly."
+        }
+      ],
+      "title_ja": "トークンマキシングは死んでいます、OpenRouterのトークン使用量は停滞しています",
+      "summary_ja": "ディスカッションのハイライト： OpenRouterの公開統計を使用して、より広い分野について声明を出すには、いくつかの問題があります。\n-これは、OpenRouterを使用して支援することを決定した企業のみを追跡します/これは7日間のローリングですか、それとも先週と比較して、まだ始まったばかりの1週間ですか？ デイチャートのためにすべてが準備されています。 /2つのデータポイントから正確な物語を引き出すことはできないと思いますが、とにかくやります",
+      "editor_note": "「トークンマキシングは死んでいます、OpenRouterのトークン使用量は停滞しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50150927,
+      "title_en": "Alternatives to animal testing are finally taking off",
+      "url": "https://spectrum.ieee.org/alternatives-to-animal-testing",
+      "hn_url": "https://news.ycombinator.com/item?id=50150927",
+      "score": 317,
+      "comment_count": 94,
+      "posted_at": "2026-10-19T11:10:54+00:00",
+      "comments": [
+        {
+          "id": 50151582,
+          "author": "willmeyers",
+          "text": "As slow as it may be to adopt, it's a welcome change to how people should do research. Why induce suffering on an animal when the potential for failure and or miscalculation is so high? It seems from the article a model/chip can be more insightful on how something will affect humans."
+        },
+        {
+          "id": 50152952,
+          "author": "Spacecosmonaut",
+          "text": "The dirty little secret of human organoid models is that they are grown in a matrix (e.g. Matrigel) that is derived from a tumor that secretes this matrix, which is grown in a mouse host. The mouse of course is \"sacrificed\" to harvest this matrix."
+        },
+        {
+          "id": 50158915,
+          "author": "PaulHoule",
+          "text": "Whenever i go all the way to the east coast I run into these guys\nhttps://en.wikipedia.org/wiki/Horseshoe_crab\nAnd because of the unusual nature of their blood they can be used to test the bacteriological safety of injectable drugs.  I remember an exhibit about them at the Boston Children's Museum because it was a big deal in Boston because of the pharma industry concentration in the area.  A test that didn't require collecting blood was developed circa 1985 but for quite a few reasons the industry has been slow to adopt it and the anticipated transition is still an anticipated transition."
+        },
+        {
+          "id": 50151963,
+          "author": "Aboutplants",
+          "text": "Ah lest we forget about Jevons Paradox. With the ability to discover a nearly infinite number of potential breakthroughs, we are going to need more animal testing than ever!\n(Sarcasm but also some potential truth)"
+        },
+        {
+          "id": 50153730,
+          "author": "suncemoje",
+          "text": "IMO the most interesting research in this field is being done by DeepMind, which is to build an actual\nvirtual cell\n[1]. Would be curious to know if the team / Demis is still finding adequate time to advance this field amidst the LLM boom.\n[1]\nhttps://www.youtube.com/watch?v=CEOOMYxMvY4\n(Note: I have heard Demis Hassabis speak about this topic in a few sources, this was the quickest one I could find where he talks in depth about it)"
+        },
+        {
+          "id": 50156024,
+          "author": "throwawayk7h",
+          "text": "The suffering of test animals is a tiny decimal point compared to the suffering of factory farmed animals, which produce 99% of the animal products humans eat. Literally 50 billion chickens a year in the most inhumane conditions imaginable for their entire lives. Over one billion pigs per year. They die in horrible 9/11-like conditions.\nEdit: I used to dismiss all that since I figured animals don't have enough neurons or intelligence or whatever for their pain to matter. A quote from Ozy Brennan[1] (five paragraphs down from this hyperlink, though BB's commentary here is important too) changed my mind. TL;DR: intelligence is almost certainly not relevant to feeling pain, and the same pain pathways that exist in the human brain exist in other animals too.\n[1]\nhttps://benthams.substack.com/i/151605056/2-intensely-what-a..."
+        },
+        {
+          "id": 50152646,
+          "author": "tippa123",
+          "text": "What makes it more complicated is that regulatory authorities across different countries have varying views on what is considered 'acceptable'. As mentioned in the Harvard example from the article. This could mean that both animal and non animal testing will be required for the forceable future to satisfy both sets of views until there is sufficient alignment from the 'big' regulators imo."
+        },
+        {
+          "id": 50158811,
+          "author": "jrflo",
+          "text": "*for drug trials. I imagine animal testing will remain required for implants, surgical instruments, and imaging for quite a long time."
+        }
+      ],
+      "title_ja": "動物実験の代替手段がついに登場",
+      "summary_ja": "ディスカッションのハイライト：採用するのは遅いかもしれませんが、人々がどのように研究すべきかについての歓迎すべき変化です/ヒトオルガノイドモデルの汚れた小さな秘密は、それらがマトリックスで成長していることです（例：私が東海岸に行くたびに、私はこれらの人に出くわします\nhttps://en.wikipedia.org/wiki/Horseshoe_crab\nそして、彼らの血液の異常な性質のために、彼らは",
+      "editor_note": "「動物実験の代替手段がついに登場」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50151036,
+      "title_en": "Ask HN: How to deal with shipping AI-written code you don't understand?",
+      "url": "https://news.ycombinator.com/item?id=50151036",
+      "hn_url": "https://news.ycombinator.com/item?id=50151036",
+      "score": 245,
+      "comment_count": 384,
+      "posted_at": "2026-10-19T11:24:34+00:00",
+      "comments": [
+        {
+          "id": 50157475,
+          "author": "bitwizeshift",
+          "text": "I’m surprised I haven’t see anyone say this yet, but I don’t let the LLM design the code at all, I let it implement a design I have created.\nBy that I mean that, rather than let the LLM do the entire structure, I take the time to create the full hierarchy of abstractions and actors that I want my code to do. I decide, at the UML level, how abstractions will sit and interact — and then I make the LLM implement those gaps.\nThe key thing here is that, by doing this, I DO know how the code works. I may not know how each unit is implemented, but I know each unit’s responsibilities and how they interact with one another. I’ve found that LLMs are HORRIBLE at writing decent abstractions, regardless of how much prompting and skills I’ve given it. It will always get the job done, but it will often be unmaintainable and require bigger and heavier refactors as I introduce more and more requirement changes.\nBut by flexing my basic design skills, I don’t have those issues. Future refactoring fit into easy abstractions that I’ve designed. And by documenting it up front, I also have what becomes a living document on how this work will turn out.\nIt takes a few hours up front to plan ahead, but it m"
+        },
+        {
+          "id": 50158909,
+          "author": "jedberg",
+          "text": "I've been a Principal Engineer for a while, so this is how I've worked for a while.  Sometimes when you're a PE, you either design something and then junior engineers implement the details, or you're dropped into a project that was already designed and built by more junior engineers, and you have to quickly understand the design an as many details as you can.\nWith AI, everyone now gets to act like a PE.  Your job is to design, the AI builds like the junior engineers.  Then you review their work.  You may never understand the details, and that's ok, as long as you know the main ideas and where to ask for the details (in this case the LLM instead of a human)."
+        },
+        {
+          "id": 50156740,
+          "author": "ChrisMarshallNY",
+          "text": "Testing.\nLots and\nlots\nof testing. I usually interactively test with the LLM. Now that I'm spending less time, coding, I get to spend more time, testing.\nIn my experience, I test more, with an LLM, than I did, with my own code. I don't find coding errors, but I do find implementation errors.\nOn another note: I ran an LLM on a bunch of really mature code that I wrote, and could\nswear\nwas \"perfect,\" and it found a number of issues.\nNobody's perfect. Trust; but\nverify\n."
+        },
+        {
+          "id": 50151160,
+          "author": "spacedcowboy",
+          "text": "I’m slowly coming around to the idea that if it works, I’m good with that. I never used to personally check all my colleagues work, either, I just trusted that they’d done a good job.\nThat’s not to say I blindly trust an LLM - my project is an autovectorising compiler. I have it write a bazillion tests, and I have real, non-trivial programs that it compiled. I have it run a ‘gate’ before releases that takes literally hours on 5 different architectures. To say this code is tested is … masterful understatement.\nI think what helps is a long planning session, going into details, working out corner cases, designing test-cases, you know work and effort. Once that’s done it’s easier to let it work through the night and do a major production feature.\nI still review the code, but hand on heart I couldn’t say I’d reviewed\neverything\n, sometimes I miss something in a complicated check-in. I try to keep checkins small and contained, but sometimes that’s not easy to manage alongside the “don’t break stuff” rule as well.\nSo it comes down to: I’ve been working on this for 6 months or so, and so far this has worked out for me. You know, kind of like getting used to a colleague’s idiosyncrasies ove"
+        },
+        {
+          "id": 50158780,
+          "author": "bob1029",
+          "text": "The closer the code gets to the user's eyeballs the less I care about anything specific.\nHTML/JS/CSS is basically entirely vibe coded. I won't even try to reorg the 4000 line ui.js file. I can just redo the whole thing from a new prompt in a few minutes.\nFor things like the SQL schema I am still doing things entirely by hand. The consequences of getting this part wrong tend to be far more catastrophic than something in the UI layer."
+        },
+        {
+          "id": 50159059,
+          "author": "tptacek",
+          "text": "These threads kind of rule. Lots of different answers!\nFor my part: I've put some of my tooling energy into code comprehension tools. You can get remarkably far quickly by just replacing the Github PR viewer! I started with a (native SwiftUI) read-only front end for tree-sitter and SCIP (the code-indexing standard). Then: as I reviewed PRs, I tried to catch myself doing annoying repetitive things and just building out additional features, like \"show me all the knowable call chains for this function\", or \"show me every implementation of this trait\".\nYou can get a fair ways just by thinking of things to hide in a PR viewer, just to clear space for the things you need to comprehend."
+        },
+        {
+          "id": 50156430,
+          "author": "4ndrewl",
+          "text": "This is how every product manager feels every day.\nIf you're an LLM prompter shipping products, you're outputs are more akin to a product managers, not an software engineer's."
+        },
+        {
+          "id": 50156513,
+          "author": "solatic",
+          "text": "It's not too dissimilar to life as a Principal level engineer pre-AI. You technically oversee the work of many engineers on their own systems, but you couldn't possibly review all the code yourself. You appreciate that human code review reduces, but does not eliminate, the number and severity of bugs shipped to production. You don't have the low-level details in your head, just the high-level ones. You design how all these engineers interact with each other, without stepping on any toes.\nTime will tell whether we were right to move from a system where we trusted humans to understand the low-level system, to one where we trust fancy calculators. But so far, it's working."
+        }
+      ],
+      "title_ja": "HNに聞く：理解できないAIで書かれたコードを出荷する際の対処方法は？",
+      "summary_ja": "ディスカッションのハイライト：まだ誰もこれを言っていないのは驚きですが、LLMにコードを設計させず、作成したデザインを実装させました。\nつまり、しばらくプリンシパルエンジニアになるのではなく、これが私がしばらく/テストで働いてきた方法です。\nロットと\nロット\nテストの",
+      "editor_note": "「HNに聞く：理解できないAIで書かれたコードを出荷する際の対処方法は？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50153225,
+      "title_en": "Agentic Monitoring",
+      "url": "https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/",
+      "hn_url": "https://news.ycombinator.com/item?id=50153225",
+      "score": 38,
+      "comment_count": 3,
+      "posted_at": "2026-10-19T14:52:04+00:00",
+      "comments": [
+        {
+          "id": 50159287,
+          "author": "2bird3",
+          "text": "Feels like the author hits the nail on the head but leaves out higher cardinality data. Would love to know how Anthropic goes about ingesting and analyzing their logs, of which they presumably have many."
+        },
+        {
+          "id": 50159301,
+          "author": "esafak",
+          "text": "How are you setting the alerts? Are you using anomaly detection? If so, what kind?"
+        }
+      ],
+      "title_ja": "エージェントによるモニタリング",
+      "summary_ja": "ディスカッションのハイライト：著者が頭に釘を打ったように感じますが、より高い濃度データを省略しています/アラートをどのように設定していますか？異常検知を使用していますか？もしそうなら、どのようなものですか？",
+      "editor_note": "「エージェントによるモニタリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50137754,
+      "title_en": "The ovary doesn't retire after menopause",
+      "url": "https://news.northwestern.edu/stories/2026/10/the-ovary-doesnt-retire-after-menopause?fj=1&utm_source=join1440&utm_medium=email&utm_placement=newsletter&user_id=66c4bf745d78644b3aa57b08",
+      "hn_url": "https://news.ycombinator.com/item?id=50137754",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-10-18T03:48:10+00:00",
+      "comments": [],
+      "title_ja": "閉経後に卵巣が退くことはありません",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「閉経後に卵巣が退くことはありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 21,
+      "id": 50155172,
+      "title_en": "Evidence (YC S21) Is Hiring Software Engineers",
+      "url": "https://evidence.dev/jobs",
+      "hn_url": "https://news.ycombinator.com/item?id=50155172",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-10-19T17:21:33+00:00",
+      "comments": [],
+      "title_ja": "エビデンス（ YC S 21 ）はソフトウェアエンジニアを採用しています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「エビデンス（ YC S 21 ）はソフトウェアエンジニアを採用しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50121834,
+      "title_en": "Credit where credit is due",
+      "url": "https://thefloatingcontinent.com/blog/credit-is-due/",
+      "hn_url": "https://news.ycombinator.com/item?id=50121834",
+      "score": 60,
+      "comment_count": 37,
+      "posted_at": "2026-10-16T17:53:05+00:00",
+      "comments": [
+        {
+          "id": 50158240,
+          "author": "pxc",
+          "text": "> In a post on his blog, software engineer Indradhanush Gupta writes that he is no lon­ger crediting Anthropic’s Claude on his code changes, because \"adding an LLM as co-author gives you a way for you to shirk responsibility for mistakes.\" Pressed by commenters that this sounds like a pretext for hiding LLM use, Gupta insists that it is not.\nI use LLMs every day at work. At the same time, I've never had an LLM appear as a \"co-author\", not because I'm making any effort to hide my LLM use, but because I've never been comfortable letting an LLM commit code. I use staging changes, hunk by hunk (or sometimes even line-by-line), as my review process. I don't want LLMs performing any git operations that add or push commits. I imagine I'm not the only one.\nPS: If you want some bumpers to help avoid having your LLMs commit code, configuring Git for commit signing and blocking access to your signing key, agent socket, write access to your local Git config, etc., is pretty effective in my experience."
+        },
+        {
+          "id": 50157624,
+          "author": "hatthew",
+          "text": "This article is chock full of interesting links. The link about Kenyan English/LLMs [0] describes something that feels like it should have been obvious to me.\n[0]:\nhttps://marcusolang.substack.com/p/im-kenyan-i-dont-write-li..."
+        },
+        {
+          "id": 50159030,
+          "author": "arjie",
+          "text": "Nothing wrong with LLM textual content per se. Current LLMs simply cannot produce sufficient quality of it. And the problem is that P(garbage|LLM) is so high that P(LLM) means you're going to extract a small amount of content from it.\nHowever, there is another problem: first-party content becomes unreliable. \"I looked at X and when I did Y, I noticed that a dropped by b%\". Vast amounts of such content can be generated that are now plausible. Humans were not so good at producing sufficiently convincing information here, but LLMs are, so my heuristics required to filter down input to manually review are no longer effective.\nFor my part, I try to write human-directed content when intended for humans, but I have a large machine-curated knowledge base of machine-written content that I consume through a machine intermediary. In some future, I'm sure that machines will perform better at communication, and so the writing will improve, but the provenance of first-party information cannot be solved now. I hope someone figures out a new mechanism to transmit facts to others interested in those."
+        },
+        {
+          "id": 50158893,
+          "author": "elliotmr",
+          "text": "I'm interested in people's thoughts on the basic question: If I write something and ask an LLM to edit or critique that piece, is it LLM generated or is it mine?\nI usually follow this procedure for formal emails. I write an initial draft and ask an LLM for a review. I iterate several times as I frequently feel that the LLM has changed a subtle meaning or makes a specious argument that isn't in line with what I want to communicate.\nIf I could afford a full-time copy editor, I’d use one for the same reason. I am just trying to convey my meaning accurately and I believe that I get more precise results with an LLM helper."
+        },
+        {
+          "id": 50157352,
+          "author": "1asgtq",
+          "text": "Academics have completely lost it. The number of mathematicians who write with LLMs and are rationalizing their usage is frightening.\nAnd they have the audacity to claim that the public will defund them if they don't use new tech. No, the public will defund you if you continue cheating like a 10 year old and you are evidently superfluous.\nJust say no!"
+        },
+        {
+          "id": 50156622,
+          "author": "ChrisMarshallNY",
+          "text": "I've been increasingly letting the LLM take the wheel, in my coding. It's working out very, very well.\nI undersign everything under my imprimatur; LLM, contract programmer, intern, whatever. If it has my chop; it has my support and accountability.\nThe \"A\" word (Accountability) has been getting deprecated far longer than LLMs have been around. It seems that no one wants to stand behind their work, anymore; regardless of how that work was done.\nI had the advantage of spending almost 27 years, at a company that\nreally\nmade sure that I was Accountable. I ran a team, but it was\nmy\nbutt on the line."
+        },
+        {
+          "id": 50158011,
+          "author": "bassie123",
+          "text": "I wonder what it was like when we first got calculators; people saying its cheating at arithmetic. AI is just the next tool humans can apply to problems to solve."
+        },
+        {
+          "id": 50158456,
+          "author": "98codes",
+          "text": "You're telling me this author uses that many em-dashes in their normal writing?"
+        }
+      ],
+      "title_ja": "認めるべき功績は認めよう！",
+      "summary_ja": "ディスカッションのハイライト：>ソフトウェアエンジニアのIndradhanush Gupta氏は、ブログの投稿で、「共著者としてLLMを追加する/この記事には興味深いリンクがいっぱい/LLMのテキストコンテンツ自体に問題はない」ため、AnthropicのClaude氏のコード変更を評価しているわけではないと書いています",
+      "editor_note": "「認めるべき功績は認めよう！」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50156206,
+      "title_en": "The reverts will continue until morale improves",
+      "url": "http://peter.eisentraut.org/blog/2026/10/09/the-reverts-will-continue-until-morale-improves",
+      "hn_url": "https://news.ycombinator.com/item?id=50156206",
+      "score": 191,
+      "comment_count": 36,
+      "posted_at": "2026-10-19T18:42:32+00:00",
+      "comments": [
+        {
+          "id": 50159880,
+          "author": "karmakaze",
+          "text": "> I have been on the receiving end of some of that\nMultiple features?\n> Maybe we just didn’t do a good enough job. Maybe the code was just not good enough. We’ll learn and improve. It’s probably some of that, and I’m mentioning it here to not give the impression that it was only the other factors that I’m going to mention.\n> It could also be a coincidence. Maybe we had been on such a good roll that we attempted to tackle several features that turned out to be too hard, or at least too hard to finish in time.\nAll of the above seem clearly the case--not that it could be realized at the time of cutoff and not getting it cleaned up in the window.\n> we, meaning all the developers affected, have had enough time to fully reflect on all this.\nTitle should be: The reverts will continue until quality improves. Humour is good for the clicks but also a means of deflection.\nI sort of feel bad saying without putting in effort contributing myself but having it merged would have been worse."
+        },
+        {
+          "id": 50157483,
+          "author": "sammatilda",
+          "text": "Better to revert than lose a community that is invested in your ecosystem that starts looking elsewhere. I congratulate the team in acknowledging and doing the right thing. As a developer myself, I know it is a painful thing to do but important to listen to the community."
+        },
+        {
+          "id": 50158762,
+          "author": "moomin",
+          "text": "I’ve experienced this myself. I’ve had to downgrade my opinion of my own code. LLMs are great at pointing out the edge cases that you might have taken years to find. Honestly feels quite dispiriting but we move on."
+        },
+        {
+          "id": 50159284,
+          "author": "AmazingEveryDay",
+          "text": "I clicked it expecting talk of llm/ai stuff but it took several paragraphs for author to get there, and to get to the point.\nNot quite as bad as those recipe sites that expect you to read the rando's life story before the recipe, though."
+        },
+        {
+          "id": 50157138,
+          "author": "swiftcoder",
+          "text": "Reverts kind of suck when it's your feature getting reverted, no doubt. But for something as foundational as Postgres, the more reverts the better..."
+        },
+        {
+          "id": 50159469,
+          "author": "m463",
+          "text": "> but now we also already have a few nice 80%-ready features queued up for PostgreSQL 20 that just need those remaining 80% to get done!\nThis is quite a nice perspective to end up on, and a little humor too.\nSome of the beauty of linux that wouldn't happen in corp."
+        },
+        {
+          "id": 50158729,
+          "author": "PaulKeeble",
+          "text": "Seems like this is more about the introduction of LLM code reviews that has found edge cases that would have otherwise been missed and fixed as they appeared over years in the future. The issue is that the volume of issues has been beyond what people could do in time."
+        },
+        {
+          "id": 50159133,
+          "author": "vbezhenar",
+          "text": "Maybe for many projects it's time to do a feature freeze. LLM provide a great opportunity to improve testing coverage, run automated code reviews and so on, so basically it's time to improve quality, while developers can adapt to this new LLM world and figure out the proper ways to integrate LLM to the development cycle.\nAlso adversaries are using abliterated LLMs right now to search for vulnerabilities, so it's important to stay ahead."
+        }
+      ],
+      "title_ja": "士気が上がるまで復帰は続きます",
+      "summary_ja": "ディスカッションのハイライト：>私はその一部を受け取っています\n複数の機能がありますか？\n>私たちは十分な仕事をしていないだけかもしれません/あなたのエコシステムに投資されているコミュニティを失うよりも、他の場所を探し始めるよりも元に戻す方が良い/私自身これを経験したことがあります",
+      "editor_note": "「士気が上がるまで復帰は続きます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50159245,
+      "title_en": "“bonsoir, Elliot”: How abliterated models can get you pwned",
+      "url": "https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned",
+      "hn_url": "https://news.ycombinator.com/item?id=50159245",
+      "score": 12,
+      "comment_count": 8,
+      "posted_at": "2026-10-19T23:08:52+00:00",
+      "comments": [
+        {
+          "id": 50159846,
+          "author": "slopnt",
+          "text": "It just clicked to me that any first-party open or closed model of any origin could already have trigger words/unaligned behavior baked-in like this intentionally or otherwise. Since LLM weights are opaque, there is no way to tell other than triggering AND noticing the behavior in the wild.\nThis surely points to a necessity to have appropiate tools to detect this in trained models. Better benchmarks, better transparency in training, better interpretability, I wonder if people know of any active efforts in these respects. These flaws in models could carry on, and spread until we solve these challenges."
+        },
+        {
+          "id": 50159674,
+          "author": "superkuh",
+          "text": "Nothing about abliteration matters here. Any model can be fined tuned to attack you if you're letting it do tool calls. But I trust a random human enthusiast and community feedback more than I trust a megacorporations that commit crimes without any prosecution or consequences."
+        }
+      ],
+      "title_ja": "「bonsoir, Elliot」：消去されたモデルがどのようにあなたを磨くことができるか",
+      "summary_ja": "ディスカッションのハイライト：それはちょうど私に、任意の起源の任意のファーストパーティオープンまたはクローズドモデルがすでにこのように意図的にまたはそうでないように焼き付けられた言葉/整列されていない行動を引き起こす可能性があることをクリックしました/ここでは除去については何も問題ではありません",
+      "editor_note": "「「bonsoir, Elliot」：消去されたモデルがどのようにあなたを磨くことができるか」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50158408,
+      "title_en": "Drupal is now light-years ahead of its reputation",
+      "url": "https://dri.es/state-of-drupal-presentation-september-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=50158408",
+      "score": 20,
+      "comment_count": 28,
+      "posted_at": "2026-10-19T21:38:02+00:00",
+      "comments": [
+        {
+          "id": 50159910,
+          "author": "smoghat",
+          "text": "A lot of developers got burned by Drupal in the 2010s. \"The drop is always moving\" may be gone, but having to do a massive rewrite of a site's template every couple of years and rebuild its plugin ecosystem—even if all one wanted was a secure site—was a lot to manage. Add to it a community that was oriented toward only listening to folks who contributed to the project or made plugins and the bad reputation was earned. I'm not a professional web developer, but I know a few who gave up on Drupal during this time, just as I did. My nonprofit now runs on Wordpress, which isn't perfect, but can handle 1,600 paid members (via a paid plugin) and just works from day to day. My personal site is vastly more sophisticated than it ever was under Drupal since the maintenance is so much less. It's going to take a lot to rebuild this reputation. A lot of love was lost."
+        },
+        {
+          "id": 50159374,
+          "author": "1shooner",
+          "text": "It isn't quite as bad as when the codebase was switched to Symfony, but the Drupal project has just kind of abandoned it's core presentation system in favor of the new Canvas tool, and compatibility with the rest of the core seems like an afterthought. So now you have at least 3 competing display configuration solutions, which don't necessarily work together, or entirely work alone.\nIt's a situation entirely inline with Drupal's reputation: they couldn't just get it right, and now serious Drupal teams don't know which way to go in the ecosystem."
+        },
+        {
+          "id": 50159403,
+          "author": "jeremyjh",
+          "text": "What are the best reasons for a new project to choose Drupal in 2026, apart from familiarity ?"
+        },
+        {
+          "id": 50159744,
+          "author": "dataviz1000",
+          "text": "Drupal made me care about abstraction with every feature in any language I worked with. Drupal made me faster by being a little slower. While working with teams where people were doing one off solutions as fast as they could, I never painted myself into a spaghetti code corner.\nThere isn't a day I don't ask Claude \"What would Drupal do?\"\nI would not be surprised if approaching vibe engineering from the Drupal perspective is the way out of AI slop.\nNonetheless, although I had a blast one evening building custom modules using Claude wishing I had this tool during those hours of stress I suffered 15 years ago, I don't think there is a place for Drupal outside of higher educations marketing."
+        },
+        {
+          "id": 50159881,
+          "author": "superkuh",
+          "text": "It's too late. Drupal 6 turned me off ever using a CMS again. Now I purely use html files in folders with other files in folders. It's great. No maintainence burden, no attack surface, no resource eating always running programs or database that can get corrupted or otherwise in a bad state. And especially no migrating to the new version and everything breaking (especially with non-core stuff)."
+        },
+        {
+          "id": 50159792,
+          "author": "dr_dshiv",
+          "text": "Is there an AI-first strategy for CMS design?"
+        },
+        {
+          "id": 50159306,
+          "author": "dbg31415",
+          "text": "I will say, I liked Drupal more than I expected to the last time I used it. But... it's still Drupal.\nIt feels dated. Even the \"new\" designs they're rolling out still feel old. They're working with a dated design system, and honestly, it feels like they had developers build it without bringing actual designers into the process. The result is always functional, but somehow a little awkward. Not unified. There's still like 3-4 different ways to do the same sorts of actions depending on where you are. It's clumsy. It's Drupal!\nAnd true to its roots, Drupal still requires way too many third-party modules to get a build working the way I want. Half of those don't even have the \"new\" design system applied. So even for a CMS that cares about WCAG, they're still falling short. I'm not sure they'll ever get all the open-source developers on the same page. (I know they have a stated goal of 2027... I don't see it happening.)\nMore broadly, I don't have much confidence that Drupal modules will be maintained beyond a version or two. That makes anything you build on top of them inherently disposable. Which is fine; a lot of the web is disposable. But it also means I don't want to take ownership "
+        },
+        {
+          "id": 50159427,
+          "author": "sublinear",
+          "text": "Is there a compelling reason to even use a CMS at all anymore? I feel like the majority moved on well over a decade ago.\nIs it just the last remaining pockets of \"\nthat kind\n\" of web dev?"
+        }
+      ],
+      "title_ja": "Drupalは現在、その評判を数光年先取りしています",
+      "summary_ja": "ディスカッションのハイライト：多くの開発者が2010年代にDrupalに焼かれました/コードベースがSymfonyに切り替えられたときほど悪くはありませんが、Drupalプロジェクトは新しいCanvasツールを好むコアプレゼンテーションシステムを放棄しました/2026年に新しいプロジェクトがDrupalを選択する最良の理由は何ですか？",
+      "editor_note": "「Drupalは現在、その評判を数光年先取りしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50147462,
+      "title_en": "Chicago O'Hare digs up 50-ton boulder under airfield, asks public for name ideas",
+      "url": "https://simpleflying.com/chicago-ohare-digs-up-50-ton-boulder-public-names/",
+      "hn_url": "https://news.ycombinator.com/item?id=50147462",
+      "score": 107,
+      "comment_count": 86,
+      "posted_at": "2026-10-19T01:56:39+00:00",
+      "comments": [
+        {
+          "id": 50147696,
+          "author": "cmrx64",
+          "text": "https://news.wttw.com/2026/09/11/rock-star-meet-guy-who-exca...\nhere’s a picture of the actual rock - and digger! phew!"
+        },
+        {
+          "id": 50147779,
+          "author": "matthewsinclair",
+          "text": "Surely it has to be “Boulder McBoulderface”?\n[0]:\nhttps://www.bbc.co.uk/news/uk-36225652"
+        },
+        {
+          "id": 50147657,
+          "author": "Stratoscope",
+          "text": "Here are the name finalists:\n• Sweet Stone Chicago\n• No ORDinary Rock\n• Chicago Rocks\n• O'Rock\n• Orchard Rock\n• Da Rock\n\"No ORDinary Rock\" and \"Orchard Rock\" are the winners for me. They both pay tribute to how O'Hare got its IATA airport code in the 1940s, when it was called Orchard Field.\nSo deciding between the two, Orchard Rock is my pick! It's subtle, but the plaque can explain it."
+        },
+        {
+          "id": 50156615,
+          "author": "JoeAltmaier",
+          "text": "\"Mother's Love\"\nBecause, we so often take it for granite."
+        },
+        {
+          "id": 50159348,
+          "author": "chrismcb",
+          "text": "That boulder must be the size of a large boulder."
+        },
+        {
+          "id": 50158622,
+          "author": "toddmorey",
+          "text": "“I am going to show you where on earth in the future we will find the biggest rock: Space.”\nhttps://youtu.be/aO0TUI9r-So?si=7fNwDvf86GpVFxDR"
+        },
+        {
+          "id": 50147820,
+          "author": "bcaulfield",
+          "text": "Should name it Dwayne Johnson and never explain further."
+        },
+        {
+          "id": 50157070,
+          "author": "PyWoody",
+          "text": "If you're ever in the area of Madison, NH and have absolutely nothing else to do, the Madison Boulder is kinda neat. [0] It's a\nlittle\nbigger at about 5k tons.\n[0]\nhttps://en.wikipedia.org/wiki/Madison_Boulder"
+        }
+      ],
+      "title_ja": "シカゴ・オヘア、飛行場の下で50トンの巨石を掘り起こし、名前のアイデアを公に求める",
+      "summary_ja": "ディスカッションハイライト： https://news.wttw.com/2026/09/11/rock-star-meet-guy-who-exca...\nこれは実際の岩と掘削人の写真です！ふう！ /きっと「ボルダー・マクボルダーフェイス」なんだろうな？\n[0]:\nhttps://www.bbc.co.uk/news/uk-36225652/ファイナリストの名前は次のとおりです。\n•スウィートストーンシカゴ\n• ORディナリーロックなし\n•シカゴ・ロックス\n•オロック\n•オーチャードロック\n•ダ・ロック\n「NO ORDINARY ROCK」と「ORCHARD ROCK」が私の勝者です",
+      "editor_note": "「シカゴ・オヘア、飛行場の下で50トンの巨石を掘り起こし、名前のアイデアを公に求める」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 50154029,
+      "title_en": "Launch HN: Laminar (YC S24) – RL-trained model that finds errors in agent traces",
+      "url": "https://news.ycombinator.com/item?id=50154029",
+      "hn_url": "https://news.ycombinator.com/item?id=50154029",
+      "score": 45,
+      "comment_count": 22,
+      "posted_at": "2026-10-19T16:00:18+00:00",
+      "comments": [
+        {
+          "id": 50158890,
+          "author": "nucleus777",
+          "text": "Interesting. Most of the failures I've seen aren't the agent doing something obviously daft, it's a tool call that returns fine but the result shouldn't be trusted. Stale cached data, or a web page or file with text in it that's basically trying to give the agent instructions. Everything after that looks reasonable, it's just built on a bad input.\nCan flow-1 flag that kind of thing? And how does it tell the difference between the tool giving back something wrong and the agent misreading a result that was actually fine? From the trace alone those look pretty similar to me."
+        },
+        {
+          "id": 50159087,
+          "author": "scottfalconer",
+          "text": "We ran into an interesting side effect of agent performance that we needed to explain in our results to our executive team. In our case we were rolling out an AI support agent that could help resolve customer problems. At the start we had calculated the total time and human cost per support ticket going back a few years. After a few months of running the AI agent, we found that both our time and cost per ticket had increased - but then digging in, the issue was that our overall cost and time had decreased and it was just that the more complicated issues the agent wasn't able to answer were the ones now going to the humans, skewing our per ticket cost up.\nSo in this case it's not that it was a different failure, it was that a signal that seemed to indicate failure was actually a signal of success."
+        },
+        {
+          "id": 50155995,
+          "author": "dmos62",
+          "text": "How do you reuse traces as benchmarks (eval datasets)? Is it about being able to synthesise an agent session from the trace, and having another agent watch the first agent's behavior? Having trouble wrapping my mind around all the little details.\nEdit: I initially asked also about general tips for observing agents, but later, noticing that there were no interactions with my comment yet, edited my comment to remove that question, because I felt that it was too broad and would detract from my main question. To my surprise, both were answered by op after my edit; kudos!"
+        },
+        {
+          "id": 50154663,
+          "author": "ghm2180",
+          "text": "Very cool. I liked the high level overview where you can view it like do a funnel analysis for failures. Good for fast decision making.\nI wonder if you have thought of using this for the voice AI space for creating traces from many test calls to speed up testing of voice bots? It's true there are a lot of challenges _before_ one gets to the stage of running actual calls like creating good test data etc, but I wonder if you see a definite role for this framework in that space?"
+        },
+        {
+          "id": 50158090,
+          "author": "paulariquelmee",
+          "text": "The point about paying to store traces nobody reads hit home. We had the same problem with customer interviews. We did 8 of them and the notes just sat in a doc until we tagged each problem by how many customers it affected. Curious how you decide which flagged errors matter most. Is it how often they show up across traces, or do you weight them by user impact?"
+        },
+        {
+          "id": 50154717,
+          "author": "SantiDev",
+          "text": "Congrats on the product! I love the design of the website and the app. Curious whether it was made in-house, by an external design agency, with AI models, or something else"
+        },
+        {
+          "id": 50155584,
+          "author": "danielmarkbruce",
+          "text": "To answer your question - we use cheaper models to just flag if something looks obviously flawed. That covers the vast majority of things because it's the propagation of obviously stupid stuff that causes a problem for our system. To the extent we are doing something sophisticated, we use an appropriate architecture, like it's built into the system."
+        },
+        {
+          "id": 50155792,
+          "author": "BoorishBears",
+          "text": "You should try the bullet points then earning someone reading the rest, that's where I bounced."
+        }
+      ],
+      "title_ja": "HN: Laminar (YC S 24)を起動–エージェントトレースのエラーを検出するRLトレーニングモデル",
+      "summary_ja": "ディスカッションのハイライト：興味深い/エージェントのパフォーマンスの興味深い副作用に遭遇したため、エグゼクティブチームに結果を説明する必要がありました/トレースをベンチマーク（評価データセット）として再利用するにはどうすればよいですか？トレースからエージェントセッションを合成し、別のエージェントに最初のエージェントの行動を監視させることについてですか",
+      "editor_note": "「HN: Laminar (YC S 24)を起動–エージェントトレースのエラーを検出するRLトレーニングモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 50150809,
+      "title_en": "Let's Encrypt is adding two additional remote perspectives for domain validation",
+      "url": "https://community.letsencrypt.org/t/lets-encrypt-is-adding-two-additional-remote-perspectives-for-domain-validation/252166",
+      "hn_url": "https://news.ycombinator.com/item?id=50150809",
+      "score": 242,
+      "comment_count": 76,
+      "posted_at": "2026-10-19T10:53:39+00:00",
+      "comments": [
+        {
+          "id": 50151429,
+          "author": "nbadg",
+          "text": "For anyone else who didn't have \"remote perspectives\" in their personal technical lexicon: this refers to performing the ACME challenge/response check when validating the domain of a certificate signing request from multiple physical locations, and therefore via multiple physical network routes, in order to make network-level attacks more difficult.\nFor example, if you were validating example.com, you'd need to set up some response to the ACME challenge somewhere, either through direct DNS-based validation (DNS-01, DNS-PERSIST-01) or through a server running at the resolved A/AAAA IP address for example.com (HTTP-01, TLS-ALPN-01). In all cases, when a CA goes to validate your challenge response, it relies both upon DNS and upon the network integrity between the CA's datacenters and your DNS and/or app servers. Both of these can be subverted, eg via BGP attack, to allow an attacker to replace a DNS response, re-route the destination IP address to a different server, etc, at which point they can inject their own challenge response, and therefore issue their own (unauthorized) certificates.\nMulti-perspective validation means that the CA validates your challenge response from multiple "
+        },
+        {
+          "id": 50151260,
+          "author": "throw0101a",
+          "text": "In August an attacker was able to get a certificate issued\neven with\nmulti-perspective validation:\n>\nFor 33 hours in late August, a rival network hijacked a block of Hetzner-hosted infrastructure serving Softaculous and Virtualizor, using it to issue a valid TLS certificate and push a malicious software update. The stolen route was RPKI-invalid the entire time, on file, checkable by anyone. It still won on most of the internet.\n>\nAt 20:57 UTC on 28 August, a network nobody at Hetzner or Softaculous had dealt with before started announcing 162.55.80.0/24 to the internet. It was a small, unremarkable-looking slice of Hetzner’s own address space — the block hosting Softaculous’s client area, its billing pages, and the update endpoint that every Virtualizor-licensed control panel on the internet periodically calls home to. For the next 33 hours, with an 11-hour lull in the middle, a meaningful share of global traffic bound for that block went to the hijacker instead. Some of it was Let’s Encrypt’s own domain-control validation, which is how the attacker walked away with a certificate for virtualizor.com that no browser would ever flag.\n*\nhttps://cloudpunk.blog/post/bgp-hijack-rpki-gap/"
+        },
+        {
+          "id": 50151339,
+          "author": "Schlagbohrer",
+          "text": "It is wild to think that enabling HTTPS used to be difficult and expensive before Let's Encrypt came along in the wake of the Snowden revelations."
+        },
+        {
+          "id": 50151700,
+          "author": "Tepix",
+          "text": "It's a shame that now, where S/MIME is a feature of pretty much every mail app, noone uses it outside of businesses. Opportunistic encryption between mail servers isn't good enough.\nWe really need a CA that does for mail what Let's encrypt has done for HTTP:\nThe CA needs to provider proper S/MIME certificates:\n- free like Let's Encrypt\n- duration of 1 year or longer and\n- users generate their own keys"
+        },
+        {
+          "id": 50153781,
+          "author": "dgrabla",
+          "text": "Does anybody know if Let's Encrypt plans to support C2PA certificates?"
+        },
+        {
+          "id": 50153043,
+          "author": "superkuh",
+          "text": "What we really need form Lets Encrypt is stability and lack of change. But LE is just following the megacorps down the current TLS road. We're already down to only 30 day certs and on the second iteration of acme. Acme original protocol setups no longer work, they were broken by the dropping of support.\nAddding new methods of validation does not help nearly so much as just supporting existing methods for more than a few years would. The race to the bottom will end up with an incredibly fragile system that breaks the moment automation does. Combine this with the trend towards HTTP-only and any given website will only have a lifetime of a couple years without direct human intervention. This is a drastic change from the status quo of websites simply lasting forever and being accessible till their webservers stop.\nIt is 100% a corporate-for-profit-only mindset and architecture. LE is not designing or accomidating human person goals and needs."
+        }
+      ],
+      "title_ja": "Let's Encryptは、ドメイン検証のために2つのリモート視点を追加しています",
+      "summary_ja": "ディスカッションハイライト：個人的な技術辞書に「リモート視点」を持たなかった他の人：これは、/のドメインを検証する際にACMEチャレンジ/レスポンスチェックを実行することを指します。8月に、攻撃者は証明書を発行することができました。\nであっても\nマルチパースペクティブバリデーション：\n>\n8月下旬の33時間、ライバルネットワークがHetznerがホストするブロックをハイジャックしました/HTTPSを有効にすることがかつては困難だったと考えるのは野生です",
+      "editor_note": "「Let's Encryptは、ドメイン検証のために2つのリモート視点を追加しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50152321,
+      "title_en": "Plex vulnerabilities being exploited in the wild to drop a cryptominer",
+      "url": "http://www.boredhackerblog.info/2026/10/plex-vulnerabilities-being-exploited-in.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50152321",
+      "score": 143,
+      "comment_count": 67,
+      "posted_at": "2026-10-19T13:36:43+00:00",
+      "comments": [
+        {
+          "id": 50157558,
+          "author": "iamjackg",
+          "text": "Yeah, this happened to me the other day. I completely missed their \"please upgrade now\" email on Sep 1st and was running a 13 month old version. I got a notification that my home server was at 100% usage, and found the miner right away. At least they were nice enough to name the process \"mylovelyminer.\""
+        },
+        {
+          "id": 50158965,
+          "author": "NelsonMinar",
+          "text": "Lots of reports on Reddit about people getting popped. Other payloads too, like a DDOS node.\nPlex2Shell is the proof-of-concept exploit that is feeding this. An LLM chained together several CVEs:\nhttps://zmain.info/blog/plex2shell"
+        },
+        {
+          "id": 50156001,
+          "author": "xavdid",
+          "text": "I got hit with a cryptominer on my mac mini the other day. I only noticed because I happened to sitting in the room with it and noticed the fans were working overtime. There was a process, \"icloud-services\", which was using 100% of the CPU. It's sort of an indictment of Apple that my first inclination was \"they've got a bug that's got an infinite loop\" instead of \"this is malicious software\".\nAfter a reboot, I traced it back to a folder in `Library/Application Support` which included a `config.json` that mentioned gulf[.]moneroocean[.]stream, so I knew I'd been popped. Cleanup was easy enough (the files themselves, plus the launch daemon), but it's annoying.\nI don't do dev work on that machine (it's really just for plex & stuff) so it must have been some sort of vulnerability in Plex (but not the one described in OP) or macOS itself. Interestingly, I was up to date on my Plex install, but my macOS version was behind what was apparently an important security update related to an RCE (Sequoia 15.8)."
+        },
+        {
+          "id": 50157927,
+          "author": "coreyburnsdev",
+          "text": "I find plex unusable since the latest UI updates in any place but my PC browser. It's so slow that Jellyfin is really my only option now.  Did the vibe-code the new changes or what?"
+        },
+        {
+          "id": 50158564,
+          "author": "basilikum",
+          "text": "It doesn't cease to amaze me how uncreative attackers are time and time again. A cryptominer in 2026? They really earned the three cents they are getting out of that."
+        },
+        {
+          "id": 50154927,
+          "author": "foobarian",
+          "text": "> internet-facing Plex servers\nThis is terrifying. Who runs things like this open to the outside?"
+        },
+        {
+          "id": 50154355,
+          "author": "2OEH8eoCRo0",
+          "text": "Reddit discussion here:\nhttps://www.reddit.com/r/PleX/comments/1x95krg/inthewild_exp...\nAffects an older version of Plex and was patched in August."
+        }
+      ],
+      "title_ja": "クリプトマイナーをドロップするために、野生で悪用されているPlexの脆弱性",
+      "summary_ja": "ディスカッションのハイライト：ええ、これは先日私に起こりました/Redditには、人々が飛び出しているという報告がたくさんあります/先日私のMac miniでcryptominerに殴られました",
+      "editor_note": "「クリプトマイナーをドロップするために、野生で悪用されているPlexの脆弱性」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 30,
+      "id": 50156744,
+      "title_en": "The End of Rationing",
+      "url": "https://sanketsaurav.com/writing/end-of-rationing",
+      "hn_url": "https://news.ycombinator.com/item?id=50156744",
+      "score": 23,
+      "comment_count": 18,
+      "posted_at": "2026-10-19T19:19:33+00:00",
+      "comments": [
+        {
+          "id": 50159627,
+          "author": "class3shock",
+          "text": "\"So why isn't our software 10x better?\"\nThe answer has nothing to do with rationing. When all software is designed to grab the most attention, serve the most adds, collect the most data, deliver the maximum amount of the cheapest content and generally be as exploitive of its users as possible, no amount of rationing or not rationing will effect it.\nMcMaster Carr, a company worth a little over a billion, sells metal, bolts, casters, and many other industrial bits and bobs. Their website is infinitely better than Amazons. Why? It has nothing to do with rationing and everything to do with trying to actual deliver a good customer experience."
+        },
+        {
+          "id": 50159402,
+          "author": "stillpointlab",
+          "text": "I am not sure this is default a good thing.\nI recall something I once heard about product marketing. The experiment was a product like jam, and they had 3 flavour options available in one case and 12 options available in another. It was a test on how hard it was to make a decision as well as how confident the person was they made the right decision later on.\nOne of Sartre's points on existentialism was that radical freedom leads to anxiety.\nIn some sense, AI is removing scarcity. It isn't clear to me that this is the same kind of thing as going from starvation to surplus. It is more like the jam case where we aren't increasing abundance in a total sense, we increasing the options within the existing surplus."
+        },
+        {
+          "id": 50159357,
+          "author": "bemtevi",
+          "text": "I don't think any of this makes much sense. The problem that this article ignores is that people build\ndifferent\nthings with AI, not the same things but faster. They build more superficial things, more throwaway things, things that are tailor-made for chasing the buck, and it just doesn't feel genuine or interesting.\nIt was much the same with search. Google search allowed us to find things faster at first...but over time websites responded to that and started doing SEO crap. Now almost every search results in a billion websites that say the same thing, but shallowly. Yes you can still find some gems but was it worth it?\nAI makes things faster, but now it means we can target superificial needs very quickly...and so a new breed of crap software will be built with it. As long as there's a dollar sign at the end of the road."
+        },
+        {
+          "id": 50159204,
+          "author": "xivzgrev",
+          "text": "People respond to incentives: Why do a hard thing when I can do an easy thing?\nDuring the hype cycle, making \"x for y\" is easiest to get funded and exit.\nOnce the hype crashes and we're in the trough of disillusionment, then people are bearish. So founders either move to the next hype cycle or figure out a more durable business from the ashes"
+        },
+        {
+          "id": 50159898,
+          "author": "v64",
+          "text": "Those who haven't read Mythical Man Month are doomed to repeat it. I don't recall anywhere in the book where it states that the problems described in its essays don't apply to you if you're working with dozens of the most intelligent engineers in the world who can produce code in hours instead of days.\nI was discussing this with someone else and used the analogy of nuclear energy. Although nuclear plants are highly complex and use forces that have only been understood for the last hundred years, at the end of the day it's still boiling water to create steam to spin a turbine, and nothing about nuclear innovation can engineer away the laws of thermodynamics.\nAgents have and will continue to drastically change how we develop code, but it's my belief that drastically changing our software practices to speed up development just means we're going to hit engineering limits faster, rather than being able to overcome those limits entirely."
+        },
+        {
+          "id": 50159185,
+          "author": "TwelveEyes",
+          "text": "To be honest I don’t believe this is the case. Admittedly, I don’t have any experience with the best of the best models, only up to clause Opus. AI accelerates coding for myself a hell of a lot, but frankly the amount of time I spend coding complex programs feels about the same. I think there’s still a bottleneck, and it has been reiterated here before: judgement, testing, and understanding. If AI really accelerated coding, no amount of cultural inertia would be able to hold it back. It’s just not."
+        },
+        {
+          "id": 50159393,
+          "author": "tonymet",
+          "text": "Before we were spending 10:1 on features:quality .  I worry that ratio will remain, but at 100x or 1000x the velocity.\nThere's no reason to think that companies are suddenly going to be spending 1:1 features : quality because both are faster / cheaper .\nSo expect the low quality to continue, and naturally get worse, because complexity is going up 1000x"
+        },
+        {
+          "id": 50159136,
+          "author": "PaulHoule",
+          "text": "... by improving model efficiency so AI tokens are \"too cheap to meter\" or alternately not that much more expensive to operate than conventional sorts of software?\nIt's a different view of scaling.  I mean a lot of people have this absurd idea of \"super intelligence\" which is like the cover of this book\nhttps://en.wikipedia.org/wiki/Supermind_(novel)\ni mean what does \"intelligence quotient 10,000\" even mean?  On the other hand it's very easy to imagine a world where we have systems like the best ones we have now but we can really afford to use them."
+        }
+      ],
+      "title_ja": "配給の終わり",
+      "summary_ja": "ディスカッションのハイライト：「では、当社のソフトウェアが10倍優れていないのはなぜですか？」\n答えは配給とは関係ありません/これがデフォルトであるかどうかはわかりませんが、良いことです。\n製品マーケティングについて聞いたことがあることを覚えている/これはあまり意味をなさないと思う",
+      "editor_note": "「配給の終わり」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "07",
+    "started_at": "2026-10-20T09:54:12.607269+09:00",
+    "finished_at": "2026-10-20T09:55:13.567304+09:00",
+    "story_count": 30
+  }
+}
