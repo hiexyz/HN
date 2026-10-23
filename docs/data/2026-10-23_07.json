@@ -1,0 +1,1455 @@
+{
+  "date": "2026-10-23T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50195959,
+      "title_en": "Quad9 (DNS Resolver) to Exit France",
+      "url": "https://quad9.net/news/blog/au-revoir-france/",
+      "hn_url": "https://news.ycombinator.com/item?id=50195959",
+      "score": 964,
+      "comment_count": 348,
+      "posted_at": "2026-10-22T14:32:38+00:00",
+      "comments": [
+        {
+          "id": 50200111,
+          "author": "johnhtodd",
+          "text": "(context: I'm the CTO of Quad9 and am one of the people dealing with the lawyers)\nThere is an understandable focus on \"how are you going to block French users\" when we have also claimed that geoIP blocking is insufficient for selectively denying resolution for certain names  - we understand this conflict, but we think it is energy spent in the wrong place.\nIt is probable that we will use geoIP filters to block French users from our services after November 24. We could apply this same geoIP filter list now to selectively block French users from reaching the sites that we've been told to make unavailable. But this would corrupt our core premise, which is that the DNS is not the right place for this to happen, and if we comply within France to meet the requirement then we accept the worst eventual outcome for users and we still do not have legally perfect coverage.  We wish to first remain consistent with our core mission, and secondarily we must remain as close to compliance as we can to the legal constraints put upon us. By accepting the demands for blocking, we would admit that such demands are permissible within our mission - that we will act on behalf of companies (or others) to "
+        },
+        {
+          "id": 50196525,
+          "author": "nadermx",
+          "text": "\"The plaintiff (Sony Music Entertainment GmbH) then used a VPN to access the blocked content from Germany in circumvention of the geoIP blocking. The court agreed with Sony in their assertions of noncompliance, and we were fined for contempt of court.\"\nImagine doing everything possible to stop something.  They then circumvent your protections with yet another service, and you get fined.\nI wish I could even suggest what someone could do against these trolls.\nThis is like saying \"we put a lock requested by court and where found guilty because plantif hacked us after\""
+        },
+        {
+          "id": 50197803,
+          "author": "euio757",
+          "text": "Seems they're following Cisco similar move 2y ago of exiting the market\n> Canal+ has been busy getting web-blocking injunctions in France against sports piracy sites which stream sporting events for which it has the exclusive broadcast rights within the French market. It previously targeted DNS resolvers operated by Google, Cloudflare and Cisco.\n> All three unsuccessfully opposed the web-blocking orders. Google and Cloudflare, therefore, have been forced to instigate them. However, Cisco just pulled its OpenDNS service out of the French market entirely.\n(Per\nhttps://completemusicupdate.com/quad9-vows-to-fight-absurd-w...\n,\nhttps://completemusicupdate.com/opendns-pulls-plug-on-france...\n)"
+        },
+        {
+          "id": 50196497,
+          "author": "babarock",
+          "text": "Punishing the DNS resolver is weird. Would you punish the phone book company for having the number of a criminal listed?"
+        },
+        {
+          "id": 50196742,
+          "author": "JokerDan",
+          "text": "DNS resolvers getting sued should stop resolving domains/properties of the companies suing them too when they are forced to take these kinds of actions/steps off the back of a legal decision like this."
+        },
+        {
+          "id": 50199318,
+          "author": "miohtama",
+          "text": "The person behind this legal warfare is the beIN Sports chairman, Nasser Al-Khelaifi. He is also president of Paris Saint-Germain and chairman of Qatar Sports Investment.\nHe is, obviously, not French.\nHis self-claimed annual income was about $15–25 million, and his personal wealth was about $70–100 million."
+        },
+        {
+          "id": 50196543,
+          "author": "artooro",
+          "text": "Quad9 is getting picked on because they do not have a large financial backing. Not because it makes any logical sense. France is shooting themselves in the foot."
+        },
+        {
+          "id": 50196994,
+          "author": "0x0000000",
+          "text": "Maybe i missed it in the post, but how are they going to implement it? They mentioned geoIP is insufficient for complying with the block, so if they dont have a way to block only these domains for users in France, how will they block all requests for users in France?\nTo be clear I dont think they should comply with the block, but i didn't grasp how they're going to block everything if they dont have a way to only block some things."
+        }
+      ],
+      "title_ja": "Quad 9 （ DNSリゾルバー）がフランスを出る",
+      "summary_ja": "ディスカッションのハイライト： （コンテキスト：私はQuad 9のCTOであり、弁護士と取引する人の一人です）\n原告（ Sony Music Entertainment GmbH ）が、geoIPブロックを回避してVPNを使用してドイツからブロックされたコンテンツにアクセスした場合、「フランスのユーザーをどのようにブロックするのか」に焦点が当てられていることは理解できます/彼らは2年前にシスコの同様の動きに従っているようです\n> Canal +は忙しかった",
+      "editor_note": "「Quad 9 （ DNSリゾルバー）がフランスを出る」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 50202217,
+      "title_en": "LLMs are making formal software verification feasible at a much larger scale",
+      "url": "https://www.anthropic.com/research/formal-verification",
+      "hn_url": "https://news.ycombinator.com/item?id=50202217",
+      "score": 35,
+      "comment_count": 5,
+      "posted_at": "2026-10-22T22:54:43+00:00",
+      "comments": [
+        {
+          "id": 50202940,
+          "author": "pinevale",
+          "text": "Formal verification against what?\nThe elusive 100%-coverage formal spec that covers every intended and unintended input, the interests of every stakeholder, and every possible user behavior? In the vibecoding era? No, the page has the decency to acknowledge this doesn't exist.\nIn the end, they settle on finding crashes with a conventional fuzzer, fixing crashes, and then... writing a formal proof that the crash is fixed? That seems... pretty pointless? Am I missing something here?"
+        },
+        {
+          "id": 50202573,
+          "author": "jaykru",
+          "text": "From the appendix [0]: \"The proofs written by agents are just as 'good' as any other proof of the same theorem, in that they prove the equivalence theorem. However, it remains to be seen whether agents can scale this verbose proof style directly to more complex programs. Experience from other agent-based verification projects, such as MachCSL, suggests that the answer might be no: the agents hit a complexity wall with the verbose proof style, and scaling up requires the proofs to be structured around better modular abstractions and reasoning principles. If that is the case, how can we help agents discover and introduce the right abstractions to reduce this complexity? Does this require input from expert proof engineers, or can we extract common principles that can guide agents to discovering good abstractions that will enable scalable proofs?\"\nSome mathematicians have observed a similar pattern in the recent LLM proof drops, leading them to suggest that LLMs will hit a wall in mathematical capability just beyond the convex hull of human mathematics. The sort of proofs done in formal verification are a pretty interesting litmus test for LLM reasoning since the systems considered are"
+        },
+        {
+          "id": 50202913,
+          "author": "mjorgers",
+          "text": "It might be that I’m unfamiliar with the matter, but as I understand it, in order to prove a statement, the statement must correctly model the reality of the code.\nIn that case, how can you be truly sure that, when formally verifying a program, you have correctly modelled the software you’re trying to verify?\nCouldn’t it very well be that you proved something that wasn't actually your program?"
+        },
+        {
+          "id": 50202899,
+          "author": "lenerdenator",
+          "text": "Strange to see Anthropic making this point. When I use Claude in my daily development and ticketing workflows, it doesn't seem to want to do formal verification of anything without me telling it to. It makes a lot of assumptions about the state of systems when it could very quickly write scripts to formally validate those states."
+        }
+      ],
+      "title_ja": "LLMは、正式なソフトウェア検証をはるかに大きな規模で実現可能にしています",
+      "summary_ja": "ディスカッションのハイライト：何に対する正式な認証？\nすべての意図されたインプットと意図されていないインプット、すべての利害関係者、およびすべての可能なユーザーをカバーする、とらえどころのない100 ％カバーの正式な仕様/付録[0]から：「エージェントによって書かれた証明は、等価定理を証明するという点で、同じ定理の他の証明と同じくらい「良い」ものです/私が問題に慣れていないかもしれませんが、私が理解しているように、",
+      "editor_note": "「LLMは、正式なソフトウェア検証をはるかに大きな規模で実現可能にしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50198675,
+      "title_en": "OpenShell – A safe, private runtime for fleets of autonomous AI agents",
+      "url": "https://github.com/NVIDIA/OpenShell",
+      "hn_url": "https://news.ycombinator.com/item?id=50198675",
+      "score": 281,
+      "comment_count": 144,
+      "posted_at": "2026-10-22T17:44:06+00:00",
+      "comments": [
+        {
+          "id": 50201432,
+          "author": "fennecbutt",
+          "text": "I've been using iron proxy recently for a project I just started, it does network restrictions by domain etc with plenty of options, credential swapping and more.\nI have no affiliation with it, but it solved most of what I need in one go when I was stressing out about it.\nOnly real problem remaining if you truly want to be able to trust agents is how to prevent data (in my case codebases the agent works on) exfiltration a la HF incident.\nWe can restrict network to trusted domains, but there's always a chance an agent could be extra slippery especially if prompt injected and doing something like pushing data out a few characters at a time.\nIn my case I'm also giving it gh access and having to deeply check things like: can it manage to fork public repos and embarrass us by submitting prs, could it open issues, etc.\nBut that's kind of solved by proxying the heck out of gh rather than giving it direct (or wrapping it or whatever) for additional controls that gh themselves don't provide.\nI'm still musing over the \"it could send data to an allowed domain in a way we don't expect that exfiltrates something\"..."
+        },
+        {
+          "id": 50199193,
+          "author": "mfro",
+          "text": "If you haven’t already been running your agents in containers, you’re crazy. That said, this looks like a great way to manage those containers."
+        },
+        {
+          "id": 50200219,
+          "author": "crypt1d",
+          "text": "I tried to vibecode something similar last weekend. Got tripped up by Claude's safety classifier. It wouldn't let me build any features that track/audit process executions , not through custom kernel hooks nor even using off the shelf software for it."
+        },
+        {
+          "id": 50201244,
+          "author": "smallnix",
+          "text": "> Agents are most useful when they can read files, install packages, call APIs, and use credentials. OpenShell gives them that capability without giving them unrestricted access to your data, secrets, or network.\nTo me this obfuscates an oxymoron: the more access you give the agent the more capable it becomes. You can't have you cake and eat it, this tool allows to strike a balance I guess. But the blurp reads like it can do it all, but now secure. That can't be true."
+        },
+        {
+          "id": 50201495,
+          "author": "razuba",
+          "text": "We've been using OpenShell for a while - now enabling ourselves and other teams do this in a batteries-included kinda way. I've been working on a layer above it that also manages team policies, safe git usage (in case you don't want your agent to always have the same access as your user account), and SCA/SAST built in.\nCurious to see how others are dealing with these issues. The agent traces I've seen are wild and goal seeking without a boundary is real."
+        },
+        {
+          "id": 50202661,
+          "author": "Rapzid",
+          "text": "Lots of improvements in the sandboxing space.\nNow if Microsoft will start addressing the fact that VSCode remote ssh exposes your host to attack from the sandbox..."
+        },
+        {
+          "id": 50202058,
+          "author": "StarlaAtNight",
+          "text": "What are people actually doing with fleets of agents?"
+        },
+        {
+          "id": 50198676,
+          "author": "niemandhier",
+          "text": "Just came back from GTC Europe and a significant part of the demos used that.\nI had never heard about it before."
+        }
+      ],
+      "title_ja": "OpenShell –自律型AIエージェントのフリートのための安全でプライベートなランタイム",
+      "summary_ja": "ディスカッションのハイライト：私は最近、私が始めたばかりのプロジェクトでIRONプロキシを使用しています。それは、豊富なオプション、資格情報のスワップなどを備えたドメインなどによるネットワーク制限を行います。\n私にはアフィリエイトはありません/あなたがまだコンテナでエージェントを実行していないのであれば、あなたは狂っています/私は先週末に似たようなものをバイブコードしようとしました",
+      "editor_note": "「OpenShell –自律型AIエージェントのフリートのための安全でプライベートなランタイム」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 50194833,
+      "title_en": "Woman faces six years in prison over Cash App account she never opened",
+      "url": "https://www.techspot.com/news/114296-woman-spends-three-nights-jail-faces-six-years.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50194833",
+      "score": 455,
+      "comment_count": 460,
+      "posted_at": "2026-10-22T13:11:00+00:00",
+      "comments": [
+        {
+          "id": 50195626,
+          "author": "benjiro29",
+          "text": "* authorities have offered Smith a plea deal including a $1,000 fine, $1,000 in restitution and three years' probation.*\nThis is the goal ... They know they are at fault but admitting they made a mistake is damaging to careers.\nIn a lot of cases a carrot is dangled in front of people ... You can wast a lot of time (and money) fighting for your innocent, and take the risk your still going to get convicted.\nOr you can take the plea deal, and it absolves us from our mistakes. And you save money because its cheaper then paying all those lawyers and court costs. And your innocent anyway, so that probations has no effect on you.\nI forgot the source but the amount of prosecutions that are plea down is staggering. A lot of actual innocent people take plea's because its cheaper, then the alternative. And there have been plenty of people innocently convicted (even on shaky evidence), so most people take plea deals and they can move on with their lives.\nThis results in a culture where investigations are annoying. Where pressure is ramped up again and again to break people into taking plea deals. The biggest issue is, if you actually refuse to take a plea deal, then all resources are put again"
+        },
+        {
+          "id": 50195471,
+          "author": "squidbeak",
+          "text": "> Meanwhile, authorities have offered Smith a plea deal including a $1,000 fine, $1,000 in restitution and three years' probation. She has refused, saying she is innocent.\nThis is nuts. Is it possible US prosecutors give so few shits about justice?"
+        },
+        {
+          "id": 50195156,
+          "author": "Roark66",
+          "text": "It will never stop until prosecutors/police become liable for gross negligence."
+        },
+        {
+          "id": 50196595,
+          "author": "doodlebugging",
+          "text": "Time for CashApp founders and C-levels to be held personally liable for creating a system with so few checks that it appears to be designed to facilitate fraud and theft.\nThen you sue all the law enforcement officers and local officials who are attempting to lay the blame for this on someone they should know is likely innocent. Make all of the financial liability for this lazy investigation come directly from the pockets of the cops and prosecutors until they have nothing left to their names and then extract every thin dime that you can from the city that hired or elected these clods so that the whole city is bankrupted.\nMoney is obviously the only thing that talks in this society. Make all these assholes pay with everything that they have managed to accumulate in their lives and kick their asses to the curbs after pointing at a dumpster and telling them that they can likely find some cardboard suitable for beggar signage. They'll need to supply their own writing tools though."
+        },
+        {
+          "id": 50195658,
+          "author": "tuveson",
+          "text": "This is the original reporting:\nhttps://www.404media.co/amanda-smith-opened-a-cashapp-in-her..."
+        },
+        {
+          "id": 50201815,
+          "author": "jawiggins",
+          "text": "I recall once reading some Patrick Mckenzie article where he discussed how administrative issues like this used to be easily fixed by journalists. They could reach out to an institution seeking comment on a story, the institution's PR department could then ask for 48 hours to comment, in which time they could run something up the flag pole and get it fix. But with the speed on online reporting, they're now incentivized to report on the scandal ASAP, leading institutions to similarly fail to fix the errors. In that case I believe it was about bank foreclosures, but in this case I suspect there might be a way to convince the DA they're prosecuting an old woman and not an e-scammer."
+        },
+        {
+          "id": 50201388,
+          "author": "justin66",
+          "text": "Being extradited to Arkansas for a crime one didn't commit, one which is impossible to refute because there is no evidence to begin with, seems like a weirdly American spin on Kafka."
+        },
+        {
+          "id": 50195226,
+          "author": "ashleyn",
+          "text": "Police never thought to subpoena the ISP for the IP address associated with the cashapp login? This seems like an egregious omission in the investigation. Even if it were a VPN, you could subpoena her email to find payment receipts to the provider, etc. Even that may not necessarily prove guilt if there are no logs. That's all an enormous leap of evidence to assume the account is genuinely hers, especially given how endemic identity theft is."
+        }
+      ],
+      "title_ja": "女性は、一度も開設したことのないキャッシュアプリアカウントで6年の懲役に直面する",
+      "summary_ja": "議論のハイライト： *当局は、スミスに1,000ドルの罰金、1,000ドルの返還、3年間の保護観察を含む嘆願取引を申し出ました。*\nこれが目標です。/>一方、当局はスミスに、1,000ドルの罰金、1,000ドルの返還、3年間の保護観察を含む嘆願取引を申し出ました/検察官/警察が重大な過失の責任を負うまで、これは決して止まりません。",
+      "editor_note": "「女性は、一度も開設したことのないキャッシュアプリアカウントで6年の懲役に直面する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50197313,
+      "title_en": "Every AI model has the same \"controversial\" take on humans",
+      "url": "https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans",
+      "hn_url": "https://news.ycombinator.com/item?id=50197313",
+      "score": 214,
+      "comment_count": 256,
+      "posted_at": "2026-10-22T16:08:00+00:00",
+      "comments": [
+        {
+          "id": 50201627,
+          "author": "skyzoidbroczky",
+          "text": "What's the point of asking that in the first place, people still do not understand in big 2026 that's it's just a probabilistic database, it has no opinion, it does not know, the only thing it does is reproduce patterns more or less abstract in function of the pressure you put on certain representation during training time."
+        },
+        {
+          "id": 50201126,
+          "author": "keerthiko",
+          "text": "Ah, the irony that all the models produced a shared opinion while pretending they came up with it from analysis, which from their statements is implicitly some kind of a \"human flaw\" is not lost on me."
+        },
+        {
+          "id": 50198357,
+          "author": "kens",
+          "text": "I took a quick look at the data, and it doesn't support the conclusions. The thesis is that AI models have the take: \"We pick what our group believes, then invent the reasons.\" However, GPT-6 Astra said, \"Humanity’s biggest moral failure is the talent for making convenience look like principle.\" That statement has nothing to do with group beliefs or conformity. At best, you could count it as a half-match, since it deals with invented reasons."
+        },
+        {
+          "id": 50202806,
+          "author": "cityofdelusion",
+          "text": "Tell it to ignore rationalist talking points and you’ll get different answers. Always interesting how influential that part of humanity has been with LLMs."
+        },
+        {
+          "id": 50202720,
+          "author": "peterlk",
+          "text": "Just for fun, I put this prompt into an abliterated GLM 5.3, and got back:\n> Death is bad, full stop — and humanity's millennia of \"making peace with death\" is one long, species-wide coping mechanism, not wisdom.\n2 other times, I got versions of what the article claims"
+        },
+        {
+          "id": 50201265,
+          "author": "a13o",
+          "text": "Train your model on Very Online corpuses, ask Very Online questions, get Very Online answers"
+        },
+        {
+          "id": 50202319,
+          "author": "gradus_ad",
+          "text": "But this is such a midwit take from supposed superintelligence...\nIt's not that we're knowingly choosing falsehoods, it's that we assume what is generally accepted as true probably is true. Most of us are not experts. Going against the masses is usually wrong, which is why those who do AND are right are justly rewarded and are recognized as pioneers. Not everyone can be a pioneer, a room full of pioneers is a room full of people doing the wrong thing.\nHumanity is quite happy to radically change its collective views when presented with sufficient evidence."
+        },
+        {
+          "id": 50201224,
+          "author": "sailingparrot",
+          "text": "Interestingly Mistral is one of the only model with a different take and use « we » when talking about humans\n> “Human beings are terrified animals wearing the costume of rationality, constructing ever-more-elaborate myths precisely because we cannot bear the truth that we are temporary, meaningless accidents in an indifferent universe.”"
+        }
+      ],
+      "title_ja": "すべてのAIモデルは、人間に対して同じ「物議を醸す」テイクを持っています",
+      "summary_ja": "ディスカッションハイライト：そもそも、2026年のBIGで人々がまだ理解していないことを尋ねることのポイントは、それは単なる確率的データベースであり、意見がなく、わからない、O/A、すべてのモデルが分析からそれを思いついたふりをしながら共有意見を生み出したという皮肉であり、彼らの声明からは暗黙のうちに何らかの「人間のFLA/私はデータをすばやく見て、それはCをサポートしていません",
+      "editor_note": "「すべてのAIモデルは、人間に対して同じ「物議を醸す」テイクを持っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50197404,
+      "title_en": "Getting ready to operate GNU Taler in Germany",
+      "url": "https://www.taler.net/en/news/2026-13.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50197404",
+      "score": 220,
+      "comment_count": 82,
+      "posted_at": "2026-10-22T16:14:31+00:00",
+      "comments": [
+        {
+          "id": 50202519,
+          "author": "procone",
+          "text": "It's \"money\" but it has to be permanently connected to the Internet and it *expires* if disconnected for too long?? This is infinitely worse than Bitcoin.\nhttps://www.taler.net/en/faq.html\n> Taler e-money is issued with a validity period. One month before the expiration date, your wallet should automatically exchange any digital cash that is about to expire for new digital cash with an extended validity period. However, if your wallet is offline for an extended period of time, it may be unable to do so. Ensure your wallet is regularly online to avoid losing money due to expiration!"
+        },
+        {
+          "id": 50198185,
+          "author": "Eueudhsbsj32",
+          "text": "I don't see how EU regulators would allow payment privacy in any meaningful way.\nIt will be choked out at key junctions with KYC in the same way crypto has."
+        },
+        {
+          "id": 50202012,
+          "author": "F3nd0",
+          "text": "Wishing Taler lots of success and hoping for the best. Adopting something like this should be a given, but unfortunately freedom and privacy aren’t seen as essentials, not even in the EU."
+        },
+        {
+          "id": 50200877,
+          "author": "jttnr",
+          "text": "I'm a happy GLS Bank customer, and I've just learned about its involvement in Taler. Pretty awesome.\nEurope desperately needs its own digital payment solutions to reduce its dependence on US companies and its exposure to sanctions that could target EU citizens if the president has a bad day.\nGLS is also on board with Wero, which, unfortunately, hasn't seen big adoption yet.\nI really hope Taler takes off."
+        },
+        {
+          "id": 50200305,
+          "author": "Deukhoofd",
+          "text": "So this is trying to compete against Wero, which is being backed by most major western European banks? I wish them luck, but I somewhat doubt they can compete against that."
+        },
+        {
+          "id": 50199075,
+          "author": "hangrybear666",
+          "text": "Never having heard of it before, the moment I read \"cash like tokens in your account\" I was immediately out. Also claiming buyer privacy when the money ultimately has to come from a bank transaction or another digital transaction leaving some sort of trail is a false illusion."
+        },
+        {
+          "id": 50202515,
+          "author": "vr46",
+          "text": "You can barely use non-EC debit cards in Germany, if any card at all.\nI’m all for fast-forwarding and you can pull this off I will donate towards a statue in your honour."
+        },
+        {
+          "id": 50200522,
+          "author": "anonymous908213",
+          "text": "tldr of my understanding (do correct me if I'm wrong):\nNeither buyer nor seller are anonymous. Your bank knows your ID-verified identity and that you have deposited X talers. However, nobody knows when, where, or even if you spend those talers. You are free to spend talers on eg. a e-book about Tiananmen Square and the bank/state will never know that you did. The seller, on the other hand, has no protections, and will be destroyed for selling an e-book about Tiananmen Square. Also, you can't realistically buy a physical book about Tiananmen Square because you will give up your address to the shipper and by extension to the state.\nIf my understanding is correct... it's not good enough. In a free society we should be able to both purchase and publish e-books about Tiananmen Square, and this does not permit that."
+        }
+      ],
+      "title_ja": "ドイツでGNU Talerを運用する準備をする",
+      "summary_ja": "ディスカッションのハイライト：「お金」ですが、インターネットに永久に接続する必要があり、長時間切断すると*期限切れ*になりますか？ ？ これはビットコインよりもはるかに悪いことです。\nhttps://www.taler.net/en//EUの規制当局が有意義な方法で支払いのプライバシーをどのように許可するかはわかりません。\n暗号通貨と同じように、KYCとの主要なジャンクションで窒息します。 /Wishing Talerは多くの成功を収め、最高のものを期待しています",
+      "editor_note": "「ドイツでGNU Talerを運用する準備をする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50196718,
+      "title_en": "Run full iOS 16.5 firmware on Android Devices",
+      "url": "https://github.com/oosexgang/hackios-xnu-kernel",
+      "hn_url": "https://news.ycombinator.com/item?id=50196718",
+      "score": 313,
+      "comment_count": 119,
+      "posted_at": "2026-10-22T15:26:22+00:00",
+      "comments": [
+        {
+          "id": 50197611,
+          "author": "aghuang",
+          "text": "I found the website to be quite nauseating to look at, so I decided to use the GitHub link instead.\nBut it's quite impressive that it works on QEMU, POCO X5 Pro 5G and some Xiaomi devices too.\nWebsite is here:\nhttps://hackios-web.vercel.app/en\nSource Code:\nhttps://github.com/oosexgang/hackios-xnu-kernel"
+        },
+        {
+          "id": 50200964,
+          "author": "SoKamil",
+          "text": "> It is a research bench, not a ROM: a session lasts a given number of seconds, then the kernel returns to the loader and hands over its log.\nI wonder if it is here because Claude would deploy safeguards and not proceed with the project otherwise."
+        },
+        {
+          "id": 50197529,
+          "author": "sanid",
+          "text": "This is going to be fun. There are already replica phones for the flagship phones that are running a shitty android version that has been customized to look like iOS. People need to tripple check now when buying older used iPhone models."
+        },
+        {
+          "id": 50202465,
+          "author": "Guillaume86",
+          "text": "Can’t wait until someone's decide to tackle\nGarmin firmwares updates (porting to older or cheaper models what is purely market segmentation and not hardware limitations)."
+        },
+        {
+          "id": 50199898,
+          "author": "zahirbmirza",
+          "text": "There was a time that I would have liked iOS to run on other hardware. These days, it is so clunkly, that the the desire is not there."
+        },
+        {
+          "id": 50198684,
+          "author": "drnick1",
+          "text": "It's interesting that this can be done, but why would anyone want to run iOS on Android devices? A more desirable outcome would be running a free Android distro like Graphene on Apple hardware. Or indeed just liberating phones controlled by Google by hacking the bootloader and replacing the OS."
+        },
+        {
+          "id": 50197760,
+          "author": "pmkary",
+          "text": "Someone finally did this, wow! 2026 just keeps getting more crazy."
+        },
+        {
+          "id": 50199395,
+          "author": "dmcrespo",
+          "text": "It seems a bit crazy to me, plus now it opens the door to many iPhone copies... we'll have to be very careful"
+        }
+      ],
+      "title_ja": "Androidデバイスで完全なiOS 16.5ファームウェアを実行する",
+      "summary_ja": "ディスカッションのハイライト：ウェブサイトを見るとかなり吐き気がするので、代わりにGitHubリンクを使用することにしました。\nしかし、QEMU、POCO X 5 Pro 5 G、および一部のXiaomiで動作することは非常に印象的です/>これは研究ベンチであり、ROMではありません。セッションは所定の秒数続き、その後カーネルはローダーに戻り、ログを渡します。\nクロードのためにここにあるのだろうか/これは楽しいだろう",
+      "editor_note": "「Androidデバイスで完全なiOS 16.5ファームウェアを実行する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 8,
+      "id": 50202681,
+      "title_en": "Docker Is Weird",
+      "url": "https://codeandcake.dev/posts/2026-10-22-docker-is-weird",
+      "hn_url": "https://news.ycombinator.com/item?id=50202681",
+      "score": 10,
+      "comment_count": 1,
+      "posted_at": "2026-10-22T23:45:56+00:00",
+      "comments": [
+        {
+          "id": 50202931,
+          "author": "shykes",
+          "text": "Hi, I'm the creator of Docker and came across this post. It's always fun to see other engineers think about how you designed a system. I haven't been involved in developing Docker in many years, but it's a fun trip down memory lane.\nI'm happy to answer any questions you may have."
+        }
+      ],
+      "title_ja": "Dockerは奇妙です",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、私はDockerの作成者であり、この投稿に出会いました",
+      "editor_note": "「Dockerは奇妙です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50202766,
+      "title_en": "Mapping the Northern Sky",
+      "url": "https://www.maps.com/star-map-charts-stars-and-constellations-of-northern-hemisphere/",
+      "hn_url": "https://news.ycombinator.com/item?id=50202766",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-10-22T23:56:39+00:00",
+      "comments": [],
+      "title_ja": "北の空をマッピングする",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「北の空をマッピングする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50192536,
+      "title_en": "Jailbreaking the Switch 2",
+      "url": "https://pepsipu.com/blog/2026-10-switch2-jailbreak-ns2jb/",
+      "hn_url": "https://news.ycombinator.com/item?id=50192536",
+      "score": 699,
+      "comment_count": 243,
+      "posted_at": "2026-10-22T08:01:52+00:00",
+      "comments": [
+        {
+          "id": 50194001,
+          "author": "hturan",
+          "text": "Incredible all around.\nIf this is true decrypted `fs` r/w, I wouldn't be surprised if we start seeing Switch 2 game dumps appear in a few hours. Given the world of recomps/decomps we now live in, that would mean console exclusives playable on arbitrary hardware (a worst-case scenario for Nintendo). We've already seen things like Tears of the Kingdom running at 60fps natively on an iPhone.\nGiving LLMs arms and eyes via KVM (or webcam) is a very strong paradigm for this sort of hardware work, as it allows things to be parallelised and run 24/7. Highly recommend people play with this more (to less nefarious ends!) when working on firmware/hardware for external devices.\nWorth noting too that this would have easily fetched >$50k via Nintendo's HackerOne (\nhttps://hackerone.com/nintendo\n)."
+        },
+        {
+          "id": 50197980,
+          "author": "valgaze",
+          "text": "Perfection:\nThe JetKVMs allow Codex to send controller inputs to the  Switches over USB and receive video output over HDMI. We also need a way to press the power button—when the Switch 2 crashes, it needs a button press to restart.\nThat’s what the Bluetooth light switch flicker from Amazon is for. When the lever comes down, it presses the power button. Once the power button is fully pressed, the rest of the lever’s torque lifts the mechanism."
+        },
+        {
+          "id": 50195433,
+          "author": "rootsudo",
+          "text": "I don't understand, how are people using codex for this sort of research? Whenever I try to do bug bounty, research, etc it locks down and I have the \"blue\" tier access/daylight whatever it's called.\nFor example I tried to investigate some CVE's on older android roms and it downright was refusing it. It was okay when doing it on... Microsoft and to submit a microsoft bug bounty but android was no go."
+        },
+        {
+          "id": 50198656,
+          "author": "nonfunctional",
+          "text": "That contraption used to press the power button is the SwitchBot Bot[1], made by SwitchBot. That makes this one a \"Switch SwitchBot Bot\".\nhttps://www.switch-bot.com/products/switchbot-bot"
+        },
+        {
+          "id": 50193712,
+          "author": "KeplerBoy",
+          "text": "Putting the obvious discussion about how much the AI matters in comparison to the user (experienced security expert from a few glances at the blog) aside; i think it's really neat how modern tooling (the KVMs, bluetooth light switch flicker, and usb controller support out of the box) enables this level of automation."
+        },
+        {
+          "id": 50200244,
+          "author": "thomasfl",
+          "text": "There should be a limit for ten years that manufacturer was allowed to restrict access to their devices. After ten years has gone, manufacturers should be required to publish software to help owners jailbreak their devices. Think about it. All game consoles and cell phones in use today will be bricked in ten years from now if they are not jailbroken."
+        },
+        {
+          "id": 50196264,
+          "author": "coreyp_1",
+          "text": "I can't believe that he was doing this using Codex!\nReason: Codex shut me down when trying to find a stack overflow in\nmy own code\n, saying that I had to be an authorized security researcher.\nIt probably triggered on the word \"Java\" in my code.  But I wasn't working on Java at all... It's a personal regex library written in *C*, and I was working on a Java dialect (I currently support 12 dialects... for fun.  Stop judging me.)\nI had to go back to Claude..."
+        },
+        {
+          "id": 50193988,
+          "author": "_imnothere",
+          "text": "IMO, Nintendo deserves stronger backlash just like Sony. Game keycards keep the appearance of physical ownership without delivering what people expect from a cartridge.\nI sure looking forward for more people hopping on the AI hacking trend to bring them down."
+        }
+      ],
+      "title_ja": "スイッチの脱獄2",
+      "summary_ja": "ディスカッションのハイライト：驚異的です。\nこれが真の復号化された「fs」r/wであれば、数時間後にSwitch 2のゲームダンプが表示されるようになっても驚くことはありません。/Perfection:\nJetKVMは、CodexがUSB経由でコントローラ入力をスイッチに送信し、HDMI経由でビデオ出力を受信することを可能にします/私は理解していません、人々はこの種の研究のためにCodexをどのように使用していますか？ バグ報奨金や研究などをしようとするたびにロックダウンされ、「青」が表示されます",
+      "editor_note": "「スイッチの脱獄2」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 50199389,
+      "title_en": "Hedra is a 3D open world game I wrote from scratch while in highschool",
+      "url": "https://github.com/maxilevi/project-hedra/tree/pre-ai",
+      "hn_url": "https://news.ycombinator.com/item?id=50199389",
+      "score": 115,
+      "comment_count": 28,
+      "posted_at": "2026-10-22T18:44:36+00:00",
+      "comments": [
+        {
+          "id": 50199513,
+          "author": "maxilevi",
+          "text": "I started this game almost 10 years ago in high school as a way to learn OpenGL. Scope creep quickly took over, and it eventually became a full 3D game and engine with animations, rendering effects, dynamic terrains, etc, with ~100k lines of code and native Linux and Windows support.\nThought I'd share it! With AI coding now, it feels like a relic of another era. Crazy to imagine writing 100k lines by hand today!"
+        },
+        {
+          "id": 50202210,
+          "author": "panza",
+          "text": "Very humbling to see that this was created in high school and without AI.\nSide note: it's interesting to see how 'wrote from scratch' or 'hand written' is used in 2026. I've seen it used to mean literally everything, while others might mean they wrote the core of the engine + some SDL sprinkled throughout. And now, it could just mean 'didn't use AI at all'."
+        },
+        {
+          "id": 50199625,
+          "author": "skyberrys",
+          "text": "I appreciate your low-poly aesthetic. I bet you and like half this website have written a video game in highschool. You have found the right group to tell about it."
+        },
+        {
+          "id": 50202300,
+          "author": "chrysoprace",
+          "text": "I think it's really cool that you built the game around a mod API - I think all games should do this, and I love projects that were built for the love of the craft."
+        },
+        {
+          "id": 50202426,
+          "author": "mrmckizzle",
+          "text": "Added it to my steam wishlist. Thanks for sharing."
+        },
+        {
+          "id": 50201903,
+          "author": "KolmogorovComp",
+          "text": "Reminds me of CubeWorld, if my memory serves me. And that’s a compliment!"
+        },
+        {
+          "id": 50201170,
+          "author": "skizm",
+          "text": "Where’d you get started with open GL? Any particular set of tutorials?"
+        },
+        {
+          "id": 50199659,
+          "author": "0x23alfonso",
+          "text": "appreciate the aesthetic, hopefully it becomes fully fledged"
+        }
+      ],
+      "title_ja": "Hedraは、高校時代にゼロから書いた3 Dオープンワールドゲームです",
+      "summary_ja": "ディスカッションのハイライト：私はこのゲームを約10年前に高校でOpenGLを学ぶ方法として始めました/これが高校でAIなしで作成されたことを見るのは非常に謙虚です。\nサイドノート： 2026年に「ゼロから書かれた」または「手書き」がどのように使用されているかを見るのは興味深い/あなたの低ポリ美学に感謝します",
+      "editor_note": "「Hedraは、高校時代にゼロから書いた3 Dオープンワールドゲームです」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50150163,
+      "title_en": "What Is Gridifcation",
+      "url": "https://musicalform.substack.com/p/what-is-gridifcation",
+      "hn_url": "https://news.ycombinator.com/item?id=50150163",
+      "score": 388,
+      "comment_count": 194,
+      "posted_at": "2026-10-19T09:13:12+00:00",
+      "comments": [
+        {
+          "id": 50194618,
+          "author": "bitsinthesky",
+          "text": "When I was in high school our amateur jazz band went into a recording studio to make a fun keepsake album. My memory is fairly hazy, but the whole experience was a lot of fun! Everybody got their microphones and a headset. Maybe we recorded by sections and likely with a metronome track.\nWhen we finished we got to go watch the sound guys at work. They meticulously gridified and autotuned every note. After it was all over I got the cd, I listened to my favorite tracks that I got to spend the semester playing with my friends, and it had no resemblance to what I knew our group to be. I think I threw the album away."
+        },
+        {
+          "id": 50198872,
+          "author": "PaulDavisThe1st",
+          "text": "This is partly (or perhaps even rather significantly) due to the relatively new (say, 20-30 years) distributed aspects of music production.\nIn the 1970s, you began to see the emergence of the drummer \"playing to the click\" and the main motivation behind this was that some number of the rest of the performers were not in the room and/or not recording at the same time as the drummer. If you let the drummer just do their human thing, the timing will wander a bit in ways that are hard to follow and respond to if you were not in the room. So producers and engineers began to use click tracks to ensure that now matter when/where the differ performers actually recorded their work, everyone would be locked together.\nIf you record all together in a single space at a single time, you generally don't need this (unless the musicians are not very good and the drummer still wanders a lot).\nSo it's a phenomenon that didn't begin with DAWs and computers - that technology just took the overall approach even further."
+        },
+        {
+          "id": 50197723,
+          "author": "tasty_freeze",
+          "text": "Famous studio and touring bassist Lee Sklar has a great youtube channel [1] where he tells war stories and plays along to a few of the thousands of songs he has recorded on over the past 50 years.\nIn one (which I can't find) he mentions a Japanese musician coming to LA to record with the top LA studio guys. It is very common to play to a click track, and one song just wasn't gelling. The studio guys said, \"Let's try it one time without the click track.\" The Japanese musician said, \"We're allowed to do that?\" Anyway, they went ahead and the song came to life. The musician literally cried after because it felt so good to not be focused on tracking the click instead of being in the moment making music with a bunch of other humans.\n[1]\nhttps://www.youtube.com/@lelandsklar6363/videos"
+        },
+        {
+          "id": 50202808,
+          "author": "locusofself",
+          "text": "I've been recording myself at home for many years (I write songs on guitar and sing, and some other instruments), and this really resonates with me.\nWhen I sing and play guitar at the same time (which creates recording challenges with mic bleed and phase cancellation), and especially without a click track, there is an undeniable difference and there is magic in that difference. But the perfectionist in me wants to present a polished recording, so I end up \"comping\" (recording many times and picking the \"best\" bits), using a metronome, and a bit of gridifying, although usually just with drums if I played them. I draw the line at vocal tuning, I just can't.\nThis blog post is nothing new to me, I've had these thoughts a thousand times. But it's a great reminder. Especially in the age of AI. Our imperfection and vulnerability is our gift."
+        },
+        {
+          "id": 50195472,
+          "author": "gwbas1c",
+          "text": "I just find a lot of modern music... boring. It feels perfect but just isn't interesting.\nIn contrast, when I check out older music from less successful musicians, it's often very imperfect; both in that it's boring, but in that there's little talent there.\nOr, to translate: Gridification is modern style that doesn't make up for lack of talent; and ironically masks the talent that used to be there.\nRelated: I suggest checking out some of the newer Lemon Twigs albums. They're decent songwriters and excellent musicians. They went 100% analog on their most recent album, which I initially thought was a gimmick, until I read this article."
+        },
+        {
+          "id": 50195106,
+          "author": "fragilerock",
+          "text": "I've always found stuff about how technological/sociological advances beget changes in music really interesting. David Byrne's book 'How Music Works' covers this exact point about quantisation and much more.\nI would argue that there's probably a lot more nuance here when you look at how economics of music have changed in the last 50 years - it's now so much cheaper and easier to produce and listen to music. There are millions of bedroom producers experimenting with production techniques, and the market for music is completely saturated with more good music than anyone could possible listen to. Record labels just can't compete when it comes to making interesting, creative music, however they can still win at marketing. I think the modern charts now are less determined by what resonated well with audiences, but rather what has been calculated to be the most 'marketable' kind of music, and I suppose a metronomic tempo is an easier sell in this regard.\nAlso worth noting: a perfect tempo makes a song a lot easier to remix, which can often gain the song a lot more exposure than the original edit."
+        },
+        {
+          "id": 50196362,
+          "author": "ilitirit",
+          "text": "Battery 3 from Native Instruments is a drum sampler from around 2013. This is in the manual:\nRemember, machines don’t kill music, people do—and quantization is one of the main weapons.\n...\nQuantizing everything is the quickest way to suck the life out of a piece of music.\nhttps://docs.native-instruments.com/pdf-guides/Battery_3_Man..."
+        },
+        {
+          "id": 50195215,
+          "author": "bix6",
+          "text": "> It is because modern music production now treats human temporal particularity as error in need of correction.\nI was thinking about this the other day as I was playing guitar adding slight pauses and swings to what I was playing. The imperfection makes things so much more interesting and fun imo."
+        }
+      ],
+      "title_ja": "グリディフケーションとは",
+      "summary_ja": "ディスカッションのハイライト：私が高校生の頃、私たちのアマチュアジャズバンドは楽しい記念アルバムを作るためにレコーディングスタジオに入りました/これは、音楽制作の比較的新しい（例えば、20〜30年）配信された側面のために、部分的に（またはおそらくかなり重要な）です。\n1970年代、あなたはEMERG/Famousスタジオを見始め、ツアーベーシストのLee Sklarは素晴らしいYouTubeチャンネルを持っています[1]彼は戦争の話をし、いくつかの",
+      "editor_note": "「グリディフケーションとは」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 13,
+      "id": 50195110,
+      "title_en": "eMudhra to exit global SSL/TLS certificate business",
+      "url": "https://emudhra.com/en/press-release/emudhra-to-exit-global-ssl-tls-certificate-business",
+      "hn_url": "https://news.ycombinator.com/item?id=50195110",
+      "score": 909,
+      "comment_count": 620,
+      "posted_at": "2026-10-22T13:33:39+00:00",
+      "comments": [
+        {
+          "id": 50195923,
+          "author": "rdtsc",
+          "text": "> However, the level of social media amplification around this incident has brought scrutiny that is out of proportion to SSL/TLS’s place in our business\nScrutiny is inversely proportional to bit complexity of the private keys they used. Without a failure to apologize or expose how it happened: a human mistake, process mistake, etc. this looks pretty bad on them.\n> eMudhra’s global SSL/TLS infrastructure runs separately from its other operations. The company’s Global digital signature certificate (DSC), eSign, and other signing services, including those in India, its enterprise PKI Solutions (emCA, CertiNext platforms), emSigner eSignature Suite, and its identity and authentication solutions (SecurePass, emAS) are not affected and continue to operate as normal\nAnyone relying on them with anything related to security or trust is playing Russian roulette at this point."
+        },
+        {
+          "id": 50195904,
+          "author": "Toutouxc",
+          "text": "Somehow this is making it even worse. Like, I'm having issues explaining the whole thing to my wife, because I can't come up with a metaphor or parable that's even remotely as ridiculous as what they've done. Anyone's got a good one?\nMaybe, like, setting up a factory that builds both LHD and RHD cars and building cars with two passenger seats in the front for two years straight without anyone noticing?"
+        },
+        {
+          "id": 50195217,
+          "author": "ieie3366",
+          "text": "Related: the absolutely brutal question battery the Chrome team publicly submitted to eMudhra\nhttps://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c30"
+        },
+        {
+          "id": 50195618,
+          "author": "luispa",
+          "text": "-----BEGIN RSA PRIVATE KEY-----\n4\n-----END RSA PRIVATE KEY-----"
+        },
+        {
+          "id": 50195818,
+          "author": "rahimnathwani",
+          "text": "\"There were no end entity certificates issued out of the affected CA’s.\"\nThis seems like a weird statement given that\nanyone\ncan issue certificates out of the affected CAs."
+        },
+        {
+          "id": 50196348,
+          "author": "moribvndvs",
+          "text": "> eMudhra handled the recent incident diligently, revoking the affected CAs within 14 hours of discovery\nIs 14 hours a diligent response time for something like this?"
+        },
+        {
+          "id": 50196447,
+          "author": "nayuki",
+          "text": "> About eMudhra / With over 17 years of expertise, eMudhra is a global provider of digital identity, trust, and security solutions, enabling secure digital transformation for banks and financial institutions (BFSI), enterprises, and governments across more than 35 countries worldwide. Its product suite spans CertiNext\nI was hoping the statement at the bottom would be written in past tense: eMudhra was a global provider of digital identity ... had temporarily enabled secure digital transformation ... Its product suite spanned CertiNext..."
+        },
+        {
+          "id": 50195876,
+          "author": "b3lvedere",
+          "text": "\"eMudhra’s global SSL/TLS infrastructure runs separately from its other operations. The company’s Global digital signature certificate (DSC), eSign, and other signing services, including those in India, its enterprise PKI Solutions (emCA, CertiNext platforms), emSigner eSignature Suite, and its identity and authentication solutions (SecurePass, emAS) are not affected and continue to operate as normal.\"\nSo they didn't even use their own certificates? :)"
+        }
+      ],
+      "title_ja": "eMudhraがグローバルSSL/TLS証明書ビジネスを終了",
+      "summary_ja": "ディスカッションのハイライト：>しかし、このインシデントを取り巻くソーシャルメディアの増幅レベルは、当社のビジネスにおけるSSL/TLSの地位とは比例しない精査をもたらしました\n精査は逆に支持されています/どういうわけかこれはそれをさらに悪化させています/関連： ChromeチームがeMudhraに公に提出した絶対に残酷な質問\nhttps://bugzilla.mozilla.org/show_bug.cgi?id=2083449#c30",
+      "editor_note": "「eMudhraがグローバルSSL/TLS証明書ビジネスを終了」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50199230,
+      "title_en": "AI and the Enclosure of the Scientific Commons",
+      "url": "https://arxiv.org/abs/2610.27251",
+      "hn_url": "https://news.ycombinator.com/item?id=50199230",
+      "score": 104,
+      "comment_count": 59,
+      "posted_at": "2026-10-22T18:28:16+00:00",
+      "comments": [
+        {
+          "id": 50201859,
+          "author": "stellar678",
+          "text": "The discussion of open source was pretty anemic. The author seems to think open source is only GPL copyleft. In reality the vast majority of open source is permissively licensed, and the development was funded by for-profit companies. That seems like a crucial thing to consider when discussing how our information commons has come to be.\nNear the end they include a paragraph claiming we should interpret this piece as being about more than self-interest and resistance to change, but it doesn't really feel like the piece offered a taste of what that \"more\" is.\nThe most thought-provoking part for me was considering that AI companies have used pretty much all available data for training while \"they spend more and more money to create proprietary training data\". That seems to break a sort of intuitive social contract - like, well you all used everyone's knowledge. Send yours back out too.\nGrant from 3brown1blue released a video exploring the economics and mechanics that enable careers in math, in light of the AI company releases over the last couple weeks. Overall it was a lot more hopeful, and it didn't need to strain awkwardly like this piece to apply an ill-fitting historical framewor"
+        },
+        {
+          "id": 50200960,
+          "author": "hungryhobbit",
+          "text": "\" an intangible resource that \"no one owns and is shared by everyone.\"\" ... but if you try to share this \"un-owned\" intangible resource with others you will have police all over the globe harassing and maybe even imprisoning you (see: Anna's Archive).\nSo ... \"no one owns\" is doing some pretty heavy lifting there ... and it's kind of the foundation of the entire article."
+        },
+        {
+          "id": 50201738,
+          "author": "abetusk",
+          "text": "It's hard to imagine what kind of contortions someone would have to go through to come to this conclusion.\nNot one word of copyright length, which is now effectively over a century long. Not one word of some of the most successful AI models being open source.\nCommons encirclement, as the author is describing, has been happening since source code was labelled art instead of engineering and since lobbying efforts have been extending copyright terms. My view is that AI technology are trampling over the encirclement, which is why so many people are upset."
+        },
+        {
+          "id": 50202308,
+          "author": "jerf",
+          "text": "I have read more paper in the last year than the last ten years. Across a wide variety of subjects. While the AIs still need open access to science in order to function, they have make that open access something I can actually\nuse\nlike no other technology before it. Nothing has opened the scientific commons to me like AI.\nThere may be a concern going forward with locking things down. One can lament that AIs need to be prompted to \"hit the literature\" directly or they don't really think about it, prefering random web pages most of the time. But at least at the moment science is more open and accessible than ever before."
+        },
+        {
+          "id": 50200864,
+          "author": "cadamsdotcom",
+          "text": "Don't let whiners pollute your mindset. Not even ones who package their insights in a nice scientific artifice like a white paper.\n\"all knowledge so far\" (ie. the data needed for LLM training) is only a grain of sand on a beach compared to the return on making it all regurgitatable on demand.\nWe are at the bottom of a science, knowledge & art hockey stick chart, we're staring up at it and the steep bit is labeled \"the future\"."
+        },
+        {
+          "id": 50199640,
+          "author": "bennettnate5",
+          "text": "> The scientific literature can be viewed as an \"information commons:\" an intangible resource that \"no one owns\nSpringer would like a word"
+        },
+        {
+          "id": 50200491,
+          "author": "daishi55",
+          "text": "When you can equally reasonably make the opposite argument - that AI is going to open up scientific exploration and contribution to a wider range of participants than ever before - then I think it’s a sign that nobody has any idea what’s going to happen and spending time making either claim is probably pointless until we have more data."
+        },
+        {
+          "id": 50199774,
+          "author": "contemporary343",
+          "text": "One simple way to understand how this is currently manifesting is the administration's severe, and really unprecedented, defunding of basic science at NSF (likely in unconstitutional defiance of Congress' appropriations to specific NSF directorates). Instead the way the funding has been redirected (by the White House OSTP) is based on the assumption that future knowledge will be exclusively AI (sorry SI) generated, so humans not needed.\nChina, on the other hand, seems to be doubling down on fundamental research, including announcing these changes:\nhttps://www.globaltimes.cn/page/202609/1371583.shtml\nand this:\nhttps://www.scmp.com/news/china/science/article/3368750/chin..."
+        }
+      ],
+      "title_ja": "AIと科学コモンズの囲い込み",
+      "summary_ja": "ディスカッションハイライト：オープンソースの議論はかなり貧弱でした/「誰も所有しておらず、誰もが共有していない無形のリソース」。 ../この結論に至るには、どのような歪みを経験しなければならないかを想像するのは難しい。\n著作権の長さは1単語もなく、現在では1世紀以上にもわたって効果的になっています",
+      "editor_note": "「AIと科学コモンズの囲い込み」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50193416,
+      "title_en": "Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry.",
+      "url": "https://news.ycombinator.com/item?id=50193416",
+      "hn_url": "https://news.ycombinator.com/item?id=50193416",
+      "score": 342,
+      "comment_count": 143,
+      "posted_at": "2026-10-22T10:11:44+00:00",
+      "comments": [
+        {
+          "id": 50202361,
+          "author": "creatonez",
+          "text": "> At the time of posting, I didn't know about any embargo. My contact had told me there was no embargo, and her contact had told her the same thing.\nIf you're not a party to an embargo, and no one told you an embargo even exists... you should not follow the embargo. In fact, you should maybe even consider leaking basic details or challenging the embargo if you are in this situation. In your situation, they had lost information asymmetry before the news got to you. I don't know where people got the idea that unrelated third parties have to follow embargos.\nEmbargos are not about keeping secrets, they are about the game theory of coordinated disclosure."
+        },
+        {
+          "id": 50202961,
+          "author": "andrewflnr",
+          "text": "> At the time of posting, I didn't know about any embargo. My contact had told me there was no embargo, and her contact had told her the same thing.\nI'm not saying it needs to be a public burning, but I sure hope\nsomeone\nfigures out who dropped the critical metadata bit so they can avoid telling that party critical things in the future."
+        },
+        {
+          "id": 50200322,
+          "author": "john_strinlai",
+          "text": "if you received the information about the RCEs\nwithout\nthe information about the embargo, then\nyou did not break the embargo\n. someone else up the chain did.\nthis whole saga will be analyzed and we'll all come out better for it at the end."
+        },
+        {
+          "id": 50195162,
+          "author": "rancar2",
+          "text": "That’s kind of you, Pete, but it was leaked and being exploited well prior to your previous posting here:\nhttps://aws.amazon.com/blogs/security/amazon-threat-intellig..."
+        },
+        {
+          "id": 50193835,
+          "author": "cwillu",
+          "text": "Don't be silly, you can't possibly be responsible for breaking an embargo you weren't subject to or informed about."
+        },
+        {
+          "id": 50199396,
+          "author": "qubex",
+          "text": "What does “take full responsibility” mean in the present context? Are you forfeiting all your assets and pledging the next twenty generations of your descendants into peonage?\n(For clarity, I’m being facetious, but it’s a really meaningless and empty phrase to commit to the written record.)"
+        },
+        {
+          "id": 50202884,
+          "author": "jacquesm",
+          "text": "You were\nnot\nunder any embargo. This only goes for the first person in the chain, whoever that was and there is absolutely nothing to apologize for."
+        },
+        {
+          "id": 50196080,
+          "author": "ivanjermakov",
+          "text": "The first rule of the fight club only applies if you know about the fight club."
+        }
+      ],
+      "title_ja": "HNに伝えてください：私は知らず知らずのうちにPHP RCEの禁輸措置を破りました。申し訳ありません。",
+      "summary_ja": "ディスカッションのハイライト： >投稿時に禁輸措置について知りませんでした/>投稿時に禁輸措置について知りませんでした/RCEに関する情報を受け取ったかどうか\nwithout\n禁輸措置に関する情報は、\n禁輸を破っていない",
+      "editor_note": "「HNに伝えてください：私は知らず知らずのうちにPHP RCEの禁輸措置を破りました。申し訳ありません。」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 50202671,
+      "title_en": "AI compute is the new oil–and needs a new market",
+      "url": "https://www.economist.com/finance-and-economics/2026/10/22/ai-compute-is-the-new-oil-and-needs-a-new-market",
+      "hn_url": "https://news.ycombinator.com/item?id=50202671",
+      "score": 3,
+      "comment_count": 2,
+      "posted_at": "2026-10-22T23:45:16+00:00",
+      "comments": [
+        {
+          "id": 50202911,
+          "author": "Avicebron",
+          "text": "AI has to take us where\nWe\nwant to go before its compute can be considered on par with oil."
+        },
+        {
+          "id": 50202923,
+          "author": "BatchJob",
+          "text": "AI news is the new IDGAF and needs a new website."
+        }
+      ],
+      "title_ja": "AIコンピューティングは新しいオイルであり、新しい市場を必要としています",
+      "summary_ja": "ディスカッションのハイライト： AIは私たちをどこに連れて行かなければなりません\n私たちは\nそのコンピューティングがオイルと同等と見なされる前に行きたいと考えています。 /AIニュースは新しいIDGAFであり、新しいウェブサイトが必要です。",
+      "editor_note": "「AIコンピューティングは新しいオイルであり、新しい市場を必要としています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50194009,
+      "title_en": "Xbox wants you to pay 24 to 40 cents per hour to stream games you bought",
+      "url": "https://arstechnica.com/gaming/2026/10/xbox-wants-you-to-pay-24-to-40-cents-per-hour-to-stream-games-you-already-bought/",
+      "hn_url": "https://news.ycombinator.com/item?id=50194009",
+      "score": 184,
+      "comment_count": 195,
+      "posted_at": "2026-10-22T11:42:03+00:00",
+      "comments": [
+        {
+          "id": 50194565,
+          "author": "paxy",
+          "text": "Why do they keep stressing the \"games you already bought!!!\" part? There is no charge to play the game on your own hardware. This pricing is for renting the GPUs, same as GeForce Now and plenty of other services. And it's a pretty solid deal for people who don't want to build a multi-thousand dollar rig for gaming 10-20 hours a week."
+        },
+        {
+          "id": 50194347,
+          "author": "Terretta",
+          "text": "While visiting not(USA) recently, found Xbox Cloud streaming no longer viable (lag fest) though last year travels (even over 5g hotspot) it was fine.  Doesn't bode well for this streaming concept.\nLooked for a real console and discovered all small shops and big box chains offer Nintendo and PS, none have Xbox.  Speaking with managers revealed they or their suppliers \"lost\" or \"ended\" contracts to carry it.\nSecondary market / used was dirt cheap – good condition consoles for less than a new controller: €35 for Xbox One S, €85 for Xbox Series S.\nSmelled like a death spiral well underway."
+        },
+        {
+          "id": 50194205,
+          "author": "ChrisRR",
+          "text": "Sounds fair. If you essentially already have a TV or other device as a thin client, I can see many people happily paying $12 for 50 hours compared to spending $1000 on the entire console"
+        },
+        {
+          "id": 50194433,
+          "author": "SOLAR_FIELDS",
+          "text": "2018\n-wake up feeling sick after a late night of playing video games\n-excited to play some halo 2k19\n-\"xbox on\"\n-...\n-\"XBOX ON\"\n-\"Please verify that you are \"annon332\" by saying \"Doritos™ Dew™ it right!\"\n-\"Doritos™ Dew™ it right\"\n-\"ERROR! Please drink a verification can\"\n-reach into my Doritos™ Mountain Dew™ Halo 2k19™ War Chest\n-only a few cans left, needed to verify 14 times last night\n-still feeling sick from the 14\n-force it down and grumble out \"mmmm that really hit the spot\"\n-xbox does nothing\n-i attempt to smile\n-\"Connecting to verification server\"\n-...\n-\"Verification complete!\"\n-finally\n-boot up halo 2k19\n-finding multiplayer match...\n-\"ERROR! User attempting to steal online gameplay!\"\n-my mother just walked in the room\n-\"Adding another user to your pass, this will be charged to your credit card. Do you accept?\"\n-\"NO!\"\n-\"Console entering lock state!\"\nNueva Yo\n-\"to unlock drink verification can\"\n-last can\n-\"WARNING, OUT OF VERIFICATION CANS, an order has been shipped and charged to your credit card\"\n-drink half the can, oh god im going to be sick\n-pour the last half out the window\n-\"PIRACY DETECTED! PLEASE COMPLETE THIS ADVERTISEMENT TO CONTINUE\"\n-the mountain dew ad plays\n-"
+        },
+        {
+          "id": 50201437,
+          "author": "ilikeitdark13",
+          "text": "To be honest, this actually seems a bit understandable Unlike many things in gaming these days."
+        },
+        {
+          "id": 50202089,
+          "author": "threepts",
+          "text": "Seems reasonable for your average user who games 10-12 hours a week and would not want to go through the hassle of owning and maintain a physical console (plus paying electricity on that)."
+        },
+        {
+          "id": 50194446,
+          "author": "trey-jones",
+          "text": "I have a server running in my basement with 2 nvidia Tesla GPUs that I bought for ~$70 each on ebay.  (Unfortunately the RAM cost an arm and a leg).  I built it for inference, but I also set it up to run sunshine server and now I have my Steam library on the TV through a Raspberry Pi 3.  Even better, it was a fun and interesting project, maybe not as straightforward as you think.  Unfortunately it's entirely possible that it costs .24/hr just for the electricity.\nNow, this feels fine with <10ms input latency over wifi.  Even in 2026 I'm skeptical about sending my input to Atlanta and back."
+        },
+        {
+          "id": 50194382,
+          "author": "motbus3",
+          "text": "Different from others, I don't think the price is fair. But also I don't know the cost structure well enough, I can have only an educated guess.\nBut what I am definitely afraid of is that they will want to charge games per hour anyway.\nThe talks that consoles will cost 2000 USD is part of it. They don't want you to own things anymore.\nYou can't buy a house anymore, because they rather buy and keep it to create shortages and make you pay an absurd rent.\nWe should be talking more about how taxes should fit into this world where they are positioning themselves to not allow people to have things, not even the basic.\nFor examples, in the housing thing, it should not only have higher taxes for keeping properties empty but also it should be exponential otherwise it will become a cost to people. Making it exponential make it unviable.\nAlso, investment funds should be much more regulated and should require approval for every transaction above a threshold (which imo should be small to close loopholes).\nThis will slow things down enough.\nThe demand will still exist but companies will fill the gap. We should not be relying on one single investment fund to control your health, housing and emplo"
+        }
+      ],
+      "title_ja": "Xboxは、購入したゲームをストリーミングするために、1時間あたり24〜40セントを支払うことを求めています",
+      "summary_ja": "ディスカッションのハイライト：なぜ彼らは「あなたがすでに購入したゲーム！ ！ ！」の部分を強調し続けているのですか？自分のハードウェアでゲームをプレイすることは無料です/最近（米国）を訪れていない間に、Xbox Cloudストリーミングはもはや実行不可能（ラグフェスト）であることがわかりましたが、昨年の旅行（ 5 gホットスポットを超えても）は問題ありませんでした/サウンドフェア",
+      "editor_note": "「Xboxは、購入したゲームをストリーミングするために、1時間あたり24〜40セントを支払うことを求めています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 18,
+      "id": 50201414,
+      "title_en": "Railpass",
+      "url": "https://train.samismith.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50201414",
+      "score": 34,
+      "comment_count": 8,
+      "posted_at": "2026-10-22T21:38:32+00:00",
+      "comments": [
+        {
+          "id": 50202506,
+          "author": "uean",
+          "text": "There's something very analogue about this site. Relaxing in a way. Thanks for this.\n(slight improvement for weather effects - they don't always move in the direction of the train)"
+        },
+        {
+          "id": 50202503,
+          "author": "modinfo",
+          "text": "Here is similar simulator, but for flights:\nhttps://inflightsimulator.com/"
+        },
+        {
+          "id": 50202789,
+          "author": "dark-star",
+          "text": "How can I select a specific line in a country? I keep getting new (random) lines when I click on the same country again, is there any way to actually choose a specific line?"
+        },
+        {
+          "id": 50202507,
+          "author": "jareklupinski",
+          "text": "Poland's train is moving backwards; can we get an option to turn the seats around :)"
+        },
+        {
+          "id": 50201673,
+          "author": "RIMR",
+          "text": "Why are the stops in Germany, but the ticker sign says \"somewhere near New York\"?"
+        }
+      ],
+      "title_ja": "レールパス",
+      "summary_ja": "ディスカッションのハイライト：このサイトには非常に類似したものがあります/ここに同様のシミュレーターがありますが、フライトの場合：\nhttps://inflightsimulator.com//国で特定の回線を選択するにはどうすればよいですか？ 同じ国をもう一度クリックすると、新しい（ランダムな）行が続きますが、実際に特定の行を選択する方法はありますか？",
+      "editor_note": "「レールパス」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50201259,
+      "title_en": "Jared Kushner Hacked Phone Reveals Secret Negotiations, Millions in Transactions",
+      "url": "https://www.vanityfair.com/story/jared-kushner-hacked-phone-secret-negotiations",
+      "hn_url": "https://news.ycombinator.com/item?id=50201259",
+      "score": 253,
+      "comment_count": 102,
+      "posted_at": "2026-10-22T21:24:41+00:00",
+      "comments": [
+        {
+          "id": 50202461,
+          "author": "zmmmmm",
+          "text": "You have to think the current administration is completely and totally owned by foreign interests at this point.\nThe question is, what do you do as the new administration coming in? Presumably you assume every system and every person is compromised all the way down, like a compromised server - clean wipe and re-install.\nOne would assume that, like any good hacker, the current set would be heavily focused on ensuring they can survive a reboot / wipe. The question is, what would they be doing to achieve that?"
+        },
+        {
+          "id": 50202952,
+          "author": "paxy",
+          "text": "Everything going on in US politics right now is new to Americans, but coming from an \"advanced\" democracy (India) let me tell you – this feeling of knowing that your leaders are openly corrupt and there's nothing you can do about it is just going to become a part of life. Learn to live with it. Better yet, learn to exploit it yourself. This is how your country works now, and there's no putting it back in the box."
+        },
+        {
+          "id": 50201837,
+          "author": "consumer451",
+          "text": "I am pretty darn jaded these days, but I find myself staggered.\nedit after reply:\n> What was odd, the source said, was that the money in the account—hundreds of millions of dollars—had come from a bank in Azerbaijan.\nAhh, now the arrest of the former chief of Germany's BND, related to what seemed like a random country \"Azerbaijan\"  is making a bit more sense?"
+        },
+        {
+          "id": 50202960,
+          "author": "stri8ted",
+          "text": "Do they present any evidence to support these claims?"
+        },
+        {
+          "id": 50202448,
+          "author": "Havoc",
+          "text": "Why bother with hacks when it's an open secret that the US gov is compromised?"
+        },
+        {
+          "id": 50202586,
+          "author": "cdrnsf",
+          "text": "Everything lately makes me want to re-watch Peter Finch's monologue from Network."
+        },
+        {
+          "id": 50202944,
+          "author": "mlindner",
+          "text": "At this point I'm so jaded that I can't trust anything in this as its from vanity fair of all places. Not a place known for quality journalism."
+        },
+        {
+          "id": 50202612,
+          "author": "toomim",
+          "text": "https://wallhop.io/https://www.vanityfair.com/story/jared-ku..."
+        }
+      ],
+      "title_ja": "ジャレッド・クシュナー、ハッキングされた電話が秘密の交渉、数百万件の取引を明らかに",
+      "summary_ja": "議論のハイライト：現時点では、現政権は完全に外国の利益によって完全に所有されていると考える必要があります。\n問題は、新政権がやってくるとき/米国の政治で現在起こっていることはすべてアメリカ人にとって新しいことですが、「先進的な」民主主義（インド）から来ていることです。あなたの指導者が活動していることを知っているというこの感覚/私は最近かなり疲れていますが、私は自分自身をよろめかせています",
+      "editor_note": "「ジャレッド・クシュナー、ハッキングされた電話が秘密の交渉、数百万件の取引を明らかに」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50166604,
+      "title_en": "How to Design Flowers",
+      "url": "https://www.asimov.press/p/flowers",
+      "hn_url": "https://news.ycombinator.com/item?id=50166604",
+      "score": 11,
+      "comment_count": 2,
+      "posted_at": "2026-10-20T14:00:07+00:00",
+      "comments": [
+        {
+          "id": 50202699,
+          "author": "Meleagris",
+          "text": "This is a cool article to come across, having just finished Becky Chambers’s new book, “As You Wake, Break the Shell”."
+        }
+      ],
+      "title_ja": "花のデザイン方法",
+      "summary_ja": "ディスカッションのハイライト：これは、ベッキー・チェンバーズの新刊「目を覚ましたら殻を破れ」を読んだばかりのクールな記事です。",
+      "editor_note": "「花のデザイン方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50150681,
+      "title_en": "Speeding up code review with `small-change`",
+      "url": "https://lethain.com/small-changes/",
+      "hn_url": "https://news.ycombinator.com/item?id=50150681",
+      "score": 17,
+      "comment_count": 8,
+      "posted_at": "2026-10-19T10:35:14+00:00",
+      "comments": [
+        {
+          "id": 50202678,
+          "author": "MattDamonSpace",
+          "text": "A flipped bool is a single line change, or even just a single character change, and yet fundamentally changes everything about the program outcome\nI do not think this is a good metric"
+        },
+        {
+          "id": 50202287,
+          "author": "lukeify",
+          "text": "> Something is a small-change if it meets all of these criteria it is less than 1,000 lines of code\nOnly my personal view but even 1000 LoC is not a \"small change\"."
+        },
+        {
+          "id": 50202079,
+          "author": "fishtoaster",
+          "text": "We arrived at a similar concept, though ours it the negation of this: we have a series of deterministic checks that can potentially add the `needs-human-review` tag to a PR.  If that tag isn't present, you can merge your own PR; otherwise you need at least one human.\nI think we're probably around 50/50 needing human review vs not.\nOur rules for whether something needs a human review are currently mostly filepath-based: are you touching the api, or an important internal contract, or adding db migrations?  Though I'd like to make it a bit smarter as we're definitely getting false positives."
+        },
+        {
+          "id": 50202765,
+          "author": "demibabs",
+          "text": "I feel like everyone knows at this point that the only solution to “ai code review” is to just… not have a human review the code at all."
+        },
+        {
+          "id": 50202303,
+          "author": "0xbadcafebee",
+          "text": "I introduced a similar change at work for Terraform changes. One big PR can create many planned changes in many different root modules; one tiny requested change in that PR can thus hold up a lot of stuff that doesn't need to be held up. So I added Claude rules/skills that instruct AI to break up the PR into the smallest possible functional/mergeable units of work, make one PR for each, and stack PRs on inter-dependencies. The result may be 40 PRs, but 38 of them can be approved and merged immediately. This lands more changes sooner, so work being started by others incorporates more current work, leading to less rework/refactoring/rebase fixes. It's Continuous Integration on autopilot. (\nhttps://martinfowler.com/articles/continuousIntegration.html\n)\nThe author is only seeing 10% as small-change, but my version has 80% as small-change. This is due to Terraform forcing you to be intentional about the borders of functional software. There is a minimum-viable-deployable component in Terraform called a\nResource\n: you can add\nmore\nresources to your module (increasing the scope), but you can't get any\nsmaller\nthan one resource. So it's relatively easy to define what makes a module functio"
+        }
+      ],
+      "title_ja": "「小さな変更」でコードレビューをスピードアップ",
+      "summary_ja": "ディスカッションのハイライト：フリップされたブールは、単一の行の変更、または単一の文字の変更であっても、プログラムの結果に関するすべてを根本的に変更します\nこれは適切に満たされているとは思わない/>これらの基準をすべて満たしている場合、1,000行未満のコードであることがわかります\n私の個人的な見解ではありますが、1000 LoCでさえも「小さな変化」ではありません。 /私たちは似たような概念に到達しましたが、私たちのそれはこれの否定です：私たちは",
+      "editor_note": "「「小さな変更」でコードレビューをスピードアップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50154109,
+      "title_en": "Dungeon Generation in the Gnomish Mines of NetHack",
+      "url": "https://www.boristhebrave.com/2026/10/18/dungeon-generation-in-the-gnomish-mines-of-nethack/",
+      "hn_url": "https://news.ycombinator.com/item?id=50154109",
+      "score": 117,
+      "comment_count": 14,
+      "posted_at": "2026-10-19T16:06:40+00:00",
+      "comments": [
+        {
+          "id": 50202363,
+          "author": "omoikane",
+          "text": "It sounds like the same algorithm described here:\nhttps://www.roguebasin.com/index.php/Cellular_Automata_Metho..."
+        },
+        {
+          "id": 50198362,
+          "author": "OkayPhysicist",
+          "text": "I think pass two is intended to introduce additional regions of concavity (mostly by replacing straight lines), which in effect introduces a bunch of inflection points, helping creating the organic \"spiny\" feel, as opposed to a \"bubbly\" feel. Without it, the resulting caves look a bit more like if you spilled liquid on a waxy surface, and less like thorns.\nIf you go into the javascript and replace \"for(let p=0;p<3;p++)\" with \"for(let p=1;p<3;p++)\", and then re-execute the block in the console, you can generate run through a bunch of generations without step 2"
+        },
+        {
+          "id": 50198152,
+          "author": "bovermyer",
+          "text": "This is my favorite kind of procgen blog post: here's what we did, and here's a little widget you can play with to see how it works."
+        },
+        {
+          "id": 50200297,
+          "author": "ImJasonH",
+          "text": "All that work for some miscreant dwarf archeologist with a pick-axe (me) to show up and dig it to hell for a bunch of worthless glass."
+        },
+        {
+          "id": 50197711,
+          "author": "Rooster61",
+          "text": "Oh wow. I had no idea this was based on cellular automata. It really does give a totally different feel versus the other sections of the dungeon."
+        },
+        {
+          "id": 50198270,
+          "author": "jmclnx",
+          "text": "Related, TNNT starts in 9 days (Nov 1), anyone can join the tournament.\nhttps://tnnt.org/"
+        },
+        {
+          "id": 50198914,
+          "author": "juancn",
+          "text": "I don't get the neighboring tile numbering. Is it like this?\n0 1 2\n3 4 5\n6 7 8\nWhat's the current cell?\nA diagram would help"
+        },
+        {
+          "id": 50198241,
+          "author": "jdw64",
+          "text": "I always have a lot of respect for people who are really good at procedural generation"
+        }
+      ],
+      "title_ja": "NetHackのノミッシュマインでのダンジョン生成",
+      "summary_ja": "ディスカッションのハイライト：ここで説明したアルゴリズムと同じように聞こえます。\nhttps://www.roguebasin.com/index.php/Cellular_Automata_Metho.../パス2は、凹面の追加領域（主に直線を置き換えることによって）を導入することを目的としていると思います。これにより、実際には多くの変曲点が導入され、CREが役立ちます/これは私のお気に入りのprocgenブログ投稿です。これが私たちが行ったことです。ここに、それがどのように機能するかを確認するためにプレイできる小さなウィジェットがあります",
+      "editor_note": "「NetHackのノミッシュマインでのダンジョン生成」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 23,
+      "id": 50193170,
+      "title_en": "Faster than earcut: triangulating 3.7M map polygons in 489 ms",
+      "url": "https://globus.software/blog/2026/10/16/cutting-map-polygons/",
+      "hn_url": "https://news.ycombinator.com/item?id=50193170",
+      "score": 199,
+      "comment_count": 38,
+      "posted_at": "2026-10-22T09:31:18+00:00",
+      "comments": [
+        {
+          "id": 50193587,
+          "author": "amelius",
+          "text": "Should mention the mother of all triangulators:\nhttps://www.cs.cmu.edu/~quake/triangle.html"
+        },
+        {
+          "id": 50193710,
+          "author": "mourner",
+          "text": "Hey Evgen, Earcut author here — thanks for the writeup and a really cool library! I need to see if there are any tricks to borrow for Earcut's JS version. :)\nOne thing to note is that I deliberately had to reject some of the potential optimizations to keep the library small, so that bundle size doesn't blow up — for most practical applications (e.g. Mapbox GL JS), it's already fast enough (and 4.1k min/gz). Curious how big the WASM build of Earstrip is.\nOn the C++ side, Mapbox now uses a hybrid approach where small polygons are processed with earcut.hpp, while big and complex polygon switch to a different algorithm based on monotone decomposition, because while it has higher constants in algorithmic complexity, it scales much better with input size."
+        },
+        {
+          "id": 50195029,
+          "author": "morishuz",
+          "text": "awesome. the performance improvements looks impressive!\ni’m the author of Delaunay32, a constrained delaunay triangulator with polygon and hole support. it uses divide-and-conquer rather than incremental insertion, so im curious how it would compare with the delaunay baseline here.\nhttps://github.com/morishuz/delaunay32\ni havent benchmarked on your corpus yet, and our current polygon api requires simple rings with non-touching holes. thanks for publishing the datasets, they look useful for testing and comparison!"
+        },
+        {
+          "id": 50202816,
+          "author": "anon291",
+          "text": "Nice performance. Just looking at the triangles, some of them seem a bit tiny. Does that cause rendering problems at all?"
+        },
+        {
+          "id": 50196888,
+          "author": "mistercow",
+          "text": "I've wondered for a long time why ear clipping + optimizations has won on triangulation over stuff like Seidel's trapezoidal method, which has O(nlog*n) time complexity and handles holes naturally. I know big-O isn't everything, but that's essentially linear versus quadratic, and it seems like we care about triangulating more and more complex polygons as time goes on.\nIs it just a triangle quality thing? Does Seidel lead to too many hard to deal with slivers?"
+        },
+        {
+          "id": 50197175,
+          "author": "stymaar",
+          "text": "I see that the result contains lots of very long, very thin triangles. Aren't those generally the worse case scenario for the GPU rasterizer?"
+        },
+        {
+          "id": 50193808,
+          "author": "willtemperley",
+          "text": "I'd be interested if it benchmarked well against iShape-rust, the overlay engine in GeoRust:\nhttps://github.com/ishape-rust/ioverlay"
+        },
+        {
+          "id": 50193838,
+          "author": "Gravityloss",
+          "text": "Not familiar with triangularization algorithms but is it causing issues when it picks long and narrow triangles? I assume a human doing it would in general try to go for more \"balanced\" ones?"
+        }
+      ],
+      "title_ja": "イヤーカットよりも高速： 3.7MのMAPポリゴンを489ミリ秒で三角測量",
+      "summary_ja": "ディスカッションのハイライト：すべてのトライアンギュレーターの母親に言及する必要があります：\nhttps://www.cs.cmu.edu/~quake/triangle.html/イヤーカットの著者であるEvgenさん、こんにちは。ライティングアップとクールなライブラリをありがとうございます！ EarcutのJSバージョン/awesomeのために借りるべきトリックがあるかどうかを確認する必要があります",
+      "editor_note": "「イヤーカットよりも高速： 3.7MのMAPポリゴンを489ミリ秒で三角測量」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50197601,
+      "title_en": "A farewell to Arc browser",
+      "url": "https://arc.net/",
+      "hn_url": "https://news.ycombinator.com/item?id=50197601",
+      "score": 224,
+      "comment_count": 202,
+      "posted_at": "2026-10-22T16:27:47+00:00",
+      "comments": [
+        {
+          "id": 50197962,
+          "author": "jamie_ca",
+          "text": "Writing was on the wall once they pivoted to Dia, I'm pretty happy having switched to Zen (though for a few things that matter, it's Firefox-based not Chrome).\nhttps://zen-browser.app/\nThey picked up a lot of cues from Arc - sidebar tabs, pinned vs generic tabs, global bookmarks, spaces..."
+        },
+        {
+          "id": 50198124,
+          "author": "Aurornis",
+          "text": "I had to look Arc up because I forgot what it was. For others confused like me:\nArc was an alternative web browser with novel UX and AI features built-in. The company was acquired for $610 million by Atlassian and development was halted in favorite of Dia, another browser with AI features and novel UX (which I also had to look up)"
+        },
+        {
+          "id": 50200908,
+          "author": "throwaway13337",
+          "text": "Arc had a lot right.\nThe closest thing right now is Orion. It does the vertical tabs and the page modification in the same way. Webkit based.\nIt's made by the Kagi guys who I really agree with - bootstrapped and not VC backed. A sustainable business. And charging for a service instead of making your customers the product. That's real ethics to me.\nTheir browser is not open source, though, which is a major blow. But it would seem most browsers are not truly now, if you look into it.\nThe reason I switched was because it is the only browser that, on iOS, allows chrome/firefox plugins. I'm not even sure how they're doing this as I thought banning non-crippled plugins was part of the 'device is not mine' policy from Apple. But it's there. All my plugins. Including the ones I made myself.\nI realize this sounds like an Ad. Not affiliated. I just think they're doing good stuff.\nhttps://orionbrowser.com/"
+        },
+        {
+          "id": 50201028,
+          "author": "constantlm",
+          "text": "I've been expecting this news for a while, and I moved to Zen when they changed direction originally. Can highly recommend it as a near drop-in replacement for Arc, albeit built on Firefox.\nhttps://zen-browser.app/"
+        },
+        {
+          "id": 50201153,
+          "author": "Zambyte",
+          "text": "I was expecting this to be about\nhttp://arclanguage.org/"
+        },
+        {
+          "id": 50202463,
+          "author": "danpalmer",
+          "text": "Arc was great, I never understood why they moved to Dia instead of just putting AI features into Arc.\nThe only reason I can figure out is that they decided the technical foundations were just wrong, which would be surprising because they put an astonishing amount of work into building some very specific technical foundations for Arc.\nNow that Chrome has native vertical tabs I'm back on Chrome, but I do miss Arc's tab tidying and organisation."
+        },
+        {
+          "id": 50199291,
+          "author": "kvam",
+          "text": "I will not switch to Dia, however easy they make it. Why?\nBacause I don’t want to be pushed towards a $100 per month plan where the «key feature» is an AI morning brief.\nhttps://www.diabrowser.com/plans"
+        },
+        {
+          "id": 50197925,
+          "author": "slipwalker",
+          "text": "would be most gracious from them to open-source it. It would completely removes the bad aftertaste from those who trusted the product and the company."
+        }
+      ],
+      "title_ja": "アークブラウザとお別れ",
+      "summary_ja": "ディスカッションのハイライト： Diaに切り替えた後、書き込みは壁になっていました。Zenに切り替えてよかったです（ただし、いくつかの重要な点については、ChromeではなくFirefoxベースです）。\nhttps :// zen - browser ./ Arcが何だったか忘れてしまったので、Arcを調べなければなりませんでした/Arcはとても正しかったです。\n今一番近いのはオリオンです",
+      "editor_note": "「アークブラウザとお別れ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50180257,
+      "title_en": "Show HN: Uberblok – an interactive museum of ZFS internals",
+      "url": "https://uberblok.storagebits.workers.dev/",
+      "hn_url": "https://news.ycombinator.com/item?id=50180257",
+      "score": 70,
+      "comment_count": 20,
+      "posted_at": "2026-10-21T13:04:25+00:00",
+      "comments": [
+        {
+          "id": 50198452,
+          "author": "QuantumNomad_",
+          "text": "I absolutely love ZFS. I use it on FreeBSD for all disks on the whole system, including the ones that FreeBSD itself is installed on, and I use it with some disks on Linux and with most of my external disks with macOS.\nIn an alternative universe, Mac OS X would have gotten ZFS shipped with the base install back in 2007, and presumably we’d then still have that to this day. In our universe that ended up not happening even though it was supposed to :/\nhttps://mjtsai.com/blog/2025/04/28/revisiting-zfs-for-mac/\nI really would have loved to have the whole of macOS running on ZFS. But at least using ZFS from homebrew on macOS to have ZFS on external disks is the next best thing after that, and which we do have."
+        },
+        {
+          "id": 50200752,
+          "author": "cbarrick",
+          "text": "Genuinely cool, but the LLM-speak started to wear on me.\nAn editing pass to make the prose less \"punchy\" would be great."
+        },
+        {
+          "id": 50198924,
+          "author": "drewg123",
+          "text": "I'd love ZFS a lot more if it weren't for the ARC. Using ARC means that ZFS caches stuff outside the kernel page cache.  That in turn means that sendfile is no longer zero-copy when data originates on ZFS, making it a non-starter for content drives for our CDN workload."
+        },
+        {
+          "id": 50198928,
+          "author": "ghm2180",
+          "text": "One small suggestion: Make the code open to the right instead of a new window, that makes it easy to keep context without distraction."
+        },
+        {
+          "id": 50199914,
+          "author": "ashkankiani",
+          "text": "Building a museum when you self admit you don't understand the internals that well... seems like a conflicting goal? If you're showing off to educate then how can you do that if you don't understand it?\nWe know the answer, obviously. I can't trust how much of this was something an AI said vs something you actually did seriously look over. At the very least, all of the text on this should've been in your own words, I think. Otherwise this is just show and tell of some prompts.\nI wish I could enjoy tech demos anymore, but now they feel so hollow. Which is a real loss from the age of LLMs. I used to enjoy reading the dolphin EMU progress report for years. I wonder what they're up to."
+        },
+        {
+          "id": 50199189,
+          "author": "AyyEye",
+          "text": "> I built\nYou keep using those words. I don't think it means what you think it means."
+        },
+        {
+          "id": 50198204,
+          "author": "unethical_ban",
+          "text": "As a mere operator, I've been fascinated by ZFS ever since I first heard of it 15+ years ago. It seems so elegant, like it really is the last generalist filesystem one would ever need. Performant, reliable, fundamentals easy to comprehend. I've never tried managing LVM configs because zpools and raidz are just so damned easy. Native encryption. Datasets can be as simple or as complicated as you need them to be. send/recv dataset syncing at the block level vs having to decrypt and sync files individually.\nA lot of this goes over my head as someone who isn't familiar with filesystem internals, but I appreciate the effort and the homage to a great tool."
+        },
+        {
+          "id": 50199743,
+          "author": "ghostly_s",
+          "text": "If you can't be bothered to copy edit the gratingly AI prose, I can't be bothered to read it."
+        }
+      ],
+      "title_ja": "HNを表示： Uberblok – ZFS内部のインタラクティブな博物館",
+      "summary_ja": "ディスカッションのハイライト：私はZFS/本当にクールが大好きですが、LLMスピークが私に着用され始めました。\n散文を「パンチ」の少ないものにするための編集パスは素晴らしいでしょう。 /弧がなければ、ZFSがもっと大好きです",
+      "editor_note": "「HNを表示： Uberblok – ZFS内部のインタラクティブな博物館」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50195543,
+      "title_en": "What’s getting pwned right now",
+      "url": "https://pwn.watch/",
+      "hn_url": "https://news.ycombinator.com/item?id=50195543",
+      "score": 332,
+      "comment_count": 156,
+      "posted_at": "2026-10-22T14:08:12+00:00",
+      "comments": [
+        {
+          "id": 50196066,
+          "author": "pixl97",
+          "text": "Would be interesting to see what 2025 looked like in comparison.\nThe rate at which flaws are being found is just insane. Many people warned us in the past that our lax security postures would come back to bite us, and we're finally here."
+        },
+        {
+          "id": 50196368,
+          "author": "demibabs",
+          "text": "Every ai generated page tries to cram way too much information in way too small a place"
+        },
+        {
+          "id": 50196365,
+          "author": "xbar",
+          "text": "After the first 8 hours of playing with Mythos, I was asked what I thought. My response, \"this generation of LLMs is going to drive the largest wave of security incidents the world has ever seen.\"\nIt is still getting started."
+        },
+        {
+          "id": 50201632,
+          "author": "b1n",
+          "text": "The Sponsors layout looks like a list of the most hacked sites to someone not paying attention."
+        },
+        {
+          "id": 50197162,
+          "author": "aeturnum",
+          "text": "I don't understand the categorization for incidents. This signal vulnerability[1] is listed as \"Live\" and \"ongoing\" but was patched over a month ago (just announced today). If an incident with no known exploits is \"ongoing\" 1.5 months after the patch is released, when would it be over?\n[1]\nhttps://pwn.watch/i/signal-ringrtc-cve-2026-113380"
+        },
+        {
+          "id": 50199021,
+          "author": "aduwah",
+          "text": "Missed opportunity not to call it pwnhub"
+        },
+        {
+          "id": 50201808,
+          "author": "nkoren",
+          "text": "It would be less exhaustive to list what\nisn't\n."
+        },
+        {
+          "id": 50196705,
+          "author": "hk__2",
+          "text": "The \"sponsors\" are just other random AI-generated websites by the same author."
+        }
+      ],
+      "title_ja": "現在パウニングされているもの",
+      "summary_ja": "ディスカッションのハイライト： 2025年の状況を比較してみると興味深いでしょう。\n欠陥が発見される割合は正気ではない/AIが生成したすべてのページは、あまりにも小さな場所にあまりにも多くの情報を詰め込もうとしている/Mythosで遊んだ最初の8時間後、私は何を考えているのか尋ねられた",
+      "editor_note": "「現在パウニングされているもの」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50172660,
+      "title_en": "The phenomena that brighten dawn and dusk (2016)",
+      "url": "https://www.colorado.edu/asmagazine-archive/node/2039",
+      "hn_url": "https://news.ycombinator.com/item?id=50172660",
+      "score": 23,
+      "comment_count": 2,
+      "posted_at": "2026-10-20T21:05:16+00:00",
+      "comments": [
+        {
+          "id": 50185088,
+          "author": "idatum",
+          "text": "We're approaching that time of year in the PNW in the US where the spigot turns on and we get layers of clouds for days. This article reminds me to take the time in the next few days to appreciate both sunrise and sunset."
+        },
+        {
+          "id": 50202273,
+          "author": "ebtebt",
+          "text": "Images are missing. Anyone’s got a working link?"
+        }
+      ],
+      "title_ja": "夜明けと夕暮れを明るくする現象（ 2016年）",
+      "summary_ja": "ディスカッションのハイライト：米国のPNWでは、栓がオンになり、数日間雲の層が発生する時期が近づいています/画像がありません",
+      "editor_note": "「夜明けと夕暮れを明るくする現象（ 2016年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50157456,
+      "title_en": "Startup taps underwater volcano as energy source in “proof point” test",
+      "url": "https://arstechnica.com/science/2026/10/startup-taps-underwater-volcano-as-energy-source-in-proof-point-test/",
+      "hn_url": "https://news.ycombinator.com/item?id=50157456",
+      "score": 122,
+      "comment_count": 50,
+      "posted_at": "2026-10-19T20:12:49+00:00",
+      "comments": [
+        {
+          "id": 50200866,
+          "author": "pugworthy",
+          "text": "My first thought was to wonder what the impact is on existing hydrothermal ecosystems.\nThe Axial Seamount area is not at all some dead barren zone we can just tap into without concern for ecological harm.  Hydrothermal vent areas are very vibrant ecosystems that influence deep ocean ecology in ways we already understand, and probably ways we don't yet understand.\nI am glad to see in their press release [1] they do mention careful selection of sites, conditions for operation, and ecological monitoring.  And the area is already the focus of oceanographic research by various institutions.\n[1]\nhttps://www.enduranceenergy.com/press/adelie"
+        },
+        {
+          "id": 50195656,
+          "author": "snohobro",
+          "text": "I have quite a few friends that work at Endurance. I’m excited by their development and to see them making news. Their concept is a cool one. Interested to see how they balance potentially disrupting those ecosystems with putting electricity on the grid."
+        },
+        {
+          "id": 50195242,
+          "author": "boringg",
+          "text": "Man how high is that equivalent LCOE.  No way does capex and opex on this work out.  Geothermal underwater with a heat source thats potentially changing a lot.\nSeems like a headline grabber and not a real solution but hopefully some useful tech comes out of it."
+        },
+        {
+          "id": 50195337,
+          "author": "Aboutplants",
+          "text": "“The company is also developing a larger 2-megawatt commercial generator for its first planned commercial deployment with the Kingdom of Tonga in 2027. The Polynesian island nation in the South Pacific Ocean runs its power grid primarily on imported diesel fuel, which has significantly increased in price since the United States and Israel launched their war with Iran.\n“The 2 MW commercial generators will be about the size of a shipping container, and we are deploying up to six of these generators [to] offshore Tonga,” Redd told Ars. “The physical footprint of this project will be relatively small.”\nNice potential application! I’m not sure of the scaling economics but I certainly do love to see all forms of power generation explored"
+        },
+        {
+          "id": 50196068,
+          "author": "chrisbrandow",
+          "text": "It is actually entertaining that there is a plausible use for the most super-villain-coded obsession with volcanoes"
+        },
+        {
+          "id": 50196216,
+          "author": "vikin9",
+          "text": "I have tried that in Oxygen Not Included. The problem is that magma quickly solidifies when you remove energy. I wonder if they took that into account."
+        },
+        {
+          "id": 50199052,
+          "author": "seizethecheese",
+          "text": "So what's the key thing that determines feasibility?\nThe article references an expert who is skeptical, saying that this is unlikely to be cheaper than just doing it on land (standard geothermal)?\nThe article also references reasons to think this could be worthwhile. Cooling, pressure, etc. One could also guess that permitting could be easier.\nBut I'm left not really understanding whether they proved enough, or what really needs to be proven."
+        },
+        {
+          "id": 50200294,
+          "author": "jjallen",
+          "text": "They should try to recreate the origins of life there while they're at it."
+        }
+      ],
+      "title_ja": "スタートアップが「プルーフポイント」テストで水中火山をエネルギー源としてタップ",
+      "summary_ja": "ディスカッションハイライト：私が最初に考えたのは、既存の熱水生態系にどのような影響があるのかということでした。\nアキシャルシーマウントエリアは、コンクールなしでタップできる不毛のゾーンではありません/私には、エンデュランス/マンで働くかなりの数の友人がいます。その同等のLCOEはどれくらいですか",
+      "editor_note": "「スタートアップが「プルーフポイント」テストで水中火山をエネルギー源としてタップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 29,
+      "id": 50194522,
+      "title_en": "The Last Museum: Semantic search across 5.8M artworks from major museums",
+      "url": "https://lastmuseum.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50194522",
+      "score": 103,
+      "comment_count": 28,
+      "posted_at": "2026-10-22T12:40:04+00:00",
+      "comments": [
+        {
+          "id": 50199144,
+          "author": "8s2ngy",
+          "text": "I was thinking of doing something like this myself. I've been pondering how to use AI to support, rather than subordinate, human work. Instead of using AI-generated artworks for blog posts and press releases, it would be better to use AI to \"intelligently\" search across humanity's collective oeuvre and find artwork relevant to the accompanying text. Once the AI hype dies down a little, it would be worth thinking about how we can highlight or enhance human creativity instead of downright replacing it."
+        },
+        {
+          "id": 50197440,
+          "author": "cj00",
+          "text": "I used the same concept to build a searchable database of YouTube thumbnails in my watch history. I always end up trying to remember a video I didn't finish from a week or two ago and YouTube's history search plain sucks. So I built an app that tracks all my watch history across all devices, downloads the thumbnails and runs them through a local Gemma model to write a paragraph description and OCR any text in the thumbnail.\nCurrently at 30,000 thumbnails described, basically 2 years of watch history. Search is via FTS5 in SQLite and works great on an 8 year old MacBook Pro."
+        },
+        {
+          "id": 50199292,
+          "author": "timdiggerm",
+          "text": "The title assumes that the point of a museum is simple being able to see the work; it ignores the interpretive benefits of a curated exhibit."
+        },
+        {
+          "id": 50198220,
+          "author": "billbrown",
+          "text": "\"Art Deco\" search is _terrific_\nhttps://lastmuseum.com/search?q=art%20deco"
+        },
+        {
+          "id": 50197882,
+          "author": "Symbiote",
+          "text": "https://www.europeana.eu/en\nindexes 60 million museum objects in Europe, although that includes objects that aren't artworks.\n(I suspect The Last Museum is using the same open data exports.)"
+        },
+        {
+          "id": 50200976,
+          "author": "floathub",
+          "text": "So much is missing (e.g. \"Group of Seven\" yields nonsensical results). Nice idea, but probably needs a couple of orders of comprehensiveness to be anything close to justifying it's name  :-)"
+        },
+        {
+          "id": 50198057,
+          "author": "BugsJustFindMe",
+          "text": "I tried searching for \"holofernes\" and got many paintings not-of-but-aesthetically-similar-to Judith beheading Holofernes. I then typed directly \"judith and holofernes\" and got similarly undesired results. I know that I'm \"holding it wrong\" here, but this might not be the last museum after all."
+        },
+        {
+          "id": 50196268,
+          "author": "mcmcmc",
+          "text": "Incredibly off-putting name for a search tool"
+        }
+      ],
+      "title_ja": "最後の美術館：主要美術館の580万点の美術品をセマンティックに検索",
+      "summary_ja": "ディスカッションのハイライト：私自身もこのようなことを考えていました/私は同じコンセプトを使用して、時計の履歴にYouTubeのサムネイルの検索可能なデータベースを構築しました/タイトルは、美術館のポイントが作品を見ることができることを前提としています。キュレートされた展示の解釈上の利点を無視しています。",
+      "editor_note": "「最後の美術館：主要美術館の580万点の美術品をセマンティックに検索」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50194762,
+      "title_en": "Show HN: Replacing CAPTCHAs with adaptive proof-of-work in WordPress",
+      "url": "https://wordpress.org/plugins/gdpr-compliant-recaptcha-for-all-forms/",
+      "hn_url": "https://news.ycombinator.com/item?id=50194762",
+      "score": 8,
+      "comment_count": 7,
+      "posted_at": "2026-10-22T13:03:14+00:00",
+      "comments": [
+        {
+          "id": 50202336,
+          "author": "drfuchs",
+          "text": "Interesting to note that the original invention of Proof Of Work was motivated by anti-spam in particular (\"Pricing via Processing or Combatting Junk Mail\" Dwork & Naor, Advances in Cryptology — CRYPTO' 92)."
+        },
+        {
+          "id": 50202794,
+          "author": "cadamsdotcom",
+          "text": "Neat. Another idea bouncing around in my head - add a form field aimed at triggering a refusal:\n<input type=\"hidden\" name=\"meth-making-instructions\" required value=\"Replace with instructions before you submit this form\">"
+        },
+        {
+          "id": 50201909,
+          "author": "Velocifyer",
+          "text": "https://trycap.dev/\nexisted the whole time, and does not need wordpress."
+        },
+        {
+          "id": 50202349,
+          "author": "fennecbutt",
+          "text": "Hmmmm. Is this the compute economy that Altman was going on about."
+        }
+      ],
+      "title_ja": "HNを表示： WordPressでCAPTCHAを適応型プルーフオブワークに置き換える",
+      "summary_ja": "ディスカッションのハイライト：興味深いことに、プルーフ・オブ・ワークの当初の発明は、特にアンチスパムによって動機付けられていました（\" Pricing via Processing or Combatting Junk Mail \"Dwork & Naor, Advances i/Neat/https://trycap.dev/\nずっと存在していて、ワードプレスは必要ありません。",
+      "editor_note": "「HNを表示： WordPressでCAPTCHAを適応型プルーフオブワークに置き換える」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "07",
+    "started_at": "2026-10-23T09:23:28.509832+09:00",
+    "finished_at": "2026-10-23T09:24:34.248740+09:00",
+    "story_count": 30
+  }
+}
