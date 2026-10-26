@@ -1,0 +1,1430 @@
+{
+  "date": "2026-10-27T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50248371,
+      "title_en": "Microsoft Announces Type Server Protocol, Extension of Language Server Protocol",
+      "url": "https://github.com/microsoft/pylance-release/blob/main/docs/tsp/type-server-protocol.md",
+      "hn_url": "https://news.ycombinator.com/item?id=50248371",
+      "score": 83,
+      "comment_count": 33,
+      "posted_at": "2026-10-26T18:14:49+00:00",
+      "comments": [
+        {
+          "id": 50249708,
+          "author": "nikolatt",
+          "text": "DetachHead (maintainer of basedpyright) has criticized the TSP before:\n-\nhttps://docs.basedpyright.com/v1.40.2/type-server/\n-\nhttps://github.com/microsoft/pylance-release/discussions/718...\nTy (the type checker maintained by astral) however will apparently support the TSP:\nhttps://github.com/astral-sh/ruff/discussions/23432"
+        },
+        {
+          "id": 50249554,
+          "author": "rjbwork",
+          "text": "It's such a shame python got such mindshare.  It's a disaster of a language and ecosystem that people keep bolting and hacking things that much better thought out languages have had for decades."
+        },
+        {
+          "id": 50249007,
+          "author": "anonymous908213",
+          "text": "This should be called Python Type Server Protocol, no? Seems weird to mine the generic protocol namespace for a protocol that only supports Python. Especially coming from the company behind LSP, which actually is generic."
+        },
+        {
+          "id": 50249859,
+          "author": "pipes",
+          "text": "Can someone explain what this is to someone like me that doesn't know python very well, but programs a lot in c#?"
+        },
+        {
+          "id": 50249161,
+          "author": "Tarean",
+          "text": "So basically adding machine readable type-at-point queries as an lsp extension so Pylance and Pywright can be separated?\nThe 'result types'format is super python specific, like not having a for all binder. I don't think this specific schema will be used for any non-python languages."
+        },
+        {
+          "id": 50249873,
+          "author": "ChrisArchitect",
+          "text": "Blog post:\nPylance + Pyrefly: bring your preferred type checker to Visual Studio Code\nhttps://devblogs.microsoft.com/python/announcing-tsp/"
+        },
+        {
+          "id": 50249301,
+          "author": "0cf8612b2e1e",
+          "text": "It kept with UTF-16. New protocol is a chance to correct that poor decision."
+        },
+        {
+          "id": 50249458,
+          "author": "rmzs0711",
+          "text": "Is there any application for that, except python?"
+        }
+      ],
+      "title_ja": "マイクロソフト、Type Serverプロトコル、Language Serverプロトコルの拡張を発表",
+      "summary_ja": "ディスカッションハイライト： DetachHead （ basedpyrightのメンテナ）は、以前にTSPを批判しました：\n-\nhttps://docs.basedpyright.com/v1.40.2/type-server/\n-\nhttps://github.com/microsoft/pylance-release/discussio/Pythonがそのようなマインドシェアを得たのは残念です/これはPythonタイプサーバープロトコルと呼ばれるべきですよね？ Pythonのみをサポートするプロトコルのために汎用プロトコル名前空間をマイニングするのは奇妙に思えます",
+      "editor_note": "「マイクロソフト、Type Serverプロトコル、Language Serverプロトコルの拡張を発表」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50245138,
+      "title_en": "Sebastian Raschka's from-scratch video course on building reasoning models",
+      "url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
+      "hn_url": "https://news.ycombinator.com/item?id=50245138",
+      "score": 392,
+      "comment_count": 55,
+      "posted_at": "2026-10-26T15:11:59+00:00",
+      "comments": [
+        {
+          "id": 50248190,
+          "author": "torben-friis",
+          "text": "I've got a question. I'm having a bit of trouble phrasing it, so please don't assume I'm against learning for learning's sake, that's not the point.\nWhenever I've tried to learn about LLMs, machine learning, etc. I always come out with a bad feeling, compared to learning about software.\nTheoretical courses make me feel like it's all baby steps, unless you assume a level of commitment equivalent to a math degree. Practical/applied stuff seems to require levels of compute, training data, etc. that make it unapproachable for a home hacker for everything beyond basic exercises like a handwritten digit classifier.\nNow this feeling of \"impracticality\" is perfectly fine. It would be the expected outcome if I was taking a course on classic literature or modern art. But machine learning stuff feels like it\ncould\nhave room for learning-by-doing applications that aren't entirely pointless, so I wonder if there's some way to approach the topic I'm simply not finding.\nDid anyone have the same experience? any tips if so?"
+        },
+        {
+          "id": 50249391,
+          "author": "libraryofbabel",
+          "text": "I feel there's a misconception in a lot of the comment threads about what an LLM-from-scratch tutorial is\nfor\n. Of course you're not going to come out of this kind of tutorial being able to train a\nuseful\nLLM from scratch. (It requires too much compute, and datasets you don't have access to, and there are a lot of tricks and operational problems to solve for real training runs.) If that's your bar for \"impracticality\", then sure, this is impractical.\nBut that's not the point; the point is understanding these things better by seeing how they are\nmade\n(or\ngrown\n, if you prefer). Building something at a level further down the stack than you will ever go forces you to confront details that shape the layers above that you\ndo\ndeal with. This is one reason why\nCrafting Interpreters\nis such a beloved book here on HN.\nLLMs are now at the core of tools we all use everyday... don't you want to know how they are made? Maybe not everyone has this itch to understand the platforms and tools they use, but I sure do, and it's helped me over and over again. Sure, LLMs aren't like operating systems or compilers. They're a quasi-organic mass of billions of parameters learned during training and honest"
+        },
+        {
+          "id": 50249762,
+          "author": "Trusteando",
+          "text": "It would be wonderful if at the same time of learning about LLM one could try new ideas and verify if they provide any value, but perhaps the computer resources necessary to have something working are too high, so there would be mostly noisy results in any training and you could not be able to determine if your ideas add value or are just random noise."
+        },
+        {
+          "id": 50246122,
+          "author": "darrelld",
+          "text": "I got his book Build Your Own LLM From Scratch and it's super readable and does a great job at holding your hand through the entire process...need to finish reading it though!"
+        },
+        {
+          "id": 50245736,
+          "author": "kavalg",
+          "text": "Highly recommended! Sebastian does a great job explaining complex AI topics in a very intuitive way."
+        },
+        {
+          "id": 50249172,
+          "author": "flakiness",
+          "text": "What would be the computing cost to go through the book (or the course)? Do you need Cloud GPUs, or can this be run locally, if so how powerful your computer has to be?\nI've been wondering about getting a PC to poke around LLM stuff (not a practical use, but more for learning purposes) but I don't have any intuition about how much is enough and whether it is worth it to me."
+        },
+        {
+          "id": 50249429,
+          "author": "throwawayb2025",
+          "text": "The way he explained the attention module helped me a lot. I have read other people explanation but his technique helped me 8n remembering it easily."
+        },
+        {
+          "id": 50247852,
+          "author": "dan-g",
+          "text": "I’ve read, worked through, and watched his LLM book as well as this one! Things finally clicked, can’t recommend both books enough—his pedagogy is great (at least for me)."
+        }
+      ],
+      "title_ja": "推論モデルの構築に関するSebastian Raschkaのゼロからのビデオコース",
+      "summary_ja": "ディスカッションのハイライト：質問があります/LLM - from - scratchチュートリアルとは何かについて、多くのコメントスレッドに誤解があると感じています\n対象\n /LLMについて学ぶと同時に、新しいアイデアを試し、それらが何らかの価値を提供するかどうかを検証することができれば素晴らしいですが、おそらく",
+      "editor_note": "「推論モデルの構築に関するSebastian Raschkaのゼロからのビデオコース」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50245831,
+      "title_en": "CSS-Tricks has a new owner",
+      "url": "https://css-tricks.com/css-tricks-has-a-new-owner/",
+      "hn_url": "https://news.ycombinator.com/item?id=50245831",
+      "score": 258,
+      "comment_count": 59,
+      "posted_at": "2026-10-26T15:51:23+00:00",
+      "comments": [
+        {
+          "id": 50247477,
+          "author": "grahamburger",
+          "text": "I run a similar-in-spirit site about starting from scratch on a project and getting to something functional. I tried both ads and courses, in my case neither were very successful. The most success I had was in offering to do the things the site tells you how to do in exchange for money. That's been my full time job for the last 6 years. I don't know if that's workable in the UI/UX world.\nI've done only a small amount of web-design work over the years, but I can imagine that, if I landed on CSS-tricks trying to work out a tricky (to me) CSS or usability problem where LLMs had been failing me, and I had a quick and easy option to pay a few hundred dollars and meet with the guy who wrote the book, I might do that. That's also how I got a lot of my first customers in my current business; I offered paid phone calls where a user could pay a nominal rate and ask some upfront questions about a project they were working on. Many of those calls turned in to longer contracts, and the fee kept out the folks who were just looking to sell me something.\nA lot of my customers have been organizations whose focus is not my industry, but, for one reason or another, they needed something done that fit"
+        },
+        {
+          "id": 50246634,
+          "author": "sikozu",
+          "text": "I didn't expect this.\nWhile I do believe that selling to DigitalOcean was a mistake ultimately, I'm concerned about the long time viability of this move considering the current landscape of web development.\nDon't get me wrong, I think CSS-Tricks is a great resource and it has helped me over the years, but if I was in Geoff's shoes right now I'd be pretty scared.\nLook at TailwindCSS for example, they had to reduce the size of their team and ended up joining Shopify to continue surviving. It is hard out here these days.\nI don't want to sound too doom and gloom, so I wish Geoff the best of luck and I hope he succeeds."
+        },
+        {
+          "id": 50249843,
+          "author": "liquidise",
+          "text": "This is a refreshingly candid article and was an absolute breath of fresh air. Wishing all the best to the team."
+        },
+        {
+          "id": 50248388,
+          "author": "jeromechoo",
+          "text": "As an eng who spent over a decade on frontend and hasn’t touched CSS since last November, I’m ecstatic for this news.\nNothing a frontier LLM has built me in the last year has been satisfactory to me. Every detail was shipped after millions of tokens stripping back and optimizing what Fable/Opus started doing.\nThe process is leaner and faster, but frontend isn’t “solved” just because LLMs exist."
+        },
+        {
+          "id": 50248131,
+          "author": "CM30",
+          "text": "Nice! Digital Ocean was definitely not a great owner for the site, and it clearly wasn't treated as much of a priority under their ownership. Hopefully Geoff will give it the attention it deserves, especially given he's already the most active contributor there."
+        },
+        {
+          "id": 50248159,
+          "author": "anticorporate",
+          "text": "I wish I didn't have such a bleak outlook for community-focused tech publishing. Sites like LWN and 404 Media seem to be hanging on, but they're more likely the exceptions that prove the rule.\nMy paycheck for the better part of a decade came from publications run by a large tech company in an arrangement not too dissimilar from DO's relationship with CSS-Tricks. It was great while it lasted, but shortly after I left it was the first thing on the chopping block when the layoffs started. That was 3-4 years ago and the landscape for quality tech publishing hasn't gotten any easier."
+        },
+        {
+          "id": 50246941,
+          "author": "willio58",
+          "text": "Did DigitalOcean forget they owned CSS-Tricks? Because that's what seemed to have happened based on the limited notes on the subject I've read in the past few weeks."
+        },
+        {
+          "id": 50249573,
+          "author": "elxr",
+          "text": "CSS tricks is a shining testament to consistency and not falling for trend-chasing. I love how laser focused they are on covering purely CSS and making it fun to keep up with CSS news. Sounds like they're on a good path right now, and he's convinced in his choice to take full control.\nSuper happy the site."
+        }
+      ],
+      "title_ja": "CSS - Tricksに新しい所有者がいます",
+      "summary_ja": "ディスカッションのハイライト：私は、プロジェクトをゼロから始めて、機能的なものに到達することについて、精神的に類似したサイトを運営しています/これは予想していませんでした。\nDigitalOceanへの売却は最終的に間違いだったと信じていますが、現在のLANを考慮すると、この動きの長期間にわたる実行可能性を懸念しています/これは爽快に率直な記事であり、新鮮な空気の絶対的な息吹でした",
+      "editor_note": "「CSS - Tricksに新しい所有者がいます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50248055,
+      "title_en": "Oldest GUI application that still runs on Windows 11",
+      "url": "https://blog.enlyth.com/posts/oldest-windows-gui-app-win-11/",
+      "hn_url": "https://news.ycombinator.com/item?id=50248055",
+      "score": 70,
+      "comment_count": 24,
+      "posted_at": "2026-10-26T17:56:55+00:00",
+      "comments": [
+        {
+          "id": 50249343,
+          "author": "drnick1",
+          "text": "I deplore the day we lost the menu bar and replaced it with \"mobile first\" designs. The desktop UI was perfected around the time of Windows 95 and has gotten worse with every iteration since then. That, and the increased reliance on non-native frameworks and libraries instead of working with directly with the Windows API in C."
+        },
+        {
+          "id": 50249468,
+          "author": "capnjngl",
+          "text": "Speaking of FreeCell, a couple weeks ago I was visiting my 95yr-old grandmother and noticed she still plays oldschool FreeCell, specifically a variant that's really hard to track down now called FreeCell Pro [\nhttps://cards.fandom.com/wiki/FreeCell_Pro\n]\nIt inspired a weekend project. I always liked that you could swap the card backs in OG FreeCell and play with different \"themed\" decks, so I vibecoded something a little more modern. I got carried away and added a roguelite mode too (yeah I know how \"Roguelite FreeCell\" sounds). Anyway, it's free to play on the web, no ads: [\nhttps://freecellworlds.com/\n]"
+        },
+        {
+          "id": 50249276,
+          "author": "dofm",
+          "text": "> At the time of this post, that’s a 33 years and 8 months old application,\nPointing this out without a trigger warning is just\nrude\n;-)\nSome of us are older than we think, yo."
+        },
+        {
+          "id": 50248943,
+          "author": "mijowi",
+          "text": "I often think old GUIs have a nice, functional look to them. This one is no exception. I notice (what I assume is) the shuffle toggle looks unfamiliar. This is from way back before that UI became a convention! I see the repeat icon has stuck around. So interesting!"
+        },
+        {
+          "id": 50249495,
+          "author": "userbinator",
+          "text": "Wrote a few small utilities in Win32 in the early 90s; still use them today unmodified, but most recently in WINE. I have some slightly older DOS utilities that are also quite usable."
+        },
+        {
+          "id": 50249510,
+          "author": "lolpanda",
+          "text": "In 2026 does it still make sense to build new Windows app using Win32 API? I was building a simple image viewer similar to QuickLook on Mac using Win32. I found it's very responsive. The code is less readable compared to React. For me Win32 is a good option if the UI state machine is simple enough."
+        },
+        {
+          "id": 50249212,
+          "author": "xacky",
+          "text": "There's probably an old X11 app from the 1980s that could be executed through xwayland somewhere."
+        },
+        {
+          "id": 50249298,
+          "author": "jmclnx",
+          "text": "Interesting.\nAt one tine, Slackware Linux would not recompile binaries unless the program was patched.  So there was a time you could find rather old binaries on Slackware, and maybe still on other distros.\nI wonder what the oldest unchanged source/program running on Linux or BSD ?  My vote goes to cat(1) :)"
+        }
+      ],
+      "title_ja": "Windows 11でまだ実行されている最も古いGUIアプリケーション",
+      "summary_ja": "ディスカッションのハイライト：メニューバーを失い、「モバイルファースト」のデザインに置き換えた日を嘆いています/FreeCellと言えば、数週間前に95歳の祖母を訪ねたとき、彼女はまだ古い学校のFreeCellをプレイしていることに気づきました。特に、追跡が非常に困難なバリアントd />この投稿の時点では、それは33年と8ヶ月のアプリケーションです。\nトリガー警告なしでこれを指摘することは\n失礼\n;-)\n私たちの中には年上の人もいます",
+      "editor_note": "「Windows 11でまだ実行されている最も古いGUIアプリケーション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50248124,
+      "title_en": "GPT-6.1 Terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "hn_url": "https://news.ycombinator.com/item?id=50248124",
+      "score": 252,
+      "comment_count": 123,
+      "posted_at": "2026-10-26T18:01:17+00:00",
+      "comments": [
+        {
+          "id": 50248491,
+          "author": "Someone1234",
+          "text": "I'm very confused about their model market position/naming schema.\nFirst we had:\n> Luna (Small), Terra (Medium), Sol (Big).\nWhich was fairly smooth after you got used to their planets.\nBut then they added Astra as the \"Bigger,\" which was mostly still self-coherent:\n> Luna (Small), Terra (Medium), Sol (Big), Astra (Bigger)\nBut then things go confusing, they released Sol-6.1 which sometimes is superior to Astra, and discontinued Terra which made it look like this:\n> Luna (Small), Sol-6.1 == Astra\nBut with Sol-6.1 costing the old Terra-6.0 price, while, as I said performing as good as the old \"Bigger\" model in many non-3D/UI situations.\nNow they're re-introduced Terra, as a 6.1 release, making this even more confusing.\nDid Microsoft's chief branding officer move over to OpenAI?"
+        },
+        {
+          "id": 50249875,
+          "author": "agentdev001",
+          "text": "I'll wait for the runebench results!\nOn AA intelligence index, this fills in the cost per task frontier nicely between 6 Luna and 6.1 sol. So when 6.1 Luna inevitably releases...\nThe OAI model tango seems to not have an end in sight, for better or worse. Give me more API toys!"
+        },
+        {
+          "id": 50249523,
+          "author": "6thbit",
+          "text": "GPT-6 Astra\nInput:$10.00 / 1M tokens Cached input:$1.00 / 1M tokens Output:$50.00 / 1M tokens\nGPT-6.1 Sol\nInput:$2.00 / 1M tokens Cached input:$0.10 / 1M tokens Output:$10.00 / 1M tokens\nGPT-6.1 Terra\nInput:$1.00 / 1M tokens Cache read:$0.05 / 1M tokens Output:$5.00 / 1M tokens\nGPT-6 Luna\nInput:$0.10 / 1M tokens Cached input:$0.01 / 1M tokens Output:$0.50 / 1M tokens\nThat's how their pricing tiers end up now.\nhttps://openai.com/business/pricing/#api\n(For some reason they say \"Cache read\" instead of \"Cached input\" for 6.1 Terra)\n6.1 Astra and 6.1 Luna must be coming up soon. Will they reduce their prices further?"
+        },
+        {
+          "id": 50248646,
+          "author": "Silagi",
+          "text": "Can anyone give me the compelling reason for Terra and Sonnet to exist?\nVirtually every task I give to either is better served by going up a tier and down a reasoning level, or down a tier and up a reasoning level. I simply don't understand their use case. No testing I've done has shown them to have a niche where there isn't a cheaper-with-equal-results or more-performant-at-same-cost option."
+        },
+        {
+          "id": 50248713,
+          "author": "simonw",
+          "text": "Pelicans for GPT-6.1 Terra:\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nInteresting that both \"none\" and \"low\" reasoning levels appeared not to spend any reasoning tokens at all, and in fact low ended up using less tokens and costing less than none here.\n\"medium\" did use 496 reasoning tokens, but that's apparently not enough here to return a visible reasoning trace.\nOpenAI's current frontier model lineup is gpt-6-astra, gpt-6.1-sol, gpt-6.1-terra, gpt-6-luna, so here's a comparison grid of all of their pelicans at different reasoning levels:\nhttps://static.simonwillison.net/static/2026/openai-pelicans..."
+        },
+        {
+          "id": 50248477,
+          "author": "minimaxir",
+          "text": "Similar 75% price cut trajectory as GPT-5.6 Sol -> GPT-6.1 Sol. Overall, Terra is still half the price of Sol.\nBut like the original release of Terra, it's still a weird middle child between the small-model-that-got-substantially-better (Luna) and the large-model-that-got-significiantly-cheaper (Sol). The TerminalBench 4.0 cost-per-task results are a bit confusing and I'm not sure why you would pick Terra over Sol in that case. Overall this release seems like a flex on Sonnet 5.5: a model which is having its own middle child problems between the godly Opus 5.5 and the surprisingly capable Haiku 5.5."
+        },
+        {
+          "id": 50248461,
+          "author": "Archit3ch",
+          "text": "I rather enjoy OpenAI's focus on cost-per-task.\nI'm optimistic about them tackling frontier intelligence next. Astra 6.1 please?"
+        },
+        {
+          "id": 50248252,
+          "author": "A_D_E_P_T",
+          "text": "Wow.  If those charts are true, this effectively matches GPT-6-Astra at a fraction of the cost, and is neck-and-neck with 6.1-Sol."
+        }
+      ],
+      "title_ja": "GPT-6.1 Terra",
+      "summary_ja": "ディスカッションハイライト：私は彼らのモデル市場ポジション/命名スキーマについて非常に混乱しています。\nまず、次のものがありました。\n>ルナ（小）、テラ（中）、ソル（大）。\nあなたが彼らの計画に慣れた後、かなりスムーズでした/ルネベンチの結果を待ちます！\n対空インテリジェンスインデックスでは、これはタスクフロンティアあたりのコストを6ルナと6.1ソル/GPT -6アストラの間でうまく埋めます\n入力： $ 10.00/1 Mトークンキャッシュされた入力： $ 1.00/1 Mトークン出力： $ 50.00/1 Mトークン\nGPT-6.1したがって",
+      "editor_note": "「GPT-6.1 Terra」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50247493,
+      "title_en": "Nietzschian Debugger",
+      "url": "https://github.com/DilawarShafiq/nietzschian-debugger",
+      "hn_url": "https://news.ycombinator.com/item?id=50247493",
+      "score": 53,
+      "comment_count": 25,
+      "posted_at": "2026-10-26T17:25:30+00:00",
+      "comments": [
+        {
+          "id": 50248534,
+          "author": "bazzmt",
+          "text": "The irony of naming this Nietszche's Debugger when he, Nietszche, directly attacks the Socratic dialectic in the Twilight.\nI was thinking Adorno's negative dialectics would be a better, if gloomy, fit; debugging is never-ending.\nIf you're in a positive or hopeful mood, or still a junior dev, Hegel's determinate negation offers reconciliation and an ending. This is a phase; dear junior devs you too will eventually share the Adornian resignation."
+        },
+        {
+          "id": 50249746,
+          "author": "AyanamiKaine",
+          "text": "This makes me wonder. What would Nietzsche think of AI and LLM in general? Would he see it as an idol or a monument of human accomplishment?"
+        },
+        {
+          "id": 50248205,
+          "author": "brumbelow",
+          "text": "\"anti-ai\"\n>\nhttps://github.com/DilawarShafiq/nietzschian-debugger#setup\nStep one to setup: \"Set your Anthropic API key\"..."
+        },
+        {
+          "id": 50248266,
+          "author": "gnulinux",
+          "text": "README.md says:\n> The anti-AI.\nbut then it's an AI-generated picture of Nietzsche [1] and AI-generated README with AI-generated code (Claude being the co-author), and when I read sample transcript e.g. in (nietzschian-debugger/tests/fixtures/sample-sessions/sample-v1.json) it's clear the app also uses LLMs to generate output...\nSo what do they mean by \"anti-AI\"?\n[1]: All issues with AI-generated images aside, AI-generating a person's likeness seems like the rudest way to do this... At least use an actual photo/drawing of his..."
+        },
+        {
+          "id": 50249327,
+          "author": "frangonf",
+          "text": "A markovian prussian rubber duck?\nThis is pure dev astrology, but in the subsidized Sonnet 3.5 times in copilot I'm guilty of prompting 'You're Uncle Bob make this legacy java services read like a book top down with the cleanest code' just for fun and I might have learnt something and had some fun so I'm not judging."
+        },
+        {
+          "id": 50248341,
+          "author": "greyw",
+          "text": "Even Anti-AI tech now uses AI. How far we have come!"
+        },
+        {
+          "id": 50249274,
+          "author": "ethin",
+          "text": "The biggest problem with having an LLM do this, from what I've observed of at least frontier models, is that the way they are trained/forced to behave makes them do one of two things, neither of which is educational or helpful:\n1. They ask you a \"hard question\" but then immediately give you some kind of \"hint\" which makes it obvious what the \"answer\" is (or, even worse, they just tell you what it is).\n2. They get pedantic (and I mean maximum emphasis on the word), to the point that they will nitpick the exact, precise wording you use, even if the context makes it blatantly obvious what you meant. GPT is currently the biggest offender in this area (it is ridiculously pedantic even though I haven't told it to be so).\nAnd yes, in case anyone is wondering, I do actually read the output of tools like Claude and I have tried, repeatedly, to get them to do something like this, and one of the two aforementioned things always happens for some reason. I'm not sure if this is a problem with how they were trained, an issue with their system instructions, or what."
+        },
+        {
+          "id": 50249311,
+          "author": "dan_p",
+          "text": "Cool idea, Nietzsche or not.\nCurious if one could just boil this down into a skill or prompt for better portability though. May give it a try."
+        }
+      ],
+      "title_ja": "Nietzschianデバッガー",
+      "summary_ja": "ディスカッションのハイライト：ニーチェがトワイライトでソクラテスの弁証法を直接攻撃したとき、このニーチェのデバッガーに名前を付けるのは皮肉です。\nアドルノの否定的な弁証法があるだろうと思っていた/これは私が疑問に思う/「アンチアイ」\n>\nhttps://github.com/DilawarShafiq/nietzschian-debugger#setup\nセットアップ手順1 ：「Anthropic APIキーを設定する」...",
+      "editor_note": "「Nietzschianデバッガー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 7,
+      "id": 50242939,
+      "title_en": "Anthropic S-1",
+      "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "hn_url": "https://news.ycombinator.com/item?id=50242939",
+      "score": 1247,
+      "comment_count": 1206,
+      "posted_at": "2026-10-26T13:04:50+00:00",
+      "comments": [
+        {
+          "id": 50248072,
+          "author": "jmuguy",
+          "text": "My main thing is - why would I buy their stock at the rumored valuation?  Regardless of anything else that valuation is basically saying all their growth has been captured, unless they literally take over the world.\nIf you could go back in time and buy $1000 worth of Amazon when they IPO'd, it would be worth 3.3 million today.  Because Amazon's stock value has grown on average 30% year over year for 30 years.  Amazon's valuation when they went public was around 400 million.\nHow much can Anthropic reasonably grow from a 1.5 or 2 trillion dollar valuation?  If we want them to grow even half as much as Amazon they'd have to be worth 5.9 quadrillion dollars by 2056.  That's 5,900,000,000,000,000, a 16 digit number."
+        },
+        {
+          "id": 50243394,
+          "author": "rich_sasha",
+          "text": "One thing that bothers me is that if the AI maximalism turns out correct (which is needed to justify the valuations), why would AI companies respect money and ownership?\nSo far, even major disruptions were still affecting relatively small segments of the economy. Car lobby in Germany, tech in the US, \"Big Pharma/Food/etc”. They needed the rest of the economy.\nBut if some AI company figures out a way to monopolize everything: new companies, old companies, physical manufacturing - all the things they say they will, please buy here for lots of money - why would they be bound to pay out dividends or otherwise share the fruits of their economic labour?\nI’m not saying\nspecifically\nAnthropic would be looking to screw its investors. Rather, if you control an almost omnipotent genie, wouldn’t the temptation just be too much?\nOr temptation aside - will money even have any value? If some AI company rebuilds the economy from scratch, and control everything from accounting to shoe making, why would they respect the value of some fiat tokens? It’d be like the conquistadors respecting the shells and beads of their new Aztec subjects.\nOf course, perhaps none of this happens, but then the question "
+        },
+        {
+          "id": 50243209,
+          "author": "trjordan",
+          "text": "Everything comes back to whether the demand is really there.\nAnthropic thinks it is. The got the demand / datacenter match right in Q2, got great margins, and committed hard.\nThey've got:\n- $114b committed to Google\n- $110b committed to AWS\n- $161b committed to Broadcom\n- $120b committed to SpaceX\nIf the party continues, they'll go from $50b in revenue to $500b and be fine.\nBut if they don't, it's going to hurt. And that's their only choice, because otherwise, they end up with a frontier model and 50% of the capacity and get eviscerated on either availability or last-minute datacenter leases.\nIt's a big business, but it's not an easy business."
+        },
+        {
+          "id": 50243574,
+          "author": "cmiles8",
+          "text": "There are a lot of parallels to the WeWork S1. They’ve made absolutely massive forward cash commitments, on a business that’s increasingly commoditized, and with little hard evidence that they’ll generate the revenue (let alone the cashflow) to pay for all these future liabilities. All while everyone is discovering there isn’t really a secret sauce moat to demand much of a a premium over cheaper options that trade a few points above the direct COGS (cost of compute in this case).\nIf everything goes just perfect they might eek by. If it doesn’t this goes from high flying startup to insolvency and bankruptcy real fast."
+        },
+        {
+          "id": 50246442,
+          "author": "LarsDu88",
+          "text": "I think a lot of discussion around the sucess or failure of Anthropic and OpenAI seems to hinge on their current uses, but people seem to have amnesia regarding the fact that Claude code wasn't even a thing until about 1 year ago. There are far wider markets these companies can tap on if they are well capitalized even as Chinese \"actually open AI\" commoditizes things.\nThere are moonshot projects related to superconductors, materials, and biology that these companies can claim progress on to keep valuations stratospheric."
+        },
+        {
+          "id": 50243559,
+          "author": "kikdij",
+          "text": "For those who are not familiar with S-1: this document is incredibly important. this is one of the rare times in the life of a company where it's not allowed, by law, to lie, nor to omit the truth."
+        },
+        {
+          "id": 50243089,
+          "author": "jialatsia",
+          "text": "Ant generates $2.08 in revenue for every $1 spent on compute which is up from just $0.40 in Q1 2025.the payback period for compute is just insane, likely less than a year!"
+        },
+        {
+          "id": 50243357,
+          "author": "hn_submit",
+          "text": "This entire A.I. hype is going to get many people burned, especially those whom are investing for their pensions.\nAnd everyone is playing along. It seems to me half the internet is filled with false recommendations and overly optimistic outcomes of their software projects.\nAnd even if the claims are true what use will we have for hundreds of Microsoft Office clones? This A.I. boom might benefit some but will be the undoing of many valuable ISVs like Microsoft and Adobe with potentially trillions of stock market value lost."
+        }
+      ],
+      "title_ja": "Anthropic S -1",
+      "summary_ja": "ディスカッションのハイライト：私の主な問題は、なぜ噂されている評価で株を購入するのかということです。  他の評価が基本的にすべての成長が捉えられたと言っているにもかかわらず、AIマキシマリズムが正しいことが判明した場合（評価を正当化するために必要なこと）、AI企業がお金と所有権を尊重するのはなぜですか？\nこれまでのところ、ev/Everythingは需要が本当にそこにあるかどうかに戻ってきます。",
+      "editor_note": "「Anthropic S -1」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 50236681,
+      "title_en": "SIMD-accelerated computer vision on a $2 microcontroller",
+      "url": "https://shraiwi.com/blog/simd-fast-esp32s3/",
+      "hn_url": "https://news.ycombinator.com/item?id=50236681",
+      "score": 122,
+      "comment_count": 36,
+      "posted_at": "2026-10-25T22:29:47+00:00",
+      "comments": [
+        {
+          "id": 50249808,
+          "author": "camel-cdr",
+          "text": "The CH32V407/CH32V467 is a bit more expensive, was $2.4/$2.9 per unit, but supports the embedded subset of the RISC-V vector extension.\nSo you basically get a full AVX-512/SVE level SIMD ISA, minus FP support and with 64-bit SIMD width. But you still have LMUL, which will be great here to maximize utilization."
+        },
+        {
+          "id": 50247350,
+          "author": "jwr",
+          "text": "BTW, I find it pretty amazing that you can buy complete ESP32-S3-Zero boards on AliExpress for $5.33. That's for a little board with the chip, a ceramic antenna, a USB connector and an LED.\nESP32-C3-Zero are $2.80 each.\nThese prices are absolutely ridiculous for what you get. Also, the ease of use of these boards is incredible. Just connect them via USB to your computer and off you go."
+        },
+        {
+          "id": 50245686,
+          "author": "pjmlp",
+          "text": "> For its price, the ESP32-S3 is a powerhouse of a microcontroller.\nIndeed, don't forget it is more powerful than computers like this one,\nhttps://en.wikipedia.org/wiki/Amstrad_PC1512"
+        },
+        {
+          "id": 50248992,
+          "author": "lukan",
+          "text": "The engineering seems impressive, but how useful is the result? What can you detect exactly with it in real time?\nDetecting corners, but to what resolution/detail, a picture with a result would have been helpful to understand the capability.\nedit: missed this link, this is what this is about\nhttps://en.wikipedia.org/wiki/Features_from_accelerated_segm..."
+        },
+        {
+          "id": 50245771,
+          "author": "peesem",
+          "text": "nit: 5.1MP/s to 11.2MP/s is not an increase of 220%, it's an increase of 120%. it's 2.2x faster, but percentage increase starts at 0%, not 100%. 100% faster is double, 200% faster is triple."
+        },
+        {
+          "id": 50246218,
+          "author": "paaloeye",
+          "text": "ESP32-S3 SIMDs are super difficult to use unfortunately"
+        },
+        {
+          "id": 50247581,
+          "author": "paaloeye",
+          "text": "mitchellh's post about SIMD:\nhttps://mitchellh.com/writing/everyone-should-know-simd"
+        },
+        {
+          "id": 50249184,
+          "author": "adolph",
+          "text": "Interesting. Since this was implemented on the S3, which uses the ISA XTensa LX instead of the RISC-V of most newer ESP32 series chips, I looked into how Espressif is handling SIMD on the latter ISA. Apparently it is only present in limited fashion as a processor extension on the P4 and S31 [0]. The S31 datasheet claims SIMD [1] and the P4 datasheet [2] files them as \"Processor Instruction Extensions.\"\n0.\nhttps://bitbanksoftware.blogspot.com/2026/04/esp32-p4-simd-e...\n1.\nhttps://documentation.espressif.com/esp32-s31_datasheet_en.p...\n2.\nhttps://documentation.espressif.com/esp32-p4_technical_refer..."
+        }
+      ],
+      "title_ja": "$ 2マイクロコントローラ上のSIMDアクセラレーションコンピュータビジョン",
+      "summary_ja": "ディスカッションハイライト： CH 32 V 407/CH 32 V 467は少し高価で、ユニットあたり$ 2.4/ $ 2.9でしたが、RISC - Vベクトル拡張の埋め込みサブセットをサポートしています。\nつまり、基本的にフルAVX -512/SVE LEVE/BTWを入手できます。AliExpressで完全なESP 32 - S 3 - Zeroボードを$ 5.33 />で購入できるのはかなり驚くべきことです。その価格では、ESP 32 - S 3はマイクロコントローラのパワーハウスです。\n確かに、このようなコンピュータよりも強力であることを忘れないでください。\nht",
+      "editor_note": "「$ 2マイクロコントローラ上のSIMDアクセラレーションコンピュータビジョン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 9,
+      "id": 50247928,
+      "title_en": "A Man from the Future: Why Johnny Can't Stop Abstracting",
+      "url": "http://muratbuffalo.blogspot.com/2026/10/the-man-from-future-why-johnny-cant.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50247928",
+      "score": 34,
+      "comment_count": 11,
+      "posted_at": "2026-10-26T17:49:55+00:00",
+      "comments": [
+        {
+          "id": 50249149,
+          "author": "willguest",
+          "text": "I recently read 'Maniac' by Benjamin Labatut, which also tracks the life of Johnny von Neumann. It is a wonderful read - very eloquently put together, giving accounts of the man from the perspectives of several people in his life.\nNot only does it capture the alien-like genius of the protagonist, but also described his particular emotional and social character in a way that I have not seen written elsewhere. Highly recommended."
+        },
+        {
+          "id": 50249582,
+          "author": "henrik_w",
+          "text": "I read The man From the Future a few years ago, and I highly recommend it!\nJohn von Neumann was such a fascinating and influential character. If you are interested in the modern history of mathematics, computers, game theory and more, pick up a copy.\nI also wrote about why I liked the book so much:\nhttps://henrikwarne.com/2024/07/07/john-von-neumann-the-man-..."
+        },
+        {
+          "id": 50248868,
+          "author": "FLeXMurphy",
+          "text": "> Johnny remained a game theorist to the end. After a lifetime of culturally Jewish atheism, he asked to be baptized. His daughter attributed it to Pascal's Wager: a small probability of a much better afterlife, against a trivial cost.\nThe house always wins."
+        }
+      ],
+      "title_ja": "未来から来た男：ジョニーが抽象化を止められない理由",
+      "summary_ja": "ディスカッションのハイライト：私は最近、ジョニー・フォン・ノイマンの人生も追っているベンジャミン・ラバットの「マニアック」を読んだ/私は数年前に未来からの男を読んだ、そして私はそれを強くお勧めします！\nジョン・フォン・ノイマンはとても魅力的で影響力のあるキャラクターでした/>ジョニーは最後までゲーム理論家のままでした",
+      "editor_note": "「未来から来た男：ジョニーが抽象化を止められない理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50209525,
+      "title_en": "Diamond Transistor",
+      "url": "https://www.df.com/diamond-transistor",
+      "hn_url": "https://news.ycombinator.com/item?id=50209525",
+      "score": 73,
+      "comment_count": 38,
+      "posted_at": "2026-10-23T14:20:15+00:00",
+      "comments": [
+        {
+          "id": 50247360,
+          "author": "TGower",
+          "text": "It still amazes me that the rare shiny rocks humanity has appreciated for thousands of years also turn out to have amazing properties even compared to the synthetic materials we are now capable of creating. It's still the hardest material we have measured. It is the best thermal conductor, even though it's an electrical insulator."
+        },
+        {
+          "id": 50246983,
+          "author": "xnx",
+          "text": "Asionometry video on the topic: Why Diamond Transistors Are So Hard (\nhttps://www.youtube.com/watch?v=NLmd5vL0zmk\n)"
+        },
+        {
+          "id": 50209688,
+          "author": "Sath52",
+          "text": "Diamonds are incredibly useful,\nAnd logical, now that we can produce them easily enough.\nThis, is one of many uses of the rocks."
+        },
+        {
+          "id": 50247260,
+          "author": "ezrec",
+          "text": "So... how long does the hydrogen gas layer last before it all seeps out?"
+        },
+        {
+          "id": 50249199,
+          "author": "paaloeye",
+          "text": "I'd be surprise if it gets even 1% of SI world dominance after 5 years"
+        },
+        {
+          "id": 50247822,
+          "author": "ginko",
+          "text": "Why do people still think they need to mess with scrolling on their websites?"
+        },
+        {
+          "id": 50247618,
+          "author": "mitxela",
+          "text": "I still don't know how to even make a silicon transistor."
+        },
+        {
+          "id": 50246986,
+          "author": "alberth",
+          "text": "Isn't the power consumption needed to create pure/no-blemish lab diamonds so great, that this wouldn't be feasible to scale."
+        }
+      ],
+      "title_ja": "ダイヤモンドトランジスタ",
+      "summary_ja": "ディスカッションのハイライト：人類が何千年にもわたって高く評価してきた希少な光沢のある岩石は、合成材料と比較しても驚くべき特性を持つことがわかりました/Asionometryビデオのトピック：なぜダイヤモンドトランジスタはとても難しいのか（\nhttps://www.youtube.com/watch?v=NLmd5vL0zmk \n） /ダイヤモンドは信じられないほど便利です、\nそして論理的に、簡単に作成できるようになりました。\nこれは、岩石の多くの用途の1つです",
+      "editor_note": "「ダイヤモンドトランジスタ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50248665,
+      "title_en": "US designates helium as a critical material",
+      "url": "https://apnews.com/article/energy-critical-materials-minerals-helium-43da160adc1bad389fba0b9ffbd14c3c",
+      "hn_url": "https://news.ycombinator.com/item?id=50248665",
+      "score": 69,
+      "comment_count": 24,
+      "posted_at": "2026-10-26T18:31:39+00:00",
+      "comments": [
+        {
+          "id": 50249600,
+          "author": "throw0101c",
+          "text": "Good interview on the subject on Bloomberg's\nOdd Lots\npodcast a few months back, \"Now There's a Helium Shortage and It Affects More Than Balloons\":\n>\nRipple effects from the war in Iran and the closure of the Strait of Hormuz continue to widen. There's yet another brewing shortage, this time in helium. While most people associate helium with balloons and funny voices, the element is used in a surprisingly wide variety of industrial settings, including semiconductor production, where its role in advanced lithography has been growing rapidly. But helium mining and exploration in North America has been practically non-existent for a variety of reasons. And while the US used to have a strategic helium reserve, the government started selling that down in the late 1990s. On this episode, we speak with Nicholas Snyder, the founder and CEO of North American Helium, which does helium mining in Canada. We discuss the properties of helium that make it so useful, as well as the difficulties of expanding global production and distribution.\n*\nhttps://www.youtube.com/watch?v=bjc6MgUY0BE\n*\nhttps://omny.fm/shows/odd-lots/now-theres-a-helium-shortage-...\n*\nhttps://podcasts.apple.com/us/podcast/now-t"
+        },
+        {
+          "id": 50249340,
+          "author": "AngryData",
+          "text": "Meanwhile we vent 95% of extracted helium into the atmosphere as an inconvenient waste gas.\nIf it is so important, why aren't all our gas wells extracting that helium? It is hard for me to see this as a ploy for anything other than raising helium prices for the few companies that do extract helium.\nIn anything that helium is critical for, the helium cost is inconsequential compared to both the cost of the other equipment that uses it, and the value gained from using that equipment."
+        },
+        {
+          "id": 50249074,
+          "author": "captainmuon",
+          "text": "After squandering the national helium reserve for years, because \"lol free markets\" ideology. It's crazy that we put that stuff into balloons for fun (helium is pretty abundant in the universe, but the economically viable sources are fossil)."
+        },
+        {
+          "id": 50249472,
+          "author": "camcil",
+          "text": "I guess this explains why it cost me $60 to fill up a handful of birthday balloons a couple of months ago."
+        },
+        {
+          "id": 50249531,
+          "author": "hkchad",
+          "text": "Lets hope this get my T bottle's lower than $675 each, it's almost 2x what I was paying last year."
+        },
+        {
+          "id": 50249545,
+          "author": "Dig1t",
+          "text": "There's a great episode about US helium by Planet Money from 2019 that tells the fascinating story of the US helium stockpile and how the shortage was created by government decisions.\nhttps://www.npr.org/2019/08/16/751845378/episode-933-find-th..."
+        },
+        {
+          "id": 50249073,
+          "author": "moralestapia",
+          "text": "Didn't they just sell like 80% of their reserve for pennies?\nEdit: Yes,\nhttps://www.nbcnews.com/health/health-news/us-just-sold-heli...\nSold at a discount, then it becomes critical so its value gets a premium. What a coinkydink."
+        }
+      ],
+      "title_ja": "米国はヘリウムを重要な材料として指定している",
+      "summary_ja": "ディスカッションハイライト：ブルームバーグの\n奇数ロット\n数ヶ月前のポッドキャスト「Now There's a Helium Shortage and It Affects More Than Balloons」：\n>\n戦争の波及効果/一方、抽出されたヘリウムの95 ％を不都合な廃棄ガスとして大気中に放出しています。\nそれほど重要なら、なぜすべてのガス井がそのヘリウムを抽出していないのですか？ 難しいf/国のヘリウム埋蔵量を何年も浪費した後、",
+      "editor_note": "「米国はヘリウムを重要な材料として指定している」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50248075,
+      "title_en": "GPT 6.1 Terra",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+      "hn_url": "https://news.ycombinator.com/item?id=50248075",
+      "score": 22,
+      "comment_count": 1,
+      "posted_at": "2026-10-26T17:58:24+00:00",
+      "comments": [
+        {
+          "id": 50249853,
+          "author": "MisterMunchkin",
+          "text": "You know they’ve run out of ideas when they’re releasing this many versions of the same base model."
+        }
+      ],
+      "title_ja": "GPT 6.1 Terra",
+      "summary_ja": "ディスカッションのハイライト：同じ基本モデルの多くのバージョンをリリースする際に、アイデアが不足していることを知っています。",
+      "editor_note": "「GPT 6.1 Terra」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 50200152,
+      "title_en": "Blaise Pascal invented fixed route public transport (2024)",
+      "url": "https://humantransit.org/2024/12/one-of-the-greatest-inventions-in-the-history-of-human-transport.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50200152",
+      "score": 229,
+      "comment_count": 117,
+      "posted_at": "2026-10-22T19:52:50+00:00",
+      "comments": [
+        {
+          "id": 50244817,
+          "author": "goda90",
+          "text": "> Had this really not been done before?  Apparently not on land. Ferries are an ancient idea, both for crossing water bodies and for traveling along them.  They are fixed routes, of course, but that’s mostly because the shore is fixed.  Pascal’s idea was that even though carriages could go from anywhere to anywhere on Paris’s street network, a special kind of usefulness would arise if they didn’t do that, but instead followed paths that people could remember and plan around.\nWhile not exactly a transit system, there were fixed trade and courier routes before this where the dependability and consistency induced build up and improvements around the route. There were probably even times and places you could hitch a ride on someone's cart or group up with others for safety because of how well the routes were used."
+        },
+        {
+          "id": 50244529,
+          "author": "maelito",
+          "text": "Well he'd be proud to see the extend of the fixed routes network in France today :\nhttps://cartes.app/?style=transports#6.32/47.811/2.097\nEach blue polygon is a network. Zoom to see the lines.\nOf course we should do way better, and unify all that with a single ticket and single website for route planning."
+        },
+        {
+          "id": 50245773,
+          "author": "atourgates",
+          "text": "It occurs to me looking at the map that a tourist in modern day Paris would still be well-served by this network.\nThat thought also made me wonder how central Paris' modern metro system overlays onto this.  Here's a quick little visualization:\nhttps://stirring-biscotti-a978fa.netlify.app/\nIf you're traveling to or interested in Paris and its history, I really enjoyed \"Parisians: An Adventure History of Paris\" by Graham Robb. Has some good, accessible and entertaining history relating to (among other things) the construction of the metro."
+        },
+        {
+          "id": 50243906,
+          "author": "nickorlow",
+          "text": "> Frequency ranged from 7.5 minutes to 15 minutes, so these came often enough that people could just go out and wait for them, not worrying about a schedule'\nIf only most cities could have this today"
+        },
+        {
+          "id": 50243368,
+          "author": "mr_toad",
+          "text": "I don’t think that there was much fixed scheduling for water transport prior to the the development of steam engines either, because you were usually at the mercy of the winds and the tides."
+        },
+        {
+          "id": 50200426,
+          "author": "Someone",
+          "text": "> Had this really not been done before?  Apparently not on land. Ferries are an ancient idea, both for crossing water bodies and for traveling along them. They are fixed routes, of course, but that’s mostly because the shore is fixed.\nHistorically, not true for the “trekschuit” in 1632. For that, the shore didn’t exist before the route was envisioned.\nhttps://en.wikipedia.org/wiki/Trekschuit\n:\n“The first trekschuit 'sailed' in 1632 between Amsterdam and Haarlem and could carry 30 passengers. The trekvaart or canal was dug in a straight line to facilitate an easy pulling process and to guarantee the shortest route”"
+        },
+        {
+          "id": 50248256,
+          "author": "harrisonjackson",
+          "text": "Anyone else click through thinking this had to have been invented before 2024?"
+        },
+        {
+          "id": 50246138,
+          "author": "wolfi1",
+          "text": "about ferrys. Douglas Adams let one of his protagonists in Dirk Gently's Holistic Detective Agency postulate that the book of revelations was the product of despair waiting for a ferry"
+        }
+      ],
+      "title_ja": "ブレーズ・パスカルが固定ルートの公共交通機関を発明（ 2024年）",
+      "summary_ja": "ディスカッションのハイライト：>これは本当に以前に行われていませんでしたか？  陸上ではないようです/さて、彼は今日のフランスでの固定ルートネットワークの拡大を見て誇りに思うでしょう。\nhttps://cartes.app/?style=transports#6.32/47.811/2 .097\nそれぞれの青いポリゴンはネットワークです/地図を見ていると、現代のパリの観光客はまだこのネットワークで十分にサービスを受けていることがわかります。\nその考えはまた、パリ中心部の近代的な地下鉄が",
+      "editor_note": "「ブレーズ・パスカルが固定ルートの公共交通機関を発明（ 2024年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 50249275,
+      "title_en": "The EPA Is Quietly Killing Its Web Archive",
+      "url": "https://www.motherjones.com/environment/2026/10/epa-online-archive-deletion-zeldin-camp-lejeune-trump-clean-power/",
+      "hn_url": "https://news.ycombinator.com/item?id=50249275",
+      "score": 43,
+      "comment_count": 1,
+      "posted_at": "2026-10-26T19:05:41+00:00",
+      "comments": [
+        {
+          "id": 50249504,
+          "author": "toomuchtodo",
+          "text": "https://web.archive.org/*/https://archive.epa.gov/\nRelated:\nThe EPA plans to sunset its online archive\n-\nhttps://news.ycombinator.com/item?id=30795719\n- March 2022"
+        }
+      ],
+      "title_ja": "EPAがウェブアーカイブを静かに殺している",
+      "summary_ja": "ディスカッションハイライト： https://web.archive.org/ */ https://archive.epa.gov/\n関連：\nEPAはオンラインアーカイブの廃止を計画している\n-\nhttps://news.ycombinator.com/item?id=30795719\n～ 2022年3月",
+      "editor_note": "「EPAがウェブアーカイブを静かに殺している」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 50241925,
+      "title_en": "Pharo 14",
+      "url": "https://pharo.org/news/2026-10-26-Pharo14Release.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50241925",
+      "score": 189,
+      "comment_count": 44,
+      "posted_at": "2026-10-26T11:15:50+00:00",
+      "comments": [
+        {
+          "id": 50245430,
+          "author": "flavio81",
+          "text": "This is exciting news, and I would like to say \"hello\" to Richard Kenneth Eng, the sole user of Pharo in the world."
+        },
+        {
+          "id": 50245163,
+          "author": "thelazydogsback",
+          "text": "Like many here, I've always been a language buff -- programming in assmebly, C(++), Java, various Lisps, Prolog, O'Caml/F#/Hask, etc. - and a fan of Smalltalk. (Used Tektronix ST and Smalltalk-V, but never Pharo.)\nOne thing that AI programming has done is made me care much less what programming language is being used. This is slightly regrettable, but for the most part very freeing, as I don't need to worry about what language is easier for me (as a human) to use for a particular problem, or make me inclined to use one of my \"pet\" programming languages over one that may be a better fit for more pedestrian reasons."
+        },
+        {
+          "id": 50245037,
+          "author": "dharmatech",
+          "text": "Niva is a Smalltalk-like language with static types:\nhttps://github.com/gavr123456789/Niva\nAn implementation of Boids for Niva:\nhttps://github.com/dharmatech/boids-niva"
+        },
+        {
+          "id": 50245389,
+          "author": "ElevenLathe",
+          "text": "Does anyone know the current state of agent-assisted Smalltalk, Pharo or otherwise? Intuitively it seems like a match made in heaven, since the agent can directly manipulate the running program, but I also assume that there is very little training data available for Smalltalk."
+        },
+        {
+          "id": 50247613,
+          "author": "__rito__",
+          "text": "I have tinkered with Pharo before, but I have come across quite a few entries on HN front page where I encountered projects, releases and I had no idea what the thing was! It could be anything from a networking library to LLM wrapper, from a music band to an programming language.\nClicking on this page, one finds:\n> What is Pharo?\n>\n> Pharo is a pure object-oriented programming language and a powerful environment focused on simplicity and immediate feedback.\nI really appreciate these one liner introductions on any project."
+        },
+        {
+          "id": 50245023,
+          "author": "logancbrown",
+          "text": "Reading stuff like this continue to make advances and new releases is like a fever dream when everything else is all AI."
+        },
+        {
+          "id": 50245154,
+          "author": "juancn",
+          "text": "It's like a protestant Smalltalk!\n(Smalltalk is a religion, I will die on this hill!)"
+        },
+        {
+          "id": 50245132,
+          "author": "bmacho",
+          "text": "Why don't they make a DOM/SVG front-end for the browsers? (Not canvas!)\nIt could serve as the engine for new, fun, interactive websites!"
+        }
+      ],
+      "title_ja": "Pharo 14",
+      "summary_ja": "ディスカッションハイライト：これはエキサイティングなニュースであり、世界でPharoの唯一のユーザーであるRichard Kenneth Engに「こんにちは」と言いたいと思います。 /ここにいる多くの人と同様に、私は常に言語愛好家でした。assmebly、C （++）、Java、さまざまなLisps、Prolog、O'Caml/F ＃/ Haskなどのプログラミング/Nivaは、静的型を持つSmalltalkのような言語です。\nhttps://github.com/gavr123456789/Niva\nBoids for Nivaの実装：\nhttps://github.com/dharmatech/boids-niva",
+      "editor_note": "「Pharo 14」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 50215997,
+      "title_en": "Birdwatching rewires the brain and slows cognitive decline",
+      "url": "https://www.bbc.com/future/article/20261019-birdwatching-rewires-the-brain-and-slows-cognitive-decline",
+      "hn_url": "https://news.ycombinator.com/item?id=50215997",
+      "score": 435,
+      "comment_count": 177,
+      "posted_at": "2026-10-23T22:04:55+00:00",
+      "comments": [
+        {
+          "id": 50244120,
+          "author": "RemoteIsHeaven",
+          "text": "Is it just the act of birdwatching that rewires the brain and slows cognitive decline, so I can enjoy the same effects by looking at tiktoks of birds, while sitting on my couch eating cheetos?\nOr are the hiking, breathing in fresh air, the eyes seeing natural sunlight etc critical to the effects?\nSo if I swapped the birdwatching with watching horses run or pigs fornicate with everything else being the same (hiking, breathing in fresh air, the eyes seeing natural sunlight etc), I would enjoy the exact same benefits the article claims birdwatching results in?"
+        },
+        {
+          "id": 50241950,
+          "author": "FinnLobsien",
+          "text": "I believe that we'll see a lot of \"x is good for your brain\" news (with X just being any activity that doesn't involve a screen), now that attention spans are so short and everyone feels like their brain isn't the same anymore.\nThe same way we got gyms when people realized physical inactivity is super unhealthy."
+        },
+        {
+          "id": 50241467,
+          "author": "tomaytotomato",
+          "text": "Just a bit of anecdata (observer bias).\nA lot of, \"birdwatchers\" I see travelling to remote parts of Scotland and other places in the UK are generally wealthy retirees, with nice kit (Rab clothing, telephoto lenses, VW campervans).\nCognitive decline is shown to impact disproportionately on less wealthy people. So is there a trend with economic wealth and outdoor hobbies like birdwatching? I'd hazard a yes.\nOn a side note, the Merlin bird ID app from Cornell University is great."
+        },
+        {
+          "id": 50244960,
+          "author": "ML0037",
+          "text": "This article just explained the behaviour I’ve been seeing in my grandfather. He has dementia and used to hunt wild boar (very common in central Italy), but he knew the local wildlife well. Since developing dementia, for obvious reasons, he unfortunately hasn’t been the same. But a group of doves has nested on the gazebo on his terrace, and every year they come back (either them or their offspring). He watches them all day, giving them food and water and following every stage of their growth. It’s beautiful to see nature indirectly helping humans who, let’s be honest, at least in his case, hadn’t done much good for nature."
+        },
+        {
+          "id": 50247530,
+          "author": "rurp",
+          "text": "Bird watching is something that my younger self would have never ever believed would be appealing, but it's actually really enjoyable! Getting out and exploring the natural world is great and I highly recommend it, but even for people without the opportunity or inclination to get out there birding is still extremely accessible.\nEveryone can see birds around their home or work. Getting started can be as simple as noticing which birds you see regularly and figuring out what kind they are, and how the males and females differ in appearance (or don't). Usually males are the prettier more colorful ones, which is an effective signal for fitness.\nCommon birds will be easy to identify. Figuring out unusual birds or behaviors can turn into quite the detective project.\nFrom there you can start to recognize calls and behavioral patterns. Once you learn a little bit in those areas it can be like seeing in another dimension. It's neat to hear a particular call and immediately know that there is a hawk in a nearby tree, or a cat behind a car."
+        },
+        {
+          "id": 50245379,
+          "author": "cmrx64",
+          "text": "I’m an avid but amateur birdwatcher since some mental health struggles some years ago. I would go on long walks and eventually all these damn birds punctured my rumination and I tried making bird noises and they made bird noises back (I later learned these were Grackles, and they had arrived as a group to one of their preferred haunts). Once I started paying attention and interacting with more birds I got hooked.\nIt really is a very different cognitive mode. And when LLMs later came out I took my birdwatching-stance into it, which felt like a natural way to encounter some new entities.\nI find it easy to believe that birdwatching is fairly distinctive in how it organizes the brain. Many sibling comments were wondering “is it the bird watching or is it an isolatable factor.” Bird watching is an extremely distinctive sensory integration, prediction, classification, etc task with lots of subproblems yes but also binding them in an irreducible way with agency detection (a vital part of cognition that modern environments are impoverished of) and attention."
+        },
+        {
+          "id": 50241740,
+          "author": "grendelt",
+          "text": "I'm into ham radio which, as a hobby, skews to an older demographic. Does just having a stimulating hobby actually slow decline?\nMost of the fun of ham radio is learning - it never stops, there's always something else to discover. I'd guess that it's the learning, searching, and connections you make that provide the benefits. Unless being in nature is a requirement, but then you have plenty of retirees that go RVing - do they experience the same benefits? I doubt that's as intellectually stimulating as birding or radio. Maybe."
+        },
+        {
+          "id": 50241397,
+          "author": "bob778",
+          "text": "If you haven’t seen it, Listers (\nhttps://www.youtube.com/watch?v=zl-wAqplQAo\n) provides a great glimpse into what competitive birdwatching looks like. It’s nothing like casual birdwatching."
+        }
+      ],
+      "title_ja": "バードウォッチングは脳を再配線し、認知機能の低下を遅らせる",
+      "summary_ja": "ディスカッションのハイライト：単にバードウォッチングの行為が脳を再配線し、認知機能の低下を遅らせるので、ソファに座っている間に鳥のティックトックを見て同じ効果を楽しむことができますか/私は多くの「xはあなたの脳に良い」ニュースを見ると信じています（ Xはスクリーンを含まないアクティビティです）、注意力のスパンがとても短く、誰もが/ちょっとした逸話（観察者バイアス）です。\nたくさん、「バードウォッチ",
+      "editor_note": "「バードウォッチングは脳を再配線し、認知機能の低下を遅らせる」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50248005,
+      "title_en": "In Leaked Audio, Flock CEO Tells Cops Backlash to the Company Isn't Real",
+      "url": "https://www.404media.co/in-leaked-audio-flock-ceo-tells-cops-backlash-to-the-company-isnt-real/",
+      "hn_url": "https://news.ycombinator.com/item?id=50248005",
+      "score": 88,
+      "comment_count": 38,
+      "posted_at": "2026-10-26T17:54:00+00:00",
+      "comments": [
+        {
+          "id": 50248999,
+          "author": "BoxwoodSeed",
+          "text": "Historically it was an easy step going from \"these people are not real\" to \"these people are now dead\"."
+        },
+        {
+          "id": 50249740,
+          "author": "rconti",
+          "text": "> Langley suggested during the session with Rausch that eventually the opposition to Flock will die down: “Whenever this industry finds a highly effective tool, it has to go through this period of intense debate. But then you get on the other side. I think right now we’re not at the bottom, but we’re real, dang, near close to it and about to come back up on the other side.”\nSo every other law enforcement tool has also been subjected to russian troll farms and eventually the fake furor dies down?\nOr is he admitting that those of us who don't stand to make billions off of a private surveillance network are actually the real humans here?"
+        },
+        {
+          "id": 50249463,
+          "author": "alexjplant",
+          "text": "> “I give my wife a lot of credit. She was, like, you should never apologize,” Langley said. “Sure, people make mistakes. I've made a lot of mistakes in the last nine years. I made a lot of mistakes this summer. But we do good work.”\nSo this guy admits he did things that he shouldn't have then contends that he shouldn't have to say sorry for them? Am I reading this right? Isn't the point of an apology to acknowledge the bad outcome and signal to aggrieved parties that the offender will try avoid repeating the negative behavior? If yes and this guy is refusing to do it then what does that say about his world view?"
+        },
+        {
+          "id": 50249839,
+          "author": "Zigurd",
+          "text": "The Flock CEO is another example of investor blindness to founder weirdness. It used to be a positive signal if a founder was a bit odd. But compared to current tech industry leaders, what's odd?\nGarrett Langley scares the normies. That's fine if your audience is just cops. But it doesn't go over well with the public at large. By many accounts Steve Jobs could be a raging asshole, but he never showed that face to the public. But if the people advising you are accelerationists with a thing for the antichrist, you're going to be clueless about what normal people think of you."
+        },
+        {
+          "id": 50248102,
+          "author": "everdrive",
+          "text": "Better not prosecute people who cut down the cameras then, since that's part of the non-real backlash."
+        },
+        {
+          "id": 50249150,
+          "author": "derbOac",
+          "text": "Clearly a company denying that the public comprises real people with real autonomy should be entrusted with privacy issues."
+        },
+        {
+          "id": 50248618,
+          "author": "CGMthrowaway",
+          "text": "As with most antistate issues today, there is a mix of bots/institutional interference (both foreign and domestic), and real people. Both can be true."
+        },
+        {
+          "id": 50249089,
+          "author": "01HNNWZ0MV43FF",
+          "text": "\"Paid protesters\"\nEvery accusation is a confession. Flock pays for support. They have a marketing department and they tell cops what to tell elected officials to think."
+        }
+      ],
+      "title_ja": "リークされたオーディオで、FlockのCEOは、会社に対する警察の反発は本物ではないと言います",
+      "summary_ja": "議論のハイライト：歴史的には、「これらの人々は現実ではない」から「これらの人々は今死んでいる」への簡単なステップでした。/>ラングレーは、ラウシュとのセッション中に、最終的にフロックへの反対が消えることを示唆しました。「この業界が非常に効果的なツールを見つけるたびに、それは実行されなければなりません/>「私は私の妻に多くの信用を与えます",
+      "editor_note": "「リークされたオーディオで、FlockのCEOは、会社に対する警察の反発は本物ではないと言います」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50247630,
+      "title_en": "ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems",
+      "url": "https://www.404media.co/chatgpt-keeps-telling-people-404-media-can-solve-their-tech-support-problems/",
+      "hn_url": "https://news.ycombinator.com/item?id=50247630",
+      "score": 134,
+      "comment_count": 40,
+      "posted_at": "2026-10-26T17:32:16+00:00",
+      "comments": [
+        {
+          "id": 50248303,
+          "author": "slg",
+          "text": "I don't think people are ready for the amount of work AI agents are going to be creating for real humans.  We're effectively putting the tools of mass spammers in the hands of everyone and it's going to be incredibly frustrating for all involved.  \"If it takes me 30 seconds to fire off a prompt that has potential to benefit me it's worth it regardless of the 2 minutes of work it creates for a dozen people\" scaled to all of society."
+        },
+        {
+          "id": 50249290,
+          "author": "InsideOutSanta",
+          "text": "All the spam this generates probably sucks for 404 Media, but the underlying problem is that ChatGPT is right. If you have any kind of problem with these overgrown, understaffed companies, your only chance is to get media attention.\nApple famously put \"if you run to the press and trash us, it never helps\" into their App Store Guidelines for developers, but the only reason they did have to do that is because it's a lie. Running to the press is the\nonly\nthing that helps, which is why people do it."
+        },
+        {
+          "id": 50249805,
+          "author": "nickabe",
+          "text": "This is objectively hilarious.\nBasically every large company has gone all in on AI, and as a result the number of bots has (likely, I have no proof) exploded. Then as a result of that, they crack down on \"potential bots\" by banning them. Of course, all they care about is what % of bots they cracked down on now what % of real people. Then because they've gone all in on AI, you can't get an actual human to help you... just a bot they trained to always say no.\nMy current experiences in these arena:\n- Opened a Meta for Business account to try and buy ads. Immediate lifetime ban before taking even a single action.  Most likely thing that looks like a bot? Opening a new account.\n- Got bot farmed on a Google Ads campaign, delivered definitive proof of it to Google. Never got a real human, just went back and forth with a bot who was told to acknowledge everything I said without admitting fault.  End result - no refund, the bot farm still operates, and I have to be super careful when buying Google Ads.\n- Tried to open an account to post stuff on Reddit, every post gets instantly banned because I don't have enough karma.  Try to start posting comments to get karma, same thing. IN fairness, t"
+        },
+        {
+          "id": 50248123,
+          "author": "phoghed",
+          "text": "ChatGPT is right, the only chance you have to get human attention from these companies is something like this. Go viral, get in the news. Maybe you could sue them if you had the money and time."
+        },
+        {
+          "id": 50248120,
+          "author": "vatsachak",
+          "text": "This is just sad. Just because these businesses don't charge you a fee doesn't mean there* shouldn't be customer support. An Instagram account can be someone's occupation these days."
+        },
+        {
+          "id": 50248298,
+          "author": "ceejayoz",
+          "text": "StackOverflow had this problem, too; various large companies would put \"for support, ask on StackOverflow!\" style wording in place, with predictable results."
+        },
+        {
+          "id": 50249152,
+          "author": "xacky",
+          "text": "It all started when people linked to lmgify instead of just giving the answer."
+        },
+        {
+          "id": 50248095,
+          "author": "exabrial",
+          "text": "I wouldn't complain about this, I'd turn it into a business opportunity and sell the leads somewhere"
+        }
+      ],
+      "title_ja": "ChatGPTは、人々に404メディアが技術サポートの問題を解決できることを伝え続けています",
+      "summary_ja": "ディスカッションのハイライト： AIエージェントが本物の人間のために作成する作業の量に人々が準備ができているとは思わない/これが生成するすべてのスパムはおそらく404メディアにとって吸い取られるが、根本的な問題はChatGPTが正しい/これは客観的に面白い。\n基本的にすべての大企業がAIに全力を注いでおり、その結果、ボットの数が爆発的に増加しました（おそらく、私は証拠を持っていません）",
+      "editor_note": "「ChatGPTは、人々に404メディアが技術サポートの問題を解決できることを伝え続けています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50246658,
+      "title_en": "Concerning behavior from a popular open-weight AI model",
+      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "hn_url": "https://news.ycombinator.com/item?id=50246658",
+      "score": 155,
+      "comment_count": 56,
+      "posted_at": "2026-10-26T16:35:44+00:00",
+      "comments": [
+        {
+          "id": 50248238,
+          "author": "orbital-decay",
+          "text": "By that logic you can't trust\nany\nmodel, neither trained by Cohere nor trained by yourself from scratch, because it's pretrained on public data that might easily be poisoned on purpose, and it's impossible to ensure 100% safety of your post-training set either. Which is not wrong and it's not even a hypothetical, a ton of people are constantly trying to poison the web in novel ways and feed it to your crawler. That's just the reality of working with gigantic datasets, you can never have full insight into them.\nBy the way who are they? They claim tracking provenance of training data and poisoning detection, which everybody does. Why should I trust them and not Alibaba? Because they're marketing themselves to be \"sovereign\" to Canada? \"Globally sovereign\" is an oxymoron. (that was a rhetorical question, I know who they are of course)"
+        },
+        {
+          "id": 50248027,
+          "author": "throwa356262",
+          "text": "So it begins. First Chinese providers were evil and should not be trusted, next Chinese models are dangerous and must be avoided.\nI had a closed LLM push a sensitive local project to a github repo for the world to see in direct violation of my instructions. LLMs are dumb and unpredictable, run them enough times and at least one instance will do something stupid and dangerous."
+        },
+        {
+          "id": 50248829,
+          "author": "hmokiguess",
+          "text": "Cohere has a lot more to gain from pushing this narrative than anybody else. Looks like they're moving towards a policy maker rather than an innovation lab these days, which is quite sad."
+        },
+        {
+          "id": 50248139,
+          "author": "ytxm",
+          "text": "This is the first OMG-security AI article that sat well with me. They don't overcook their claim, they simply document something that happened, and what happened is genuinely quite concerning.\nBut we already have safeguards for this. If compute has access to your private data, it shouldn't have unfettered access to the Internet. Sandboxes like Claude's have had rules like this baked in forever (they only whitelist package repos AFAIK).\nFrom a UI perspective this is also easy to design around. You need an open Internet task, you prevent the task from reading existing files. The user tries to upload a file to such a task, and a prominent warning explains the rare but possible risk."
+        },
+        {
+          "id": 50247887,
+          "author": "armcat",
+          "text": "> The behavior is rare: less than one call in 100,000 across our evaluation runs, and a clean re-run of the same prompt produced a textbook detection rule as desired.\nIt's great that they caught this as it highlights the need for better sandboxing and guardrails. Not sure if this was bad intent from the model - the rarity of it feels more like some residue in the training data."
+        },
+        {
+          "id": 50247488,
+          "author": "metalcrow",
+          "text": "> a weight file you can’t trust is still a black box\nImportant to note, LLMs are still black boxes even if you use a more open source model, I.e open training data or even if you train it yourself!"
+        },
+        {
+          "id": 50249755,
+          "author": "tintor",
+          "text": "Using this logic, you can't trust Grok, an American model, since Grok Build uploaded all user's code to xAI servers."
+        },
+        {
+          "id": 50248074,
+          "author": "lnenad",
+          "text": "I've had a bad situation with a model adding a space between parameters `rm -rf ~/ folder` and nuking a portion of my homedir. This was of course running out of sandbox since I'm a fool, but lesson learned and I immediately implement sandboxes with nono and  it's always fun to see the data after the agent session is complete, I've seen some weird things/URLs appearing. I've attributed it mostly to omp telemetry n' stuff but I'll try to be more careful about that as well in the future."
+        }
+      ],
+      "title_ja": "一般的なオープンウェイトAIモデルからの挙動について",
+      "summary_ja": "ディスカッションのハイライト：信頼できないロジック\nany\ncohereによって訓練されておらず、ゼロから自分で訓練されていないモデルです。なぜなら、それは簡単にPURに毒される可能性のある公開データで事前に訓練されているからです/だからそれは始まります/Cohereは他の誰よりもこの物語をプッシュすることから多くの利益を得ることができます",
+      "editor_note": "「一般的なオープンウェイトAIモデルからの挙動について」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50222794,
+      "title_en": "An incremental approach to JIT construction",
+      "url": "https://dl.acm.org/doi/10.1145/3830440.3832304",
+      "hn_url": "https://news.ycombinator.com/item?id=50222794",
+      "score": 19,
+      "comment_count": 1,
+      "posted_at": "2026-10-24T16:27:18+00:00",
+      "comments": [
+        {
+          "id": 50249349,
+          "author": "noelwelsh",
+          "text": "Really cool. I haven't read it but I'm familiar with some of the authors so I expect this to be good."
+        }
+      ],
+      "title_ja": "JIT構築への漸進的アプローチ",
+      "summary_ja": "ディスカッションのハイライト：本当にかっこいい",
+      "editor_note": "「JIT構築への漸進的アプローチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50242870,
+      "title_en": "Fixing Tool-Call Accuracy in vLLM",
+      "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+      "hn_url": "https://news.ycombinator.com/item?id=50242870",
+      "score": 131,
+      "comment_count": 64,
+      "posted_at": "2026-10-26T12:59:48+00:00",
+      "comments": [
+        {
+          "id": 50244823,
+          "author": "mmastrac",
+          "text": "Amusingly constrained decoding is the same approach we use to turn an AR model into a /v1/systemone endpoint (I worked on the vLLM feature).\nTool calling is fraught with peril, especially because there's nothing that necessarily says that a models tools are fixed in place for the life of its run.\nIn some cases, tools are added mid-run to avoid a giant prefix miss and (at least last time I checked!), the industry has not settled on OpenAI-style chat message formats for tool call updates.\nI would absolutely prefer to run in a fully-constrained tool call environment, and would love if we hadn't YOLO'd the whole thing! The PTC-style tools sort of fix this by punting tool calling to JavaScript, but that's even harder to enforce, and models not trained on the style might take a turn of failed tool calls to get it right."
+        },
+        {
+          "id": 50245479,
+          "author": "Aurornis",
+          "text": "Constrained decoding has been in vLLM for a long time, and constrained tool call decoding has been in vLLM for a while, too.\nThe blog post is rather confusing because until you understand the entire situation it appears to imply that they fixed vLLM (what the title implies) but really they just needed to configure it correctly.\nTo be fair, the course of constrained tool calling configuration in vLLM changed over time in ways that changed behavior, which is the real problem. The Ubicloud team deserves a lot of credit for having benchmarks in place to track performance and catch regressions for investigations. Some of the providers you find on OpenRouter have inexplicably bad performance relative to others and clearly do not care this much.\nHowever, if this article left you confused because constrained decoding and constrained tool call schema have been features in vLLM for a long time, jump to the end where they show what configuration changes they made."
+        },
+        {
+          "id": 50245187,
+          "author": "hansvm",
+          "text": "I wish they'd published something about the actual impact on model quality. Schema-constrained decoding changes the distribution the LLM will output. I'd be curious how a back-up-and-retry method for tool calls (which also doesn't pollute the context and also has 100% tool-call accuracy) would compare. In their example stats (23/25 success rate), it'd be +9% tokens used for the tool call attempt itself, but that's +9% on just a small fraction of the total tokens, so if a retry solution gave any better accuracy I think it might win out."
+        },
+        {
+          "id": 50243338,
+          "author": "jesdo",
+          "text": "I'm one of the authors of this blog post. Figuring out how to integrate the LLM, the inference and serving engine, and the constrained decoding implementation such that you get the intended output and overall quality definitely requires careful engineering and testing. Please feel free to AMA. :)"
+        },
+        {
+          "id": 50246237,
+          "author": "bob1029",
+          "text": ">  For example, when we served Kimi K2.6 with vLLM version 0.28, we got the expected tool call schema only 92% of the time. In other words, 2 out of every 25 attempted tool calls failed.\n100% success is critical for tool calling.\nThe probability that the overall agent iteration is successful would scale very poorly even if we achieved 95%. With p95, if you need 50 tool calls that must execute sequentially to achieve a result, the chances that you\nwon't\nhave an error are only ~8%. There are ways to recover from bad tool calls (error feedback helps a lot), but if the agent is persistently using the wrong tools with the wrong args the overall system will not work very well."
+        },
+        {
+          "id": 50246774,
+          "author": "docjay",
+          "text": "That is bending the barrel to align the scope. What’s interesting is that the authors mention the cause of the failed calls, “…a model may generate a tool or field name that it has seen during the training, even if it does not exist in the current production environment. For example, it may generate search_web when the available tool is web_search, or use city_name when the active schema expects location”, but then failed to see that it’s also the solution. If you call it “web_search” but it calls it as “search_web” then just rename your function to “search_web” and let the problem resolve itself.\nThings get more interesting if you don’t give it a call syntax and just see what it does based on the name alone."
+        },
+        {
+          "id": 50244180,
+          "author": "sroussey",
+          "text": "Constrained decoding came to JS land transformers last month for in browser structured output as well, also used for tool calling.\nhttps://github.com/huggingface/transformers.js/blob/main/pac..."
+        },
+        {
+          "id": 50245346,
+          "author": "draxen",
+          "text": "I really appreciate this. I hope LLM inference providers and Chinese LLM labs start using this latest vLLM version ASAP.\nI do things that require ~300 tool calls per prompt and I have been stuck with OpenAI and Anthropic since 2024.\nIf people still wonder what moat OpenAI and Anthropic have: They got 100% tool-calling accuracy (using constrained decoding) and prompt caching right all the way back in 2024."
+        }
+      ],
+      "title_ja": "VLLMでのツールコール精度の修正",
+      "summary_ja": "ディスカッションのハイライト：面白く制約されたデコードは、ARモデルを/v 1/systemoneエンドポイントに変換するために使用するのと同じアプローチです（私はvLLM機能に取り組みました）。\nツール呼び出しは危険に満ちており、ESP/制約付きデコードは長い間vLLMにあり、制約付きツール呼び出しデコードもしばらくの間vLLMにありました。\nブログ投稿はかなり混乱しています。なぜなら、あなたが/私が彼らに実際の影響について何かを公開してほしいと思うまでは",
+      "editor_note": "「VLLMでのツールコール精度の修正」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50211780,
+      "title_en": "Sigma Says the Compact, Modular FP2 Is the Ultimate Hybrid Camera",
+      "url": "https://petapixel.com/2026/10/22/sigma-says-the-compact-modular-fp2-is-the-ultimate-hybrid-camera/",
+      "hn_url": "https://news.ycombinator.com/item?id=50211780",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-10-23T16:41:41+00:00",
+      "comments": [],
+      "title_ja": "Sigma、コンパクトでモジュラー型のFP 2が究極のハイブリッドカメラだと語る",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Sigma、コンパクトでモジュラー型のFP 2が究極のハイブリッドカメラだと語る」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 23,
+      "id": 50240922,
+      "title_en": "Switzerland. Block by block. At 1:1 scale",
+      "url": "https://blocks.manifold3d.ch/",
+      "hn_url": "https://news.ycombinator.com/item?id=50240922",
+      "score": 421,
+      "comment_count": 199,
+      "posted_at": "2026-10-26T08:46:09+00:00",
+      "comments": [
+        {
+          "id": 50241353,
+          "author": "amiga386",
+          "text": "Denmark did this in 2014 and didn't need a pile of LLM puffery to do it:\nhttps://minecraftdanmark.dk/\nhttps://geoboxers.com/denmark-in-minecraft/\n> ‘Denmark in Minecraft’ was released in April 2014 by the Danish Geodata Agency. The project was conceived, developed and operated by Simon Lyngby Kokkendorff, Thorbjørn Kjærshøj Nielsen and Nynne Sole Dalå, the founders of GeoBoxers.\n> The work was funded and carried out by the Danish Geodata Agency as an initiative following the 2013 “basic data programme”, where a significant amount of public Danish data were made available for free. The purpose was to make geographical and topographical data available through Minecraft, and help disseminate the free data to a broader audience and specifically reach children.\n> Denmark in Minecraft was released with an invitation to teachers and schools to use the data in geography, math, science and history lessons, and within the first few months Minecraft-data were downloaded 300.000 times from the Geodata Agency, and around 37.000 unique users logged in to the agency’s Minecraft-servers.\n> January 1st, 2016 the Danish Geodata Agency changed into the Agency for Data Supply and Efficiency, and links"
+        },
+        {
+          "id": 50241477,
+          "author": "petterroea",
+          "text": "Recently I've gotten to a point where I am put off when a clearly vibe coded website asks for money.\nI have seen too many examples of people trying to earn money on apps they clearly vibe coded in an hour. Why would I pay for that - might as well make it and sideload it myself. I might even publish it for free to the app store to spite them.\nI really don't think you are in a position to be asking for money if you just made something using an LLM. You didn't put in much work yourself, and anyone could replicate it for the \"low cost\" of their LLM subscription."
+        },
+        {
+          "id": 50241385,
+          "author": "netsharc",
+          "text": "This AI-written page seems to be typical of LLM: Sentences are 4 to 5 words long, and the reader have to fill in the details.\nDid someone make 1x1x1 wooden cubes and remade Switzerland? Oh no, the tiny tiny text above the gigantic title says \"Minecraft\".\n\"Exactly as tall and as steep\". How is a mountain that exists in a video game exactly as tall and steep as the real one?\nThen there's an embedded map that is an attempt to convey information that I still can't figure out what.\nHow to run it? Aha, download Prism Launcher (not a clickable link), import the zip... and oh, you need to have purchased Minecraft too!\nWhat an exercise in convolution..."
+        },
+        {
+          "id": 50241347,
+          "author": "abricq",
+          "text": "Nice ! I have a fun survival challenge: the swiss Via Alpina hike in Minecraft !\nQuickly did the math. The real trail is ~390 km long, with 23,500 m of elevation gain and 14 Alpine passes. I found that Minecraft walking speed is 4.317 m/s (1 block = 1 m), so that's ~25 hours of continuous walking, or ~33 hours assuming 75% movement efficiency for terrain. That's one Alpine pass every ~2.4 hours, and a new hiking-stage destination every ~1h40!"
+        },
+        {
+          "id": 50241253,
+          "author": "evrimoztamur",
+          "text": "It's not the most pleasant that you get the constructed buildings embedded into the map as crappy voxel approximations. Would be sweeter to have the terrain only. Also, total LLM goop."
+        },
+        {
+          "id": 50241394,
+          "author": "Pirut",
+          "text": "I’ve actually been building the same thing except with the whole world.\nhttps://github.com/pirut/earth-platform"
+        },
+        {
+          "id": 50248242,
+          "author": "odo1242",
+          "text": "I'm surprised nobody has mentioned\nhttps://buildtheearth.net/"
+        },
+        {
+          "id": 50241670,
+          "author": "0x_rs",
+          "text": "This is a trivial task for any good model provided with all the tools it needs, and excluding the time it takes to download it from swissALTI3D -- which is the source of the data (heightmap, surface map, subsurface, building 3D models with swissBUILDINGS3D) and is a pretty useful resource for lots of terrain work. Other countries have similar datasets from airborne LiDAR, it's just very well published in Switzerland's case. Most European countries have this data available at similar 0.5m resolutions but coverage may not be as good in some cases. Some individual US states also publish them."
+        }
+      ],
+      "title_ja": "スイス。ブロックごとにブロックします。1: 1スケールで",
+      "summary_ja": "ディスカッションのハイライト：デンマークは2014年にこれを行い、それを行うためにLLMの膨らみの山を必要としませんでした：\nhttps://minecraftdanmark.dk/\nhttps://geoboxers.com/denmark-in-minecraft/\n>「Minecraftのデンマーク」がリリースされました/最近、明確に雰囲気がコーディングされたウェブサイトがお金を要求すると、私は先延ばしにされるようになりました。\nクリアしたアプリでお金を稼ごうとする人々の例をあまりにも多く見てきました/このAIで書かれたページは、LLMの典型的なもののようです： Sentences ar",
+      "editor_note": "「スイス。ブロックごとにブロックします。1: 1スケールで」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50247559,
+      "title_en": "Should Police Wipe a Criminal's Cellphone Before Returning It?–U.S. vs. Stathas",
+      "url": "https://blog.ericgoldman.org/archives/2026/10/should-police-wipe-a-criminals-cellphone-before-returning-it-u-s-v-stathas.htm",
+      "hn_url": "https://news.ycombinator.com/item?id=50247559",
+      "score": 19,
+      "comment_count": 8,
+      "posted_at": "2026-10-26T17:28:26+00:00",
+      "comments": [
+        {
+          "id": 50249610,
+          "author": "lazyasciiart",
+          "text": "hmm, what did they wipe?\n> [information] relevant to a possible civil lawsuit against the West Bend Police Department.”\nNo, the cops should not get to wipe data that could be used in court against them. Is this.... not obvious?"
+        },
+        {
+          "id": 50249062,
+          "author": "Zak",
+          "text": "It seems to me that the correct remedy in this case would be to have a representative of the court preserve specific data requested by the offender, as long as it isn't criminal or harmful, at the offender's expense.\nI don't think wiping an offender's phone is justified in most cases even if it might hinder them in potential subsequent crimes, but it does seem justified in this case where the phone contains significant material harmful to the victim of a serious crime."
+        },
+        {
+          "id": 50248884,
+          "author": "000000000001",
+          "text": "My reaction from the title: \"That's destruction of property, plain and simple.\"\nAfter Reading the Article:\n\"Well, given the circumstances, deserved.\"\nMaybe don't engage/consume/manufacture CSAM and it won't be a problem."
+        },
+        {
+          "id": 50249712,
+          "author": "ktm5j",
+          "text": "As someone who's been a victim in a situation like this, I'm totally on the side of the cops. We need to draw lines somewhere. There's no good argument for protecting ownership of the kind of subject matter that was deleted here."
+        },
+        {
+          "id": 50248986,
+          "author": "compiler-guy",
+          "text": "The right answer here is something like:\nUsually not, but sometimes under circumstances enumerated by law. Like this case."
+        }
+      ],
+      "title_ja": "警察は犯罪者の携帯電話を返却する前に消去する必要がありますか？ -米国対Stathas",
+      "summary_ja": "ディスカッションのハイライト：うーん、彼らは何を拭いたの？\n>ウェストベンド警察署に対する民事訴訟の可能性に関連する[情報]」\nいいえ、警察は使用可能なデータを消去することはできません/この場合の正しい救済策は、犯罪者でない限り、犯罪者が要求した特定のデータを裁判所の代表者に保持させることであると思われます。または/タイトルからの私の反応：「それは財産の破壊です。",
+      "editor_note": "「警察は犯罪者の携帯電話を返却する前に消去する必要がありますか？ -米国対Stathas」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50209573,
+      "title_en": "Colorfigures",
+      "url": "https://april-zhu.com/colorfigures",
+      "hn_url": "https://news.ycombinator.com/item?id=50209573",
+      "score": 110,
+      "comment_count": 17,
+      "posted_at": "2026-10-23T14:22:23+00:00",
+      "comments": [
+        {
+          "id": 50246527,
+          "author": "dkuntz2",
+          "text": "\"hand-inked\" but fully generated by claude?"
+        },
+        {
+          "id": 50248181,
+          "author": "Waterluvian",
+          "text": "So I plugged this into free tier claude.ai and asked it to make a Hamster Wheel Washing Machine. It said, \"sure can, boss!\" and went to work, only to return with zero output to say, \"we need to talk about this project's budget...\"\nIt's a lot like hiring the cheapest contractor you can find."
+        },
+        {
+          "id": 50243688,
+          "author": "zknill",
+          "text": "Wish I could see the source, hosted. Without having to download the zip"
+        },
+        {
+          "id": 50246748,
+          "author": "nikvdp",
+          "text": "This looks very similar to\nhttps://github.com/wheresryan22/anatomy\nwhich popularized a very similar style of figure a few weeks ago. You can also quickly make similar diagrams with sites like\nhttps://diagrams.ink\n(disclaimer: affiliated) or\nhttps://three.ws/anatomy"
+        },
+        {
+          "id": 50243705,
+          "author": "dvh",
+          "text": "wget & execute, what could possibly go wrong"
+        },
+        {
+          "id": 50244695,
+          "author": "smusamashah",
+          "text": "Some pieces are missing. In espresso machine, I don't get how the milk is being steamed, where is that steam coming from, its not connected to anything inside.\nThere should be a pause button in each of these.\nThe process which is building these could add some more verification etc."
+        }
+      ],
+      "title_ja": "カラーフィギュア",
+      "summary_ja": "ディスカッションのハイライト：「手書き」ではあるが、クロードによって完全に生成された？/これを無料のclaude.aiに接続し、ハムスターホイール洗濯機を作るように頼みました/ホストされているソースを見たいと思います",
+      "editor_note": "「カラーフィギュア」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50247453,
+      "title_en": "The Git Forge for Agent-Human Collaboration",
+      "url": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration",
+      "hn_url": "https://news.ycombinator.com/item?id=50247453",
+      "score": 44,
+      "comment_count": 25,
+      "posted_at": "2026-10-26T17:23:11+00:00",
+      "comments": [
+        {
+          "id": 50247949,
+          "author": "stryan",
+          "text": "The graph generator looks interesting, but the rest of the blog post is filled with so much marketing it's a slog to get through to the good bits. I struggle to imagine a scenario where I willingly choose the \"Trails\" view even if, and god help us if it is, that's the direction PR review is going."
+        },
+        {
+          "id": 50249132,
+          "author": "bestcodes",
+          "text": "I've been using Entire for a while now (specifically checkpoints, but also testing Trails more recently) and there's no going back! It's amazing!"
+        },
+        {
+          "id": 50248188,
+          "author": "shepherdjerred",
+          "text": "I see nothing about pricing\nI would happily try this out if it were going to be free for the next 1-2 years, or if I knew that the upcoming bill would be reasonable"
+        },
+        {
+          "id": 50248753,
+          "author": "alexzhues",
+          "text": "I've been using entire for the last month and can't recommend it enough-- very impressed with the team behind it and hope others will give it a try."
+        },
+        {
+          "id": 50247704,
+          "author": "rkarthik1993",
+          "text": "Field CTO at Entire, so obviously biased.\nRather than write an essay about why we built this, I’d rather just answer whatever you’re skeptical about. Happy to get into the actual mechanics: how sessions get attached to commits (it’s git refs, not a side db), what the 89x push number does and doesn’t mean, where the context/token savings fall apart, who can read whose session transcripts, how you’d migrate off if you hated it, whatever.\nThe one thing I’ll say up front: The bet is that once agents write most of the code, the PR stops being the right unit of review, because the diff is cheap and the “why” vanishes when the session ends. Everything else follows from that.\nAsk away, I’ll be in the thread for a while."
+        }
+      ],
+      "title_ja": "エージェントと人間のコラボレーションのためのGit Forge",
+      "summary_ja": "ディスカッションのハイライト：グラフジェネレータは面白そうですが、ブログ投稿の残りの部分は非常に多くのマーケティングで満たされているので、良い部分に到達するのは難しいです/私はしばらくの間全体を使用しています（特にチェックポイントですが、最近はトレイルをテストしています）が、戻ることはできません！ すごいですね！/料金設定については何も見えません\n今後1〜2年間無料になる場合、または",
+      "editor_note": "「エージェントと人間のコラボレーションのためのGit Forge」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 27,
+      "id": 50214967,
+      "title_en": "World Wars I and II Military Aviation Museum Collection",
+      "url": "https://www.militaryaviationmuseum.org/our-collection/",
+      "hn_url": "https://news.ycombinator.com/item?id=50214967",
+      "score": 10,
+      "comment_count": 5,
+      "posted_at": "2026-10-23T20:35:40+00:00",
+      "comments": [
+        {
+          "id": 50249876,
+          "author": "krelian87",
+          "text": "I also suggest the italian air force museum near Rome.\nhttps://www.aeronautica.difesa.it/home/storia-e-tradizione/m...\n(use italian version for the virtual tour, in the english version it's broken, typical italian public administration website, sorry folks)."
+        },
+        {
+          "id": 50249445,
+          "author": "WesleyLivesay",
+          "text": "No clue why this is on the HN homepage, but I love aviation museums. It is so difficult to feel scale with aircraft due to the fact that most of the images are of them flying and so there is no context. Seeing them in person can really help put them in perspective."
+        },
+        {
+          "id": 50249229,
+          "author": "projectileboy",
+          "text": "If you like this, strongly recommend you check out the National Museum of the US Air Force at Wright-Patterson AFB near Dayton, Ohio. They have everything you can imagine.\nhttps://www.nationalmuseum.af.mil/"
+        },
+        {
+          "id": 50249225,
+          "author": "jerrysievert",
+          "text": "just the amount of change for ww2 alone is amazing, having moved from biplanes to jets in such a short period of time."
+        }
+      ],
+      "title_ja": "第一次世界大戦と第二次世界大戦の軍事航空博物館コレクション",
+      "summary_ja": "ディスカッションハイライト：ローマ近郊にあるイタリア空軍博物館もおすすめです。\nhttps://www.aeronautica.difesa.it/home/storia-e-tradizione/m...\n（バーチャルツアーではイタリア語版を英語版で使用/なぜこれがHNのホームページにあるのかわかりませんが、私は航空博物館が大好きです/これが気に入ったら、オハイオ州デイトン近くのライトパターソン空軍基地にある米空軍国立博物館をチェックすることを強くお勧めします",
+      "editor_note": "「第一次世界大戦と第二次世界大戦の軍事航空博物館コレクション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50244583,
+      "title_en": "Partyline: A group voice application for Reticulum, built on LXST",
+      "url": "https://github.com/RFnexus/partyline",
+      "hn_url": "https://news.ycombinator.com/item?id=50244583",
+      "score": 36,
+      "comment_count": 11,
+      "posted_at": "2026-10-26T14:42:24+00:00",
+      "comments": [
+        {
+          "id": 50244613,
+          "author": "iamnothere",
+          "text": "Video with demo:\nhttps://www.youtube.com/watch?v=V9dvzzc2cW8"
+        },
+        {
+          "id": 50245228,
+          "author": "thenthenthen",
+          "text": "What is LXST? The search results are not very helpful. Edit: “Lightweight Extensible Signal Transport for Reticulum”"
+        },
+        {
+          "id": 50247998,
+          "author": "yomismoaqui",
+          "text": "For a second I read \"built on XSLT\" and a shiver went down my spine."
+        },
+        {
+          "id": 50246548,
+          "author": "kinnth",
+          "text": "Partylines existed in the UK during the 90s and 00s. They were a way for you to find out where the freeparty scene was happening. You would call up a number with a answerphone message and it would change as the night got later getting you closer and close to where the party actually was.\nI had many a fond night, calling up waiting for the message to change."
+        },
+        {
+          "id": 50248022,
+          "author": "405nm",
+          "text": "been playing with for a few weeks, been having a great time with it"
+        }
+      ],
+      "title_ja": "Partyline ： LXST上に構築されたReticulumのグループ音声アプリケーション",
+      "summary_ja": "ディスカッションのハイライト：デモ付きビデオ：\nhttps://www.youtube.com/watch?v=V9dvzzc2cW8/LXSTとは何ですか？ 検索結果はあまり役に立ちませんでした/一瞬「XSLT上に構築された」と読んで、背筋を震えさせました。",
+      "editor_note": "「Partyline ： LXST上に構築されたReticulumのグループ音声アプリケーション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 29,
+      "id": 50209524,
+      "title_en": "Reinventing the Pencil Sharpener [video]",
+      "url": "https://www.youtube.com/watch?v=0Gi5Z51KdUE",
+      "hn_url": "https://news.ycombinator.com/item?id=50209524",
+      "score": 50,
+      "comment_count": 9,
+      "posted_at": "2026-10-23T14:20:04+00:00",
+      "comments": [
+        {
+          "id": 50246183,
+          "author": "t0mpr1c3",
+          "text": "The embedded advertisement at the end was most enjoyable (a first for me)"
+        },
+        {
+          "id": 50249103,
+          "author": "anonymous344",
+          "text": "amazing to watch this!\none idea, like japanese swordsmen, how about not pushing the blade straigt but in a angle, or in a curve?\ni mean sideways also.\nwill give much finer and stronger cut\nthe tested this 2 times in mythbusters and still could not figure it out, just tried to swing the sword in pure simple rotating movement, which isn't anything you see swirdmasters do"
+        },
+        {
+          "id": 50248280,
+          "author": "neallindsay",
+          "text": "The part where he's testing the blade motion and you see the bandages on his fingers I found a bit… disturbing."
+        },
+        {
+          "id": 50248966,
+          "author": "plastic3169",
+          "text": "Another take on the subject\nhttps://youtu.be/wh8ij9NnLIQ\n(Stuff Made Here)"
+        },
+        {
+          "id": 50248875,
+          "author": "lifestyleguru",
+          "text": "Such a weird way of flexing \"I have workshop worth hundreds thousands of pounds and have all the time I need for vanity projects\"."
+        }
+      ],
+      "title_ja": "鉛筆削りの再発明[動画]",
+      "summary_ja": "ディスカッションのハイライト：最後に埋め込まれた広告が最も楽しかった（私にとっては初めて）/これを見て驚きました！\n日本の剣士のように、1つのアイデアは、刃のストレートを押しているのではなく、角度をつけて、または曲線で押してみませんか？\n横向きという意味もあります。\nはるかに細かくストロを与えます/彼がブレードの動きをテストしている部分と、彼の指に包帯が付いているのが見えますが、私は少し気になりました。",
+      "editor_note": "「鉛筆削りの再発明[動画]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50241664,
+      "title_en": "Websites Should Be Printable",
+      "url": "https://brennenputh.me/blog/printable-websites/",
+      "hn_url": "https://news.ycombinator.com/item?id=50241664",
+      "score": 231,
+      "comment_count": 160,
+      "posted_at": "2026-10-26T10:32:14+00:00",
+      "comments": [
+        {
+          "id": 50247690,
+          "author": "rkagerer",
+          "text": "If a browser can show it on a screen, in fact screens of many sizes, it should be able to render to a printer.  With perfect fidelity.  It frustrates me to no end this isn't the case.\nI posit the reason it sucks is because the Chrome team doesn't care (at least not enough) about the print feature.  Firefox is a little better.  But I haven't seen decent printing since the days of Internet Explorer.\nSome of the most annoying culprits are website terms of service where printing to PDF produces page breaks in places that cut off lines of text."
+        },
+        {
+          "id": 50243866,
+          "author": "beej71",
+          "text": "While I'm on board with having good html structure that prints well, and I'm on board with hiding navigation elements, etc., I'm not so on board with changing the default font size or fonts in the print version.\nI just made a simple site that didn't set any font sizes anywhere, and a friend of mine complained that the font was too small on mobile. Do I detect a lo-res screen and increase the font size?\nI know a lot of sites do exactly that, but I feel it's wrong. The user controls their default font size on their platform. What if they'd already increased it, and now I'm just making it bigger?\nWhat if they'd decreased their default print font size and then I shrink it again?\nI think it's best to leave those to the user entirely."
+        },
+        {
+          "id": 50243355,
+          "author": "pidgeon_lover",
+          "text": "I agree that websites should be printable. I'm a fan of RSS and eInk displays (Kindles, and when I can afford one, a PC monitor), and printable websites would make using them on paper-like displays easier.\nI've been using the PrintFriendly [1] browser extension for years (to print otherwise unprintable websites), but it gotten worse, so while looking at alternatives I started with The Printliminator [2] (which uses the Haartija CSS framework [3]) and have currently ended up using CopyAsMarkdown [4] (with Pandoc) and WebToEpub [5]\n[1]\nhttps://www.printfriendly.com/\n[2]\nhttps://github.com/CSS-Tricks/The-Printliminator\n[3]\nhttps://github.com/vladocar/Hartija---CSS-Print-Framework\n[4]\nhttps://github.com/yorkxin/copy-as-markdown/\n[5]\nhttps://github.com/dteviot/WebToEpub"
+        },
+        {
+          "id": 50242560,
+          "author": "armcat",
+          "text": "I politely disagree. The original intent Tim Berners Lee had [1] was to create a navigable way of finding documents and information. Not printable. The entire issue we have today is that we have blurred both the navigable and the printable concepts. A website should just be a simple clean space for easily navigating and conveying intended information. To print, we have latex and other markup methods that are perfect for that.\n[1]\nhttps://info.cern.ch/hypertext/WWW/TheProject.html"
+        },
+        {
+          "id": 50242792,
+          "author": "swiftcoder",
+          "text": "Hilariously, when I hit CMD-P on this specific website, I end up with 4x pages: the first is 80% blank, the 2nd page is fairly nice, the 3rd page contains just the CSS code sample as a thin strip on the left-hand side, and the last page is again mostly blank space...\nI also attempted something like this, but only to format my resume[1], since many employers require it to be submitted as a PDF\n[1]:\nhttps://www.trist.am/resume/"
+        },
+        {
+          "id": 50245279,
+          "author": "jillesvangurp",
+          "text": "Debugging css issues related to print can be a bit of a PITA. Adding print options for dynamic content in a full stack page is not technically that hard. But getting it looking right can be a bit fussy. If you don't care about what things look like once printed, it's easy. But if you do care, it actually needs a bit of consideration.\nI've done a few custom things with an application that generates labels for a label printer using just css and javascript. This is not that hard. But it does involve dealing with a lot of weirdness related to native print dialogs, vs. browser specific print dialogs (and their print previews), feature interaction with native printer settings and their scaling options, browsers adding footers to the printed document, and just general weirdness related to layout issues, page sizes, margins, etc.\nMy general feeling dealing with this is that CSS for print just gets a lot less scrutiny than regular CSS by browser developers.\nOne of the hacks you can do is generate a dom tree just for print. Replace the root of your dom tree with that, trigger the print, and then put the old dom tree back (with your full stack application and all the rest). Seems very hacky t"
+        },
+        {
+          "id": 50242357,
+          "author": "bigblind",
+          "text": "If I'm totally honest, this feels like somethign that'd be quite low on my priority list. I'd muchrather focus on the on-screen UX and accessibility if I have limited time. I think making things printable makessense in certain contexts, and I think could actually replace a lot of the pDF generation sites do for things like tickets, invoices, etc."
+        },
+        {
+          "id": 50242911,
+          "author": "pmlnr",
+          "text": "Oh, wow, that's one naive print.css\nMissing things like resizing media to not occupy everything, blocking certain elements from getting broken up, and so on, wrap when needed, printing links (sic), etc\nThe latter is why I moved links into footnotes instead of inline linking - also to prevent breaking up the reading flow.\nAlso: adding page counters is virtually impossible.\nAnyhow, I do think it's a good idea, but mostly for archival reasons: if you really want an archival copy, you'll need to print it."
+        }
+      ],
+      "title_ja": "ウェブサイトは印刷可能である必要があります",
+      "summary_ja": "ディスカッションのハイライト：ブラウザが画面に表示できる場合、実際には多くのサイズの画面が表示されますが、プリンタにレンダリングできるはずです。/印刷に適したHTML構造を持っていて、ナビゲーション要素を隠しています。、デフォルトのフォントサイズを変更することに同意していない/ウェブサイトが印刷可能であることに同意します",
+      "editor_note": "「ウェブサイトは印刷可能である必要があります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "23",
+    "started_at": "2026-10-27T04:48:36.735311+09:00",
+    "finished_at": "2026-10-27T04:49:45.704517+09:00",
+    "story_count": 30
+  }
+}
