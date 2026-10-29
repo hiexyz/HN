@@ -1,0 +1,1385 @@
+{
+  "date": "2026-10-29T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50282838,
+      "title_en": "Qwenputer: A functioning, deterministic RISC-V CPU inside Qwen3.5",
+      "url": "https://divagr.com/blog/qwenputer",
+      "hn_url": "https://news.ycombinator.com/item?id=50282838",
+      "score": 39,
+      "comment_count": 7,
+      "posted_at": "2026-10-29T00:25:45+00:00",
+      "comments": [
+        {
+          "id": 50283405,
+          "author": "jazzyjackson",
+          "text": "> When Qwen 'saves' a file, the compiled layers hash its name into one of 1,024 slots in a directory kept in the DeltaNet state, and store the text itself in other heads, with eight tokens per row, chained together\nI’ve never wanted to learn how LLMs work more than reading this. Fascinating.\nDoes divagr get paid to do wild things with LLMs? Just curious if they’re being compensated for these wild experiments"
+        },
+        {
+          "id": 50283357,
+          "author": "traverseda",
+          "text": "I'd be very interested in how a scratch trained model that started training with this neural circuitry would behave. Especially the storage space."
+        },
+        {
+          "id": 50283291,
+          "author": "farhanhubble",
+          "text": "This is cool and I understand the RAM emulation with gated attention but how does the CPU emulation wor? You add layers that are then trained to predict outputs while interpreting RISC instructions?"
+        },
+        {
+          "id": 50283402,
+          "author": "rvz",
+          "text": "So this is yet another rube goldberg machine.\nWe have gone down this path already in [0] and this is the same thing but overly complicated. This reason is \"because LLMs\".\nWhy?\n[0]\nhttps://arxiv.org/abs/1410.5401"
+        },
+        {
+          "id": 50283358,
+          "author": "gigel82",
+          "text": "But... why? </s>\nThis reminds me of C++ Template Metaprogramming (TMP) (it's Turing-complete so people wrote \"games\" that run at compile time). The same with TypeScript types, I think someone got DOOM running entirely in the TypeScript type system. An interesting tech demo but entirely superfluous."
+        }
+      ],
+      "title_ja": "Qwenputer ： Qwen3.5内の機能する決定論的なRISC - V CPU",
+      "summary_ja": "ディスカッションハイライト：> Qwenがファイルを「保存」すると、コンパイルされたレイヤーはその名前をDeltaNet状態に保たれたディレクトリ内の1,024個のスロットの1つにハッシュし、テキスト自体を他のヘッドに格納します。EIGH/この神経回路でトレーニングを開始したスクラッチトレーニングモデルがどのように動作するかに非常に興味があります/これはクールで、ゲーテッドな注意を払ってRAMエミュレーションを理解していますが、CPUエミュレーションはどのように悪化しますか？次のようなレイヤーを追加します。",
+      "editor_note": "「Qwenputer ： Qwen3.5内の機能する決定論的なRISC - V CPU」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 2,
+      "id": 50276998,
+      "title_en": "Why is this fingerprinting script creating bioweapons?",
+      "url": "https://nullpt.rs/fingerprinting-bioweapons",
+      "hn_url": "https://news.ycombinator.com/item?id=50276998",
+      "score": 843,
+      "comment_count": 185,
+      "posted_at": "2026-10-28T17:13:29+00:00",
+      "comments": [
+        {
+          "id": 50283103,
+          "author": "andai",
+          "text": "> Out of curiosity, I tried GLM-5.3 with the same prompt and it complied!\nI am noticing a trend here.\nDidn't HF say the same thing, when they got hacked, the only LLM that would assist with defense was GLM?\n> When we started the log analysis, we first used frontier models behind commercial APIs. This did not work: the analysis requires submitting large volumes of real attack commands, exploit payloads, and C2 artifacts, and these requests were blocked by the providers' safety guardrails, which cannot distinguish an incident responder from an attacker. We ran the forensic analysis instead on zai-org/GLM-5.2, an open-weight model, on our own infrastructure. This had a second benefit: no attacker data, and none of the credentials it referenced, left our environment.\nhttps://huggingface.co/blog/security-incident-july-2026"
+        },
+        {
+          "id": 50278441,
+          "author": "jacquesm",
+          "text": "Nice sleuthing!\nWe do a similar thing to mark documents that are still under embargo and one day I forgot to remove the watermark. The customer complained they had not received the document (a day or two after I sent it), and much searching was done. Finally we found a line in an outlook log on their end that said that the watermark was the reason the file had been put in indefinite quarantine until someone would take a look at it.\nThat's when I realized my error, and of course it was soon fixed afterwards. It is the first proof that it worked though, so I'm kind of happy about that."
+        },
+        {
+          "id": 50278578,
+          "author": "throwaway89201",
+          "text": "Nice finds! This HN profile I looked at today by chance, also contains some anti-LLM incantations, albeit much less obfuscated. I wasn't aware Anthropic had such a magic string:\nhttps://news.ycombinator.com/user?id=jeroenhd"
+        },
+        {
+          "id": 50281158,
+          "author": "ghm2199",
+          "text": "Whoa! This is insane. This is an insane arms race, fractal like craziness. Dynamic JS obfuscator libraries that are like honey pots: Lure LLM bots and determine if your obfuscation can make then drop the crawl attempt. So are now at RLing our obfuscators?\nBut I have a more abstract question: Are LLMs mass \"codemoding\" scraping attempt in their context windows to make this work _and_ worth the effort? It seems like it is to prevent a different thing than what Anubis does(which is preventing mass overloading of webservers)."
+        },
+        {
+          "id": 50280792,
+          "author": "Revanche1367",
+          "text": "Maybe it's a Russian bioweapons company masquerading as an Internet traffic control company pretending to be in bioweapons manufacturing so any snoopers think it's just anti-LLM obfuscation."
+        },
+        {
+          "id": 50278633,
+          "author": "swiftcoder",
+          "text": "Interesting that the open weights models don't have enough safeguards for this to trip GLM 5.3. I guess the tianamen square reference would trip filters on a Chinese inference provider, but isn't baked into the model itself."
+        },
+        {
+          "id": 50278885,
+          "author": "dvh",
+          "text": "Why is it always ricin and water supply? I thought ricin is not soluable in water and would just float on the surface in some water tower or air chamber somewhere for ever."
+        },
+        {
+          "id": 50281090,
+          "author": "__MatrixMan__",
+          "text": "I hope somebody turns this concept into a programming language with keywords that make you look like a terrorist. Then we can use it for coding challenges."
+        }
+      ],
+      "title_ja": "この指紋スクリプトが生物兵器を作成するのはなぜですか？",
+      "summary_ja": "ディスカッションのハイライト：>好奇心から、同じプロンプトでGLM-5.3を試してみましたが、それに従いました！\nここでトレンドに気づきました。\nハッキングされたとき、HFは同じことを言っていませんでしたか？ハッキングされたとき、唯一のLLMは/Nice sleuthing ！\n禁輸措置を受けている書類にも同様のマークを付けていますが、ある日、透かし/ニースの発見を削除するのを忘れてしまいました。 今日偶然見たこのHNプロファイルには、いくつかの抗LLM呪文も含まれていますが、",
+      "editor_note": "「この指紋スクリプトが生物兵器を作成するのはなぜですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50282544,
+      "title_en": "GitLab Security Incident: Attempted Exploitation of CVE-2026-97229",
+      "url": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50282544",
+      "score": 68,
+      "comment_count": 19,
+      "posted_at": "2026-10-28T23:45:46+00:00",
+      "comments": [
+        {
+          "id": 50282759,
+          "author": "JLO64",
+          "text": "> Upgrading to GitLab 19.3.6 on October 22 didn’t fix the vulnerability. The fix isn’t in GitLab’s own code but in a patch to Ruby, which GitLab applies only in its official packages. Our image used standard Ruby, so it didn’t get the patch.\n> The bug is in Ruby’s regular expression engine, so any program that compiles regular expressions from untrusted input is exposed, not only GitLab.\nI feel like this era of constant exploits/patches is really bad for those who build from source or make their own images vs those who rely on provided images and upgrade them often. I really can't think of a decent solution for those people other than being plugged in 24/7 to the latest news which is really unfortunate and must be exhausting..."
+        },
+        {
+          "id": 50283324,
+          "author": "jtchang",
+          "text": "This is a fantastic write up on the security incident. Almost any incident like this will have unknowns. It's good to make it explicit. I especially liked the part of what would have been leaked if the attacker was successful. Maybe they could include what type of hash was used."
+        },
+        {
+          "id": 50283248,
+          "author": "andrewinardeer",
+          "text": "Have researchers coined the term `Superbug` or `MegaVuln` yet?\nSurely we're approaching a point where an LLM discovers a critical, unfixable vulnerability in every device running any version of $OS, then irresponsibly discloses it, triggering mass collective trauma among admins worldwide, significant downtime in critical infrastructure and scores of deaths."
+        },
+        {
+          "id": 50283089,
+          "author": "cowlevel",
+          "text": "The bug is integer overflow in a random C data-processing library (specifically regexes) leading to RCE.\nWho else is tired of C libraries since this week?"
+        }
+      ],
+      "title_ja": "GitLabセキュリティインシデント： CVE -2026 -97229の悪用未遂",
+      "summary_ja": "ディスカッションのハイライト： > 10月22日にGitLab 19.3.6にアップグレードしても脆弱性は修正されませんでした/これはセキュリティインシデントに関する素晴らしい記事です/研究者は「Superbug」または「MegaVuln」という用語を作りましたか？\n確かに、LLMがすべてのデバイスで重大で修正不可能な脆弱性を発見する時期に近づいています。",
+      "editor_note": "「GitLabセキュリティインシデント： CVE -2026 -97229の悪用未遂」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 4,
+      "id": 50282766,
+      "title_en": "New York Times adds more AI features to its Cooking app. Users aren't thrilled",
+      "url": "https://www.niemanlab.org/2026/10/the-new-york-times-is-adding-more-ai-features-to-its-cooking-app-and-users-arent-thrilled/",
+      "hn_url": "https://news.ycombinator.com/item?id=50282766",
+      "score": 29,
+      "comment_count": 23,
+      "posted_at": "2026-10-29T00:16:08+00:00",
+      "comments": [
+        {
+          "id": 50283335,
+          "author": "mmonaghan",
+          "text": "Many (not most) NYT Cooking commenters are absolutely the type who hate ai and dont want it anywhere near them, but I think this is a fantastic addition to the app and I'm thankful there's an eng team tracking and backing these features to ensure quality.\nI often find myself running the same/similar workflows and I'd prefer to have a dev team backing the solve imo."
+        },
+        {
+          "id": 50283266,
+          "author": "tra3",
+          "text": "I do this exact workflow with random internet recipes and ChatGPT or Claude pretty frequently. In fact modifying a recipe on the fly has been pretty handy.\nThe base recipes are still vetted by the staff right?"
+        },
+        {
+          "id": 50283102,
+          "author": "huitzitziltzin",
+          "text": "It is so exaggerated and silly to ask for it to be turned off.\nIt’s completely optional and you only might want to use it if you change the recipe.\nSome of these users are overreacting ridiculously to ai."
+        },
+        {
+          "id": 50283272,
+          "author": "jptlnk",
+          "text": "I cook almost every day and I would use this feature.  I also think it's kind of silly for people to be so upset about what (feels to me) to just be mostly useful.\nAt times like these I cant help but think of Principal Skinner.  Am I so out of touch?  No, it's the children who are wrong!"
+        },
+        {
+          "id": 50283045,
+          "author": "tristanj",
+          "text": "The New York Times has approximately 6,000 employees, of which over 2,000 work in engineering. In the AI era, each engineer can output 5 to 10x as much as before, and there are more employees than work to be done. Hence employees work pet projects like this one, that few users are asking for."
+        },
+        {
+          "id": 50283065,
+          "author": "tdeck",
+          "text": "> Say you’re cooking braised white beans and greens with parmesan, NYT Cooking app in hand. But you notice that you’re out of chard and only have spinach. Cooking veterans know that chard is a rough-and-tumble green that has some backbone, while spinach is a comparative wimp that will wilt the moment you look at it funny. If you need to sub in spinach for chard, how would the recipe change? Would you, for instance, add the spinach later than you would the chard to account for its pathetic stamina? That’s the sort of thing the new AI feature could account for.\nFrankly I can see how this would be useful to some people. At least it would help prevent the ridiculous \"I didn't have eggs so I added applesauce, the cake came out all flat IDK what's wrong\" type of substitutions."
+        },
+        {
+          "id": 50283151,
+          "author": "unethical_ban",
+          "text": "It seems to be a non-invasive assistant to augment the human-created, human-curated recipes they give.\nI think NYT Cooking recipes are sometimes... not that great anyway, I think some of their cooking techniques are sub-par.\nAs for this quote from a mad user: “Anyone using AI for cooking has no sense of taste and no desire to work out the intricacies of cooking and baking”\nWhat a horrible take! I use AI to remind me of certain simple tips I haven't written down, to give substitution advice, the exact kind of stuff NYT app says it's going to do. I learned to cook through Youtube chefs, some book recipes, and I cook for the fun of it and to\neat good food\n. How judgemental to say that someone using AI to learn isn't interested in food!"
+        }
+      ],
+      "title_ja": "ニューヨーク・タイムズは、クッキングアプリにより多くのAI機能を追加しています。ユーザーは興奮していない",
+      "summary_ja": "ディスカッションのハイライト：多くの（ほとんどではない） NYT Cookingのコメント投稿者は、AIを嫌い、近くにいてほしくないタイプですが、これはアプリへの素晴らしい追加だと思います。感謝しています/ランダムなインターネットレシピとChatGPTまたはClaudeでこの正確なワークフローを頻繁に実行しています/それをオフにすることを求めるのは非常に誇張された愚かなことです。\nこれは完全にオプションであり、レシピを変更した場合にのみ使用することができます。",
+      "editor_note": "「ニューヨーク・タイムズは、クッキングアプリにより多くのAI機能を追加しています。ユーザーは興奮していない」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50282865,
+      "title_en": "MicroZig to Adopt Strict No LLM / No AI Policy",
+      "url": "https://github.com/ZigEmbeddedGroup/microzig/blob/main/CODE_OF_CONDUCT.md",
+      "hn_url": "https://news.ycombinator.com/item?id=50282865",
+      "score": 19,
+      "comment_count": 14,
+      "posted_at": "2026-10-29T00:30:37+00:00",
+      "comments": [
+        {
+          "id": 50283184,
+          "author": "Tiberium",
+          "text": "\"No LLMs for finding bugs.\" I really don't get rules such as these, plus they're not really enforceable. There's a difference between using the LLM to write the bug report and using the LLM to find the bug (if you suspect there is one) to then report after manual checking, in human words."
+        },
+        {
+          "id": 50283236,
+          "author": "paaloeye",
+          "text": "The policy in question is based Zig's LLM policies, per the most active maintainer of the project, Matthew Knight — the author of Em Dash Counter\nSources:\n-\nhttps://github.com/mattnite\n-\nhttps://github.com/mattnite/em-dash-counter\n-\nhttps://mattnite.net"
+        },
+        {
+          "id": 50283371,
+          "author": "fps-hero",
+          "text": "> No LLMs for finding bugs.\nIf an LLM finds a bug in some code, but you fail to report it because of a project's code of conduct regarding AI, does the bug even exist at all?\nIf you find a bug in some code, and use AI to help you find the fix, are you allowed to submit the fix? Or should you just let them \"figure it out\".\nI'm sorry, but I can't take stances like this seriously. Policies like this are unhelpful. This reeks of the academic knee-jerk reaction of ban AI, without considering the reality that yes, students continue to use AI, even if you tell them not to. AI should be used responsibly. Ban the behaviour you don't want, don't ban the technology."
+        },
+        {
+          "id": 50283262,
+          "author": "paaloeye",
+          "text": "Matthew, the main maintainer, has no hard feeling if someone decides to make an LLM fork. Forks are welcome basically.\nIndeed no hard feelings."
+        },
+        {
+          "id": 50283187,
+          "author": "nnx",
+          "text": "> No LLMs for brainstorming and then sharing the results of that brainstorming, even if you create the prose.\nI can understand the no automated AI contribution point of view, but going overboard with the above that is also completely unenforceable makes the policy look dumb."
+        },
+        {
+          "id": 50283258,
+          "author": "samatman",
+          "text": "Love Zig. Great language, main one I use. Largely with agents, actually.\nSick of Andrew's arrogance. It's pervasive in the little clique of software heroes who are the only ones who get to touch his precious codebase now, along with the fratboy culture of contempt which always accompanies that kind of behavior.\nOf course it's being cargo-culted by the embedded group, how else are they going to get Senpai to notice them.\nDoesn't bode well for things going forward. Fortunately Zig was mostly done before AK started disappearing up his own posterior, so it's just a case where we'll have to accept a good language with some bizarre warts, rather than the truly excellent one it was shaping up to be.\nSo it goes. Good luck with that steel drivin', John Henry."
+        }
+      ],
+      "title_ja": "MicroZigが厳格なLLMなし/AIなしポリシーを採用",
+      "summary_ja": "ディスカッションのハイライト：「バグを見つけるためのLLMがいない」 私は本当にこれらのようなルールを理解していません。さらに、それらは実際には強制可能ではありません/問題のポリシーは、プロジェクトの最も活発なメンテナンス担当者であるEm Dash Counterの著者であるMatthew Knightによると、ZigのLLMポリシーに基づいています\n出典：\n-\nhttps://github.com/matt />バグを見つけるためのLLMはありません。\nLLMがいくつかのコードにバグを見つけたが、プロジェクトの行動規範のために報告しなかった場合",
+      "editor_note": "「MicroZigが厳格なLLMなし/AIなしポリシーを採用」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50280974,
+      "title_en": "A Health Update",
+      "url": "https://furbo.org/2026/10/28/a-health-update/",
+      "hn_url": "https://news.ycombinator.com/item?id=50280974",
+      "score": 92,
+      "comment_count": 8,
+      "posted_at": "2026-10-28T21:13:21+00:00",
+      "comments": [
+        {
+          "id": 50282550,
+          "author": "incanus77",
+          "text": "Best of luck to Craig. If you don't know who he is, he's the reason we call(ed) Twitter posts 'tweets' [1] and also wrote perhaps the first pre-SDK iPhone app from the outside [2].\n[1]\nhttps://furbo.org/2013/06/28/the-origin-of-tweet/\n[2]\nhttps://furbo.org/2007/08/19/mobiletwitterrific/"
+        },
+        {
+          "id": 50282742,
+          "author": "sowhat1",
+          "text": "Really hoping AI can accelerate more palatable cancer treatments. Wishing this guy a complete recovery."
+        },
+        {
+          "id": 50282895,
+          "author": "oliyoung",
+          "text": "The mundanity of the last paragraph made me smile. That desire to just go back to normal -walking, debugging, comfort- after moments like that is incredibly under-rated."
+        },
+        {
+          "id": 50282502,
+          "author": "kami23",
+          "text": "Methotrexate is such a gnarly drug, my partner was on it for rheumatoid arthritis for a little bit, but the side effects were too awful for her to continue it. Luckily there was alternatives. Didn't know it was used in chemo!"
+        }
+      ],
+      "title_ja": "HPアップデート",
+      "summary_ja": "ディスカッションハイライト：クレイグの幸運を祈ります/AIがより美味しいがん治療を加速できることを本当に願っています/最後の段落の平凡さが私を笑顔にしました",
+      "editor_note": "「HPアップデート」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50274409,
+      "title_en": "CNC Stone Carving",
+      "url": "https://carmelitegothic.com/cnc-stone-carving/",
+      "hn_url": "https://news.ycombinator.com/item?id=50274409",
+      "score": 399,
+      "comment_count": 118,
+      "posted_at": "2026-10-28T14:38:22+00:00",
+      "comments": [
+        {
+          "id": 50275842,
+          "author": "wolframhempel",
+          "text": "Before anyone complains that this removes the human aspect of art, it's worth stressing that sculptors have always looked for ways to automate work and save time (as the website itself points out).\nAs far back as ancient Egypt, grids and measuring tools were used to reproduce figures at different scales. Roman workshops churned out copies of Greek statues in marble and bronze, using casts and moulds. From the 18th century onwards, sculptors used outright pointing machines to transfer models into marble. James Watt, the steam engine guy, even built a mechanical sculpture-copying machine that could (somewhat) automatically reproduce reliefs and medallions.\nGothic architectural decoration wasn't about expressing the inner world of its makers in the way we think of art today. Much of it was produced by large masonry workshops using standardized geometry, wooden templates and repeated designs.\nSo, yeah, using a CNC machine is truly Gothic."
+        },
+        {
+          "id": 50276920,
+          "author": "soci",
+          "text": "Worth noting that the stonemasons of Sagrada Familia (the catholic basilica Barcelona) have been using CNC to carve it's stones since early 1990s. Most Barcelonians thought they would never see the temple finished in their lifetimes, myself included. Part of the progress that made its completion possible this year is thanks to this technology improving over time.\nEDIT: Actually, it’s a mix of CNC roughing to shape the stone, followed by manual finishing. According to the Sagrada Família’s website, this allows each stone to remain a unique piece of craftsmanship while significantly speeding up the process."
+        },
+        {
+          "id": 50275253,
+          "author": "shellfishgene",
+          "text": "Wow, the monks are not messing around either, they built a full monastery with cathedral and all in gothic style!\nhttps://newmountcarmelfoundation.org/building-a-mountain-mon..."
+        },
+        {
+          "id": 50276119,
+          "author": "ricardobeat",
+          "text": "I love this story. They started roasting coffee and saving money for nearly a decade, until they could buy land in the mountains, and then set out to build a medieval monastery entirely in stone and developing the CNC machining. It's amazing what people can do when they have a goal."
+        },
+        {
+          "id": 50275781,
+          "author": "weirdish",
+          "text": "I've always wondered why we haven't seen a broad architectural movement returning to highly ornate decorative facades now that technology has made this kind of thing (more) possible. We could be having so much more fun in architecture right now!"
+        },
+        {
+          "id": 50274861,
+          "author": "vessenes",
+          "text": "Oooh this is cool. Create gothic-esque designs in stone construction using CNC. I like the apology right at the top: \"medieval builders were always on the forefront of technology\". Word."
+        },
+        {
+          "id": 50275075,
+          "author": "nrh",
+          "text": "Anyone who digs this should take a look at the art (and process) of Barry X Ball.\nhttps://www.barryxball.com/\nhttps://www.instagram.com/barryxballstudio/"
+        },
+        {
+          "id": 50282350,
+          "author": "tryptophan",
+          "text": "I'm very surprised there is no monk order focusing on technology and programming, in a similar vein to how these guys do a lot of building. There is no reason that Catholic church shouldn't have its own holy Linux distro, social media site, streaming site, etc..."
+        }
+      ],
+      "title_ja": "CNCストーンカービング",
+      "summary_ja": "ディスカッションのハイライト：これが芸術の人間的な側面を取り除くと誰もが不平を言う前に、彫刻家は常に仕事を自動化し、時間を節約する方法を探していることを強調する価値があります（ウェブサイトがそうであるように/サグラダファミリア（カトリックの大聖堂バルセロナ）の石工は、1990年代初頭からCNCを使用して石を彫っていることに注目する価値があります/うわー、僧侶たちも混乱しておらず、大聖堂などがある完全な修道院を建てています",
+      "editor_note": "「CNCストーンカービング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50282538,
+      "title_en": "The first wired XR glasses powered by Android XR",
+      "url": "https://blog.google/products-and-platforms/platforms/android/xreal-aura/",
+      "hn_url": "https://news.ycombinator.com/item?id=50282538",
+      "score": 19,
+      "comment_count": 14,
+      "posted_at": "2026-10-28T23:45:19+00:00",
+      "comments": [
+        {
+          "id": 50283325,
+          "author": "zmmmmm",
+          "text": "It's going to be interesting to see this compete with the Meta VR glasses. They are essentially identical for productivity except the Aura has physical light pass through while the VR glasses use external cameras to provide pass through. The Meta VR glasses will have better resolution I think, but then the Aura has access to the whole Android ecosystem - so that means real implementations of Microsoft Word etc.\nBut the real choice is the unfortunate one of who is least likely to abandon the whole thing when it doesn't take off and leave you with an un/poorly supported device. Both companies have terrible track records on this."
+        },
+        {
+          "id": 50282944,
+          "author": "2001zhaozhao",
+          "text": "I actually don't see any reason why I would use this instead of my Xreal Air (released like 3 years ago) + Samsung Dex. The phone is a perfect \"compute puck\" for wired AR glasses and Google even makes them, so why the heck are they selling separate compute pucks with these glasses and making them unaffordable?? Just make some pixel glasses that run android xr on the pixel phone instead"
+        },
+        {
+          "id": 50283246,
+          "author": "delichon",
+          "text": "> Real-time AI perception\nContinuous AI dependence of a large fraction of society is coming fast. It needs a name. Cyborgism? Umbilicals?\nWe'll also need some slurs for the symbiotes to call the resistors. Neoamish?"
+        },
+        {
+          "id": 50283338,
+          "author": "zb3",
+          "text": "Is black transparent there? Are they dimmed? Or just additive?"
+        },
+        {
+          "id": 50282701,
+          "author": "AuthAuth",
+          "text": "This is cool. Its part of an ideal version of my home setup. But god the marketing feels so off, its like its made by people who have never used a monitor or done work on a computer. The marketing makes it out to be a phone screen for your face which is such a sad vision for genuinely cool technology. Also horrible demonstration of AI do these people even use AI?\nThe part where he asked AI to organise his windows was almost as painful as the part where he was in a generic chase sequence of a Ubisoft slop game and asked whats the best way to catch the assassin."
+        },
+        {
+          "id": 50282951,
+          "author": "vdfs",
+          "text": "I wonder when it will join the graveyard?"
+        }
+      ],
+      "title_ja": "Android XRを搭載した最初の有線XRメガネ",
+      "summary_ja": "ディスカッションハイライト：これがMeta VRメガネと競合するのを見るのは興味深いでしょう/3年前にリリースされたXreal Airの代わりにこれを使用する理由は実際にはありません+サムスンDEX />リアルタイムAI知覚\n社会の大部分の継続的なAI依存は急速に進んでいます",
+      "editor_note": "「Android XRを搭載した最初の有線XRメガネ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50276792,
+      "title_en": "Gemini 4 Carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "hn_url": "https://news.ycombinator.com/item?id=50276792",
+      "score": 804,
+      "comment_count": 661,
+      "posted_at": "2026-10-28T17:01:23+00:00",
+      "comments": [
+        {
+          "id": 50279731,
+          "author": "827a",
+          "text": "At this point if a Google PM handed me $100 and said \"go figure out how to issue a prompt to Gemini 4 Argon\" I'm only ~30% sure I could figure out how. The Gemini app in my phone only has 3.8 Pro as the latest model; it does say \"Ultra\" in the bottom left, but I really don't think I'm on the Ultra plan. How I would sign up for that, on a Workspace account, is beyond our brightest minds.\nIts sad watching them try to keep up when they want nothing more than to crumble under the weight of their own bureaucracy, and at this point I'm not sure there's any hope for them."
+        },
+        {
+          "id": 50279518,
+          "author": "RajuChacha108",
+          "text": "It is pretty clear at this point that the frontier models need only handful of tiered models.\n1. Ultra - The best and the most expensive for showing off and government.\n2. Pro - Almost best but substantially cheaper for most productive people.\n3. Flash - Workhorse for everyone.\n4. Lite - For the unwashed masses and peasants.\nThere is no need to attach anything to these labels. In fact industry could simply standardize these namings like SEMVER.\nThere could be an internal representation which could give specific number of the model but these companies should move on to be more like Chrome. No one knows or cares which version of chrome they are on.\nFor a lot of systems the real underlying version would matter because of reliability. That can be provided to those power users."
+        },
+        {
+          "id": 50277575,
+          "author": "solarpunk_enthu",
+          "text": "Given how quickly the field is moving, showing benchmarks without releasing the model is quite meaningless. If they decide to release it in one month, there will probably be a stronger competition out there. And the benchmarks won't look as good."
+        },
+        {
+          "id": 50277130,
+          "author": "gavinray",
+          "text": "Benchmark scores recolored for readability:\nhttps://i.imgur.com/IDFGuJU.jpeg"
+        },
+        {
+          "id": 50277193,
+          "author": "PreciousH",
+          "text": "Just remembered i haven't tried argon yet, they announced argon then and delayed releasing it, didn't even know they've made it publically available. I don't understand why google thinks this is an awesome strategy in a market where there are other really good models."
+        },
+        {
+          "id": 50277735,
+          "author": "MrOrelliOReilly",
+          "text": "In this age of constant change, I am grateful that at least I can still rely on Google for confusing, ever-changing product names."
+        },
+        {
+          "id": 50277362,
+          "author": "zarzavat",
+          "text": "Perhaps someone should tell the Gemini team about these models. When I open gemini.google.com I see 3.6 Flash and 3.1 Pro."
+        },
+        {
+          "id": 50276885,
+          "author": "eldenring",
+          "text": "> Reducing shortcuts and loophole exploitation: With Carbon, we further mitigated shortcut attempts in training while ensuring high-quality coding performance. Carbon reduced successful cheating on Terminal-Bench 4.0 to 0.0%, with attempts to cheat dropping to 0.4% — all while improving overall accuracy.\nThis is probably the single most important thing to make frontier models usable right now, so I'm happy there seems to be some progress. This was the previous Gemini's biggest problem IMO"
+        }
+      ],
+      "title_ja": "ジェミニ4カーボン",
+      "summary_ja": "ディスカッションのハイライト：この時点で、GoogleのPMが私に$ 100を手渡し、「Gemini 4 Argonにプロンプトを発行する方法を考え出してください」と言った場合、私はどのように/この時点でフロンティアモデルがほんの一握りの階層モデルだけを必要とするのか、約30 ％の確信があります。\n1/フィールドがどれほど速く動いているかを考えると、モデルをリリースせずにベンチマークを表示することはまったく意味がありません",
+      "editor_note": "「ジェミニ4カーボン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 50276940,
+      "title_en": "MacBook Pro with PROLED XDR Display and Touch",
+      "url": "https://www.apple.com/macbook-pro/proled-xdr-display/",
+      "hn_url": "https://news.ycombinator.com/item?id=50276940",
+      "score": 497,
+      "comment_count": 849,
+      "posted_at": "2026-10-28T17:10:37+00:00",
+      "comments": [
+        {
+          "id": 50280512,
+          "author": "CountSessine",
+          "text": "Touch-screen Macs is kind of a terrible development for anyone who loves the Mac. It's not just a harmless feature that you can ignore if you don't want it, because it's customer-facing and will now generate complaints and bugs from people who\ndo\nuse it. Those people will complain (rightly) that macOS UI widgets are too small to accurately manipulate with your fingers (they are indeed too small) and don't make sense with a touch screen (they don't make sense).\nThat means Apple will begin imposing all sorts of UI dreck on all of us, whether we want to use our screens as touch surfaces or not.\nThis is basically what happened with Microsoft - Windows Vista and 7 were installed in plenty of laptops with touchscreens, and customers would complain about not being able to maximize windows without closing them, not being able to open menus without touching toolbar buttons, etc.\nEventually Microsoft listened to them and we got Windows 8. Now this is the beginning of the same process for macOS."
+        },
+        {
+          "id": 50278427,
+          "author": "tristanj",
+          "text": "Everyone's focused on the touchscreen, but I'm seriously impressed how they managed to cut down the weight.\n* For the 14-inch: 3.5 lb (1.59 kg) -> 3.0 lb (1.36 kg)\n* For the 16-inch: 4.7 lb (2.13 kg) -> 4.0 lb (1.81 kg)\nAbout 15% lighter on both models. Switching from LCD to OLED saves weight because the screen does not need a backlight and has fewer layers. They also made the laptop thinner by nearly 1 mm. But that's not enough to push the weight down by 300 grams. They must have redesigned internal components to cut weight as well.\nThere must have been a dedicated effort to reduce weight. Kudos to the MacBook Pro team!"
+        },
+        {
+          "id": 50279534,
+          "author": "Toutouxc",
+          "text": "Oh wow, it’s like they’re trying less and less.\nWhen they introduced the Apple Pencil and people were like “haha it’s a stylus”, the thing was decidedly NOT a stylus (it actually couldn’t be used to control some parts of the UI). It was an actual digital pen, something that used to be specialized and expensive external hardware, and it worked beautifully with the iPad. It was literally “stylus but GOOD”. I saw it and thought “people will make memes about this, but Apple totally gets it”.\nWhen they introduced the Vision Pro, VR was just kind of shit. Bulky, ugly, uncool. Vision Pro tried to resolve some of the issues, but it was still kind of half-assed. Like they wanted to have a VR device but couldn’t actually make it work. Good resolution, but not great. Vergence-accomodation conflict not addressed. Still bulky and ugly. Isolation kind of addressed (with the AR-ish UX and the “see-through” display), but not enough.\nNow we got the foldable iPhone and a touchscreen MacBook.\nFoldable phones are still awfully delicate and the whole concept doesn’t have a clear “killer” use case. There’s no new UX, no new features, it’s just an iPad Mini in a marginally smaller device that’s expensive"
+        },
+        {
+          "id": 50277537,
+          "author": "joshstrange",
+          "text": "Does anyone use/like touch on their windows (linux?) laptops? I've never really been drawn to wanting to do that. My mouse is far more accurate and doesn't block my view. But maybe it's just because I don't have it and I would find tons of uses for it. Also, I don't love the idea of putting fingerprints all over my screen. I guess I can understand for testing iOS/iPad apps but past that I just don't see myself wanting to use that.\nThen again, it really doesn't matter to me at all what the screen looks like or what features it has, I use my MBP docked 99% of the time with the screen closed, to the point that my next computer will almost certainly be a Mac Studio and I'll just use my MBP on the rare occasions I need it on the go."
+        },
+        {
+          "id": 50277019,
+          "author": "Mongoose",
+          "text": "Fully willing to accept that I could be an outlier, but I have never understood how a market exists for laptops with touch screens."
+        },
+        {
+          "id": 50277070,
+          "author": "minimaxir",
+          "text": "Their demo example for the touch interface is piano keys? That's a 2010 Scott Forstall level of skeuomorphism that doesn't translate well for a laptop screen because it's not convenient."
+        },
+        {
+          "id": 50277432,
+          "author": "chakintosh",
+          "text": "What's the point of a touch display if the laptop doesn't have a 360 hinge !? The interaction looks very awkward and unless they stiffen the hinge compared to previous model, the thin screen will keep tilting backwards."
+        },
+        {
+          "id": 50278804,
+          "author": "vulk",
+          "text": "I have a Macbook Pro 14 first gen and I love this machine but watching what Apple is doing lately I think they are starting to loose the plot.\nA foldable iPhone, macbooks with touch displays, apple watches constantly listening to your conversations, dropping updates for not so old devices like AWU 1, I understand that I am not a target audience for those products but to me this just speaks a lack of vision for the company and their products. I mean this is one of the most valuable companies in the world with some of the best people working there and this is the best that we can get a foldable iphone and a touch display I don't believe it.\nThe last keynote also was probably the worst one I ever saw couple of years ago I couldn't wait for keynotes this year I am totally over them we are at the Tron meme scene where one the board member asked what was new in the new OS version and seems to be just the number - [0]\n[0] - Hacking Encom's new operating system – TRON: Legacy (2010) -\nhttps://www.youtube.com/watch?v=Qeh3E67brBs&t=115s"
+        }
+      ],
+      "title_ja": "PROLED XDRディスプレイとタッチを備えたMacBook Pro",
+      "summary_ja": "ディスカッションのハイライト：タッチスクリーンMacは、Macを愛する人にとってはひどい開発です/誰もがタッチスクリーンに焦点を当てていますが、彼らがどのようにして重量を減らすことができたのか、私は真剣に感銘を受けています。\n* 14インチの場合： 3.5ポンド（ 1.59 kg ） - > 3.0ポンド（ 1.36 kg ）\n* 16 inc/Oh wowは、彼らがますます少なくしようとしているようなものです。\n彼らがApple Pencilを導入したとき、人々は「ハハッ、それはスタイラスだ」と思っていました。",
+      "editor_note": "「PROLED XDRディスプレイとタッチを備えたMacBook Pro」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 11,
+      "id": 50243060,
+      "title_en": "The Grid, a factory-scale robot in Massachusetts that builds PCBs on demand",
+      "url": "https://www.circuithub.com/post/unveiling-the-grid",
+      "hn_url": "https://news.ycombinator.com/item?id=50243060",
+      "score": 414,
+      "comment_count": 200,
+      "posted_at": "2026-10-26T13:13:31+00:00",
+      "comments": [
+        {
+          "id": 50243232,
+          "author": "seddona",
+          "text": "Hi Andrew founder of CircuitHub here. Happy to answer any questions. Hardware design has been in the news a lot lately as it's going through the same AI revolution as coding. We're happy to make it easy to turn those designs into physical products."
+        },
+        {
+          "id": 50273151,
+          "author": "ncrtower",
+          "text": "I just wanted a quote. But signup was painful it needs a major review. Then I uploaded a zip of my gerbers and it came up with some error that I could not figure out and halted any further movement. I'd love to do my PCBs domestic but the site makes it way too hard."
+        },
+        {
+          "id": 50276864,
+          "author": "seizethecheese",
+          "text": "I've done a lot of PCBA sourcing from Shenzhen so I have domain knowledge here.\nThe main latency for this is typically sourcing. The partners I've worked with will get PCBA done within a day or two once they have parts.\nThe claims here about a breakthrough in setup time also don't really fit with my experience. What is this, putting a new stencil in, adding different components to a hopper? I've toured PCBA factories and it's not like their lines are typically down for set-up. I think this takes like 30min?\nAlso, it doesn't look like they substantiate their 2x speed claims? They \"benchmarked\" this, but with what suppliers? Their claims would make sense if they found random suppliers, not exactly specialized in rapid prototype style PCBA, so they're not comparing like to like.\nDon't get me wrong, I really want this to happen too, but the desire for this to happen seems to be making the community gullible. I'd love the founders or someone with circuithub to link to real benchmark evidence and explain why their changeover procedure can produce several days of difference."
+        },
+        {
+          "id": 50273878,
+          "author": "WarmWash",
+          "text": "I do a fair bit of electronics manufacturing and excited to see this pop up.\nHowever I have my reservations because China is incredibly cheap, incredibly fast, and incredibly skilled. Our domestic made boards tend to be lower quality with more mistakes than Chinese made ones (while also costing up to 50x more).\nI'll run some designs through this later, and I really hope it is broadly viable (not just unique niches that fit their tooling)"
+        },
+        {
+          "id": 50273213,
+          "author": "phkahler",
+          "text": "Pretty strict board requirements. They give an example motor controller, but then require your board to be 1oz copper. Motor controllers in particular often use 2oz for high current. No buried vias is an interesting requirement too. I'm not sure how often our guys use them but dense designs probably need them.\nStill, looks super cool and I don't think the price difference is very high for a company doing prototypes."
+        },
+        {
+          "id": 50276474,
+          "author": "rconti",
+          "text": "I didn't like the way the example 4 layer motor controller table displayed the data. The bottom row, which says \"No customs\" under the image then has \"5 days sooner\" under their box for \"The Grid\", but then under Shenzen it says \"$165 more\", then in a tiny font \"than the Shenzen shop\".\nI don't think it was meant to be misleading because the small font style was used throughout, and the bottom row wasn't really designed as part of the table, but it sure looks like it at first glance."
+        },
+        {
+          "id": 50283173,
+          "author": "tgtweak",
+          "text": "Our PCBa manufacturers in Dongguan and Shenzhen are like 2 days end to end for prototypes on small sized boards (40mmx20mm 30 component single layer) and at scale after prototyping is done they're incredibly cost effective.\nDo you see these costs coming down further with mature automation or process improvements?"
+        },
+        {
+          "id": 50277037,
+          "author": "the__alchemist",
+          "text": "How do I select parts? That has been a historic limitation; Shenzen (What this article compares to) has vertically integrated systems. What library do I select from?\nI'm not expecting it to be cheaper than China, but in the same general range, and being able to at small quantity/fast turnaround is important. Overall: I'm skeptical of the cost and time claims in the article. I am thinking \"What assumptions\" are here. Do they mean some part of the process is faster than that same part from China, etc. So I'm curious about what the real-world order-to-arrival time is; what the final CC charge is, and then compare that with China. They advertise faster turnaround: Is that really true than 10 days order to arrival we are used to?"
+        }
+      ],
+      "title_ja": "マサチューセッツ州の工場規模のロボットで、オンデマンドでPCBを構築するThe Grid",
+      "summary_ja": "ディスカッションのハイライト： CircuitHubの創設者であるAndrewさん、こんにちは/見積もりが欲しいだけです/深センから多くのPCBA調達を行ってきたので、ここにドメインの知識があります。\nこれの主な待ち時間は通常、",
+      "editor_note": "「マサチューセッツ州の工場規模のロボットで、オンデマンドでPCBを構築するThe Grid」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50281044,
+      "title_en": "Formlabs Studio 1 $699 Resin Printer",
+      "url": "https://formlabs.com/products/form-studio-1-basic-founders-edition/",
+      "hn_url": "https://news.ycombinator.com/item?id=50281044",
+      "score": 110,
+      "comment_count": 81,
+      "posted_at": "2026-10-28T21:19:30+00:00",
+      "comments": [
+        {
+          "id": 50281279,
+          "author": "pen2l",
+          "text": "Formlabs uses a proprietary resin cartridge... it's the paper printers situation all over again, the printers themselves are not that expensive but the disposable ink costs an arm and a leg.\nDon't go with Formlabs, support any of the open-platform alternatives.\nAnd also, be aware that these printers require some serious development work (you need solvent to wash away uncured resin (if you ask me, this basically necessitates a chemical hood... Formlabs will happily upsell the \"Form Wash\" for this for another 699). If uncured resin falls on your floor (which has happened to me a little too many times), boy is it a horror cleaning it up even if you have industrial grade solvents; FDM printers are easier and their \"ink\" is much, much less expensive by comparison."
+        },
+        {
+          "id": 50282832,
+          "author": "RantyDave",
+          "text": "I have a resin printer (elegoo mars 2p) and have done a number of small \"production\" runs of things that don't really matter.\nI have to say that it is the biggest pain in the arse thing I even own. While the prints come out \"good\", I find that dimensional accuracy is often really not good at all; and that the whole rinse in isopropyl, finish in the sun process is just a sticky, irritating, and probably carcinogenic drag.\nAnd I can't imagine why USD700 is regarded as a bargain.\nSo this has served as a fine reminder - I need to sell this damn thing, it just takes up space."
+        },
+        {
+          "id": 50281820,
+          "author": "jborichevskiy",
+          "text": "Jeff Geerling has a great video about this printer that got me up to speed on resin printing as well - coming from the 3d printing world I'm stoked to see the price dropping but it also seems like a lot more hassle to me at this stage\nhttps://www.youtube.com/watch?v=4l9xU3_36Xs"
+        },
+        {
+          "id": 50281570,
+          "author": "vl",
+          "text": "This page really needs to explain what is “resin printer” and why would I need it. I have no idea how is it different from my regular 3D printer."
+        },
+        {
+          "id": 50283019,
+          "author": "tgtweak",
+          "text": "Resin printing has its place but it's terribly messy and the FDM printers are getting so good these days it's basically trivial to print even complex multi part prints."
+        },
+        {
+          "id": 50282015,
+          "author": "orwin",
+          "text": "How stiff can you make the resin with those 3d printers ? Probably not as much as carbon fiber, but how does it hold against aluminium or fiberglass? Also, can you do composite fibreglass/resin with 3d printers ?"
+        },
+        {
+          "id": 50281701,
+          "author": "tonyhb",
+          "text": "I used to use an older, more expensive version from FormLabs in my last company to print our (more accurate) version of Invisalign negatives, and we'd thermoform the aligners over the top of the cured resin (with a barrier).\nThe accuracy was great.  They'd hold up.  Printing took a while, but generally pretty solid as we scaled from in-house to full lab setup.  They're great as resin printers go."
+        },
+        {
+          "id": 50281306,
+          "author": "ghm2199",
+          "text": "I have a noob \"reverse\" resin creation question. The product page says it has low VOC emissions. Could certain recyclables(e.g. 4,5 HDPE types) create the resin from my stuff at home with low VoC that I could use/sell etc?\nMy gut would say  economically/technologically prohibitive but a low throughput table top recycler seems like a great way to reduce my recyclable garbage."
+        }
+      ],
+      "title_ja": "Formlabs Studio 1 $ 699樹脂プリンター",
+      "summary_ja": "ディスカッションのハイライト： Formlabsは独自の樹脂カートリッジを使用しています。/私は樹脂プリンター（ elegoo mars 2 p ）を持っており、実際には重要ではないことのいくつかの小さな「生産」を行ってきました。\n私はそれがお尻の中で最大の痛みであると言わなければなりません/Jeff Geerlingは、このプリンタについての素晴らしいビデオを持っているので、私も樹脂印刷のスピードを上げることができました。3 D印刷の世界から来て、価格が下がるのを見て興奮していますが、",
+      "editor_note": "「Formlabs Studio 1 $ 699樹脂プリンター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50208960,
+      "title_en": "Start Doing Graph Theory",
+      "url": "https://vertex.degree/",
+      "hn_url": "https://news.ycombinator.com/item?id=50208960",
+      "score": 583,
+      "comment_count": 127,
+      "posted_at": "2026-10-23T13:49:50+00:00",
+      "comments": [
+        {
+          "id": 50273313,
+          "author": "basil",
+          "text": "I’ve been using graph theory for years professionally. A good example of practical uses of graph theory is any routing software. It is basically graphs all the way down.\nFor starters the whole street network is represented as a directed graph. The most widely used algorithm is the venerable A* to find paths through the vertices of the graph, not necessarily the shortest distance but the most optimal distance given all the trade-offs you wish based on the heuristics you define. There are lots of variations of A* and today most implementations would use its faster cousin: bidirectional A* which attacks the point-to-point calculation from both ends at the same time.\nThen you have Dijkstra which is used for flood searches to e.g. give the best cost back home from every vertex so you know when to turn back the search if you have a search budget.\nMenger’s theorem I’ve used in order to determine whether we can create a loop back. Basically search outwards, then search back without visiting those same edges.\nTarjan to ensure we identify all subnetworks so we don’t get stuck in a disconnected island of vertices with no way out to join the wider network.\nA lot of these algorithms were concei"
+        },
+        {
+          "id": 50272280,
+          "author": "mcv",
+          "text": "I've been doing a lot with graphs over the past couple of years. Basically since I started using neo4j, although not everything involves neo4j directly. I've developed a number of really interesting graph algorithms, but I'm always a bit disappointed by how little use I get out of my graph theory knowledge. I've never needed a Hamilton path or do something with the degrees of my vertices. It's all just logic and intuition.\nBut maybe I should read this to see if there's anything that applies to my current work."
+        },
+        {
+          "id": 50282995,
+          "author": "nivter",
+          "text": "Tangentially related but spectral graph theory is one of the most beautiful topics I have studied. What's great about graph theory is that it is quite easy to understand but has devilishly hard problems. Ramsey numbers is an example."
+        },
+        {
+          "id": 50272576,
+          "author": "gortok",
+          "text": "A problem I didn’t even conceive of a year ago was whether or not a book was written by a human.\nThis author has done nothing to deserve that scrutiny, but I can’t escape the feeling now of having to be guarded when I see a new book online with a relatively short history (spring 2026 is the earliest version of this text), as I can’t be sure it’s either “AI-enhanced” or AI-written.\nI don’t like this feeling and it dampers any enthusiasm I once had for being excited about stuff like this.\nThat aside, if the author did write this themselves without AI, kudos to them and their acheivement!"
+        },
+        {
+          "id": 50272293,
+          "author": "armcat",
+          "text": "Graphs are fantastic - PageRank [1] that powered Google Search (still does to some extent), TextRank for extractive text summarisation [2], Louvain for neighbourhood detection [3] all use graphs, as well as tonnes of others like belief propagation, Markov clustering, A*, and so on. So yeah, learn it.\n[1]\nhttps://en.wikipedia.org/wiki/PageRank\n[2]\nhttps://aclanthology.org/W04-3252.pdf\n[3]\nhttps://en.wikipedia.org/wiki/Louvain_method"
+        },
+        {
+          "id": 50280171,
+          "author": "namastasyai",
+          "text": "This type of page recommendation is precisely what I have been visiting this website for almost two decades. Thank you"
+        },
+        {
+          "id": 50277189,
+          "author": "lopsotronic",
+          "text": "One very very useful but underused[1] application of graph theory (and its application of network theory): parts data systems' configuration management.\nIn a hardware manufacturing setting, particularly a new or \"garage\" sort of shop doing lots of new business, you quickly get into a nightmare scenario of \"Too Many Configurations\" running headfirst into the problem of \"People Are Buying Too Much of Our Stuff\". As a garage shop you can do OK making five or six units of all kinds, but once the orders for 1000, 10000 start coming in, you will be torpedoed by the complexity of keeping all those lines operational. Eventually you'll screw something up, and get dinged or even blacklisted (a big deal in Defense).\nBut it's a problem that can be steered around by applying some graph theory to the parts data system. Some PDMs actually do this natively - Oleg Shilovitsky's OpenBOM; Yoann Maingon's Ganister, both smart guys buy their stuff! - but this network theory can be used as a reporting layer on top of any big dumb PDM.\nExamples include:\n(Asciidoc table from a previous slide I've used, sorry)\n|===\n| Method | Primary Use\n| In-degree centrality | Shared/high-risk components\n| Out-degree cen"
+        },
+        {
+          "id": 50272040,
+          "author": "hackerbrother",
+          "text": "Cool. I am applying to jobs and it seems graph theory is popular in the \"Leet Code\" questions pace. So very timely, thank you! And clever domain name :)"
+        }
+      ],
+      "title_ja": "グラフ理論を始めよう",
+      "summary_ja": "ディスカッションのハイライト：私は長年にわたりグラフ理論を専門的に使用してきました/私は過去数年間にわたってグラフを多く使用してきました/接線的に関連していますが、スペクトルグラフ理論は私が研究した中で最も美しいトピックの1つです",
+      "editor_note": "「グラフ理論を始めよう」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50282454,
+      "title_en": "StackOverflow now gets fewer than 1000 questions a month",
+      "url": "https://data.stackexchange.com/stackoverflow/query/1926661#graph?t=1",
+      "hn_url": "https://news.ycombinator.com/item?id=50282454",
+      "score": 89,
+      "comment_count": 93,
+      "posted_at": "2026-10-28T23:35:02+00:00",
+      "comments": [
+        {
+          "id": 50282914,
+          "author": "cowlevel",
+          "text": "You're underselling it. It's less than in their second month of existence - and that has been true every month for the past year. For the last few months it's also lower than their first month. Stack Overflow, effectively, no longer exists.\nAnd we know why. It's because of their hostile attitude towards their users.\nNo doubt they'll continue operating until there's no more value in selling AI data licenses, then they'll unplug the servers and unregister the business."
+        },
+        {
+          "id": 50282950,
+          "author": "EvanAnderson",
+          "text": "I miss Server Fault-- more the time in my life, I suppose, than the site itself.\nI enjoyed the hell out of answering questions on Server Fault for a few years. It came along around the time my teaching gig at the local community college transitioned to online-only classes (which, oddly enough, I couldn't find enthusiasm to teach). I feel like the Server Fault community tried to make it a more hospitable place than Stack Overflow, FWIW, back in the day.\nWhen Stack Exchange added the realtime chat system I got into interacting with members of the community more than could be done in questions or comments. There were even a couple people who ended up being IRL acquaintances. There were also wacky hijinks, too:\nhttps://meta.serverfault.com/a/1854\n(I'm agog that those things happened 15 years ago, too... Yikes!)\nThen we had our daughter and my time to dedicate to the site became scarce. I knew it was in the cards for me to lose the top spot on the leaderboard so I decided to just pack it in and quit cold turkey. I think I'm still fairly high on the leaderboard but, other than occasionally getting search engine results that point me to the site, I've stayed away. I don't live there anymo"
+        },
+        {
+          "id": 50282855,
+          "author": "999900000999",
+          "text": "Well, I always found SO to be an intensely hostile community. Chat GPT doesn't ban you for asking which IDE to use"
+        },
+        {
+          "id": 50282575,
+          "author": "gnabgib",
+          "text": "Related discussion\nWhat AI did to stackoverflow in a graph\n(483 points, 3 months ago, 595 comments)\nhttps://news.ycombinator.com/item?id=48956949"
+        },
+        {
+          "id": 50282760,
+          "author": "armchairhacker",
+          "text": "SO has been useless for years now, but the other Stack Exchanges can be interesting, they deserve more spotlight."
+        },
+        {
+          "id": 50283094,
+          "author": "mgdev",
+          "text": "They should reboot, focused on\n1) humans (AI assisted or not) answering with real-money stakes, and\n2) people betting on which humans are correct (borrow page from prediction markets)\nThis does four things simultaneously:\n1) It introduces consequences for being wrong, which in turn introduces real asymmetric incentives to be contrarian-but-correct - which are high-value answers you don't get out of a stock model\n2) It creates real-world incentives for human guided votes to answers (because, again, there's a real-world stake)\n3) Together, this gets humans back on the platform answering questions, which creates meaningful exhaust data that can be sold back to the AI companies.\n4) It creates incentives to game the system, which creates yet-more exhaust data for training anti-fraud AI systems"
+        },
+        {
+          "id": 50282796,
+          "author": "werdnapk",
+          "text": "And how much was AI trained on their data? That's the sad part. Nobody asking new questions, so not much more for AI to train from."
+        },
+        {
+          "id": 50282989,
+          "author": "faangguyindia",
+          "text": "Reddit is going the same way.\nI know many people who have got banned and never managed to get back on Reddit because Reddit is using some very invasive and persistent banned user detection techniques.\nThing is, they use AI to ban people; over time, many false positives accumulate and not everyone has the time and energy to appeal bans.\nSlowly, more and more user accounts get banned, and even technical people I know fail to make a new account which lasts more than 3-4 days.\nBut the Reddit management is seeing this as a \"win,\" not able to see the consequence of doing this."
+        }
+      ],
+      "title_ja": "StackOverflowが月に1000件未満の質問を受け取るようになりました",
+      "summary_ja": "ディスカッションのハイライト：あなたはそれを売っていません/私はサーバー障害が恋しいです-私の人生の中で、サイト自体よりも多くの時間を費やしていると思います。\n数年間、サーバー障害に関する質問に答えるのが楽しかった/まあ、私はいつも非常に敵対的なコミュニティであることがわかりました",
+      "editor_note": "「StackOverflowが月に1000件未満の質問を受け取るようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 50280824,
+      "title_en": "Nango (YC W23) Is Hiring Across Eng, FDE, Marketing, DevRel",
+      "url": "https://nango.dev/careers",
+      "hn_url": "https://news.ycombinator.com/item?id=50280824",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-10-28T21:00:06+00:00",
+      "comments": [],
+      "title_ja": "Nango (YC W 23)は、ENG、FDE、マーケティング、DevRel全体で採用を行っています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Nango (YC W 23)は、ENG、FDE、マーケティング、DevRel全体で採用を行っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 16,
+      "id": 50233948,
+      "title_en": "How we made our MMDB files a 33% smaller",
+      "url": "https://ipinfo.io/blog/how-made-mmdb-files-smaller",
+      "hn_url": "https://news.ycombinator.com/item?id=50233948",
+      "score": 12,
+      "comment_count": 1,
+      "posted_at": "2026-10-25T17:33:02+00:00",
+      "comments": [
+        {
+          "id": 50283310,
+          "author": "nattaylor",
+          "text": "These are widely deployed [citation needed] so nice chance to save some ram!\nI wonder - if the number of nodes goes down enough then they could reduce the number of bits for the record_size and save another 12-25%"
+        }
+      ],
+      "title_ja": "MMDBファイルを33 ％小さくした方法",
+      "summary_ja": "ディスカッションのハイライト：これらは広く展開されており、[要出典] RAMを節約する絶好のチャンスです！\nノードの数が十分に減少した場合、ノードのビット数を減らすことができるのではないかと思います。",
+      "editor_note": "「MMDBファイルを33 ％小さくした方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50220975,
+      "title_en": "Why Birds Can Fly over Mount Everest",
+      "url": "https://lede-v2.nautil.us/why-birds-can-fly-over-mount-everest-237864",
+      "hn_url": "https://news.ycombinator.com/item?id=50220975",
+      "score": 65,
+      "comment_count": 11,
+      "posted_at": "2026-10-24T13:17:59+00:00",
+      "comments": [
+        {
+          "id": 50283389,
+          "author": "saimiam",
+          "text": "The hero image is titled Murch_HERO. Big publishers get lazy with their titling too!"
+        },
+        {
+          "id": 50282391,
+          "author": "antics",
+          "text": "Written by Walter Murch?? Like, the guy who is considered maybe the best editor and sound designer of all time, who was nominated for 9 Academy Awards, and won 3??? (Editing perhaps second only to Thelma Schoonmaker.)"
+        },
+        {
+          "id": 50282654,
+          "author": "js2",
+          "text": "(2020). Previous submissions with comments:\nhttps://news.ycombinator.com/item?id=23639294\n(Jun 26, 2020 - 96 comments)\nhttps://news.ycombinator.com/item?id=28844872\n(Oct 12, 2021 - 108 comments)\nhttps://news.ycombinator.com/item?id=34210508\n(Jan 1, 2023 - 6 comments)\nThis submission is from 4 days ago, so it must've been placed into the second chance pool."
+        },
+        {
+          "id": 50282477,
+          "author": "adonovan",
+          "text": "The part about coal coming from dead trees during a window of time before bacteria evolved lignin digestion is no longer the scientific consensus. Such bacteria existed earlier; not all coal is high lignin; and coal still formed later. Too bad; it was a lovely story!"
+        },
+        {
+          "id": 50282958,
+          "author": "randomImmigrant",
+          "text": "A beautiful article. Thanks for sharing!"
+        },
+        {
+          "id": 50221180,
+          "author": "Katharina01",
+          "text": "Interesting article and thank you a lot for this education!"
+        },
+        {
+          "id": 50282142,
+          "author": "shmerl",
+          "text": "I was surprised that some birds can fly even higher. There is a record of Rüppell's vulture at 11+ kilometers altitude."
+        }
+      ],
+      "title_ja": "エベレスト上空を鳥が飛べる理由",
+      "summary_ja": "ディスカッションハイライト：ヒーロー画像のタイトルはMurch_HERO/Written by Walter Murch??たとえば、史上最高のエディターとサウンドデザイナーと考えられている人物が、アカデミー賞に9回ノミネートされ、3回受賞しました。（編集perhap /（ 2020 ）",
+      "editor_note": "「エベレスト上空を鳥が飛べる理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50275626,
+      "title_en": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
+      "url": "https://surgehq.ai/blog/dayjob-tax",
+      "hn_url": "https://news.ycombinator.com/item?id=50275626",
+      "score": 202,
+      "comment_count": 126,
+      "posted_at": "2026-10-28T15:46:30+00:00",
+      "comments": [
+        {
+          "id": 50281827,
+          "author": "lexandstuff",
+          "text": "I prepared my taxes this year using Astra + Codex. It did a thorough job on a complicated return, and I sent it to my accountant to fill out the tax form, with everything laid out in a spreadsheet. They sent it back for final review, and I had Codex check it; it was riddled with errors. The refund was nearly $2k lower than it should have been, and they put a bunch of stuff into the wrong fields. Had to go back and forth multiple times to get it 100% correct. Made me wonder how many previous years' returns were wrong.\nI feel like we're going to get to a point where it's mandatory to use AI for certain tasks - humans just can't be trusted to get things right that require a level of precision."
+        },
+        {
+          "id": 50278497,
+          "author": "RGS1811",
+          "text": "As a proof-of-concept, I've been using extra tokens to formalize the IRS tax forms and worksheets, mostly just to prove this can be done. The idea is that something like this could be adapted into a publicly maintained version of the IRS Direct File program (RIP). I'm up to an estimated 60% coverage of US federal tax situations so far.\nhttps://github.com/emmilco/us-tax-model"
+        },
+        {
+          "id": 50276596,
+          "author": "waiwai933",
+          "text": "I have a non-trivial tax situation, as a US citizen living abroad. I prepare my own tax returns, never having found a cross-border tax preparer I trust, and have for the past few years, fed my draft return along with all the supporting paperwork into Claude. It has:\n1. found errors, e.g. where I used the incorrect exchange rate (and managed to work out how I had made that error, which I was impressed by)\n2. found items which would appear to be errors except for context it did not know\n3. flagged areas where it disagreed with me as to the correct tax treatment, but accepted that the law is ambiguous (and in some cases I preferred its interpretation after additional research and in other cases I did not)\n4. flagged areas where it disagreed with IRS guidance, and only acknowledged said guidance after I provided links to it\n5. provided highly inaccurate estimated tax calculations, and not been able to fix its estimates even when challenged\nSo my takeaway is that it is a very useful tool for tax, but perhaps unsurprisingly, it is not good enough to dump all your paperwork into and expect a shiny return you don't need to check. (Possibly it is if you just have a W-2 and no other substant"
+        },
+        {
+          "id": 50275932,
+          "author": "holdingunsteady",
+          "text": "My tax accountant mis-filed my taxes a couple years ago, which cost me about $20K (which I learned after I switched to another accountant later). Don't know if Claude / GPT would make the same mistake or not given SOTA today, but feels like there's an opportunity for models to be saving me thousands or tens of thousands of dollars a year."
+        },
+        {
+          "id": 50282067,
+          "author": "bluejay2387",
+          "text": "Is this just giving a general-purpose agent a workspace full of documents and an assignment, then seeing what happens? I feel this doesn't really say anything. It appears they mostly dumped all of this in base models with little to nothing in the way of infrastructure to support it. If you just randomly grab some person off the street and say 'do taxes' they would probably mess up just as badly. The interesting question would be what the models could do in a well engineered harness focused on taxes. That would be reflective of the performance boundary and how serious we would have to take AI in that field."
+        },
+        {
+          "id": 50281848,
+          "author": "hintymad",
+          "text": "I find TurboTax is easy enough to use, except that data collection and entering is a huge hassle (to me, merely logging onto each website and getting the corresponding tax doc is painful chore). What would be a good way to collect the data easily? If I solve that problem, tax filing will become an easy task."
+        },
+        {
+          "id": 50281205,
+          "author": "licyeus",
+          "text": "I wasn't able to quickly see what tools/system-prompts were provided in the tasks. [0]\nThese types of detail-oriented professional tasks seem like they would perform better with task-specific harnesses. The example they give, of Astra missing the property excluded gains requirement, seems easily fixed by scaffolding ensuring that requirements are compiled first, then checked.\nIf the scaffolding is absent, is this benchmark testing that a model can self-scaffold, or track requirements in-context?\n0 -\nhttps://huggingface.co/datasets/surgeai/DAYJOB-tax/tree/main..."
+        },
+        {
+          "id": 50279446,
+          "author": "bodeadly",
+          "text": "I'm not sure LLMs will be good at doing taxes any time soon primarily because they're very bad at even simple math unless it's explained in words like in proofs. A good illustration of this is asking an LLM something like this:\n\"If I put a container on a food scale, tare it, add 100g of peanuts, tare it, weigh 100g of almonds and then remove the container from the scale, what does the scale read?\"\nLLMs completely puke all over themselves on this one. They do not account for not taring after the almonds and they do not see the weight of the container needs to be subtracted. The correct answer is minus (100g + container weight). Although this particular question also exploits another LLM weakness which is physical world concepts. LLM are just guessing. For an LLM to do taxes well, it would need to be trained on many scenarios and it would need a math service that it can use as a support service."
+        }
+      ],
+      "title_ja": "デイジョブ：税務– 50件の専門的な税務任務でAIエージェントを評価する",
+      "summary_ja": "ディスカッションのハイライト：今年はAstra + Codexを使用して税金を準備しました/概念実証として、海外に住む米国市民として、主にこれが可能であることを証明するために、IRSの納税フォームとワークシートを正式化するために余分なトークンを使用してきました",
+      "editor_note": "「デイジョブ：税務– 50件の専門的な税務任務でAIエージェントを評価する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50280722,
+      "title_en": "The case of the 9 bit AES key",
+      "url": "https://v12.sh/blog/the-case-of-the-9bit-aes-key",
+      "hn_url": "https://news.ycombinator.com/item?id=50280722",
+      "score": 76,
+      "comment_count": 41,
+      "posted_at": "2026-10-28T20:51:44+00:00",
+      "comments": [
+        {
+          "id": 50281944,
+          "author": "tptacek",
+          "text": "\"MuPDF versions before 1.28.5 use an implementation of the drand48 family\" yeah, ok, so they're basically not doing real encryption. The number of bits in the key space isn't the real story; the keys simply aren't cryptographically random."
+        },
+        {
+          "id": 50282482,
+          "author": "jburgess777",
+          "text": "Does the DMCA still make it illegal to access encrypted content no matter how easy it is to discover the key?\nhttps://www.law.cornell.edu/uscode/text/17/1201\nWould the new LLM model owners like to strike this down, or use it to demonstrate how dangerous unrestricted models can be?"
+        },
+        {
+          "id": 50282234,
+          "author": "NelsonMinar",
+          "text": "What is wrong with software engineers that we keep making really stupid basic mistakes like this? Sometimes I think programming should require licensing and regular testing."
+        },
+        {
+          "id": 50281821,
+          "author": "ubutler",
+          "text": "Rule #1 of rolling your own RNG: don’t.\nRule #2? Please don’t."
+        },
+        {
+          "id": 50282280,
+          "author": "esafak",
+          "text": "I assume this is the fruit of AI-driven decompilation? Nice work."
+        },
+        {
+          "id": 50280837,
+          "author": "paulpauper",
+          "text": "it's like the weak hardware wallet entropy bug"
+        },
+        {
+          "id": 50281385,
+          "author": "jeffbee",
+          "text": "You'd have to be completely off your rocker to use a PDF tool written in C anyway."
+        }
+      ],
+      "title_ja": "9ビットAESキーの場合",
+      "summary_ja": "ディスカッションのハイライト：「1.28.5より前のMuPDFバージョンはdrand 48ファミリーの実装を使用しています」はい、わかりました。つまり、基本的に実際の暗号化を行っていません/DMCAは、鍵を発見するのがどれほど簡単であっても、暗号化されたコンテンツにアクセスすることを違法にしていますか？\nhttps://www.law.cornell.edu/uscode/text/17/1201\n新しいLLMモード/私たちがこのような愚かな基本的な間違いを犯し続けているソフトウェアエンジニアのどこが悪いのでしょうか？時々私は",
+      "editor_note": "「9ビットAESキーの場合」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50274251,
+      "title_en": "AlpineBSD",
+      "url": "https://wiki.alpinebsd.org",
+      "hn_url": "https://news.ycombinator.com/item?id=50274251",
+      "score": 176,
+      "comment_count": 161,
+      "posted_at": "2026-10-28T14:30:26+00:00",
+      "comments": [
+        {
+          "id": 50275437,
+          "author": "iamnothere",
+          "text": "Interesting to watch the rapid fragmentation of FOSS into “hard” anti-AI, AI-neutral-to-discouraged, AI-supplemented, and AI-driven camps, akin to the early GPL vs BSD wars. Suddenly I don’t see as many complaints about licensing, and some of the die-hard GPL stans are silently dropping that position as Linux adopts AI-supplemented development.\nOn one hand it’s unfortunate, because it hypothetically dilutes developer efforts, but on the other hand the most extreme groups already had incompatible personalities and weren’t working well together. This self-sorting may actually result in a better cadence and less energy wasted on arguing.\nThe downside is that a lot of loud and annoying people seem to be converging on BSD land. I am AI-nonaligned (I just care about Quality) but I’m very much in favor of OpenBSD’s heads-down focused dev culture. I hope that doesn’t change."
+        },
+        {
+          "id": 50277665,
+          "author": "kev009",
+          "text": "These types of projects tend to have a flash of appeal, especially to people used to Linux, because it lessens one degree of unfamiliarity, but they don't seem to stick around for to me obvious reasons.\nIt's hard to get involved with something like a BSD project because you have to learn a lot and put in enough effort to get committer rights.  And then if you want to move the needle you have to do even more work and build consensus without getting overly emotional when people disagree with you.  But it is the path I would recommend to have a lasting impact, and I am speaking from experience as a FreeBSD and NetBSD src committer.\nAlso, pkgsrc is one of the strong points of NetBSD, coupled with pbulk and pkgin.  Wrapping that all up in an opinionated installation (like Omarchy recently did to Arch) would be a more survivable effort.  But as my friend Larry McVoy would say, it means you don't always get to drive the big red fire truck by yourself."
+        },
+        {
+          "id": 50277231,
+          "author": "yjftsjthsd-h",
+          "text": "> AlpineBSD is not a fork of Alpine Linux, its package collection is original (though many packages are ultimately based on aports).\n> Alpine Linux uses the OpenRC init system. Currently, AlpineBSD uses s6 and we intend to add OpenRC as an alternative.\nI'm not sure where exactly the line should be, but that feels like it's not an Alpine* then. Like, if you're starting your package collection separately and use a different service manager, you're further from Alpine Linux than  Adélie Linux is.\n(To be clear, I'm a big fan of making a new OS from a *BSD core and a new userspace. I'm just quibbling about naming semantics)"
+        },
+        {
+          "id": 50275280,
+          "author": "hoppp",
+          "text": "The whole \"as little AI code as possible\" is tribalism.\nI want software that is brilliant and well audited, no matter who or what produced it.\nNo AI guarantees nothing, especially if it's a C codebase like netbsd, why not also join the rust tribe then?"
+        },
+        {
+          "id": 50276106,
+          "author": "thenthenthen",
+          "text": "Alpine is also the codename of the first iOS, hence the default root pwd ‘alpine’.\nhttps://mashable.com/archive/apple-ios-codenames#9.CLuUuywuq..."
+        },
+        {
+          "id": 50277383,
+          "author": "seethishat",
+          "text": "Back in my day, we didn't have artificial intelligence. We had actual ignorance. And we liked it that way."
+        },
+        {
+          "id": 50275436,
+          "author": "efficax",
+          "text": "Ok so it's \"AI free\". But why? It doesn't justify the decision but just assumes you will understand the reasoning. I have to say: I don't. For example they are pinning binutils, gcc, and gdb to the last version they know does not have LLM generated code. I assume this means they will not be able to accept any upstream patches, but instead have to take over maintenance of those packages themselves for the forseeable future, effectively meaning development on those will stop for the purposes of AlpineBSD. Seems stupid, to me."
+        },
+        {
+          "id": 50275573,
+          "author": "against_epistem",
+          "text": "I can respect this. Looks like AI auditing code is fine and I can't imagine why auditing would ever be a con. As for the lack of reasons given I guess they leave that for the users which seems completely fine to me. If you are chimping out over not getting a justification then you should probably do some soul-searching."
+        }
+      ],
+      "title_ja": "AlpineBSD",
+      "summary_ja": "ディスカッションのハイライト：初期のGPL対BSDの戦争に似た、「ハード」な反AI、AI中立から失望、AI支援、およびAI主導のキャンプへのFOSSの急速な断片化を見るのは興味深い/これらのタイプのプロジェクトは、特にLinuxに慣れている人々にとっては、1度の不慣れさを軽減するため、魅力的なものになる傾向がありますが、/> AlpineBSDはAlpine Linuxのフォークではなく、そのパッケージコレクションは",
+      "editor_note": "「AlpineBSD」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50250609,
+      "title_en": "Image generation has come a long way since August 2022",
+      "url": "https://www.hbrooks.com/writing/image-generation-has-come-a-long-way",
+      "hn_url": "https://news.ycombinator.com/item?id=50250609",
+      "score": 35,
+      "comment_count": 8,
+      "posted_at": "2026-10-26T20:40:36+00:00",
+      "comments": [
+        {
+          "id": 50283189,
+          "author": "gavmor",
+          "text": "Images without prompts and statistics are... meaningless. We don't know if/how these adhere, whether they took a thousand hours or a thousandth of a second.\n> “Would you tell me, please, which way I ought to go from here?”\n> “That depends a good deal on where you want to get to,” said the Cat.\n> “I don’t much care where—” said Alice.\n> “Then it doesn’t matter which way you walk,” said the Cat.\n(Lewis Carroll)"
+        },
+        {
+          "id": 50251020,
+          "author": "pants2",
+          "text": "No modern or over-time comparisons?\nIn some ways I prefer looking at these over the hyper-polished 2026 image generators tbh."
+        },
+        {
+          "id": 50282715,
+          "author": "karim79",
+          "text": "Oh my gosh. Makes me want to wake up my comfyUI setup on a RTX 2080 egpu which still works like a charm today even. I think the last time I touched it was about two years ago!\nI always found the commercial stuff to be complete rubbish. I was astounded by how I could just spend a couple of hours using open models and open source software to produce better results."
+        }
+      ],
+      "title_ja": "2022年8月以来、画像生成は長い道のりを歩んできました",
+      "summary_ja": "ディスカッションのハイライト：プロンプトと統計のない画像は../モダンまたは経時的な比較はありませんか？\nいくつかの点で、私はハイパーポリッシュされた2026イメージジェネレータTBHよりもこれらを見ることを好みます。/Oh my gosh",
+      "editor_note": "「2022年8月以来、画像生成は長い道のりを歩んできました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50271640,
+      "title_en": "Apple's git still trusts the compromised eMudhra certificates",
+      "url": "https://emudhra.we-have-a-problem.com/apple.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50271640",
+      "score": 1037,
+      "comment_count": 378,
+      "posted_at": "2026-10-28T11:03:40+00:00",
+      "comments": [
+        {
+          "id": 50272609,
+          "author": "chrisweekly",
+          "text": "Right, so it's not just git, it's a bunch of system-provided utilities; macOS trusts bad certs, and these utils that trust the OS are affected. I use homebrew for my git and curl but haven't yet checked to confirm whether that matters here.\nKind of outrageous that Apple's guidance is to edit the cert chain manually, and to expect that subsequent OS updates may revert your mitigation, reintroducing the vulnerability (as happened at least once so far)."
+        },
+        {
+          "id": 50273146,
+          "author": "jrochkind1",
+          "text": "That MacOS hasn't removed from OS-level /etc/ssl seems like a big deal, affecting more than just OS-supplied git. Is /etc/certs not used by most graphical Mac software, I guess?  The chaotic state of OS-level cert management, on Linux as well, is pretty dismaying.\nIf Apple is still trying to brand themselves as security-forward, you'd think removing the revoked CA certs from /etc in a system update would be a pretty easy thing to do?"
+        },
+        {
+          "id": 50273808,
+          "author": "truelson",
+          "text": "Here's what apple (themselves) recommends to patch:\nhttps://support.apple.com/en-us/149555\nPretty much every developer on mac should probably run their patch."
+        },
+        {
+          "id": 50272155,
+          "author": "qaz_plm",
+          "text": "Apple’s statement:\nhttps://support.apple.com/en-us/149555"
+        },
+        {
+          "id": 50273958,
+          "author": "faxmeyourcode",
+          "text": "While there is no proof that anyone knew about these weak keys for the year and a half that they were trusted by virtually everybody, and there's no evidence of MITM attacks happening in the wild because of it, you can imagine the payoff that a three letter agency would have if, for even 10 days, there was an opportunity to harvest credentials from important people in high places.\nI have no evidence or proof, but I am convinced this wrap/unwrap key generation debacle was intentional and the weak keys were discovered and kept secret by the agencies or governments and used to exploit their adversaries.\nYou don't need to perform a traditional MITM attack _if you own the airport_ or you _own the free public wifi_. The traffic can be harvested in clear text and we have to come to terms with the _remote possibility_ that this was going on for over a year and a half. If not that long, then certainly for the past 10 days."
+        },
+        {
+          "id": 50274711,
+          "author": "kryptiskt",
+          "text": "I'm not being sarcastic when I say that Apple should copy Windows Update, I have no idea how they have got this far without a method to add small patches outside monolithic OS updates."
+        },
+        {
+          "id": 50273605,
+          "author": "commandlinefan",
+          "text": "It seems like we've all just... given up on certificate revocation?  CRLs and OCSP were designed for exactly this sort of thing, but they both seen to have been abandoned as unworkable with no replacement."
+        },
+        {
+          "id": 50273254,
+          "author": "gringofyx",
+          "text": "A flat cert.pem file (or similar) can't say \"distrust this intermediate\".\nmacOS already has the verifier needed (Security.framework/trustd path that protected Safari). It would be good if MacOS routed CLIs through it."
+        }
+      ],
+      "title_ja": "Appleのgitは依然として侵害されたeMudhra証明書を信頼しています",
+      "summary_ja": "ディスカッションのハイライト：そう、それは単なるgitではなく、システムが提供するユーティリティの束です。macOSは不良証明書を信頼し、OSを信頼するこれらのユーティリティは影響を受けます/MacOSがOSレベルから削除されていないこと/etc/sslは大きな問題のように見え、OSが提供するgitだけではありません/Apple （自身）がパッチを適用することをお勧めします：\nhttps://support.apple.com/en-us/149555\nMac上のほとんどすべての開発者は、おそらくパッチを実行する必要があります。",
+      "editor_note": "「Appleのgitは依然として侵害されたeMudhra証明書を信頼しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 23,
+      "id": 50277755,
+      "title_en": "Spiders Spin 'Silk Dope' into Nature's Toughest Material",
+      "url": "https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/",
+      "hn_url": "https://news.ycombinator.com/item?id=50277755",
+      "score": 47,
+      "comment_count": 3,
+      "posted_at": "2026-10-28T17:45:24+00:00",
+      "comments": [
+        {
+          "id": 50281812,
+          "author": "jdw64",
+          "text": "Would it be uneconomical to make clothes from spider silk?\nBut I'm curious what kind of spider Spider Man's web comes from."
+        }
+      ],
+      "title_ja": "スパイダーが「シルクドープ」を自然の最もタフな素材にスピン",
+      "summary_ja": "ディスカッションハイライト：クモの絹で衣服を作るのは経済的ではありませんか？\nでも、スパイダーマンの蜘蛛の巣がどんなものなのか気になります。",
+      "editor_note": "「スパイダーが「シルクドープ」を自然の最もタフな素材にスピン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50209269,
+      "title_en": "Gaussian Splats part 3: There's always a bigger scene",
+      "url": "https://www.magnopus.com/blog/gaussiansplats-part-3-theres-always-a-bigger-scene",
+      "hn_url": "https://news.ycombinator.com/item?id=50209269",
+      "score": 101,
+      "comment_count": 21,
+      "posted_at": "2026-10-23T14:07:21+00:00",
+      "comments": [
+        {
+          "id": 50276678,
+          "author": "lambda",
+          "text": "There's an interesting recent Siggraph paper on scaling up Gaussian splatting in a very different way, which offers some interesting benefits; Gaussian point splatting.\n* Video:\nhttps://www.youtube.com/watch?v=2AWv_nIfp-U\n* Paper:\nhttps://jorisar.nl/gaussian_point_splatting/gaussian_point_s...\n* Repo:\nhttps://github.com/JorisAR/gaussian-point-splatting"
+        },
+        {
+          "id": 50278916,
+          "author": "sorenjan",
+          "text": "Does anyone know why triangle splatting never took off? I would think it would be much more suited to GPU rendering.\nhttps://trianglesplatting.github.io/"
+        },
+        {
+          "id": 50282064,
+          "author": "w-m",
+          "text": "Bit of a shameless plug: in August I built a demo [0] for our latest 3DGS compression paper (called KISS-GS). You can explore some standard Gaussian splatting scenes at different compression levels, see what breaks at really low bitrates, like 0.5 MB.\nScroll down the page a bit to unlock the controls under the viewer. I find the attribute toggles (for opacity, scale, rotation and so on) great fun for building an intuition on how splats and SOG compression works.\n[0]:\nhttps://fraunhoferhhi.github.io/KISS-GS/"
+        },
+        {
+          "id": 50278087,
+          "author": "slimbuck",
+          "text": "I had no idea SOG was being used this way, so cool! I'm busy working on V3 if there's anything you think we should include.\nhttps://github.com/playcanvas/splat-transform/issues/362"
+        },
+        {
+          "id": 50275275,
+          "author": "cavoirom",
+          "text": "The \"Kefermarkt Chruch\" from Christoph Schindelar:\nhttps://www.youtube.com/watch?v=nC6Q2wN-vfM\nWith the simple equipements, the result is spectacle."
+        },
+        {
+          "id": 50275457,
+          "author": "mackopes",
+          "text": "If anyone wants to just play and walk around a big splat:\nhttps://www.useblurry.com/shared/fONoiLF-8AiD\nIt has 50m splats, captured by XGRIDS K2 camera in roughly 1 hour of walking around."
+        },
+        {
+          "id": 50277553,
+          "author": "lopsotronic",
+          "text": "\"Hubris: Redux\" is a pretty good description of my entire career.\nThe high points, anyway. The parts worth remembering.\nSomething I am taking away from this, is every optimization he makes here, takes away from the technologies supporting the overall dynamism of the scene, \"dynamism\" in terms of things interacting with things. The long solution might well be a very tightly described engine of \"dynamism\" - data formats, algorithms -  that then feeds an optimized splat renderer, millisecond by millisecond."
+        },
+        {
+          "id": 50275912,
+          "author": "ajw287",
+          "text": "Gaussian Splats are great, and putting them in Unreal is even better!  Do you see splats cropping up in games/sport events?  Where next?\nGaussian splats are surprisingly easy to make:\nhttps://superspl.at/scene/82eb1744\n(I used a thermal camera - so I could also project the IR onto it too)\nhttps://superspl.at/scene/f9672a5e"
+        }
+      ],
+      "title_ja": "ガウススプラッツパート3 ：常に大きなシーンがある",
+      "summary_ja": "ディスカッションのハイライト：ガウススプラッティングを非常に異なる方法でスケールアップすることに関する興味深い最近のSiggraphの論文があり、これにはいくつかの興味深い利点があります。ガウスポイントスプラッティング。\n*ビデオ：\nht/三角形のスプラッティングが止まらなかった理由を知っている人はいますか？ GPUレンダリングにはるかに適していると思います。\nhttps://trianglesplatting.github.io//恥知らずのプラグ： 8月には、最新の3 DGS圧縮パのデモ[0]を作成しました",
+      "editor_note": "「ガウススプラッツパート3 ：常に大きなシーンがある」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50273731,
+      "title_en": "The Agent SDK",
+      "url": "https://cursor.com/blog/agent-sdk",
+      "hn_url": "https://news.ycombinator.com/item?id=50273731",
+      "score": 96,
+      "comment_count": 111,
+      "posted_at": "2026-10-28T14:02:20+00:00",
+      "comments": [
+        {
+          "id": 50280658,
+          "author": "gawacer",
+          "text": "We’ve officially hit the JS framework churn phase of AI tooling."
+        },
+        {
+          "id": 50274542,
+          "author": "h0rv",
+          "text": "Why would you not use an open-source harness in October 2026? I am generally curious - what is the alpha?"
+        },
+        {
+          "id": 50274268,
+          "author": "scosman",
+          "text": "Open AI and Anthropic already have \"Agent SDK\" brands. Vercel is \"AI SDK\". I wish folks would come up with some good names for new projects."
+        },
+        {
+          "id": 50277461,
+          "author": "fallks",
+          "text": "What about an AgentFactoryFactory? That would increase Cursor's valuation from $60 to $120 billion."
+        },
+        {
+          "id": 50281246,
+          "author": "asdev",
+          "text": "Does anyone even use Cursor still? I loved it during the tab era but ever since they tried to catch up to agentic workflows, the product experience got worse and worse"
+        },
+        {
+          "id": 50274230,
+          "author": "thedangler",
+          "text": "If you are on onstagram 99% of posts are people shilling skills where you need to subscribe to some service. To which they are an affiliate.\nAnd a lot of the apps are the same thing.\nIt's going to be a race to the bottom."
+        },
+        {
+          "id": 50274180,
+          "author": "username_my1",
+          "text": "I'm starting to think that the LLMs ecosystem is going in the JS ecosystem direction, endless technologies with little to no adaption.\nLiterally everyday there is a new tool and the tools released last week are deprecated."
+        },
+        {
+          "id": 50280766,
+          "author": "docheinestages",
+          "text": "In 2026, the wheel that keeps getting reinvented is the agent harness."
+        }
+      ],
+      "title_ja": "エージェントSDK",
+      "summary_ja": "ディスカッションハイライト： AIツールのJSフレームワーク解約フェーズが正式に開始されました。/2026年10月にオープンソースハーネスを使用しないのはなぜですか？私は一般的に興味があります。アルファとは何ですか？/Open AIとAnthropicにはすでに「Agent SDK」ブランドがあります",
+      "editor_note": "「エージェントSDK」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50278253,
+      "title_en": "Scaling Hierarchical Networks",
+      "url": "https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1",
+      "hn_url": "https://news.ycombinator.com/item?id=50278253",
+      "score": 32,
+      "comment_count": 1,
+      "posted_at": "2026-10-28T18:07:41+00:00",
+      "comments": [
+        {
+          "id": 50282935,
+          "author": "vatsachak",
+          "text": "Oh man, that haskell quicksort tokenization has got me feeling great"
+        }
+      ],
+      "title_ja": "階層型ネットワークのスケーリング",
+      "summary_ja": "ディスカッションのハイライト：ああ、ハスケルのクイックソートトークン化のおかげで気分が良くなりました",
+      "editor_note": "「階層型ネットワークのスケーリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 50276883,
+      "title_en": "Show HN: SlideBySide – Present slides without sharing your screen",
+      "url": "https://slidebyside.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50276883",
+      "score": 55,
+      "comment_count": 24,
+      "posted_at": "2026-10-28T17:07:09+00:00",
+      "comments": [
+        {
+          "id": 50283294,
+          "author": "netsharc",
+          "text": "Number 1 feature: live cursors. Yeah, it makes people go wow, but I hope it can be switched off. Nothing less useful than having random movement distracting people from whatever I'm presenting..."
+        },
+        {
+          "id": 50279035,
+          "author": "albert_e",
+          "text": "Just a datapoint but Microsoft Teams (most commonly paired with users of Powerpoint) has an option to share and present just a slide deck where viewers can tag along the presenter or jump forward and back to view the rest of the deck independently from presenter.\nBut in quite a few cases presenter would want to control when information is presented/revealed to audience."
+        },
+        {
+          "id": 50278217,
+          "author": "8organicbits",
+          "text": "This looks clever. I've seen PPT to web tools before (\nhttps://sparkslides.com/publish/\n,\nhttps://slidehtml5.com/\n), but I think the slide synchronization idea is new. I can't evaluate more than that as I don't use these.\nIn the past I have liked marp (\nhttps://marp.app/\n) for technical slides as you write in markdown, can use version control, etc. Powerpoint always felt odd as a developer.\nTo share public slides I've published to GitHub pages (\nhttps://github.com/robalexdev/marp-to-pages\n). I've seen professors use it for all their slides. But that doesn't synchronize slides, last I checked."
+        },
+        {
+          "id": 50277025,
+          "author": "antonly",
+          "text": "I am not sure there are many instances where I would be comfortable uploading my slides to a random website?"
+        },
+        {
+          "id": 50281699,
+          "author": "rmnclmnt",
+          "text": "Side comment: i guess this is the october 2026 defaut font for Claude? (Vibe coded some landing pages prototypes very recently, always came with this exact fonts)"
+        },
+        {
+          "id": 50279527,
+          "author": "jrm4",
+          "text": "Fwiw, having taught online for well over a decade, I keep (kept?) trying to put people on to the marvel of a virtual machine for this (minus the sharing this offers, I suppose)\nJust have a VM that you tell Zoom or whatnot is the \"window to present\" Now you can do anything, slides and more, and also that thing can be the only publicly seen thing, your computer stays private."
+        },
+        {
+          "id": 50278685,
+          "author": "conqrr",
+          "text": "Interesting Idea for engagement. Although I think slides suck in general and often used for one way communication, especially suck for Software Development. A doc is much more preferable and a lot of collaborative docs like Google Doc exist."
+        },
+        {
+          "id": 50277434,
+          "author": "jayknight",
+          "text": "In a previous position, we used Adobe Connect a lot for online meetings, and the normal way of sharing presentations was to upload them to the room and control the presentation from there.\nWebex has this as well, but I find that most people don't bother and just share their screen."
+        }
+      ],
+      "title_ja": "HNを表示： SlideBySide –画面を共有せずにスライドを表示",
+      "summary_ja": "ディスカッションのハイライト： 1番目の機能：ライブカーソル/単なるデータポイントですが、Microsoft Teams （最も一般的にはPowerpointのユーザーとペアリングされます）には、視聴者がプレゼンターに沿ってタグ付けできるスライドデッキのみを共有して提示するオプションがあります/これは賢く見えます",
+      "editor_note": "「HNを表示： SlideBySide –画面を共有せずにスライドを表示」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50280662,
+      "title_en": "Leak website releases data on DHS employees",
+      "url": "https://www.reuters.com/legal/government/leak-website-releases-data-tens-thousands-dhs-employees-2026-10-28/",
+      "hn_url": "https://news.ycombinator.com/item?id=50280662",
+      "score": 71,
+      "comment_count": 15,
+      "posted_at": "2026-10-28T20:46:52+00:00",
+      "comments": [
+        {
+          "id": 50282961,
+          "author": "hexapus",
+          "text": "The current regime decided lawlessness was beneficial to them.  Cuts both ways.  I suppose people should consider carefully whether signing bonuses and the chance to abuse marginalised people with impunity is worth it.  I'm fine with people making it riskier to throw in with corrupt authoritarians for personal benefit."
+        },
+        {
+          "id": 50282241,
+          "author": "ljf",
+          "text": "Alternative discussion here\nhttps://news.ycombinator.com/item?id=50280864"
+        },
+        {
+          "id": 50282779,
+          "author": "NDlurker",
+          "text": "I don't know if every state is like this, but in my state, all state employee salaries are public information that anyone can look up. Why should federal employees have their information hidden? They're supposed to work for us."
+        },
+        {
+          "id": 50283120,
+          "author": "cdrnsf",
+          "text": "This calls for the world’s tiniest violin."
+        },
+        {
+          "id": 50282211,
+          "author": "iAMkenough",
+          "text": "If those employees didn't do anything wrong, they have nothing to worry about."
+        }
+      ],
+      "title_ja": "リークウェブサイトがDHS従業員のデータを公開",
+      "summary_ja": "ディスカッションのハイライト：現在の体制は、無法状態が彼らにとって有益であると判断しました/ここでの代替的なディスカッション\nhttps://news.ycombinator.com/item?id=50280864/すべての州がこのようであるかどうかはわかりませんが、私の州では、すべての州の従業員の給与は誰でも調べることができる公開情報です",
+      "editor_note": "「リークウェブサイトがDHS従業員のデータを公開」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50273171,
+      "title_en": "Emacs Turns 50",
+      "url": "https://www.technologyreview.com/2026/10/20/1145399/emacs-turns-50/",
+      "hn_url": "https://news.ycombinator.com/item?id=50273171",
+      "score": 411,
+      "comment_count": 175,
+      "posted_at": "2026-10-28T13:25:11+00:00",
+      "comments": [
+        {
+          "id": 50273757,
+          "author": "jwr",
+          "text": "I have been using Emacs for more than 30 years now. Other editors have come and gone, Emacs stayed. Parts of my configuration are more than 30 years old.\nThere were better and worse times in Emacs history. Recent times, however, are really good. Emacs is maintained and developed actively and there are many external packages which are impressive. Magit and ghostel are good examples of packages that I use on a daily basis to get my work done.\nRecently, AI completely changed how I use Emacs, and in a very good way. I now treat AI as a fairy that can fulfill any wish. I describe how I want my editor to work, and boom! it works that way.\nExamples: window and tab management, difftastic integration, markdown previews with beautifully rendered tables, markdown previews as PDFs, and many more.\nWhat is most important, however, goes back to Stallman's original ideas. I am in control of my editor and my environment. I decide how it will look and behave. No corporation decides for me. No corporation builds in a new AI assistant. Nobody introduces ads or tracking. This is something I've learned to appreciate over the years."
+        },
+        {
+          "id": 50276668,
+          "author": "iLemming",
+          "text": "50 years old and feels more modern than any of the crap folks try to sell you \"as the editor of the future\". Emacs is the true editor of the past, present and distant future.\nModal editing was supposed to pull users away - Evil mode made vimming better. LSPs were supposed to kill it - only made it better. Electron-based crap was supposed to make terminal-native editors look ancient with a built-in terminal, extensions, and a polished UI. Emacs got vterm, eat, and ghostel. GitKraken-like GUIs were supposed to make the git CLI unnecessary. Magit is widely considered better than any git client that exists, GUI or not. Tree-sitter was supposed to require a \"real\" language server architecture to get accurate parsing. Emacs 29 absorbed it natively, and font-lock, indentation, and structural navigation across major modes got noticeably better. Obsidian and Notion keep trying to overcome it - Org-mode just keeps getting better. AI was supposed to make it outdated - only enhanced it.\nFor half a century, humanity has been searching for an Emacs-killer. All the while, Emacs has been a killer app all along."
+        },
+        {
+          "id": 50282135,
+          "author": "RedCinnabar",
+          "text": "I programmed in Emacs in a myriad of different languages, I used it to write my thesis, to write my homework and later to grade them. I’ve used it to publish countless blog articles, wiki pages and technical documents.\nI read that I was hired at my first job from en email received inside Emacs, I’ve used it to send countless emails to colleagues, employers and business partners. I planned both my personal and professional life inside it, I’ve used it to track the time spent doing a certain task when no such software was yet available.\nMost of the time I’ve spent in front of a computer over the last 20 years, was inside Emacs. Happy Birthday, Emacs! You’re the best thing that happened in the computing world."
+        },
+        {
+          "id": 50274224,
+          "author": "marttt",
+          "text": "Is anybody here consciously trying to keep their Emacs configs/setup \"lean\", minimalist, as small as possible?\nI'm not a coder, but I did use Emacs daily around 2010-2012, with brief returns later. I always gave up eventually because the complexity of addons, the org-mode-can-do-everything-so-I-should-do-everything-with-it etc just grew over my head. I've discovered that I like Plan9 Sam, Acme and, in general, the one-thing-well camp better. Each their own, I guess.\nThat said, I did often like how \"immersive\" using Emacs can actually be at times. I'm a trained journalist, and it made managing bits of information, including PDFs etc, really streamlined, almost like a wonder. And, I had my own little OS on a USB stick that way (though the minimalist in me always whined that \"an editor\" should not weigh 100+ megabytes).\nIncredible that it has been around for 50 years, with no signs whatsoever of being a \"paradigm of the past\"."
+        },
+        {
+          "id": 50273610,
+          "author": "osener",
+          "text": "After a couple of years of detour I’m back to using Emacs since all the fancy lsp, debugger etc stuff in VSCode and Zed doesn’t matter as much for me anymore and I am just more productive with Emacs. But I am still using  it like it is 2020. I hear people using coding agents to make crazy customizations to their emacs config and I can imagine Emacs is particularly suitable for this.\nCurious what are the biggest things that have come out in the last year or two, and what emacs based personal software have others reading this made?"
+        },
+        {
+          "id": 50273820,
+          "author": "gumby",
+          "text": "I started using Emacs at the AI lab in 1978.  It's still my main development tool and probably still the program I spend most of my time in today."
+        },
+        {
+          "id": 50275795,
+          "author": "paaloeye",
+          "text": "Hats off to Stallman. It's absolutely crazy how it stays relevant for such a long time.\nWe should all learn from Emacs about software longevity."
+        },
+        {
+          "id": 50277444,
+          "author": "PaulDavisThe1st",
+          "text": "What a deeply strange article. It starts out deep in the details of Emacs' origins, then suddenly gives up, fast forwards and ends with a whimper.\nps. My first sight of the author was in a basement lab at the Weizmann Institute in 1986, sitting cross-legged on a chair working in front of the then-wondrous brand new Sun workstations - the so-called \"3M standard\" (1MB of RAM, 1MHz CPU, 1M pixels). Good times but old times!"
+        }
+      ],
+      "title_ja": "Emacsが50周年を迎えました",
+      "summary_ja": "ディスカッションのハイライト：私はEmacsを30年以上使用してきました/50歳で、「未来のエディターとして」あなたを売ろうとするくだらない人々よりも現代的に感じています/私は無数の言語でEmacsでプログラムし、論文を書いたり、宿題を書いたり、後で採点したりするためにそれを使用しました",
+      "editor_note": "「Emacsが50周年を迎えました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50238637,
+      "title_en": "Oseberg Tapestry Fragments",
+      "url": "https://en.wikipedia.org/wiki/Oseberg_tapestry_fragments",
+      "hn_url": "https://news.ycombinator.com/item?id=50238637",
+      "score": 17,
+      "comment_count": 1,
+      "posted_at": "2026-10-26T03:14:49+00:00",
+      "comments": [
+        {
+          "id": 50283053,
+          "author": "WalterBright",
+          "text": "I don't understand why people don't make copies of these wonderful tapestries, including the battle of hastings one, so people can display them. Instead, we just see random, cropped pictures of parts of them."
+        }
+      ],
+      "title_ja": "オーセベルク・タペストリーの破片",
+      "summary_ja": "ディスカッションのハイライト：ヘイスティングスの戦いを含むこれらの素晴らしいタペストリーをコピーして展示しない理由がわかりません",
+      "editor_note": "「オーセベルク・タペストリーの破片」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "12",
+    "started_at": "2026-10-29T10:31:54.222447+09:00",
+    "finished_at": "2026-10-29T10:33:01.424003+09:00",
+    "story_count": 30
+  }
+}
