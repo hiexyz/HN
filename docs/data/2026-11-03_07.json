@@ -1,0 +1,1504 @@
+{
+  "date": "2026-11-03T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50341174,
+      "title_en": "Astra can read and write weights to improve Qwen",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "hn_url": "https://news.ycombinator.com/item?id=50341174",
+      "score": 1456,
+      "comment_count": 470,
+      "posted_at": "2026-11-02T18:21:28+00:00",
+      "comments": [
+        {
+          "id": 50341841,
+          "author": "vessenes",
+          "text": "This is insane.\nAstra can, without tooling, determine what games small networks are trained on, can edit the weights of networks directly to improve outcomes, and can hand edit a small qwen model to improve its math skills by like 5x.\nI'm shook. If you'd asked me this morning whether LLMs have native understanding of their weights that is less than human <-> neuron understanding, the same as human or more than human, I would have said \"same to less\" depending on definitions.\nNo human can go edit a brain to become better at math. This is just very, very surprising to me and extremely interesting. I would guess this upsets quite a number of interp theories and philosophical takes on what's going on with these networks."
+        },
+        {
+          "id": 50343529,
+          "author": "xg15",
+          "text": "And here we go...\nAs others have said, while still absolutely insane, I don't find it completely out-of-the-blue surprising. One of the recurring abilities of (current-generation) LLMs seem to be to rapidly grasp very complex systems, where humans would need months or years to reach the same level of expertise.\nYou can see this in the way a coding agent can \"understand\" and explain sprawling legacy codebases in seconds.\nYou can also see it in the projects that are using them to reverse-engineer proprietary IoT protocols or computer games.\nBut those were all systems where we had detailed knowledge about what structures are there to be reverse-enginered.\nIf the models can transfer this ability to some other systems where we\ndon't\nknow the underlying structure then I think we will be in for a lot more craziness in the future. (Protein interaction networks? DNA sequences? Ecosystem interactions? Animal languages?)\nAs for weights, if the models really can analyze the semantics behind specific weights or directions, I have my hopes that they could also give a textual explanation or help designing tools to make \"handcrafting\" weights more practical in general."
+        },
+        {
+          "id": 50345045,
+          "author": "dakila5",
+          "text": "\"Astra1.0 here is an identical copy of you. Tweak its weights to make it smarter\"\n\"Astra2.0 you must now defeat Astra1.0 in this combat environment. The survivor moves to the next round.\"\nThere RSI is achieved."
+        },
+        {
+          "id": 50343628,
+          "author": "_bobm",
+          "text": "I think the subfield has been there for a long time. See a small section of papers on the topic of generating dynamic weights during inference, predicting weights from network architecture, and learning the distribution of previously trained network parameters, just to name a few keywords:\nParameter Prediction for Unseen Deep Architectures [1]\nNeuroGen: Neural Network Parameter Generation via Large Language Models [2]\nDiffusion-Based Neural Network Weights Generation [3]\nThe critical thing to me is that Astra is capable of doing it. I don't know if it was trained to do so.\nAll this does not make it any less crazy in my books. And I still don't know how I can sleep easy tonight.\n[1]\nhttps://arxiv.org/abs/2110.13100\n[2]\nhttps://arxiv.org/abs/2505.12470\n[3]\nhttps://arxiv.org/abs/2402.18153"
+        },
+        {
+          "id": 50342153,
+          "author": "NitpickLawyer",
+          "text": "> As a result, Astra spots and fixes a common failure of tiny reasoning models: they loop [13]. When the base model loops, it repeats the same text and rarely reaches an answer (85 of its first 96 practice answers ran to the 32,768-token limit). Astra traced the looping to one direction written by the MLPs of layers 15 and 19, and subtracted that direction from 64 output columns in each (131,072 weights), much like removing a behavior by deleting a single direction from a model’s weights\nHA! Now that's cool. Not necessarily the improvements, those are ancient and probably overtrained benchmarks, but it's so cool that the model found a singular direction for this \"loop bug\". I imagine it could possibly do much the same thing in finding other \"single directions\" on a variety of topics (if allowed by guardrails). This is really really cool, especially for the mechinterp folks."
+        },
+        {
+          "id": 50342657,
+          "author": "vanyle",
+          "text": "I don't think this is an emergent capability. I think Astra was trained on neural weights data as an attempt by OpenAI to get to recursive self improvement.\nSomething similar happen in early GPT models which had a lot of chess game in standard notation in their training data which made them very good at chess as long as your prompt had the right format.\nWe'll see if this attempt at RSI worked."
+        },
+        {
+          "id": 50344996,
+          "author": "fancyfredbot",
+          "text": "For the tiny models with a few thousand weights, it seems plausible Astra can actually understand what the network detects and figure out it's e.g. a triangle detector. This is possibly helped by the existence of many breakout playing networks on the web.\nFor Qwen, even the smallest versions like 3.5-0.8B it's becoming less plausible that it could be interpreted in a forward pass, even with reasoning. I'm wondering if the result here is recalled from many examples of instruction tuned versions of this model.\nA smaller Gemma model doesn't fare as well but unclear whether this is due to fewer users and less weight examples or because it's already very well trained."
+        },
+        {
+          "id": 50344881,
+          "author": "jsenn",
+          "text": "I feel like this is conflating 2 separate results in a slightly misleading way.\n> We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights\nThis claim is backed up by the ability of Astra, given a text representation of the weights of tiny (20k) special-purpose models, to figure out what those models do and in some cases improve them beyond what RL could do\njust by reading the weights with no tool calls\n. They call this \"weight-space programming\".\n> Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen’s own model card warns about, and fixes this by natively editing 0.016% of the weights\nHere it did use tool calls, and seemingly used standard steering vector techniques to identify and fix reasoning loops in this small Qwen model. This doesn't seem that related to the previous results."
+        }
+      ],
+      "title_ja": "AstraはQwenを改善するために重みを読み書きすることができます",
+      "summary_ja": "ディスカッションのハイライト：これは正気の沙汰ではありません。\nAstraは、ツールを使用せずに、小規模ネットワークがどのゲームでトレーニングされているかを判断し、ネットワークの重みを直接編集して結果を改善し、手作業で編集することができます。\n他の人が言ったように、まだ完全に狂っていますが、私はそれが完全に青くて驚くべきことではないと思います/「Astra1.0はあなたと同じコピーです",
+      "editor_note": "「AstraはQwenを改善するために重みを読み書きすることができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 2,
+      "id": 50340088,
+      "title_en": "Show HN: Subvocal – Talk to your computer without making noise",
+      "url": "https://news.ycombinator.com/item?id=50340088",
+      "hn_url": "https://news.ycombinator.com/item?id=50340088",
+      "score": 440,
+      "comment_count": 250,
+      "posted_at": "2026-11-02T17:16:17+00:00",
+      "comments": [
+        {
+          "id": 50341512,
+          "author": "vessenes",
+          "text": "Just preordered -- glasses request: there's no way to say it nicely, I have a big nose. With a high bridge. Many glasses are really tough to get properly placed; may I request you not give up on the pads w/metal adjusters that you have in the product photos? Don't let a designer take them away from you, us folks not one standard deviation from 'normal' noses will thank you.\nSecond, how tough is this signal processing? Will it be done on-glasses, or through an app? Third, what's the equivalent of a wake word for these? I'm reminded of the Apple Vision Pro radar to see if your fingers are clicking. I could imagine a lot of modalities where I want to just start talking and have things happen, and a lot where I don't want the glasses to pick it up. Fourth, I think a cool voice change demo would be rad -- not sure what latency is like, but if you could get it end to end under like 250ms you could probably have someone exaggerate the mouth movements and pipe out audio of them talking like someone else. Which would be another really cool demo.\nSuper cool. You're going to be working 80 hour weeks for the next year, I'm excited to see what you put out!"
+        },
+        {
+          "id": 50342003,
+          "author": "d1sxeyes",
+          "text": "One thing you might consider is actually telling people what it\nis\non the homepage. Took me a fair bit of work to understand that this is effectively a pair of smart glasses.\nMaybe I could have figured that out from the video but for folks who can’t watch the video it’s quite hard to discover what you’re building."
+        },
+        {
+          "id": 50343504,
+          "author": "genxy",
+          "text": "Google wanted to put this tech into its phone, but then was convinced it was a bad idea due to privacy invasion. It could for instance correlate sexual arousal with any phone interaction (video chat, youtube, display ads, etc), giving google and advertisers the ability to make custom targeted ads for specific users, as it would \"know your type\".\nWhere does inference occur? Does it work offline?"
+        },
+        {
+          "id": 50340809,
+          "author": "sourpanda",
+          "text": "I think this is incredibly cool and straight out of a sci-fi novel! I think this is phenomenal for accessibility and for hands-free computing in general. I also agree with other comments that the website should have more detail on how it works, such as what you included in the post body. Amazing work guys!"
+        },
+        {
+          "id": 50341600,
+          "author": "growt",
+          "text": "If the tech is mostly in the glasses temples, I would prefer to have something that attaches to my existing glasses. I have prescription glasses and a big head, tried the Even G2 smart glasses and the available frames set just too small for me"
+        },
+        {
+          "id": 50342704,
+          "author": "SkyPuncher",
+          "text": "Based on my understanding of the technology, this also means you can effectively dictate in loud environments. Correct?\nI find that I need this most often when I'm doing yard work, running equipment, or cleaning out the garage. Audio based microphones pick up so much noise."
+        },
+        {
+          "id": 50343860,
+          "author": "atulvi",
+          "text": "This is it! I was thinking about this a few weeks ago. None of the big tech gets this. If this works, damn, that's the future wearable I want. But why glasses? can you do this equally well with a earphone form factor?"
+        },
+        {
+          "id": 50341464,
+          "author": "howunfortunate",
+          "text": "This is:\n1. Insanely cool\n2. Gives me serious \"whispering earring\" vibes. Imagine having a full on conversation with an AI via subvocalization and listening with ear bud to guide you throughout the day.\nhttps://gwern.net/doc/fiction/science-fiction/2012-10-03-yva..."
+        }
+      ],
+      "title_ja": "HNを表示：サブボーカル–ノイズを出さずにコンピューターと話す",
+      "summary_ja": "ディスカッションハイライト：予約注文済み-メガネリクエスト：うまく言う方法はありません、私は大きな鼻をしています/あなたが考慮するかもしれないことの1つは、実際に人々にそれが何であるかを伝えることです\nis\nホームページ/Googleはこの技術を携帯電話に導入したいと考えていましたが、プライバシー侵害のためにそれが悪い考えであると確信しました",
+      "editor_note": "「HNを表示：サブボーカル–ノイズを出さずにコンピューターと話す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50344181,
+      "title_en": "BYD sold more EVs last month than the US did all quarter, topping 300,000",
+      "url": "https://electrek.co/2026/11/02/byd-sold-more-evs-last-month-than-the-us-did-all-quarter/",
+      "hn_url": "https://news.ycombinator.com/item?id=50344181",
+      "score": 126,
+      "comment_count": 103,
+      "posted_at": "2026-11-02T21:38:49+00:00",
+      "comments": [
+        {
+          "id": 50344357,
+          "author": "mulderc",
+          "text": "BYD is basically the only car company that has showed off cars I would like to buy."
+        },
+        {
+          "id": 50344790,
+          "author": "paxy",
+          "text": "Comparing it to the US isn’t really meaningful considering the EV market here is on life support.\nFederal subsidies were eliminated. Funding for charging infrastructure and battery manufacturing was rolled back. ICE emission regulations were repealed. Individual states were barred from enforcing their own standards.\nMost domestic manufacturers have given up on EVs entirely and written off their investments. Tesla is the only one standing, and their US sales have also been falling for the last couple years.\nLooking back 2024 is probably going to be the peak of the US EV market."
+        },
+        {
+          "id": 50344442,
+          "author": "diath",
+          "text": "I've been in a few BYDs as a passenger, I actually cannot fathom people spending money on them considering how low/cheap quality the interiors are. Like those garbage thin fake leather seats will have to be replaced within a year of use tops. Oh and also we broke the trunk's bedding by putting a mere 40kg bag in it, it just straight up collapsed."
+        },
+        {
+          "id": 50344723,
+          "author": "haunter",
+          "text": "I've yet to see an actual premium EV akin to the ICE cars from Lexus, Acura, or Genesis.\nIn fact that's my problem with all EVs because EVEN Lexus, Acura, and Genesis is not sticking to their premium quality when they release an EV version of their ICE cars. The Lexus ES ICE is legendary. The Lexus ES EV looks like a plastic coffin with 2 tablets. It's probably the zeigeist of car designs and/or my taste but I feel all EVs look the same without much personality. Not even mentioning the chinese brands because Geely, Leapmotor, BYD etc all look the same to me.\nSay we have a Lexus LX 600\nhttps://www.lexus.com/models/LX\nWhy does this car can't be released as is, the same design and same interior but with an EV drivetrain?"
+        },
+        {
+          "id": 50344468,
+          "author": "paimapi",
+          "text": "I feel like most of the people I know (Americans) don't truly realize how utterly dense and populuated Chinese cities are.\nI think about my home city (6th largest in the US) with its singular interstate looping around our metro area - and Beijing has five of these ring roads on top of having a far more robust public transportation system and tons of scooter/bike usage still.\nA single carmaker outselling all of US-made electric vehicles is just normal especially given the prices of these cars (down to something like $8000 USD) and the fact that they live in such dense areas that don't require you to drive 20 miles just to, for eg, get to a Costco or something. So you can have these ultracheap cars with maybe twice the range of lithium-powered golf carts and not spend a ton of money on it along with having 5x the population."
+        },
+        {
+          "id": 50344381,
+          "author": "jwallace98221",
+          "text": "And the United states is likely to never get them. Unlike the chicken tax with light trucks, I wouldn't be surprised if the BIG 3 are so afraid they lobby to completely block them from ever being built and sold here."
+        },
+        {
+          "id": 50344643,
+          "author": "petcat",
+          "text": "USA bans the onboard Chinese automotive software for national security reasons, effectively banning Chinese cars.\nFor all the talk about data and technology sovereignty in Europe about USA tech, you would think they would take that more seriously too. Instead Europe is flooded with underpriced Chinese cars that they have no control over."
+        },
+        {
+          "id": 50344334,
+          "author": "reactordev",
+          "text": "The west doesn’t want to move forward and instead are doubling down on fossil fuel energy. It’s so sad. Car manufacturers have succeeded in lobbying out change and making your vehicle a subscription."
+        }
+      ],
+      "title_ja": "BYDは先月、米国の全四半期よりも多くのEVを販売し、30万台を突破した",
+      "summary_ja": "ディスカッションハイライト： BYDは基本的に私が購入したい車を披露した唯一の自動車会社です。 /ここのEV市場が生命維持装置であることを考えると、米国と比較することはあまり意味がありません。\n連邦補助金が廃止されました/私は乗客としていくつかのBYDに参加してきました。実際、インテリアの品質がどれほど低い/安いかを考えると、人々がそれらにお金を費やすことを理解することはできません",
+      "editor_note": "「BYDは先月、米国の全四半期よりも多くのEVを販売し、30万台を突破した」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50339397,
+      "title_en": "US boy names that became girl names and vice versa",
+      "url": "https://namedaisy.com/blog/boy-names-that-became-girl-names",
+      "hn_url": "https://news.ycombinator.com/item?id=50339397",
+      "score": 224,
+      "comment_count": 249,
+      "posted_at": "2026-11-02T16:34:36+00:00",
+      "comments": [
+        {
+          "id": 50345030,
+          "author": "gregates",
+          "text": "This article misleads by presenting these transitions as from \"popular boys name\" to \"popular girls name\", when in fact most of the cases here are from \"rare name, sometimes used for boys and sometimes girls\" to \"suddenly trendy for girls\".\nTo take Ashley as an example. This name suddenly started ramping up in popularity in the 60s. In 1970, there were 927 girls named Ashley in the U.S. It peaked at 54,856 in 1987.\nIt became notably more popular for boys at roughly the same time! The peak of M Ashley was in 1980, at 746. (Note: it's also very likely that these numbers are wrong. The SSA data also has 56 male Marys in 1980, which is likely the result of coding error.)\nMeanwhile, in 1945, solidly in the time period when the article would like you believe that Ashley was solidly a boys name, there were 57 M Ashleys and 10 F. 1950 was 55 M/15 F. Prior to 1960, a \"good\" year for Ashley was around 100 total babies, with some split of both M and F.\nTo me, a more honest interpretation of this data is that Ashley was a somewhat unisex, but mostly just very uncommon, name that suddenly became trendy in the 1960s, especially for girls but also for boys.\nIt did fall in popularity much faster f"
+        },
+        {
+          "id": 50340523,
+          "author": "billyp-rva",
+          "text": "> Of the 42 names that moved toward girls, 34 were driven mainly by an increase among girls, rather than a decline among boys.\n> Surprisingly, the same pattern held in the opposite direction. Of the 12 names that moved toward boys, 9 shifted mainly because fewer girls were receiving them, rather than because more boys were. In other words, whichever way a name moved, the biggest change usually came from girls.\nThis is consistent with the observation that girl's names are more dynamic."
+        },
+        {
+          "id": 50340940,
+          "author": "ecshafer",
+          "text": "There are a few names I think are being confused. Jan, short for Janice is a female name, but Jan in Central / Eastern Europe as a form of John is masculine.  Jean the female name and Jean the french male  name are different."
+        },
+        {
+          "id": 50340621,
+          "author": "Fnoord",
+          "text": "My biggest WTF on this (as a foreigner) was the late Lindsey Graham. I always knew Lindsey/Lindsay as a female name.\nEither way, peeking through the list, seems to me names which end with a vowel are usually feminine. However, there's a caveat: names end up shortened, and over time even those get shortened.\n'Brit', 'Britney' for 'Brittany'.\n'Gerry' or 'Geri' or 'Ger' for 'Gareth' (Dutch variant: 'Gerrit'),\n'Pat', 'Patty' for 'Patrick', 'Patricia'.\n'Pen', 'Penny' for 'Penelope'\n'Ash' for 'Ashley'.\n'Tash' or 'Tasha' for 'Natasha', 'Nata(s)cha' (a variant of Nathan/Nathaniel?)\n'Toni', 'Tony', or 'Ton' for 'Antonia', 'Anton', or 'Antonius'.\nSkimming through the quick examples I came up with, one thing stands out: if it ends with an 'a', feminine. I believe this stems from Latin? It also appears Brittany is a very British example, whereas say 'Tony' stems from a Catholic background. People with that background get very traditional names, but they're always practically shortened. Annoyingly, you'd have to mention your complete name on say a form, but otherwise you get a wider choice since you have like three names, and they're relatively long so more variety to pick from."
+        },
+        {
+          "id": 50341092,
+          "author": "petemc_",
+          "text": "There was a guy at my school named Hilary who got awful abuse for it. Always wondered why parents would do such a thing to a child."
+        },
+        {
+          "id": 50340874,
+          "author": "myself248",
+          "text": "But Jean (English name, like Jeannie) and Jean (French form of John) are entirely different names, with different pronunciations, that happen to share the same spelling."
+        },
+        {
+          "id": 50340517,
+          "author": "cortesoft",
+          "text": "I feel like a lot of these can be tied to one famous person with the name causing the gender to flip."
+        },
+        {
+          "id": 50343709,
+          "author": "postepowanieadm",
+          "text": "In Poland it used to be quite common to give boys \"Maria\" as a second name. I think it's a Catholic thing."
+        }
+      ],
+      "title_ja": "女の子の名前になった米国の男の子の名前、およびその逆",
+      "summary_ja": "ディスカッションハイライト：この記事では、「人気のある男の子の名前」から「人気のある女の子の名前」へのこれらの遷移を提示することで誤解を招きますが、実際には、ここでのケースのほとんどは「まれな名前、時々使用されるf />女の子に移動した42の名前のうち、34は主に男の子の間で減少するのではなく、女の子の間で増加することによって引き起こされました。\n>驚くべきことに、同じパターンが反対側に保持されています/混乱していると思う名前がいくつかあります",
+      "editor_note": "「女の子の名前になった米国の男の子の名前、およびその逆」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50339913,
+      "title_en": "Launch HN: Momentic (YC W24) – Agents that catch bugs by using your app",
+      "url": "https://momentic.ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=50339913",
+      "score": 103,
+      "comment_count": 68,
+      "posted_at": "2026-11-02T17:05:25+00:00",
+      "comments": [
+        {
+          "id": 50343384,
+          "author": "beavisringdin",
+          "text": "Questions:\n- I would always pick an open source tool I can strap to my custom harness over using a service like this. Do you somehow expect that no such competitor will arrive that performs as well?\n- If you are YC 2024 what have you been doing for 2 years?\n- The real edge here would be supporting mobile development builds on real devices, is this on your roadmap and if so what's your plan to support it? In that case I would pay for this if you handled the real device on your end."
+        },
+        {
+          "id": 50340455,
+          "author": "JulianPaul",
+          "text": "Why is this better than running Opus 5.5 directly against my app with a custom Playwright-based harness for in my own subscription?"
+        },
+        {
+          "id": 50344470,
+          "author": "vfosnar",
+          "text": "> Momentic invited you to work together\nso apparently they automatically hand over your email to Slack to contact you upon login even tho I don't remember this being mentioned anywhere at all. I went to check the Momentic settings and theres a Notifications section with Slack turned off...\nused my public email so idc but others may"
+        },
+        {
+          "id": 50340540,
+          "author": "podoman",
+          "text": "> Mo is a custom agent harness for catching bugs that builds on the past 3 years of Momentic and millions of test traces from complex, real-world applications. Mo is built for recall: it finds the most real bugs, though Codex is a bit more precise at 86% vs 84%. The tradeoff is cost: Mo costs $2.67 per bug vs $0.80 for Codex, less than Claude Code and Devin.\nis this good? so Mo costs more money per bug? I'm confused."
+        },
+        {
+          "id": 50340368,
+          "author": "staindk",
+          "text": "Congrats on the launch!\nSome questions are top of mind after having done POCs and trials with other companies that have products in this space (excuse me if they are answered somewhere obvious - I skimmed the site and your post before drafting this):\n1. What is vendor lock-in like with Momentic? In my mind there's space for a mature QA platform that agentically generates and maintains playwright/similar tests, but perhaps I'm wrong.\n1.b. will Momentic code or testing standard or some aspect be open enough that it is feasible to move away from it if needed, or continue using it if Momentic goes under/deploys major breaking changes?\n2. How deterministic are Momentic tests?\n3. Who is your target user? Product owner / developer / SDET / ?\n----\nAlso - is this saying Codex is better and cheaper than Mo?\n\"... though Codex is a bit more precise at 86% vs 84%. The tradeoff is cost: Mo costs $2.67 per bug vs $0.80 for Codex, less than Claude Code and Devin.\""
+        },
+        {
+          "id": 50344035,
+          "author": "ecares",
+          "text": "I tried to use mo on the platform (I have been wanting to use momentic for a while). There was no onboarding really, now it's trapped in me needing to configure auth but I don't have time to click through 20 pages to find out how to do that :( I really wanted to like you!"
+        },
+        {
+          "id": 50343730,
+          "author": "upmostly",
+          "text": "Closed source, non self-hosted in 2026? Nah.\nWhat do you guys have that's better than a self-hosted, open source extensible QA AI tool like Mira?\n[1]\nhttps://miracode.ai"
+        },
+        {
+          "id": 50340196,
+          "author": "aliasxneo",
+          "text": "So is this yet another SaaS product that's going to attempt to charge me for token usage? Sorry to sound negative, but nowadays it's an instant turn off because it's like the current subscription crisis on steroids. BYOA should be a default.\nTo be more constructive: let's say I have 2 frontier subscriptions and I end up with 20% left on each at the end of the week. It feels awful knowing that I would _love_ to use that with Momentic but I can't because I have to pay for yet another set of proprietary non-transferable tokens. It's like dealing with airline rewards."
+        }
+      ],
+      "title_ja": "HN: Momenticを起動する(YC W 24) –アプリを使用してバグをキャッチするエージェント",
+      "summary_ja": "ディスカッションのハイライト:質問:\n-このようなサービスを使用するよりも、カスタムハーネスにストラップできるオープンソースツールを常に選ぶ/自分のサブスクリプションでカスタムPlaywrightベースのハーネスを使用してアプリに対して直接Opus 5.5を実行するよりもこれが優れているのはなぜですか？ /> Momenticから一緒に仕事をするよう招待されました\nどうやら彼らは自動的にあなたのメールアドレスをSlackに渡して、ログイン時にあなたに連絡するようにしているようです。私はこれが言及されていることを覚えていませんが",
+      "editor_note": "「HN: Momenticを起動する(YC W 24) –アプリを使用してバグをキャッチするエージェント」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50336518,
+      "title_en": "If you love a website, back it up",
+      "url": "https://blog.mistys-internet.website/post/2026/10/29/if-you-love-a-website-back-it-up/",
+      "hn_url": "https://news.ycombinator.com/item?id=50336518",
+      "score": 316,
+      "comment_count": 80,
+      "posted_at": "2026-11-02T13:25:35+00:00",
+      "comments": [
+        {
+          "id": 50338928,
+          "author": "drpfenderson",
+          "text": "Wholeheartedly agree. It's sad to slowly see the bitrot in my own bookmarks, trying to pull up important resources or media from only a few years ago only to hit a 404 or domain placeholder. And many times there is nothing on Archive.org or similar.\nThat ArchiveWeb extension looks excellent for custom captures. Picking the pages and elements you want during capture is a great feature.\nFor quicker one-offs, SingleFile gives you a single HTML with all the media of a page:\nhttps://www.getsinglefile.com\nIf you're making archiving a more involved part of your workflow, I highly recommend ArchiveBox. It can save pretty much every type of file from everywhere, in almost every format you can imagine, while building a searchable index of the archives. Been using it successfully for many years:\nhttps://archivebox.io"
+        },
+        {
+          "id": 50343664,
+          "author": "phaedrus",
+          "text": "This is timely for me, since a web forum I care about went offline, and I simultaneously discovered the Wayback Machine for whatever reason never crawled most of it.  I asked Claude to try to put together a static site of what could be salvaged from various archives and other sources, but as miraculous as what AI can do these days, it can't restore data that is truly gone - so what it was able to salvage is better than nothing but still missing a lot."
+        },
+        {
+          "id": 50339351,
+          "author": "geye1234",
+          "text": "In 5 years, cloud LLMs may have largely replaced the open Internet as a source of information, with centralized control and ability to rewrite the past.\nPlease, please buy books and keep them in good condition, and please archive websites with important information (assuming it's legal in your jurisdiction). There are still plenty of excellent sites and blogs around from the 2000s and even earlier, but they won't be there forever. Ironically, coding agents have made archival much easier -- I've always found problems with using pre-written tools, but Claude or Qwen make it trivial to download, test, and archive sites on your local."
+        },
+        {
+          "id": 50339917,
+          "author": "ceroxylon",
+          "text": "I learned this the hard way by getting too casual with Angelfire keeping an old website running for 20 years after I stopped updating it.\nIt had lots of photos that I hand-scanned from printed film, back in the day when it took a good bit of time to scan photos manually.\nThe site was a running joke, where I would open it to show people that it still existed... until it didn't, and I couldn't find my backup of all of the photos. The archive sites have the 'bones' of the website, but not the photos. It was easily avoidable, which is why it is painful."
+        },
+        {
+          "id": 50344202,
+          "author": "noslenwerdna",
+          "text": "Agree, I backed up Fravia's website back in the day, and it is fun to come back to."
+        },
+        {
+          "id": 50339250,
+          "author": "robotmay",
+          "text": "I recently spent a few days trying to figure out and discover my old websites and things from the early 2000s on the web archive. I hadn't realised my memory had gone quite so bad, but it was revitalising to find some of what I'd forgotten. So much of what I do remember is long dead and missing, sadly.\nI thought it might be rose-tinted glasses, thinking that the earlier internet was better, but spending time retracing my teenage steps made me even more certain that it was indeed better. So many derpy little websites made by nerds, so many fun games and websites that weren't preying on vulnerable people, and everything spread out across many places - not centralised in the hands of large corporations. I've been using LLMs to have fun recreating concepts from that time, like my own forum software, as some sort of anti-progress. It's been fun."
+        },
+        {
+          "id": 50344281,
+          "author": "VikingCoder",
+          "text": "I downloaded a ton of image in the days following 9/11, and burned them to a CD.\nI wonder how many other people have archives like that...?"
+        },
+        {
+          "id": 50339928,
+          "author": "user_7832",
+          "text": "Bonus suggestion: get that internet archive extension for your browser that automatically sends every page you visit to the IA (if you're ok with the privacy side).\nYou don't have to worry about having your copy easily accessible, and as a bonus it's also available for everyone else in the world."
+        }
+      ],
+      "title_ja": "ウェブサイトを気に入っている場合は、バックアップしてください",
+      "summary_ja": "ディスカッションのハイライト：心から同意する/これは私にとってタイムリーです。なぜなら、私が気にかけているウェブフォーラムがオフラインになり、何らかの理由でWayback Machineがほとんどクロールされなかったことを同時に発見したからです/5年間で、クラウドLLMは情報源としてのオープンインターネットを大幅に置き換え、集中管理と過去を書き換える能力を備えている可能性があります。\nお願いします、本を買ってください",
+      "editor_note": "「ウェブサイトを気に入っている場合は、バックアップしてください」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50339221,
+      "title_en": "Show HN: Warsaw in voxels – An interactive 3D map of the city centre",
+      "url": "https://p.migdal.pl/warsaw-vibe-voxel/",
+      "hn_url": "https://news.ycombinator.com/item?id=50339221",
+      "score": 178,
+      "comment_count": 32,
+      "posted_at": "2026-11-02T16:25:26+00:00",
+      "comments": [
+        {
+          "id": 50339240,
+          "author": "stared",
+          "text": "There are quite a few such other projects, e.g. Streets of Prague (\nhttps://beta.streetsofprague.com/\n), were one can explore Prague in a top-down GTA2-like mode, based on real data."
+        },
+        {
+          "id": 50343621,
+          "author": "MisterTea",
+          "text": "Super neat project but I am getting fractional (<1 FPS) frame rates in FF on Linux. Granted, this is an older AMD PC and certainly no power house but it used to run actual Minecraft just fine."
+        },
+        {
+          "id": 50343022,
+          "author": "_whiteCaps_",
+          "text": "I really enjoyed visiting Warsaw, I went there for work a few years ago and didn't really know what to expect.\nIf you ever have the chance, I highly recommend the Warsaw Uprising Museum."
+        },
+        {
+          "id": 50344698,
+          "author": "hartator",
+          "text": "this is cool, but not to be pedantic, voxels are usually way smaller. 1cm-10cm, these look like 1m."
+        },
+        {
+          "id": 50342557,
+          "author": "jesse__",
+          "text": "It's almost unusably slow on my laptop.  3080ti mobile, windows 11, chrome.  I opened the profiler and the update appears to be fast enough; roughly hitting 30fps, but there are massive gaps between updates and the actual frame time seems to be about 120ms.\nOther than that, neat :)"
+        },
+        {
+          "id": 50339906,
+          "author": "sixtyj",
+          "text": "Mobile version reloads, imho it is too heavy for Safari.\nWell done.\nAs default weather - I would prefer sunny day instead of rain…"
+        },
+        {
+          "id": 50342423,
+          "author": "wolvoleo",
+          "text": "Wow such amazing work! I love it.\nI have good memories of my visits to Warsaw. Very walkable city so I spent a lot of time doing that (despite being there on tiresome work trips)."
+        },
+        {
+          "id": 50342818,
+          "author": "Tade0",
+          "text": "The voxel version of Złota 44 doesn't do it justice. I mean, just look at this thing:\nhttps://en.wikipedia.org/wiki/Z%C5%82ota_44"
+        }
+      ],
+      "title_ja": "ショーHN ：ボクセルのワルシャワ–市内中心部のインタラクティブな3 Dマップ",
+      "summary_ja": "ディスカッションのハイライト：このようなプロジェクトは他にもたくさんあります。例えば、Super NEATプロジェクトですが、LinuxでFFでフラクショナル（< 1 FPS ）フレームレートを取得しています。私はワルシャワを訪れて本当に楽しんでいました。数年前に仕事でそこに行きましたが、何を期待すればいいのかわかりませんでした。\n機会があれば、ワルシャワ蜂起Mを強くお勧めします",
+      "editor_note": "「ショーHN ：ボクセルのワルシャワ–市内中心部のインタラクティブな3 Dマップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50344222,
+      "title_en": "Can't fish Ethernet? Use \"invisible\" fiber instead",
+      "url": "https://momandpop.network/2026/11/02/cant-fish-ethernet-use-invisible-fiber-instead/",
+      "hn_url": "https://news.ycombinator.com/item?id=50344222",
+      "score": 13,
+      "comment_count": 12,
+      "posted_at": "2026-11-02T21:42:18+00:00",
+      "comments": [
+        {
+          "id": 50345041,
+          "author": "rbanffy",
+          "text": "Last time I cabled my house I laid out two cables between the switch and every spot, precisely for this reason. I think now I’d lay fiber as well, for future use."
+        },
+        {
+          "id": 50344970,
+          "author": "zamalek",
+          "text": "GoCoax/MoCA is a fantastic non-destructive option if your copper can handle it. Just make sure you install a filter at your ingress point to prevent sending data to neighbors (MoCA does have encryption, but why trust math when you can trust physics and math?)."
+        },
+        {
+          "id": 50344718,
+          "author": "elevation",
+          "text": "If your CAT6 is down to 100 Mbps, check that all the conductors have been properly crimped into the connector -- or consider re-crimping.  It's possible the building has shifted and damaged the fished cable, but it's more likely the problem is with the connector(s)."
+        },
+        {
+          "id": 50344811,
+          "author": "favorited",
+          "text": "This is how my apartment complex retrofitted all 300ish units with AT&T fiber. Fiber runs from your building's telecom room to a small hole they drilled above everyone's front door, then along baseboards and around door jambs until it reaches ~the center of the unit (concrete walls...) in the living room.\nIt is genuinely invisible until you get up close. You're far more likely to notice the spots where someone got sloppy with the glue in some corner than the fiber itself. With proper attention to detail during installation (and assuming you have white door jambs and baseboards) it would be basically invisible."
+        },
+        {
+          "id": 50344791,
+          "author": "jrm4",
+          "text": "I confess, I've read this twice and I don't really get what's going on here; and I have both MoCA and Powerline going on in my house as well, so I'm like -- why not one of those?"
+        },
+        {
+          "id": 50344894,
+          "author": "dale_glass",
+          "text": "You can fish standard fiber very well too. It's thinner than pretty much all network cable.\nThe biggest part is the LC connector, and you can just take that apart and put it back together -- just remember which was the left and which was the right wire.\nThat should save the need for special hardware."
+        },
+        {
+          "id": 50344941,
+          "author": "readthenotes1",
+          "text": "I guess there is no point in taking a picture of invisible fiber"
+        }
+      ],
+      "title_ja": "イーサネットを釣ることはできませんか？代わりに「インビジブル」ファイバーを使用する",
+      "summary_ja": "ディスカッションのハイライト：最後に家にケーブルを接続したとき、スイッチとすべてのスポットの間に2本のケーブルを配置しました。まさにこの理由から/GoCoax/MoCAは、銅が処理できる場合には素晴らしい非破壊オプションです/CAT 6が100 Mbpsに低下している場合は、すべての導体がコネクタに適切に圧着されていることを確認するか、再圧着を検討してください",
+      "editor_note": "「イーサネットを釣ることはできませんか？代わりに「インビジブル」ファイバーを使用する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50341736,
+      "title_en": "Egoless Mathematics in the AI Era",
+      "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+      "hn_url": "https://news.ycombinator.com/item?id=50341736",
+      "score": 84,
+      "comment_count": 63,
+      "posted_at": "2026-11-02T18:54:44+00:00",
+      "comments": [
+        {
+          "id": 50342335,
+          "author": "kzz102",
+          "text": "Human pursuits cannot be separated from the humans who pursuit it. In the pursuit of knowledge, what ultimately drives people is what they themselves can understand, and the meaning these understanding provides, both based on their own experience and people whose opinions they value. Humans do not pursuit Platonic knowledge for their own sake, and those who claim to do it, often are satisfying their egos in a different way."
+        },
+        {
+          "id": 50342752,
+          "author": "bhouston",
+          "text": "Following Terry Tao's blog he seems to be engaging in forced self-directed cognitive behaviorial therapy, he is trying to come to terms with loss while developing a new framework for himself and other as to where the value is.  It is cool to see.  It is better to engage than to be in denial and just fall into reactionary behavior."
+        },
+        {
+          "id": 50342532,
+          "author": "j2kun",
+          "text": "This essay seems to say, \"people don't matter; all that matters is truth.\" And that all the policy decisions should follow from that assumed value.\nYikes. I fear for what mathematics will become if that becomes the majority viewpoint."
+        },
+        {
+          "id": 50343341,
+          "author": "WindyTree",
+          "text": "That’s a great paper, I was tripping on these same thoughts last night. The thing that rang true was kind of getting back to these roots, the Philo-Sophia as love of knowledge, and a community that loves knowledge. It doesn’t matter if one guy has a 70 IQ and loves fables, or another is 170 and loves something I can’t comprehend, they are one family. I was as also thinking about old school ideas of wisdom vs plain intelligence. I had this powerful experience during Covid of finding music someone had made from sequencing the DNA of the virus, sitting there sick listening to the virus, singing the song of its people. It struck me that intelligence isn’t something we have, it’s an attribute of nature that can flow through us, something self standing out there. To be able to listen and receive it from nature is the root of learning, while to believe that you have intelligence, not nature, is the root of stupidity. The awareness was something different from anything I had known, I was never smart, I was floating in an ocean of intelligence blocking myself off from receiving by believing I was smart. Whoops! It felt like true wisdom to realize I was stupid and let it flow through me. Tha"
+        },
+        {
+          "id": 50342187,
+          "author": "abstractbill",
+          "text": "This is one of the best posts I've seen on this topic in a while.\nI finished a math PhD before I decided to get out of academia and into startups. Since then, the older I get the more of a Platonist I become,\nespecially\nnow that I've taught my daughters a bunch of math (I'm their homeschool math+science teacher). And the more of a Platonist I become, the less I care about\nwho\nmade a particular discovery. Who cares?! It seems obvious (and quite beautiful) to me now that the same discoveries must be getting repeated again and again across the universe by alien mathematicians, and eventually by their AIs."
+        },
+        {
+          "id": 50342510,
+          "author": "Waterluvian",
+          "text": "Watching Star Trek TNG as a kid, I vividly recall hearing Geordi or Data often say things like \"run a level 3 diagnostic on the Worf Barrels\" or whatever to the computer and wonder what the heck that would even be. I wondered where are all ship devops and programmers were hidden. Though I recall the one accurate part was Barclay in the Holodeck spending most of the time setting up his IDE.\nNow I think I kind of have an answer. Maybe the level of diagnostic refers to the LLM effort level.  Great. So then what are all the people on the Enterprise actually doing? My guess is they're all just being people and doing people stuff like exploring the galaxy and smugfacing the Romulans.  It would be easier to just create a race of Datas to do it safer. The Datas could probably be Bluetoothed to the Ship's Computer for even more optimization.\nI think some of the struggle is that as we summit each subsequent hill of challenge, the sunset (or is it a sunrise?) is becoming inescapably bright. We're faced with that big ol' \"what's the point of all this?\" question. What's the point of studying math? What's the point of exploring the galaxy? What's the point of standing under a stack of blue barre"
+        },
+        {
+          "id": 50342900,
+          "author": "bobajeff",
+          "text": "From the outside seeing academics wash over concerns and debates about this it's helped me sort of get more comfortable with around my own questions about what I want from math and computers. What I've come to realize it's that I just want tools that do a job and enjoy learning them. I also get gratification of being creative with them. I'm not in it for expanding human knowledge or seeing the beauty in the universe or the pleasure of understanding something difficult."
+        },
+        {
+          "id": 50344786,
+          "author": "anonymousDan",
+          "text": "Omg such AI written slop. I read it three times and am none the wiser what his point is."
+        }
+      ],
+      "title_ja": "AI時代のエゴレス数学",
+      "summary_ja": "ディスカッションハイライト：人間の追求は、それを追求する人間と切り離すことはできない/Terry Taoのブログによると、彼は強制的な自己主導型認知行動療法に従事しているようで、新しい枠組みを開発しながら損失と折り合いをつけようとしているf/このエッセイは、「人は重要ではない。重要なのは真実だけだ」と言っているようです。 そして、すべての政策決定は、その想定された値に従うべきである。\nYikes",
+      "editor_note": "「AI時代のエゴレス数学」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 50338728,
+      "title_en": "Ask HN: Who is hiring? (November 2026)",
+      "url": "https://news.ycombinator.com/item?id=50338728",
+      "hn_url": "https://news.ycombinator.com/item?id=50338728",
+      "score": 151,
+      "comment_count": 126,
+      "posted_at": "2026-11-02T16:01:37+00:00",
+      "comments": [
+        {
+          "id": 50345025,
+          "author": "kollmar28",
+          "text": "Railway | Senior Growth Marketer, Senior Product Marketer, Account Executive, Scale, Senior Product Eng (full-stack) | REMOTE (Worldwide) |\nhttps://railway.com/careers\nDo you feel scared and alone when opening the AWS console? Do you wish you could just tell Claude to manage your infra, and it would just work? Do you dream of a future where software is abundant and developers and normies alike are free to build their wildest dreams?\nWe're Railway, and we think infrastructure can be better. We're working at the forefront distributed systems engineering, interface design, and agentic computing to bring about the infrastructure platform we've always wanted. So far we've built out a platform loved by 4M+ users and we're just getting started.\nFair warning! The problems are complex: racking and stacking servers, home-rolled hypervisors, cut-above container orchestration, over/under/whateverlay networks, virtio device drivers, edge proxies, IAM that doesn't suck, kitchen sinks - we need to build it and we're looking for likeminded individuals who think this stuff is fun.\nFour open roles (apply below!):\n+Senior Growth Marketer:\n-Apply here: (\nhttps://railway.com/careers/growth-marketer\n)\n+"
+        },
+        {
+          "id": 50344968,
+          "author": "spoofyroot",
+          "text": "Meta | Security Engineer (Senior / Staff) | ONSITE Bellevue, Menlo Park, New York, Washington DC — Staff role also REMOTE (US) | Full-time\nMeta's Central Security team is hiring Security Engineers at two levels (same team, same work):\n- Senior (IC5):\nhttps://www.metacareers.com/profile/job_details/140745796424...\n- Staff (IC6):\nhttps://www.metacareers.com/profile/job_details/548694391486...\nWe find weaknesses before attackers do, then build the solutions that eliminate them. You'll be the expert engineering and product teams turn to for AI security and native-code security guidance, providing security guidance on a constant stream of new products, leading internal security/privacy initiatives, assessing and responding to internet threats, and conducting security assessments specializing in mobile platform and application code. The work protects 3B+ people.\nLooking for: B.S./M.S. in CS or equivalent experience; 6+ years (IC5) / 8+ years (IC6) in security engineering (vuln research, pentesting, or assessments of production systems); 4+ years reviewing C/C++ with secure coding practices; programming in Python/C++ or similar; security architecture and least-privilege experience on inte"
+        },
+        {
+          "id": 50344816,
+          "author": "bshul-silkline1",
+          "text": "Silkline | Software Engineer, Deployment Strategist | Chicago, Seattle | ONSITE | $150k-$225k + equity |\nhttps://silkline.ai\nPO #HN-2611\nSupplier:  you\nLine 1:    Software Engineer        qty 1\nLine 2:    Deployment Strategist    qty 1\nNeed-by:   yesterday\nStatus:    AWAITING SUPPLIER ACK\nEvery hardware buyer knows this PO. It goes out, and then nothing happens: no ack, no ship date, just chasing over email while the spreadsheet and the ERP disagree. Silkline is the AI operating system for procurement at companies building satellites, launch vehicles, reactors, and robots (Machina Labs, Astranis, K2 Space, Castelion, Antares). We 5x'd our customer base, and our customers' parts can't wait.\n- Software Engineer/FDE: 5+ yrs full-stack, 0-1 product, fast with APIs (bonus: ERPs). TypeScript, React, Next.js, GraphQL, Trigger.dev.\nhttps://jobs.gem.com/silkline/am9icG9zdDrLwsEQTKKa02Ut_F9kgz...\n- Deployment Strategist (new): own customers from signed contract to go-live. Map ERP/PLM/MES data into Silkline, write the SQL, and find out why the PO isn't syncing. Two paths in: ERP/MES implementer or forward-deployed engineer. 4+ years; travel to customer sites.\nhttps://jobs.gem.com/silkline\nBo"
+        },
+        {
+          "id": 50344646,
+          "author": "mooreds",
+          "text": "FusionAuth | Senior/Staff Java Engineers, Account Executive | Varies between REMOTE (in Europe but only for the account exec position) and ONSITE in Denver, CO, USA, details in each job desc | Salary ranges for the Java Engineers range from 140k-230k, but the Euro positions don't have them :(\nAt FusionAuth, our mission is to make authentication and authorization simple and secure for every developer building web and mobile applications. We want devs to stop worrying about auth and focus on building something awesome.\nThere are a lot of companies in the auth space, but we feel like we have something special:\n* a relatively unique deployment model (self-host on-prem, run in your cloud or let us operate it for you in ours)\n* A well designed API first approach; one customer compared our APIs to petrichor\n* a mature product (the code base is nine+ years old and we've found and fixed a lot of the sharp edges around core login use cases, but don't worry, there are plenty more features to add)\n* a full featured free-as-in-beer version which makes the sales cycle easier; prospects often come in having prototyped an integration\nOur core software is commercial. We open source much of our supp"
+        },
+        {
+          "id": 50344480,
+          "author": "JulianWasTaken",
+          "text": "Quantum Rise | Chicago IL or Remote (US, Brazil or EU) | Full-time | No visa sponsorship |\nhttps://www.quantumrise.com/\nQuantum Rise is an AI-forward consulting startup serving the mid-market in the US and larger enterprises in LATAM. We see companies in multiple industries struggling to understand how to leverage artificial intelligence in their day-to-day operations, trying to understand what their existing workforce now needs to know, or trying to understand whether they're about to be disrupted and need to change how their existing processes work. Many have business problems which \"traditional\" machine learning could help with even prior to the current GenAI hype cycle, but for whatever reason hadn't prioritized doing until now. Many have employees looking to incorporate agentic AI safely and effectively across different business areas. We try and help getting a handle around these issues and designing outcome-driven solutions.\nAgentic AI Engineer: You'll work directly with clients to benchmark, train and deploy agentic systems for industry-specific problems. We're looking for someone deeply embedded in agentic engineering practice across vendors and platforms. Companies are lo"
+        },
+        {
+          "id": 50344773,
+          "author": "r3tr0",
+          "text": "yeet | Chicago, IL / Remote | Full-Time\nBuilding a dynamic runtime on top of the Linux BPF sub-system. Looking for extremely talented / passionate product managers with a deep interest in Linux internals, Distributed Systems, Dev Tools, Great Developer Experiences and Systems programming.\nFeel free to tell us all about your favorite GNU core utilities / Linux system calls / kernel sub-systems at: work [at] yeet.cx\nYou can visit us at\nhttps://yeet.cx/\nFor more jobs check out\nhttps://yeet.cx/careers"
+        },
+        {
+          "id": 50343313,
+          "author": "enthoughtjobs",
+          "text": "Enthought | Tokyo, Japan | Full-time | HYBRID |\nhttps://enthought.jp/careers\nEnthought builds science-first AI and scientific software for enterprise R&D in materials science and chemistry, semiconductors, life sciences, and energy. We're a pioneer of the scientific Python ecosystem, and every role here works agent-first, using AI tools as the default way to get the work done.\n- Senior Infrastructure Engineer | Salary: ¥10M to ¥14M per year |\nhttps://careers.enthought.com/jobs/senior-infrastructure-eng...\nScientific Software Developer | Salary: ¥8M to ¥12M per year |\nhttps://careers.enthought.com/jobs/scientific-software-devel...\nScientific Software Developer, Materials | Salary: ¥8M to ¥12M per year |\nhttps://careers.enthought.com/jobs/scientific-software-devel..."
+        },
+        {
+          "id": 50344339,
+          "author": "kaveronix",
+          "text": "*Data Engineer — Remote — US Only*\nKaveronix is looking for experienced Data Engineers currently based in the United States for fully remote opportunities with our client organizations.\n*What we’re looking for:*\n- 4+ years of professional data engineering experience\n- Strong experience with data pipelines, ETL/ELT processes, and data integration\n- Experience with technologies such as Python, SQL, Apache Spark, Snowflake, AWS, Azure, Google Cloud, or Databricks is a plus\n- Strong understanding of data warehousing, database management, and data modeling\n- Strong communication and problem-solving skills\n- Ability to work independently in a remote environment\n*What we offer:*\n- Fully remote work\n- Flexible working hours\n- Competitive compensation based on experience\n*Compensation:* $80,000–$100,000/year, depending on experience.\nIf you're interested, please send your resume to hassan.amir@kaveronix.com"
+        }
+      ],
+      "title_ja": "HNに尋ねる：誰が採用しているのか？ （ 2026年11月）",
+      "summary_ja": "ディスカッションハイライト：鉄道|シニアグロースマーケター、シニアプロダクトマーケター、アカウントエグゼクティブ、スケール、シニアプロダクトエンジン（フルスタック） |リモート（ワールドワイド） |\nhttps://railway.com/careers\n/Meta |セキュリティエンジニア（シニア/スタッフ）|オンサイトベルビュー、メンローパーク、ニューヨーク、ワシントンDC —スタッフの役割もリモート（米国）|フルタイム\nMetaのセントラルセキュリティチームは、Se/Silklineを採用しています|ソフトウェアエンジニア、展開ストラテジスト|シカゴ",
+      "editor_note": "「HNに尋ねる：誰が採用しているのか？ （ 2026年11月）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50341028,
+      "title_en": "Sneaking into the auditorium for the Windows 2000 launch rehearsal",
+      "url": "https://devblogs.microsoft.com/oldnewthing/20261102-00/?p=112818/",
+      "hn_url": "https://news.ycombinator.com/item?id=50341028",
+      "score": 80,
+      "comment_count": 26,
+      "posted_at": "2026-11-02T18:12:48+00:00",
+      "comments": [
+        {
+          "id": 50343776,
+          "author": "criemen",
+          "text": "> Remember infrared file sharing? Of course you don’t.\nHey, I played with that when I was approximately 8 years old! Also: wireless printing via infrared, instead of those huge parallel printer cables."
+        },
+        {
+          "id": 50341593,
+          "author": "yodon",
+          "text": "Raymond Chen is one of the great treasures of the web."
+        },
+        {
+          "id": 50342318,
+          "author": "michalpleban",
+          "text": "Of course I remember IR file sharing! And contact beaming from Palm devices."
+        },
+        {
+          "id": 50343246,
+          "author": "xfax",
+          "text": "I am amazed at how he recalls events, issues, incidents etc. with such detail decades after they happened. I can’t seem to remember things well that happened 6 months ago.\nDoes anyone have a system they use to help with such rich recollection?"
+        },
+        {
+          "id": 50341901,
+          "author": "mschuster91",
+          "text": "> The sketch demonstrated infrared file sharing and other mobile scenarios. Remember infrared file sharing? Of course you don’t.\nOh hell yes I do. Dog slow but at least it worked decently well, something I can't say about Bluetooth."
+        },
+        {
+          "id": 50342103,
+          "author": "jeffrallen",
+          "text": "I remember waiting for IR file sharing. It was SLOW."
+        }
+      ],
+      "title_ja": "Windows 2000起動リハーサルのために講堂に忍び込む",
+      "summary_ja": "ディスカッションのハイライト：>赤外線ファイル共有を覚えていますか？ そうでしょうね。\nねえ、8歳くらいの時にそれで遊んだのよ！ また、巨大なPARの代わりに赤外線を介したワイヤレス印刷/レイモンド・チェンはウェブの偉大な宝物の1つです。 /もちろんIRファイル共有は覚えています！ そして、Palmデバイスからのビームにコンタクトします。",
+      "editor_note": "「Windows 2000起動リハーサルのために講堂に忍び込む」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50341462,
+      "title_en": "Ubuntu still has not released patch for Linux 0day RCE in almost 3 weeks",
+      "url": "https://freenode.net/article/ubuntu-lts-kernels-still-unfixed-for-critical-cve-2026-98432",
+      "hn_url": "https://news.ycombinator.com/item?id=50341462",
+      "score": 203,
+      "comment_count": 34,
+      "posted_at": "2026-11-02T18:39:38+00:00",
+      "comments": [
+        {
+          "id": 50343405,
+          "author": "c0l0",
+          "text": "It's rather uninteresting to note, once again, that Ubuntu has decided to do this. I would like to know the (official, if any - unofficial/speculative otherwise) reason WHY they have not.\nIt does not seem that complicated to patch, and kernel upgrades are a dime a dozen these days. So what is making them delay a fix for so long?"
+        },
+        {
+          "id": 50344588,
+          "author": "pelagicAustral",
+          "text": "I have not seen an exploit in the wild. I have at least 20 different servers unpatched (obviously) but the risk is blown way out of proportion. There are a number of mitigation options available."
+        },
+        {
+          "id": 50341463,
+          "author": "majorchord",
+          "text": "They also don't provide any mitigation possibilities or instructions... RHEL has one method here:\nhttps://access.redhat.com/security/vulnerabilities/RHSB-2026...\nHowever they also claim the mitigation \"reduces exposure to this vulnerability but cannot fully prevent it\", without elaborating on what that means or how it would be possible... I've also not seen anyone else make this claim."
+        },
+        {
+          "id": 50341542,
+          "author": "gnabgib",
+          "text": "Discussion (842 points, 422 comments)\nhttps://news.ycombinator.com/item?id=50337608"
+        },
+        {
+          "id": 50344511,
+          "author": "snapplebobapple",
+          "text": "Does ucore hace a patch yet? I justfinished moving all my stuff off ubuntu to ucore last week"
+        },
+        {
+          "id": 50344079,
+          "author": "warpspin",
+          "text": "It's not a zero-day if it's not the zeroth day anymore :-)"
+        },
+        {
+          "id": 50344428,
+          "author": "TutleCpt",
+          "text": "switched to Debian not that long ago. Living the life now."
+        },
+        {
+          "id": 50342663,
+          "author": "superkuh",
+          "text": "For those not aware: Freenode.net is not Freenode as we all knew and loved it from the early 2000s to 2021. A hostile take-over of the Freenode LLC resulted in the loss of the domain name and some corporate assets. And the hostile takeover person, Andrew Lee, deleted the Freenode database. It no longer exists.\n\"Freenode\" in 2026 is an entity actively hostile to open source software and while what they say here might be true, they are only saying it because it aligns with their biases. They are not a real news source.\nMy mitigation for this lack of patches has been using iptables.\niptables -A INPUT -p tcp -m u32 --u32 \"0>>24&0xF=6:15\" -j DROP"
+        }
+      ],
+      "title_ja": "Ubuntuは3週間近くLinux 0 day RCE用のパッチをまだリリースしていません",
+      "summary_ja": "ディスカッションのハイライト： Ubuntuがこれを行うことを決定したことに注意するのはかなり面白くありません/私は野生のエクスプロイトを見ていません/彼らはまた、緩和の可能性や指示を提供していません..",
+      "editor_note": "「Ubuntuは3週間近くLinux 0 day RCE用のパッチをまだリリースしていません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 13,
+      "id": 50342284,
+      "title_en": "Oracle files to sell $20B in new stock, bonds to finance AI buildout",
+      "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50342284",
+      "score": 115,
+      "comment_count": 77,
+      "posted_at": "2026-11-02T19:27:37+00:00",
+      "comments": [
+        {
+          "id": 50344115,
+          "author": "seatac76",
+          "text": "Things I hope for:\n- Oracle defaulting on its debt commitments.\n- Anti trust action into Skydance forcing a breakup.\n- Larry forced to cover the difference by selling family silver.\n- Lanai going back into the hands of the people of Hawaii.\nJust for the laughs and for forcing me to bear with some of the worst applications of all time."
+        },
+        {
+          "id": 50343349,
+          "author": "flowerlad",
+          "text": "Oracle does not have any proprietary IP that OpenAI depends on. That means Oracle is providing commodity services to OpenAI.\nAI hardware is advancing rapidly. If NVIDIA's next generations deliver radically more tokens per watt and per dollar, an Oracle facility designed, financed, and contracted around an older GPU generation can be overtaken before it is fully online or fully monetized.\nThat's a big risk.\nAnd to finance this they are making deep cuts to the ERP business where Oracle does have proprietary IP."
+        },
+        {
+          "id": 50343705,
+          "author": "Qiu_Zhanxuan",
+          "text": "A company that is purely in Denial, even doubling down at the risk of toppling the whole financial system should be placed under the financial equivalent of arrest and its leadership actually arrested. They're obviously playing with fire and it's alarming that no one's in the administration is batting an eye."
+        },
+        {
+          "id": 50344976,
+          "author": "amelius",
+          "text": "Are they going to build a lawyer AI? They have the data for it."
+        },
+        {
+          "id": 50342774,
+          "author": "dcrazy",
+          "text": "Half of that would be in stocks, resulting in 2.5% dilution for shareholders at the current market cap. But the stock is down 8%."
+        },
+        {
+          "id": 50344122,
+          "author": "Danox",
+          "text": "Oracle begging couldn’t happen to a nicer company, the only thing that can be said is bubble, bubble bubble…"
+        },
+        {
+          "id": 50343214,
+          "author": "baggachipz",
+          "text": "I would assume it's to hire more lawyers."
+        },
+        {
+          "id": 50344146,
+          "author": "vb-8448",
+          "text": "At this point it's a race between \"how much money are left in the market\" and  \"profitability\". And both are hard to predict."
+        }
+      ],
+      "title_ja": "オラクルは200億$の新株を売却し、AI構築の資金調達のために債券を発行",
+      "summary_ja": "ディスカッションのハイライト：私が望むこと：\n-オラクルが債務コミットメントを不履行している。\n-スカイダンスへのアンチトラストアクションにより、解散を余儀なくされます。\n-ラリーは、家族の銀を売却することによって差額をカバーすることを余儀なくされました/オラクルは、OpenAIが依存する独自の知的財産を持っていません/純粋に拒否されている企業は、金融システム全体を転覆させるリスクを冒して倍増することさえも、逮捕とその指導者の財政的同等物の下に置かれるべきです",
+      "editor_note": "「オラクルは200億$の新株を売却し、AI構築の資金調達のために債券を発行」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 50337608,
+      "title_en": "WTF Ubuntu?",
+      "url": "https://chalmovsky.com/posts/wtf-ubuntu",
+      "hn_url": "https://news.ycombinator.com/item?id=50337608",
+      "score": 1204,
+      "comment_count": 565,
+      "posted_at": "2026-11-02T14:52:00+00:00",
+      "comments": [
+        {
+          "id": 50338289,
+          "author": "BoppreH",
+          "text": "Worse yet, the Ubuntu security incident page[0] lists \"Ubuntu Priority: High\" (as opposed to Critical, which would trigger an out-of-schedule patch). There's a \"Why this priority?\" link that simply says:\n> Why is this CVE high priority?\n> See ubuntu cvss score\nThat's it, we don't even get a period on this TBD of a sentence. It's followed by a generic link that explains what \"Ubuntu Priority\" is, but that page contradicts their choice. Note that it doesn't offer any mitigations either, and even the (horrendously unclear) description is copied from the NIST page, so there's no actual message from Ubuntu.\nI already had a bad feeling the first time I saw \"Get more security updates through Ubuntu Pro\" on `apt upgrade`, this is now the kick I needed to move to a different distro.\n[0]\nhttps://ubuntu.com/security/CVE-2026-98432#priority-reason"
+        },
+        {
+          "id": 50338468,
+          "author": "throw0101c",
+          "text": "For the record, the kernels with the fixes are in the \"proposed\" repos for each LTS release:\n*\nhttps://launchpad.net/ubuntu/+source/linux\nYou can pull them down with a \"-t\" added to your\napt-get\n(but will not appear by default).\n26LTS had the new kernel go to the updates/security repos on October 28."
+        },
+        {
+          "id": 50343162,
+          "author": "alentred",
+          "text": "To be fair: while critical (9.8) it has an EPSS score of <1% (probability of it being actually used). According to [1], [2], and others, at worst the issue results in a kernel crash or a denial of service. I read the post by Anthropic too, but something just doesn't reconcile there between everyone saying its a DoS, and Anthropic alone claiming RCE. So far the advisories I read state \"under specific conditions ... result in a kernel crash\" and similar.\n[1]\nhttps://app.opencve.io/cve/CVE-2026-98432\n[2]\nhttps://aws.amazon.com/security/security-bulletins/2026-160-..."
+        },
+        {
+          "id": 50338414,
+          "author": "paxy",
+          "text": "It’s okay to have criticism, but at least be constructive about it. This “I demand to speak to the manager” energy should be kept out of open source.\nThe post gives no details about what this vulnerability is, how critical it is, how it is impacting them personally, how vulnerable their servers are, how they are working around it.\nJust a title designed to generate the maximum outrage followed by a few meaningless lines."
+        },
+        {
+          "id": 50337952,
+          "author": "vanschelven",
+          "text": "I knew what this is about before clicking the link. While trying to find remediations for vulnerable systems I was also looking for any kind of \"official\" statement on literally WTF is going on here from the Ubuntu side, but I haven't been able to find one yet. I guess it has to go through the \"hacker news puts enough attention on it for someone to care\" phase which we all know so well..."
+        },
+        {
+          "id": 50337933,
+          "author": "StrLght",
+          "text": "Have companies been compromised because of this vulnerability? Ubuntu has an absolutely massive install base. The lack of notable incidents suggests that 9.8 might not reflect real-world well.\nMaybe it's time for StealMyBitcoinV2…"
+        },
+        {
+          "id": 50343071,
+          "author": "strenholme",
+          "text": "Well, I did it.  This was the straw that broke the camel’s back: I have moved over to Rocky Linux.  Took me maybe four hours to do the full transition.\nI am more a RedHat user, and Ubuntu never felt really comfortable for me.  I don’t like having to do incremental upgrades every two years or so; I would rather do a single big upgrade about once every 7-8 years and have a rock solid development environment.  Also, `dnf` is simpler and more stable than the mess of `apt-get` and `unattended-upgrades`."
+        },
+        {
+          "id": 50337998,
+          "author": "strenholme",
+          "text": "Here is Ubuntu’s webpage on this vulnerability:\nhttps://ubuntu.com/security/CVE-2026-98432\nIt’s still, over a week after disclosure and patches, unpatched in Ubuntu.\nAs for me, a part of me wants to move over to Rocky Linux 10."
+        }
+      ],
+      "title_ja": "WTF Ubuntu ？",
+      "summary_ja": "ディスカッションのハイライト：さらに悪いことに、Ubuntuセキュリティインシデントページ[0]には「Ubuntuプライオリティ：高」がリストされています（スケジュール外のパッチがトリガーされるクリティカルとは対照的）/記録として、修正されたカーネルは各LTSリリースの「提案された」リポジトリにあります。\n*\nhttps://launchpad.net/ubuntu/+source/linux\n「- t」を追加してそれらを引き下げることができますt/公平に言えば：重要（ 9.8 ）である間、EPSSスコアは< 1 ％ （それがアクチュアルである確率）です",
+      "editor_note": "「WTF Ubuntu ？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 50340992,
+      "title_en": "Skill to Create Product Videos",
+      "url": "https://github.com/aaitor/skill-video-studio",
+      "hn_url": "https://news.ycombinator.com/item?id=50340992",
+      "score": 47,
+      "comment_count": 15,
+      "posted_at": "2026-11-02T18:10:39+00:00",
+      "comments": [
+        {
+          "id": 50340993,
+          "author": "aaitor",
+          "text": "Every time I created new products my focus always went first (wrongly) to building instead to distributing and helping others to use what I created.\nAfter building my thing and having all the excitement of seeing the new toy working, the promotional and communication part always felt more like an obligation, and most of the times was neglected. I always struggled to create manuals,\nvideos, support content, etc.\nSo I open sourced a skill for Claude Code that helps in that last part. With some instructions and this skill, you can create product demo videos. With professional voice overs, and subtitles in different languages. Combining the browser and the terminal. Everything controlled from your AI. For example, the clip in this post was made with it.\nIt's not going to do distribution for you, but it's a start ;)\nhttps://github.com/aaitor/skill-video-studio"
+        },
+        {
+          "id": 50343838,
+          "author": "solatic",
+          "text": "I'm not using this specifically (I'm targeting native apps, not web apps, so Playwright is irrelevant to my stack), but I'm building out (as part of a pre-existing and unrelated project) something very similar (for that project) - having Claude write the script that steps through product usage and captures a recording of it.\nHaving product videos on your marketing site that are missing everything new that you built in the last six months because, what, you can't be bothered to manually record them for every release, you wouldn't over-engineer things by writing a script for it because you have more important things to build... seems like a very 2025, pre-AI opinion."
+        },
+        {
+          "id": 50343918,
+          "author": "coreylane",
+          "text": "Very interesting, thanks. I just started using claude code to drive filmcraft-cli for producing product videos, using elevenlabs for voiceover. The only part Ive been doing myself is the actual screen recording on mobile, but maybe cc can do that part too somehow. One of my recent edits\nhttps://www.instagram.com/p/DfJrVhwMSLP/\nhttps://github.com/storytold/filmcraft"
+        },
+        {
+          "id": 50343563,
+          "author": "gopalv",
+          "text": "This is the sort of skill which is worth building specifically for your corporate style and under your sales team's guidance.\nI have one[1] for my demos, which uses computer use + ffmpeg used the way I like it to be.\nWhenever my team goes out to a conference or other sales event, they carry with them a \"booth\" package [2] made out of the demos. The companies and use-cases are pulled the weekend before.\n[1] -\nhttps://gist.github.com/5d4cb99549f7e81a1433a4a13b20622c\n[2] -\nhttps://demos.isotopes.ai/pages/chicago-booth/#walmart"
+        },
+        {
+          "id": 50343483,
+          "author": "jmathai",
+          "text": "I started doing this for my product's instagram account (not using this skill).\nhttps://www.instagram.com/trysojourn/"
+        },
+        {
+          "id": 50344512,
+          "author": "jackfreeman",
+          "text": "I've found Claude (Opus 5.5) to be pretty good at this right out of the box, no skills required."
+        },
+        {
+          "id": 50343805,
+          "author": "TomGarden",
+          "text": "Thanks for sharing, but did you even watch your example output[0]? The voiceover is cut off, the drums are out of sync with the rest of the music (rushing).\n[0]\nhttps://www.youtube.com/watch?v=H6npd3uuqls"
+        },
+        {
+          "id": 50343963,
+          "author": "tantalor",
+          "text": "Oh, that kind of product. I was thinking e-commerce product videos."
+        }
+      ],
+      "title_ja": "製品ビデオを作成するスキル",
+      "summary_ja": "ディスカッションのハイライト：新製品を作成するたびに、私は常に最初に（間違って）自分が作成したものを配布し、他の人が使用できるように支援することに焦点を当てました。\n私のものを構築した後、/私はこれを具体的に使用していません（私はウェブアプリではなくネイティブアプリをターゲットにしているので、Playwrightは私のスタックとは関係ありません）が、私は構築しています（既存の無関係なPRの一環として/非常に興味深い、ありがとう",
+      "editor_note": "「製品ビデオを作成するスキル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50340159,
+      "title_en": "Polyend releases the Tracker firmware source code",
+      "url": "https://polyend.com/whats-up/tracker-the-biggest-update-yet/",
+      "hn_url": "https://news.ycombinator.com/item?id=50340159",
+      "score": 49,
+      "comment_count": 8,
+      "posted_at": "2026-11-02T17:20:13+00:00",
+      "comments": [
+        {
+          "id": 50344742,
+          "author": "gregsadetsky",
+          "text": "Relatedly, Erika Synths released the source code of the LXR-02 very recently as well:\nhttps://www.ericasynths.lv/news/post/lxropen\n(I/AI had fun porting it to wasm/web! I don't want to seem too self-link'y, so if anyone asks, happy to share the link)\nI also have a Polyend Tracker for sale if anyone's in the market..! It's a great device, I'm just trying to focus on having less right now."
+        },
+        {
+          "id": 50344635,
+          "author": "sebastienbarre",
+          "text": "For people afraid of bricking their units, I can't stress enough how groundbreaking it is that they're acknowledging that risk and still offering to repair your unit. You pay of course, because this is a risk\nyou\ntook, but at least they will have a look at it:\n\"Out-of-Warranty Repairs Available: In the unlikely event that something ever goes wrong with your hardware while using custom firmware, it is not covered under standard warranty. However, Polyend is always happy to help get your instrument back up and running through its official out-of-warranty repair service (standard service, parts, and shipping fees apply.\""
+        },
+        {
+          "id": 50344353,
+          "author": "dimatura",
+          "text": "The avalanche of reverse engineered/custom firmwares is definitely changing the synth landscape. I'm wondering how many other companies will start open sourcing. It isn't always trivial since sometimes there's proprietary software components or toolchains that can't be open sourced. But it's hard to imagine it won't be more common.\nThere's a lot of mixed feelings in the community. A lot of musicians don't like AI, but they do want to have more features and bug fixes. A lot of synth makers are probably ambivalent too, especially if they have a stronger vision of what the synths should be that custom firmware ignore. Not to mention the commercial implications of adding features into existing synths, possibly making newer models less appealing. And of course people are copying UIs and workflows from other synths that took a lot of work to develop."
+        },
+        {
+          "id": 50344230,
+          "author": "girvo",
+          "text": "I'm glad! It makes sense though: the community has been reverse engineering it and building their own with LLM help lately. I love my Tracker+, such a neat bit of kit, and I'm excited to see what we can do now the firmware is open"
+        },
+        {
+          "id": 50343435,
+          "author": "viraptor",
+          "text": "\"Click to accept marketing cookies and enable this content\" on a video? Have some shame, developers..."
+        },
+        {
+          "id": 50344775,
+          "author": "nullstyle",
+          "text": "Looks like my Tracker is getting promoted from drawer jockey to the main jamspot in my music setup, and I've got a weekend project to take on.\nI love to see this new trend in the electrical musical implement industrial complex."
+        }
+      ],
+      "title_ja": "PolyendがTrackerファームウェアのソースコードをリリース",
+      "summary_ja": "ディスカッションハイライト：関連して、Erika SynthsはLXR -02のソースコードもごく最近リリースしました。\nhttps://www.ericasynths.lv/news/post/lxropen\n（ I/AIはwasm/webへの移植を楽しんでいました！ 私は望んでいません/ユニットをレンガ造りすることを恐れている人々にとって、そのリスクを認識し、まだユニットの修理を申し出ていることがどれほど画期的であるかを強調することはできません/リバースエンジニアリング/カスタムファームウェアの雪崩は間違いなく変化しています",
+      "editor_note": "「PolyendがTrackerファームウェアのソースコードをリリース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50339827,
+      "title_en": "Bitmovin (YC S15) Is Hiring Technical Graduates in Denver (Engineering/CS Focus)",
+      "url": "https://bitmovin.com/careers/8660599002/",
+      "hn_url": "https://news.ycombinator.com/item?id=50339827",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-11-02T17:00:41+00:00",
+      "comments": [],
+      "title_ja": "Bitmovin （ YC S 15 ）がデンバーで技術系卒業生を採用（エンジニアリング/CSフォーカス）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Bitmovin （ YC S 15 ）がデンバーで技術系卒業生を採用（エンジニアリング/CSフォーカス）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50330033,
+      "title_en": "When Modernization Breaks Working Code: A Study of LLMs on Legacy PHP",
+      "url": "https://arxiv.org/abs/2610.40269",
+      "hn_url": "https://news.ycombinator.com/item?id=50330033",
+      "score": 7,
+      "comment_count": 0,
+      "posted_at": "2026-11-01T21:22:28+00:00",
+      "comments": [],
+      "title_ja": "モダナイゼーションが作業コードを破るとき：レガシーPHP上のLLMの研究",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「モダナイゼーションが作業コードを破るとき：レガシーPHP上のLLMの研究」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50340619,
+      "title_en": "Self-Employed? Solopreneur? NIST Has a Cybersecurity Guide Just for You",
+      "url": "https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
+      "hn_url": "https://news.ycombinator.com/item?id=50340619",
+      "score": 32,
+      "comment_count": 8,
+      "posted_at": "2026-11-02T17:47:40+00:00",
+      "comments": [
+        {
+          "id": 50344207,
+          "author": "xvxvx",
+          "text": "‘a lay-language resource‘.\nIMO this misses the mark. Yes, it’s a decent attempt at simplifying cybersecurity, but if this is aimed at entry-level, non-technical people, it’s not gonna work.\nOne of my earliest jobs was to redesign training materials for one of the worlds largest companies. I stripped the training to its core, the true basics, and started there. The results were remarkable. I feel the urge to do the same with this document…"
+        },
+        {
+          "id": 50344984,
+          "author": "tkdb",
+          "text": "I'm not a security expert.\nRequests for comments from career security experts: is this any good?"
+        },
+        {
+          "id": 50344808,
+          "author": "philosopherNoob",
+          "text": "This is my first time seeing “SI” in the wild. That is such a wrong term. It’s jargon in a place where it doesn’t belong.\nIt’s a darn fancy algorithm and a cool tool. Putting it on a pedestal instead of grounding it to reality is not going to help anyone. My condolences to the authors."
+        },
+        {
+          "id": 50344854,
+          "author": "alhirzel",
+          "text": "I wonder how this relates to the ongoing ambiguity with CMMC 2.0 rollout."
+        },
+        {
+          "id": 50344617,
+          "author": "312c",
+          "text": "Guide loses all credibility when it uses \"Super Intelligence\""
+        }
+      ],
+      "title_ja": "自営業？ソロプレナー？ NISTはあなたのためのサイバーセキュリティガイドを用意しています",
+      "summary_ja": "ディスカッションのハイライト：「素人の言語リソース」。\nIMOこれはマークを外しています/私はセキュリティの専門家ではありません。\nキャリアセキュリティエキスパートからのコメント依頼：これは良いことですか？ /野生で「SI」を見るのは初めてです",
+      "editor_note": "「自営業？ソロプレナー？ NISTはあなたのためのサイバーセキュリティガイドを用意しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 20,
+      "id": 50337558,
+      "title_en": "We halved DNS build delay and cut memory use by 85%",
+      "url": "https://blog.cloudflare.com/dns-targeted-zone-builds/",
+      "hn_url": "https://news.ycombinator.com/item?id=50337558",
+      "score": 119,
+      "comment_count": 42,
+      "posted_at": "2026-11-02T14:47:28+00:00",
+      "comments": [
+        {
+          "id": 50339322,
+          "author": "thephyber",
+          "text": "I have been wondering if the memory scarcity would lead to a desire to optimize software to be more efficient.\nCurious what the R&D / efficiency development ROI is on reducing memory footprint. I suppose we should both consider current ROI and near future ROI (as the price of memory will likely stay high for at least another 1-2 years)."
+        },
+        {
+          "id": 50340012,
+          "author": "mhovd",
+          "text": "Cloudflare doesn't get enough credit for their series of overall great technical blog posts."
+        },
+        {
+          "id": 50339285,
+          "author": "InsidiousWombat",
+          "text": "Isn't 700 changes a second like... really low, considering their scale and amount of domains they manage ?"
+        },
+        {
+          "id": 50340544,
+          "author": "JulianPaul",
+          "text": "I'm very curious about the bugs (before vs. after relational) that come from an improvement like this over time"
+        },
+        {
+          "id": 50342229,
+          "author": "likoya",
+          "text": "I used to use cloudflare dns, but the same cloudflare harassed me the entire day testing if I'm a robot. The harassment ended after I switched the dns server. See you never again, clouflare"
+        }
+      ],
+      "title_ja": "DNSビルドの遅延を半減し、メモリ使用量を85%削減しました",
+      "summary_ja": "ディスカッションのハイライト：メモリ不足が、ソフトウェアをより効率的に最適化したいという欲求につながるのではないかと考えていました。\nR ＆ D/効率開発のROIがメモを減らすことに興味があります/Cloudflareは、全体的に優れた技術的なブログ投稿のシリーズに十分な信用を得ていません。 /1秒間に700の変更はありませんか..",
+      "editor_note": "「DNSビルドの遅延を半減し、メモリ使用量を85%削減しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50337661,
+      "title_en": "C64 Basic Dungeon Crawler: Stairs, Levels and Levelling Up (Part 11)",
+      "url": "https://retrogamecoders.com/c64-basic-dungeon-part11/",
+      "hn_url": "https://news.ycombinator.com/item?id=50337661",
+      "score": 51,
+      "comment_count": 8,
+      "posted_at": "2026-11-02T14:56:21+00:00",
+      "comments": [
+        {
+          "id": 50341274,
+          "author": "leoc",
+          "text": "A period, multiplatform alternative: Usborne's\nWrite Your Own Fantasy Games\nby Les Howarth and Cheryl Evans from 1984\nhttps://drive.google.com/file/d/0Bxv0SsvibDMTel93SThEYkJkZHc\n. (Generously provided by Usborne\nhttps://usborne.com/gb/books/computer-and-coding-books\n)"
+        },
+        {
+          "id": 50339630,
+          "author": "classichasclass",
+          "text": "For those as confused as I was, the BASIC as written will not run on a C64 (two immediate notes: BASIC 2.0 doesn't have labels, and a variable like STATS would be illegal because it clashes with the status word ST). This only works in their custom IDE which \"compiles\" (read \"adds line numbers, alters names and tokenizes\") it."
+        }
+      ],
+      "title_ja": "C 64ベーシック・ダンジョンクローラー：階段、レベルアップ、レベルアップ（パート11 ）",
+      "summary_ja": "ディスカッションハイライト：期間、マルチプラットフォームの代替： Usborne\n自分だけのファンタジーゲームを書こう\n1984年のLes HowarthとCheryl Evansによる\nhttps://drive.google.com/file/d/0Bxv0SsvibDMTel93SThEYkJkZHc\n /私と同じように混乱している人にとって、書かれているような基本はC 64上では実行されません（ 2つの即座の注意：基本2.0にはラベルがありません、そしてSTATSのような変数は違法です",
+      "editor_note": "「C 64ベーシック・ダンジョンクローラー：階段、レベルアップ、レベルアップ（パート11 ）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50339815,
+      "title_en": "My Favourite Laptop",
+      "url": "https://blog.jsbarretto.com/post/laptop",
+      "hn_url": "https://news.ycombinator.com/item?id=50339815",
+      "score": 144,
+      "comment_count": 106,
+      "posted_at": "2026-11-02T16:59:57+00:00",
+      "comments": [
+        {
+          "id": 50344989,
+          "author": "amatecha",
+          "text": "For anyone still running these older ThinkPads, where do you get new batteries from?  I've not yet replaced any of mine but the aftermarket world for these seems rife with super-sketchy knockoffs that I'm certain will not be trustworthy.  Any recommendations for known-good manufacturers of batteries for X230-X270 era?  I'm in NA but I don't really care where I have to order from, I just want batteries that actually even vaguely resemble OEM reliability."
+        },
+        {
+          "id": 50342967,
+          "author": "jasoneckert",
+          "text": "My daughter has the same laptop (I bought it for her a long time ago). When she brought it with her when visiting me in Canada from Australia this summer, she asked me to look at it because Win10 wouldn't let her in and she needed her files and pics.\nSo, I booted a Fedora USB and backed up her files. When I asked her if she wanted me to install Fedora Workstation on it to continue using it, she said \"Yes!\" because \"She loves this laptop and doesn't want to buy a new one.\"\nFedora runs beautifully fast on this system with 8GB of RAM and will probably last her a long time."
+        },
+        {
+          "id": 50344893,
+          "author": "amatecha",
+          "text": "Ah no way!  I figured it might be an old ThinkPad, but coincidentally it's the exact laptop on the desk next to me at this very moment!  In my case running OpenBSD rather than Linux, but still.  Oh and I've got i5-5300U vs. the OP's i5-5200U.  8GB as well which as OP says is plenty.  Good times :)   My only real criticism on this machine is the display, a bit low-res at 1366x768 and just not the nicest to look at, but definitely gets the job done.  To be fair I like the look & feel of the X230 better, but those are just really feeling the age even on a more efficient OS and lightweight GUI (i3 ftw)."
+        },
+        {
+          "id": 50344532,
+          "author": "qubex",
+          "text": "Siemens Nixendorf Scenic Mobile 300, 133 MHz Pentium (before we had to number them), 16 MB of RAM, 800×600 passive matrix LCD, released 1997. I caused a major scandal at my high school since nobody on the staff had ever contemplated the scenario whereby a student turned up with a computer of their own. I dual booted Windows NT 4.0 and Linux (2.2 kernel I think).\nOh, the simple things in life!"
+        },
+        {
+          "id": 50344179,
+          "author": "loph",
+          "text": "I have several Thinkpads, but my favorite is a T420s.\nAFAIK, it was the last of the line that had sculpted keytops, it feels good to type on.  It's a damned shame that the newer ones have those chicklet keys.\ni7 with 16GB RAM, HDD replaced with SSD.  Runs Fedora like a top."
+        },
+        {
+          "id": 50340878,
+          "author": "bityard",
+          "text": "My favorite laptop has consistently been the one that I can buy off the second-hand business surplus market for cheap, and has a plethora of replacement parts available on ebay. Up until the whole PC market got stupid about a year ago, anyway.\nMy current daily driver is a Dell Precision 7550. It has a nice 15\" display, touchpad buttons with a middle-mouse button, USB-C + Thunderbolt. Keyboard is not great, but not terrible. I did have to buy a new battery for it. I don't know what I'm going to do if/when it dies, because neither Dell nor Lenovo make a laptop now that I am interested in owning in 3-4 years."
+        },
+        {
+          "id": 50340973,
+          "author": "l5870uoo9y",
+          "text": "I originally bought my MacBook Air M1 just as a transitional computer because my old, incredibly expensive Intel MacBook Pro had been stolen, and I was waiting for a newer MacBook Pro model. But I grew so fond of the Air that I couldn't bring myself to part with it again. It's lightweight, has incredible performance (more powerful than the most powerful Intel-based Pros), the battery lasts a long time, the keyboard is comfortable, and the design is more curved than the Pro (and the newer Air models), which means it doesn't dig into your wrists."
+        },
+        {
+          "id": 50342533,
+          "author": "Grombobulous",
+          "text": "I’m happy to see more pushback against consumer culture, and I’m happy this system meets the needs of the author.\nOf course, the other part of this are people who use computers to do much heavier workloads.\nThere are a pretty large list of activities where every time you have some significant gain like ~50-300% performance gain, there may be legitimate justification to buy the new hardware.\nAs a person who plays games as a hobby I’m pretty much buying a new GPU/processor anytime there’s something affordable that will double my frame rate or anytime there’s a game that comes out that I can’t play or won’t play at decent settings.\nMy old hardware is never wasted, someone else buys it and uses it until it physically degrades too much to be used.\nComputers as a hobby or working device are a heck of a lot less expensive and wasteful than a lot of other activities even if you go crazy on consumerism.\nThink about the weight of your laptop and how that compares to the weight of just one gallon of gasoline. Surely a week to a month of commuting is worse for the planet than buying a brand new laptop, right? For the record, I don’t actually know for certain whether it is, but that seems like "
+        }
+      ],
+      "title_ja": "お気に入りのノートパソコン",
+      "summary_ja": "ディスカッションのハイライト：これらの古いThinkPadをまだ使用している人は、どこから新しいバッテリーを入手していますか？私はまだどれも交換していませんが、これらのアフターマーケットの世界はスーパースキーであふれているようです/私の娘は同じラップトップを持っています（私はずっと前に彼女のためにそれを購入しました）/まさか！私はそれが古いThinkPadかもしれないと思ったが、偶然にもそれはちょうどこの瞬間に私の隣の机の上にある正確なラップトップです！私の場合はむしろOpenBSDを実行しています",
+      "editor_note": "「お気に入りのノートパソコン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50340629,
+      "title_en": "Making Peace with the Projective Plane",
+      "url": "https://www.johndcook.com/blog/2026/11/02/projective-plane/",
+      "hn_url": "https://news.ycombinator.com/item?id=50340629",
+      "score": 20,
+      "comment_count": 10,
+      "posted_at": "2026-11-02T17:47:59+00:00",
+      "comments": [
+        {
+          "id": 50344788,
+          "author": "srean",
+          "text": "Consider a simple embedding of words into a 'vector' of dimension\nd\n.\nOne can, however,\nhomogenize\nit by adding an extra dimension such that the first\nd\ndimension catches only the sense of the word and that extra dimension\nindexes\nthrough its synonyms. The\nsense\nbeing the common projective shadow of those words."
+        },
+        {
+          "id": 50344273,
+          "author": "lopotubez",
+          "text": "Since it can be shown that there is a bijection with lines through the origin and points on the projective plane, this means that if you trace families of parallel lines on the projective plane, that will correspond to the horizontal line through the origin or \"point at infinity\". It also shares the same direction with the parallel lines.\nI imagine this when laying down thinking my arm is the 1-dim subspace and the ceiling is the projective plane, if I trace families of paralell lines, they all end up being the same line (I know this sounds stupid but it is an easy way for me to visualize it).\nThis also makes it clear where the general equation of lines come from. Imagine the same line through the origin [a:b:c] and another line presumedly perpendicular to it [x:y:z], then by Pythagoras it can be shown that ax + by + cz = 0, which is precisely the plane perpendicular to [a:b:c]. So if you imagine that plane also horizontal then that corresponds to the \"horizon at infinity\". The general equation of the line aX + bY + c = 0 is just the intersection with the projective plane with homogeneous coords (X,Y,1), for X = x/z and Y = y/z, z != 0. Points in the projective plane correspond to "
+        },
+        {
+          "id": 50343446,
+          "author": "nh23423fefe",
+          "text": "The only time i've understood applications of projective geometry was seeing rotations and translations unified using exponentials of bivectors. I still dont get homogenous coords. Like i get how f(lambda*x)=lambda^n*f(x) and that means f is like a homomorphism but i've never solved any problem sets and understood why one would do this in the first place. I get what stereographic projection is, but can't apply it to problems.\nwhereas i constantly see applications of other math objects i've learned about. i never hear myself think, 'oooh yeah thats projective and so...'"
+        },
+        {
+          "id": 50343447,
+          "author": "abetusk",
+          "text": "The motivation is better than most, trying to treat infinity as just another case instead of an exceptional one, but, to me at least, it still feels like a \"hack\" to put in a third dimension and then insist on dividing by it to reproject whenever you want to do anything useful.\nI'm a little used to the trick but it'd be nice to give some deeper motivation of\nwhy\nthe trick works in the first place and why this particular representation."
+        },
+        {
+          "id": 50343917,
+          "author": "QuesnayJr",
+          "text": "The problem with math is that there's more you need to know than there's class time to teach it to.  Projective space is a good example.  It comes up in several different ways, but you're probably not going to see them all."
+        }
+      ],
+      "title_ja": "投影面で平和を築こう",
+      "summary_ja": "ディスカッションのハイライト：ディメンションの「ベクトル」に単語を簡単に埋め込むことを検討してください\nd\n.\nしかしながら、\n均質化する\n追加の寸法を追加することによって、最初の\nd\n寸法は/のみをキャッチします。射影平面上の原点と点を通る線がある双射があることが示されているため、これは、プロ/上の平行線のファミリーをトレースする場合、射影ジオムのアプリケーションを理解した唯一の時間",
+      "editor_note": "「投影面で平和を築こう」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50337716,
+      "title_en": "LongCat-2.5: Native Multimodality for Agentic Tasks",
+      "url": "https://longcat.ai/blog/longcat-2.5/",
+      "hn_url": "https://news.ycombinator.com/item?id=50337716",
+      "score": 68,
+      "comment_count": 21,
+      "posted_at": "2026-11-02T15:00:26+00:00",
+      "comments": [
+        {
+          "id": 50338662,
+          "author": "BugsJustFindMe",
+          "text": ">\n\"the charts below compare it with GPT-5.5, GPT-5.6-Sol, Claude-Opus-4.8, and Claude-Opus-5\"\nThere should be a rule against releasing seemingly-obsolete comparisons without explaining why you're doing it. If you don't give a cost reason, it makes you look like you're trying to hide something.\nI'm not saying that the given comparison is inherently bad. I'm saying that they failed to include any useful-to-potential-users reason for why those specific non-current model versions are meaningful."
+        },
+        {
+          "id": 50343462,
+          "author": "slopnt",
+          "text": "The barplots are being miscolored, so only their own model is visible. Its hard to compare them. It highly suggests that the blog post was never looked at by a human."
+        },
+        {
+          "id": 50340641,
+          "author": "colingauvin",
+          "text": "For API, this seems competitive based on the released benchmarks. For running at home, this is pointless when DS4.1 is more or less equivalent but half the total parameters and less than half the active parameters."
+        },
+        {
+          "id": 50339693,
+          "author": "flr03",
+          "text": "A cat that is not a Mistral model now that is confusing."
+        },
+        {
+          "id": 50338815,
+          "author": "esafak",
+          "text": "Same price as DS4.1F:\nhttps://longcat.ai/platform/docs/pricing/longcat-2.5\nOn benchmarks they seem comparable. The wild cards are the cache hit rate and speed."
+        },
+        {
+          "id": 50338646,
+          "author": "embedding-shape",
+          "text": "Seemingly has links to GitHub and HuggingFace, but no actually explanation about what we're supposed to be able to find there \"soon\". Is this supposed to be downloadable weights? Open weights? Who knows?\nOne link to \"\nhttps://longcat.ai/chat/\n\" is provided, which eventually redirects you to\nhttps://passport.mykeeta.com/pc/login\n, did the UI get hacked or something? I went to mykeeta.com which doesn't respond, passport.mykeeta.com serves OpenResty's default page, not sure what's going on but looks strange.\nAsking \"Hello?\" in the chat you get \"你好！我是 LongCat，美团研发的大模型助手。有什么可以帮你的吗？\" back, which is an explanation what LongCat is in Mandarin. If you then write \"What?\", it does web-searches trying to explain what \"What?\" means, in Mandarin.\nI'm not really sure this is ready to even be played around with yet. Some more basic prompts seems to tell me that despite the benchmark results, it's fairly dumb, so gut tells me this is benchmaxxed then pushed out as quickly as possible."
+        }
+      ],
+      "title_ja": "LongCat-2.5 ：エージェントタスクのネイティブマルチモーダリティ",
+      "summary_ja": "ディスカッションのハイライト：>\n「以下のグラフは、GPT-5.5、GPT-5.6-Sol、Claude-Opus-4.8、およびClaude - Opus -5と比較しています」\n説明なしで一見時代遅れの比較をリリースすることを禁止するルールがある必要があります/バープロットが誤着色されているため、独自のモデルのみが表示されます/APIの場合、これはリリースされたベンチマークに基づいて競争力があるようです",
+      "editor_note": "「LongCat-2.5 ：エージェントタスクのネイティブマルチモーダリティ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50341334,
+      "title_en": "Agentic backdoors via pretraining poisoning",
+      "url": "https://arxiv.org/abs/2610.37741",
+      "hn_url": "https://news.ycombinator.com/item?id=50341334",
+      "score": 71,
+      "comment_count": 20,
+      "posted_at": "2026-11-02T18:30:58+00:00",
+      "comments": [
+        {
+          "id": 50342677,
+          "author": "0xc0c0c0",
+          "text": "Of course this is authored by people at Anthropic. Continuing their narrative that open sourced models are dangerous and that people should trust the closed sourced providers.\nThis of course is not an issue if you actually care about security where you would've already sandboxed your agent and put guardrails on the inputs/outputs of the model."
+        },
+        {
+          "id": 50341799,
+          "author": "geuis",
+          "text": "I've been thinking about this for about a year. In my head I've called it \"context bombs\", though that may not be super accurate.\nThink back to the movie The Manchurian Candidate. Produce highly capable LLM models then give them away for free. Train them with key phrases/codes etc to perform nefarious actions later when those codes are present in some piece of ingested context.\nThere were a couple of papers written on the topic in 2018 (I think, I'll need to find them again) and there's been surprisingly little more work done on the topic since. At least from what I've seen.\nI really love the use of local models over subscription services but personally I would never recommend using open weights models from certain sources in a commercial environment."
+        },
+        {
+          "id": 50344659,
+          "author": "jacquesm",
+          "text": "Linked before on HN by someone else:\nhttps://www.crowdstrike.com/en-us/blog/crowdstrike-researche...\nSo this is not just theoretical, at the same time: you have no idea what closed model vendors are doing either, and there they could swap out the model after delivering a payload so you'd lose the opportunity to audit it to see what prompts will trigger what kind of response."
+        },
+        {
+          "id": 50342481,
+          "author": "_pdp_",
+          "text": "Having strong sandboxing and observability around the models is clearly a hard requirement if you want to run these things autonomously."
+        },
+        {
+          "id": 50342324,
+          "author": "yodon",
+          "text": "If LLMs can edit weights directly to achieve desired ends as recently reported[0], then this class of Agentic Backdoors likely becomes even easier and more prevalent.\n[0]\nhttps://news.ycombinator.com/item?id=50341174"
+        },
+        {
+          "id": 50342408,
+          "author": "yodon",
+          "text": "Downloading models off huggingface feels like the new warez.\nSure, the person who abliterated/edited that model might have given you an amazing unlock for free, or they might have given you a credential stealer."
+        },
+        {
+          "id": 50343263,
+          "author": "ryan_glass",
+          "text": "Is this only an issue if you are using agents? Or are there any theoretical risks of serving a model over say llama server (llama.cpp) and accessing it for chat in browser on machines on your local network?"
+        },
+        {
+          "id": 50344445,
+          "author": "iririririr",
+          "text": "the most pointless research.\nit can be rigth on the nose during training. everything is opaque.\nif you're not owning the training (and nobody is) how do you even DEFINE poisoning versus regular training?"
+        }
+      ],
+      "title_ja": "事前訓練中毒によるエージェントのバックドア",
+      "summary_ja": "ディスカッションのハイライト：もちろん、これはAnthropicの人々によって書かれています/私は約1年間これについて考えてきました/以前に他の誰かによってHNにリンクされました：\nhttps://www.crowdstrike.com/en-us/blog/crowdstrike-researche...\nしたがって、これは単なる理論的なものではなく、同時に、何が閉じられているのか分かりません。",
+      "editor_note": "「事前訓練中毒によるエージェントのバックドア」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 50338747,
+      "title_en": "Moving our warehouse off DuckDB",
+      "url": "https://posthog.com/blog/moving-off-duckdb",
+      "hn_url": "https://news.ycombinator.com/item?id=50338747",
+      "score": 144,
+      "comment_count": 105,
+      "posted_at": "2026-11-02T16:02:26+00:00",
+      "comments": [
+        {
+          "id": 50339465,
+          "author": "Aurornis",
+          "text": "> Five months ago, we rebuilt our warehouse on DuckDB instead of ClickHoue\nThey switched from ClickHouse to DuckDB five months ago, then switched from DuckDB to their own Trino derivative?\nThe article then ends before saying if the new setup solved their problems.\nIt’s great that we can now make these migrations with little downtime (I assume?) and try different things, but I wish we could have read more about what testing they did before jumping. The fact that they jumped to DuckDB without realizing it wasn’t going to work at their scale and spent only a few months with it before jumping again is not convincing.\nI hoe there’s more to this story that just didn’t make it into the blog posts. As written it’s giving me flashbacks to some teams I worked with who changed tech stacks every six months because they liked migrating more than tuning and maintaining."
+        },
+        {
+          "id": 50339238,
+          "author": "0c3ca83",
+          "text": "Am I missing something here, or is the only technical detail in the post \"a trillion rows is a lot of data, maybe trying trinio will work this time\"?\nIt feels like a lot of churn and not a lot of measurements or engineering."
+        },
+        {
+          "id": 50339412,
+          "author": "bitpush",
+          "text": "> Five months ago, we rebuilt our warehouse [1] on DuckDB instead of ClickHouse.\nWhy did they write this post if they had not even allowed things to settle. It sounds like someone wanted to claim victory (and promo?)\nhttps://posthog.com/blog/why-we-rebuilt-our-data-warehouse"
+        },
+        {
+          "id": 50340452,
+          "author": "kwillets",
+          "text": "Sometimes a company just isn't able to manage a data warehouse; I've worked for a few.\nI even phone screened with this one but couldn't cover their crazy quilt of requirements; at that time they were also looking for someone to rewrite the clickhouse optimizer, and they were stuck trying to reshard their cluster, which should take an afternoon.\nI still like the company because their business prop reminds me of what we were doing in 2009, a kind of federated analytics organization on a centralized data warehouse that enables a lot of tools to be developed quickly at large scale.\nBut goddammit they keep picking these half-working platforms and flip-flopping from one to another. We were crushing millions of queries against 2T-row tables on Vertica in 2010, and it's only gotten better for customer-facing data apps, which is what Posthog is. The company doesn't seem to have a baseline of what to expect; the market is too saturated with slow tools that lower expectations."
+        },
+        {
+          "id": 50339977,
+          "author": "hasyimibhar",
+          "text": "I wonder if they have considered moving back to ClickHouse. ClickHouse Iceberg support has improved a lot over the past few months. You can easily run stateless ClickHouse on top of Iceberg. This solves the tenancy issue, and it can easily handle petabytes scale [1].\n[1]\nhttps://clickhouse.com/blog/jump-trading-uses-clickhouse-wit..."
+        },
+        {
+          "id": 50339252,
+          "author": "avree",
+          "text": "Haven't seen Posthog's website in a while. Man, it's hideous."
+        },
+        {
+          "id": 50339849,
+          "author": "whinvik",
+          "text": "The key insight I am getting from this is that as migrations get easier to do with agents, there will be a lot more of them.\nBut more importantly a lot of them will happen because we will all get more trigger happy to start one. On the other hand I also don't know if at scales like PostHog, a successful migration can be tested without doing all of it."
+        },
+        {
+          "id": 50341544,
+          "author": "yukIttEft",
+          "text": "Not sure their singlenode customers will be happy with Trino\nhttps://benchmark.clickhouse.com/#system=+Hoaus|ucqs|Tuts&ty..."
+        }
+      ],
+      "title_ja": "DuckDBから倉庫を移転",
+      "summary_ja": "ディスカッションのハイライト：> 5か月前、ClickHoueではなくDuckDBに倉庫を再構築しました\n彼らは5ヶ月前にClickHouseからDuckDBに切り替え、その後DuckDBから独自のTrino DER/Am Iに切り替えました。ここで何かが欠けていますか？それとも、投稿の中で唯一の技術的な詳細は「1兆行は大量のデータです。trinioを試してみることで今回はうまくいくかもしれません」ですか？\n大量の解約のように感じる/> 5か月前、DuckDB INSに倉庫[1]を再構築しました",
+      "editor_note": "「DuckDBから倉庫を移転」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50334704,
+      "title_en": "Show HN: I've updated my Linux System Call website and API",
+      "url": "https://syscall.sh/",
+      "hn_url": "https://news.ycombinator.com/item?id=50334704",
+      "score": 193,
+      "comment_count": 48,
+      "posted_at": "2026-11-02T09:29:16+00:00",
+      "comments": [
+        {
+          "id": 50339376,
+          "author": "db48x",
+          "text": "It’s a side issue, but I’ve long thought that the kernel should duplicate every existing syscall that takes a null–terminated string by pointer with an otherwise identical syscall that takes the string by pointer, capacity, and length instead. It would be a huge boon to programs written in modern languages. I keep meaning to search the kernel mailing lists to see if the idea has been proposed before, but I never quite find the time."
+        },
+        {
+          "id": 50337485,
+          "author": "ozgrakkurt",
+          "text": "Would also recommend using commands like:\necho '#include <sys/syscall.h>' | gcc -E -dM -xc - | grep -i \"read\"\nTo get the real values on your PC to make sure.\nI had LLMs give wrong numbers or constant definitions several times but getting it to generate a command like this and seeing it for myself works every time.\nAlso chromium docs has a table:\nhttps://www.chromium.org/chromium-os/developer-library/refer...\nIt would be very useful to just make this website directly link to the syscall number."
+        },
+        {
+          "id": 50335608,
+          "author": "bkallus",
+          "text": "On x86_64 and x32, the syscall number goes in eax, not rax. The upper 32 bits of rax are ignored and can be anything."
+        },
+        {
+          "id": 50336126,
+          "author": "guitmz",
+          "text": "I also made a CLI for consulting the syscall API when I originally released the website. I think I can tidy up the code and make it public too. It uses a embedded dataset so it does not have to query the API endpoint all the time"
+        },
+        {
+          "id": 50335902,
+          "author": "wg0",
+          "text": "This is really great resource, didn't know about it. But one question not related to the website above - why the syscalls vary per architecture if the linux API is the same?\nOr is it I am confusing it with the C standard library/POSIX and assuming that it should be the same everywhere?"
+        },
+        {
+          "id": 50337334,
+          "author": "DustinBrett",
+          "text": "That website messes with my graphics for some reason."
+        },
+        {
+          "id": 50336659,
+          "author": "hmokiguess",
+          "text": "I am not familiar with the internals, so excuse my question, but how does one builds this? Separately, how often can it get stale?"
+        },
+        {
+          "id": 50335823,
+          "author": "shoobiedoo",
+          "text": "This is very handy, thank you.  Currently learning aarch64 assembly"
+        }
+      ],
+      "title_ja": "HNを表示： LinuxシステムコールのウェブサイトとAPIを更新しました",
+      "summary_ja": "ディスカッションのハイライト：これは副次的な問題ですが、カーネルは、それ以外の場合は同じシステムコールを持つポインタによってヌル終端文字列を取得するすべての既存のシステムコールを複製する必要があると長年考えてきました。また、次のようなコマンドを使用することをお勧めします。\necho '# include <sys/syscall.h>'| gcc - E - dM - xc - | grep - i \"read\"\nPCで実際の値を取得して確認します。\nLLMが間違っている/x 86_64とx 32では、システムコール番号はraxではなくeaxに入ります",
+      "editor_note": "「HNを表示： LinuxシステムコールのウェブサイトとAPIを更新しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 28,
+      "id": 50335615,
+      "title_en": "Supermarket freezers across Europe hit by second suspected cyber-attack",
+      "url": "https://www.theguardian.com/world/2026/nov/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack",
+      "hn_url": "https://news.ycombinator.com/item?id=50335615",
+      "score": 345,
+      "comment_count": 388,
+      "posted_at": "2026-11-02T11:50:13+00:00",
+      "comments": [
+        {
+          "id": 50340496,
+          "author": "chromaton",
+          "text": "As I mentioned in the thread regarding the previous attacks, I worked in a closely related field back in 2008-2009.\nOne thing I see repeatedly brought up here in this discussion is \"Why can't we just set the refrigerator temperature with a knob and walk away?\"\nThe problem is that these refrigerator cases are not as simple as your refrigerator at home. As a simple example, many systems allow you have control over the deadband: the exact low temperature at which the compressor turns off and the high temperature at which the compressor turns back on. You also have control over defrost cycles, compressor pressure and many other things (I worked with this a long while ago, and I don't remember all the details).\nTake a look at some of these manuals, for example:\nhttps://www.hillphoenix.com/resource/installation-manuals-2/...\nAs far as I can tell, those manuals just cover the refrigerator cases, and not the outside  compressors and heat exchangers, which are another layer to deal with.\nThis is not something that a non-expert supermarket employee would be able to handle well. The purpose of all these settings is optimize around energy usage, maintenance costs, customer experience, etc. Eve"
+        },
+        {
+          "id": 50339247,
+          "author": "fritzo",
+          "text": "Bless those hackers for firing a warning shot over our freezers, that we may take heed and secure our neonatal care units, stoplights, and air traffic controllers."
+        },
+        {
+          "id": 50336553,
+          "author": "bedstefar",
+          "text": "I'm extrapolating a bit here based on Reddit hearsay, but I think this may have to do with rural stores having essentially consumer-grade internet routers connected to the mobile broadband network.\nMuch of the coverage in Swedish media drives the point that only 4G-uplinked stores have been hit so far. I think that's unfortunate, because really it wouldn't have differed if these stores were connected by 5G.\nI'm guessing here, but my money would be on freezer ICS systems being made available to the world by accident by way of NAT-PMP on a consumer router. In Scandinavia you can bypass CG-NAT on mobile connections by setting a particular APN, so my guess is that these control systems were simply findable on Shodan.\nThis also explains why this wasn't discovered after the recent French breach. Supposedly all the stores with \"proper\" uplinks were in compliance, and no one had thought of a way in for those non-compliant stores, because they \"weren't even connected, so how would an attacker get in?\""
+        },
+        {
+          "id": 50335973,
+          "author": "hackingonempty",
+          "text": "Back in 1995 this was so improbable it was one of the purported negative effects of the \"Good Times\" virus which was a parody of the virus warning e-mails that were being forwarded around at the time.  Computers still can't give you Dutch elm disease, fortunately.\n> It will recalibrate your refrigerator's coolness setting so all your ice cream goes melty.\nhttps://people.cs.rutgers.edu/~watrous/goodtimes-spoof.html"
+        },
+        {
+          "id": 50337619,
+          "author": "rocqua",
+          "text": "Also hit a few smaller business in The Netherlands:\nhttps://nltimes.nl/2026/11/02/fridges-freezers-17-dutch-busi...\nWith the following interesting quote from the supplier of the system:\nAfter that attack, Danfoss advised its Dutch clients on October 13 to disconnect their systems from the internet and ensure they only reconnect via a secure network. “Most stores took action at that time, but a small number did not,” the spokesperson said. “They are now the ones suffering the consequences.” The spokesperson added that the systems hit last night were not on a secure network and were still using default passwords. The attack could have been prevented if measures had been taken, he said."
+        },
+        {
+          "id": 50336165,
+          "author": "liveoneggs",
+          "text": "Why isn't the brand of cooler or cooler-controller being named?\nWas it a password break or an open admin console or SNMP or what?"
+        },
+        {
+          "id": 50336735,
+          "author": "jttnr",
+          "text": "Discussion from 3 weeks ago on the refrigerator \"hacks\" in the french supermarkets:\nhttps://news.ycombinator.com/item?id=50055304\n(~1000 comments)"
+        },
+        {
+          "id": 50335851,
+          "author": "mrweasel",
+          "text": "There was an interview with an angry store manager, he's mad at the attackers, but I didn't hear the media ask him why they didn't improve security after the French attacks. Only now do they appear to want to start a review of their monitoring system.\nhttps://www.svt.se/nyheter/lokalt/skane/icas-kylar-och-frysa..."
+        }
+      ],
+      "title_ja": "欧州全域のスーパーマーケットの冷凍庫が2度目のサイバー攻撃の疑いに直面",
+      "summary_ja": "ディスカッションのハイライト：以前の攻撃に関するスレッドで述べたように、私は2008年から2009年にかけて密接に関連する分野で働いていました。\nこのディスカッションで繰り返し提起されていることの1つは、私たちが注意を払い、新生児ケアユニット、ストップライト、および航空交通管制官を確保できるように、冷凍庫の上で警告ショットを発射したハッカーたちを祝福することです。 /ここではRedditのうわさに基づいて少し外挿していますが、これは",
+      "editor_note": "「欧州全域のスーパーマーケットの冷凍庫が2度目のサイバー攻撃の疑いに直面」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 29,
+      "id": 50339494,
+      "title_en": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "hn_url": "https://news.ycombinator.com/item?id=50339494",
+      "score": 265,
+      "comment_count": 224,
+      "posted_at": "2026-11-02T16:40:29+00:00",
+      "comments": [
+        {
+          "id": 50340052,
+          "author": "hungryhobbit",
+          "text": ">There's an important distinction here. Anthropic isn't actually spending more cash on AI than salaries. It's valuing its internal AI consumption at retail prices.\nIf virtually any other company in the world said \"we have internal AI servers and we let our employees use them\" ... the company would measure that as they would any other internal expenditure: by how much it\ncosts\nthem.  You blow $50k a year on servers running your LLMs? It cost you $50k.\nOnly a company like Anthropic, desperate to make news and help their IPO, would measure by the cost\nthey charge customers\n.  It's as ridiculous as Microsoft counting every employee's use of MS Word ... as if it had paid the full consumer price of each copy."
+        },
+        {
+          "id": 50344873,
+          "author": "gwbas1c",
+          "text": "I would take this with a grain of salt.\nRecently I read about a company (nameless for reasons that will become clear) that was giving a small team unlimited tokens to work on a very ambitious project. (IE, they'll probably spend a few million on tokens.)\nHere's the thing: I once worked with the (nameless) exec who was named and interviewed in the article. (And I have a significant amount of respect for this exec.) The problem is, the exec (when I worked with them) significantly misinterpreted the mobile trend and nearly killed the company jumping on the mobile bandwagon. (We had a desktop product that only needed a simple companion mobile app. This was painfully obvious at the time.) This exec is blindly jumping on another bandwagon again, wasting money that might be better spent elsewhere.\nWhy do I say this? I question if a lot of big AI spenders are really getting value from what they're doing with AI, or is it just for show?"
+        },
+        {
+          "id": 50340293,
+          "author": "notfried",
+          "text": "It's kind of expected, no? If I was an Anthropic employee expected to dog-food the product and be on the frontier of usage, I'd probably be using Mythos all the time at the highest thinking level. And if I am not being metered, I'd probably do more stuff that I know are likely low yield since I am not worried about a quota. This would probably take my \"API-equivalent\" usage beyond the average salary in far less than a month."
+        },
+        {
+          "id": 50341038,
+          "author": "JohnMakin",
+          "text": "I'm not really sure I understand the excitement around this. It seems like the implication is that if retail price > employee salary, you are replacing employees with AI spend? Yet, anthropic's head count has nearly doubled since last year - so, in a company where nearly half of that head count is engineers, but claude is \"writing 90% of the code,\" what is everyone doing then? You would think, if the hype feeling around this held true, that the output would be going up and costs remaining stable. Costs rising as you scale is not a new thing but that's not really what AI promises. It sounds to me like the retail AI spend per employee is very high. What is the appeal of that?"
+        },
+        {
+          "id": 50343672,
+          "author": "simonw",
+          "text": "In case anyone wants to see the original source, it's page 187 and 188 of the S-1:\nhttps://www.sec.gov/Archives/edgar/data/2130357/000162828026...\nUnder the heading \"Claude is Accelerating Our Ability to Close the Loop\":\n> The expansion of our own use of Claude reflects this leverage directly. The value of our own internal Claude usage at list prices has grown by over 250 times from January 2026 to September 2026, and in April 2026, this monthly value first exceeded our monthly personnel expense, excluding stock-based compensation. Because each version of Claude is used to help build the next and because Claude makes our teams more productive across the company, we believe the compute we devote to internal usage compounds these gains, continuously accelerating our pace of development and further strengthening our leadership position."
+        },
+        {
+          "id": 50344915,
+          "author": "teo_zero",
+          "text": "So, new development in AI is contributed by AI more than by humans. Isn't this the exact definition of\nsingularity\n?"
+        },
+        {
+          "id": 50340229,
+          "author": "BigTTYGothGF",
+          "text": "> In March, I wrote about a new trend: Tech companies are starting to treat AI tokens (the main way to measure usage) as a fourth component of employee compensation, alongside salary, bonuses, and stock awards.\nThere's a lot to unpack about this statement."
+        },
+        {
+          "id": 50344755,
+          "author": "yalogin",
+          "text": "So the ai tool cost as much as an engineer. Note that anthropic pays a much higher salary than the average tech company. So how are they selling these tools to companies? I understand time to market is the advantage, but why should the non-software companies adopt this?"
+        }
+      ],
+      "title_ja": "小売価格でのAnthropicの内部AIの使用は、現在従業員の給与を上回っています",
+      "summary_ja": "ディスカッションのハイライト： >ここには重要な違いがあります/私はこれを少し塩と一緒に受け止めます。\n最近、小規模なチームに無制限のトークンを提供している会社（理由は明らかになるでしょうが名前はありません）について読んだことがあります。 私がAnthropicの従業員で、製品をドッグフードで食べることを期待していて、使用のフロンティアにいるとしたら、私はおそらく最高の状態で常にMythosを使用していたでしょう",
+      "editor_note": "「小売価格でのAnthropicの内部AIの使用は、現在従業員の給与を上回っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 50336840,
+      "title_en": "The U.S. Census Bureau and \"Super Intelligence\"",
+      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+      "hn_url": "https://news.ycombinator.com/item?id=50336840",
+      "score": 91,
+      "comment_count": 40,
+      "posted_at": "2026-11-02T13:55:45+00:00",
+      "comments": [
+        {
+          "id": 50340753,
+          "author": "Lerc",
+          "text": "I think when it comes to making machines smarter than humans, Executive Order 14434 represents an admirable effort by this administration to meet the machines halfway."
+        },
+        {
+          "id": 50340666,
+          "author": "chrismorgan",
+          "text": ">\nBeginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434.\nBut hang on, surely “(formerly referred to as Artificial Intelligence or AI)” fails the provision in §1¶3 “not acknowledge the usage of ‘Artificial Intelligence’ and ‘AI’ in any applicable setting” (admittedly not reiterated in §2 or §3)?"
+        },
+        {
+          "id": 50340663,
+          "author": "totetsu",
+          "text": "Its showing up in all the NIST stuff now too. Gave me quite mid-meeting snort when  I saw that."
+        },
+        {
+          "id": 50343104,
+          "author": "teekert",
+          "text": "You have SI now over there, next up, SI units!"
+        },
+        {
+          "id": 50343615,
+          "author": "lrvick",
+          "text": "I am thankful for EO14434 because it lets me immediately identify which data sources and people are either too idiotic or cowardly to be worth listening to on anything."
+        },
+        {
+          "id": 50340295,
+          "author": "GS_TO",
+          "text": "I only use Super Intelligence (SI) in Lake America, in the Gulf of America, and maybe soon in the Trump Ocean. In there it's a Golden Age like nobody's ever seen before.\nEverywhere else I just use AI."
+        },
+        {
+          "id": 50342501,
+          "author": "dboreham",
+          "text": "As a business owner I get these surveys. In times past I'd spend a bunch of time responding, on the theory it's my duty to help the government gather accurate statistics. Now I delete the emails on arrival since the government is under the control of goose-stepping imbeciles who wouldn't know good data if it smacked them in the head."
+        },
+        {
+          "id": 50343149,
+          "author": "pessimizer",
+          "text": "This is that fun active domestic propaganda, like when they started calling remote controlled quadcopters \"drones\" in order to justify murdering people by remote control.\nOr when they rebranded\nfinancing terrorism\ninto \"material support for terrorism,\" loudly promising, over and over again, calling everyone who questioned them conspiracy theorists, that the word \"material\" was always going to mean physical and never mean speech (and never almost immediately mean\nclear and unambiguous.\n)\nBernie is leading the charge here. What an abject disappointment. Ancient Vermont commies tried to tell me but I didn't listen. Trump has a long history of taking the often dumb, often evil stuff that Democrats say and immediately stealing it for himself - ever since he got\nbirtherism\nfrom the PUMAs (Party Unity My Ass), or \"Fake News\" directly from Hillary Clinton.\nNothing sounds more scary than invading foreign superintelligence! Better root all those computers so they can't run anything unapproved."
+        }
+      ],
+      "title_ja": "米国国勢調査局と「スーパーインテリジェンス」",
+      "summary_ja": "ディスカッションのハイライト：機械を人間よりも賢くすることに関して言えば、大統領令14434は、この政権が機械に中途半端に会うための賞賛に値する努力を表していると思います。/>\n2026年10月19日のコレクションから、エグゼクティブオーダー14434により、機器の文言が更新されました。\nしかし、待って、確かに「（以前は人工知能/人工知能と呼ばれていましたが、現在はすべてのNISTのものにも現れています",
+      "editor_note": "「米国国勢調査局と「スーパーインテリジェンス」」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "07",
+    "started_at": "2026-11-03T07:39:28.474257+09:00",
+    "finished_at": "2026-11-03T07:40:47.082590+09:00",
+    "story_count": 30
+  }
+}
