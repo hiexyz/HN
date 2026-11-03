@@ -1,0 +1,1515 @@
+{
+  "date": "2026-11-03T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50341174,
+      "title_en": "Astra can read and write weights to improve Qwen",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "hn_url": "https://news.ycombinator.com/item?id=50341174",
+      "score": 2664,
+      "comment_count": 810,
+      "posted_at": "2026-11-02T18:21:28+00:00",
+      "comments": [
+        {
+          "id": 50347685,
+          "author": "yurimo",
+          "text": "Respectfully to the authors and to everyone here, I ask you to actually read the paper before losing your mind, or at the very least plug it into Claude. It is a cool project but not as nearly as insane as people say. I think the blog writing and subsequent posting overstate the results.\nPart of my research is in weight space learning. For starters, we have had the ability to edit weights, to generate new weights, to identify weights for a while. Here is an example for larger models as early as 2023:\nhttps://rome.baulab.info/\nWeight space interpretability and learning is an active research community, has been for the past 3 years with many great papers. I suspect it is hitting non-interp folks harder because the authors hyped up their work, and people who are not in the field did not bother to read it before typing up X posts.\nSome experiments here are done on very small models (20K params). We already know that small models are more interpretable. In fact, much of editing here you can do by hand. For Qwen, the model fixed a looping bug that may have been known apriori, and it is basically a steering vector, a very established technique. This is clear when they then attempt to \"imp"
+        },
+        {
+          "id": 50341841,
+          "author": "vessenes",
+          "text": "This is insane.\nAstra can, without tooling, determine what games small networks are trained on, can edit the weights of networks directly to improve outcomes, and can hand edit a small qwen model to improve its math skills by like 5x.\nI'm shook. If you'd asked me this morning whether LLMs have native understanding of their weights that is less than human <-> neuron understanding, the same as human or more than human, I would have said \"same to less\" depending on definitions.\nNo human can go edit a brain to become better at math. This is just very, very surprising to me and extremely interesting. I would guess this upsets quite a number of interp theories and philosophical takes on what's going on with these networks."
+        },
+        {
+          "id": 50350268,
+          "author": "grokkedit",
+          "text": "this is really interesting!\nI would love to see the models that astra produced, the fact that it builds them layer by layer assigning to each layer a specific goal makes sense given the tools it was given to build them, but it's also far different from what happens with normal training"
+        },
+        {
+          "id": 50343529,
+          "author": "xg15",
+          "text": "And here we go...\nAs others have said, while still absolutely insane, I don't find it completely out-of-the-blue surprising. One of the recurring abilities of (current-generation) LLMs seem to be to rapidly grasp very complex systems, where humans would need months or years to reach the same level of expertise.\nYou can see this in the way a coding agent can \"understand\" and explain sprawling legacy codebases in seconds.\nYou can also see it in the projects that are using them to reverse-engineer proprietary IoT protocols or computer games.\nBut those were all systems where we had detailed knowledge about what structures are there to be reverse-enginered.\nIf the models can transfer this ability to some other systems where we\ndon't\nknow the underlying structure then I think we will be in for a lot more craziness in the future. (Protein interaction networks? DNA sequences? Ecosystem interactions? Animal languages?)\nAs for weights, if the models really can analyze the semantics behind specific weights or directions, I have my hopes that they could also give a textual explanation or help designing tools to make \"handcrafting\" weights more practical in general."
+        },
+        {
+          "id": 50342657,
+          "author": "vanyle",
+          "text": "I don't think this is an emergent capability. I think Astra was trained on neural weights data as an attempt by OpenAI to get to recursive self improvement.\nSomething similar happen in early GPT models which had a lot of chess game in standard notation in their training data which made them very good at chess as long as your prompt had the right format.\nWe'll see if this attempt at RSI worked."
+        },
+        {
+          "id": 50342153,
+          "author": "NitpickLawyer",
+          "text": "> As a result, Astra spots and fixes a common failure of tiny reasoning models: they loop [13]. When the base model loops, it repeats the same text and rarely reaches an answer (85 of its first 96 practice answers ran to the 32,768-token limit). Astra traced the looping to one direction written by the MLPs of layers 15 and 19, and subtracted that direction from 64 output columns in each (131,072 weights), much like removing a behavior by deleting a single direction from a model’s weights\nHA! Now that's cool. Not necessarily the improvements, those are ancient and probably overtrained benchmarks, but it's so cool that the model found a singular direction for this \"loop bug\". I imagine it could possibly do much the same thing in finding other \"single directions\" on a variety of topics (if allowed by guardrails). This is really really cool, especially for the mechinterp folks."
+        },
+        {
+          "id": 50343628,
+          "author": "_bobm",
+          "text": "I think the subfield has been there for a long time. See a small section of papers on the topic of generating dynamic weights during inference, predicting weights from network architecture, and learning the distribution of previously trained network parameters, just to name a few keywords:\nParameter Prediction for Unseen Deep Architectures [1]\nNeuroGen: Neural Network Parameter Generation via Large Language Models [2]\nDiffusion-Based Neural Network Weights Generation [3]\nThe critical thing to me is that Astra is capable of doing it. I don't know if it was trained to do so.\nAll this does not make it any less crazy in my books. And I still don't know how I can sleep easy tonight.\n[1]\nhttps://arxiv.org/abs/2110.13100\n[2]\nhttps://arxiv.org/abs/2505.12470\n[3]\nhttps://arxiv.org/abs/2402.18153"
+        },
+        {
+          "id": 50344881,
+          "author": "jsenn",
+          "text": "I feel like this is conflating 2 separate results in a slightly misleading way.\n> We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights\nThis claim is backed up by the ability of Astra, given a text representation of the weights of tiny (20k) special-purpose models, to figure out what those models do and in some cases improve them beyond what RL could do\njust by reading the weights with no tool calls\n. They call this \"weight-space programming\".\n> Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen’s own model card warns about, and fixes this by natively editing 0.016% of the weights\nHere it did use tool calls, and seemingly used standard steering vector techniques to identify and fix reasoning loops in this small Qwen model. This doesn't seem that related to the previous results."
+        }
+      ],
+      "title_ja": "AstraはQwenを改善するために重みを読み書きすることができます",
+      "summary_ja": "ディスカッションのハイライト：著者とここにいるすべての人に敬意を表して、私はあなたが正気を失う前に実際に論文を読むか、少なくともクロードにそれを差し込むことをお願いします/これは狂っています。\nAstraは、ツールを使用せずに、小規模ネットワークがどのゲームでトレーニングされているかを判断し、ネットワークの重みを直接編集して結果を改善し、手作業で編集することができます。これは本当に興味深いです！\nAstraが制作したモデルを見てみたいと思います。",
+      "editor_note": "「AstraはQwenを改善するために重みを読み書きすることができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 2,
+      "id": 50349784,
+      "title_en": "No Vehicles in the Park",
+      "url": "https://novehiclesinthepark.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50349784",
+      "score": 38,
+      "comment_count": 33,
+      "posted_at": "2026-11-03T09:21:14+00:00",
+      "comments": [
+        {
+          "id": 50350208,
+          "author": "benrutter",
+          "text": "I liked this as an idea, and I agree with the point at the end that content moderation is quite difficult.\nThat said, I'm not sure the game proved the point it intended to, for me at least.\nMy answers agreed 89% with the majority, and more importantly, on the visualization showing proportions of people classifying various examples as \"a vehicle in the park\" had a clear cut off point, before which I hadn't classified anything as a violation, and after which, I had classified everything as a violation.\nThe suggestion is (I'm not saying this is proven, only suggested), to me at least, that if you gave people the instructions:\n> No vehicles are allowed in the park. A wagon being pulled is not a vehicle, but a rowboat is.\nA very high number would come to the exact same determination as me.\nJust for context, I'm\njust\ntalking about the game itself, I definitely agree that moderation is a very tricky issue full of grey areas, and we'd all find it very hard to agree fully on a set of guidelines and then agree on when they're being enforced correctly."
+        },
+        {
+          "id": 50350245,
+          "author": "chrisbuc",
+          "text": "From a data management point of view, I have a similar question about a hypothetical sign that reads \"Customer parking only\"\n- Am I a customer when I go into the shop?\n- How about if I don't buy anything this time?\n- When I receive a marketing email from the shop, based on my previous purchases, am I still a customer?\n- How about 1 year later and I haven't bought anything, am I still a customer?\nSo when can I park there?\n(obviously in the real world, there would be terms and conditions, but it's an interesting way to talk to clients about definitions in their data)"
+        },
+        {
+          "id": 50350137,
+          "author": "kristofferc",
+          "text": "This felt very easy. And yes, a police car in the park violates the rule, but police are allowed to violate rules in certain cases."
+        },
+        {
+          "id": 50350147,
+          "author": "thinkingemote",
+          "text": "Previously: 2023 1K comments,\nhttps://news.ycombinator.com/item?id=36453856\n----\nFun game! I like how even if you know the \"rules\" and try to play against or with them, it still is a challenge."
+        },
+        {
+          "id": 50350249,
+          "author": "anonymous908213",
+          "text": "Not interesting even as a thought experiment. From context, \"vehicle\" is clearly inferred to mean \"automobile\" rather than literally \"vehicle\". All of the subsequent pedantry about vehicles then misses the point, because the common understanding is that you clearly meant automobiles. It is weird one can be so pedantic and yet fail to draw the obvious connection that the word is effectively substituted for a different word in context. Surely one could come up with a better example to use for your game."
+        },
+        {
+          "id": 50350094,
+          "author": "_petronius",
+          "text": "Cool concept; lots of valence to each question:\n- What counts as \"in the park\"\n- What counts as a \"vehicle\"\n- If it is both a vehicle and in the park, is\njustified\n?\n- Is a justified violation of the rules still to be considered a violation?"
+        },
+        {
+          "id": 50350146,
+          "author": "po1nt",
+          "text": "I thought this was about AI alignment. But the analogy could still work"
+        },
+        {
+          "id": 50350095,
+          "author": "cirrhosis",
+          "text": "The choice of names (Tyrone vs Brett) made me wonder whether this was an experiment about racial prejudice."
+        }
+      ],
+      "title_ja": "公園内に車両はありません",
+      "summary_ja": "ディスカッションのハイライト：これはアイデアとして気に入っており、コンテンツのモデレーションがかなり難しいという最後の点に同意します。\nとはいえ、ゲームが私にとって意図したポイントを証明したかどうかはわかりません/データ管理の観点から、「顧客の駐車のみ」という仮定のサインについて同様の質問があります\n-お店に入るとき、私は顧客ですか？\n-いかがですか/これは非常に簡単だと感じました",
+      "editor_note": "「公園内に車両はありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50348962,
+      "title_en": "Nvidia – open-source auto-ontology",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "hn_url": "https://news.ycombinator.com/item?id=50348962",
+      "score": 70,
+      "comment_count": 16,
+      "posted_at": "2026-11-03T07:04:50+00:00",
+      "comments": [
+        {
+          "id": 50350102,
+          "author": "dstu",
+          "text": "This may well be very useful, but Claude has ruined me and I have a visceral reaction to ‘gates’ in the opening sentence and couldn’t get any further. If a tool is worth building and sharing, surely it’s also worth writing a brief summary of what it’s supposed to achieve in your own words?"
+        },
+        {
+          "id": 50349384,
+          "author": "grey-area",
+          "text": "Fixing unreliable agents by adding more unreliable agents. It's a shame we can't do something about the tendency of LLMs to give more weight to their weights than to the data they're analysing.\nI guess it all comes back to the fact that they don't have a clear division between data they have learned about the world, instructions and data under analysis.\nYou can ask them only to consider the 5 facts in front of them, but they won't do that, and cannot do that."
+        },
+        {
+          "id": 50350030,
+          "author": "mirekrusin",
+          "text": "I still prefer my own, simple and more functional CAVE lang [0]\n[0]\nhttps://mirekrusin.com/cave"
+        },
+        {
+          "id": 50349918,
+          "author": "igleria",
+          "text": "Was interested... but then realized it needs an NVIDIA api key?"
+        },
+        {
+          "id": 50349513,
+          "author": "podocarp",
+          "text": "I don't understand this ontology thing. What's the difference between this and a memory system plus skills to collect your enterprise's APIs and CLIs etc?"
+        },
+        {
+          "id": 50349999,
+          "author": "bbor",
+          "text": "The readme seems to be written for enterprise project managers. Does anyone know what philosophy or academic ontology work this ties to, if any? I’m having trouble understanding the specifics, I’ll be honest…"
+        },
+        {
+          "id": 50350055,
+          "author": "einpoklum",
+          "text": "Open Source?\nHow about we start by open-sourcing the NVIDIA user-space libraries: libcuda, libcudart, libOpenCL, libnvtx, as well as nvidia-smi and the CUDA and OpenCL profilers."
+        },
+        {
+          "id": 50348963,
+          "author": "campervans",
+          "text": "Game changer for entreprise (technical) debt"
+        }
+      ],
+      "title_ja": "Nvidia –オープンソースのオートオントロジー",
+      "summary_ja": "ディスカッションのハイライト：これは非常に役立つかもしれませんが、クロードは私を台無しにし、冒頭の文の「ゲート」に本能的な反応を示し、それ以上のものを得ることができませんでした/信頼性の低いエージェントを追加して信頼性の低いエージェントを修正する/私はまだ自分のシンプルで機能的な洞窟ラングを好みます[0]\n[0]\nhttps://mirekrusin.com/cave",
+      "editor_note": "「Nvidia –オープンソースのオートオントロジー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 50321605,
+      "title_en": "Toit v2.0.0",
+      "url": "https://toit.io/blog/toit-v2-0-0/",
+      "hn_url": "https://news.ycombinator.com/item?id=50321605",
+      "score": 84,
+      "comment_count": 26,
+      "posted_at": "2026-11-01T00:25:04+00:00",
+      "comments": [
+        {
+          "id": 50349368,
+          "author": "draven",
+          "text": "The wikipedia page\nhttps://en.wikipedia.org/wiki/Toit\nis short but still gives a lot of context."
+        },
+        {
+          "id": 50350124,
+          "author": "heavensteeth",
+          "text": "This seems very interesting. It almost looks/feels like Pythonic Go.\nThere's already another syntax example in the thread, but I want to point out the weirdest syntax I've seen yet: positional arguments look like posix command arguments:\ngreet name/string=\"World\" --greeting/string=\"Hello\" -> string:\nreturn \"$greeting $name\"\nmain:\nprint (greet)                         // Prints Hello World.\nprint (greet \"Ada\" --greeting=\"Hi\")    // Prints Hi Ada."
+        },
+        {
+          "id": 50349241,
+          "author": "thomascountz",
+          "text": "Toit is a language for writing scripts on your computer and applications on your ESP32. A readable syntax, an efficient runtime, and tools that work together.\nFree and open source. Maintained by volunteers."
+        },
+        {
+          "id": 50349259,
+          "author": "jacobgorm",
+          "text": "The people behind Toit are the original people behind the V8 VM in Chrome. They know their stuff."
+        },
+        {
+          "id": 50349289,
+          "author": "maxloh",
+          "text": "Here's a beginner tutorial for the language:\nhttps://docs.toit.io/language/toitversus\nNice syntax. It looks like how we'd design programming if C had never existed.\nadd a/int b/int -> int:\nreturn a + b\nmain:\nprint (add 2 3)  // Prints 5."
+        },
+        {
+          "id": 50349641,
+          "author": "benrutter",
+          "text": "Looks interesting! I can't tell really from the docs the untended use case though. It says \"scripts\", but also \" applications\".\nMost importantly though (/s), is this\ntoit\nas in \"roof\" in French,\ntoit\nas in \"to it\", or otherwise?"
+        },
+        {
+          "id": 50349391,
+          "author": "mi_lk",
+          "text": "Who is using this? The company originally behind it has shut down"
+        },
+        {
+          "id": 50349711,
+          "author": "Hamuko",
+          "text": "Is there some kind of an advertising blurb for why you’d want to use Toit, especially for scripting? I think the only thing I saw was “a readable language”, but I’d probably consider Python more readable than it judging from the examples."
+        }
+      ],
+      "title_ja": "TOIT v2.0.0",
+      "summary_ja": "ディスカッションのハイライト：ウィキペディアページ\nhttps://en.wikipedia.org/wiki/Toit\n短いですが、それでも多くのコンテキストを提供します。 /これは非常に興味深いようです/Toitは、コンピュータにスクリプトを書き込み、ESP 32にアプリケーションを書き込むための言語です",
+      "editor_note": "「TOIT v2.0.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50346849,
+      "title_en": "DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs",
+      "url": "https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio",
+      "hn_url": "https://news.ycombinator.com/item?id=50346849",
+      "score": 215,
+      "comment_count": 47,
+      "posted_at": "2026-11-03T01:33:43+00:00",
+      "comments": [
+        {
+          "id": 50349134,
+          "author": "bmenrigh",
+          "text": "I made a CTF challenge for this year's BSidesSF CTF where players were given a CDDA audio file (just raw PCM samples) which when burned on a CD-RW would produce an image of the flag. (The idea was not for them to burn the audio, since they'd need to guess my exact CD-RW or else they wouldn't get an image readable enough to be useful. Instead they were supposed to invert the process in software and simulate what a burned disk would look like, in a way that let them adjust disk parameters rapidly until they had a readable image.)\nThe challenge took me a few weeks to make because \"calibrating\" a disk (determining the geometry of the pregroove) is incredibly sensitive.\nAfter the CTF I tried really hard to make a repeatable calibration process with the intent of building something releasable. I even ended up measuring the details on every CD-RW and CD-R I could buy on Amazon.\nBut despite trying very hard, I never did make calibration patterns that were reliable enough that I felt like other people would be willing to go through the process.\nIt seems someone else has succeeded where I failed. Great to see!"
+        },
+        {
+          "id": 50347035,
+          "author": "apitman",
+          "text": "Throwback to lightscribe which I haven't thought of in many years:\nhttps://en.wikipedia.org/wiki/LightScribe"
+        },
+        {
+          "id": 50349334,
+          "author": "kixpanganiban",
+          "text": "This is exactly the sort of thing the 2020's are missing. Something tactile and artsy, reminiscent of the early 2000s! Well done to the author"
+        },
+        {
+          "id": 50347612,
+          "author": "Animats",
+          "text": "I used to have a label system called Neato, which provided round CD labels you could make on a printer, along with a tool to press them accurately onto the non-recording side of a CD-R. There were even transparent labels, so the resulting disk looked like a commercially produced disk."
+        },
+        {
+          "id": 50349559,
+          "author": "anfractuosity",
+          "text": "Also see\nhttps://github.com/arduinocelentano/cdimage\nfrom a few years ago"
+        },
+        {
+          "id": 50347472,
+          "author": "FriedPickles",
+          "text": "I've always wondered if this could be used to create 3d holograms."
+        },
+        {
+          "id": 50348090,
+          "author": "LeoPanthera",
+          "text": "Is anyone still making new optical drives?"
+        },
+        {
+          "id": 50347855,
+          "author": "jonhohle",
+          "text": "Windows 2000 & XP discs had something like this, but on the label side."
+        }
+      ],
+      "title_ja": "DiscImageStudio ：目に見えるアートワークをCD、DVD、Blu - rayディスクに書き込む",
+      "summary_ja": "ディスカッションのハイライト：今年のBSidesSF CTFのCTFチャレンジでは、プレイヤーにCDDAオーディオファイル（生のPCMサンプルのみ）を渡し、CD - RWに書き込むと、長年考えもしなかったFLA/ThrowbackからLightcribeへの画像が生成されます。\nhttps://en.wikipedia.org/wiki/LightScribe/これはまさに2020年代に欠けているものです",
+      "editor_note": "「DiscImageStudio ：目に見えるアートワークをCD、DVD、Blu - rayディスクに書き込む」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 6,
+      "id": 50346981,
+      "title_en": "Show HN: Hacker Times, a New York Times-inspired version of Hacker News",
+      "url": "https://hackertimes.ca/",
+      "hn_url": "https://news.ycombinator.com/item?id=50346981",
+      "score": 285,
+      "comment_count": 86,
+      "posted_at": "2026-11-03T01:53:34+00:00",
+      "comments": [
+        {
+          "id": 50347818,
+          "author": "emaro",
+          "text": "I remember there was a similar project like this posted a while ago. Turns out there are multiple. Here are just a few (that are still online):\nA couple of months ago (so probably vibe-coded too):\nhttps://thefrontpage.dev/\nhttps://times.hntrends.net/\nhttps://hackernewstimes.com/\nThis one even from 6 years ago:\nhttps://www.wolfgangfaust.com/project/paper-hn/\n(\nhttps://news.ycombinator.com/item?id=23669650\n, 627 points, 133 comments)\nhttps://hn.algolia.com/?q=hackernews+newspaper"
+        },
+        {
+          "id": 50348084,
+          "author": "omoikane",
+          "text": "> Masthead set in Manufacturing Consent\nI like the description for Manufacturing Consent font:\nhttps://fonts.google.com/specimen/Manufacturing+Consent/abou...\nhttps://github.com/google/fonts/blob/main/ofl/manufacturingc..."
+        },
+        {
+          "id": 50348904,
+          "author": "danpalmer",
+          "text": "Isn't what people pay for with the NYT or other publications, the journalism and editing? Like, the UI isn't why people pay for it.\nGiven that this seems to just be a re-skin, why a full site that updates hourly, instead of just a browser extension that rewrites the content in-place live?"
+        },
+        {
+          "id": 50349540,
+          "author": "woggy",
+          "text": "I think I'd prefer NYT in Hackernews form"
+        },
+        {
+          "id": 50348856,
+          "author": "rectang",
+          "text": "Fun.  I have a visceral dislike for the NYT, so the association is actually a negative, haha — but I could get over it.\nThe tradeoff of the Hacker Times design is increased information for each story but lower density of stories compared to the HN homepage.  The high-density design of the HN page is probably optimal for my habits, even though some of the user-submitted headlines are opaque enough that I miss some things I would otherwise click on."
+        },
+        {
+          "id": 50349854,
+          "author": "swiftcoder",
+          "text": "Somehow this particular formulation makes me scream internally. It's not the classic print edition of the NYT that everybody grew up with, it's the click-maxing online version..."
+        },
+        {
+          "id": 50347483,
+          "author": "duckkg5",
+          "text": "This is great! Very readable and feels like a nice way to browse articles. I tend to gloss over stuff in the HN wall of text sometimes so this breaks the links up in a useful way. Nice job."
+        },
+        {
+          "id": 50347933,
+          "author": "theodpHN",
+          "text": "Neat. To-do: Give HN the ONION treatment? :-)\nhttps://theonion.com/"
+        }
+      ],
+      "title_ja": "Show HN ： Hacker Times、ニューヨーク・タイムズにインスパイアされたバージョンのHacker News",
+      "summary_ja": "ディスカッションのハイライト：しばらく前にこのような同様のプロジェクトが投稿されたことを覚えています/>マストヘッドは製造同意書に設定されています\n製造同意書フォントの説明が気に入っています。\nhttps://fonts.google.com/specimen/Manufacturing+Consent/abou...\nhttps://github.com/go/人々がニューヨークタイムズや他の出版物、ジャーナリズム、編集で支払うものではありませんか？ たとえば、UIは人々がそれを支払う理由ではありません。\nこれが単なるリスキンのように思えることを考えると",
+      "editor_note": "「Show HN ： Hacker Times、ニューヨーク・タイムズにインスパイアされたバージョンのHacker News」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 7,
+      "id": 50334523,
+      "title_en": "European RISC-V Industrial Computing Initiative",
+      "url": "https://erici.eu",
+      "hn_url": "https://news.ycombinator.com/item?id=50334523",
+      "score": 117,
+      "comment_count": 59,
+      "posted_at": "2026-11-02T08:58:33+00:00",
+      "comments": [
+        {
+          "id": 50349860,
+          "author": "dragoncrab",
+          "text": "This seems to be run by a random dude looking for funding:\nAbout ERICI\nERICI is a non-commercial initiative in its founding phase. It is not yet a legal entity, sells nothing and charges no fees.\n(\nhttps://erici.eu/impressum.html\n)"
+        },
+        {
+          "id": 50349708,
+          "author": "cbolton",
+          "text": "This is just a webpage some individual put up, right? I mean as far as I can see there's no institute, no company, no government behind this. Just one RISC-V enthusiast on the contact page."
+        },
+        {
+          "id": 50349428,
+          "author": "hn_submit",
+          "text": "Is this something more than a flag-waiving exercise? Who's actually manufacturing and selling these \"European\" CPUs?\nI just purchased a boatload of Chinese RISC-V development boards for about $2.30 a piece. Can't wait to start playing with them.\n\"RISC(-V) architecture is going to change everything.\"\n[1]:\nhttps://www.aliexpress.com/item/1005011967676963.html"
+        },
+        {
+          "id": 50349758,
+          "author": "clarionbell",
+          "text": "And the chips will be manufactured in China. Truly a genius move."
+        },
+        {
+          "id": 50348987,
+          "author": "ShadowOfThePit",
+          "text": "> A machine expected to run for 15 years should not depend on one company's roadmap, or one government's decisions.\"\n> A machine that runs for 15 years needs software that can be maintained for 15 years.\nI don't quite understand. Has this been a problem for industrial machines? Can't they already run for 30 years and more?\nWhat exactly is this initiative looking to fix and improve? Besides of the basic idea of FOSS being good, and whatever."
+        },
+        {
+          "id": 50348809,
+          "author": "perarneng",
+          "text": "CPEU is coming! I love RISC-V and have been following its progress for so long. I hope it gets more and more adoption in the world for desktops and servers. Its already massive in MCU's but we need it everywhere. Open ISA is the best ISA"
+        },
+        {
+          "id": 50349631,
+          "author": "Havoc",
+          "text": "Neat. This seems like exactly the sort of thing Europe should be pushing"
+        },
+        {
+          "id": 50349554,
+          "author": "blitzar",
+          "text": "RISC architecture's going to change everything."
+        }
+      ],
+      "title_ja": "欧州RISC - V産業コンピューティングイニシアティブ",
+      "summary_ja": "ディスカッションのハイライト：これは、資金を探しているランダムな男によって実行されているようです：\nERICIについて\nERICIは創業段階の非営利イニシアチブです/これは単なる個人が掲載したウェブページですよね？ つまり、私が見る限りでは、これの背後には研究所も、会社も、政府もありません/これはフラッグ免除の演習以上のものですか？ これらの「ヨーロッパの」CPUを実際に製造し、販売しているのは誰ですか？\n私はちょうどチンのボートを購入しました",
+      "editor_note": "「欧州RISC - V産業コンピューティングイニシアティブ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50340088,
+      "title_en": "Show HN: Subvocal – Talk to your computer without making noise",
+      "url": "https://news.ycombinator.com/item?id=50340088",
+      "hn_url": "https://news.ycombinator.com/item?id=50340088",
+      "score": 704,
+      "comment_count": 342,
+      "posted_at": "2026-11-02T17:16:17+00:00",
+      "comments": [
+        {
+          "id": 50350274,
+          "author": "amksa",
+          "text": "Hello, I really like the idea and am excited to try it out.\nDoes it support the Arabic language? If not, is it possible to train it to do so, and what would the requirements be?"
+        },
+        {
+          "id": 50341512,
+          "author": "vessenes",
+          "text": "Just preordered -- glasses request: there's no way to say it nicely, I have a big nose. With a high bridge. Many glasses are really tough to get properly placed; may I request you not give up on the pads w/metal adjusters that you have in the product photos? Don't let a designer take them away from you, us folks not one standard deviation from 'normal' noses will thank you.\nSecond, how tough is this signal processing? Will it be done on-glasses, or through an app? Third, what's the equivalent of a wake word for these? I'm reminded of the Apple Vision Pro radar to see if your fingers are clicking. I could imagine a lot of modalities where I want to just start talking and have things happen, and a lot where I don't want the glasses to pick it up. Fourth, I think a cool voice change demo would be rad -- not sure what latency is like, but if you could get it end to end under like 250ms you could probably have someone exaggerate the mouth movements and pipe out audio of them talking like someone else. Which would be another really cool demo.\nSuper cool. You're going to be working 80 hour weeks for the next year, I'm excited to see what you put out!"
+        },
+        {
+          "id": 50350106,
+          "author": "Xevi",
+          "text": "I am 100% your target demographic. My hands are completely fried and I'm scheduled for double carpal tunnel surgeries. I am also being forced to go back to work in an open landscape office where I can't use voice dictation. A product like this is literally what I have been looking for over the past few years.\nWith that said I live in Europe... Do you have any plans to ship to Europe?"
+        },
+        {
+          "id": 50340809,
+          "author": "sourpanda",
+          "text": "I think this is incredibly cool and straight out of a sci-fi novel! I think this is phenomenal for accessibility and for hands-free computing in general. I also agree with other comments that the website should have more detail on how it works, such as what you included in the post body. Amazing work guys!"
+        },
+        {
+          "id": 50341600,
+          "author": "growt",
+          "text": "If the tech is mostly in the glasses temples, I would prefer to have something that attaches to my existing glasses. I have prescription glasses and a big head, tried the Even G2 smart glasses and the available frames set just too small for me"
+        },
+        {
+          "id": 50343504,
+          "author": "genxy",
+          "text": "Google wanted to put this tech into its phone, but then was convinced it was a bad idea due to privacy invasion. It could for instance correlate sexual arousal with any phone interaction (video chat, youtube, display ads, etc), giving google and advertisers the ability to make custom targeted ads for specific users, as it would \"know your type\".\nWhere does inference occur? Does it work offline?"
+        },
+        {
+          "id": 50349823,
+          "author": "deviation",
+          "text": "Have you considered how this might benefit those who are deaf, or speech impaired? Their lip/mouth movements might be totally different to folks with hearing - but if this can be fine-tuned on an individual's specific speech pattern, then I see a huge opportunity in the accessibility market for this too.\nI would also attempt to patent this\nyesterday\nbefore Meta et al start bringing their own into the market. Heck - I wouldn't be surprised if Meta stepped in to aquihire all of you."
+        },
+        {
+          "id": 50342704,
+          "author": "SkyPuncher",
+          "text": "Based on my understanding of the technology, this also means you can effectively dictate in loud environments. Correct?\nI find that I need this most often when I'm doing yard work, running equipment, or cleaning out the garage. Audio based microphones pick up so much noise."
+        }
+      ],
+      "title_ja": "HNを表示：サブボーカル–ノイズを出さずにコンピューターと話す",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、私はこのアイデアが本当に好きで、試してみることを楽しみにしています。\nアラビア語に対応していますか？ そうでない場合、それを訓練することは可能ですか？要件は何ですか？ /ちょうど予約注文済み-メガネリクエスト：それをうまく言う方法はありません、私は大きな鼻を持っています/私は100 ％あなたのターゲット人口統計です",
+      "editor_note": "「HNを表示：サブボーカル–ノイズを出さずにコンピューターと話す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50320904,
+      "title_en": "Efficient algorithms, the Exponential Time Hypothesis, and losing the plot",
+      "url": "https://www.argmin.net/p/galactus-the-devourer",
+      "hn_url": "https://news.ycombinator.com/item?id=50320904",
+      "score": 53,
+      "comment_count": 29,
+      "posted_at": "2026-10-31T22:31:49+00:00",
+      "comments": [
+        {
+          "id": 50349773,
+          "author": "inkysigma",
+          "text": "I’ve seen quite a few critiques of the practicality of time complexity analysis but I’ve never seen an article describe what we should replace it with. Time complexity analysis, as given, has given some structure to the infinite zoo of problems even if imperfect and composes relatively nicely and is relatively simple. It’s also tractable, has mathematical structure, and is often practical as a heuristic (the kinds of algorithms people typically encounter or come up are typically reasonable under this kind of analysis). In order to be a proper substitute, something would have to satisfy all these qualities. Without such a substitute, we are back to analyzing problems and their complexity without any sort of framework which seems even worse than just remembering that sometimes the big O is not practical.\nThe only candidate that would be more practical that I know of is cache complexity for cache oblivious algorithms but that’s much more complicated."
+        },
+        {
+          "id": 50349684,
+          "author": "throwaway713",
+          "text": "That's a very long-winded way of saying \"I'm an ultrafinitist\"..."
+        },
+        {
+          "id": 50349954,
+          "author": "Aardwolf",
+          "text": "I guess in engineering what you care about is: how fast is it on given input size X relevant for the practical problem. Or: how much input size can we do in time bound Y."
+        },
+        {
+          "id": 50349016,
+          "author": "QuesnayJr",
+          "text": "This is another rant about the author's bugaboo.\nIt would be great to prove that there is or isn't a non-galactic polynomial-time algorithm for NP-complete problems.  But we can't even solve the easier problem of proving there is or isn't a galactic polynomial-time algorithm, so what hope is there for the harder problem?\nIf you could prove that any polynomial-time algorithm for NP problems had to be galactic, you would be the most celebrated computer scientist since Turing.  It's just no one has any idea how to do that."
+        },
+        {
+          "id": 50349300,
+          "author": "choeger",
+          "text": "Would be great to get at least a glimpse of an understanding about\nwhy\nthe algorithm does the enumeration in the first place.\nSurely it cannot be necessary for the complexity result?!"
+        },
+        {
+          "id": 50349597,
+          "author": "podocarp",
+          "text": "This reminds me of the (perhaps unrelated meme) hello I would like (graph of zeta function) number of apples. Statements dreamt up by the utterly deranged.\nIndeed I have met professors who claim since something is O(1) it doesn't matter if you run it 4 times. No need to optimize. I think it's just part of the wider divide between theory and application. For instance big O also requires a register machine to make sense, which most courses don't define. Somehow addition and multiplication are O(1) in some places and O(n) or O(n^2) somewhere else. Also quite common is the fact that sets are slower than lists for lookup for small n, despite being O(1).\nIt's just a tool and we shouldn't miss the trees for the forest. I also understand this comment has nothing to do with the ETH or the article, but just some thoughts I have after reading the first chunk on complexity"
+        },
+        {
+          "id": 50349143,
+          "author": "calf",
+          "text": "I don't think the author's criticism of \"Big-O Cabal\" is very nuanced, but to the second half of the essay it is funny/concerning/sobering to find that the OpenAI proof is doing brute-force search for all instances below some super-astronomic threshold. It kind of buries the lede if the proof did not mention this clearly and the author has to comb through it to find out (I asked ChatGPT the same on the pdf file, but it came up with some other threshold number)."
+        },
+        {
+          "id": 50348944,
+          "author": "traes",
+          "text": "Post #1,000,037 complaining about AI in math by ragging on the existence of pure math. Sigh."
+        }
+      ],
+      "title_ja": "効率的なアルゴリズム、指数関数的時間仮説、プロットの損失",
+      "summary_ja": "ディスカッションのハイライト：私は時間複雑性分析の実用性についてかなり多くの批判を見てきましたが、私はそれを何に置き換えるべきかを説明する記事を見たことがありません/それは「私はウルトラフィニティストです」と言う非常に長い方法です.../エンジニアリングであなたが気にしているのは、実用的な問題に関連する特定の入力サイズXでの速度です",
+      "editor_note": "「効率的なアルゴリズム、指数関数的時間仮説、プロットの損失」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50323123,
+      "title_en": "Resisting Cognitive Surrender",
+      "url": "https://knlb.dev/essays/surrender",
+      "hn_url": "https://news.ycombinator.com/item?id=50323123",
+      "score": 179,
+      "comment_count": 78,
+      "posted_at": "2026-11-01T06:13:30+00:00",
+      "comments": [
+        {
+          "id": 50349414,
+          "author": "zmmmmm",
+          "text": "The tendency to over-engineer and over-build is one of the main challenges I'm seeing. When it comes for free, why not build a class hierarchy of 8 classes each with a 200 line unit test? Something I might have previously thought really hard to minimalise down to 30 lines is now bloated out to hundreds or even thousands.\nPreviously, pretty much everyone all agreed on YAGNI and KISS because code was so expensive to create and more expensive to maintain. Now the code generation is \"free\" - but at a design level, YAGNI and KISS\ndo\nstill matter. But they are enforced now only by sheer will power. You have to actively restrain the code from being created if you don't want it. Perfectly good code - I can't even fault it. I just know, if it doesn't need to exist yet, it's a mistake to create it earlier than needed."
+        },
+        {
+          "id": 50349925,
+          "author": "osmukka",
+          "text": "Superhuman intelligence is much easier for an LLM to achieve if humans are made dumber first."
+        },
+        {
+          "id": 50348146,
+          "author": "tra3",
+          "text": "Great post. I particularly like the 4 column pr view idea. I’ve built something similar to review speckit specs. The scaffolding to ensure that code actually works makes sense too.\nThere’s one thing that’s bothering me though — all of these have us consuming what LLMs produce. I learned and internalized how things worked by building systems. At least within the constraints of the abstractions I was using. This makes me think of TikTok and shorts. Everybody is just watching. Maybe that’s not charitable though. Maybe the abstraction has now changed from an “os/gui/event loop” to “llm” and the rest is just accidental complexity."
+        },
+        {
+          "id": 50349261,
+          "author": "mixedbit",
+          "text": "Maybe things will evolve into projects having a well-defined, hard boundary between agents generated code and human generated code. Where agents generated code is strictly separated from human engineered code and and can call only a strictly defined set of APIs designed by humans.\nThink of platforms like Shopify. Shopify allows huge number of external users to write code customizing their web shops. But Shopify engineers do not need to review and understand the users' code, because there is a boundary which limits what the external code can do. The external code can be A Big Ball of Mud without making the whole platform a A Big Ball of Mud."
+        },
+        {
+          "id": 50335691,
+          "author": "gus_massa",
+          "text": ">>\nA more serious irony is that the automatic control system has been put in place because it can do the job better than the operator, yet the operator is being asked to monitor that it is working effectively.\nAutomatic control is good for standard case, and the expected errors. For weird cases, for now humans are better to detect them and press the big red button."
+        },
+        {
+          "id": 50348503,
+          "author": "ashishmax31",
+          "text": "i sometimes wonder how all carpenters or music producers in the world would react if tomorrow a magic box arrives where they type-in/dictate what they want and voila... out comes a table/composition.. Will the worlds music producers and carpenters just \"accept\" this new magic genie? I would hope they wont.\nYet here we are as software engineers...ready to surrender our craft to mere \"prompts\" with reckless abandon."
+        },
+        {
+          "id": 50348734,
+          "author": "hypfer",
+          "text": "The most difficult part of LLMs and agents seems to be - surprisingly - humans.\nSpecifically, humans and their dysfunctions. Their fragility. Their ego tied to stuff.\nThis is an excellent post/reflection on the topic of solo LLM use.\nThe only gap I see is that it assumes that one works on something alone and not in a team. Though, that might be a different essay in itself.\nEdit: Turns out that footnote 3 actually mentions that already. Nice. Good post"
+        },
+        {
+          "id": 50347736,
+          "author": "lioeters",
+          "text": "\"Yup, looks good to me!\" said the human reviewing thousands of lines of generated code everyday.\nThis has become common now, and I've seen it ruin large projects until nobody understands the codebase full of verbose nonsensical code and comments. It becomes impossible to further develop the project without AI. Contributors not using AI for any reason are all leaving because no one enjoys working with mindless robots (and humans) as colleagues. It's demeaning and devaluing their labor and humanity. They're not getting \"left behind\", they are leaving the madness of crowds behind.\n> ..the possibility of runaway dynamics: once a critical threshold is crossed, small increases in adoption can trigger rapid population-level shifts toward *persistent dependence, with abrupt losses in cognitive competence*.\nWe can all see it happening. As this technology permeates society, the challenge to maintain control, coherence, and quality will become greater and ever more serious - for example, AI in healthcare, military, management and governance."
+        }
+      ],
+      "title_ja": "認知的降伏への抵抗",
+      "summary_ja": "ディスカッションのハイライト：オーバーエンジニアリングとオーバービルドの傾向は、私が見ている主な課題の1つです/人間を最初に愚かにすると、LLMが超人的知性を達成するのははるかに簡単です。/素晴らしい投稿",
+      "editor_note": "「認知的降伏への抵抗」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 11,
+      "id": 50339397,
+      "title_en": "US boy names that became girl names and vice versa",
+      "url": "https://namedaisy.com/blog/boy-names-that-became-girl-names",
+      "hn_url": "https://news.ycombinator.com/item?id=50339397",
+      "score": 410,
+      "comment_count": 386,
+      "posted_at": "2026-11-02T16:34:36+00:00",
+      "comments": [
+        {
+          "id": 50340523,
+          "author": "billyp-rva",
+          "text": "> Of the 42 names that moved toward girls, 34 were driven mainly by an increase among girls, rather than a decline among boys.\n> Surprisingly, the same pattern held in the opposite direction. Of the 12 names that moved toward boys, 9 shifted mainly because fewer girls were receiving them, rather than because more boys were. In other words, whichever way a name moved, the biggest change usually came from girls.\nThis is consistent with the observation that girl's names are more dynamic."
+        },
+        {
+          "id": 50340940,
+          "author": "ecshafer",
+          "text": "There are a few names I think are being confused. Jan, short for Janice is a female name, but Jan in Central / Eastern Europe as a form of John is masculine.  Jean the female name and Jean the french male  name are different."
+        },
+        {
+          "id": 50340621,
+          "author": "Fnoord",
+          "text": "My biggest WTF on this (as a foreigner) was the late Lindsey Graham. I always knew Lindsey/Lindsay as a female name.\nEither way, peeking through the list, seems to me names which end with a vowel are usually feminine. However, there's a caveat: names end up shortened, and over time even those get shortened.\n'Brit', 'Britney' for 'Brittany'.\n'Gerry' or 'Geri' or 'Ger' for 'Gareth' (Dutch variant: 'Gerrit'),\n'Pat', 'Patty' for 'Patrick', 'Patricia'.\n'Pen', 'Penny' for 'Penelope'\n'Ash' for 'Ashley'.\n'Tash' or 'Tasha' for 'Natasha', 'Nata(s)cha' (a variant of Nathan/Nathaniel?)\n'Toni', 'Tony', or 'Ton' for 'Antonia', 'Anton', or 'Antonius'.\nSkimming through the quick examples I came up with, one thing stands out: if it ends with an 'a', feminine. I believe this stems from Latin? It also appears Brittany is a very British example, whereas say 'Tony' stems from a Catholic background. People with that background get very traditional names, but they're always practically shortened. Annoyingly, you'd have to mention your complete name on say a form, but otherwise you get a wider choice since you have like three names, and they're relatively long so more variety to pick from."
+        },
+        {
+          "id": 50350188,
+          "author": "etcetcetcetceta",
+          "text": ">McKinley\nI find it all the more disturbing that a patronymic surname has become a forename."
+        },
+        {
+          "id": 50349917,
+          "author": "megalomanu",
+          "text": "I'm French and my son's name is Camille. It was exclusively a masculine name until the 19th century (Camille Pissarro, Camille Desmoulins, etc.) then gradually became feminine. By the 80s and 90s, it was overwhelmingly used for girls, but now it's pretty evenly split again, with boys starting to slightly outnumber girls.\nWhat i find fascinating is that i don't really like Camille as a girl's name but i love it for a boy! It conjures up completely different images in my mind.\nThere are many other popular unisex names in France right now: Charlie, Sacha, Lou,..."
+        },
+        {
+          "id": 50341092,
+          "author": "petemc_",
+          "text": "There was a guy at my school named Hilary who got awful abuse for it. Always wondered why parents would do such a thing to a child."
+        },
+        {
+          "id": 50350244,
+          "author": "tempfile",
+          "text": "This is kind of gibberish without seeing the name frequency alongside the swing. It's much more likely to see a swing with an infrequent name than a common one."
+        },
+        {
+          "id": 50340874,
+          "author": "myself248",
+          "text": "But Jean (English name, like Jeannie) and Jean (French form of John) are entirely different names, with different pronunciations, that happen to share the same spelling."
+        }
+      ],
+      "title_ja": "女の子の名前になった米国の男の子の名前、およびその逆",
+      "summary_ja": "ディスカッションハイライト：>女の子に向かって動いた42の名前のうち、34は主に男の子の減少ではなく、女の子の増加によって引き起こされました。\n>驚くべきことに、同じパターンが反対側に保持されています/混乱していると思う名前がいくつかあります/これに関する私の最大のWTFは（外国人として）故リンジー・グラハムでした",
+      "editor_note": "「女の子の名前になった米国の男の子の名前、およびその逆」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50336518,
+      "title_en": "If you love a website, back it up",
+      "url": "https://blog.mistys-internet.website/post/2026/10/29/if-you-love-a-website-back-it-up/",
+      "hn_url": "https://news.ycombinator.com/item?id=50336518",
+      "score": 554,
+      "comment_count": 124,
+      "posted_at": "2026-11-02T13:25:35+00:00",
+      "comments": [
+        {
+          "id": 50338928,
+          "author": "drpfenderson",
+          "text": "Wholeheartedly agree. It's sad to slowly see the bitrot in my own bookmarks, trying to pull up important resources or media from only a few years ago only to hit a 404 or domain placeholder. And many times there is nothing on Archive.org or similar.\nThat ArchiveWeb extension looks excellent for custom captures. Picking the pages and elements you want during capture is a great feature.\nFor quicker one-offs, SingleFile gives you a single HTML with all the media of a page:\nhttps://www.getsinglefile.com\nIf you're making archiving a more involved part of your workflow, I highly recommend ArchiveBox. It can save pretty much every type of file from everywhere, in almost every format you can imagine, while building a searchable index of the archives. Been using it successfully for many years:\nhttps://archivebox.io"
+        },
+        {
+          "id": 50339351,
+          "author": "geye1234",
+          "text": "In 5 years, cloud LLMs may have largely replaced the open Internet as a source of information, with centralized control and ability to rewrite the past.\nPlease, please buy books and keep them in good condition, and please archive websites with important information (assuming it's legal in your jurisdiction). There are still plenty of excellent sites and blogs around from the 2000s and even earlier, but they won't be there forever. Ironically, coding agents have made archival much easier -- I've always found problems with using pre-written tools, but Claude or Qwen make it trivial to download, test, and archive sites on your local."
+        },
+        {
+          "id": 50343664,
+          "author": "phaedrus",
+          "text": "This is timely for me, since a web forum I care about went offline, and I simultaneously discovered the Wayback Machine for whatever reason never crawled most of it.  I asked Claude to try to put together a static site of what could be salvaged from various archives and other sources, but as miraculous as what AI can do these days, it can't restore data that is truly gone - so what it was able to salvage is better than nothing but still missing a lot."
+        },
+        {
+          "id": 50339917,
+          "author": "ceroxylon",
+          "text": "I learned this the hard way by getting too casual with Angelfire keeping an old website running for 20 years after I stopped updating it.\nIt had lots of photos that I hand-scanned from printed film, back in the day when it took a good bit of time to scan photos manually.\nThe site was a running joke, where I would open it to show people that it still existed... until it didn't, and I couldn't find my backup of all of the photos. The archive sites have the 'bones' of the website, but not the photos. It was easily avoidable, which is why it is painful."
+        },
+        {
+          "id": 50348780,
+          "author": "taliesinb",
+          "text": "Back it up, or even better, re-implement it to look better than the original!\nI did this for the category theory / math website called ncatlab / nlab\nhttps://github.com/taliesinb/nlab"
+        },
+        {
+          "id": 50348785,
+          "author": "anilakar",
+          "text": "I remember an old niche website I saw some 20 years ago. The whole content was dynamically loaded. If you disabled javascript, you were greeted with a static page that accused you of theft. Attempting to select and copy text or right click resulted in a popup window saying the same.\nNowadays you can just slap your site behind Cloudflare, I guess."
+        },
+        {
+          "id": 50350065,
+          "author": "OroPla",
+          "text": "Any simple way to archive an online database, think imdb, but for other interests?"
+        },
+        {
+          "id": 50341644,
+          "author": "prima-facie",
+          "text": "I've backed up lots of CS courses, you know those old html websites written by the professors by hand. `wget -mkpnp` works very well for those. Even years after finishing uni, I've used those websites for studying for interviews.\nToo bad most of them are now gone."
+        }
+      ],
+      "title_ja": "ウェブサイトを気に入っている場合は、バックアップしてください",
+      "summary_ja": "ディスカッションのハイライト：心から同意する/5年以内に、クラウドLLMは情報源としてのオープンインターネットを大幅に置き換え、一元管理と過去を書き換える能力を備えている可能性があります。\nどうぞ、本を買ってください/これは私にとってタイムリーです。私が気にしているウェブフォーラムがオフラインになり、私は同時に何らかの理由でWayback Machineを発見しましたが、そのほとんどをクロールすることはありませんでした",
+      "editor_note": "「ウェブサイトを気に入っている場合は、バックアップしてください」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50331800,
+      "title_en": "Vathographs: Photographic depth maps as creative expression",
+      "url": "https://vathography.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50331800",
+      "score": 13,
+      "comment_count": 3,
+      "posted_at": "2026-11-02T01:11:19+00:00",
+      "comments": [
+        {
+          "id": 50350057,
+          "author": "burnoutdv",
+          "text": "Okay, I see where this is going and I guess as an seperated art that uses a photo as start it is okay. In a photographic sense it is not, its not better than any given smartphone hallucinating depth of field when the mono-aperture lense does not has it.\nAs someone who has a photography walk every few months to years I draw the hard line in the moment its not deterministic anymore, and if I understand this right..its some kind of machine learning modell interferring the depth by looking at it. The data isnt really there, in short, the depth is hallucinated. Same when you use KI fill to touch up your photos...changing exposure, even in zones, boosting colors from raws, all fine..but the moment you non-deterministicly touch a photo it ceases to be a photo and starts to become an AI image that happens to have a photo as starting point.\nThat all said, on this very topic, is there a camera that actually captures distance in any meaningful resolution? There are fun ToF sensons and 3d voxel clouds of places, but those are usually not something you can snap in milliseconds."
+        },
+        {
+          "id": 50350088,
+          "author": "difosfor",
+          "text": "Is it just me or does the depth map also include color/brightness? The vatograph images shown seem to also be mostly about subject recognition, not depth. How accurate are these inferred depth maps?"
+        },
+        {
+          "id": 50331801,
+          "author": "hankbond",
+          "text": "I'm big on photography and thought this was a really neat use of what is normally a transient image into the point of the creation."
+        }
+      ],
+      "title_ja": "Vathographs ：クリエイティブな表現としての写真の深さマップ",
+      "summary_ja": "ディスカッションのハイライト：わかりました。これがどこに向かっているのかがわかります。写真を開始として使用する別のアートとして、大丈夫だと思います/それは私だけですか、それともデプスマップにも色/明るさが含まれていますか？表示されているバトグラフ画像は、主に被写体の認識であり、深さではないようです/私は写真が大好きで、これは通常の一時的な画像であるものを創造のポイントに本当にきちんと使用していると思いました。",
+      "editor_note": "「Vathographs ：クリエイティブな表現としての写真の深さマップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50340619,
+      "title_en": "Self-Employed? Solopreneur? NIST Has a Cybersecurity Guide Just for You",
+      "url": "https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you",
+      "hn_url": "https://news.ycombinator.com/item?id=50340619",
+      "score": 233,
+      "comment_count": 63,
+      "posted_at": "2026-11-02T17:47:40+00:00",
+      "comments": [
+        {
+          "id": 50348580,
+          "author": "nomilk",
+          "text": "> written in lay language\nyet its title is:\n> Small Business Cybersecurity: Non-Employer Firms (NIST Cybersecurity White Paper 50)\nSmall businesses don't identify as 'Non-Employer Firms', have no idea what 'NIST' is, most wouldn't know what a White Paper is, nor number 50.\n'A Crash Course in Cybersecurity for Small Businesses' would be an improvement."
+        },
+        {
+          "id": 50344207,
+          "author": "xvxvx",
+          "text": "‘a lay-language resource‘.\nIMO this misses the mark. Yes, it’s a decent attempt at simplifying cybersecurity, but if this is aimed at entry-level, non-technical people, it’s not gonna work.\nOne of my earliest jobs was to redesign training materials for one of the worlds largest companies. I stripped the training to its core, the true basics, and started there. The results were remarkable. I feel the urge to do the same with this document…"
+        },
+        {
+          "id": 50344808,
+          "author": "philosopherNoob",
+          "text": "This is my first time seeing “SI” in the wild. That is such a wrong term. It’s jargon in a place where it doesn’t belong.\nIt’s a darn fancy algorithm and a cool tool. Putting it on a pedestal instead of grounding it to reality is not going to help anyone. My condolences to the authors."
+        },
+        {
+          "id": 50349742,
+          "author": "benjy3379",
+          "text": "A backup that a compromised host can write, replace, is override with everything in ransonwhere event.\nWe need a immutable and off site copy. And escentialy a backup never tested is a schroding-backup, not a real.\nA best way is completly test your backup, in trashable environment, if successful restore, your right, if not..."
+        },
+        {
+          "id": 50344984,
+          "author": "tkdb",
+          "text": "I'm not a security expert.\nRequests for comments from career security experts: is this any good?"
+        },
+        {
+          "id": 50348063,
+          "author": "grodriguez100",
+          "text": "“The publication is an update to what was previously titled Small Business Information Security: The Fundamentals (NISTIR 7621). While that publication was aimed at small businesses of varying sizes and covered the broader topic of information security, the revision is narrower in scope [...]”\nThe original publication is now withdrawn and replaced with this new one, which targets self-employed people / solopreneurs specifically. So, there is no current guide for small businesses anymore?"
+        },
+        {
+          "id": 50348136,
+          "author": "albert_e",
+          "text": "May something aimed at a average home-owner / individual -- dealing with a ton of digotal equipment from routers to Macs/PCs to home camera and security systems to smart TV and smart bidets could probably use of good use too (of course it may need update every few months though)"
+        },
+        {
+          "id": 50345947,
+          "author": "0x4e",
+          "text": "As the target audience for this white paper, I’d appreciate HN’s take on the accuracy of this. Whether it misses something, deserves praise or any resources you can point out to make this advice even more actionable.\nWhat’s your advice to a non-technical / non-tech savvy small business owner? Say, for example, people used to buy anti virus as a solution. What could they do now that resembles that?\n—-\nI work with lots of non-technical / non-tech savvy small business owners and many of them are showing concern. So, I’d love to share as much as possible with the people who are not Palo Alto networks clients."
+        }
+      ],
+      "title_ja": "自営業？ソロプレナー？ NISTはあなたのためのサイバーセキュリティガイドを用意しています",
+      "summary_ja": "ディスカッションのハイライト： >一般言語で書かれている\nしかし、そのタイトルは次のとおりです。\n>中小企業のサイバーセキュリティ：非雇用主企業（ NISTサイバーセキュリティホワイトペーパー50 ）\n中小企業は「非雇用者/非言語リソース」とはみなされません。\nIMOこれはマークを逃しています/これは私が野生で「SI」を見るのは初めてです",
+      "editor_note": "「自営業？ソロプレナー？ NISTはあなたのためのサイバーセキュリティガイドを用意しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 15,
+      "id": 50339913,
+      "title_en": "Launch HN: Momentic (YC W24) – Agents that catch bugs by using your app",
+      "url": "https://momentic.ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=50339913",
+      "score": 145,
+      "comment_count": 96,
+      "posted_at": "2026-11-02T17:05:25+00:00",
+      "comments": [
+        {
+          "id": 50350141,
+          "author": "maxdo",
+          "text": "So you compare a naked “find a bug” with real harness build of tears , know how to test , lol . Is that an assumption that people stop building harness ?"
+        },
+        {
+          "id": 50340455,
+          "author": "JulianPaul",
+          "text": "Why is this better than running Opus 5.5 directly against my app with a custom Playwright-based harness for in my own subscription?"
+        },
+        {
+          "id": 50343384,
+          "author": "beavisringdin",
+          "text": "Questions:\n- I would always pick an open source tool I can strap to my custom harness over using a service like this. Do you somehow expect that no such competitor will arrive that performs as well?\n- If you are YC 2024 what have you been doing for 2 years?\n- The real edge here would be supporting mobile development builds on real devices, is this on your roadmap and if so what's your plan to support it? In that case I would pay for this if you handled the real device on your end."
+        },
+        {
+          "id": 50340540,
+          "author": "podoman",
+          "text": "> Mo is a custom agent harness for catching bugs that builds on the past 3 years of Momentic and millions of test traces from complex, real-world applications. Mo is built for recall: it finds the most real bugs, though Codex is a bit more precise at 86% vs 84%. The tradeoff is cost: Mo costs $2.67 per bug vs $0.80 for Codex, less than Claude Code and Devin.\nis this good? so Mo costs more money per bug? I'm confused."
+        },
+        {
+          "id": 50347072,
+          "author": "AgentMasterRace",
+          "text": "I used this service very briefly, but it's too slow as it relies on the cloud and it's way too expensive since most developers use a subscription service.\nEven just Claude with basic prompts is better, but even better with skills.. and then even better with maestro scripts."
+        },
+        {
+          "id": 50344470,
+          "author": "vfosnar",
+          "text": "> Momentic invited you to work together\nso apparently they automatically hand over your email to Slack to contact you upon login even tho I don't remember this being mentioned anywhere at all. I went to check the Momentic settings and theres a Notifications section with Slack turned off...\nused my public email so idc but others may"
+        },
+        {
+          "id": 50349515,
+          "author": "bshafiq",
+          "text": "How are you handling the failure modes when the agent gets stuck in a retry loop? For example, if an element doesn't load and the agent just keeps trying to click it over and over. Are you using a hard max-steps limit, or do you have a smarter way to detect when the agent's state has stopped changing and kill the run?"
+        },
+        {
+          "id": 50348584,
+          "author": "throwaway7783",
+          "text": "I'm curious to see benchmarks when you have access to source code. While traditional QA does not get access to the codebase, with LLMs being primary authors of the code, there are no real practical barriers to giving code access to the testing agents.\nAt my last job, we did this - gave access to codebase to codex/CC, allowed it to drive the app via browser (+ playwright). It not only found bugs but also correlated them to relevant UI and backend code. We didn't benchmark against anything else, but it was amazing to see it in action."
+        }
+      ],
+      "title_ja": "HN: Momenticを起動する(YC W 24) –アプリを使用してバグをキャッチするエージェント",
+      "summary_ja": "ディスカッションのハイライト：つまり、裸の「バグを見つける」と実際の涙のハーネスの構築を比較し、テストの方法を知っています。lol/自分のサブスクリプションでカスタムの劇作家ベースのハーネスを使用してアプリに対してOpus 5.5を直接実行するよりも優れているのはなぜですか？/質問：\n-このようなサービスを使用するよりも、カスタムハーネスにストラップできるオープンソースツールを常に選択する",
+      "editor_note": "「HN: Momenticを起動する(YC W 24) –アプリを使用してバグをキャッチするエージェント」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50347464,
+      "title_en": "Open-Source 5G Ran Platforms: A Dual Perspective on Performance and Capabilities",
+      "url": "https://arxiv.org/abs/2608.25820",
+      "hn_url": "https://news.ycombinator.com/item?id=50347464",
+      "score": 38,
+      "comment_count": 4,
+      "posted_at": "2026-11-03T02:58:44+00:00",
+      "comments": [
+        {
+          "id": 50349671,
+          "author": "armcat",
+          "text": "I spent 10 years working with radio access networks (RAN), first in WCDMA (3G) then LTE (4G), then 5G. Our systems were also software defined radio (SDR), but, and this is crucial (and the paper points to this), the SDR as \"malleable\" as it is, is still highly dependent on the underlying hardware to achieve good performance.\nAlso, we spent huge amount of time making sure uplink performance is top-notch, as is the general stability and determinism, i.e. jitter and tail latency. In the paper they show that OAI is quite unstable, and they only achieve 5-49% of theoretical uplink capacity.\nAlso note this is a tiny setup, single server, four simultaneous UEs (phones). The systems I worked with handled 20 000 phones per second, with quality guarantees, in environments like central Tokyo and midtown Manhattan.\nSo great for independent research, but unfortunately, still very much bound to small end research."
+        },
+        {
+          "id": 50349380,
+          "author": "martijnvds",
+          "text": "Note that this is about RAN (Radio Access Network) platforms, not the past tense of the verb \"to run\"."
+        }
+      ],
+      "title_ja": "オープンソースの5 G RANプラットフォーム：パフォーマンスと機能に関するデュアルな視点",
+      "summary_ja": "ディスカッションハイライト：私は無線アクセスネットワーク（ RAN ）で10年間働きました。最初はWCDMA （ 3 G ）、次にLTE （ 4 G ）、次に5 G/これはRAN （ Radio Access Network ）プラットフォームに関するものであり、「実行する」という動詞の過去形ではありません。",
+      "editor_note": "「オープンソースの5 G RANプラットフォーム：パフォーマンスと機能に関するデュアルな視点」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50339221,
+      "title_en": "Show HN: Warsaw in voxels – An interactive 3D map of the city centre",
+      "url": "https://p.migdal.pl/warsaw-vibe-voxel/",
+      "hn_url": "https://news.ycombinator.com/item?id=50339221",
+      "score": 276,
+      "comment_count": 45,
+      "posted_at": "2026-11-02T16:25:26+00:00",
+      "comments": [
+        {
+          "id": 50339240,
+          "author": "stared",
+          "text": "There are quite a few such other projects, e.g. Streets of Prague (\nhttps://beta.streetsofprague.com/\n), were one can explore Prague in a top-down GTA2-like mode, based on real data."
+        },
+        {
+          "id": 50349599,
+          "author": "artturibyte",
+          "text": "Looks great! Sad that could not find that my favourite thing from warsaw trip, this really long residential building that had actually its own wikipedia article and was called \"dachshund\" :D\nhttps://en.wikipedia.org/wiki/Dachshund_(building)"
+        },
+        {
+          "id": 50343621,
+          "author": "MisterTea",
+          "text": "Super neat project but I am getting fractional (<1 FPS) frame rates in FF on Linux. Granted, this is an older AMD PC and certainly no power house but it used to run actual Minecraft just fine."
+        },
+        {
+          "id": 50342557,
+          "author": "jesse__",
+          "text": "It's almost unusably slow on my laptop.  3080ti mobile, windows 11, chrome.  I opened the profiler and the update appears to be fast enough; roughly hitting 30fps, but there are massive gaps between updates and the actual frame time seems to be about 120ms.\nOther than that, neat :)"
+        },
+        {
+          "id": 50343022,
+          "author": "_whiteCaps_",
+          "text": "I really enjoyed visiting Warsaw, I went there for work a few years ago and didn't really know what to expect.\nIf you ever have the chance, I highly recommend the Warsaw Uprising Museum."
+        },
+        {
+          "id": 50340766,
+          "author": "radicality",
+          "text": "Nice. At first glance looks cool, but then, oh my, some areas are really butchered :S Poor Old Town and Plac Zamkowy - I'm familiar with the area and at first was scanning trying to find it visually by the features I know are there, but then in this model it's very different (wrong color, many more floors in this model, a 20-story building where at most should be at most a 5-story, the old town castle looking like a gray residential 'blok' and not the prettier structure that it is!)."
+        },
+        {
+          "id": 50339906,
+          "author": "sixtyj",
+          "text": "Mobile version reloads, imho it is too heavy for Safari.\nWell done.\nAs default weather - I would prefer sunny day instead of rain…"
+        },
+        {
+          "id": 50347791,
+          "author": "percentcer",
+          "text": "This is neat but the FPS controls are very strange, I'd recommend changing the A/D movement to be a 'strafe' (lateral movement, no rotation) and reversing the mouse look directions (i.e. dragging right should rotate the camera to the right instead of dragging the screen like it might in figma)"
+        }
+      ],
+      "title_ja": "ショーHN ：ボクセルのワルシャワ–市内中心部のインタラクティブな3 Dマップ",
+      "summary_ja": "ディスカッションのハイライト：そのようなプロジェクトは他にもたくさんあります。例：すばらしい！悲しいことに、ワルシャワ旅行から私のお気に入りのものを見つけることができませんでした。この非常に長い住宅ビルには、実際には独自のウィキペディア記事があり、「DAC/Super NEATプロジェクト」と呼ばれていましたが、LinuxでFFでフラクショナル（< 1 FPS ）フレームレートを取得しています",
+      "editor_note": "「ショーHN ：ボクセルのワルシャワ–市内中心部のインタラクティブな3 Dマップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50331988,
+      "title_en": "Optical Circuit Switch Technology Built on Low-Loss Silicon Photonics Platform",
+      "url": "https://www.psiquantum.com/news-import/psiquantum-unveils-optical-circuit-switch-technology-built-on-advanced-low-loss-silicon-photonics-platform",
+      "hn_url": "https://news.ycombinator.com/item?id=50331988",
+      "score": 9,
+      "comment_count": 0,
+      "posted_at": "2026-11-02T01:34:16+00:00",
+      "comments": [],
+      "title_ja": "低損失シリコンフォトニクスプラットフォーム上に構築された光回路スイッチ技術",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「低損失シリコンフォトニクスプラットフォーム上に構築された光回路スイッチ技術」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 50350004,
+      "title_en": "Revolut moves to self-hosted GLM",
+      "url": "https://twitter.com/guilleflorvs/status/2117379073785696395",
+      "hn_url": "https://news.ycombinator.com/item?id=50350004",
+      "score": 24,
+      "comment_count": 6,
+      "posted_at": "2026-11-03T09:53:59+00:00",
+      "comments": [
+        {
+          "id": 50350223,
+          "author": "InsidiousWombat",
+          "text": "If investors knew how powerful open models are the AI companies valuation would tank overnight"
+        },
+        {
+          "id": 50350214,
+          "author": "gosen",
+          "text": "> Per David Abitbol, who leads AI ops there: 56 Nvidia B200s, a blended 30 cents per million tokens, roughly a tenth of what they paid Anthropic and OpenAI.\nSo they've invested around $2.5M-3M into hardware + monthly operating costs (electricity, updates, cooling). I wonder how much did they spend on tokens to decide to make such a switch. I mean if they used to spend $500k-1M per month just on tokens then it would pay off in a year or so, assuming their infra will be stable and efficient.\nWe'll see if that's a trend for mid-big companies or just an experiment.\nAll that math is assuming that it's all self-hosted in their data center or so and not paying to a cloud provider, which will be probably more expensive."
+        },
+        {
+          "id": 50350190,
+          "author": "mtrovo",
+          "text": "30 cents per million tokens is wild.\nThe relevant question is how easy is to setup 56x B200s in a cluster, are we talking about a adhoc infra team job or clicking a button on AWS?"
+        },
+        {
+          "id": 50350267,
+          "author": "aurareturn",
+          "text": "It's probably true that open weight models are \"good enough\" for most software engineering tasks.\nBut the goal posts will move and I think frontier labs will find new areas that have a need for absolute frontier."
+        },
+        {
+          "id": 50350160,
+          "author": "swyx",
+          "text": "their full talk is here\nhttps://www.youtube.com/watch?v=Ok6QdZHCcI8"
+        }
+      ],
+      "title_ja": "RevolutがセルフホスティングのGLMに移行",
+      "summary_ja": "ディスカッションのハイライト： AI企業のバリュエーションが一晩でどれほど強力なオープンモデルであるかを投資家が知っていれば/>そこでAIオペレーションを率いるDavid Abitbol氏： 56 Nvidia B 200、100万トークンあたり30セントのブレンド、AnthropicとOpenAIに支払った金額の約10分の1。\nしたがって、彼らはAROを投資しました/100万トークンあたり30セントはワイルドです。\n関連する質問は、クラスター内に56 x B 200をセットアップするのがどのくらい簡単かということです。アドホックインフラチームについて話していますか？",
+      "editor_note": "「RevolutがセルフホスティングのGLMに移行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50332342,
+      "title_en": "Katamari Damacy but it's The Met collection",
+      "url": "https://katamari.vaguespac.es/",
+      "hn_url": "https://news.ycombinator.com/item?id=50332342",
+      "score": 3,
+      "comment_count": 1,
+      "posted_at": "2026-11-02T02:21:07+00:00",
+      "comments": [
+        {
+          "id": 50332883,
+          "author": "vunderba",
+          "text": "Nice job~~ Some feedback:\n• Provide a toggle for the music. It sounds like it was procedurally generated by Claude Code. I understand CC was trying to give it a \"Damacy vibe\", but it just doesn't have any of the charm. I can still sing the very memorable original's theme despite not having played it in over two decades.\n• The camera has a bit too much elasticity when you haven't accreted much on the ball. For whatever reason, good camera controls give even SOTA LLMs a surprising amount of grief. Might be worth a bit of manual tuning."
+        }
+      ],
+      "title_ja": "カタマリ・ダマシーがメトロポリタン・コレクション",
+      "summary_ja": "ディスカッションのハイライト：よくできました〜〜いくつかのフィードバック：\n•音楽のトグルを提供する",
+      "editor_note": "「カタマリ・ダマシーがメトロポリタン・コレクション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50345924,
+      "title_en": "Scaling Git at OpenAI",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "hn_url": "https://news.ycombinator.com/item?id=50345924",
+      "score": 232,
+      "comment_count": 145,
+      "posted_at": "2026-11-02T23:47:56+00:00",
+      "comments": [
+        {
+          "id": 50348485,
+          "author": "usrme",
+          "text": "By my count, this OpenAI post is the fifth major article on the topic of scaling, with the previous four being:\n- Cursor:\nhttps://cursor.com/blog/git-at-any-scale\n- GitHub:\nhttps://github.blog/engineering/architecture-optimization/bu...\n- Anthropic:\nhttps://www.anthropic.com/research/redesigning-source-contro...\n- GitHub:\nhttps://github.blog/engineering/architecture-optimization/th...\nMaybe also tangentially East River Source Control's too:\nhttps://ersc.io/blog/what-comes-after-git\n.\nI'm wondering how much cross-pollination of ideas and subsequent implementation details there are between people working at these companies. It does seem like all of this could potentially converge."
+        },
+        {
+          "id": 50347625,
+          "author": "bigmadshoe",
+          "text": "Can anyone explain to me what this massive volume of code could actually be doing? They obviously have variations of model architectures, training infrastructure, serving infrastructure, and the source for their apps.\nWhy would the volume that any of this be increasing exponentially? And what are all the engineers doing when (besides the model quality) their products don't seem to be changing very much?"
+        },
+        {
+          "id": 50347475,
+          "author": "paxy",
+          "text": "While I don't have any particular interest in the topic this is a great blog post. No AI in every second line, no needless marketing or hype. Just a bunch of engineers talking in their own voice about a topic in great detail with numbers, charts, visualizations."
+        },
+        {
+          "id": 50350051,
+          "author": "nihzm",
+          "text": "While technically impressive, the number of git commits without looking at the content is either a loose proxy for the speed of change of the codebase or a finer time resolution of the changesets. But this says little or nothing about whether this is useful for anything related to their products. So what is this for? They are not employing the same number of engineers as Google, so what is the point of scaling the number of commits? Flooding with git commit messages as \"documentation\" until the volume becomes unmanageable? Or changing the code at as speed that makes every single engineer lose the overview? I wonder."
+        },
+        {
+          "id": 50347773,
+          "author": "pksunkara",
+          "text": "I don't see benchmarks anywhere in here. For example, how many pushes per second does this handle? And how many concurrent pushers? etc..\nDisclaimer: I am building a code forge at\nhttps://juju.bi"
+        },
+        {
+          "id": 50349674,
+          "author": "wrxd",
+          "text": "It's always the monorepo people who hit git performance issues. I wonder why"
+        },
+        {
+          "id": 50349399,
+          "author": "cadamsdotcom",
+          "text": "> under-appreciated feature of the Git protocol, `packfile-uri`, allows a server to return links to download additional packs separately ... Pando uses this exclusively ... To support this feature, OpenAI contributed a number of improvements to `packfile-uri`\nYes! Great adaptation of an existing system, showing why open source is special.\nNeat hack, OpenAI engineers!"
+        },
+        {
+          "id": 50348177,
+          "author": "yangcheng",
+          "text": "growing out of Git seems like a graduation for becoming top tech companies. Google and Facebook have done this in the past. now Anthropic and openAI."
+        }
+      ],
+      "title_ja": "OpenAIでのGitのスケーリング",
+      "summary_ja": "ディスカッションのハイライト：私の計算では、このOpenAIの投稿は、スケーリングのトピックに関する5番目の主要な記事であり、前の4つは次のとおりです。\n-カーソル：\nhttps://cursor.com/blog/git-at-any-scale\n- GitHub:\nhttps ://この膨大な量のコードが実際に何をしているのか、誰か説明してくれませんか？ 彼らは明らかにモデルアーキテクチャ、トレーニングインフラストラクチャ、インフラストラクチャへのサービスのバリエーションを持っています/私はこのトピックに特に関心がありませんが",
+      "editor_note": "「OpenAIでのGitのスケーリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50349155,
+      "title_en": "uBlock Origin filter to block autoplay videos in TechCrunch",
+      "url": "https://cornfieldlabs.github.io/posts/ublock-stop-techcrunch-autoplay-video/post.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50349155",
+      "score": 83,
+      "comment_count": 24,
+      "posted_at": "2026-11-03T07:36:47+00:00",
+      "comments": [
+        {
+          "id": 50349246,
+          "author": "ghtjason",
+          "text": "Firefox's built-in \"Block Audio and Video\" in Settings -> Autoplay seems to do a good enough job for most sites (with exceptions whenever it breaks something)."
+        },
+        {
+          "id": 50349404,
+          "author": "thetallgeek",
+          "text": "The first thing I do when I get access to any computer is install uBlock. A friend comes for tech support, first install then anything else."
+        },
+        {
+          "id": 50349524,
+          "author": "Jakob",
+          "text": "Disabling JavaScript by default makes this a non-issue on most sites. Just checked TechCrunch and it’s great without it. Likely like the designer intended.\nOn iOS, Brave browser makes toggling JS particularly easy.\n90% of my mobile web browsing is without JavaScript. It’s much faster, cleaner, safer. And for the occasional website that needs JS, I can toggle it.\nSimilar to many here in the thread, I then tend to not visit sites anymore that require JS/are too bloated."
+        },
+        {
+          "id": 50349636,
+          "author": "bborrez",
+          "text": "In uBlock Origin, I allow everything except 3rd party frames, then I use uMatrix to whitelist acceptable domains and requests. These are the only privacy add-ons I use and they are amazing."
+        },
+        {
+          "id": 50349370,
+          "author": "lakeviewterrace",
+          "text": "The solution for shitty web design is not to come up with clever workarounds.\nThe solution is to stop visiting these sites entirely, as traffic emboldens them further.\nIt's like deliberately going into The Worst Toilet In Scotland so you can read the news scribbled on the walls."
+        },
+        {
+          "id": 50350075,
+          "author": "kotaKat",
+          "text": "Any solutions for eBay?  The super hostile \"eBay Live\" videos intertwined everywhere on the main page are awful.\nEither it's bad AI coverart (bonus points for 'glamming it up' with a 'sexy lady' as your stream photo to lure desperate men in), or it loads into a stream with some random middle-aged chud trying to hawk bad baseball cards for \"$2 starts!\" as you're trying to scroll through the listings."
+        },
+        {
+          "id": 50349401,
+          "author": "HelloUsername",
+          "text": "If you just want to read the text body of an article, there's plenty third party scripts you can block on Techcrunch through the advanced settings in uBlock Origin:\ncloudflare.com\nconnatix.com\nd34azmi6bxg5fz.cloudfront.net\nvideos-cloudfront-usp.jwpsrv.com\nfacebook.net\ngoogle.com\ngoogletagmanager.com\ngstatic.com\njwpcdn.com\njwplatform.com\njwplayer-dualstack.map.fastly.net\nassets-jpcust.jwpsrv.com\njwplayer.com\njwpltx.com\njwpsrv.com\nparsely.com\nsail-horizon.com\nservenobid.com\nwp.com"
+        },
+        {
+          "id": 50349397,
+          "author": "NietTim",
+          "text": "I've just stopped visiting websites that make it impossible to read their articles. It has gotten completely ridiculous."
+        }
+      ],
+      "title_ja": "techCrunchで自動再生ビデオをブロックするuBlock Originフィルター",
+      "summary_ja": "ディスカッションのハイライト： Firefoxの「設定->自動再生」に組み込まれている「オーディオとビデオをブロック」は、ほとんどのサイトで十分に機能しているようです（何かが壊れるたびに例外があります）。/コンピュータにアクセスしたときに最初にすることはuBlockをインストールすることです/デフォルトでJavaScriptを無効にすると、ほとんどのサイトで問題になりません",
+      "editor_note": "「techCrunchで自動再生ビデオをブロックするuBlock Originフィルター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 23,
+      "id": 50326246,
+      "title_en": "Shrinking NixOS RAM footprint and resource requirements to the bare minimum",
+      "url": "https://lowendspirit.com/discussion/11543/shrinking-nixos-ram-footprint-and-resource-requirements-to-the-bare-minimum",
+      "hn_url": "https://news.ycombinator.com/item?id=50326246",
+      "score": 69,
+      "comment_count": 8,
+      "posted_at": "2026-11-01T14:52:05+00:00",
+      "comments": [
+        {
+          "id": 50348617,
+          "author": "KingMachiavelli",
+          "text": "I really wish building minimal, custom kernels was easier. NixOS makes it somewhat\nsane\nbut it's still a mess of custom kconfig, defconfig target hacking, and manually splicing out the necessary firmware and kernel modules. The kernel doesn't even have an interface to show what firmware blobs have been loaded. You can do some firmware signature enforcement but I guess no one cares about random binary blobs are running just to work your laptop webcam.\nIt would be very useful if I could just boot a kernel and get an instant report of what kernel config, firmware and modules are actually used/needed. You can kind of do this but"
+        },
+        {
+          "id": 50349776,
+          "author": "viraptor",
+          "text": "This reminded me I wanted to check how small can I make chrome by disabling all the unnecessary features. I'd really like to get something I can swap in the electron packages to reduce the ram usage. Sometimes it's worth fighting for the resources we pay for."
+        },
+        {
+          "id": 50349256,
+          "author": "wrxd",
+          "text": "Tangential but TierHive looks to be doing great work. You can get a VPS from them for about a couple of dollars a year.\nIt's not going to be powerful (128MB of RAM 1GB of storage) but if you run Alpine or NetBSD you can use it as a WireGuard peer, to host a small\nWebsite or to run some cron jobs."
+        },
+        {
+          "id": 50348620,
+          "author": "yjftsjthsd-h",
+          "text": "> Blacklisted the hardware a KVM guest never has or doesn't need\nI'm a little surprised that matters; shouldn't Linux be lazy loading drivers only when it sees hardware?"
+        },
+        {
+          "id": 50349043,
+          "author": "ximm",
+          "text": "I expected a discussion of NixOS specific issues like different versions of libraries that are loaded at the same time. Instead, this article disucces kernel tweaks and disabling system services, which is not specific to NixOS. So the title is a bit misleading."
+        }
+      ],
+      "title_ja": "NixOS RAMのフットプリントとリソース要件を最小限に抑える",
+      "summary_ja": "ディスカッションのハイライト：最小限のカスタムカーネルを簡単に構築したい/これは、不要な機能をすべて無効にしてクロムをどれだけ小さくできるかを確認したいと思いました/Tangentialですが、TierHiveは素晴らしい仕事をしているように見えます",
+      "editor_note": "「NixOS RAMのフットプリントとリソース要件を最小限に抑える」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50347552,
+      "title_en": "Show HN: I built a little browser game to practice Vim commands",
+      "url": "https://hjkl.duy.run",
+      "hn_url": "https://news.ycombinator.com/item?id=50347552",
+      "score": 39,
+      "comment_count": 27,
+      "posted_at": "2026-11-03T03:10:04+00:00",
+      "comments": [
+        {
+          "id": 50348730,
+          "author": "glibg10b",
+          "text": "For all of the ciw examples, ce is easier since the cursor is at the first letter of the word.\nWhere dw works, this game teaches vlllld instead, which is a bad habit to teach.\nCtrl+A increments the first number after the cursor, which is easier than, say, f6r7 in cases where they do the same thing. Similarly, Ctrl+X decrements.\nt:t: is weird when fY is much easier.\nThe Vim simulator has a minor difference compared to real Vim:\n0\n0\nStart on line one and do CTRL-V then j then CTRL-A. Real Vim would increment both. The simulator only increments the one under the cursor."
+        },
+        {
+          "id": 50350192,
+          "author": "TheBuc",
+          "text": "Cool, this could be a big help for those just starting out!"
+        },
+        {
+          "id": 50349462,
+          "author": "autuni",
+          "text": "I have considered getting into Vim a couple of times because it always seemed like the thing to do, but never did.\nIt does not make sense to me that I should use an editor I need to study and practice for. It can't possibly that much more efficient, especially given that usually speed is not the limiting factor for what I do.\nMaybe one day I will be tempted to find out why it's supposedly worth it again."
+        },
+        {
+          "id": 50349727,
+          "author": "zzril",
+          "text": "I was somewhat irritated that the exercises allow you to stay in insert mode at the end. I think it might do better at teaching the concept of an \"edit\" as a single, repeatable action by requiring you to go back to normal mode."
+        },
+        {
+          "id": 50348505,
+          "author": "usrme",
+          "text": "I did the first challenge or exercise, but I was honestly a little surprised that Vim motions aren't able to be used to choose the next exercise(s) in the sidebar that becomes visible. That could potentially be something that the player unlocks later on as well."
+        },
+        {
+          "id": 50349196,
+          "author": "parasti",
+          "text": "This got a laugh out of me. I guess I practiced vim commands in the most boring way - by using vim."
+        },
+        {
+          "id": 50349495,
+          "author": "internet_points",
+          "text": "The best game to learn hjkl movement will always be nethack :)"
+        },
+        {
+          "id": 50348400,
+          "author": "jaydonb",
+          "text": "This is great, definitely going to be using this to practice!\nOne note: It might be useful to keep the \"undo\" prompt when the user messes up after the first two prompted lessons for a clear recovery path.\nThank you for making this!"
+        }
+      ],
+      "title_ja": "Show HN ： Vimコマンドを練習するための小さなブラウザゲームを作成しました",
+      "summary_ja": "ディスカッションのハイライト：すべてのciwの例では、カーソルが単語の最初の文字にあるため、ceの方が簡単です。\nDwが働く場所では、このゲームは代わりにvlllldを教えます。これは教えるのが悪い習慣です。\nCtrl/Cool、これは始めたばかりの人にとって大きな助けになるかもしれません！ /私はVimに入ることを何度か検討しました。なぜなら、それは常にやるべきことのように思えたが、決してやらなかったからです。\n必要なエディターを使用するのは理にかなっていません",
+      "editor_note": "「Show HN ： Vimコマンドを練習するための小さなブラウザゲームを作成しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 25,
+      "id": 50338728,
+      "title_en": "Ask HN: Who is hiring? (November 2026)",
+      "url": "https://news.ycombinator.com/item?id=50338728",
+      "hn_url": "https://news.ycombinator.com/item?id=50338728",
+      "score": 219,
+      "comment_count": 180,
+      "posted_at": "2026-11-02T16:01:37+00:00",
+      "comments": [
+        {
+          "id": 50350077,
+          "author": "PlantingSpace",
+          "text": "PlantingSpace | Full-time | Remote (EU time zone) + Quarterly Meet-ups |\nhttps://planting.space\nWe're building a system that represents domain knowledge as modular probabilistic models — making analysis rigorous and transparent. Users can connect these models flexibly into larger structures. The system enforces consistency across them, and propagates uncertainty through each step. Our first applications are in finance and scientific research, with use cases ranging from equity valuation and distress monitoring, to particle physics.\nWe're hiring for the following openings:\n* Technical Project Manager\n* Backend Software Engineer\n* Analytic Learning Algorithm Researcher\n* Product Managers and Business Development\n* Domain Experts - Valuation, Quantitative Default-Probability, or Interest Rate Prediction Models: to collaborate on use cases, from opportunity validation through production\nFind out more, and apply at:\nhttps://planting.space/joinus/"
+        },
+        {
+          "id": 50349751,
+          "author": "kreldjarn",
+          "text": "Encube | ML Engineer, ML Ops Engineer | Stockholm, Sweden | ONSITE | Full-time\nEncube is a platform where hardware teams look at their 3D designs and engineering drawings together and make better products faster. We're building AI that understands those drawings and 3D models, and can eventually create them. Evaluations are a massive priority, and we need to consistently demonstrate how our models are better than frontier VLMs.\nML Engineer: train models that connect 2D drawings to 3D models, build agents that generate CAD and drawings, figure out how to measure if they're actually good, and ship them to real customers. PyTorch. Bonus if you've worked with 3D, CAD or graph neural nets.\nML Ops Engineer: on-prem and AWS GPUs, make every experiment reproducible, keep costs down and customer data safe, and get rid of whatever slows the ML team down. SkyPilot, MLflow, PyTorch."
+        },
+        {
+          "id": 50342723,
+          "author": "phw",
+          "text": "Fly.io | REMOTE (multiple countries) | Full time | $190k USD + equity\nHey folks, Fly.io is a developer-focused public cloud. We are currently hiring for three roles:\n* Networking Engineer: Proxy and Corrosion -\nhttps://fly.io/jobs/networking-engineer/\n* Infrastructure Operations Engineer -\nhttps://fly.io/jobs/infra-engineer/\n* Fullstack Engineer -\nhttps://fly.io/jobs/fullstack-engineer/\nHere's how we hire:\nhttps://docs.fly.io/hiring"
+        },
+        {
+          "id": 50349755,
+          "author": "openrent",
+          "text": "OpenRent | London, UK | Full-Time | ONSITE+PART REMOTE |\nhttps://www.openrent.co.uk\nWhat sucked the last time you rented a house or flat? Come and fix it.\nOpenRent is force for good in an industry tarnished by rip-off agencies and one of the biggest UK websites by traffic. Enabled by an unrelenting focus on technology, we let more properties than any agency in the UK. In the last 12m we let over £50 billion worth of property, to over 8 million registered users, without ever charging any admin fees.\nYou'll be working on solving every aspect of the rental journey, from models to predict the right price of a property, to building the future of property management, all to help tenants find their dream home, and landlords their ideal tenant.\nWe're PE backed, profitable, and have plenty of ambition to maintain our fast growth in this absolutely massive market.\nRoles currently available:\n- Senior Full-Stack Engineer | 110k+ (based on experience) + quarterly bonus\nAll roles visible here:\nhttps://www.openrent.co.uk/jobs"
+        },
+        {
+          "id": 50349129,
+          "author": "Bat-elN",
+          "text": "Opsfleet | AI Engineer (Agentic / GenAI) | REMOTE (EEA) | Full-time\nFully remote cloud & AI services company (founded 2015, 70+ engineers, AWS Premier, Google Cloud & Snowflake Partner) with a growing GenAI practice and several active client projects.\nYou'll build production LLM agents for clients: multi-agent systems, tool use and RAG, in Python, on AWS Bedrock and GCP Vertex AI. Direct client contact.\nWe're looking for a hands-on engineer (not a research or prompt-only role) who has built and shipped LLM agents to production, with frameworks like Strands Agents, LangChain, Agno, Deep Agents, Google ADK or Claude Agent SDK.\nJust as important: we hire good people. Communicative, collaborative, eager to learn and happy to take ownership. That's what makes people succeed here, with clients and with the team.\nProcess: intro call -> take-home assignment -> technical interview -> offer.\nApply:\nhttps://www.linkedin.com/jobs/view/4478769287/\nor hiring@opsfleet.com, please mention HN"
+        },
+        {
+          "id": 50349294,
+          "author": "scentocom",
+          "text": "Scento | Paris, Berlin | REMOTE (EU) or ONSITE | Full-time |\nhttps://www.scento.com/careers\nScento is Europe's largest perfume decant website: more than 1,000 original designer and niche perfumes as 2 ml, 5 ml and 8 ml decants, shipped to 26 EU countries. Founded in 2024, headquartered in Paris with a second office in Berlin. We build our own stack on Next.js and Medusa.\nOpen roles (gross per year, plus annual performance bonus):\n- Staff Full-Stack Engineer (Next.js, Medusa), €140k–€185k:\nhttps://www.scento.com/careers/staff-full-stack-engineer\n- Head of Data & Analytics, €135k–€175k:\nhttps://www.scento.com/careers/head-of-data-analytics\n- Senior E-commerce Product Manager, €110k–€145k:\nhttps://www.scento.com/careers/senior-ecommerce-product-mana...\n- VP Growth Europe, €190k–€250k:\nhttps://www.scento.com/careers/vp-growth-europe\n- Head of SEO & AI Search, €125k–€160k:\nhttps://www.scento.com/careers/head-of-seo-ai-search\n- Head of CRM & Lifecycle, €115k–€150k:\nhttps://www.scento.com/careers/head-of-crm-lifecycle\nAll roles:\nhttps://www.scento.com/careers\n. Apply by email to careers@scento.com with the role title in the subject line."
+        },
+        {
+          "id": 50348803,
+          "author": "spiksla",
+          "text": "Odoo | Software Developer | Hybrid (Belgium, 3 days/week) | Full-time | Visa + €10k Signing Bonus |\nhttps://www.odoo.com/r/4zN\nOdoo builds open-source business apps used by millions. We're hiring software developers to work on our Python/PostgreSQL backend, fast JS framework, mobile apps, website builder, and more.\nWhy join us:\n- €10k signing bonus - Visa sponsorship + relocation support (contains flight ticket + airport taxi + 1 month free housing) - No clients, no deadlines — just clean, open-source code - Pick your team after 3 weeks of onboarding - Great team, countryside office (with chef!), flexible hours\nYou:\n- Master a programming language - Proficiency in object-oriented programming - Strong in SQL and relational database, data structures, and DB design - Passionate, autonomous, and eager to build real stuff\nApply →\nhttps://www.odoo.com/r/4zN"
+        },
+        {
+          "id": 50349251,
+          "author": "PolinaLu",
+          "text": "Modash.io | Senior Product Engineer | Remote (Europe) | Full-time | €80k–110k |\nhttps://modash.io\nModash helps brands find, manage, and pay creators - and helps creators earn a living.\nThe product looks simple on the surface. Underneath, we index 380M+ public creator profiles across Instagram, TikTok, and YouTube so that 2,700+ brands search, evaluate, manage, and pay creators without drowning in spreadsheets and tabs.\nWe're looking for Senior Product Engineers who like owning ambiguous problems end-to-end. No perfectly shaped tickets. You talk to customers, understand messy workflows, make product decisions, ship, and own whether it actually works.\nThe problems we care about:\n- How do you make a 380M-profile dataset feel fast, trustworthy, and easy to explore?\n- How do you turn chaotic influencer marketing workflows into product that feels obvious?\n- How do you build tools that work for both small teams and brands like Stanley, Sennheiser, Birkenstock, and NordVPN??\nWe're around 90 people, raised an €11M Series A, and ARR is doubling every year. HQ is in Tallinn, engineering is fully remote across Europe.\nNo ticket factory. No seven layers of approval. Small teams, real ownership,"
+        }
+      ],
+      "title_ja": "HNに尋ねる：誰が採用しているのか？ （ 2026年11月）",
+      "summary_ja": "ディスカッションのハイライト： PlantingSpace |フルタイム|リモート（ EUタイムゾーン） +四半期ミートアップ|\nhttps://planting.space\nモジュラー確率論的mo/Encube | MLエンジニア、ML Opsエンジニア|スウェーデン、ストックホルム|オンサイト|フルタイムとしてドメイン知識を表すシステムを構築しています\nEncubeは、ハードウェアチームが3 Dデザインとエンジニアリング図面を一緒に見るプラットフォームです/Fly.io |リモート（複数の国）|フルタイム| $ 190,000 USD",
+      "editor_note": "「HNに尋ねる：誰が採用しているのか？ （ 2026年11月）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50341736,
+      "title_en": "Egoless Mathematics in the AI Era",
+      "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+      "hn_url": "https://news.ycombinator.com/item?id=50341736",
+      "score": 163,
+      "comment_count": 120,
+      "posted_at": "2026-11-02T18:54:44+00:00",
+      "comments": [
+        {
+          "id": 50342335,
+          "author": "kzz102",
+          "text": "Human pursuits cannot be separated from the humans who pursuit it. In the pursuit of knowledge, what ultimately drives people is what they themselves can understand, and the meaning these understanding provides, both based on their own experience and people whose opinions they value. Humans do not pursuit Platonic knowledge for their own sake, and those who claim to do it, often are satisfying their egos in a different way."
+        },
+        {
+          "id": 50345943,
+          "author": "GMoromisato",
+          "text": "The lens to use is the Venn diagram of:\n1. What you like doing\n2. What you are good at doing\n3. What people will pay you to do\nFor math, if your goal is to prove something that no one else has proven, then all three are under attack.\nI think the \"egoless\" path is taking a 50,000-foot view of mathematics that ignores the above lens. Sure, mathematics will survive and even prosper with AI, but what about the mathematicians?\nIn time, the profession of mathematics will evolve so a new task is at the center of the diagram--maybe it will be explaining math results to humans or teaching math to future mathematicians. I don't know. But it's easy to see that not everyone is going to be happy with the transition, and many will be left behind.\nFor software engineering, it depends on what your center is. If you like \"writing code\", then #3 is under attack. But for those whose goal is, \"make something work\", all three are still viable and even better than before (or at least faster).\nThat's why we see so much disagreement on HN about whether AI is good or bad for software engineering.\nI'm sure lots of other people have made this observation before."
+        },
+        {
+          "id": 50342752,
+          "author": "bhouston",
+          "text": "Following Terry Tao's blog he seems to be engaging in forced self-directed cognitive behaviorial therapy, he is trying to come to terms with loss while developing a new framework for himself and other as to where the value is.  It is cool to see.  It is better to engage than to be in denial and just fall into reactionary behavior."
+        },
+        {
+          "id": 50342532,
+          "author": "j2kun",
+          "text": "This essay seems to say, \"people don't matter; all that matters is truth.\" And that all the policy decisions should follow from that assumed value.\nYikes. I fear for what mathematics will become if that becomes the majority viewpoint."
+        },
+        {
+          "id": 50343341,
+          "author": "WindyTree",
+          "text": "That’s a great paper, I was tripping on these same thoughts last night. The thing that rang true was kind of getting back to these roots, the Philo-Sophia as love of knowledge, and a community that loves knowledge. It doesn’t matter if one guy has a 70 IQ and loves fables, or another is 170 and loves something I can’t comprehend, they are one family. I was as also thinking about old school ideas of wisdom vs plain intelligence. I had this powerful experience during Covid of finding music someone had made from sequencing the DNA of the virus, sitting there sick listening to the virus, singing the song of its people. It struck me that intelligence isn’t something we have, it’s an attribute of nature that can flow through us, something self standing out there. To be able to listen and receive it from nature is the root of learning, while to believe that you have intelligence, not nature, is the root of stupidity. The awareness was something different from anything I had known, I was never smart, I was floating in an ocean of intelligence blocking myself off from receiving by believing I was smart. Whoops! It felt like true wisdom to realize I was stupid and let it flow through me. Tha"
+        },
+        {
+          "id": 50342187,
+          "author": "abstractbill",
+          "text": "This is one of the best posts I've seen on this topic in a while.\nI finished a math PhD before I decided to get out of academia and into startups. Since then, the older I get the more of a Platonist I become,\nespecially\nnow that I've taught my daughters a bunch of math (I'm their homeschool math+science teacher). And the more of a Platonist I become, the less I care about\nwho\nmade a particular discovery. Who cares?! It seems obvious (and quite beautiful) to me now that the same discoveries must be getting repeated again and again across the universe by alien mathematicians, and eventually by their AIs."
+        },
+        {
+          "id": 50347874,
+          "author": "jacquesm",
+          "text": "If ego wasn't a factor, how come the companies that dump these results in the math community attach so much value to being the first to solve particular problems?"
+        },
+        {
+          "id": 50350217,
+          "author": "youareundersell",
+          "text": "Yes, mathematicians, you have a job and yes, parts of it are being automated. Can you now stop being hysterical? It's getting a bit .. well, pathetic. The rest of the world knows what you're talking about, it's not unique to your profession and your profession is not in unique and grave danger either. You have copious amounts of gates being kept quite securely compared to other occupations. Chill."
+        }
+      ],
+      "title_ja": "AI時代のエゴレス数学",
+      "summary_ja": "ディスカッションハイライト：人間の追求は、それを追求する人間から切り離すことはできません/使用するレンズは、次のベン図です。\n1/Terry Taoのブログによると、彼は強制的な自己主導型認知行動療法に従事しているようで、新しいフレームワークを開発しながら損失と折り合いをつけようとしていますf",
+      "editor_note": "「AI時代のエゴレス数学」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 50344224,
+      "title_en": "SLAC researchers find proof of altermagnetism, a new magnetic phase",
+      "url": "https://www6.slac.stanford.edu/news/2026-10-29-slac-researchers-find-proof-altermagnetism-new-magnetic-phase",
+      "hn_url": "https://news.ycombinator.com/item?id=50344224",
+      "score": 76,
+      "comment_count": 9,
+      "posted_at": "2026-11-02T21:42:25+00:00",
+      "comments": [
+        {
+          "id": 50345524,
+          "author": "ortusdux",
+          "text": "Link to pub -\nhttps://www.science.org/doi/10.1126/science.adv3196\nPhysics aside, Chiral Altermagnon is a great band name."
+        },
+        {
+          "id": 50347689,
+          "author": "kalexandrite",
+          "text": "Some of the sexiest sounding sentences in research findings I have read. “ Their results showed direct experimental evidence of chirality – an asymmetric magnetic structure, akin to a spiral staircase or a screw – in the spins of an altermagnetic candidate material.”\nI appreciate the clarity that crystallizes in poetry that this author manages in their report!"
+        },
+        {
+          "id": 50345466,
+          "author": "clilog_d",
+          "text": "Wait so this is distinct from antiferromagnetism how exactly, I thought the net-zero moment was the whole definition there?"
+        },
+        {
+          "id": 50347870,
+          "author": "DonHopkins",
+          "text": "So Insane Clown Posse was right all along to question how fuckin' magnets work."
+        }
+      ],
+      "title_ja": "SLACの研究者は、新しい磁相である変化磁性の証拠を発見しました",
+      "summary_ja": "ディスカッションハイライト： PUBへのリンク-\nhttps://www.science.org/doi/10.1126/science.adv3196\n物理学はさておき、キラル・アルターマニョンは素晴らしいバンド名です。 /私が読んだ研究結果の中で最もセクシーな文のいくつか/これは反強磁性とは異なるので、どのように正確に、ネットゼロの瞬間がそこにある全体の定義だと思いましたか？",
+      "editor_note": "「SLACの研究者は、新しい磁相である変化磁性の証拠を発見しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 28,
+      "id": 50340159,
+      "title_en": "Polyend releases the Tracker firmware source code",
+      "url": "https://polyend.com/whats-up/tracker-the-biggest-update-yet/",
+      "hn_url": "https://news.ycombinator.com/item?id=50340159",
+      "score": 137,
+      "comment_count": 42,
+      "posted_at": "2026-11-02T17:20:13+00:00",
+      "comments": [
+        {
+          "id": 50346813,
+          "author": "consumer451",
+          "text": "This has to be related to MWAVE's FM-1 viral popularity, largely due to open firmware right?\nhttps://arstechnica.com/gadgets/2026/10/from-impulse-purchas...\nhttps://github.com/aroum/fm1-custom-fw\nsee also:\n> Reverse Engineering of the M-VAVE FM-1 Pocket Synthesizer Firmware\nhttps://news.ycombinator.com/item?id=49994065\n(75 points - 50 comments)"
+        },
+        {
+          "id": 50344635,
+          "author": "sebastienbarre",
+          "text": "For people afraid of bricking their units, I can't stress enough how groundbreaking it is that they're acknowledging that risk and still offering to repair your unit. You pay of course, because this is a risk\nyou\ntook, but at least they will have a look at it:\n\"Out-of-Warranty Repairs Available: In the unlikely event that something ever goes wrong with your hardware while using custom firmware, it is not covered under standard warranty. However, Polyend is always happy to help get your instrument back up and running through its official out-of-warranty repair service (standard service, parts, and shipping fees apply.\""
+        },
+        {
+          "id": 50349060,
+          "author": "knvlt",
+          "text": "Two days ago I (that is, AI) started to mod my modal electronics Cobalt8 after trying the model:cycles mods.\nHalf a day of setup and i had my first curtis-style filter on the synth. 2 days of low intensity prompting and I have\n- 3 Filters: Curtis, 303, Steiner Parker\n- An additional noise source\n- The oscillators from braids\n- Prophet08-ish oscillators in a stable and instable fashion\n- a granular delay, tape saturation and a klon centaur like distortion\n- karplus filter and a body resonance fx\n- polystep arp (different pattern per note) with scales or gated euclidean patterns\nI have interest but no skill in dsp programming (never found the time to pursue it). I love the filters and oscillators, it went from a tame, boring synth to gritty synth I like to play. At the same time I have to stress that this is a result, not an\nachievement.\nAnyone with a 20$ claude subscription can do that and people do. So I think it’s smart to open source(and not novel, see modular synths diy modules). Though when gigging I need devices that are stable and working in any conditions and I’m willing to pay for that."
+        },
+        {
+          "id": 50344353,
+          "author": "dimatura",
+          "text": "The avalanche of reverse engineered/custom firmwares is definitely changing the synth landscape. I'm wondering how many other companies will start open sourcing. It isn't always trivial since sometimes there's proprietary software components or toolchains that can't be open sourced. But it's hard to imagine it won't be more common.\nThere's a lot of mixed feelings in the community. A lot of musicians don't like AI, but they do want to have more features and bug fixes. A lot of synth makers are probably ambivalent too, especially if they have a stronger vision of what the synths should be that custom firmware ignore. Not to mention the commercial implications of adding features into existing synths, possibly making newer models less appealing. And of course people are copying UIs and workflows from other synths that took a lot of work to develop."
+        },
+        {
+          "id": 50344742,
+          "author": "gregsadetsky",
+          "text": "Relatedly, Erika Synths released the source code of the LXR-02 very recently as well:\nhttps://www.ericasynths.lv/news/post/lxropen\n(I/AI had fun porting it to wasm/web! I don't want to seem too self-link'y, so if anyone asks, happy to share the link)\nI also have a Polyend Tracker for sale if anyone's in the market..! It's a great device, I'm just trying to focus on having less right now."
+        },
+        {
+          "id": 50347480,
+          "author": "jamesjolliffe",
+          "text": "Very smart move. Open-source your project. Get more nerds invested in your gear and its legacy, and crowd-source feature development.\nWell done, Polyend! Godspeed, and looking forward to seeing how this develops."
+        },
+        {
+          "id": 50348098,
+          "author": "felizuno",
+          "text": "Modwiggler is filling with reverse engineering mods, I think it is super smart to get out in front of that. Modding is nothing new and open source music firmware à la Mutable Instruments is a great example to learn from. Good move Polyend!"
+        },
+        {
+          "id": 50346952,
+          "author": "ricokatayama",
+          "text": "That’s cool. After M-vave's FM1 and TE's OP-1 revolution, going this path is almost mandatory for anyone with good hardware but a crappy interface. I'd love to love Polyend's software, but M8 is so far ahead in terms of power and intuitiveness."
+        }
+      ],
+      "title_ja": "PolyendがTrackerファームウェアのソースコードをリリース",
+      "summary_ja": "ディスカッションハイライト：これは、主にオープンファームウェアによるMWAVEのFM -1ウイルスの人気に関連している必要があります。\nhttps://arstechnica.com/gadgets/2026/10/from-impulse-purchas...\nhttps://github.com/arou/ユニットをレンガ造りすることを恐れている人々のために、彼らがそのリスクを認識し、まだあなたのユニットを修理することを申し出ていることがいかに画期的であるかを強調することはできません/2日前、私（つまりAI ）は私のモーダル電子機器Cobalt 8 AFTの改造を始めました",
+      "editor_note": "「PolyendがTrackerファームウェアのソースコードをリリース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50344919,
+      "title_en": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "hn_url": "https://news.ycombinator.com/item?id=50344919",
+      "score": 359,
+      "comment_count": 265,
+      "posted_at": "2026-11-02T22:30:47+00:00",
+      "comments": [
+        {
+          "id": 50346075,
+          "author": "marsten",
+          "text": "The SEC's job isn't to adjudicate on whether Anthropic is a good or bad bet for investors. Its job is to ensure that investors have adequate visibility, and then get out of the way.\nIt would be VERY BAD if we gave politicians arbitrary veto power over who IPOs and who doesn't. The threat of corruption should be obvious."
+        },
+        {
+          "id": 50345834,
+          "author": "titanomachy",
+          "text": "> the number of Americans using AI at work fell significantly between the summers of 2025 (46%) and 2026 (33%).\nSurprising. I couldn't find the study they're citing, and they didn't include a link. Anecdotally, my friends across various industries (tech, finance, medicine, scientific research) are all using AI more heavily as time goes on."
+        },
+        {
+          "id": 50345704,
+          "author": "stingraycharles",
+          "text": "If the SEC allowed the SpaceX IPO they most certainly will allow the Anthropic IPO. From my point of view, the Anthropic IPO is a much more genuine one than the shenanigans that were going on with SpaceX, yet we’re all investing into that through ETFs as well.\nAdditionally, some ETFs have built in protections to rule out businesses that are not yet profitable (like SpaceX and Anthropic), which I think is a great rule."
+        },
+        {
+          "id": 50345573,
+          "author": "cowlevel",
+          "text": "The SEC doesn't exist to play favourites. If Anthropic has broken a law they can be blocked for that. If not, then it would be unfair to them to block them for things that other companies with IPOs have done. Live by market primacy, die by market primacy."
+        },
+        {
+          "id": 50345418,
+          "author": "stockresearcher",
+          "text": "There’s plenty of argument about how if a company has an IPO then they are, by definition, part of the market.  And if you bought an index fund that means to represent a part of the market that this company is in, then that company should be in the index fund.\nYou had lots of choices, you made this choice, and you can always change your mind.  Do we really need to have the government step in to prevent you from having to choose something else?"
+        },
+        {
+          "id": 50347576,
+          "author": "Animats",
+          "text": "As long as the S-1 is honest, the SEC is doing its job.\nA real risk is the market cap, including insider holdings, being large enough to force the stock into major indices. That makes the stock a must-buy for index funds. That in turn props up the stock regardless of how crappy the financial position and how small the float. That was controversial when Space-X went public. It went into several major indices despite not really being that big in terms of revenue."
+        },
+        {
+          "id": 50348607,
+          "author": "Nevermark",
+          "text": "Not going to argue with the article on any front.\nBut when it comes to measuring productivity of transformational technology, a lot of things make that hard.\nA lot of early use can be considered exploratory, whether it was intended to be or not. Meaning it was productive, but in a way that pays off down the road, not as much up front.\nNot only are exploration payoffs not evident early, but they are also likely to be extremely high variance. Food for lots of \"Well, of course it was a waste of time!\" and \"Well, of course it was going to pay off!\" concurrent conclusions.\nThen there is the fact that real productivity gains achieved early, may be the minority of wins, but are likely happening in places where they will grow very fast. At some point, they will \"suddenly\" appear and dwarf the losses.\nBut you don't find a lot of unexpected sweet spots if you don't throw the kitchen sink at them."
+        },
+        {
+          "id": 50348224,
+          "author": "dennysora-main",
+          "text": "I think they should still go public, and it shouldn't be stopped.\nTo be honest, whether a company is operating well or not will become clear after it goes public.\nAt the same time, only with financial transparency can there be better supervision.\nAlso, this is one way for everyone to participate in AI construction and development to some extent.\nI would buy some Anthropic stock. I don't care whether it goes up or down, but I want to be part of it, and I also use their products."
+        }
+      ],
+      "title_ja": "SECは、市民を保護するためにAnthropicのIPOを阻止すべきである",
+      "summary_ja": "議論のハイライト： SECの仕事は、Anthropicが投資家にとって良い賭けであるか悪い賭けであるかを判断することではありません/> 2025年の夏（ 46 ％ ）から2026年（ 33 ％ ）の間に、職場でAIを使用するアメリカ人の数は大幅に減少しました。\n驚くべきことに、SECがSpaceXのIPOを許可した場合、彼らは間違いなくAnthropicのIPOを許可します",
+      "editor_note": "「SECは、市民を保護するためにAnthropicのIPOを阻止すべきである」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 50341462,
+      "title_en": "Ubuntu still has not released patch for Linux 0day RCE in almost 3 weeks",
+      "url": "https://freenode.net/article/ubuntu-lts-kernels-still-unfixed-for-critical-cve-2026-98432",
+      "hn_url": "https://news.ycombinator.com/item?id=50341462",
+      "score": 523,
+      "comment_count": 149,
+      "posted_at": "2026-11-02T18:39:38+00:00",
+      "comments": [
+        {
+          "id": 50350034,
+          "author": "lambdaone",
+          "text": "At this point, just the failure to patch this single vulnerability is enough to make me write Ubuntu off as a viable distribution. Volunteer-run distros can fix this, why not a well-resourced company? It's not as if they haven't had the time to fix it, or that porting the fix to their current kernels would be particularly difficult."
+        },
+        {
+          "id": 50346903,
+          "author": "debinguy",
+          "text": "I find it odd that no public discussions are highlighting that  iptables or nftables can drop this before the kernel CVE is exploitable by a U32 drop rule in raw PREROUTING...\nsudo iptables -t raw -I PREROUTING -p tcp -m u32 ! --u32 \"0>>24&0x0F=5\" -j DROP"
+        },
+        {
+          "id": 50343405,
+          "author": "c0l0",
+          "text": "It's rather uninteresting to note, once again, that Ubuntu has decided to do this. I would like to know the (official, if any - unofficial/speculative otherwise) reason WHY they have not.\nIt does not seem that complicated to patch, and kernel upgrades are a dime a dozen these days. So what is making them delay a fix for so long?"
+        },
+        {
+          "id": 50345299,
+          "author": "harry8",
+          "text": "Question:\nEvery consumer router-wirelessAP I've seen runs linux.\nI never see security upgrades for the kernels they use. Not one. Not ever.\nIs this something that should be a cause for concern? Even if you don't run a consumer-grade tplink, netgear, asus, whatever router yourself.\nUpdate:\nThe context which I should have said is that I think\nLLMs are giving script kids nation state level tools and expertise. This known bug is always less interesting than the next twenty."
+        },
+        {
+          "id": 50341463,
+          "author": "majorchord",
+          "text": "They also don't provide any mitigation possibilities or instructions... RHEL has one method here:\nhttps://access.redhat.com/security/vulnerabilities/RHSB-2026...\nHowever they also claim the mitigation \"reduces exposure to this vulnerability but cannot fully prevent it\", without elaborating on what that means or how it would be possible... I've also not seen anyone else make this claim."
+        },
+        {
+          "id": 50341542,
+          "author": "gnabgib",
+          "text": "Discussion (842 points, 422 comments)\nhttps://news.ycombinator.com/item?id=50337608"
+        },
+        {
+          "id": 50344588,
+          "author": "pelagicAustral",
+          "text": "I have not seen an exploit in the wild. I have at least 20 different servers unpatched (obviously) but the risk is blown way out of proportion. There are a number of mitigation options available."
+        },
+        {
+          "id": 50345958,
+          "author": "jimrandomh",
+          "text": "I was previously Ubuntu-by-default for my random Linux boxen, but going to upgrade things and finding that Ubuntu didn't have a patch has shaken my faith in it. I probably won't choose it for new servers in the future."
+        }
+      ],
+      "title_ja": "Ubuntuは3週間近くLinux 0 day RCE用のパッチをまだリリースしていません",
+      "summary_ja": "ディスカッションのハイライト：現時点では、この単一の脆弱性へのパッチ適用に失敗しただけで、Ubuntuを実行可能なディストリビューションとして書き留めるのに十分です/私は、カーネルCVEがRAW PREROUTINGのU 32ドロップルールによって悪用される前に、iptablesまたはnftablesがこれをドロップできることを公共の議論が強調していないことが奇妙だと思います...\nsudo/もう一度、Ubuntuがこれを行うことを決定したことに注意するのはかなり面白くありません",
+      "editor_note": "「Ubuntuは3週間近くLinux 0 day RCE用のパッチをまだリリースしていません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "23",
+    "started_at": "2026-11-03T19:39:35.230240+09:00",
+    "finished_at": "2026-11-03T19:41:24.470485+09:00",
+    "story_count": 30
+  }
+}
