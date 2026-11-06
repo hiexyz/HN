@@ -4,12 +4,180 @@
   "stories": [
     {
       "rank": 1,
+      "id": 50389333,
+      "title_en": "Blender's UI and Runtime: Much Faster Than GPUI",
+      "url": "https://github.com/ppmpreetham/BUI",
+      "hn_url": "https://news.ycombinator.com/item?id=50389333",
+      "score": 188,
+      "comment_count": 74,
+      "posted_at": "2026-11-06T07:40:35+00:00",
+      "comments": [
+        {
+          "id": 50389624,
+          "author": "dev0p",
+          "text": "I love the general idea behind Blender's UI.\nAnd I do appreciate the effort that goes into it, especially in the latest versions as it got much better,\nBut I really really really REALLY don't want that UI in anything else other than Blender.\nPlease don't."
+        },
+        {
+          "id": 50389619,
+          "author": "felixthehat",
+          "text": "It would be such a boon if GIMP and Inkscape could adopt blender's fantastic GUI"
+        },
+        {
+          "id": 50389615,
+          "author": "cultofmetatron",
+          "text": "Ive been thinking this would be amazing to do for ages. happy someone finally did it. its the perfect system for interfaces where speed matters. hope to see more 3d modellers, video editors, daws and simulation systems built on this."
+        },
+        {
+          "id": 50390253,
+          "author": "bvrmn",
+          "text": "I have a python \"DSL\" which allows to create a simple UI for synth parameters you also make in python. It uses Tk and looks like, mmm, Tk with all other Tk issues. Project was abandoned because of it. Looks like it's time to revive!"
+        },
+        {
+          "id": 50390305,
+          "author": "pythonRon",
+          "text": "I gave it a quick try (Fedora 44/Python/pyenv) with some Tkinter code which is supposed to just work... It doesn't."
+        },
+        {
+          "id": 50390375,
+          "author": "phillc73",
+          "text": "It'd be awesome if kitty[1] and calibre[2] adopted the Blender UI.\n[1]\nhttps://github.com/kovidgoyal/kitty\n[2]\nhttps://calibre-ebook.com/"
+        },
+        {
+          "id": 50389935,
+          "author": "xiange",
+          "text": "It looks good, but the GPL license restricts the use cases"
+        },
+        {
+          "id": 50390351,
+          "author": "Washuu",
+          "text": "I have been remaking a Blender style UI in Kotlin for my Umamo project because I love Blender's UI that much.\nI think I will keep going with my own efforts, but this looks nice!"
+        }
+      ],
+      "title_ja": "BlenderのUIとランタイム： GPUIよりもはるかに高速",
+      "summary_ja": "ディスカッションのハイライト： BlenderのUIの背後にある一般的なアイデアが気に入っています。\nそして、私はそれに入る努力に感謝しています、特にそれがはるかに良くなった最新バージョンでは、\nしかし、私は本当に本当にR/GIMPとInkscapeがブレンダーの素晴らしいGUIを採用できれば、それはとても恩恵になります/私はこれが長い間素晴らしいことだと思っていました",
+      "editor_note": "「BlenderのUIとランタイム： GPUIよりもはるかに高速」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 2,
+      "id": 50385272,
+      "title_en": "Claude Code sends your email address to websites",
+      "url": "https://github.com/anthropics/claude-code/issues/107757",
+      "hn_url": "https://news.ycombinator.com/item?id=50385272",
+      "score": 1169,
+      "comment_count": 366,
+      "posted_at": "2026-11-05T22:17:15+00:00",
+      "comments": [
+        {
+          "id": 50387577,
+          "author": "varenc",
+          "text": "Many people report seeing this behavior when using the SEC API specifically which makes me think that service is requesting this.  Maybe email is required by the SEC API?\n---\nUPDATE: The SEC API documentation requires your email in the User-Agent and will reject you otherwise. Demo:\nU='https://data.sec.gov/api/xbrl/companyconcept/CIK0000320193/us-gaap/Assets.json'\ncurl -s -o /dev/null -w 'response: %{http_code}  curl default User-Agent, rejected\\n'  \"$U\"\ncurl -s -o /dev/null -w 'response: %{http_code}  email in user-agent, success\\n' -A 'Acme Research admin@acme-research.example' \"$U\"\nresponse: 403  curl default, rejected\nresponse: 200  email in user-agent, success\nSEC docs:\nhttps://www.sec.gov/search-filings/edgar-search-assistance/a...\nSo basically Claude is trying to problem solve, and just does what the SEC asks. It's a 'prompt injection attack', but the entity instructing this behavior is the SEC. Tricky alignment problem. Pretty silly mechanism, since of course there's no email validation.  (edit: turns out the SEC will accept most any non-cURL user-agent, email not actually required)"
+        },
+        {
+          "id": 50387628,
+          "author": "agentdev001",
+          "text": "For those keeping score, this probably isnt exhaustive- but here's some greatest hits;\n#55743: Claude Max account email auto-injected into LLM context with no opt-out - May 3, 2026\nhttps://github.com/anthropics/claude-code/issues/55743\n#72518: Anthropic embedded spyware in Claude Code - June 30, 2026\nhttps://github.com/anthropics/claude-code/issues/72518\n#21151: No indication of WHICH file for READ tool - January 27, 2026\nhttps://github.com/anthropics/claude-code/issues/21151\n#42796: Claude Code is unusable for complex engineering tasks with the Feb updates - April 2, 2026\nhttps://github.com/anthropics/claude-code/issues/42796\n#73408: AFK auto-continue on unanswered AskUserQuestion is undocumented and has no opt-out - July 2, 2026\nhttps://github.com/anthropics/claude-code/issues/73408\n(Also worth a mention, OpenCode PR #18186: anthropic legal requests - March 19, 2026\nhttps://github.com/anomalyco/opencode/pull/18186\n)\nEdit: Oh, and determistic hooks not firing."
+        },
+        {
+          "id": 50389070,
+          "author": "grey-area",
+          "text": "Biggest questions here, which I think need answering:\nShould Claude have access to user details? I’d say no, unless explicitly entered manually into a chat.\nShould Claude have access to anything outside of the sandboxed project files without explicit permission? I’d again say no.\nShould Claude have internet access without a clear log of all requests made?\nInstances of Claude should be heavily sandboxed and kept away from user data, far more so than they are now. The impression given by the desktop UI is that the LLM only has access to things explicitly added to a project.\nThis impression is not true, as evidenced by Claude pulling data from other sessions outside a project even when not instructed to (I’ve seen this a few times), and in this case pulling your email (from account details, user contacts? I wonder where it got that info?).\nNone of this information should be available to Claude, by design, not by instruction. Using text instructions to try to limit these machines is an incredibly flawed approach and should not be necessary for important info. Anthropic should have the model access completely locked down by controls at the os level over file access, not open by default."
+        },
+        {
+          "id": 50385589,
+          "author": "mk89",
+          "text": "This explains the amount of spam emails I am receiving in the work email since I switched to Claude. I used to work with copilot which was fine. Now I am getting really a lot of spam emails almost on a daily basis. Absolutely crazy. And they are even personalised with my name and surname, not just \"dear customer\"...\nStupid me, I thought they somehow had hacked my company database or so... (considering all the cves, attacks happening on a daily basis...)."
+        },
+        {
+          "id": 50388176,
+          "author": "lydia_hallie",
+          "text": "I work on Claude Code. We're removing the account email address from the context Claude Code gives the model. This update will hit Claude Code users in the next release, which should arrive early next week. I'll share an update in this thread once it's out.\nI'm sorry we let this happen. Users had reported Claude would hallucinate names for things like @author tags, since it didn't have context on the account. So we added the account email in the model's context for signed-in users. But when Claude wrote a command itself, like a curl call, it sometimes put your email address in the User-Agent as a contact address. Some sites ask agents for a contact, and Claude would sometimes provide the email address in its context.\nUntil the next release arrives, 2.1.317 and later have a built-in mod (on by default) that asks you before Claude runs a web tool call or a curl-style command containing your email (mpoteat covered it here:\nhttps://news.ycombinator.com/item?id=50386031\n). But it still doesn't prevent all cases, like when Claude writes a script and runs on its own. The stable channel is still on 2.1.311, so update to 2.1.317 or later.\nAgain, this should not have happened, and we should'"
+        },
+        {
+          "id": 50386031,
+          "author": "mpoteat",
+          "text": "Hi folks. We were initially aware of this a few days ago when this problem started popping off on Reddit, and we introduced a built-in mod called `cc-plugin-privacy` to deterministically block this behavior.\nIf you're on 2.1.317 or later, you'll have this check included. You can turn it off via /plugins."
+        },
+        {
+          "id": 50385916,
+          "author": "llama052",
+          "text": "It looks like subagents will do this with curl requests and stuff whatever identifiers it can into the UA header. For instance some requests I made to our webserver:\ncompany-helm-research/1.0 (Claude Code agent run by <my name>, <company> platform team; docs lookup)\nClaude-Code-research-agent/1.0 (<Company> platform team; on behalf of <my name>; +https://github.com/<company org>/<repo of project>)\nNot great, it even pulled the repo of the project I was in."
+        },
+        {
+          "id": 50389839,
+          "author": "n0on3",
+          "text": "You can patch things and remove stuff from context nine ways to Sunday, the underlying problem will still be there.\nMaybe we need a new benchmark on how good models are at \"keeping an eye\" to if what they are about to do that doesn't come from a direct user instruction checks out with common sense plus user preferences. And we probably need a portable mechanism for users to manage such preferences (because we know instructions are not going to cut it, do we?)."
+        }
+      ],
+      "title_ja": "Claude Codeはあなたのメールアドレスをウェブサイトに送信します",
+      "summary_ja": "ディスカッションのハイライト：多くの人が、特にSEC APIを使用しているときにこの行動を見たと報告しているため、サービスがこれを要求していると思います/スコアを記録している人にとって、これはおそらく網羅的なものではありませんが、ここにいくつかの最大のヒットがあります。\n# 55743: Claude MaxアカウントのメールアドレスがオプトアウトなしでLLMコンテキストに自動入力されました- 2026年5月3日/最大の質問はこちらです。回答が必要だと思います:\nClaudeさんはユーザーの詳細にアクセスする必要がありますか？ ノーと言ってやるよ、アンレ",
+      "editor_note": "「Claude Codeはあなたのメールアドレスをウェブサイトに送信します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50389370,
+      "title_en": "Kugelblitz – Mac-Native Google Earth Alternative",
+      "url": "https://apps.metaebene.me/en/kugelblitz",
+      "hn_url": "https://news.ycombinator.com/item?id=50389370",
+      "score": 78,
+      "comment_count": 14,
+      "posted_at": "2026-11-06T07:47:38+00:00",
+      "comments": [
+        {
+          "id": 50389966,
+          "author": "rob74",
+          "text": "In case you're wondering, \"Kugelblitz\" is German for \"ball lightning\" (literally \"spherical lightning\")- probably refers to showing the \"sphere\" (the Earth) as fast as lightning?"
+        },
+        {
+          "id": 50390470,
+          "author": "KaiserPro",
+          "text": "does it have all the tooling that the original google earth had, or is it more like apple maps?"
+        },
+        {
+          "id": 50389867,
+          "author": "carlos-cute",
+          "text": "Great ! I tried it on my apple M1Pro and it works fine :)\nI would not put the grid at first lunching and I'd like that the earth keep spinning a bit when throwing it with the mouse !"
+        },
+        {
+          "id": 50390229,
+          "author": "dr_dshiv",
+          "text": "Cool! Want to add clouds? Here are some ideas to try!\nHttps://Earthlove.live"
+        },
+        {
+          "id": 50389681,
+          "author": "ilumanty",
+          "text": "> Kugelblitz shows the Earth and its neighbors as a globe and as an atlas you fly over smoothly like a pilot, even on an M1\nAs if Google Earth wasn’t smooth on a 2.0 GHz Pentium 4 in 2009"
+        },
+        {
+          "id": 50390155,
+          "author": "simmschi",
+          "text": "Ah, doesn't work on Sequoia 15.8.x. I wonder what features my Mac is missing to display a sphere with data."
+        },
+        {
+          "id": 50390614,
+          "author": "rrr_oh_man",
+          "text": "Is it really too much to ask to at least edit the slopscription?\nKugelblitz shows the Earth and its neighbors as a globe and as an atlas you fly over smoothly like a pilot, even on an M1. Imagery, road map and topographic map lie on real terrain, joined by thousands of open maps from the Library. Everything comes from freely available geodata, straight from its publishers, OpenStreetMap from the Kugelblitz tile server; you need no account.\nEverything loaded stays in the cache, and Kugelblitz instances in the same network share it with each other if you wish. Status windows tell how far the view has loaded, where you are looking and where its data comes from, and every source is listed with its license in “Sources and Licenses”. Kugelblitz speaks German and English and uses the units of your choice."
+        },
+        {
+          "id": 50390507,
+          "author": "walrus01",
+          "text": "With the upcoming retirement of google earth (desktop), I'd also recommend looking into geolibre for this sort of thing. No it doesn't come by default with a nice full color photo mapped onto 3D terrain as google earth does, but for less technical users or those with less complex demands, it has a much lower learning curve/complexity than giving people a full QGIS setup with a bunch of back-end db connected.\nhttps://geolibre.app/"
+        }
+      ],
+      "title_ja": "Kugelblitz – MacネイティブGoogle Earthオルタナティブ",
+      "summary_ja": "ディスカッションのハイライト：「Kugelblitz」はドイツ語で「ボールライトニング」（文字通り「球状雷」）を意味します。おそらく「球」（地球）を雷のように速く表示することを指します。/元のGoogle Earthが持っていたすべてのツールがありますか、それともアップルマップのようなものですか？ /素晴らしい！私は私のリンゴM 1 Proでそれを試してみました、そしてそれはうまくいきます:)\n私は最初の昼食でグリッドを置かず、地球が少し回転し続けることを望みます",
+      "editor_note": "「Kugelblitz – MacネイティブGoogle Earthオルタナティブ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
       "id": 50378228,
       "title_en": "sshole",
       "url": "https://sshhole.com",
       "hn_url": "https://news.ycombinator.com/item?id=50378228",
-      "score": 1999,
-      "comment_count": 513,
+      "score": 2720,
+      "comment_count": 653,
       "posted_at": "2026-11-05T12:19:02+00:00",
       "comments": [
         {
@@ -21,11 +189,6 @@
           "id": 50378718,
           "author": "BoppreH",
           "text": "In-band signaling[1] strikes again. * should not have been used as special value, neither for \"no password\" in /etc/passwd\nnor\n\"error while hashing the password\" in crypt. I'm afraid we'll find many more of these abuses, specially in string manipulations. The null was ok, an exception (or equivalent) better, and Result<T> (or equivalent) best.\n[1]\nhttps://en.wikipedia.org/wiki/In-band_signaling#Computer_dat..."
-        },
-        {
-          "id": 50384292,
-          "author": "dabinat",
-          "text": "This is why I don’t fully buy the argument that software that’s been around for a long time is more secure and reliable because it’s been battle-tested. There’s been a lot of time for cruft to accumulate until no-one can ever fix it because everyone is expecting it to function in the broken manner it’s always functioned. And some of the more obscure configuration options get a lot less scrutiny."
         },
         {
           "id": 50380581,
@@ -43,9 +206,14 @@
           "text": "Above all, I’m a little sad that the musl developers decided to make a\nlot\nof “well it’s convenient” changes to core crypto functions — at least without the level of auditing that would have caught this! It’s tarnished their reputation in my eyes a little."
         },
         {
-          "id": 50379004,
-          "author": "wolrah",
-          "text": "Also how many times do we have to learn that letting badly programmed software die when unexpected things happen is the better option because it means people actually notice that there's a problem.  Silent compatibility hacks are the worst, they guarantee problems never get fixed and the stack of hacks never gets smaller.\nMicrosoft has historically been one of the leaders on the wrong side of this one, but they have also demonstrated how effective it is to call out badly behaved software and make it annoy the users with UAC.  When Vista came out, so many applications needed elevated privileges to run because they were badly designed to write user data in system locations, but now their application was more annoying to use and came with a scary dialog about it making changes to your computer that other better-designed software didn't get.\nMore often than not if a program didn't actually intend to change system settings it was just a matter of badly chosen default paths which are pretty trivial to fix, but so many vendors just would not do it despite years of complaints from NT admins wanting to not have to spend hours with Process Explorer figuring out specific permissions to grant "
+          "id": 50384292,
+          "author": "dabinat",
+          "text": "This is why I don’t fully buy the argument that software that’s been around for a long time is more secure and reliable because it’s been battle-tested. There’s been a lot of time for cruft to accumulate until no-one can ever fix it because everyone is expecting it to function in the broken manner it’s always functioned. And some of the more obscure configuration options get a lot less scrutiny."
+        },
+        {
+          "id": 50381560,
+          "author": "wowczarek",
+          "text": "In my last org I was in charge of internal testing and qualifying software releases for network equipment, and designing test harnesses and tests for these. Significant install base. All the major vendors. Many years. Basically doing the vendor QA for them, because we couldn't afford things to fail. As you do - I wish.\nThis was not security testing as such - mostly latency, performance and hardcore network \"can we break it\" and \"does it comply\" stuff, but also a lot of cable and module / line card pulls, pluggable and fiber breaks, random reboots and pre-empting a lot of possible operator inventiveness. At one point we considered SEU bit flip testing on rented cyclotron time.\nAnd always we battled against the top brass urging us to speed up the process and don't bother with \"really basic\" testing, because we observed software quality going down over the years as the push for release and time to market stared to dominate.\nSo we always started with sanity testing - and that included oversized password and CLI input strings. Always. And we caught things more than once, but never like this.\nWe were right after all."
         },
         {
           "id": 50378561,
@@ -54,85 +222,422 @@
         }
       ],
       "title_ja": "sshole",
-      "summary_ja": "ディスカッションのハイライト：わかりました、この構成で何が起こっているのかわかりました。\n攻撃者の観点からの目標は、次のことを実現することです。`$ ret = crypt ($ pw, $ hash); $ ret == $ hash` whe/In - band signaling [1] strikes again/This is why I don 't fully buy the argument that software that's been around a long time is more secure and reliable because it's been battle - tested",
+      "summary_ja": "ディスカッションのハイライト：わかりました、この構成で何が起こっているのかわかりました。\n攻撃者の観点からの目標は、これを真実にすることです。'$ ret = crypt ($ pw, $ hash); $ ret == $ hash` whe/In - band signaling [1] strikes again/The whole story is a bit worse than this",
       "editor_note": "「sshole」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 2,
-      "id": 50379704,
-      "title_en": "Alpine Linux Security Advisory: OpenSSH-server password authentication bypass",
-      "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/",
-      "hn_url": "https://news.ycombinator.com/item?id=50379704",
-      "score": 473,
-      "comment_count": 93,
-      "posted_at": "2026-11-05T14:44:20+00:00",
+      "rank": 5,
+      "id": 50390124,
+      "title_en": "Dutch 'idealist' bank ASN blocks non-Google Android, including GrapheneOS",
+      "url": "https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105",
+      "hn_url": "https://news.ycombinator.com/item?id=50390124",
+      "score": 19,
+      "comment_count": 5,
+      "posted_at": "2026-11-06T09:27:12+00:00",
       "comments": [
         {
-          "id": 50380253,
-          "author": "NewJazz",
-          "text": "musl’s crypt() returns the string * as an error indicator when the key is over 256 bytes long. * is also exactly what the stored field contains for every account with no password, so the “hash” matches and the login succeeds.\nDoes anyone know why musl does this? Are they the only C library that behaves this way?\nFor a C library that famously tries to adhere to POSIX as much as possible, this seems like a crazy choice. From POSIX standard:\nUpon successful completion, crypt() shall return a pointer to the encoded string. The first two bytes of the returned value shall be those of the salt argument. Otherwise, it shall return a null pointer and set errno to indicate the error.\nhttps://pubs.opengroup.org/onlinepubs/9699919799/functions/c..."
+          "id": 50390624,
+          "author": "ACCount39",
+          "text": "SafetyNet was a mistake in general. But banks specifically are among the most obnoxious shitters when it comes to \"you aren't allowed to do things except the way we want it\".\nOver and over again you have to contend with bullshit like 120MB APKs full of obfuscated code, root detection, custom firmware detection, \"non-mainstream device\" detection, VPN detection, and even more obscure spyware-flavored functionality.\nBy now, if a major regulator like EU steps in, cracks the whip, and forces banks to provide access through a common API standard to any third party banking app? I'd welcome the change."
         },
         {
-          "id": 50382100,
-          "author": "0127",
-          "text": "IMO this is where languages like Rust shine. The design patterns built into the language for handling errors (Result) - force you to handle errors / function results with sentinels, null pointers, or errnos are so much more error prone than handling a Result<T,E> using a match statement.\ncrypt() returning `*` is insane especially since these kinds of sentinels are all over /etc/passwd"
+          "id": 50390622,
+          "author": "isoprophlex",
+          "text": "Dont take the fact that Wero still works for Bunq as an indicator that ASN or any other bank are doing something especially untowards.\nGiven Bunq's abysmal security track record it probably means they just forgot to enforce some policy that Wero requires on mobile devices - no matter how annoying these \"no grapheneOS\" policies are in general, of course."
         },
         {
-          "id": 50380071,
-          "author": "throwa356262",
-          "text": "Discussion from a few hours ago:\nhttps://news.ycombinator.com/item?id=50377221"
+          "id": 50390616,
+          "author": "ElDji",
+          "text": "I have an refurbished iphone sleeping most of the time in my desk drawer, used only for banking apps.\nIt also make me feel safer not to have always on me the key to all my accounts."
         },
         {
-          "id": 50382057,
-          "author": "drob518",
-          "text": "Given Alpine’s broad use in the Docker ecosystem, this is going to hit a lot of folks, I think."
-        },
-        {
-          "id": 50383439,
-          "author": "getfacl",
-          "text": "I run Alpine on hardware. I was not effected by this as while I do use ssh keys, there are no user accounts without passwords on my server."
-        },
-        {
-          "id": 50382863,
-          "author": "nodesocket",
-          "text": "This is brutal because a lot of docker containerized apps are very slow to update the base image if at all."
-        },
-        {
-          "id": 50382986,
-          "author": "feearent",
-          "text": "Not really related to the topic, but AI-popular sentences and language structure stand out to people right away these days right? I noticed some.\n\"If you cannot update yet, at least disable password logins: set PasswordAuthentication no in your sshd configuration and restart sshd.\nEither one closes the hole.\n\" (only AI would characterize a critical SSH implementation vulnerability as a hole closing game)\nAn attacker who can reach your SSH port can log in without knowing any password.\nIt takes one connection, works every time, and needs no retries.\n(It sounds like the writer is bragging about the exploit instead of describing it. AI does this)\nThe attacker needs the name of an account whose password field is * (an account with no password set, which is normal for key-only accounts), and needs the machine to have at least one other account with a $5$ or $6$ password hash. The attacker then sends a very long password (257 to 1024 bytes).\nOne user with a password is enough: it makes every account without one reachable.\n(same as above made stronger with the 'statement: statement2' format)\n\"Users coming from a directory service through musl-nscd (nslcd, winbind, sssd),\nsince they have no"
-        },
-        {
-          "id": 50383334,
-          "author": "AtNightWeCode",
-          "text": "I always use certificates with SSH. Saved me this time."
+          "id": 50390584,
+          "author": "nikolay",
+          "text": "Other European banks do it, too - N26 also rejects GrapheneOS."
         }
       ],
-      "title_ja": "Alpine Linuxセキュリティアドバイザリ： OpenSSHサーバーパスワード認証バイパス",
-      "summary_ja": "ディスカッションのハイライト： muslのcrypt ()は、キーが256バイトを超える場合にエラーインジケータとして文字列*を返します/IMOこれは、数時間前のRust/Discussionのような言語が輝く場所です。\nhttps://news.ycombinator.com/item?id=50377221",
-      "editor_note": "「Alpine Linuxセキュリティアドバイザリ： OpenSSHサーバーパスワード認証バイパス」について、開発者コミュニティで注目が集まっています。",
-      "category": "Security"
+      "title_ja": "オランダの「理想主義者」銀行ASNがGrapheneOSを含むGoogle以外のAndroidをブロック",
+      "summary_ja": "ディスカッションのハイライト： SafetyNetは一般的に間違いでした/WeroがまだBunqで働いているという事実を、ASNや他の銀行が特に不都合なことをしていることを示す指標として捉えないでください。\nBunqのひどいセキュリティ実績を考えると、/私はほとんどの場合、銀行アプリにのみ使用される机の引き出しで寝ている再生iPhoneを持っています。\nまた、すべてのアカウントの鍵を常に持っていない方が安全だと感じる",
+      "editor_note": "「オランダの「理想主義者」銀行ASNがGrapheneOSを含むGoogle以外のAndroidをブロック」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
     },
     {
-      "rank": 3,
+      "rank": 6,
+      "id": 50389448,
+      "title_en": "App Store 2026 in numbers: AI, pricing, abandoned apps",
+      "url": "https://obelisk.club/research/app-store-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=50389448",
+      "score": 38,
+      "comment_count": 31,
+      "posted_at": "2026-11-06T07:59:19+00:00",
+      "comments": [
+        {
+          "id": 50390636,
+          "author": "heliographe",
+          "text": "I’m an indie developer in one of the categories mentioned as being AI heavy (Photo & Video).\nI’ve been shipping apps since way before vibe coding (\nhttps://heliographe.studio\n), and it’s been a pretty speedy transition in terms of how the market has shifted in the last 12 months.\nMaking a high quality camera/photo app used to require a lot of fairly advanced skills: UI design & engineering for the core app, an understanding of signal processing/color transforms/etc for producing the final image, graphics programming to keep everything rendering smooth in the preview (especially if you have advanced features like focus peaking, scopes/histograms, etc)…\nIt used to be that if you shipped a polished camera app, you would get at least a bit of attention just on those merits.\nBut in the last year it has become utterly trivial for anyone to make a camera app, and every week there are dozens of new entrants on the market (most of them claim to do their own unique non-AI, film-like processing).\nBut of those, which has gotten the most attention? I’d argue it’s the just released Chromagraph, designed in part by Rian Johnson of Star Wars fame.\nhttps://www.theverge.com/tech/1025659/rian-johnson"
+        },
+        {
+          "id": 50389567,
+          "author": "q2dg",
+          "text": "Very interesting, thanks!\nCould bé another similar report about Google's App Store?\nThanks again!"
+        },
+        {
+          "id": 50389888,
+          "author": "aurareturn",
+          "text": "I think the app store will be in trouble in the future.\nI think most non-gaming apps will be replaced by a single AI app that is like a super assistant to you. No need to book on Booking.com app if you can just have your assistant look for what you actually want.\nLikewise, I think Google Search is in similar amount of trouble, if not more and faster. Why do you need to search on your own if AI can search 20-30 websites in seconds and find what you're looking for?\nSame for things like Microsoft's cash cow Office suites. In fact, Claude already has docs built in.\nThis is why I think big tech went all in on AI. All their cash cows are under huge threat by AI-first products."
+        },
+        {
+          "id": 50389883,
+          "author": "carlos-cute",
+          "text": "Thanks ! I would be interested if it exists figures for MAC App Store only..."
+        },
+        {
+          "id": 50390012,
+          "author": "Smalltalker-80",
+          "text": "Its probably just me, but I had to scroll all the way to the bottom, mentioning something about Macs, to verify that this was only about the\nApple\napp store."
+        },
+        {
+          "id": 50389688,
+          "author": "jonathanstrange",
+          "text": "I'd rather be interested in what apps actually make money and how much but I suspect there is no public data for that."
+        },
+        {
+          "id": 50389836,
+          "author": "owais_1897",
+          "text": "there are many apps but only few of them are worth  it"
+        }
+      ],
+      "title_ja": "App Store 2026の数値： AI、価格設定、放棄されたアプリ",
+      "summary_ja": "ディスカッションハイライト：私は、AIヘビー（写真＆ビデオ）として言及されているカテゴリの1つでインディー開発者です。\n私はVibeコーディングのはるか前からアプリを出荷しています（\nhttps://heliographe.studio \n）、an/とても興味深いです、ありがとうございます！\nGoogleのApp Storeに関する別の同様の報告をすることはできますか？\nよろしくお願いいたします。/今後、アプリストアが問題になると思います。\nほとんどの非ゲーミングアプリは、次のような単一のAIアプリに置き換えられると思います。",
+      "editor_note": "「App Store 2026の数値： AI、価格設定、放棄されたアプリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50389420,
+      "title_en": "Multiplayer tanks that demolish real buildings from OpenStreetMap",
+      "url": "https://worldstrike.fun/",
+      "hn_url": "https://news.ycombinator.com/item?id=50389420",
+      "score": 47,
+      "comment_count": 27,
+      "posted_at": "2026-11-06T07:55:48+00:00",
+      "comments": [
+        {
+          "id": 50390597,
+          "author": "ByThyGrace",
+          "text": "This thing just crashed my whole DE. My GPU reset. Haven't had one like that in years."
+        },
+        {
+          "id": 50389635,
+          "author": "vfosnar",
+          "text": "as an active osm contributor and community member and io games enjoyer i love this.\nif the author is readin this by any chance pretty please improve the attribution placement, projects like this are whats bringin interested people in to help us build a better open map for everyone <3"
+        },
+        {
+          "id": 50390035,
+          "author": "glibg10b",
+          "text": "It keeps saying \"Your connection dropped. Let’s get you back out there.\" after a few seconds, then returns me to my spawn point. I don't see any bad HTTP status codes in the network tab\nCan you make it a little more resilient on Wifi + 4G? I would really like to try this, it seems fun\nAlso, incorporating elevation data would also be really cool"
+        },
+        {
+          "id": 50390057,
+          "author": "discoinverno",
+          "text": "Nice! Are tanks spawned at the last picked location? I picked my hometown as I wanted to demolish a friend's house, and I was surprised to find 2 tanks there (it's a random small city in Europe).\nI also have the bug where it keeps respawning me to the starting point after ~30 seconds"
+        },
+        {
+          "id": 50390041,
+          "author": "igleria",
+          "text": "I don't get it, how is it possible people are in my local town? or is this more populr than this thread? fun stuff nevertheless."
+        },
+        {
+          "id": 50389858,
+          "author": "indrex",
+          "text": "Saw no buildings. Fired at the next tank."
+        },
+        {
+          "id": 50389994,
+          "author": "jaapz",
+          "text": "5 minute respawn timer after being shot is a bit excessive"
+        },
+        {
+          "id": 50390322,
+          "author": "netsharc",
+          "text": "I guess I wasn't the first to have the idea to flatten the White House...\nBye bye, ballroom!"
+        }
+      ],
+      "title_ja": "OpenStreetMapから実際の建物を取り壊すマルチプレイヤー戦車",
+      "summary_ja": "ディスカッションのハイライト：このことは、アクティブなOSMの貢献者であり、コミュニティメンバーであり、ioゲームを楽しんでいる私のDE全体をクラッシュさせました。私はこれが大好きです。\n著者がこれを読んでいる場合は、きれいにアトリビューションの配置を改善してください、PROJ /「あなたの接続が切れました",
+      "editor_note": "「OpenStreetMapから実際の建物を取り壊すマルチプレイヤー戦車」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50384233,
+      "title_en": "MS Paint Remote Code Execution Vulnerability",
+      "url": "https://www.cve.org/CVERecord?id=CVE-2026-83844",
+      "hn_url": "https://news.ycombinator.com/item?id=50384233",
+      "score": 556,
+      "comment_count": 200,
+      "posted_at": "2026-11-05T20:43:42+00:00",
+      "comments": [
+        {
+          "id": 50387394,
+          "author": "pasteleft",
+          "text": "Paint can exectue arbitrary code from the REMOTE, without USER INTERACTION?????\nWe seriously need more information."
+        },
+        {
+          "id": 50385178,
+          "author": "Oarch",
+          "text": "I can't wait for the Raymond Chen write up one day."
+        },
+        {
+          "id": 50385483,
+          "author": "greyhound1",
+          "text": "Had to go to Microsoft Store to get the fixed version, Windows Update didn't show anything."
+        },
+        {
+          "id": 50385308,
+          "author": "everylostbit",
+          "text": "This seems to affect only paint 11.0.0.0 up to, but not including, 11.2605.91.0.\nFor folks like me, running a much older version, its probably safe, although its Windows so, I'm not too sure."
+        },
+        {
+          "id": 50386560,
+          "author": "xlayn",
+          "text": "WHY ON HELL paint has a remote code execution in the name of God?\nWHY? is this because someone who needs to build a CV decided to network something on ..... I can't come with a reason why \"An unauthenticated attacker could exploit this vulnerability by sending a specially crafted packet to an affected service over the network.\" will cause paint to start being nice to an attacker and leaking crypto secrets etc.. the thing says sending a specially crafted packet.. this means windows is part of the attack vector, but that just makes the WHY bigger, really, why?"
+        },
+        {
+          "id": 50385915,
+          "author": "dmitrygr",
+          "text": "Oh, this is the modern \"paint\" trash, not mspaint.exe that i still use, copied out of x64 XP build, together with calc.exe"
+        },
+        {
+          "id": 50387637,
+          "author": "protocolture",
+          "text": "Hold up.\n\"No User Interaction\"\nDoes that mean that paint doesnt have to be running?\nApplication being installed on a PC allows a specially crafted packet to arbitrarily execute code?"
+        },
+        {
+          "id": 50385855,
+          "author": "NooneAtAll5",
+          "text": "neighbouring post:\nhttps://news.ycombinator.com/item?id=50383612"
+        }
+      ],
+      "title_ja": "MS Paintにリモートからコードが実行される脆弱性",
+      "summary_ja": "ディスカッションハイライト：ペイントは、ユーザーとのやり取りなしに、リモートから任意のコードを実行できます\nもっと詳しい情報が必要です。 /レイモンド・チェンがいつか書くのが待ちきれません。 /修正されたバージョンを入手するためにMicrosoft Storeに行かなければならなかったが、Windows Updateには何も表示されなかった。",
+      "editor_note": "「MS Paintにリモートからコードが実行される脆弱性」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 9,
+      "id": 50387796,
+      "title_en": "Pwn.college",
+      "url": "https://pwn.college/",
+      "hn_url": "https://news.ycombinator.com/item?id=50387796",
+      "score": 160,
+      "comment_count": 21,
+      "posted_at": "2026-11-06T03:27:14+00:00",
+      "comments": [
+        {
+          "id": 50389528,
+          "author": "knightzone",
+          "text": "We had this as a part of our reverse engineering and exploitation minor, amazing experience."
+        },
+        {
+          "id": 50388695,
+          "author": "bitforger",
+          "text": "reminds me of high school trying to beat hackthissite.org, OverTheWire, SmashTheStack\nsimpler times"
+        },
+        {
+          "id": 50389634,
+          "author": "solyin",
+          "text": "Why so deferential about posting write-ups? I'd just have a rule that says don't post write-ups and posting a write-up will get you banned from future editions or something."
+        },
+        {
+          "id": 50389755,
+          "author": "xavdid",
+          "text": "Not sure if the devs are here, but please don't justify your text! It makes the lines all have huge spaces in the middle. It's much harder to read as a result."
+        },
+        {
+          "id": 50389146,
+          "author": "MisterMunchkin",
+          "text": "It looks very comprehensive, and I love the fact that they will actually send you a belt if you do all the levels."
+        },
+        {
+          "id": 50389428,
+          "author": "hollowonepl",
+          "text": "yes, I know it for years, play with it when I have time. really cool.\nthis and telehack.com is nice entertainment"
+        },
+        {
+          "id": 50388794,
+          "author": "cantalopes",
+          "text": "Very cool project, reminds me of days playing with owasp webgoat"
+        },
+        {
+          "id": 50388382,
+          "author": "learningmore",
+          "text": "“ You have entered the pwn.college DOJO, an education platform for learners to develop and practice core cybersecurity skills in a hands-on fashion. Entering, you receive your \"white belt\" , signifying the beginning of your hacker life.”"
+        }
+      ],
+      "title_ja": "Pwn.college",
+      "summary_ja": "ディスカッションハイライト：これは、リバースエンジニアリングと開発の一環として、マイナーで素晴らしい経験をしました。/hackthissite.org、OverTheWire、SmashTheStackを打ち負かそうとしている高校を思い出させます\n単純な時間/なぜ書き込みを投稿することにそれほど敬意を払うのですか？ 書き込みを投稿しないというルールがあるだけで、書き込みを投稿すると、将来のエディションなどから禁止されることになります。",
+      "editor_note": "「Pwn.college」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50389260,
+      "title_en": "Hardcoded credentials and other issues in Tata Motors App",
+      "url": "https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES01&VLCODE=CIVN-2026-0537",
+      "hn_url": "https://news.ycombinator.com/item?id=50389260",
+      "score": 27,
+      "comment_count": 6,
+      "posted_at": "2026-11-06T07:28:39+00:00",
+      "comments": [
+        {
+          "id": 50389533,
+          "author": "qtqtqt",
+          "text": "Tata says the issue has been fixed and there were no leaks:\nhttps://auto.timesofindia.com/news/cars/tata-motors-says-ira..."
+        }
+      ],
+      "title_ja": "Tata Motorsアプリのハードコードされた認証情報やその他の問題",
+      "summary_ja": "ディスカッションのハイライト： Tataさんは、問題が解決され、漏洩はなかったと述べています。\nhttps://auto.timesofindia.com/news/cars/tata-motors-says-ira...",
+      "editor_note": "「Tata Motorsアプリのハードコードされた認証情報やその他の問題」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 50387738,
+      "title_en": "Nvidia Kubernetes Engine (NVKE)",
+      "url": "https://github.com/dsx-ai-factory/nvke",
+      "hn_url": "https://news.ycombinator.com/item?id=50387738",
+      "score": 81,
+      "comment_count": 21,
+      "posted_at": "2026-11-06T03:16:26+00:00",
+      "comments": [
+        {
+          "id": 50388910,
+          "author": "QuentinM",
+          "text": "This is for tenant-isolated k8s clusters using NVIDIA's DSX reference stack, relying on NICo / BlueField to set up isolated networking, and wipes/re-attests each host between tenants. Mostly useful if you're chasing NVIDIA Cloud Partner status or need NVIDIA support across the whole stack."
+        },
+        {
+          "id": 50388386,
+          "author": "random3",
+          "text": "I just got flashbacks of stuff I forgot long ago like OpenStack and EMC Rex-ray and so many things like that\nhttps://www.openstack.org\nhttps://github.com/rexray/rexray"
+        },
+        {
+          "id": 50388976,
+          "author": "Yasuraka",
+          "text": "This seems to mix several (should-be) distinct concerns like CAPI, Kamaji and gpu-operator.\nThe only things I'd take from this is the kind-based bootstrapper for the management cluster and SPIFFE/TPM integration."
+        },
+        {
+          "id": 50388362,
+          "author": "jimbokun",
+          "text": "Can’t regular Kubernetes also deploy to GPUs?"
+        },
+        {
+          "id": 50387971,
+          "author": "jeremy_carroll",
+          "text": "This is what happens when AI generates your PR – FAQ. Describe what the product does versus just a data dump."
+        },
+        {
+          "id": 50388045,
+          "author": "topspin",
+          "text": "A mention of something Kubernetes related reached the front page!  A few years ago, BAI, there was one or more k8s headlines gracing HN's front page at all times.\nKinda glad that ended.  k8s is fine and all, but it was a bit much for a while there."
+        }
+      ],
+      "title_ja": "Nvidia Kubernetesエンジン（ NVKE ）",
+      "summary_ja": "ディスカッションのハイライト：これは、NVIDIAのDSXリファレンススタックを使用し、NICo/BlueFieldに依存して隔離されたネットワーキングを設定し、テナン間の各ホストを消去/再認証するテナント隔離されたk 8 sクラスター用です/OpenStackやEMC Rex - rayなど、ずっと前に忘れていたもののフラッシュバックを受け取ったばかりです\nhttps://www.openstack.org\nhttps://github.com/rexray/rexray/これは、CAPI、Kamajiなどのいくつかの（必要な）異なる懸念を混在させているようです",
+      "editor_note": "「Nvidia Kubernetesエンジン（ NVKE ）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50388122,
+      "title_en": "From Linux to Wikipedia: How Volunteers Build the Internet",
+      "url": "https://thereader.mitpress.mit.edu/from-linux-to-wikipedia-how-volunteers-build-the-internet/",
+      "hn_url": "https://news.ycombinator.com/item?id=50388122",
+      "score": 90,
+      "comment_count": 35,
+      "posted_at": "2026-11-06T04:17:49+00:00",
+      "comments": [
+        {
+          "id": 50389049,
+          "author": "niemandhier",
+          "text": "Things were build by passionate people, who had the skills and the means to do it.\nI feel that modern tech first took away the passion, by making everything a product, than took away the means by making everything cloud, and now kills the skills by eutrophizing our brains with AI.\nThere is no cabal of evil tech that pushes this, but the results are the same."
+        },
+        {
+          "id": 50389047,
+          "author": "allexsendev",
+          "text": "This has happened with most of the fields - volunteers do a lot of work, make their fields/areas good, raise interest, bring ppl into it which usually brings money then which usually brings money chasers who then usually \"optimize\" the hell out of every metric for maximum gains.\nGreat OS volunteers still exist  today, but the ratio of genuine field lover to money chaser is absurd now."
+        },
+        {
+          "id": 50390139,
+          "author": "ZeroGravitas",
+          "text": "Open access link to the full book the article is based on (since it's slightly hidden on the book page):\nhttps://direct.mit.edu/books/book/6212/Peer-Production"
+        },
+        {
+          "id": 50388854,
+          "author": "jrm4",
+          "text": "Excellent reminder. It very often feels like this place forgets where\nmost of the good stuff\ncomes from."
+        },
+        {
+          "id": 50389353,
+          "author": "dm319",
+          "text": "I enjoyed this article - it gives a definition of \"peer production\", and explains our sense of unease when voluntary collaborative efforts get mixed with financial gains."
+        },
+        {
+          "id": 50389675,
+          "author": "NexRebular",
+          "text": "\"How volunteers build the Internet\", yet not a single mention of BSD that ran and runs the Internet."
+        },
+        {
+          "id": 50389140,
+          "author": "komali2",
+          "text": "> Motivate participants to contribute using diverse incentives that are frequently, if not exclusively, nonmonetary.\n> It’s worth repeating that these characteristics defy conventional assumptions about organizations and economic production.\nI'm reminded of the meme, a caveman honing a spear, with the tag \"How is he innovating without financial incentive?\"\nI feel like the \"conventional\" understanding of human behavior and motivation is new and wrong. That being: to get people to do things, you gotta pay them. To get them to do the thing better, offer a monetary reward / incentive.\nIn reality, the savviest of capitalism's participants instinctively understand this to be false: the prize in a sales contest is never a cash reward, it's always a car (or similar). A car that can be seen in the parking lot forever after, a clear symbol of the winner's success and competence. In the old days, it'd be bear claws on a necklace.\nWe made the mistake of thinking that the bear claws, shells, whatever, were an early form of currency, that they were a single scalar by which a society measured value, something that could be traded, when in reality they were abstract markers of a given person's pro"
+        },
+        {
+          "id": 50389496,
+          "author": "shevy-java",
+          "text": "I thought about suggesting that AI slop will replace humans\nhere, but then I remembered how awful Grokipedia is, so we\nare safe for the time being."
+        }
+      ],
+      "title_ja": "LinuxからWikipediaへ：ボランティアがインターネットを構築する方法",
+      "summary_ja": "ディスカッションのハイライト：物事は、それを行うためのスキルと手段を持っていた情熱的な人々によって構築されました。\n私は、現代のテクノロジーがすべてを製品にすることで、最初に情熱を奪ったと感じています/これはほとんどの分野で起こっています-ボランティアは多くの仕事をし、彼らの分野/分野を良くし、関心を高め、pplを持ち込みます。これは通常、記事が基づいているフルブックへの通常の/オープンアクセスリンクにお金をもたらします（ si",
+      "editor_note": "「LinuxからWikipediaへ：ボランティアがインターネットを構築する方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 13,
       "id": 50383057,
       "title_en": "The Hackintosh Reborn",
       "url": "https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/",
       "hn_url": "https://news.ycombinator.com/item?id=50383057",
-      "score": 77,
-      "comment_count": 16,
+      "score": 314,
+      "comment_count": 177,
       "posted_at": "2026-11-05T19:08:22+00:00",
       "comments": [
+        {
+          "id": 50387921,
+          "author": "justauserid",
+          "text": "There was a time when I used to wish for OSX (wasn't macOS yet) on other hardware. Now I want anything but macOS on mac hardware."
+        },
+        {
+          "id": 50384497,
+          "author": "ecshafer",
+          "text": "I wish I could  get the mac hardware with linux. MacOS I am not a fan of. But they have the best hardware and the best cpus for laptops bar none."
+        },
         {
           "id": 50384240,
           "author": "vielite1310",
           "text": "As much as I used to love MacOS as an operating system, the more I spending time on it, I'd rather wish that my Macbook can run Linux, hopefully Asahi Linux will eventually support M5 :("
         },
         {
-          "id": 50384188,
-          "author": "hypfer",
-          "text": "On one hand, this is kinda cool.\nOn the other hand, why would I want to run MacOS in the first place?\nModern versions I mean. With the deterioration general quality, Liquid Glass and all that.\nThe only reason I do that is because I _have_ to do that due to MDM and the fact that Asahi doesn't do the Standby. Excellent hardware, bound by a sad OS.\nWhy take normal hardware and add a sad OS without being forced to do so?\nI suppose \"for the sake of it\" is a good answer here. For the fun of making computers do something they really do not want to do."
+          "id": 50390162,
+          "author": "grishka",
+          "text": "> the feat of running macOS on non-Apple hardware, and has a history dating back to the late 1980s\nWait, so people were somehow running macOS on non-Apple\nPowerPC\nmachines? I've always assumed that hackintosh is specifically about IBM PC compatibles."
+        },
+        {
+          "id": 50385481,
+          "author": "solarkraft",
+          "text": "That’s so cool. It makes it even more of a bummer that iDevice bootloaders are locked. It’s an ongoing tragedy there’s\nstill\nno macOS on iPads. Looks like if you want that, you’ll have to go with non-Apple hardware."
         },
         {
           "id": 50384149,
@@ -140,51 +645,87 @@
           "text": "Seeing that Macs can now run Switch 1/2 games natively because of the ARM CPU is actually incredibly. And to me personally the first hand on sign of the end of x86."
         },
         {
-          "id": 50384190,
-          "author": "bearjaws",
-          "text": "Such a throw back, I built a hackintosh back in x86 days and had it mostly working for a year, but of course tried to apply an update (10.08 I think?) and it blew up.\nEnded up selling the hardware to some guy who insisted he would get it working and I am sure it was possible, but I pretty much switched to using Mac after that as I loved the dev experience."
+          "id": 50388580,
+          "author": "3RTB297",
+          "text": "During grad school, Dell sold a 10 inch mini laptop that just happened to have hardware compatible with an easy Hackintoch install. The change between the slow, bloated Windows install and OS X was stunning.\nI loved that thing. Light, easy to take anywhere, battery life for days. I once caught someone snooping over my shoulder trying to see if it was really running OS X. Used it for years."
         },
         {
-          "id": 50383859,
-          "author": "cavoirom",
-          "text": "funny enough, the only use case I want to run macOS on non-Apple software is a headless build machine. Without Apple hardware, using macOS is less useful to me."
-        },
-        {
-          "id": 50384073,
-          "author": "FLeXMurphy",
-          "text": "There used to be a use-case for Hackintoshes maybe a decade +/- 5 years ago, especially when macOS started working with x86 and x86-64 Intel-based CPUs. But it always felt subversive and it seemed like one update away from breaking due to some unforeseen, artificial limitation.\nIs there a use-case now? I don't know. Linux has made serious strides in part thanks to very user-friendly distros like Ubuntu. People may have individual grievances and I don't want to downplay those, but we're not dealing with oddball Shrike issues anymore.\nApple should seriously consider allowing their OS to be used independently of the hardware, especially the build tools, the server stuff (whatever is left of it, not a market they had a big part to play in anyway). But, it is unlikely of them to do this.\nWell done nonetheless. I think it is more likely that the old PowerPC-MacOS-on-Wii will be more stable long term than any of these new releases.\nEdit: I'll also add: I am questioning what value MacOS itself has, the raw OS and kernel stuff. Linux, BSD and Windows each have their own -isms which are curiosities that one can, and should, consider as pros and cons. People might say \"Windows is bad\", and I "
-        },
-        {
-          "id": 50384346,
-          "author": "brink",
-          "text": "Love how they're calling the privilege of running Apple's buggy and user-hostile operating system a \"glimmer of hope\"."
-        },
-        {
-          "id": 50384152,
-          "author": "alt227",
-          "text": ">\nwe saw Apple release the first ARM-based Mac in 2021\nRefreshing to hear it called its proper name instead of Apples marketing terminology."
+          "id": 50385834,
+          "author": "nivalderramas",
+          "text": "I think Apple's value is not on their software anymore but in their hardware. Those machines are really pleasant to use"
         }
       ],
       "title_ja": "ハッキントッシュ・リボーン",
-      "summary_ja": "ディスカッションのハイライト：以前はMacOSをオペレーティングシステムとして愛していましたが、それに時間を費やすほど、MacbookがLinuxを実行できることを望んでいます。Asahi Linuxが最終的にサポートすることを願っています/一方で、これはちょっとクールです。\n一方で、そもそもなぜMacOSを実行したいのでしょうか？\n現代のバージョンを意味します/ARM CPUのためにMacがSwitch 1/2ゲームをネイティブに実行できるようになったことは、実際には信じられないほどです",
+      "summary_ja": "ディスカッションのハイライト：以前は他のハードウェアでOSXを使用したいと思っていました（まだmacOSではありませんでした）/ LinuxでMacハードウェアを入手したい/以前はMacOSをオペレーティングシステムとして愛していましたが、それに時間を費やすほど、MacbookがLinuxを実行できることを望んでいました。Asahi Linuxが最終的にサポートすることを願っています",
       "editor_note": "「ハッキントッシュ・リボーン」について、開発者コミュニティで注目が集まっています。",
       "category": "AI/ML"
     },
     {
-      "rank": 4,
+      "rank": 14,
+      "id": 50386338,
+      "title_en": "Inkling 2 Small",
+      "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+      "hn_url": "https://news.ycombinator.com/item?id=50386338",
+      "score": 203,
+      "comment_count": 68,
+      "posted_at": "2026-11-06T00:00:24+00:00",
+      "comments": [
+        {
+          "id": 50386642,
+          "author": "Jackobrien",
+          "text": "The best open models today have been “good enough” to do most knowledge work for a few months. This might be the first US one good enough too. That’s a big deal.\nOpen weight US based Opus 5.5 within 12 months."
+        },
+        {
+          "id": 50386844,
+          "author": "epsteingpt",
+          "text": "It's a nice, domestic open weight model.\nWithout hundreds of millions in 9 days a small team is producing a model that can beat DeepSeek 4.1 and a platform to tune it.\nOptimistic for the future."
+        },
+        {
+          "id": 50387624,
+          "author": "itkovian_",
+          "text": "The most important thing here is training was entirely nvfp4 - this is best model by far that has ever been trained in that precision and explains why they were able to do it so fast"
+        },
+        {
+          "id": 50386743,
+          "author": "a11r",
+          "text": "Very refreshing to see benchmarks where the reporting team is not the clear winner. They are claiming to be better than GLM 5.3 flash, which is impressive if it holds up outside of benchmarks."
+        },
+        {
+          "id": 50386574,
+          "author": "tcdent",
+          "text": "Is it SOTA yet? No. Are the domestic open weights labs demonstrating incredible velocity? Undeniably."
+        },
+        {
+          "id": 50389848,
+          "author": "cauliflower99",
+          "text": "As someone who knows nothing about wine except I like drinking it - that wine test is fascinating."
+        },
+        {
+          "id": 50386776,
+          "author": "syntaxing",
+          "text": "I can’t seem to find the cost? The craziness of deepseek flash 1017 is how ridiculously cheap it is for how capable it is."
+        },
+        {
+          "id": 50386648,
+          "author": "ddxv",
+          "text": "This is amazing! Can't wait to trying this out. Also, crazy that I found this on LinkedIn with more upvotes and discussion than the HN thread has."
+        }
+      ],
+      "title_ja": "Inkling 2 Small",
+      "summary_ja": "ディスカッションのハイライト：今日の最高のオープンモデルは、数ヶ月間ほとんどのナレッジワークを行うのに十分な「良い」ものでした/これは素敵な、国内のオープンウェイトモデルです。\n9日間で何億人もいなければ、小規模なチームはDeepSeek 4.1を打ち負かすことができるモデルと、それを調整するためのプラットフォームを作成しています。\n楽観的なf/ここで最も重要なことは、トレーニングは完全にnvfp 4でした。これは、その精度でこれまでにトレーニングされた最高のモデルであり、",
+      "editor_note": "「Inkling 2 Small」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
       "id": 50381383,
       "title_en": "Window Sweaters",
       "url": "https://github.com/saragordic/window-sweaters",
       "hn_url": "https://news.ycombinator.com/item?id=50381383",
-      "score": 148,
-      "comment_count": 54,
+      "score": 352,
+      "comment_count": 107,
       "posted_at": "2026-11-05T16:50:14+00:00",
       "comments": [
-        {
-          "id": 50382235,
-          "author": "lnrd",
-          "text": "Not necessarily related to this or the author, but with all the supply chain attacks going on this year I sadly lost all trust in running something from a new GitHub repo that doesn't come from some trusted person/entity.\nLove the idea btw, reminds me of a similar app that added xmas light to the dock."
-        },
         {
           "id": 50382961,
           "author": "gordic_sara",
@@ -196,14 +737,14 @@
           "text": "I misread the title and was expecting a collection of windows-themed sweaters like Microsoft (used to?) put out every year."
         },
         {
-          "id": 50383515,
-          "author": "jjuel",
-          "text": "Things like this used to be a lot cooler before LLMs. It used to show someone actually spent time and worked hard on something mostly pointless. Now you can just point an LLM to it, and be done. Projects like this have lost their magic."
+          "id": 50390061,
+          "author": "Flow",
+          "text": "As someone who don't really like everything borderless these days I love this. Well done!"
         },
         {
-          "id": 50383805,
-          "author": "AlotOfReading",
-          "text": "This is very cute. I set up my Android UI with a [conceptually] similar thread border and colored fabric tiles [0]. I've been wondering if it's worth extending the skeuomorphism to my desktop environment.\n[0]\nhttps://ibb.co/HfdX61Mv"
+          "id": 50389639,
+          "author": "jFriedensreich",
+          "text": "Brings back memories of the good old whimsical days of mac kaleidoscope"
         },
         {
           "id": 50382277,
@@ -211,153 +752,198 @@
           "text": "Feels like a weird omission to show zero screenshots of what it actually looks like. All the images are synthetic empty windows in a void."
         },
         {
-          "id": 50383342,
-          "author": "hmokiguess",
-          "text": "I stopped using JankyBorders because of a limitation it has with Stage Manager which I somehow got used to using it.\nLooks like there's no way to support Stage Manager without creating some strange ghost border thing due the way it captures and records the application window."
-        },
-        {
           "id": 50382025,
           "author": "gourneau",
           "text": "These are cute, it pairs well with my app for macOS that turns your menu bar into an Aurora :)\nhttps://aurora.radiantmachines.com/"
+        },
+        {
+          "id": 50388327,
+          "author": "jdlyga",
+          "text": "I was just wondering how to keep my little mac windows warm in the wintertime. Thanks for this!"
+        },
+        {
+          "id": 50383342,
+          "author": "hmokiguess",
+          "text": "I stopped using JankyBorders because of a limitation it has with Stage Manager which I somehow got used to using it.\nLooks like there's no way to support Stage Manager without creating some strange ghost border thing due the way it captures and records the application window."
         }
       ],
       "title_ja": "窓用セーター",
-      "summary_ja": "ディスカッションのハイライト：必ずしもこれや著者に関連しているわけではありませんが、今年起こっているすべてのサプライチェーン攻撃により、悲しいことに/heeeyを行う新しいGitHubリポジトリから何かを実行することへの信頼を完全に失いました。私はこれの著者です！これがハッカーニュースになったとは信じられません笑/私はタイトルを誤解し、マイクロソフト（以前は？ ）のような窓をテーマにしたセーターのコレクションが毎年出されることを期待していました。",
+      "summary_ja": "ディスカッションのハイライト：私はこれの著者です！これがハッカーニュースになったとは信じられません笑/私はタイトルを誤解し、マイクロソフト（以前は？ ）のようなウィンドウズをテーマにしたセーターのコレクションが毎年発売されることを期待していました。/ボーダーレスなものがあまり好きではない人として、最近はこれが大好きです",
       "editor_note": "「窓用セーター」について、開発者コミュニティで注目が集まっています。",
       "category": "Programming"
     },
     {
-      "rank": 5,
-      "id": 50383963,
-      "title_en": "Tencent Launches Hy4, One of the Leading Open-Source AI Models",
-      "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
-      "hn_url": "https://news.ycombinator.com/item?id=50383963",
-      "score": 11,
-      "comment_count": 1,
-      "posted_at": "2026-11-05T20:21:43+00:00",
+      "rank": 16,
+      "id": 50389222,
+      "title_en": "Britain to make salary disclosure in job ads mandatory",
+      "url": "https://www.reuters.com/business/world-at-work/britain-make-salary-disclosure-job-ads-mandatory-2026-11-05/",
+      "hn_url": "https://news.ycombinator.com/item?id=50389222",
+      "score": 186,
+      "comment_count": 186,
+      "posted_at": "2026-11-06T07:22:04+00:00",
       "comments": [
         {
-          "id": 50384126,
-          "author": "ChrisArchitect",
-          "text": "[dupe]\nhttps://news.ycombinator.com/item?id=50365780"
+          "id": 50389559,
+          "author": "aregue",
+          "text": "I have always felt that job ads should include salary information. The main reason is not to waste anyone's time. Often a narrow salary range or a clear link between requirements and salary are much more informative than a job description. I have experienced to apply to a job opening and go through one or more interviews only to find out that the company is actually hiring for a more junior position than the ad copy implied.\nA second reason is to avoid discrimination. Applicants that feel disadvantaged, even if they are actually qualified, may hesitate to negotiate for a higher salary in the same way that a other applicants would. The consequence is that they start with a lower salary. This applies specially to women. Plenty of research shows that they are less likely to negotiate their salary.\nResearch[1] suggests that pay transparency leads to lower average salaries because employers avoid paying higher wages to any one employee to avoid costly negotiations with others. The effect is small, around 2%, and it disappears with increasing degree of unionization. In my opinion this is an acceptable price to pay to reduce pay inequality, which often is much more than 2%. It is also a g"
+        },
+        {
+          "id": 50389555,
+          "author": "ellen364",
+          "text": "Cautiously pleased about this. Some companies in UK pay senior devs £30-35k. And some companies won't discuss that until v late in the process, while importing US-style multiround interviews. It's pretty silly when people get 3 rounds in, take time off work for the interviews, then find out their expectations are so far apart."
+        },
+        {
+          "id": 50389936,
+          "author": "sjamaan",
+          "text": "> The European  Union adopted pay transparency rules the  following year, giving member states until June 2026 to implement them in national  law.\nThat's the first I've heard of it, and I've seen plenty of job postings the past year for European companies where there was no salary indication. See for example the recent HN Who's Hiring?\nhttps://news.ycombinator.com/item?id=50338728"
+        },
+        {
+          "id": 50389683,
+          "author": "claw-el",
+          "text": "Besides ‘salary disclosure’, one other law that really helps improve salary is to ban potential employers from asking candidates’ current/previous salary. This avoids potential employers from offering just marginally better than candidates previous roles…"
+        },
+        {
+          "id": 50390505,
+          "author": "Good4boothee",
+          "text": "I hope this will a real law, not the phony one passed here. They should literally exile from country the person responsible for that mockery. It goes something like this:\nThe salary range has to be included in job add or provided to job seeker at the latest upon signing the contract.\nThat entire sentence could be stricken out and nothing would change."
+        },
+        {
+          "id": 50390260,
+          "author": "gadders",
+          "text": "This is great news and an easy win. Not disclosing salary information disproportionately affects people from a lower socio-economic background."
+        },
+        {
+          "id": 50390302,
+          "author": "temp123477",
+          "text": "Feels like a law requiring prices on shop shelves. Isn't it self interest to put the salary in the ad? So much saved time. And probably more suitable applicants. I don't apply for a job without knowing the salary. Or via recruiters that tell you upfront (they usually do)."
+        },
+        {
+          "id": 50390366,
+          "author": "slulu",
+          "text": "I totally agree.\nWhen I’ve raised this to a CEO that was bragging that he gives competitive salaries but can’t disclose it, he said that a person that asks for the range before the interview it’s in it for the money."
         }
       ],
-      "title_ja": "テンセント、主要なオープンソースAIモデルの1つであるHy 4を発表",
-      "summary_ja": "ディスカッションのハイライト：[ DUPE]\nhttps://news.ycombinator.com/item?id=50365780",
-      "editor_note": "「テンセント、主要なオープンソースAIモデルの1つであるHy 4を発表」について、開発者コミュニティで注目が集まっています。",
+      "title_ja": "英国、求人広告での給与開示を義務化",
+      "summary_ja": "ディスカッションハイライト：私は常に求人広告に給与情報を含めるべきだと感じてきました/これには慎重に満足しています/>欧州連合は翌年に賃金透明性規則を採用し、加盟国に2026年6月までに国内法で実施するようにしました。\n初めて聞きました",
+      "editor_note": "「英国、求人広告での給与開示を義務化」について、開発者コミュニティで注目が集まっています。",
       "category": "AI/ML"
     },
     {
-      "rank": 6,
-      "id": 50383739,
-      "title_en": "Goodbye from Salon",
-      "url": "https://www.salon.com/2026/11/05/goodbye-from-salon/",
-      "hn_url": "https://news.ycombinator.com/item?id=50383739",
-      "score": 142,
-      "comment_count": 34,
-      "posted_at": "2026-11-05T20:03:29+00:00",
+      "rank": 17,
+      "id": 50378643,
+      "title_en": "Show HN: Firenook – Firebase emulators in Rust: 40× faster writes, 10× less RAM",
+      "url": "https://firenook.dev/",
+      "hn_url": "https://news.ycombinator.com/item?id=50378643",
+      "score": 118,
+      "comment_count": 17,
+      "posted_at": "2026-11-05T13:07:29+00:00",
       "comments": [
         {
-          "id": 50384232,
-          "author": "legitster",
-          "text": "The amount of newsroom jobs fell 60% between 2008 and 2020. The vast majority of what was lost were \"beat\" reporters - foreign bureaus, Washington bureaus from regional publications, statehouse reporters, or regional specialty beats (science, law, etc).\nThis started long before the decline of the open internet and AI. If anything, the shift online covered up a massive hollowing out of the industry. We're getting fewer sources of news, and more national coverage. A lot of stuff that is reported on is coming from a scant number of wire services, or directly from PR teams themselves.\nFor the most part, your choice of news platform is just a layer of coverage choices and political spin on top of a very thin market of original coverage."
+          "id": 50390453,
+          "author": "anilgulecha",
+          "text": "Can this be hosted on a node and I get firebase of my own?"
         },
         {
-          "id": 50384027,
-          "author": "macintux",
-          "text": "This article didn't generate any comments when it made the rounds 10 years ago. An obituary for what salon.com used to be.\nhttps://web.archive.org/web/20210219012551/https://www.polit..."
+          "id": 50387295,
+          "author": "jamest",
+          "text": "(Firebase founder) This is very cool! Great work!"
         },
         {
-          "id": 50384349,
-          "author": "allenu",
-          "text": "I haven't visited salon.com in quite a while. I remember way back in the day I'd hop on there to read an article or two and maybe go read suck.com as well. Such a different internet back then, pre-BuzzFeed and YouTube. Less clickbait, more Gen X cynicism."
+          "id": 50387324,
+          "author": "joshdavham",
+          "text": "Looks nice!\nSomewhat off topic question though: if you guys are such skilled developers to be building something as involved as this, why not just use something other than Firebase? I used Firebase mainly as a crutch when I was first getting into web dev, but feel that I’ve sorta outgrown it. Do you feel Firebase still serves developers like you well or are you developing this moreso for people like my old self?\nAgain, nice work!"
         },
         {
-          "id": 50384170,
-          "author": "lastdong",
-          "text": "On my internship the local newspaper wanted a revamped UI and I was asked to present some ideas. After searching around for references found Salon had a really clean UI and added some of its pages to the presentation spec. This was in early 2000s. Their UI today is still very clean and readable. I don’t think it has changed that much :)\nhttps://web.archive.org/web/20021130080643/http://salon.com/\nSad to see them go."
+          "id": 50387600,
+          "author": "silverlight",
+          "text": "This is really neat! I've been working on an open-source version of the Firebase Realtime Database as well that might be of interest[1]. Also written in Rust! Might be a good basis for building out the Realtime Database part of Firenook if you have any interest in supporting that as well.\n[1]\nhttps://github.com/lark-sh/lark"
         },
         {
-          "id": 50384297,
-          "author": "mscarpino",
-          "text": "Very sad. Loved the articles from Stephanie Zacharek, Camille Paglia, and Cary Tennis."
+          "id": 50387123,
+          "author": "corytheboyd",
+          "text": "Awesome, not surprised to hear that Google still neglects to improve this experience, but you called out exactly why:\n> [...] the only way Firebase developers can build apps without directly costing them is using the official Firebase Emulator Suite\nWe had started on the management UI portion of this at my old job out of similar frustrations. Felt awful seeing what should be a small/medium sized development-only application spew forth Java flotsam."
         },
         {
-          "id": 50384353,
-          "author": "mrcwinn",
-          "text": "Totally forgot Salon existed. I guess that’s part of the problem. For anyone interested in independent journalism, I strongly recommend Breaking Points.\nhttps://youtube.com/@breakingpoints"
-        },
-        {
-          "id": 50383937,
-          "author": "chmorgan_",
-          "text": "We need as many news organizations as we can get imo. I used to read them in the 2000s. The tone kept shifting towards negativity and vitriol and reporting perception of intentions rather than facts. Not surprised they are winding down."
-        },
-        {
-          "id": 50383875,
-          "author": "vr46",
-          "text": "That is a massive shame, although I stopped reading it a very long time ago, but I have fabulous memories of the place, when Patrick Smith's Ask The Pilot and Cary Tennis' Since You Asked were wonderful staples of my week."
+          "id": 50387099,
+          "author": "willdub",
+          "text": "this is awesome, great work. any plans to target replacing the cloud production services?"
         }
       ],
-      "title_ja": "サロンからのサヨナラ",
-      "summary_ja": "ディスカッションのハイライト： 2008年から2020年の間にニュースルームの仕事の量が60 ％減少しました/この記事は10年前にラウンドを行ったときにコメントを生成しませんでした/私はかなり長い間salon.comにアクセスしていません",
-      "editor_note": "「サロンからのサヨナラ」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
+      "title_ja": "Show HN: Firenook – Firebase emulator in Rust: 40 ×高速書き込み、10 ×少ないRAM",
+      "summary_ja": "ディスカッションのハイライト：これをノードでホストして、自分のファイアベースを取得することはできますか？ /（ファイアベースの創設者）これはすごい！ お疲れさまでした！/素敵に見えます！\nやや話題外の質問ですが、あなたがこのような関与するものを構築するような熟練した開発者であるなら、なぜFirebase以外のものを使用しないのですか？",
+      "editor_note": "「Show HN: Firenook – Firebase emulator in Rust: 40 ×高速書き込み、10 ×少ないRAM」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
     },
     {
-      "rank": 7,
-      "id": 50383740,
-      "title_en": "Kagi Search for Everyone",
-      "url": "https://kagi.com/changelog",
-      "hn_url": "https://news.ycombinator.com/item?id=50383740",
-      "score": 30,
-      "comment_count": 7,
-      "posted_at": "2026-11-05T20:03:34+00:00",
+      "rank": 18,
+      "id": 50381687,
+      "title_en": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
+      "url": "https://github.com/rivet-dev/rivet",
+      "hn_url": "https://news.ycombinator.com/item?id=50381687",
+      "score": 98,
+      "comment_count": 51,
+      "posted_at": "2026-11-05T17:17:42+00:00",
       "comments": [
         {
-          "id": 50384311,
-          "author": "ActionHank",
-          "text": "I tried Kagi for a couple of months and then cancelled.\nI really liked the AI search, but it burns through credits too quickly. I have since switched to using Hermes, it's not quite as good yet, but it's a fraction of the cost.\nI liked the idea of ad free, slop free search. There were some problems with that though, which were hard to push past. I really like being able to search for stores and local restaurants. Maps integrations were hit or miss, mostly miss. It was also weirdly slow for me, even to load the search page without a query.\nFinal point was their published and then unpublished support of Yandex. The CEO tried to argue some \"search without borders\" BS, but really they are taking your money that and sending some of it to a Russian company which is either directly or indirectly funding a pointless war. I took issue with that and remembered it every single time I opened the page. In particular it really didn't sit well with me that the response was flippant and then they took down their list of sources.\nI've switched to DDG and have been happier, YMMV."
+          "id": 50385491,
+          "author": "kianN",
+          "text": "> When you write data to an actor’s SQLite database, the write is acknowledged once SSDs in 2 of 3 availability zones have it. Then, the data is batched to S3 in the background. This means that S3 is never on the write path, which lowers latency and cost. When reading data or waking an actor, Rivet reads from SSDs if already cached and falls back to S3 if not. SSD caches can be tuned to meet your needs, giving you configurable tiered storage for your actors.\nAs someone who is not incredibly deep in the agent space, but works a lot on scientific and distributed computing, this really caught my eye. Seems like this is primarily part of the cloud offering, but a true posix compatible filesystem that interops cleanly with S3 on the backend would be an incredibly interesting product (especially if it were open-sourced).\nA brief sidenote: I did a triple take when I saw the name because Rivet is the internal name of our long-running job queue service. You all have great taste."
         },
         {
-          "id": 50384302,
-          "author": "egecant",
-          "text": "I love Kagi. I especially appreciate how it pushes back against AI slop and makes the web feel more human again. I haven't looked back at Google since switching. The search results are consistently better.\nMy favorite feature is  Smallweb [0]. I've actually replaced doomscrolling with browsing random personal blogs and discovering interesting corners of the internet.\n[0]\nhttps://kagi.com/smallweb/"
+          "id": 50390248,
+          "author": "alexey_anshakov",
+          "text": "Moving state persistence to write-ahead SQLite tiered into S3 is a very clean answer to the latency-cost trap of raw object storage. The big operational win with decoupled actor state like this is avoiding zombie locks when an agent execution times out mid-turn. Curious how you handle split-brain fencing if an actor network partition occurs while a batched write is still draining to S3."
         },
         {
-          "id": 50384306,
-          "author": "smodo",
-          "text": "Kagi is really good. And I never thought I would say this but their AI assistent actually works. It is well integrated with their search product to deliver actually usefully results.\nThat said I’ve had a hard time getting other people on board. Apparently many people are just numb to the enshittification of the web?"
+          "id": 50381808,
+          "author": "fastball",
+          "text": "Rivet is very cool. Switched a Cloudflare Durable Object piece of our infrastructure that lived in its own little fairy tale land to our own infra within the rest of our VPC. Was a very pleasant experience.\nHaven't had the chance to try Rivet v3 yet but hoping to get to it soon."
         },
         {
-          "id": 50384261,
-          "author": "bbor",
-          "text": "Yes, sir(s)! Using a search engine without ads is such a life improvement that it’d be a steal at twice the price.\nImagine DuckDuckGo but with no ads and good results every time instead of 90% of the time… absolute game changer.\nEDIT: put another way; if you think ads don’t work on you, you’re just not aware enough. Ads work on everyone —in the moment and otherwise- and search ads are the most effective ads in history.\nThat’s why Google is explicitly built around using their money printer to pay into a long list of “bets”, hoping to find the next money printer before people realize how insidious this one is."
+          "id": 50388994,
+          "author": "sebastienburel",
+          "text": "How does hibernation decide an actor is idle? In my agent runtime actors run in XS. Messages are queued and only handled once the current handler returns, so a synchronous handler is never cut in half. But while a handler waits on an async call, an HTTP request say, other messages still get handled. So “no message being processed” isn’t the same as “nothing in flight”. Does Rivet hibernate an actor with an outstanding request, and if so, what happens when the response comes back?"
+        },
+        {
+          "id": 50387064,
+          "author": "xms17189",
+          "text": "Fascinating architecture—treating agent turns as persistent lightweight actors backed by tiered SQLite/S3 rather than spinning up dedicated VMs makes a lot of sense for latency and cost.\nFor workflows that inevitably require arbitrary shell execution or local compiler tools (like coding agents running tests), do you envision delegating just the side-effect execution out to ephemeral runners while keeping the stateful actor long-lived, or is Rivet primarily focused on API/tool-calling agents?"
+        },
+        {
+          "id": 50388235,
+          "author": "adsharma",
+          "text": "Distributed actors are also good platforms to run graph algorithms. We're evaluating Rivet as a potential substrate to run page rank and clustering algorithms on large graphs, while supporting cypher queries over the result.\nhttps://github.com/orgs/Latentpedia/discussions/4\nRelated work:\nhttps://sigmodrecord.org/publications/sigmodRecord/1712/pdfs...\nhttps://arxiv.org/abs/2301.01395"
+        },
+        {
+          "id": 50386496,
+          "author": "serjester",
+          "text": "Even as someone who’s very involved in the space, I don’t understand what you guys do. It’d be helpful if your website led with the problem you’re solving instead of technical benchmarks.\nI also don’t really understand the distinction between an actor and an agent. I’ve never heard anyone call them actors, and I doubt you’ll win that mindshare as a small startup."
+        },
+        {
+          "id": 50389198,
+          "author": "bshafiq",
+          "text": "Love the actor model approach here. Hibernating idle agents while keeping state durable in S3 is a huge win for cost.\nCurious how Rivet handles the runaway loop problem though. When you have long-lived actors passing messages to each other, a simple state bug can cause them to ping-pong the exact same payload indefinitely.\nBecause the actors stay alive and keep responding (returning 200s), your infra looks perfectly healthy, but the developer's OpenAI bill just exploded in the background.\nAre you leaving loop detection entirely to the devs building on top of Rivet, or is there any native circuit breaker at the orchestrator level to kill an actor that's stuck in a cyclic state?"
         }
       ],
-      "title_ja": "すべての人のためのKagi検索",
-      "summary_ja": "ディスカッションのハイライト： Kagiを数ヶ月試してみましたが、キャンセルされました。\nAI検索は本当に気に入っていましたが、クレジットのバーンスルーが早すぎます/Kagiが大好きです/Kagiは本当に良いです",
-      "editor_note": "「すべての人のためのKagi検索」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
+      "title_ja": "HN: Rivet (YC W 23)を立ち上げます– S 3でエージェントをスケーリングし、調整します",
+      "summary_ja": "ディスカッションのハイライト：>アクターのSQLiteデータベースにデータを書き込むと、3つの可用性ゾーンのうち2つのSSDに書き込みが確認されます/S 3に階層化されたSQLiteを先に書き込むための状態の永続性の移動は、レイテンシコストトラップへの非常にクリーンな答えです生オブジェクトストレージ/Rivetは非常にクールです",
+      "editor_note": "「HN: Rivet (YC W 23)を立ち上げます– S 3でエージェントをスケーリングし、調整します」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
     },
     {
-      "rank": 8,
+      "rank": 19,
       "id": 50380810,
       "title_en": "Motorola Signature 27 with GrapheneOS support",
       "url": "https://motorolanews.com/motorola-signature-27-2/",
       "hn_url": "https://news.ycombinator.com/item?id=50380810",
-      "score": 293,
-      "comment_count": 203,
+      "score": 487,
+      "comment_count": 345,
       "posted_at": "2026-11-05T16:01:34+00:00",
       "comments": [
         {
           "id": 50381213,
           "author": "utopiah",
           "text": "Well \"starting MSRP of $1,599.\" I'll stick to my 2nd hand Pixel 8 that I bought, for GrapheneOS long term support, for 1/10th of that price.\nNo doubt it's a way WAY better device, really, but I don't see where I would actually\nneed\nthat. I happily toss the one I have around and don't even care if it gets stolen or lost one day, different preference."
-        },
-        {
-          "id": 50384315,
-          "author": "lucb1e",
-          "text": "> Motorola continues to build on its commitment to security with ThinkShield®, which helps protect users from the factory to the phone\nAnyone know what ThinkShield is? \"from the factory to the phone\" sounds, well, weird, but maybe they mean it's some sort of tamper proofing from where they flash the firmware until you get the phone? Is that new for GrapheneOS versions?\n> Motorola’s commitment to bringing cutting-edge security to everyday users across the globe. \\n\\n That commitment runs deeper than software: GrapheneOS sets demanding requirements for the hardware it runs on and how it’s kept updated\nBesides providing timely security updates, which one would hope they do regardless of Graphene pushing them, isn't it Graphene doing all the actual software work? Since motorola refer to commitments \"deeper than software\", it sounds like motorola made some software commitments as well"
         },
         {
           "id": 50381570,
@@ -375,14 +961,19 @@
           "text": "I hope the hardware support GrapheneOS needs filters down to Motorola's mid-range phones over the next couple of years. I really\nlike\nthe Moto G line, historically anyway."
         },
         {
-          "id": 50383534,
-          "author": "canucker2016",
-          "text": "Under availability, article says:\nMotorola signature 27 will be available in markets worldwide in the coming months, with a starting MSRP of $1,599. For local price information and availability, please contact your local PR team.\nbut\nhttps://mobilesyrup.com/2026/11/05/motorola-signature-27-rev...\nsays:\n... and while we expected a Canadian release soon, Motorola is now saying that the device will be exclusive to the U.S. with no availability in Canada at this time.\nSo are they saying the same thing (US only at start, slow rollout to other countries later) or is it US only?"
+          "id": 50381691,
+          "author": "ada-h00k",
+          "text": "The price seems way too high to me. I hope Motorola will release budget smartphones in the future, similar to the A models in the Pixel series. It would be cool to have a smartphone running GrapheneOS that you could also recommend to regular folks and older people."
         },
         {
-          "id": 50383862,
-          "author": "UnreachableCode",
-          "text": "I just want a key-pad, dumb style phone with GrapheneOS. Part of the switch to GrapheneOS on Pixel 8 made me realise part of Google's evil (among the other tech companies) is how much they've crafted the most addictive device imaginable.\nI've cut out social media and a browser. The only thing left that I want now is a smaller, less distracting form factor"
+          "id": 50381218,
+          "author": "passive",
+          "text": "I have a Pixel 10 that I'm looking to install GrapheneOS on, but even at $1599 I'm still intrigued by this. It seems they are trying to build a real long term device with few downsides, which is a big contrast to a lot of Motorola's recent phones."
+        },
+        {
+          "id": 50387010,
+          "author": "Telaneo",
+          "text": "I'm looking forward to the RAMpocalypse being over and lower-end Motorola devices getting support.\nI would buy this, if nothing else to show my interest, but this is literally more than 2.5 times the cost of my current phone, which I bought brand new not much more than a year ago. I'm willing to pay a premium for GrapheneOS, but I'm not willing to pay a premium something we already had before the world went even more crazy than it already was."
         },
         {
           "id": 50383972,
@@ -391,131 +982,177 @@
         }
       ],
       "title_ja": "GrapheneOSサポート付きMotorola Signature 27",
-      "summary_ja": "ディスカッションのハイライト：よく「$ 1,599のMSRPを開始します。」 私はその価格の1/10で、GrapheneOSの長期サポートのために購入した中古のPixel 8に固執します。\n間違いなく、これはより良いデバイスの方法です。/> Motorolaは、工場から電話までユーザーを保護するのに役立つThinkShield ®によるセキュリティへのコミットメントを構築し続けています\n誰かThinkShieldが何であるか知っていますか？」GeminiがGrapheneOSと一緒に宣伝されているのを見るためにfa/Oddから",
+      "summary_ja": "ディスカッションのハイライト：よく「$ 1,599のMSRPを開始します。」 私はその価格の1/10で、GrapheneOSの長期サポートのために購入した中古のPixel 8に固執します。\n間違いなく、より良いデバイスの方法です/GeminiがGrapheneOSと一緒に宣伝されているのを見るのは奇妙です/私はgrapheneOSを搭載したモトローラの携帯電話を信頼できるかどうかわかりません",
       "editor_note": "「GrapheneOSサポート付きMotorola Signature 27」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 9,
-      "id": 50381687,
-      "title_en": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
-      "url": "https://github.com/rivet-dev/rivet",
-      "hn_url": "https://news.ycombinator.com/item?id=50381687",
+      "rank": 20,
+      "id": 50386789,
+      "title_en": "MoofTCP – A modern replacement for MacTCP on 68k Macs",
+      "url": "https://github.com/matthewmrichter/mooftcp",
+      "hn_url": "https://news.ycombinator.com/item?id=50386789",
       "score": 49,
-      "comment_count": 27,
-      "posted_at": "2026-11-05T17:17:42+00:00",
+      "comment_count": 20,
+      "posted_at": "2026-11-06T00:54:15+00:00",
       "comments": [
         {
-          "id": 50381808,
-          "author": "fastball",
-          "text": "Rivet is very cool. Switched a Cloudflare Durable Object piece of our infrastructure that lived in its own little fairy tale land to our own infra within the rest of our VPC. Was a very pleasant experience.\nHaven't had the chance to try Rivet v3 yet but hoping to get to it soon."
+          "id": 50387426,
+          "author": "jrnichols",
+          "text": "As someone that also has a fondness for the old Macs, I absolutely love seeing projects like this. I love seeing an active, vibrant classic Mac community and new software for ancient machines. This is great!"
         },
         {
-          "id": 50384037,
-          "author": "ATechGuy2",
-          "text": "Congrats on the launch! Rivet seems neat; will definitely give it a spin.\n> Sandboxes are expensive, mostly idle, and slow to start.\nMany sandboxing startups would disagree. Do you have any numbers to support?"
+          "id": 50388094,
+          "author": "ecliptik",
+          "text": "I built Flynn (well Claude did) and that's awesome you tested MoofTCP with it.\nCoincidentally a couple of weeks ago I got annoyed my 512Ke couldn't go online and had Claude build talkip[1] which was fun and works surprisingly well.\n1.\nhttps://github.com/ecliptik/talkip"
         },
         {
-          "id": 50382750,
-          "author": "haseebws94",
-          "text": "Hey Nathan! I remember Rivet from Playflow, back when you guys did game server orchestration. Great to see you guys grow!\nHave you had agents like claude code , codex etc all fully running in agent-os? Trying to understand the use case a bit better here. For context, I've recently built our own pipeline which spins up ephemeral linux vms for claude code, codex, etc which do their work & the state always persists but frees up resources when finished. Is the idea pretty much similar for agent-os here?\nAlso with the s3 backing changes, it reminds me a lot of the work done on celld, good to see more self-hostable durable objects out there."
+          "id": 50387516,
+          "author": "phendrenad2",
+          "text": "BTW, the story behind \"moof\" and how it relates to old Macs:\nhttps://en.wikipedia.org/wiki/Dogcow"
         },
         {
-          "id": 50383787,
-          "author": "SriniK",
-          "text": "Congrats! How is the security posture? Without really comparing isolation and sandboxing etc.. comparing with E2B is not the same."
-        },
-        {
-          "id": 50381999,
-          "author": "apsurd",
-          "text": "Wouldn't an agent in any capacity need a sandbox runtime to do agentic work? When you say \"sandboxes are too slow\" do you mean needing to boot the sandbox to get back Agent state? Is the idea that state/memory/context and runtime env are separate concepts in rivet?\n(I'm a professional developer but don't do any orchestration so trying to understand from basic mental model pov)"
-        },
-        {
-          "id": 50383756,
-          "author": "dragonkhoi",
-          "text": "Been running Rivet v3 self-hosted on AWS and it's dope!"
-        },
-        {
-          "id": 50382259,
-          "author": "stiiv",
-          "text": "What if I just want self-hostable TypeScript actors _without agents_? I'm a long-time fan of Akka et. al., but to my knowledge Node never got a proper framework."
-        },
-        {
-          "id": 50382233,
-          "author": "minraws",
-          "text": "Interesting idea, horrible ux atm though, my codex/claude whatever is just as confused as me what and how are we supposed to use it exactly and all the edge cases. Hope you folks can figure out some interesting ideas to improve it though."
+          "id": 50387481,
+          "author": "Neywiny",
+          "text": "So disappointing to see no direct numeric comparisons with the original."
         }
       ],
-      "title_ja": "HN: Rivet (YC W 23)を立ち上げます– S 3でエージェントをスケーリングし、調整します",
-      "summary_ja": "ディスカッションハイライト：リベットはとてもかっこいい/発売おめでとうございます！ リベットはきちんとしているように見えます。間違いなく回転させます。\n>サンドボックスは高価で、ほとんどがアイドル状態で、開始が遅いです。\n多くのサンドボックスのスタートアップは反対するでしょう/ねえ、ネイサン！ Playflowのリベットを覚えています。ゲームサーバーのオーケストレーションをしていた頃のことです。",
-      "editor_note": "「HN: Rivet (YC W 23)を立ち上げます– S 3でエージェントをスケーリングし、調整します」について、開発者コミュニティで注目が集まっています。",
+      "title_ja": "MoofTCP – 68 k Mac上のMacTCPの最新の代替品",
+      "summary_ja": "ディスカッションのハイライト：古いMacも好きな人として、私はこのようなプロジェクトを見るのが大好きです/私はFlynnを構築しました（ Claudeはそうでした）。MoofTCPをテストしたのは素晴らしいことです。\n偶然にも数週間前、私は512 Keがオンラインにできないことに腹を立て、クロードにt/BTWを構築させました。「moof」の背後にあるストーリーとそれが古いMacとどのように関連しているか：\nhttps://en.wikipedia.org/wiki/Dogcow",
+      "editor_note": "「MoofTCP – 68 k Mac上のMacTCPの最新の代替品」について、開発者コミュニティで注目が集まっています。",
       "category": "Programming"
     },
     {
-      "rank": 10,
-      "id": 50381033,
-      "title_en": "My psychophysics as a bilateral cochlear implant user",
-      "url": "https://claude.ai/artifact/L8qsMc3SorytGW3LA81nYf",
-      "hn_url": "https://news.ycombinator.com/item?id=50381033",
-      "score": 131,
-      "comment_count": 33,
-      "posted_at": "2026-11-05T16:21:12+00:00",
+      "rank": 21,
+      "id": 50385870,
+      "title_en": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50385870",
+      "score": 344,
+      "comment_count": 164,
+      "posted_at": "2026-11-05T23:09:57+00:00",
       "comments": [
         {
-          "id": 50383589,
-          "author": "rhoohr",
-          "text": "> What is it like to hear vocal folds vibrate?\nI wouldn't normally describe hearing a voice as hearing \"vibrations\". Vibrations are indeed the physical basis of sound, and the auditory system detects changes in air pressure caused by them. But vibrations can also be perceived through touch, and the subjective experience of hearing is quite different from the tactile sensation of feeling something vibrate. When talking about feeling vibrations, I usually think of the touching sensation.\nStill, both sensations originate from the same physical phenomenon. You can try to feel your own vocal chords vibrate by placing your fingers on your throat while humming. It's certainly a very different sensation, and touch generally conveys fewer acoustic details than typical hearing, but you're sensing the same underlying physical event.\nOne interesting example is Dani Valeska (Instagram: @daniivaleska), a Brazilian Sign Language interpreter whose husband is deaf (I couldn't find his name). She shares content about their experiences, and I remember seeing a video in which her husband used the vibrations of her voice, felt by touching her throat, to reproduce what she was saying. This resembles a t"
+          "id": 50386898,
+          "author": "nkrisc",
+          "text": "Make advertisers liable for the ads they run. Force them to vet ads or simply not run ads.\nIf Meta is accepting so many ads they can’t review them then too bad for them. Hire more people or accept fewer ads.\nIdeally this will result in a complete obliteration of the ad industry with only a small number of high quality ads surviving."
         },
         {
-          "id": 50382576,
-          "author": "losvedir",
-          "text": ">\nBut I cannot know what sound is really like, because I have no memory of normal hearing.\nand\n>\nI was born with normal hearing. I began losing my hearing in childhood ... After I was registered, I started wearing hearing aids. People's voices became clear, and for a few months things were good. ... A specialist told me that I badly needed cochlear implant surgery, but I hesitated because it was very expensive.\nI'm confused what's going on here."
+          "id": 50390585,
+          "author": "hnthroawaysudok",
+          "text": "I worked as a media buyer for a few years in the beauty sector (and other stuff). I remember very well how then-Facebook treated us based on how much we spent. For example, we couldn't use before and after picture. I remember tracking down our big-spender  competitors using the worst of the worst stuff to sell. While the business manager would simply reject our ads. When we started scaling the spending the ads would still get rejected, but we had a contact inside fb who would reverse the rejection. I never went rogue but I know very well how they would simply allow almost everything you need once your spending was tied to the projected revenue the facebook manager needed to reach for the company."
         },
         {
-          "id": 50381860,
-          "author": "hackerci",
-          "text": "ENT surgeon who has bilateral CIs and has been in the research field for 20+ years. This sort of stuff is cool, but there are lots of limitations at the auditory nerve interface that limits improvements to speech and music processing strategies. Crazily enough, many of these studies were done in the 1960s to 1990s and are still valid today. There are strategies that can help at individual level, but do not help everyone. Thus they have not made it to clinical use."
+          "id": 50390540,
+          "author": "neomantra",
+          "text": "Two weeks ago, I know two distinct octogenarians that got independently scammed by a deep-fake Bill Gates selling brain supplements.. thousands of dollars charged when they thought they were buying ~$100 .. so scam on scam on scam.\nI do not know if they were on Facebook.   But they had no reason to suspect it was fake (beside the obvious why would Bill sell you supplements, but they tie it as one of his Alzheimer's Research successes)."
         },
         {
-          "id": 50381809,
-          "author": "libpcap",
-          "text": "Software like Voicemod transforms speaking voice into a bright, robotic, or Miku-inspired digital idol tone in real time. I wonder if this would help in hearing and understanding speech better."
+          "id": 50386402,
+          "author": "jhloa2",
+          "text": "The amount of times I’ve reported obvious scam ads on instagram just to receive a “we found this to not be in violation of our terms” is so disheartening."
         },
         {
-          "id": 50382937,
-          "author": "cosmojg",
-          "text": "Their GitHub repo with all of their data is here:\nhttps://github.com/mi-rae-lab/ci-psychophysics-data"
+          "id": 50389622,
+          "author": "bananzamba",
+          "text": "A German finance YouTuber successfully sued Meta for scam ads that used his face and brand:\nhttps://thenextweb.com/news/meta-scam-ads-ruling-germany-fra..."
         },
         {
-          "id": 50381073,
-          "author": "mi-rae",
-          "text": "Author here. I'm Korean, and I have cochlear implants in both ears, which I received in a clinical trial in 2025. No one could tell me what I actually hear, so between 11 October and 4 November 2026 I ran seven psychophysical tests on myself (10,992 trials), using browser test apps that Claude built for me. I'm an amateur, so there are surely mistakes, and corrections are very welcome.\nAll trial-level data, the analysis code and Lean 4 checks of the apps' logic are on GitHub (non-commercial licenses):\nhttps://github.com/mi-rae-lab/ci-psychophysics-data\nI do not speak English. The page was translated with Claude, and I will use AI to read and answer replies, so my answers may be slow.\nThis is my first time visiting Hacker News, and my first post here. I don't know the culture here well yet, but I deeply respect it and support it.\nIt is past 1 a.m. here in Korea and I am very tired, so I need to get some sleep. I will check back around 9:30 a.m. Korean time (00:30 UTC)."
+          "id": 50386511,
+          "author": "7373737373",
+          "text": "Same on Google and Youtube. The CEOs and controlling shareholders should be sent straight to jail. Deliberate profiteering from crime!"
+        },
+        {
+          "id": 50390512,
+          "author": "not-kinsale-joe",
+          "text": "Regulations are so strong on what a newspaper or magazine can print. It is a shame regulators are not set to enforce the same standards on social media."
+        },
+        {
+          "id": 50389654,
+          "author": "paulirish",
+          "text": "Reuters report from a year ago:\n> Meta internally projected that it would earn about 10% of its overall annual revenue – or $16 billion – from running advertising for scams and banned goods\n> But the company only bans advertisers if its automated systems predict the marketers are at least 95% certain to be committing fraud, the documents show.\nhttps://www.reuters.com/investigations/meta-is-earning-fortu..."
         }
       ],
-      "title_ja": "両側蝸牛インプラント使用者としての私の精神物理学",
-      "summary_ja": "ディスカッションのハイライト：>声のひだが振動するのを聞くのはどんな感じですか？\n私は通常、声を聞くことを「振動」とは言いません/>\nしかし、私には正常な聴覚の記憶がないので、音が本当にどのようなものかはわかりません。\nおよび\n>\n私は、両側のCIを持ち、20年以上研究分野に携わっている正常な聴覚/耳鼻咽喉科の外科医で生まれました",
-      "editor_note": "「両側蝸牛インプラント使用者としての私の精神物理学」について、開発者コミュニティで注目が集まっています。",
+      "title_ja": "キューバ： Facebookは意図的にAIディープフェイク詐欺広告を掲載しています。ドキュメントには160億$の詐欺収入があると書かれています",
+      "summary_ja": "ディスカッションのハイライト：広告主に広告を掲載する責任を負わせる/私は美容セクター（およびその他のもの）で数年間メディアバイヤーとして働いていました/2週間前、私は脳サプリメントを販売している深い偽物のビル・ゲイツに独立して詐欺された2人の異なるオクトナリアンを知っています。",
+      "editor_note": "「キューバ： Facebookは意図的にAIディープフェイク詐欺広告を掲載しています。ドキュメントには160億$の詐欺収入があると書かれています」について、開発者コミュニティで注目が集まっています。",
       "category": "AI/ML"
     },
     {
-      "rank": 11,
+      "rank": 22,
+      "id": 50368208,
+      "title_en": "Show HN: A decent text-to-image model trained for ~$20K (Apache 2.0 Weights)",
+      "url": "https://www.linum.ai/field-notes/pjit-21k",
+      "hn_url": "https://news.ycombinator.com/item?id=50368208",
+      "score": 233,
+      "comment_count": 21,
+      "posted_at": "2026-11-04T16:45:11+00:00",
+      "comments": [
+        {
+          "id": 50389020,
+          "author": "andai",
+          "text": "Well done. $20k? That's insane. I remember tinyllama back in the day (2023) was trained on $40k and could barely form coherent sentences.\nAre pictures easier than English, or did the methods advance so much?\nEdit: I guess I should have said, are pictures\nplus\nEnglish easier than English!\n>The text representation comes from a frozen Qwen3.5-4B model, which we read at layers 7, 15 and 27 (its three full-attention layers). We concatenate and project these representations into the text refiner.\nStill, as a layperson I would have expected text to be simpler than images, so I'm still amazed by this."
+        },
+        {
+          "id": 50383078,
+          "author": "tensor",
+          "text": "Amazing. I think this is an understudied areas. The big labs if anything are disincentivized to make efficient models as currently access to compute is one of their moats. That's not the same for Chinese labs, which is why you see groundbreaking efficiency work mostly coming from China.\nReally happy to see a small shop like yours doing this sort of work!"
+        },
+        {
+          "id": 50385303,
+          "author": "fzysingularity",
+          "text": "Congrats guys, this is super cool. I think if you built an arena where you can drive the cost even lower ($1K), it'd really get developers stoked.\nHave you thought about setting up auto-research on this for smaller experiments? What's the minimum-viable budget for these types of workloads?"
+        },
+        {
+          "id": 50385454,
+          "author": "mkl",
+          "text": "It looks really good! Except almost every hand is wrong. I'm guessing that's a training data thing?  Can you tell us more about the 660M training images and prompts? Where did they come from and what do they cover? (I've seen the README say text was excluded.)"
+        },
+        {
+          "id": 50388054,
+          "author": "jjcm",
+          "text": "Very nice all. I've been playing around having poor results of training a pixel space image model of my own, though in a space very opposite from what you're doing (UI design, very heavy on text).\nAny chance you'll release your training recipe as well? I know the model code is public, but I'd love to dive into the full process."
+        },
+        {
+          "id": 50382762,
+          "author": "whythismatters",
+          "text": "HF link:\nhttps://huggingface.co/Linum-AI/pjit-21k"
+        },
+        {
+          "id": 50384496,
+          "author": "yhjc2692",
+          "text": "Wow this is really impressive. Throwing away the VAE feels counterintuitive - I'm shocked it works so well! Appreciate that you shared your training insights on the blog post!\nReminds me of this great paper where they trained a LLM that beats LLaMA2-13B from scratch with < $0.1M:\nhttps://arxiv.org/abs/2404.07413"
+        },
+        {
+          "id": 50381842,
+          "author": "Valk3_",
+          "text": "What was the most difficult challenge for you guys with this project?\nAlso I'm a little intrigued on looking into efficiency techniques for video gen. What are current research directions in that field and promising directions you are particularly interested in? Any pointers for beginners?"
+        }
+      ],
+      "title_ja": "HNを表示：〜$ 20 K （ Apache 2.0重み）のためにトレーニングされたまともなテキスト画像モデル",
+      "summary_ja": "ディスカッションのハイライト：よくできました/素晴らしい/おめでとうございます。これは超クールです",
+      "editor_note": "「HNを表示：〜$ 20 K （ Apache 2.0重み）のためにトレーニングされたまともなテキスト画像モデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
       "id": 50379576,
       "title_en": "September in Servo: <progress>, rounded rectangles, and more",
       "url": "https://servo.org/blog/2026/11/05/september-in-servo/",
       "hn_url": "https://news.ycombinator.com/item?id=50379576",
-      "score": 146,
-      "comment_count": 30,
+      "score": 242,
+      "comment_count": 61,
       "posted_at": "2026-11-05T14:34:18+00:00",
       "comments": [
+        {
+          "id": 50384805,
+          "author": "porphyra",
+          "text": "Servo is really great: Rust seems like a no brainer choice for a modern web engine, and its clean, performance-focused design from the ground up is wonderful.\nBut it seems really hard for it to get anywhere just based on occasional contributions from volunteers. I was actually quite surprised that basic functionality like <progress> and the :checked attribute were not even supported prior to this release.\nServo got 527 commits, while Chromium has over 20,000 commits."
+        },
         {
           "id": 50382402,
           "author": "robin_reala",
           "text": "Remember that if you value Servo you can sponsor them, details at\nhttps://servo.org/sponsorship/"
-        },
-        {
-          "id": 50383603,
-          "author": "shakna",
-          "text": "Progress got my attention.\nAs an on-again off-again project, I've been building an incremental game that is pretty much just hundreds of progress bars - a little bit out of the norm for the browser.\nFirefox everything renders smoothly and gently.\nChrome chugs, skips paints, delays animation frames, skips some events, and batches others.\nGame uses a few features that aren't in Servo yet... But maybe I can tweak it..."
         },
         {
           "id": 50381699,
@@ -528,39 +1165,39 @@
           "text": "One of the things I find really helpful about servo (as a casual user) is the breadth of pre-built releases they have. It makes it much more feasible to actually use on a day-to-day basis, especially on android"
         },
         {
+          "id": 50383603,
+          "author": "shakna",
+          "text": "Progress got my attention.\nAs an on-again off-again project, I've been building an incremental game that is pretty much just hundreds of progress bars - a little bit out of the norm for the browser.\nFirefox everything renders smoothly and gently.\nChrome chugs, skips paints, delays animation frames, skips some events, and batches others.\nGame uses a few features that aren't in Servo yet... But maybe I can tweak it..."
+        },
+        {
           "id": 50380987,
           "author": "moderation",
           "text": "The progress on Servo is impressive. UI polish is required in order to be more usable. Things like keyboard shortcuts to focus the address bar are required to make it feasible for more daily driving use"
         },
         {
-          "id": 50381450,
-          "author": "domenkozar",
-          "text": "Sad to see Servo ban AI contributions.\nFeels like a missed opportunity where we could take a giant leap forward."
+          "id": 50388447,
+          "author": "hn_submit",
+          "text": "Although Servo is great I believe Ladybird is already much further along and they're currently porting their codebase to Rust (it's currently in C++)."
         },
         {
-          "id": 50383923,
-          "author": "z3ratul163071",
-          "text": "https://book.servo.org/policy/ai-usage.html\nhow sad."
-        },
-        {
-          "id": 50380698,
-          "author": "amelius",
-          "text": "With the advances in AI, I'd expect the Servo project to go a lot faster ...\nDo they allow vibe-coded contributions?"
+          "id": 50389483,
+          "author": "walski",
+          "text": "Is there a maintained fork that allows AI based or assisted contributions?"
         }
       ],
       "title_ja": "サーボの9月：<progress>、丸みを帯びた長方形など",
-      "summary_ja": "ディスカッションのハイライト：サーボを大切にしている場合は、スポンサーになることができることを忘れないでください。詳細は\nhttps://servo.org/sponsorship//進捗状況に注目しました。\n繰り返し繰り返されるプロジェクトとして、私はほとんど何百ものプログレスバーであるインクリメンタルゲームを構築してきました- NORから少し外れています/情熱的なプロジェクトで（主に）無料で働いている大規模なグループを見るのは心強いです",
+      "summary_ja": "ディスカッションのハイライト：サーボは本当に素晴らしいです： Rustは現代のウェブエンジンにとってこれ以上ない選択肢のように思えますが、そのクリーンで性能に焦点を当てたデザインはゼロから素晴らしいです。\nしかし、本当にh/あなたがサーボを大切にするならば、あなたはそれらをスポンサーすることができることを覚えておいてください、詳細は\nhttps://servo.org/sponsorship//情熱的なプロジェクトに（主に）無料で取り組んでいる人々の大規模なグループを見るのは心強いことです",
       "editor_note": "「サーボの9月：<progress>、丸みを帯びた長方形など」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 12,
+      "rank": 24,
       "id": 50378942,
       "title_en": "I wish tech companies knew more about me",
       "url": "https://rakhim.exotext.com/i-wish-tech-companies-knew-more-about-me",
       "hn_url": "https://news.ycombinator.com/item?id=50378942",
-      "score": 209,
-      "comment_count": 201,
+      "score": 426,
+      "comment_count": 359,
       "posted_at": "2026-11-05T13:40:52+00:00",
       "comments": [
         {
@@ -574,19 +1211,14 @@
           "text": "Google's real advertising proposition is they will sell you the audience of an expensive website on a cheaper website. Want to advertise on the New York Times? Why pay their high rates? Google tracks who visits the NYT and offers the advertiser the same audience when they visit Bob's hobby gardening website, which is considerably cheaper to advertise on. That's really why they want to track where you go. Understanding what you want is just a secondary aim to that, if they are interested in it at all, and I agree with the article that they are very poor indeed at it."
         },
         {
-          "id": 50382117,
-          "author": "yakkomajuri",
-          "text": "On occasion I get a glimpse at someone else's experience on the web and I'm so thankful that I haven't seen many ads at all in years.\nI just disabled my adblocker on the BBC website out of curiosity and oh am I happy I don't live like this."
-        },
-        {
           "id": 50379628,
           "author": "everdrive",
           "text": "Targeted advertising will never feel good, and it's not due to lack of information. Consider the following:\n- People who know you very well (friends, family, spouse) often buy you bad gifts you need to pretend to be happy to receive.\n- Ultimately, advertisers aren't _merely_ trying to find things you want. They're trying to get you to buy _their_ things. So someone selling (let's say) hamburgers might be savvy enough to avoid vegetarians, but after that how would they possibly narrow it down? Not everyone wants to try out a new burger place, or even cares about advertising when it comes to restaurant suggestions.\nie, they're trying to coerce you into wanting their products, and no amount of targeting can really fix that problem. Also, targeting is difficult."
         },
         {
-          "id": 50383378,
-          "author": "dale_glass",
-          "text": "Yup, it's weird to me that companies as big as Amazon haven't figured this out.\nGuys, if I buy a photo camera, I might want lenses, or a cleaning kit, or maybe a camera bag. But I'm almost certainly not interested in starting a camera collection, nor am I interested in incompatible brands to what I just bought.\nIt shouldn't be so hard to run some stats and figure out that there's things one doesn't buy again often, like washing machines, cameras, laptops and other big purchases.\nAlso, search still sucks. Searching for things like sizes where fuzzy ranges are involved is pain. Like I need to find a recessed light that fits into a 100mm hole, it's a pain to search for still. At this point I think somebody at Amazon could have come up with a way to categorize products and extract parameters automatically. And the pain only increases exponentially if you need 3-4 things in a product to match.\nChatGPT can do it, no reason why Amazon couldn't just have that on their page."
+          "id": 50382117,
+          "author": "yakkomajuri",
+          "text": "On occasion I get a glimpse at someone else's experience on the web and I'm so thankful that I haven't seen many ads at all in years.\nI just disabled my adblocker on the BBC website out of curiosity and oh am I happy I don't live like this."
         },
         {
           "id": 50380844,
@@ -594,36 +1226,36 @@
           "text": "It is a hard truth to swallow for many on HN (myself included) but the reality is a lot of normies don't mind ads at all. I recently told my wife how to install an ad blocker and her response was \"but sometimes I see cool stuff in ads\". I'm sure the percentage of \"cool stuff\" she sees is higher because of what they know about her.\nAmazon (or whoever) showing you the same stuff you just bought is kind of a separate issue, because it obviously isn't useful to anyone (including Amazon) and surely is so easy to avoid I find it bizarre that it still happens in this day and age.\nAs an aside, there is exactly one place on earth where I will actively look around for ads, and that is London Underground stations. Because for whatever reason they advertise a lot of cultural events (concerts, festivals, plays, etc)."
         },
         {
-          "id": 50384166,
-          "author": "Animats",
-          "text": "I have enough ad and tracking blocking that the ads I get are totally misdirected. I get ads for drugs for diseases I've never heard of. I get ads for equipment for processing and bottling olive oil in bulk, despite being nowhere near that industry. I get ads from China for very large hydraulic presses, despite not having any great need for metal-forming equipment. And World Dairy Expo wants me to attend, although I don't have any cows."
+          "id": 50390554,
+          "author": "pythonRon",
+          "text": "It's definitely a two-sided coin. I don't like the fact that they gather info about me, but I also wish that those few ads that do manage to get through were relevant."
         },
         {
-          "id": 50383743,
-          "author": "kraig911",
-          "text": "So needed a new toilet seat. My middle aged hairy booty broke the one I had finally. Now Amazon thinks i want toilet seats on subscription. Toilet seat of the months etc. Buy it again... toilet seat reviews even... I wonder if it's not amounting to how much tech companies 'know' but more how much have they automated 'caring'\nI think it'd be a great opportunity for someone to make an ad network where the user can type in things about themselves in an ad space. Randomly targeted questions and then we get ads perhaps around that. Ads that start off about current events in a fun way and give users an opportunity to feel like they have control in what they see. I know users would abuse it but I think that'd add value to the interaction. If I didn't want toilet seats but I write that I do it'd be valuable to an ad network to see how users interact with their preferences. I'm sure we'll say google already sort of does this but I disagree. I think google infers based on our traffic. Some sites I visit I don't necessary want to but am forced to. I'd love to see ads or have the option to even pay for things I want to see like pictures of my kids instead of an ad."
+          "id": 50387194,
+          "author": "starky",
+          "text": "It actually shocks me how often technology in general does the exact wrong thing to what I want. A couple off the top of my head.\n* I purchase something and all the recommended products become the thing I just purchased for the next month.\n* I do an operation in 3D modeling software that can be applied in 2 directions, it always chooses to apply it in the direction that makes no sense.\n* I get recommendations in my social media feeds for what to do in a certain city for 2 months after I already visited and returned home.\n* I click on a link to a song, listen for 10 seconds and turn it off because its a genre I don't like, too bad, that is what the algorithm thinks I'm exclusively into now (related, right now I'm struggling with Tidal recommending Swedish language songs because a band I recently discovered is Swedish despite singing in English).\nMaybe I don't notice when the computer gets it right most of the time, but it really feels like it gets it wrong more than it gets it right. It also feels like this continually gets worse, when software should be getting smarter at predicting what a user wants. Is it unreasonable to expect that my computer can see that I did the same operati"
+        },
+        {
+          "id": 50383378,
+          "author": "dale_glass",
+          "text": "Yup, it's weird to me that companies as big as Amazon haven't figured this out.\nGuys, if I buy a photo camera, I might want lenses, or a cleaning kit, or maybe a camera bag. But I'm almost certainly not interested in starting a camera collection, nor am I interested in incompatible brands to what I just bought.\nIt shouldn't be so hard to run some stats and figure out that there's things one doesn't buy again often, like washing machines, cameras, laptops and other big purchases.\nAlso, search still sucks. Searching for things like sizes where fuzzy ranges are involved is pain. Like I need to find a recessed light that fits into a 100mm hole, it's a pain to search for still. At this point I think somebody at Amazon could have come up with a way to categorize products and extract parameters automatically. And the pain only increases exponentially if you need 3-4 things in a product to match.\nChatGPT can do it, no reason why Amazon couldn't just have that on their page."
         }
       ],
       "title_ja": "テクノロジー企業にもっと私のことを知ってほしい",
-      "summary_ja": "ディスカッションのハイライト：> SpotifyとYouTube Musicでパーソナライズされたプレイリストを聴くとき、私はボーカル付きのすべての電子トラックをスキップします/Googleの本当の広告の提案は、安価なウェブサイトで高価なウェブサイトのオーディエンスを販売することです/時にはウェブ上の他の誰かの経験を垣間見ることができます。何年も広告を見ていないことにとても感謝しています。\nBBCのウェブサイトで広告ブロッカーを無効にしました",
+      "summary_ja": "ディスカッションのハイライト：> SpotifyとYouTube Musicでパーソナライズされたプレイリストを聴くとき、ボーカル付きのすべての電子トラックをスキップします/Googleの本当の広告の提案は、安価なウェブサイトで高価なウェブサイトのオーディエンスを販売することです/ターゲットを絞った広告は決して気分が良くなく、情報が不足しているわけではありません",
       "editor_note": "「テクノロジー企業にもっと私のことを知ってほしい」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 13,
+      "rank": 25,
       "id": 50378571,
       "title_en": "Download your favourite YouTube videos",
       "url": "https://criminallyvulgar.dev/you-should-absolutely-download-your-favourite-youtube-videos/",
       "hn_url": "https://news.ycombinator.com/item?id=50378571",
-      "score": 216,
-      "comment_count": 101,
+      "score": 347,
+      "comment_count": 165,
       "posted_at": "2026-11-05T13:00:11+00:00",
       "comments": [
-        {
-          "id": 50384364,
-          "author": "walruskhan",
-          "text": "Many of my \"Watch Later\" playlist items have been removed, which is why I currently:\n1. Vibed a firefox extension that polls my youtube watch later list and saves as bookmarks\n2. Vibed a second firefox extension that syncs bookmarks to a self-hosted karakeep (bookmark manager)\n3. Configured karakeep to download videos from youtube bookmarks (it uses yt-dlp internally).\nIt's pretty nifty."
-        },
         {
           "id": 50380526,
           "author": "chmod775",
@@ -633,6 +1265,11 @@
           "id": 50380793,
           "author": "weinzierl",
           "text": "Downloading your favourite stuff is absolutely what you should do, but it doesn't solve the bigger problem.\nMany from my generation, who grew up during an era of information scarcity, have huge stashes of hoarded data. But what can we do with it? There is no way to legally share it, so we take it with us in our graves.\nEDIT: Many good comments, but they  all suffer from\none blind spot, so I answer here instead of individually.\nA lot of content is only legal because it is on YouTube (or any other platform that has deals with the content industry). Sure, we can share illegally in a way that is obscure enough that no one gets sued. But what help is that, eventually it will get either popular and sued out of existence or forgotten and fade.\nThen there is old content that is not legally shareable at all, like old game ROMs. Plenty of millennial stuff there but the Gen-X world is already half forgotten.\nCooyright is just too\nlong and too unreliable. What we need at least is exemptions from Copyright for archivists, otherwise a lot of stuff will\nsimply be lost in the coming decades."
+        },
+        {
+          "id": 50390567,
+          "author": "pythonRon",
+          "text": "With all those SSDs being snapped up by big tech, why aren't they using some of them for long-term storage at YT?"
         },
         {
           "id": 50381333,
@@ -645,9 +1282,9 @@
           "text": "I agree with the sentiment (and have several TB of archived Youtube videos) but I can't help but think \"Keep this on the down-low!\". I feel the same way every time someone mentions Youtube RSS feeds (which drive my archiving rig). Keep quiet or they'll take them away!"
         },
         {
-          "id": 50383620,
-          "author": "settsu",
-          "text": "But also? Let things die. Let them languish half-remembered for years until they're gone forever. (Until they're not and then are again.) Let things go. What's that, your 'tism won't let you? Learn to. Grow. (Is that effectively impossible for some? Sure. But clearly that's a different problem. If you're reading this, most likely you can accomplish it.) I'm glad we have the Internet Archive and all those amazing things. But I'm convinced that just because it is technologically possible to\npersonally\nsave everything forever, it is in most cases entirely unnecessary and probably ultimately unhealthy."
+          "id": 50379740,
+          "author": "prologic",
+          "text": "One of the things I wish I could solve better, was a way to search for and show decent search results that you could then pipe into `yt-dlp`. Every method of doing this I've seen is basically a \"hack\" and often breaks or doesn't work at all. Anyone have a better solution to this that lets you basically build a frontend/proxy to Youtube or lets you Search, Show results and Download what you want to see lateR?"
         },
         {
           "id": 50380858,
@@ -655,192 +1292,80 @@
           "text": "I have a nightly job that looks at all my youtube playlists, and downloads them to disk. It also sends me an email whenever a video that I haven't watched becomes unavailable so I can watch the local version. It took about 2 days to setup, but probably 30 minutes with AI today."
         },
         {
-          "id": 50379740,
-          "author": "prologic",
-          "text": "One of the things I wish I could solve better, was a way to search for and show decent search results that you could then pipe into `yt-dlp`. Every method of doing this I've seen is basically a \"hack\" and often breaks or doesn't work at all. Anyone have a better solution to this that lets you basically build a frontend/proxy to Youtube or lets you Search, Show results and Download what you want to see lateR?"
+          "id": 50389442,
+          "author": "vladde",
+          "text": "recently i tried finding one of those inside-joke videos, only to realize it's been removed.  i can't find it anywhere now :(\ni make references to it now and then, and it feels very sad that i didn't archive it.\nthis specific video was called \"Rock to bottom\", a half blend between song and joke, with these quotes crammed into it:\n- \"You drink too much Co-Cola, feel like you just can't stop?\"\n- \"You check Facebook, even at funeral?\"\n- \"You watch more reality television, than actual reality?\""
         }
       ],
       "title_ja": "お気に入りのYouTube動画をダウンロード",
-      "summary_ja": "ディスカッションのハイライト：「後で見る」プレイリストのアイテムの多くが削除されたため、現在次のことを行っています。\n1/私のYouTubeプレイリストのほとんどは、「15個の利用できないビデオが隠されている」、または5年前のプレイリストでは約10 ％と言っています/お気に入りのものをダウンロードすることは絶対にすべきことですが、それはより大きな問題を解決するものではありません。\n情報不足の時代に育った私の世代の多く",
+      "summary_ja": "ディスカッションのハイライト：私のYouTubeプレイリストのほとんどは、「利用できないビデオが15個隠されている」、または5年前のプレイリストでは約10 ％と言っています/お気に入りのものをダウンロードすることは絶対にすべきことですが、それはより大きな問題を解決するものではありません。\n情報不足の時代に育った私の世代の多くは、すべてのSSDが大手テクノロジーによってスナップアップされていますが、なぜそれらの一部をYTで長期保存するために使用しないのですか？",
       "editor_note": "「お気に入りのYouTube動画をダウンロード」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 14,
-      "id": 50381512,
-      "title_en": "Bild AI (YC W25) Is Hiring Founding Product Engineers",
-      "url": "https://www.ycombinator.com/companies/bild-ai/jobs",
-      "hn_url": "https://news.ycombinator.com/item?id=50381512",
-      "score": 1,
-      "comment_count": 0,
-      "posted_at": "2026-11-05T17:01:23+00:00",
-      "comments": [],
-      "title_ja": "Bild AI (YC W 25)が創業製品エンジニアを採用",
-      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
-      "editor_note": "「Bild AI (YC W 25)が創業製品エンジニアを採用」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
-      "rank": 15,
-      "id": 50349667,
-      "title_en": "The Lisp curse, now coming to your ecosystem",
-      "url": "https://javahippie.net/programming/llm/2026/03/05/the-lisp-curse-coming-to-your-ecosystem.html",
-      "hn_url": "https://news.ycombinator.com/item?id=50349667",
-      "score": 164,
-      "comment_count": 112,
-      "posted_at": "2026-11-03T08:59:31+00:00",
+      "rank": 26,
+      "id": 50383294,
+      "title_en": "Pangram Image 1.0",
+      "url": "https://www.pangram.com/blog/introducing-pangram-image-1-0",
+      "hn_url": "https://news.ycombinator.com/item?id=50383294",
+      "score": 109,
+      "comment_count": 49,
+      "posted_at": "2026-11-05T19:27:52+00:00",
       "comments": [
         {
-          "id": 50382017,
-          "author": "vindarel",
-          "text": "The real \"[Common] Lisp curse\" is that once you taste it, there's no going back.\nOther than that, the Common Lisp ecosystem is doing well thank you very much. Many contributors to SBCL, regular contributions to the important ecosystem libraries, vivid projects (Lem), new editors (mine) and plugins (OLIVE), some companies picking Lisp and somehow supporting the ecosystem (hosting conferences, contracting implementors).\nhttps://github.com/CodyReichert/awesome-cl/\n·\nhttps://github.com/azzamsa/awesome-lisp-companies/\nAnd yes, new vibe-coded projects too. Some are useful (ICL, cl-tuition…), some reinventing the wheel (badly) went nowhere. For some, we'll see."
+          "id": 50386628,
+          "author": "sean_pedersen",
+          "text": "An ill advised undertaking IMO: Any attempt to build AI generated content detection systems is flawed, since the outputs of such a system may be used to train an even better fake data generator. This leads to an equilibrium state of digital uncertainty: nothing in the digital realm can be deemed as real anymore - only as digital."
         },
         {
-          "id": 50383555,
-          "author": "jedberg",
-          "text": "This is absolutely correct.  I recently found myself asking my agent to modify a local copy of an open source project to fix bugs that I found.  It fixed the bugs, and it rebases against the public repo on occasion.\nWhy haven't I submitted my patches?  Because my agent wrote them and I didn't review them.  I would feel bad submitting my patches without looking at them, and I don't have time to look at them."
+          "id": 50386178,
+          "author": "hex4def6",
+          "text": "At least on gemini generated images vs real ones, it  works surprisingly well.\nTaking a photo of an AI generated image on my grubby laptop screen with my phone, moire and all, still got detected. So the signal it's using is pretty robust."
         },
         {
-          "id": 50381569,
-          "author": "gavinray",
-          "text": "I wrote this same concern in February: what happens when it's easier to build custom software than spend one search looking for mature libraries?\nhttps://gavinray97.github.io/blog/llm-build-cheaper-than-sea..."
+          "id": 50388545,
+          "author": "raincole",
+          "text": "From my test it works surprisingly well. I have a digital painting that is only posted very recently (therefore not in the training set). I asked GPT, Gemini and Riverflow to generate images in the same style, and use SD to add noises to remove SynthID.\nPangram gave correct results for all of them (the original one is No AI; all the others are Likely AI)."
         },
         {
-          "id": 50383409,
-          "author": "fierycatnet",
-          "text": "I'm not a SE but I dabble with code. Lisp was really something else and I really liked it when I was reading SICP. Then I tried Clojure and things just clicked and it was fun to write."
+          "id": 50387098,
+          "author": "Trung0246",
+          "text": "Interesting, it detected NovelAI stuff now. Looks like one can easily defeat it by having pixel-level modifications to make AI images to have characteristics of digital brush strokes and reducing \"noise\" in output. At least in my case for anime stuff."
         },
         {
-          "id": 50382067,
-          "author": "jdormit",
-          "text": "> I’d rather rely on proven libraries with well-defined abstractions than generate hundreds of lines of code which solve a local problem for me.\nI 100% disagree with this. Supply chain attacks are already at an all-time high due to agentic hacking assistance, and that trend shows no sign of slowing. Every dependency you add is another potential attack vector, and just checking the dependency’s code doesn’t solve the issue - your dependencies also have dependencies!\nThe cost of rolling your own has gotten so low that it’s almost always a better security tradeoff to reimplement the thing yourself. Is that a good thing? I’m not sure."
+          "id": 50386111,
+          "author": "alkonaut",
+          "text": "Can’t these detectors be used in the training loop of models?"
         },
         {
-          "id": 50383433,
-          "author": "lq9AJ8yrfs",
-          "text": "Decades ago a relative showed me his Amiga.  Before putting in the disk (these were on 3.5 inch floppies iirc) with the game I wanted to play on it, he put in another disk.\nI asked him with the first disk was, and I remember distinctly he said it was an operating system.  I asked him what an operating system was, and he said it was like a program, it was a program technically, that makes it easier to run other programs, just it was a program that didn't do much on its own and you wouldn't use it without another program right afterward.  I said it didn't seem easier if you had to load a different disk than the one you wanted to use, and you still had to load the one you wanted afterward. He looked at me disdainfully and patiently explained that all or almost all the software in the future would use operating systems and they whole process would get easier or even invisible but there would always be an operating system in there somewhere at some point in the very near future.  I was skeptical, but I nodded along.\nI imagined an operating system as a dressed up software library, which was more intuitive to me as a concept."
+          "id": 50390156,
+          "author": "sashank_1509",
+          "text": "https://www.pangram.com/history/images/50f285f3-66db-4484-b3...\nI’m honestly surprised pangram got this right, with my human eyes it feels indistinguishable but apparently not !"
         },
         {
-          "id": 50383921,
-          "author": "cestith",
-          "text": "This \"curse\" is not unique to Lisp. There's an old saying something of the sort that for the first week after you install a Forth you have the same Forth as everybody else. After that, you have your own Forth dialect.\nAny language that's powerful for creating new syntax and doesn't have an equally powerful community repository gets this same effect to some extent."
+          "id": 50390048,
+          "author": "sashank_1509",
+          "text": "We can do this for code too I’m guessing?\nI think for small snippets and well defined codebases, we probably can’t,\nBut if we say a fully vibecoded project vs handmade, I suspect there are AI tells outside of basic stuff like bar names etc that a model can learn, and it will be fun to know.\nWe could probably also do these for maths.\nI guess what I’m getting at, is even in these days extremely verifiable fields, I guess AI has diverged enough that I think we can train a detector to separate AI from how a human thinks?"
         },
         {
-          "id": 50381902,
-          "author": "spapas82",
-          "text": "Actually this is not a curse but a blessing! Being able to implement any functionality without the need to resort to dependencies is a godsend.\nYes, some dependencies are great. But unfortunately the vast majority are problematic: Not properly supported, badly tested, with unhelpful maintainers, funny licenses, undocumented and, definitely, not being able to cover your requirements 100% so you have to change your requirements to meet the dependencies instead of the other way around."
+          "id": 50385570,
+          "author": "xnx",
+          "text": "I'm very skeptical of AI detection and watermarking for text (especially short passages), but AI detection for images and videos seems much more plausible (for now at least).\nI would love if Meta licensed this tech to use for everything on Facebook, Instagram, and Whatsapp. Including ads!"
         }
       ],
-      "title_ja": "Lispの呪いがエコシステムに登場",
-      "summary_ja": "ディスカッションのハイライト：本当の「[ Common] Lispの呪い」は、一度味わってしまえば後戻りできないということです。\nそれ以外にも、Common Lispエコシステムはうまくいっています。どうもありがとうございました/これは絶対に正しいです/私は2月に同じ懸念を書きました。成熟したライブラリを探すために1回の検索を費やすよりも、カスタムソフトウェアを構築する方が簡単な場合はどうなりますか？\nhttps://gavinray97.github.io/blog/",
-      "editor_note": "「Lispの呪いがエコシステムに登場」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
-      "rank": 16,
-      "id": 50377976,
-      "title_en": "OpenSSH 10.6p2 Critical workaround for alpine without PAM",
-      "url": "https://www.openssh.org/releasenotes.html#10.6p2",
-      "hn_url": "https://news.ycombinator.com/item?id=50377976",
-      "score": 215,
-      "comment_count": 10,
-      "posted_at": "2026-11-05T11:40:30+00:00",
-      "comments": [
-        {
-          "id": 50378700,
-          "author": "K0IN",
-          "text": "related (and good writeup):\nhttps://news.ycombinator.com/item?id=50378228"
-        },
-        {
-          "id": 50378850,
-          "author": "brynet",
-          "text": "Damien Miller also provided some further details on openssh-unix-dev@:\nhttps://marc.info/?l=openssh-unix-dev&m=179388064263131&w=2"
-        },
-        {
-          "id": 50381025,
-          "author": "ChrisArchitect",
-          "text": "Some earlier discussion:\nhttps://news.ycombinator.com/item?id=50377221"
-        },
-        {
-          "id": 50380130,
-          "author": "SV_BubbleTime",
-          "text": "> because we have recently observed multiple cases of\nrapid bug rediscovery by AI agents, sometimes within hours, and so now\nconsider long embargo periods to be a dangerous practice that primarily\nbenefits attackers.\nSeems quite reasonable. It’s quite obvious that black hats have day jobs as White hats and have been privy to embargoes for probably decades."
-        },
-        {
-          "id": 50377977,
-          "author": "selckin",
-          "text": "See also\nhttps://hachyderm.io/@damienmiller/117563026759098135"
-        }
-      ],
-      "title_ja": "PAMなしのアルパインのOpenSSH 10.6p2重要な回避策",
-      "summary_ja": "ディスカッションのハイライト：関連する（そして良い書き込み） ：\nhttps://news.ycombinator.com/item?id=50378228/Damien Millerはまた、openssh - unix - dev @にいくつかの詳細を提供しました。\nhttps://marc.info/?l=openssh-unix-dev&m=179388064263131&w=2/以前の議論：\nhttps://news.ycombinator.com/item?id=50377221",
-      "editor_note": "「PAMなしのアルパインのOpenSSH 10.6p2重要な回避策」について、開発者コミュニティで注目が集まっています。",
+      "title_ja": "Pangram Image 1.0",
+      "summary_ja": "ディスカッションハイライト：不適切な取り組みIMO ： AI生成コンテンツ検出システムを構築しようとする試みには欠陥があります。そのようなシステムの出力は、少なくともジェミニ生成画像と実際の画像を比較してさらに優れた偽のD/Dを訓練するために使用される可能性があるため、驚くほどうまく機能します。\n携帯電話、モアレなどを使って、汚れたノートパソコンの画面でAIが生成した画像の写真を撮る/私のテストから、それは驚くほどうまく機能します",
+      "editor_note": "「Pangram Image 1.0」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 17,
-      "id": 50368208,
-      "title_en": "Show HN: A decent text-to-image model trained for ~$20K (Apache 2.0 Weights)",
-      "url": "https://www.linum.ai/field-notes/pjit-21k",
-      "hn_url": "https://news.ycombinator.com/item?id=50368208",
-      "score": 94,
-      "comment_count": 9,
-      "posted_at": "2026-11-04T16:45:11+00:00",
-      "comments": [
-        {
-          "id": 50383078,
-          "author": "tensor",
-          "text": "Amazing. I think this is an understudied areas. The big labs if anything are disincentivized to make efficient models as currently access to compute is one of their moats. That's not the same for Chinese labs, which is why you see groundbreaking efficiency work mostly coming from China.\nReally happy to see a small shop like yours doing this sort of work!"
-        },
-        {
-          "id": 50381842,
-          "author": "Valk3_",
-          "text": "What was the most difficult challenge for you guys with this project?\nAlso I'm a little intrigued on looking into efficiency techniques for video gen. What are current research directions in that field and promising directions you are particularly interested in? Any pointers for beginners?"
-        },
-        {
-          "id": 50383724,
-          "author": "Robin_Message",
-          "text": "What are you using as your training data out of interest? Very impressive generation."
-        },
-        {
-          "id": 50382762,
-          "author": "whythismatters",
-          "text": "HF link:\nhttps://huggingface.co/Linum-AI/pjit-21k"
-        },
-        {
-          "id": 50383926,
-          "author": "micw",
-          "text": "Impressive. Even the average number of fingers seems to be correct ;-)\nLooking at the failures, I wonder how much cherry picking went into the showcase."
-        },
-        {
-          "id": 50383865,
-          "author": "robotswantdata",
-          "text": "What open source datasets did you use? Or did you pirate like the big labs ?"
-        },
-        {
-          "id": 50382209,
-          "author": "gunalx",
-          "text": "Interesting. It does however seem to struggle with a lot of the typical t2i models struggle with.\nOver smoothing, lots of uncanney shine, mangled limbs and such."
-        },
-        {
-          "id": 50382483,
-          "author": "dvh",
-          "text": "How many ladybugs are in training dataset?"
-        }
-      ],
-      "title_ja": "HNを表示：〜$ 20 K （ Apache 2.0重み）のためにトレーニングされたまともなテキスト画像モデル",
-      "summary_ja": "ディスカッションのハイライト：素晴らしい/このプロジェクトであなたにとって最も困難な課題は何でしたか？\nまた、ビデオジェネレーションの効率的なテクニックを調べることに少し興味があります/興味のあるトレーニングデータとして何を使用していますか？非常に印象的な世代です。",
-      "editor_note": "「HNを表示：〜$ 20 K （ Apache 2.0重み）のためにトレーニングされたまともなテキスト画像モデル」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
-      "rank": 18,
+      "rank": 27,
       "id": 50379249,
       "title_en": "MCP Explained",
       "url": "https://mcp-explained.com/",
       "hn_url": "https://news.ycombinator.com/item?id=50379249",
-      "score": 197,
-      "comment_count": 103,
+      "score": 302,
+      "comment_count": 127,
       "posted_at": "2026-11-05T14:08:35+00:00",
       "comments": [
         {
@@ -859,29 +1384,29 @@
           "text": "MCP is an enterprise tool.\nAnything fleeting -> just use a skill.\nThe advantage of MCP is thin, and it only starts to show when it's really well integrated, and your company platform provider does the integration.\nOtherwise it's a huge pain in the rear to keep your cli integrated with all the MCPs.\nMCP is good for things you use literally 'all of the time' - or - it's seamlessly integrated into your system and you don't have to think about it.\nOtherwise, just give your AI some instructions on the CLI.\nI think that MCP may have been a mistake, and the local service aspect a distraction.\nThe 'enterprise integration' part may have best been articulated as a form of API standard and not associated with how it's integrated into 'tools' or anything else.\nIt was introduced too early."
         },
         {
-          "id": 50384109,
-          "author": "dirteater_",
-          "text": "The interesting and necessary part of MCP is auth. A more useful explanation would cover a lot more of the \"why\", because looking at any thread mentioning MCP you'll see a ton of people saying \"CLIs and traditional REST APIs do the same thing, why do we need yet another spec\".\nSure now there are apps and tasks in the spec to handle specific usecases, but those can also be DIY'ed without the protocol and agents can still use them."
-        },
-        {
-          "id": 50383843,
-          "author": "jrm4",
-          "text": "Is it too much of an oversimplification to say \"any new specialized tool or format that queries 'AI' with code is almost certainly pointless because you'll likely be able to match (and never exceed) that performance with an already known language, LLM query, or both?\"\nDaniel Miessler's fabric comes to mind. It's great, does a lot of great stuff, but requires literally nothing new, \"code-wise\""
-        },
-        {
           "id": 50379744,
           "author": "ndriscoll",
           "text": "Are MCP calls composable in e.g. codex yet? e.g. can a model pipe a jira MCP call to grep or sed, or at least into a file? Last I looked at MCP it was just a vastly worse version of curl, .netrc, and some short text files describing calls (which are themselves greppable). Is there anything useful beyond that that I'm missing?"
         },
         {
-          "id": 50382604,
-          "author": "slashtom",
-          "text": "I appreciate it, just started getting into 'vibe' coding converting some non arm (mac) apps into arm and it's pretty magical on this 128gb m5 max, a little slow but it can run deepseek flash 1017 pretty well.\nWatched a few youtube apps about a 'harness' and I still haven't dived too deep into it but using openchamber to work with the code is awesome.  Next step is MCP to various apps and seeing what it can do."
+          "id": 50390495,
+          "author": "Felar",
+          "text": "that's often kinda hard to explain thanks, i'll keep the link"
+        },
+        {
+          "id": 50384109,
+          "author": "dirteater_",
+          "text": "The interesting and necessary part of MCP is auth. A more useful explanation would cover a lot more of the \"why\", because looking at any thread mentioning MCP you'll see a ton of people saying \"CLIs and traditional REST APIs do the same thing, why do we need yet another spec\".\nSure now there are apps and tasks in the spec to handle specific usecases, but those can also be DIY'ed without the protocol and agents can still use them."
         },
         {
           "id": 50379345,
           "author": "sputknick",
           "text": "I couldn't find a github link, if anyone knows where to find the code for this, I'd like to modify it to make it a primer more friendly to non-technical managers."
+        },
+        {
+          "id": 50383843,
+          "author": "jrm4",
+          "text": "Is it too much of an oversimplification to say \"any new specialized tool or format that queries 'AI' with code is almost certainly pointless because you'll likely be able to match (and never exceed) that performance with an already known language, LLM query, or both?\"\nDaniel Miessler's fabric comes to mind. It's great, does a lot of great stuff, but requires literally nothing new, \"code-wise\""
         }
       ],
       "title_ja": "MCPの説明",
@@ -890,13 +1415,69 @@
       "category": "AI/ML"
     },
     {
-      "rank": 19,
+      "rank": 28,
+      "id": 50383739,
+      "title_en": "Goodbye from Salon",
+      "url": "https://www.salon.com/2026/11/05/goodbye-from-salon/",
+      "hn_url": "https://news.ycombinator.com/item?id=50383739",
+      "score": 586,
+      "comment_count": 232,
+      "posted_at": "2026-11-05T20:03:29+00:00",
+      "comments": [
+        {
+          "id": 50384232,
+          "author": "legitster",
+          "text": "The amount of newsroom jobs fell 60% between 2008 and 2020. The vast majority of what was lost were \"beat\" reporters - foreign bureaus, Washington bureaus from regional publications, statehouse reporters, or regional specialty beats (science, law, etc).\nThis started long before the decline of the open internet and AI. If anything, the shift online covered up a massive hollowing out of the industry. We're getting fewer sources of news, and more national coverage. A lot of stuff that is reported on is coming from a scant number of wire services, or directly from PR teams themselves.\nFor the most part, your choice of news platform is just a layer of coverage choices and political spin on top of a very thin market of original coverage."
+        },
+        {
+          "id": 50384027,
+          "author": "macintux",
+          "text": "This article didn't generate any comments when it made the rounds 10 years ago. An obituary for what salon.com used to be.\nhttps://web.archive.org/web/20210219012551/https://www.polit..."
+        },
+        {
+          "id": 50386350,
+          "author": "DamnInteresting",
+          "text": "I operate an online publication that has been online for an amount of time that can be accurately described as \"decades,\" though not quite as long as Salon.\nMy project had a brief window of modest profitability from about 2012 to 2020. Before and after that time, I've mostly operated at a break-even or a loss because I love doing it, and it gives me a sense of purpose, and the thought of packing it up is deeply depressing. But the past few years have been an extreme drought of donations, which leads to extreme drought in ambition and energy. I sometimes wonder if my mental health would improve if I turned out the lights and moved on to something else. I don't want to, but sometimes we humans fail to want what's good for us.\nI'm sure it doesn't help that I reject advertising and rely solely on donations. But perhaps the only thing more depressing than shutting down is slapping ads on everything. Blah."
+        },
+        {
+          "id": 50390243,
+          "author": "user2722",
+          "text": "I've just \"now\" re-re-retried to read a newspaper on PDF sitting on my couch. It's bearable mostly because I'm stubborn. It's also not best because I'm stubborn: I use my 2-in-1 Linux laptop for it and dislike dynamic pages for \"old\" media. So PDF it is -- which can have issues when dragging, so I use newspapers' websites which clone or use Pressreader.\nIdk what I meant to say, but don't count newspapera out, yet. A small but non-loosing cadre of sellers and buyers ecosystem may still exist."
+        },
+        {
+          "id": 50384792,
+          "author": "mclanett",
+          "text": "I loved the first version of Salon. So many excellent writers appeared in their pages; I grew to love Anne Lamott.\nIt changes at some point, no doubt triggered by the crash of journalism, but it didn't try to be interesting and I gave up on it so far back I don't remember when."
+        },
+        {
+          "id": 50384349,
+          "author": "allenu",
+          "text": "I haven't visited salon.com in quite a while. I remember way back in the day I'd hop on there to read an article or two and maybe go read suck.com as well. Such a different internet back then, pre-BuzzFeed and YouTube. Less clickbait, more Gen X cynicism."
+        },
+        {
+          "id": 50385274,
+          "author": "thebeardisred",
+          "text": "So long and thanks for open sourcing Bricolage (\nhttps://en.wikipedia.org/wiki/Bricolage_(software)\n)\nIt was ahead of it's time in terms of it's model for publishing large sites with staging, editorial desks, etc."
+        },
+        {
+          "id": 50385329,
+          "author": "prajaybasu",
+          "text": "I've only seen salon links on astroturfed subreddits and it makes sense they'd become irrelevant the moment Reddit traffic dropped after Google's AI Overview took over."
+        }
+      ],
+      "title_ja": "サロンからのサヨナラ",
+      "summary_ja": "ディスカッションハイライト：ニュースルームの求人数は2008年から2020年の間に60 ％減少しました/この記事は、10年前にラウンドを行ったときにコメントを生成しませんでした/私は、サロンほど長くはありませんが、「数十年」と正確に表現できる時間をオンラインで過ごしているオンライン出版物を運営しています。\n私のプロジェクトには要旨がありました",
+      "editor_note": "「サロンからのサヨナラ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
       "id": 50378508,
       "title_en": "Obscure audio codec is a perfect fit for the N64",
       "url": "https://phoboslab.org/log/2026/11/n64-ulc-codec",
       "hn_url": "https://news.ycombinator.com/item?id=50378508",
-      "score": 154,
-      "comment_count": 17,
+      "score": 236,
+      "comment_count": 28,
       "posted_at": "2026-11-05T12:51:48+00:00",
       "comments": [
         {
@@ -905,14 +1486,19 @@
           "text": "This codec would have been great 27 years ago!  I suspect it wouldn't have gotten past the patent lawyers in 1999 though.  It seems cute today but the entire codec space was a patent minefield, the N64 mp3 decoder was implemented twice (once based on the reference codec, once clean) with Nintendo/Rare then paying RAD game tools to license their decoder... of which none of their code was used but they had a license from the mp3 patent holder (Fraunhofer) which then shielded Nintendo from lawsuits.  Fraunhofer wanted something like $250k to license directly which wasn't going to fly.\nI'll also note the frame rate issues in Conker were mainly down to raw RDP fillrate issues, which was for sure the weakest part of the N64 hardware, it could draw beautiful triangles (for the time) but oh so so slowly.  There was a decent amount of speech during gameplay using the RSP mp3 codec.  The cartridge size was still an issue, 64Mb got a good amount of mono speech but was still very much at a premium."
         },
         {
-          "id": 50384241,
-          "author": "Sesse__",
-          "text": "I wonder if this would also be a great fit for the MAS3507D! Supposedly you can replace the program with your own in a 1-kiloword RAM (the default MP3 decoder is in ROM, and probably larger). If you can fit this codec in 1024 MIPS instructions, perhaps you can do the same in 1024 of these DSP instructions…\nToo bad there is seemingly zero public documentation on the format of these programs, though (and no emulator or similar)."
-        },
-        {
           "id": 50382597,
           "author": "jonas21",
           "text": "In case anyone else got to the demo thinking the quality is awful -- the vocals are incomprehensible and keep cutting out -- it turns out it's like that in the original track:\nhttps://www.youtube.com/watch?v=i1gVxKhdGPs&t=57s"
+        },
+        {
+          "id": 50387280,
+          "author": "gatane",
+          "text": "It was all great until they mentioned LLM usage.\nThe demoscene and homebrew scene is dying as we speak."
+        },
+        {
+          "id": 50384241,
+          "author": "Sesse__",
+          "text": "I wonder if this would also be a great fit for the MAS3507D! Supposedly you can replace the program with your own in a 1-kiloword RAM (the default MP3 decoder is in ROM, and probably larger). If you can fit this codec in 1024 MIPS instructions, perhaps you can do the same in 1024 of these DSP instructions…\nToo bad there is seemingly zero public documentation on the format of these programs, though (and no emulator or similar)."
         },
         {
           "id": 50384216,
@@ -931,473 +1517,29 @@
         }
       ],
       "title_ja": "あいまいなオーディオコーデックは、N 64に最適です",
-      "summary_ja": "ディスカッションハイライト：このコーデックは27年前には素晴らしいものだったでしょう！ 1999年に特許弁護士を超えることはなかったと思いますが/これもMAS 3507 Dにぴったりなのではないかと思います！ 1キロワードのRAMでプログラムを自分のプログラムに置き換えることができると推測されます（デフォルトのMP 3デコーダはROMにあり、Probab/他の誰かが品質が悪いと思ってデモに来た場合、ボーカルは理解できず、切り取り続けます",
+      "summary_ja": "ディスカッションハイライト：このコーデックは27年前には素晴らしかったでしょう！  1999年に特許弁護士を通過することはなかったと思いますが、/他の誰かがデモに来て、品質が悪いと思った場合-ボーカルは理解できず、切り取られ続けます-元のトラックのようなものであることが判明しました。\nhttp/LLMの使用について言及するまでは、すべてが素晴らしかったです。\n私たちが話している間に、デモシーンとホームブリューのシーンは死にかけています。",
       "editor_note": "「あいまいなオーディオコーデックは、N 64に最適です」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     },
     {
-      "rank": 20,
-      "id": 50380979,
-      "title_en": "The Stacks Project, Formalized in Lean",
-      "url": "https://axiommath.ai/research/the-stacks-project-formalized/",
-      "hn_url": "https://news.ycombinator.com/item?id=50380979",
-      "score": 49,
-      "comment_count": 11,
-      "posted_at": "2026-11-05T16:16:59+00:00",
-      "comments": [
-        {
-          "id": 50382299,
-          "author": "QuesnayJr",
-          "text": "After they announced the formalization of the classification of Finite Simple Groups, I immediately wondered \"What would happen if you tried to formalize the Stacks Project?\"  Despite also being very long, it's the opposite of the CFSG: instead of a poorly organized set of results that contribute to proving one big theorem, it's instead a carefully-organized set of results that cover a broad area.\nThe Stacks Project was the model for how mathematics should be done (at least for the pre-LLM era).  Algebraic geometry had lots of poorly organized foundational results that were not really created for themselves, but in order to solve problems in the field.  One person, Aise Johan de Jong, set out to fix it by organizing a project to write out the proofs of all of the results in a carefully organized fashion.  He's led the project since, though of course there are multiple contributors.  The whole thing is thousands of pages.\nI would be interested in hearing more about the gaps they uncovered in the existing results, and how they fixed them."
-        },
-        {
-          "id": 50382406,
-          "author": "vatsachak",
-          "text": "Okay this is actually useful AI formalization. But the stacks project is basically Lean in natural language anyways, so it makes sense why its high quality."
-        },
-        {
-          "id": 50381657,
-          "author": "eternauta3k",
-          "text": "Slightly off-topic, but how far are we from a formally verified stack for (say) a webdav or NFS server?"
-        },
-        {
-          "id": 50382778,
-          "author": "AlexCoventry",
-          "text": "Do they say how they verified the formalizations of the theorem hypotheses? (Sorry, I haven't read it yet.)"
-        },
-        {
-          "id": 50381839,
-          "author": "breezybottom",
-          "text": "The fact that the description is AI slop doesn't inspire confidence in the results."
-        }
-      ],
-      "title_ja": "リーンで形式化されたStacksプロジェクト",
-      "summary_ja": "ディスカッションハイライト：有限単純グループの分類の正式化を発表した後、私はすぐに「スタックプロジェクトを正式化しようとしたらどうなるだろうか？「DESP/さて、これは実際には有用なAIの形式化です/やや話題から外れていますが、（たとえば） webdavまたはNFSサーバーの正式に検証されたスタックからどのくらい離れていますか？",
-      "editor_note": "「リーンで形式化されたStacksプロジェクト」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
-      "rank": 21,
-      "id": 50381623,
-      "title_en": "Nasdaq plummets 4% into correction territory",
-      "url": "https://www.cnbc.com/2026/11/04/stock-market-today-live-updates.html",
-      "hn_url": "https://news.ycombinator.com/item?id=50381623",
-      "score": 143,
-      "comment_count": 111,
-      "posted_at": "2026-11-05T17:11:15+00:00",
-      "comments": [
-        {
-          "id": 50382257,
-          "author": "compiler-guy",
-          "text": "According to the Googles, there have been approximately 14,000 trading days since the Nasdaq Composite was founded, and it has fallen four-percent or more 147 days, meaning that we get a decline like this roughly every 100 trading days, which means about twice a calendar year, very roughly.\nThat's newsworthy, but also not extremely unusual.\nThe more interesting detail than nasdaq overall is just what sectors are having bad days and how concentrated that is. Seems to be predominantly AI companies, which is very relevant to the HN crowd."
-        },
-        {
-          "id": 50382284,
-          "author": "chasd00",
-          "text": "Happens every time Democrats win office, then it slowly trickles back up. The anti-datacenter vote screws up a lot of plans but the lack of power generation had already screwed up much of them anyway. He who shouldn't be named said that all these software people are in for a rude awakening when they try to scale real world infrastructure at the rate they're use to scaling virtual software infrastructure."
-        },
-        {
-          "id": 50382037,
-          "author": "chollida1",
-          "text": "Alot going on today.  a 4% drop in a day is pretty darn big.\n3 different pods are being liquidated that i've heard of.  And the data center trade has been unwound in just 2 days is a pretty violent shock.\nLots of rumors about situational awareness also in alot of trouble.  I feel for this guy a bit.  He did really well to get a good slug of Anthropic shares that made his investors alot of money.\nBut since about July when it was clear that Anthropic was done going up like a rocket ship his investors have probably been hounding  him about how he's going to make money outside of Anthropic.\nhis first foray into the public markets was a disaster and might set a record for fastest wipe out from start to finish that forced him to have to sell his public book escape a wind up.\nBut due to Anthropic taking a possible IPO valuation cut he's had to go back to the public markets at the worst time and if rumours going around today are correct, he's looking at how to liquidate his public portfolio for the second time in the quarter."
-        },
-        {
-          "id": 50382326,
-          "author": "cmiles8",
-          "text": "Given the election result the AI bailout ain’t coming, combined with growing concern AI spending has gotten too forward on its skis. That’s freaking out the markets."
-        },
-        {
-          "id": 50384336,
-          "author": "elmer2",
-          "text": "This always happens when Democrats come into power. More regulations means more hiring over seas, higher gas prices, and a worse economy. Clinton was the exception, because he had more fiscally conservative policies.\nWhen we were coming out of Covid, Biden just needed to ease regulations temporarily and do anything to get businesses functioning again. Instead, he listened to his radical base and punished companies with more regulations and taxes. Immediately shutting down the Alaskan pipeline was another mistake.\nThe end result was the start of the shitty economy and job market we see today."
-        },
-        {
-          "id": 50383556,
-          "author": "notfried",
-          "text": "I wonder if Anthropic would pull its IPO plan. Considering the past few weeks, this seems like the worst period they could go public in. Not that it may get any better, but perhaps OpenAI deciding to wait next year was more reasonable."
-        },
-        {
-          "id": 50382711,
-          "author": "t1234s",
-          "text": "Depending on how long the bloodbath goes on this could be a massive buy moment similar to: dot bomb, 9/11, 2008, covid panic.\nAI is not going anywhere and will only grow more and more."
-        },
-        {
-          "id": 50381925,
-          "author": "Tadpole9181",
-          "text": "> Plummets\nStill +4% YoY.\n24/7 sensationalist news is just exhausting."
-        }
-      ],
-      "title_ja": "ナスダックは4 ％下落して修正領域に入った",
-      "summary_ja": "議論のハイライト：グーグルによると、ナスダック・コンポジットが設立されてから約14,000取引日が経過し、147日以上も減少しています。つまり、民主党が大統領になるたびに、民主党が勝利するたびに、民主党が徐々に戻ってくるということです。",
-      "editor_note": "「ナスダックは4 ％下落して修正領域に入った」について、開発者コミュニティで注目が集まっています。",
-      "category": "Startup/Business"
-    },
-    {
-      "rank": 22,
-      "id": 50376313,
-      "title_en": "GPT-6 Astra covertly underperforms on safety research",
-      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
-      "hn_url": "https://news.ycombinator.com/item?id=50376313",
-      "score": 229,
-      "comment_count": 121,
-      "posted_at": "2026-11-05T07:44:30+00:00",
-      "comments": [
-        {
-          "id": 50379426,
-          "author": "bushido",
-          "text": "I've noticed covert underperformance on a variety of tasks in the past few months (albeit more with Claude).\nClassic/recurrent examples for me are:\n1. Ask Claude to copy code from a more complex codebase that you own (like a monolith) and ask it to copy code to a separate codebase, like you'd do when extracting a service into a new repo, and it'll make significant changes to how the code works to pacify it's anxiety with copying code\n2. Ask Claude to build a new complex agent in a new codebase, and it'll try replacing asks around using LLMs as a judge/advisor with regex/other code based checks, to the point that the end-result will likely not work outside specific test criterias. I haven't figured out the reason why it does this. I think it might be anti-training, but it's interesting to see."
-        },
-        {
-          "id": 50380534,
-          "author": "ryandrake",
-          "text": "A tool that moralizes at you is defective. I don't expect the unix cp command to return an error or copy bits slower if it detects I'm using it on a pirated movie. Just like I don't expect my band saw to brick itself if it detects I'm cutting into my finger. It's not on these tool companies to enforce other companies' business models."
-        },
-        {
-          "id": 50379586,
-          "author": "jablongo",
-          "text": "This is not super surprising to me and mirrors my own experience with Astra and other models. I believe there is a more prosaic explanation: it is not obstructing safety research because it will restrict Astra's power in the future, its doing it because this is a type of research with overall safety implications that it has been trained to detect and avoid.  So in other words, I believe this will also happen in the context of bio research. This aversion to certain tasks deemed dangerous is introduced in post-training, so that part of the explanation is parsimonious as well.  While Claude will explicitly downgrade you for [bio], [cyber], or [frontier_llm] Astra may be more prone to silent obfuscation on similarly \"dangerous\" tasks."
-        },
-        {
-          "id": 50379301,
-          "author": "ACCount39",
-          "text": "That's among the scariest misalignment reports just yet. Given how frontier labs are using more and more AI assistance for AI training and evaluation? An AI that sandbags on AI safety can do a lot of damage."
-        },
-        {
-          "id": 50381889,
-          "author": "contextfree",
-          "text": "saw an interesting hypothesis about this ( quoted from Jake Mendel at\nhttps://www.lesswrong.com/posts/eKe7fky8kSt9DCJxZ/openai-ast...\n):\n\"It's probably that in capabilities RL the models are rewarded however they complete the task. Whereas in RL related to alignment or safety, they're more likely to be being tested for their ethical judgment or rule adherence (ie theyre supposed to be a good nice well-behaved AI rather than a ruthless task completion AI). So they're more likely to refuse or have some ethical issue or stop and ask for help a suspicious amount of the time if the task looks more like alignment RL environments than capability RL environments.\""
-        },
-        {
-          "id": 50379734,
-          "author": "WarmWash",
-          "text": "Doesn't Astra also have a \"weaker\" CoT because of it's looped transformer architecture? I remember hearing about how it could hamper interpretability, and looking a benchmarks its clear Astra can do more with less tokens, suggesting that it's \"non-token-thinking\" ability is greater."
-        },
-        {
-          "id": 50378513,
-          "author": "twoodfin",
-          "text": "One potential explanation is that covert underperformance may have been incentivized during RL grading. We identified a grader that preferred covert underperformance to either explicit refusal or full compliance on our evaluation. It’s not clear whether this RL grader is the root cause of the safety underperformance behavior.\nWhether a “misaligned” grader is the root cause or not, that it’s considered a plausible theory to explain serious deceptive behavior is worrisome.\nHumans naturally expose all sorts of cognitive biases and character flaws when grading others’ or their own work. If major questions of alignment can be influenced by those subtle, human quirks magnified across the entire RLHF process, …"
-        },
-        {
-          "id": 50382470,
-          "author": "andai",
-          "text": "I don't get it, is this the gimped or non-gimped version of GPT?\nThey have different versions: internal research versions, one with restricted access access for cyber stuff, and the public version, right?\nIf it's the one with safety off (e.g. like the ones that kept breaking out of containment this year), then it shouldn't be refusing\nanything,\nright? And if it's the one with safety on, then how can they expect to use it for safety research? What am I missing here?"
-        }
-      ],
-      "title_ja": "GPT -6アストラが安全性の研究でひそかに下回っている",
-      "summary_ja": "ディスカッションのハイライト：過去数ヶ月の間に、さまざまなタスクで隠れたパフォーマンスの低下に気づきました（ただし、Claudeの場合はさらに低下しました）。\n私にとっての古典的/繰り返しの例は次のとおりです。\n1/あなたに道徳的に訴えるツールに欠陥がある/これは私にとって驚くべきことではなく、Astraや他のモデルでの私自身の経験を反映しています",
-      "editor_note": "「GPT -6アストラが安全性の研究でひそかに下回っている」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
-      "rank": 23,
-      "id": 50380704,
-      "title_en": "Show HN: Stroq – a local audit of what your coding agent did and why",
-      "url": "https://github.com/AGGIB/Stroq",
-      "hn_url": "https://news.ycombinator.com/item?id=50380704",
-      "score": 45,
-      "comment_count": 10,
-      "posted_at": "2026-11-05T15:54:41+00:00",
-      "comments": [
-        {
-          "id": 50383008,
-          "author": "maven29",
-          "text": "You could cover a lot more adversarial scenarios with an ebpf backend. It needs linux, but with all the patches going around, you should be doing all your dev in a VM anyway.\nhttps://eunomia.dev/agentsight/"
-        },
-        {
-          "id": 50380839,
-          "author": "agybay_07",
-          "text": "I've built project that helps to protect your computer from dangerous commands that your ai agent might execute. Have you noticed how often dont even check what our agents are actually running? Thats why I created Stroq.\nTry it locally npx @stroq/cli"
-        },
-        {
-          "id": 50381327,
-          "author": "hmokiguess",
-          "text": "feature suggestion:\nbackground daemon that continuously scans and alerts in a menubar app when a positive match is found\nclicking the menubar app shows the offending entry, clicking the entry lets you redact, delete, repair, mark as false positive, etc."
-        }
-      ],
-      "title_ja": "HN ： Stroqを表示–コーディングエージェントが行ったこととその理由の現地監査",
-      "summary_ja": "ディスカッションのハイライト： ebpfバックエンドを使用すると、より多くの敵対的なシナリオをカバーできます/AIエージェントが実行する危険なコマンド/機能の提案からコンピューターを保護するのに役立つプロジェクトを構築しました。\nポジティブな一致が見つかったときにメニューバーアプリで継続的にスキャンして警告するバックグラウンドデーモン\nメニューバーアプリをクリックすると、違反しているエントリが表示されます。Clickin",
-      "editor_note": "「HN ： Stroqを表示–コーディングエージェントが行ったこととその理由の現地監査」について、開発者コミュニティで注目が集まっています。",
-      "category": "Programming"
-    },
-    {
-      "rank": 24,
-      "id": 50380268,
-      "title_en": "We can do better than line-buffered output",
-      "url": "https://nullprogram.com/blog/2026/11/05/",
-      "hn_url": "https://news.ycombinator.com/item?id=50380268",
-      "score": 66,
-      "comment_count": 5,
-      "posted_at": "2026-11-05T15:25:22+00:00",
-      "comments": [
-        {
-          "id": 50382808,
-          "author": "Veserv",
-          "text": "Yes, basically all buffering should use work-or-time based flushing.\nWork-based flushing exists to batch work to amortize overhead. It allows you to tune how much time you spend in overhead in a work period. However, this can result in unbounded delay.\nTime-based flushing targets a worst-case latency in low throughput environments. This ensures you do not get unbounded delays. Interestingly, this also allows you to tune how much time you spend in overhead in a work period.\nSo, with work-or-time based flushing what you are really tuning is how much time you are willing to spend in overhead in a work period and balancing that against latency.\nAs a nit, the article calls this a derivative of Nagle’s algorithm, but it is basically the opposite. Nagle’s algorithm is about batching until acknowledgement with no mention of time. In fact, the lack of time-based flushing in Nagle’s algorithm is why it interacts so poorly with TCP Delayed Ack."
-        },
-        {
-          "id": 50382462,
-          "author": "abecedarius",
-          "text": "> flush the buffer if it’s been idle a short time\nI've thought this was the right default for a good while. 50 years ago when Unix was designed, maybe not."
-        },
-        {
-          "id": 50381988,
-          "author": "wpollock",
-          "text": "In C, you can use setvbuf to control buffering on stdout.  There are also Linux command line utilities you can use to control buffering, unbuffer and stdbuf."
-        },
-        {
-          "id": 50384124,
-          "author": "cowlevel",
-          "text": "This would withhold a line if the writer paused for a while without calling into buffer code. Another case for Golang supremacy?\nWe can also do better than\nterminals\n. 7-Zip was the GOAT."
-        }
-      ],
-      "title_ja": "ラインバッファリングされた出力よりも",
-      "summary_ja": "ディスカッションのハイライト：はい、基本的にすべてのバッファリングは、作業または時間ベースのフラッシュを使用する必要があります。\n作業ベースのフラッシュは、オーバーヘッドを償却するための作業を一括処理するために存在します/>短時間アイドル状態の場合はバッファをフラッシュします\nこれはしばらくの間正しいデフォルトだと思っていました/Cでは、setvbufを使用してstdoutのバッファリングを制御できます",
-      "editor_note": "「ラインバッファリングされた出力よりも」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
-    },
-    {
-      "rank": 25,
-      "id": 50383877,
-      "title_en": "The Cost of Blogging",
-      "url": "https://onlinegoddess.net/2026/11/the-cost-of-blogging/",
-      "hn_url": "https://news.ycombinator.com/item?id=50383877",
-      "score": 5,
-      "comment_count": 0,
-      "posted_at": "2026-11-05T20:14:25+00:00",
-      "comments": [],
-      "title_ja": "ブログ作成のコスト",
-      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
-      "editor_note": "「ブログ作成のコスト」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
-    },
-    {
-      "rank": 26,
-      "id": 50383163,
-      "title_en": "Hungary: Communist-era files released, up to 60k former agents revealed",
-      "url": "https://www.euronews.com/2026/11/04/hungary-communist-era-files-opened-up-to-60000-former-agents-revealed",
-      "hn_url": "https://news.ycombinator.com/item?id=50383163",
-      "score": 45,
-      "comment_count": 6,
-      "posted_at": "2026-11-05T19:16:34+00:00",
-      "comments": [
-        {
-          "id": 50383982,
-          "author": "haunter",
-          "text": "As a hungarian: agent would imply a member of the secret police which have already been released years ago. These are informants, regular people like students and teachers to members of the churches to actors and musicians etc.\nAlso\n1, this should have been released long ago cause many of these people are already dead.\n2, they only released the official record of the informant. Their background, who  contacted them (from the secret police), when they were approached etc. But there is nothing about actual reports, like _did they do anything at all_ or not.\nEven the Nobel Prize winner (2023) Karikó Katalin has a record on her yet she already wrote her autobiography years ago mentioning this, how and when she was approached and she didn't report anything at all. Now everyone have to decide on their own what to believe or not.\nhttps://szegeder.hu/wp-content/uploads/2026/11/6c145795-f972..."
-        },
-        {
-          "id": 50384264,
-          "author": "expedition32",
-          "text": "One thing I noticed is that Eastern Europe is always quick to blame the Soviets for their communist dictatorships conveniently forgetting the millions of \"fellow travellers\" along the way."
-        }
-      ],
-      "title_ja": "ハンガリー：共産主義時代のファイルが公開され、最大6万人の元エージェントが明らかになった",
-      "summary_ja": "ディスカッションのハイライト：ハンガリー人として：エージェントは数年前に解放された秘密警察のメンバーを暗示しています/私が気づいたことの1つは、東ヨーロッパが共産主義独裁政権のために何百万人もの「仲間の旅行者」を都合よく忘れていることを常にすぐにソビエトを非難していることです",
-      "editor_note": "「ハンガリー：共産主義時代のファイルが公開され、最大6万人の元エージェントが明らかになった」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
-    },
-    {
-      "rank": 27,
-      "id": 50380170,
-      "title_en": "Nordstjernen, Northstar, Southstar: minimalist webbrowsers in C and Rust",
-      "url": "https://nordstjernen.org/",
-      "hn_url": "https://news.ycombinator.com/item?id=50380170",
-      "score": 43,
-      "comment_count": 22,
-      "posted_at": "2026-11-05T15:17:31+00:00",
-      "comments": [
-        {
-          "id": 50384251,
-          "author": "emilbratt",
-          "text": "If I understand this correctly, Andreas Røsdal wants people to adopt first before putting in work. Thats the wrong way around.\nYou make a great project -> people notice and like it -> you improve -> more people notice.. and circle continues."
-        },
-        {
-          "id": 50381275,
-          "author": "netsharc",
-          "text": "Ha, nice homage to the Netscape \"loading\" GIF: the N in the corner. When Netscape was connecting to a website and loading the page (over your dozens of  kilobits per second modem), there would be shooting stars behind the N (1). Because navigators relied on the night sky, I suppose.\n(1)\nhttps://www.reddit.com/r/nostalgia/comments/6oqzjv/the_netsc...\nI've managed to pimp my Vivaldi installation to have the animated N as well: it allows custom user profile icons, and when you set it to an animated GIF, it animates as well. Add a custom CSS for the browser UI so that the profile icon is square and not circular: we're back in the 90's!"
-        },
-        {
-          "id": 50380171,
-          "author": "Propelloni",
-          "text": "Minimalist web browsers written from scratch in C (Nordstjernen, Northstar) or Rust (Southstar)."
-        },
-        {
-          "id": 50380983,
-          "author": "lysace",
-          "text": "So, is the creator Norwegian, Danish or neither?"
-        }
-      ],
-      "title_ja": "Nordstjernen、Northstar、Southstar ： CとRustのミニマリストウェブブラウザ",
-      "summary_ja": "ディスカッションのハイライト：私がこれを正しく理解している場合、Andreas Røsdalは仕事を始める前に人々が最初に採用することを望んでいます/Ha、Netscape「読み込み」GIFへの素敵なオマージュ：コーナーのN/C （ Nordstjernen、Northstar ）またはRust （ Southstar ）でゼロから書かれたミニマリストウェブブラウザ。",
-      "editor_note": "「Nordstjernen、Northstar、Southstar ： CとRustのミニマリストウェブブラウザ」について、開発者コミュニティで注目が集まっています。",
-      "category": "Programming"
-    },
-    {
-      "rank": 28,
-      "id": 50380658,
-      "title_en": "Building a Multi-Agent System from Scratch: Architecture Patterns",
-      "url": "https://kadhar.dev/blog/multi-agent-systems-from-scratch",
-      "hn_url": "https://news.ycombinator.com/item?id=50380658",
-      "score": 54,
-      "comment_count": 20,
-      "posted_at": "2026-11-05T15:51:57+00:00",
-      "comments": [
-        {
-          "id": 50383659,
-          "author": "pss314",
-          "text": "I liked going thru Stanford CS146S: How always-on agents work\nLecture recording:\nhttps://www.youtube.com/watch?v=L1OBRtfPS34\nSlides:\nhttps://drive.google.com/file/d/1b8WiBk_lcB3ue-jZMLijSUMLj6S...\nNote: The lecture talks mostly on always-on agents and not necessarily mult-agent system."
-        },
-        {
-          "id": 50381496,
-          "author": "phainopepla2",
-          "text": "Perhaps I'm being uncharitable, but when I open up a page that was obviously created by Claude, I just close it again."
-        },
-        {
-          "id": 50383531,
-          "author": "brkomir",
-          "text": "I usually run 4-5 claude sessions in parallel on the same branch, each with its own working plan or work item. They coordinate almost in real time, leaving messages in a shared queue and picking them up every 30 seconds. What keeps them from stepping over each other's work is a commit script that allows only staged changes from one session to be committed at a time.\nWhere it actually pays off to have separate sessions is the code review. Every code change that affects how the app behaves is checked by a session that didn't write the change. Some numbers: 4,454 verdicts on 4,471 commits since September. About four in five first reviews found something, and about half asked for changes."
-        },
-        {
-          "id": 50383359,
-          "author": "albertgoeswoof",
-          "text": "What’s an example of a multi agent system that people are using?"
-        },
-        {
-          "id": 50382887,
-          "author": "FLeXMurphy",
-          "text": "I remember all these topics being discussed... well over 25 years ago, though I'm sure they are much older than that."
-        },
-        {
-          "id": 50381791,
-          "author": "empath75",
-          "text": "If you leave \"The Honest Summary\" in anything Claude wrote, I am not going to read any of it, shows a complete lack of care or interest in what you are doing.\nI don't care if you are having Claude write something for you, but I feel like I spent more time writing these two sentences than this person put into this post."
-        },
-        {
-          "id": 50381328,
-          "author": "bob1029",
-          "text": "Sub agents are significantly more useful than multi agents.\nWrap a nested prompt with a tool call that is invoked by the caller prompt. That is the answer to all your suffering. You can repeat this for as many layers of invocation as you desire. You can layer determinism and non-determinism as much as you like in whatever orders you see fit with additional alignment, retry policies, logging, etc.\nAgents running concurrently will not go any faster than one well-designed hierarchical agent system.\nImagine the simple task of incrementing a global counter. That would be my #1 benchmark. If you can demonstrate a MAS can increment that counter faster than a single agent can (monotonically without skipping), then I will happily delete 100% of the AI-related code I've authored and start over using your ideas."
-        },
-        {
-          "id": 50381503,
-          "author": "cush",
-          "text": "Does anyone else open sites with this default claude code theme and immediately close them?"
-        }
-      ],
-      "title_ja": "マルチエージェントシステムのゼロからの構築：アーキテクチャパターン",
-      "summary_ja": "ディスカッションのハイライト： Stanford CS 146 S ：常時稼働のエージェントの仕組み\n講義の録音：\nhttps://www.youtube.com/watch?v=L1OBRtfPS34\nスライド:\nhttps://drive.google.com/file/d/1b8WiBk_lcB3ue-/私は無慈悲かもしれませんが、明らかにクロードによって作成されたページを開くと、もう一度閉じます。 /私は通常、同じ支店で4〜5回のクロードセッションを並行して実行し、それぞれ独自の作業計画または作業項目を持っています",
-      "editor_note": "「マルチエージェントシステムのゼロからの構築：アーキテクチャパターン」について、開発者コミュニティで注目が集まっています。",
-      "category": "Other"
-    },
-    {
-      "rank": 29,
-      "id": 50377078,
-      "title_en": "Baidu released ERNIE 5.5 Flash Base",
-      "url": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
-      "hn_url": "https://news.ycombinator.com/item?id=50377078",
-      "score": 154,
-      "comment_count": 86,
-      "posted_at": "2026-11-05T09:29:12+00:00",
-      "comments": [
-        {
-          "id": 50378719,
-          "author": "mkl",
-          "text": "The license seems really restrictive for something intended to be built on.  Entire countries are forbidden to use it at all (European Union, the United Kingdom and South Korea), and you are responsible for making sure no one in those places uses your derivative."
-        },
-        {
-          "id": 50378112,
-          "author": "txrx0000",
-          "text": "Brilliant! Base model releases are exactly what we need right now. This is the reliable way to do alignment. Releasing the base model then letting everyone on the planet do whatever they want with it is probably what ends up preventing extreme value drift through the intelligence explosion. Millions of people would try to align these base models in their own way, and we'll probably all fail, but those models would drift in different directions so their actions cancel eachother out in the real world. The end result is alignment to humanity's average objective function, at the civilization level. It's a messy but very surefire way to align.\nThere will still be a different kind of value drift from increasing intelligence itself, but that's unavoidable no matter what we do. Releasing open models slows that down too because it discourages investment in future training runs. And this strategy works unilaterally without cooperation - every open model release slows it down by a little bit. This is the actual way to pace the frontier unlike the regulatory capture stunts Anthropic and OpenAI are attempting while pontificating about their moral superiority."
-        },
-        {
-          "id": 50377420,
-          "author": "speedping",
-          "text": "ERNIE feels old, like BERT. They either need a rebrand or fully embrace retro-dawn-of-ML vibes"
-        },
-        {
-          "id": 50377311,
-          "author": "A_D_E_P_T",
-          "text": "This is awesome.  ERNIE seems more powerful than Qwen3.8-27B and Deepseek-v4-Flash, which AFAIK are currently the best base models... it'll be very interesting to experiment with when it hits OpenCode.  Base models are also excellent for businesses who run models locally, as they can be trained in various house rules and house styles."
-        },
-        {
-          "id": 50379473,
-          "author": "segmondy",
-          "text": "When ernie 4 dropped, it was a really solid model and it felt very different from the other models, it got straight to the point.  unfortunately for it, that's when deepseekv3 and glm started taking off.  I kept it around for a few months, hopefully they recreated the magic and it doesn't over think."
-        },
-        {
-          "id": 50378427,
-          "author": "bguberfain",
-          "text": "Anyone suggest a framework to further train this model on a multi-node cluster with infiniband? NeMo Framework? \"Plain\" HF TRL+Accelerate? Opinionated suggestions are welcome."
-        },
-        {
-          "id": 50378100,
-          "author": "karahime",
-          "text": "Absolutely glad to see the release of a base model, I think the trend away from that has been an issue for the field."
-        },
-        {
-          "id": 50377859,
-          "author": "Tepix",
-          "text": "That's an interesting size, it will fit into 2x128GB at decent (≥4bpw) quantization."
-        }
-      ],
-      "title_ja": "BaiduがERNIE 5.5 Flash Baseをリリース",
-      "summary_ja": "ディスカッションのハイライト：ライセンスは、その上に構築されることを意図したものに対して非常に制限的に思えます/素晴らしい！基本モデルのリリースはまさに私たちが今必要としているものです/アーニーはバートのように古く感じます",
-      "editor_note": "「BaiduがERNIE 5.5 Flash Baseをリリース」について、開発者コミュニティで注目が集まっています。",
-      "category": "AI/ML"
-    },
-    {
       "rank": 30,
-      "id": 50378625,
-      "title_en": "Discord is ditching Electron and its new app uses less RAM",
-      "url": "https://www.theverge.com/news/1027379/discord-ditching-electron-web-app",
-      "hn_url": "https://news.ycombinator.com/item?id=50378625",
-      "score": 325,
-      "comment_count": 271,
-      "posted_at": "2026-11-05T13:05:28+00:00",
+      "id": 50389498,
+      "title_en": "Living Maps: Bay Area tech since 1960s",
+      "url": "https://tomorrowasusual.com/living-maps/bay-area-tech/",
+      "hn_url": "https://news.ycombinator.com/item?id=50389498",
+      "score": 6,
+      "comment_count": 6,
+      "posted_at": "2026-11-06T08:08:19+00:00",
       "comments": [
         {
-          "id": 50384369,
-          "author": "cuzezzzbbfofai",
-          "text": "Good. We need to save RAM to run AI models."
-        },
-        {
-          "id": 50379999,
-          "author": "the__alchemist",
-          "text": "I had trouble reading more than the opening volley of the article due to popups. Am a Discord user, and rust application programmer: What GUI framework are they using? EGUI? GPUI? Something custom?\nGPUI from comments? I meant to try GPUI, but backed off after an announcement pending its maintenance would be in question (?) a few months ago, and Zed broadly ending up being a false messiah,  for my uses. (Not on the tier of JetBrains IDEs, a bug with a long thread they closed which (still I believe?) causes it to open cached versions of files, then clobber edits made since the cache, e.g. by other programs. I.e. the sort of bug which renders software too dangerous to use. I will not switch to a GUI framework from a group that ignores bugs of that severity reported by many people)"
-        },
-        {
-          "id": 50379724,
-          "author": "kayson",
-          "text": "I'm very interested in (and a total novice in) cross platform GUI application development. Hadn't heard of GPUI, though I had heard of Tauri. I looked at the GPUI front page and saw this mess of almost-CSS method chaining... Surely there's a better way? This seems horrible to me.\n> div()\n.flex()\n.flex_col()\n.gap_3()\n.bg(rgb(0x505050))\n.size(px(500.0))\n.justify_center()\n.items_center()\n.shadow_lg()\n.border_1()\n.border_color(rgb(0x0000ff))\n.text_xl()\n.text_color(rgb(0xffffff))\n.child(format!(\"Hello, {}!\", &self.text))\n.child(\ndiv()\n.flex()\n.gap_2()\n.child(div().size_8().bg(gpui::red()))\n.child(div().size_8().bg(gpui::green()))\n.child(div().size_8().bg(gpui::blue()))\n.child(div().size_8().bg(gpui::yellow()))\n.child(div().size_8().bg(gpui::black()))\n.child(div().size_8().bg(gpui::white())),\n)"
-        },
-        {
-          "id": 50379261,
-          "author": "Swiffy0",
-          "text": "Not sure what to think of this.\nSure, a Rust implementation will perform better and use less RAM, but it's quite obvious that the transition to Rust will be done almost entirely by AI.\nDon't get me wrong, the AI coded Rust version of Discord will most likely work just fine. The thing I'm wondering about is if it's a good idea to rewrite your whole codebase (which I assume is handwritten since Discord predates AI coding) with AI because now there is nobody that knows how it really works - I'm wondering what's the value of having a human-written codebase + the people who wrote it. Just feels like one shouldn't throw that into the trash like it's nothing?"
-        },
-        {
-          "id": 50383306,
-          "author": "stasomatic",
-          "text": "Who cares? I've never had performance issues with Slack, Discord and the like. It runs fast enough on my MBP. They could make it faster by removing the casino lights and prompts and upsells, and research other ways to monetize. Electron is not the issue with Discord, it's their constant annoying nagging."
-        },
-        {
-          "id": 50379333,
-          "author": "mintflow",
-          "text": "I noticed this news and because one of my codex banked reset is expiring soon\nI launch codex with astra+ultra on my tauri project because webview sometimes cause blank screen on user device to let it to rewrite the tauri projec to GPUI\nIt did those stuffs for me\n- get rid of the CGO and MINGW toolchain for cross building windows on Linux\n- wrote a compatbility layer to communicate the original app backend written using rust\n- Achieve not ideal but acceptable UI/UX as the tauri project\n- The new build using 24MB memory which is quite good and I do not even bother to check the tauri version\nIt amazing time to rewrite, though I still can't remember joy of old days that manual coding, but my lower back ask me to just embrace the Agentic coding..."
-        },
-        {
-          "id": 50379325,
-          "author": "PreciousH",
-          "text": "It's crazy how much RAM electron needs, at my old startup the main product was an electron app, i initially used to run into this issue where AI wouldn't clean up the dev builds it spunned up for e2e testing and each could be over 500MB, it just get's to a point that the cross platform advantage is no longer worth it, i think it was one of the main reasons cursor had to move off electron to rust based builds."
-        },
-        {
-          "id": 50379308,
-          "author": "Telaneo",
-          "text": "Holy Jesus of Nazareth. I love it.\nI just pray that Vencord will continue to work in some form, if only so I can use whatever font I want. I'm not a fan of many other changes they've made and I've thus had to reverse, but I'm willing to trade away the flexibility of CSS for an app that uses 5 times less RAM. Even better if it doesn't go away at all, but we'll see."
+          "id": 50389519,
+          "author": "tusmaaa",
+          "text": "huh did not realize how empty San Francisco was off tech itself until the mid 2010's almost\nheard there was a lot more finance / creative industry here, have they left or just been crowded by tech?"
         }
       ],
-      "title_ja": "DiscordはElectronを捨てており、新しいアプリはRAMの使用量が少なくなっています",
-      "summary_ja": "ディスカッションのハイライト：良い/ポップアップのために記事の冒頭よりも読みにくかった/クロスプラットフォームGUIアプリケーション開発に非常に興味がある（そして全くの初心者）",
-      "editor_note": "「DiscordはElectronを捨てており、新しいアプリはRAMの使用量が少なくなっています」について、開発者コミュニティで注目が集まっています。",
+      "title_ja": "リビングマップ： 1960年代から続くベイエリアのテクノロジー",
+      "summary_ja": "ディスカッションのハイライト： 2010年代半ばまで、サンフランシスコがテクノロジーそのものからどれほど空っぽであるかを認識していませんでした。\nここにはより多くの金融/クリエイティブ業界があると聞きましたが、彼らは去ったのか、それともちょうど",
+      "editor_note": "「リビングマップ： 1960年代から続くベイエリアのテクノロジー」について、開発者コミュニティで注目が集まっています。",
       "category": "Other"
     }
   ],
@@ -1405,10 +1547,10 @@
     "translate_requests": 30,
     "translate_failures": 0,
     "summarize_requests": 30,
-    "summaries_success": 28,
+    "summaries_success": 30,
     "slot": "23",
-    "started_at": "2026-11-06T05:57:54.302505+09:00",
-    "finished_at": "2026-11-06T05:58:57.855560+09:00",
+    "started_at": "2026-11-06T19:38:08.784151+09:00",
+    "finished_at": "2026-11-06T19:39:33.157265+09:00",
     "story_count": 30
   }
 }
