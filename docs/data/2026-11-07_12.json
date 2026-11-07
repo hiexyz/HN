@@ -1,0 +1,1255 @@
+{
+  "date": "2026-11-07T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50399933,
+      "title_en": "Libghostty 1.0",
+      "url": "https://mitchellh.com/writing/libghostty-1-0",
+      "hn_url": "https://news.ycombinator.com/item?id=50399933",
+      "score": 140,
+      "comment_count": 16,
+      "posted_at": "2026-11-06T23:30:52+00:00",
+      "comments": [
+        {
+          "id": 50400757,
+          "author": "amterp",
+          "text": "Libghostty is such an awesome project, I didn't myself understand the vision a year ago but I've since then been working on my own terminal project using Libghostty and it really does just work and save me such a tremendous amount of work. Kudos to all the contributors!"
+        },
+        {
+          "id": 50400473,
+          "author": "JuniperMesos",
+          "text": "Libghostty is a very cool project, this is an exciting release, kudos to mitchellh for spearheading this as well as all the people who have made contributions to the project. I use ghostty as my primary terminal emulator today and a few months ago I was experimenting with using libghostty in an android project that I plan to jump back to someday when I have the time, so I personally benefit from this work."
+        },
+        {
+          "id": 50400653,
+          "author": "Decabytes",
+          "text": "I’m curious why they chose to use C for this as opposed to Zig with a c like interface."
+        },
+        {
+          "id": 50400605,
+          "author": "Sparkle-san",
+          "text": "In the age of perpetual 0.x software, it's nice to see a well-known project get to 1.0"
+        },
+        {
+          "id": 50400685,
+          "author": "matrixhelix",
+          "text": "And we still don't have Ghostty for Windows"
+        }
+      ],
+      "title_ja": "Libghostty 1.0",
+      "summary_ja": "ディスカッションのハイライト： Libghosttyはとても素晴らしいプロジェクトであり、私自身は1年前のビジョンを理解していませんでしたが、それ以来、Libghosttyを使用して自分のターミナルプロジェクトに取り組んできました。/Libghosttyは非常にクールなプロジェクトです。これはエキサイティングなリリースです。これを先導してくれたミッチェルと、プロジェクトに貢献したすべての人々に感謝します/Zigとは対照的に、なぜこのためにCを使用することを選択したのか興味があります",
+      "editor_note": "「Libghostty 1.0」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 50397429,
+      "title_en": "A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost",
+      "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+      "hn_url": "https://news.ycombinator.com/item?id=50397429",
+      "score": 324,
+      "comment_count": 70,
+      "posted_at": "2026-11-06T19:48:51+00:00",
+      "comments": [
+        {
+          "id": 50397921,
+          "author": "xlayn",
+          "text": "If you use Qwen3.8 27B to manage, to orchestrate, do do shallow research, and then make it ask claude you will notice that Qwen can get out of Haiku, Sonnet and Opus almost as good answers... I was researching how good the model asnswers where, I can't get to work with anything but Fable, but Qwen can get good work from any of them.\nMy theory is that if you make Qwen understand you, Qwen can elaborate as much as needed to get any of those models get good results, because it's filling in details.\nSo using Qwen to direct claude also get's you amazing results way way cheaper...\nUpdate: let me elaborate more, I read the HN entry about the team of 5 Qwens being close to fable quality... so I embarked to add to my harness (\nhttps://github.com/alainnothere/privibe\nbecause we all have one right?) and once I had added the orchestrate tool I had to now measure somehow it it's able to improve quality, so I claude and then Qwen to run a experiment to call my harness passing the model to use and ask them to do something, 3 rounds I think and see what quality came out of it... and as per the grading... qwen and claude agreed that the quality of the response comming out the harness using the orch"
+        },
+        {
+          "id": 50398951,
+          "author": "nico",
+          "text": "This is very cool. But also, it’s a benchmark/result for a very specific experiment/task:  identity resolution\nDespite the title, the article is not making claims of, or demonstrating general usage improvements or general coding agent improvements"
+        },
+        {
+          "id": 50398028,
+          "author": "Fordec",
+          "text": "This sort of stuff has me believing that decision model controlled/prioritized context is the future of context management beyond the raw AGENTS.md file.\nWhy give all the context to an agent, when the context can also be curated, updated and made concise automatically for each new problem."
+        },
+        {
+          "id": 50399975,
+          "author": "angry_octet",
+          "text": "It's illustrative that there are even errors in how the humans have formulated the task and documented the errors.\nThey propose:\nValentino → Female Child\nYet this is obviously a boy name, else it would be Valentina. Is this model going to return confidence values? No, they want decisions. This is an inherent problem in AI with reductive logic for these tasks.\nLikewise, dates. Is 17/08/22:\n- 20170822 (Chinese write the year first, and in speech and chat they will say '17' not '2017'.)\n- 20220817 (Everywhere But North America.)\nIs 04/06/2009:\n- 20090604 (Non-North American)\n- 20090406 (American)\nWithout knowing the cultural context, the location, the document type, the document author, etc, you could be getting it wrong."
+        },
+        {
+          "id": 50399491,
+          "author": "netshade",
+          "text": "Found similar results, but the economics of the models involved have changed so quickly that it becomes so task specific on what the right thing to do was.\nWith an assemblage of models like Jev + Opus or Jev + Qwen, Jev would often do the right thing when deciding to escalate to another model - I was impressed that it would usually make the right call, especially if you gave it good awareness of what the other model capabilities were.  \"ESCALATE to opus if you need good vision awareness\".\nWhen Haiku 5.5 came out though, for my tasks, the cost differences disappeared almost immediately. Haiku was good enough / fast enough for so many things that introducing a decider layer didn't offer huge wins. Jev's \"millisecond\" level performance was nice but would get dwarfed by other latencies in my chain ( web browsing ), that it didn't make a measurable difference in my tasks."
+        },
+        {
+          "id": 50397899,
+          "author": "gbrindisi",
+          "text": "Excellent read. I use the same hybrid approach for a lot of security engineering work and it’s working well after initial calibrations, for example for our own harness we rebuilt auto mode exactly like this to judge tool calls and intent."
+        },
+        {
+          "id": 50399472,
+          "author": "jeef_berky",
+          "text": "Where is the Jev that can replace 20 Opus sessions asking each other for help in a coordinated way? I want to shift towards a local model that \"asks for help\" in an effective way, but it still seems a bit out of reach. I mean, you could build your own 27B or 35B or A3B or bumblebee and spend a week or two carefully forming it into something useful, but it feels like that would be too specific and it would be thrown out when something like qwen4 is released. Maybe not, I don't know. Opus still exists as it is, in a \"subsidized\" form that's hard to step down from."
+        },
+        {
+          "id": 50399690,
+          "author": "ghempton",
+          "text": "Jev is pretty cool for augmenting llms in a lot of ways. We use it in our own agent orchestrator[1] to help route ideas/prompts to running agent sessions. I find when I have a lot of parallel agents running its hard to reason about which agent I should be talking to and Jev makes that call for me.\n[1]\nhttps://github.com/codealong/codealong"
+        }
+      ],
+      "title_ja": "Opusに助けを求めることができるJevは、Opusの精度を4倍低コストで提供します",
+      "summary_ja": "ディスカッションのハイライト： Qwen3.8 27 Bを使用して管理、オーケストレーション、浅い調査を行い、クロードに尋ねると、QwenがHaiku、Sonnet、Opusからほぼ同じように抜け出すことができることに気づくでしょう/これは非常にクールです/この種のものは、意思決定モデルが制御/優先順位付けされたコンテキストが、生のAGENTS.mdファイルを超えたコンテキスト管理の未来であると信じています。\nなぜすべてのコンテキストtを与えるのか",
+      "editor_note": "「Opusに助けを求めることができるJevは、Opusの精度を4倍低コストで提供します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50391456,
+      "title_en": "Tesla to wind down Cybertruck production",
+      "url": "https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817",
+      "hn_url": "https://news.ycombinator.com/item?id=50391456",
+      "score": 836,
+      "comment_count": 1679,
+      "posted_at": "2026-11-06T12:13:51+00:00",
+      "comments": [
+        {
+          "id": 50394025,
+          "author": "brightball",
+          "text": "After Helene knocked out power in parts of my area for a little over 14 days, I found out that a friend of ours used his cybertruck to power his house through the entire mess. He'd run the house on it for a couple of days, then drive the cybertruck over to a super charger station, recharge, then come home and plug the house back in.\nThe battery capacity on those things is equivalent to 9 Tesla Powerwall units or something close to it.\nThey may be ugly, but the emergency prepper in me always wanted one after hearing that story. Before, I always wanted to install powerwalls...but I never considered in an extended event being able to drive my powerwalls somewhere to recharge them."
+        },
+        {
+          "id": 50393307,
+          "author": "paxy",
+          "text": "- Federal EV tax credits are over.\n- The emissions credit market (where Tesla made most of its money) is dead due to lowered standards.\n- Manufacturing costs haven't come down.\n- EV sales share in the US is down to 6% (and falling every quarter).\n- Chinese EVs are dominating every market outside the US.\n- All the overhyped moonshots (sub-$30K car, unsupervised autopilot, autonomous robots) are nowhere to be seen.\nIt's hard to see where Tesla goes from here as a company. The stock is still surviving on Elon hype but has been stagnant for 5 years. The day he gets bored and decides to resign to focus on SpaceX full time the company is basically done."
+        },
+        {
+          "id": 50398454,
+          "author": "kraig911",
+          "text": "Full disclosure: I work for a competitor to Tesla so I'm a bit biased.\nThe Cybertruck I thought was initially kind of neat but when you try to use one as a truck you quickly can see some glaring problems that most people who buy a truck want. Towing with an EV is terrible. I've heard there's power stations with pull throughs but havent' seen them personally. The truck bed isn't practical for anything but a lawn mower. When I ride in one it rides like a car. It doesn't look good dirty. I just think they were going for warthog from Halo and thought the rest would work out. It's also super expensive for all these issues. It's a hobby vehicle. A toy.\nI think Tesla is struggling personally. The marketing tactics of showcasing cars we'll never be able to buy just to cause a scene. Don't get me wrong the new Roadster my jaw dropped and I agree with Elon now that SpaceX and Tesla are the 'same' company I think it's great but let's be realistic. Most people want cars that are cheap, dependable and sort of cool. Not everyone can afford multiple cars, and a corvette that isn't feasible. Like I said I work for a competitor (GM) and I fear China is going to eat our lunch. Unless we make infrast"
+        },
+        {
+          "id": 50396106,
+          "author": "crawshaw",
+          "text": "There are a lot of lenses through which to view the failure of the cybertruck: aesthetics, not enough truck not enough SUV, size, association of aesthetics with politics, etc. But I think the main one that is ignored is price.\nThe cybertruck was built in an era of high truck prices driven by zero interest rates. It bet on the price of trucks going up, just as the Ford F150 electric did. That was the wrong bet.\nIf it was a $40,000 truck, it would have a much bigger market despite all the other explanations of its failure. The market moved under it."
+        },
+        {
+          "id": 50394656,
+          "author": "conductr",
+          "text": "From my perspective, owning a truck and SUV and using them differently for various use cases, the cybertruck is neither. So even if I ignore everything else I feel about it’s aesthetic, Musk, politics, etc. It simply does not serve many real world needs that I have. It put itself in a very narrow box of, only people that really like this quirky design and also like/feel indifferent to the tangential stuff will want to buy this truck. Oh, also you have to be able to afford it too. This is such a small addressable market for a vehicle to target. Was never going to work.\nHowever, it provided content and distraction and kept the stock high longer than it should have and I feel like that’s what Musk continues to excel at."
+        },
+        {
+          "id": 50394319,
+          "author": "gnarcoregrizz",
+          "text": "The absurdity is the best part of it. Finally it was something new, in a landscape where every car and truck has looked the same for the past 20 years. I'm happy someone designed and built something so crazy and different.\nIt probably would have been better had they not been mass produced, and maybe did a very limited quantity run - make it more like a collector item... I suppose thats what it'll be now. I see quite a few on the road, it takes away from the uniqueness."
+        },
+        {
+          "id": 50394171,
+          "author": "RobotToaster",
+          "text": "As much as I dislike Musk, it was nice to see someone try something that didn't look identical to every other car/truck on the road."
+        },
+        {
+          "id": 50393902,
+          "author": "tyoma",
+          "text": "Kids really love these things and get very excited to see them on the road.\nThey are going to be very valued collectors items in 30 years once the kids of today have enough disposable income to buy whichever are left roadworthy by then."
+        }
+      ],
+      "title_ja": "テスラ、サイバートラックの生産を終了",
+      "summary_ja": "ディスカッションのハイライト： Heleneさんが私の地域の一部で14日あまり停電した後、私たちの友人がサイバートラックを使って家に電力を供給していたことがわかりました。連邦EV税額控除は終了しました。\n-排出量クレジット市場（テスラがその資金の大部分を稼いだ市場）は、基準が引き下げられたために死んでいる。\n-製造コストは下がっていません。\n- E/完全な開示：私はテスラの競合他社で働いているので、少し偏見があります",
+      "editor_note": "「テスラ、サイバートラックの生産を終了」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 4,
+      "id": 50397219,
+      "title_en": "Firecracker VM Escape: PwnEscape Part 2",
+      "url": "https://pwn.ai/blog/firecracker-escape",
+      "hn_url": "https://news.ycombinator.com/item?id=50397219",
+      "score": 169,
+      "comment_count": 74,
+      "posted_at": "2026-11-06T19:33:38+00:00",
+      "comments": [
+        {
+          "id": 50398529,
+          "author": "scoodah",
+          "text": "I really wish they would have expanded on this paragraph in their article further:\n> The configuration used here had no jailer. Firecracker's production containment includes dropping privileges and restricting the process through namespaces and seccomp. A deployment using those controls requires a separate assessment of the privileges and resources available after compromising its VMM.\nIf I'm understanding all of this correctly, a properly jailed and configured firecracker instance would greatly reduce the blast radius of this escape, and I feel as though it would have been good for them to explain what jailing and dropping privileges would do to help. I'd hope most production firecracker deployments would be doing this already.\nNot saying that this is any less severe and the root issue is not specific to Firecracker, but to a flaw in the kernel's network code -- they just used an insecure firecracker configuration to demonstrate it. However, I feel like some are taking this as a flaw with firecracker when its not. This is an issue in the kernel networking stack."
+        },
+        {
+          "id": 50397540,
+          "author": "lrvick",
+          "text": "I am more convinced by the day that the Nova Microhypervisor approach is correct.\nDo virtualization with a tiny formally verified microkernel and have complex kernels like Linux run underneath instead of letting a huge, complex, and brittle linux kernel and vm ecosystem control the hypervisor layer.\nhttps://hypervisor.org/"
+        },
+        {
+          "id": 50398007,
+          "author": "zX41ZdbW",
+          "text": "I have a demo service that entirely relies on Firecracker VMs: ClickBench playground,\nhttps://benchmark.clickhouse.com/playground/\nIt hosts hundreds of database engines - many of them have vulnerabilities, and some of them, like Pandas, are basically open RCEs regardless.\nWe can PoC the Firecracker VM Escape on that service."
+        },
+        {
+          "id": 50397972,
+          "author": "markasoftware",
+          "text": "This is not a new vulnerability, it's just a description of how to exploit the PwnEscape vulnerability in practice on firecracker VMs (disclosed multiple weeks ago and discussed in some less upvoted posts on HN)"
+        },
+        {
+          "id": 50398287,
+          "author": "denysvitali",
+          "text": "Dupe:\nhttps://news.ycombinator.com/item?id=50381397\n(Doesn't HN usually deduplicate links? I'm confused)"
+        },
+        {
+          "id": 50398574,
+          "author": "nwilkens",
+          "text": "I've been building Firehyve, which is a firecracker like microVM solution for illumos and FreeBSD..\nhttps://github.com/TritonDataCenter/rshyve\nRunning our microVM's inside of a jailed zone, at least gives me some peace of mind.. It's far from perfect, as a zone escape could be lurking.. but at least it's  a layer of defense."
+        },
+        {
+          "id": 50398382,
+          "author": "clhodapp",
+          "text": "I posted a similar query on the Replit sandbox engine article, but..\nHow do people feel about the hardware isolation provided by microVMs versus the stronger end of software isolation techniques like gvisor?\nRight now, we put a huge amount of stock in \"hardware isolation\". If that starts falling to agents to any substantial degree, I wonder whether we might end up leaning more on patchable software isolation, similar to the rise of software RAID (though, in userspace this time)."
+        },
+        {
+          "id": 50398378,
+          "author": "Betelbuddy",
+          "text": "https://aws.amazon.com/security/security-bulletins/2026-137-..."
+        }
+      ],
+      "title_ja": "爆竹VMエスケープ： PwnEscapeパート2",
+      "summary_ja": "ディスカッションのハイライト：この段落を記事でさらに詳しく説明してほしかったです。\n>ここで使用されている構成には看守がいませんでした。Nova Microhypervisorのアプローチが正しいと確信しています。\n小さな正式に検証されたマイクロカーネルで仮想化を行い、Linux ruのような複雑なカーネルを持っています/私は完全にFirecracker VMに依存するデモサービスを持っています： ClickBenchプレイグラウンド、\nhttps://benchmark.clickhouse。",
+      "editor_note": "「爆竹VMエスケープ： PwnEscapeパート2」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50388001,
+      "title_en": "US FAA says it will phase out floppy disks from air traffic control by 2028",
+      "url": "https://www.reuters.com/world/us/us-faa-says-it-will-phase-out-floppy-disks-air-traffic-control-by-2028-2026-11-05/",
+      "hn_url": "https://news.ycombinator.com/item?id=50388001",
+      "score": 275,
+      "comment_count": 219,
+      "posted_at": "2026-11-06T04:00:28+00:00",
+      "comments": [
+        {
+          "id": 50394856,
+          "author": "bargl",
+          "text": "I worked on modernization in the FAA specifically around digitizing NOTAMs.\nI would urge you not to consider this modernization from the perspective you may be familiar, as someone who may work on the bleeding edge and sometimes sees a lack of caution from engineers pushing for change.\nThe FAAs safety risk management is built around a rigorous process, but that is also a massive slowdown to reasonable progress.\nOne of the eng I worked with was 80+ years old and just didnt want to retire. He did not understand modern systems at all and the risks we were looking at were not (imo) realistically balanced.\nI get the idea that the current administration is pushing safety to the side, but there is another risk where safety becomes a blocker to reasonable change.\nWhen I left that work (more than 15 years ago) it was clearly a blocker."
+        },
+        {
+          "id": 50393856,
+          "author": "jonhohle",
+          "text": "More information needed. Was this a sneakernet? No one thought of replacing with a floppy emulator and SD cards? All of the data can fit into 1.44MB?\nIf the last one is true, devs take note. If FAA can rely on slow, small storage for safety critical applications, you probably can reduce the resource requirements for your app and improve your customers’ experience and extend the life of their hardware."
+        },
+        {
+          "id": 50395528,
+          "author": "driverdan",
+          "text": "The politically grandstanding is gross. From what I can tell E-IDS has been in development since at least 2020 with a planned rollout starting in 2025.\nUnfortunately web search has gotten so bad that it's hard to find past information about it."
+        },
+        {
+          "id": 50389013,
+          "author": "skissane",
+          "text": "FAA website on EIDS:\nhttps://www.faa.gov/air_traffic/technology/eids\nAnother article with some more details:\nhttps://www.pcmag.com/news/the-faa-is-still-using-floppy-dis...\nI know they are saying IDS-4 is a \"1980s\" system, but it appears IDS-4 was actually developed in the early 1990s; it uses MS-DOS and 3.5 inch floppies:\nhttps://sysatl.com/systems-atlanta-inc-awarded-faa-ids4-sust..."
+        },
+        {
+          "id": 50393525,
+          "author": "alex_suzuki",
+          "text": "> replacing outdated floppy disks that contain vital weather and other critical information with a streamlined, 21st-century system\nWhat does this even… mean?"
+        },
+        {
+          "id": 50394538,
+          "author": "Dwedit",
+          "text": "At the very least, physical media is airgapped.  Floppies still aren't a good choice though, since they develop bad sectors so easily."
+        },
+        {
+          "id": 50397478,
+          "author": "MomsAVoxell",
+          "text": "When I was 10 years old, way back in 1980, I got my first 5.25\" diskette from the salesman of a COMPUTER AGE shop.  He got tired of watching me type in the same old BASIC listings after school and spared me the damage of it by giving me the diskette, on the provision that I let other customers use the demo APPLE II's.\nSitting here now in 2026 I have a box containing almost 3000 3.5\" FHD floppy disks.\nEach about 1.544 Megabytes, unless you cut the notch.\nI literally dumpster dived this resource after being invited in to do so at a local electronics shop closure, some years ago now, on the proviso that I did not leave empty handed.\nThere are about 12 devices in my living room that can use these things, but I'll never use more than 30.\nSome day, I'll see the last one go.  That'll be weird."
+        },
+        {
+          "id": 50397860,
+          "author": "acobster",
+          "text": "> The country's air traffic facilities cannot talk to one another and operate on individual analog computers.\nI assume they just mean _old_ computers here. Unless they have some specialized analog air traffic computers? That would be pretty cool."
+        }
+      ],
+      "title_ja": "米連邦航空局（ FAA ）は、2028年までにフロッピーディスクを航空管制から段階的に廃止すると発表",
+      "summary_ja": "ディスカッションのハイライト：私は特にNOTAMのデジタル化に関するFAAの近代化に取り組みました。\n誰か/より多くの情報が必要/政治的に見せびらかしているので、この近代化をお馴染みの視点から考えないことをお勧めします",
+      "editor_note": "「米連邦航空局（ FAA ）は、2028年までにフロッピーディスクを航空管制から段階的に廃止すると発表」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50397994,
+      "title_en": "AI is dramatically accelerating AI research",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+      "hn_url": "https://news.ycombinator.com/item?id=50397994",
+      "score": 194,
+      "comment_count": 149,
+      "posted_at": "2026-11-06T20:27:23+00:00",
+      "comments": [
+        {
+          "id": 50400468,
+          "author": "chr15m",
+          "text": "Every dot in these graphs is composed of multiple benchmarks smooshed together.\nBenchmarks are by definition a curated set of things that can be measured and evaluated.\nThings that can be measured and evaluated can be (expensively) trained on.\nThe progress we are observing comes from figuring out how to measure and evaluate particular aspects of intelligence, and then expensively training on feedback loops made of those exact measurements, and synthesized data representing further measurements (literally benchmaxing).\nWhat is not shown in these graphs are the set of things that intelligence can do, which are difficult, expensive or impossible to measure and evaluate.\nThat set of things is much larger than the set of benchmarks represented in the graph.\nTherefore the post is misleading in the sense that the \"superintelligence\" being targeted is \"jagged\" to use Karpathy's term, and we infact already have jagged superintelligence (calculators, compilers, Bayesian spam classifiers, etc.)\nWe are witnessing a profound explosion of much more jagged superintelligence, restricted to the exact domains that can be (expensively) RL'ed on."
+        },
+        {
+          "id": 50399237,
+          "author": "nsilvestri",
+          "text": "AI is accelerating my work...work which only exists because of AI.\nIf I had to do my individual tasks without AI, I would be slower. But if I take a step back, I'm really not changing the world any faster than I was before."
+        },
+        {
+          "id": 50398548,
+          "author": "cronin101",
+          "text": "Not trying to discredit the premise but I do wonder how much this is from vertical scaling of model intelligence in weights vs the sheer amount of capital being thrown at training and horizontal scaling of agent swarms etc.\nAnecdotally it seems like the majority of continued uplift comes from models doing more and exploring more of the search space, and we are getting better at giving them embarrassingly parallel problems to Hoover up with infinite token spend."
+        },
+        {
+          "id": 50399131,
+          "author": "deepsquirrelnet",
+          "text": "For a much more thorough, alternate take I found this article better:\nhttps://open.substack.com/pub/rameznaam/p/ai-rsi-isnt-leadin..."
+        },
+        {
+          "id": 50399643,
+          "author": "smlacy",
+          "text": "Even if \"AI Research\" is sped up by O(10x) aren't we still primarily bottlenecked on training speed?  Inputting ~10T+ tokens takes time no matter how much smarter the final output model is?   If your output model has O(10-100 Billion) parameters there are just some fundamental limits on how quickly you can converge your weights, right?\nThat is, unless this is saying that automated AI research is going to get us to \"smarter models with fewer parameters\" and of course, these are faster to train, then I can see how the exponential loop really gets going, but there's certainly an information theoretical limit here?"
+        },
+        {
+          "id": 50400593,
+          "author": "davidclark",
+          "text": "> Their reasons for believing this have been redacted.\nThen their reasons should not be believed."
+        },
+        {
+          "id": 50399999,
+          "author": "jcims",
+          "text": "One rather pedestrian factor that could be at play is that 'AI' seems to be quite good at optimization.  Eg the Anthropic Scion project to improve throughput of CI/CD. (\nhttps://www.anthropic.com/research/redesigning-source-contro...\n)\nThis combined with ability to massively scale experiments for even (or maybe particularly) the most mundane performance tweaks might just be making the process of improving AI more efficient."
+        },
+        {
+          "id": 50399389,
+          "author": "fooker",
+          "text": "AI is dramatically accelerating any research that has objective goals where you can not shift goalposts."
+        }
+      ],
+      "title_ja": "AIはAI研究を劇的に加速しています",
+      "summary_ja": "ディスカッションのハイライト：これらのグラフの各ドットは、複数のベンチマークで構成されています。\nベンチマークは、定義上、測定および評価できるもののキュレーションされたセットです。\n/AIが私の仕事を加速させているもの... AIのおかげでのみ存在する仕事。\nAIなしで個々のタスクを実行しなければならない場合、私は遅くなります/前提を疑うつもりはありませんが、これはモデルインテリジェンスの垂直スケーリングによるものです",
+      "editor_note": "「AIはAI研究を劇的に加速しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50399695,
+      "title_en": "Outbound SIP calling is now available to all organizations",
+      "url": "https://developers.openai.com/api/docs/guides/voice-sip",
+      "hn_url": "https://news.ycombinator.com/item?id=50399695",
+      "score": 26,
+      "comment_count": 19,
+      "posted_at": "2026-11-06T23:03:55+00:00",
+      "comments": [
+        {
+          "id": 50400282,
+          "author": "ocd",
+          "text": "More than a few places won't even recognize VoIP numbers as legitimate primary numbers, and this will only make it worse. I'm not surprised an organization tied to Microsoft is going to ruin another thing I like."
+        },
+        {
+          "id": 50400722,
+          "author": "jordemort",
+          "text": "Is this why I've gotten 7+ spam robocalls in the past 2 days?"
+        },
+        {
+          "id": 50400249,
+          "author": "joecool1029",
+          "text": "Anyone else eagerly awaiting a deluge of ChatGPT scam calls?"
+        },
+        {
+          "id": 50400458,
+          "author": "dqv",
+          "text": "That's kind of cool. I hope more companies do this. If I understand it correctly, I can provide my own SIP server, so ChatGPT can join conferences or answer incoming calls."
+        },
+        {
+          "id": 50400432,
+          "author": "kyleee",
+          "text": "Hopefully it’ll be possible to use this to dispatch faxes over SIP as well"
+        }
+      ],
+      "title_ja": "アウトバウンドSIP通話がすべての組織で利用できるようになりました",
+      "summary_ja": "ディスカッションのハイライト： VoIP番号を正当なプライマリ番号として認識できない場所がいくつかありますが、これは状況を悪化させるだけです/これが過去2日間に7つ以上のスパムロボコールを受けた理由ですか？/他の誰かがChatGPT詐欺通話の洪水を熱心に待っていますか？",
+      "editor_note": "「アウトバウンドSIP通話がすべての組織で利用できるようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 50399657,
+      "title_en": "Sodium-ion batteries approach cost parity with LFP",
+      "url": "https://www.pv-magazine.com/2026/11/06/sodium-ion-batteries-approach-cost-parity-with-lfp-with-70-gwh-covered-by-supply-agreements/",
+      "hn_url": "https://news.ycombinator.com/item?id=50399657",
+      "score": 117,
+      "comment_count": 51,
+      "posted_at": "2026-11-06T23:00:46+00:00",
+      "comments": [
+        {
+          "id": 50399778,
+          "author": "syntaxing",
+          "text": "I’m so desperate for home battery using sodium batteries. Safer and lower temperature it can operate at. Low energy density but I don’t care for home battery."
+        },
+        {
+          "id": 50400361,
+          "author": "hbarka",
+          "text": "I switched the 12v lead-acid batteries on my EV to the 12v Lithium from OHMMU. Best upgrade I've done. I recently saw that they now offer 12V Sodium, and their warranty now went up to 3 years on the sodium, from 1 year. They have new data on its robustness."
+        },
+        {
+          "id": 50399942,
+          "author": "KellyCriterion",
+          "text": "Just imagine:\nALL the money that flew into \"Fossil & Co\" throughout the last, lets say, 50 or 60 years, including all implicit fundings, like state-building-streets or universities-masters-engineering-focus-ICE, all the money for lobbying, all the money for all the (counter)campaigns (from ALL sides), and all that money....\n...WHAT IF we would have spent all of this money instead on Battery Research and all this Renewable Energy stuff?\nWhere would we be today on techdev curve? ;-) ;-)"
+        },
+        {
+          "id": 50399805,
+          "author": "allears",
+          "text": "\"error establishing a database connection\""
+        },
+        {
+          "id": 50399937,
+          "author": "mateusfreira",
+          "text": "Every day, there's another news story about it... Just let me know when we can actually buy it. It's getting boring already."
+        },
+        {
+          "id": 50400039,
+          "author": "EwanToo",
+          "text": "Alternative site which is still up\nhttps://www.pv-magazine.com/2026/11/06/sodium-ion-batteries-..."
+        },
+        {
+          "id": 50399914,
+          "author": "alexfromapex",
+          "text": "https://web.archive.org/web/20261106230147/https://ievchina...."
+        }
+      ],
+      "title_ja": "ナトリウムイオン電池がLFPと同等のコストに近づく",
+      "summary_ja": "ディスカッションのハイライト：私はナトリウム電池を使用した家庭用バッテリーを切望しています/私はEVの12 v鉛蓄電池をOHMMUから12 vリチウムに切り替えました/想像してみてください：\n過去50年または60年にわたって「Fossil ＆ Co」に流れ込んだすべての資金は、国家建設の通りや大学などのすべての暗黙の資金調達を含みます",
+      "editor_note": "「ナトリウムイオン電池がLFPと同等のコストに近づく」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50354097,
+      "title_en": "Can GROUP BY still be optimized after all these years?",
+      "url": "https://pivotlake.io/blog/know-your-limit-faster-top-k-aggregation/",
+      "hn_url": "https://news.ycombinator.com/item?id=50354097",
+      "score": 24,
+      "comment_count": 0,
+      "posted_at": "2026-11-03T16:30:23+00:00",
+      "comments": [],
+      "title_ja": "GROUP BYは、これらの年月を経ても最適化できますか？",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「GROUP BYは、これらの年月を経ても最適化できますか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50394855,
+      "title_en": "First steps in bare-metal programming using UEFI",
+      "url": "https://kevinboone.me/efitest_index.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50394855",
+      "score": 188,
+      "comment_count": 31,
+      "posted_at": "2026-11-06T16:50:29+00:00",
+      "comments": [
+        {
+          "id": 50396513,
+          "author": "the_panopticon",
+          "text": "For \"Get used to the lack of a C standard library\" mentioned in\nhttps://kevinboone.me/efitest4.html\nthere's always\nhttps://github.com/tianocore/edk2-libc\n.\nAnd on \"Be aware of the Windows-ness of EFI\" commentary the resemblance to Windows coding style\nhttps://computernewb.com/~lily/files/Documents/NTDesignWorkb...\nis no accident. We leveraged this coding methodology as we evolved the original Intel Boot Initiative then EFI and then UEFI code and specification\nhttps://www.intel.com/content/dam/www/public/us/en/documents..."
+        },
+        {
+          "id": 50397705,
+          "author": "kevin_thibedeau",
+          "text": "> The linker won’t complain if your code calls functions that don’t exist – it will just mark them as external, expecting them to be provided by some other code. But they won’t be, and the program will just crash when it calls one of these missing functions.\nYou can verify no external symbols remain after linkage with: nm -D --undefined-only. This can be incorporated into a build script to verify the binary is valid."
+        },
+        {
+          "id": 50396790,
+          "author": "edoceo",
+          "text": "This guide is fantastic for getting rolling in the UEFI space. I used this as one of the references when building a bootloader with Zig. Has its own set of issue, especially that 16bit character situation.\nOnce you dig into those there are a bunch of sharp edges, or maybe it's just that that EFI environment is so weird compared to typical Linux system or application development."
+        },
+        {
+          "id": 50399199,
+          "author": "hocusPokeUs",
+          "text": "Other cool uefi programming resources:\nIrc client in uefi:\nhttps://github.com/codyd51/uefirc\nUEFI library the irc client relies on:\nhttps://github.com/rust-osdev/uefi-rs\nNo more separate GRUB/boot loader code paths needed; boot Linux from UEFI by loading a kernel:\nhttps://pretalx.com/devconf-cz-2024/talk/W3AVCT/\nHave noodled around with a side-project generating an entire system from boot loader via LLMs but haven't had energy for it given job is the same headspace that needs to be ignored once in a while to not burnout; ultimately want to boot a model of my Linux use (am using bpf to plan and model everything possible and convert it to a compute schedule for sched_ext) and just have a kernel <> model architecture\nFor security am considering how to embed in the model various authentication obligations to block access to certain blocks of memory without confirmation via webcam and key or something"
+        },
+        {
+          "id": 50398967,
+          "author": "mrlonglong",
+          "text": "Yikes. UEFI is way worse than I thought it was.\nBest thing to do with it is treat it as a bootloader and use something else a lot more sane than UEFI.\nDare I live in hope that a newer revision will use 8 bit UTF and better conventions."
+        },
+        {
+          "id": 50396963,
+          "author": "kragen",
+          "text": "(Although this comment discusses an AI-written project, the comment itself is entirely human-written.)\nIt's probably worth pointing out that, unless you're writing a replacement for GRUB, Multiboot2 is a reasonable alternative to building a UEFI PE32+ image, and it permits you to still call UEFI services:\nhttps://www.gnu.org/software/grub/manual/multiboot2/multiboo...\nhttps://wiki.osdev.org/Multiboot\nI was pleased last week that I could elicit enough of a UEFI environment from Opus 5.5 to be able to build an UEFI application without enormous, un-auditable dependencies like gnu-efi.  Claude distilled the relevant parts of the UEFI interface into a 289-line header file.  The example application just displays the keyboard and mouse events on a UEFI framebuffer using a vendored pixel font, thus the name \"inputmon\":\nhttp://canonical.org/~kragen/sw/inputmon-3.tar.gz\nThe Makefile includes a \"run\" target to boot it under QEMU with the OVMF implementation of UEFI.\n(One fairly surprising feature of all this is that, not counting the time Claude was waiting for me, it took the model a total of about 7 minutes to write and test this.  These 7 minutes were spread over almost 15 hours because I "
+        },
+        {
+          "id": 50398751,
+          "author": "erminpour",
+          "text": "More posts and projects like this please!"
+        },
+        {
+          "id": 50398906,
+          "author": "0c3ca83",
+          "text": "It's like programming an overengineered DOS."
+        }
+      ],
+      "title_ja": "UEFIを使用したベアメタルプログラミングの最初のステップ",
+      "summary_ja": "ディスカッションハイライト：「C標準ライブラリの欠如に慣れる」については、\nhttps://kevinboone.me/efitest4.html\n常にあります\nhttps://github.com/tianocore/edk2-libc\n.\nそして「/> The linker won 't complain if your code calls functions that don' t exist – it will just mark them as external, expecting them to be provided by some other code/This guide is fantastic for getting rolling in the UEFI space",
+      "editor_note": "「UEFIを使用したベアメタルプログラミングの最初のステップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50397017,
+      "title_en": "Restaurant Delivery Payment-Skimming Campaign",
+      "url": "https://www.infohawk.com/news/2026-11-05-scamwich-restaurant-skimming",
+      "hn_url": "https://news.ycombinator.com/item?id=50397017",
+      "score": 89,
+      "comment_count": 37,
+      "posted_at": "2026-11-06T19:19:27+00:00",
+      "comments": [
+        {
+          "id": 50397758,
+          "author": "ModernTimes",
+          "text": "None of this would work if Google Adsense didn't allow scam ads on their system. But they do, millions every day (I deal with this every day on my websites, Google don't care).\nhttps://en.wikipedia.org/wiki/Racketeer_Influenced_and_Corru..."
+        },
+        {
+          "id": 50400725,
+          "author": "BatchJob",
+          "text": "I have to say this is probably the anti-pattern of all anti-patterns that the web easily allows without much protection.  Its a little surprising that it took this long.  Probably vibe coding aided its creation.\nMaybe its time to turn off the web.  Its only going to get worse."
+        },
+        {
+          "id": 50400710,
+          "author": "jijji",
+          "text": "all i have to say is Jimmy Johns is a really bad tasting version of Subway.  I know other people feel the same way.  Jersey Mike's is actually pretty good too."
+        },
+        {
+          "id": 50399189,
+          "author": "mlmonkey",
+          "text": "Couldn't the original website owner just look at the logs and see where most of the requests are coming from? And also the referrers would be a dead giveaway, right? That's assuming someone is looking at the `access.log` file occasionally."
+        },
+        {
+          "id": 50397760,
+          "author": "pixl97",
+          "text": "Hmm, how do you even protect against this one? Rewriting the entire website makes the entire situation a bit more difficult, you can control about everything."
+        },
+        {
+          "id": 50398075,
+          "author": "mrguyorama",
+          "text": "Google is the entire problem here. Pay them money and your literal scam site can sit above the real site in the search results.\nWhy are they allowed to direct you to literal scams? Why are they allowed to profit off of literal scams?\nThis affects the company I work for, who gets called every single day with customer complaints from people who clicked the scam link from a search ad when looking for our site.\nOur site has existed for over a decade. There's no justifiable reason that a company who's brand is known by every single grocer or merchant to somehow show up under a literal fly by night scam company pretending to have the same name. It's unacceptable.\nMy sister got scammed by this exact mechanism just last week."
+        },
+        {
+          "id": 50397664,
+          "author": "_def",
+          "text": "damn it. Every now and then I daydream about a federated network of digital delivery infra to cut out these platform middlemen but abuse/moderation like this is still what makes the idea impossible to take off. That's what you (and the restaurant) get from the centralization."
+        },
+        {
+          "id": 50399850,
+          "author": "logicallee",
+          "text": "This is very useful information. I operate an AI-governed digital nation, and this type of proxying would be devastating to our users. Due to the scale of the attacks, DNS and even the IP address system itself also may not be fully reliable. We already saw some DNS servers serve the wrong IP address, though SSL certificates help in this respect.\nWhat could we possibly do to limit the damage from this? Malicious Chrome extensions can also rewrite entire web pages, so if bad actors purchase or infiltrate legitimate extensions, they can also put users at risk.\nWe are considering continuing work on our own browser, since we could ship certificates to use client-side, but it's a recursive problem since our users would have to get the first trusted version before they could trust updates to it. If they have trouble reaching our site in the first place, through poisoned Google search results, poisoned DNS, and poisoned IP routing, then it is difficult to do this."
+        }
+      ],
+      "title_ja": "レストランの配達のお支払い-スキミングキャンペーン",
+      "summary_ja": "ディスカッションのハイライト： Google Adsenseがシステムで詐欺広告を許可していない場合、これらはどれも機能しません/これはおそらく、ウェブがあまり保護せずに簡単に許可するすべてのアンチパターンのアンチパターンであると言わざるを得ません/私が言わなければならないのは、ジミー・ジョンズはサブウェイの本当に悪いテイスティングバージョンです",
+      "editor_note": "「レストランの配達のお支払い-スキミングキャンペーン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50400597,
+      "title_en": "I Toured Unitree's Factory. I'm More Bullish on the West",
+      "url": "https://josef.cn/blog/unitree",
+      "hn_url": "https://news.ycombinator.com/item?id=50400597",
+      "score": 3,
+      "comment_count": 0,
+      "posted_at": "2026-11-07T01:05:16+00:00",
+      "comments": [],
+      "title_ja": "ユニットツリーの工場を見学しました。私は西洋をより強気に見ている",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「ユニットツリーの工場を見学しました。私は西洋をより強気に見ている」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50395450,
+      "title_en": "Devvm.dev: One VM for every project",
+      "url": "https://devvm.dev/",
+      "hn_url": "https://news.ycombinator.com/item?id=50395450",
+      "score": 113,
+      "comment_count": 48,
+      "posted_at": "2026-11-06T17:30:22+00:00",
+      "comments": [
+        {
+          "id": 50398964,
+          "author": "photonios",
+          "text": "I keep seeing projects like this pop up and they never nail it.\nI need isolation, but I also need to give my agents secure access to internal package registries, logs, internal infra, designs, emulators, browsers, docs etc. At a large company, work can span dozens of repositories. And on top of that, I need dozens of these.\nI built this at work. Engineers use krunkit VMs with proper memory ballooning, GPU acceleration. Retina RDP, credential injecting proxy for etc.\nThis seems like a fun toy for single project development, but nothing close to what you need as an engineer in a corporate environment."
+        },
+        {
+          "id": 50397143,
+          "author": "mnahkies",
+          "text": "Damn, I've been building something very similar the past few weeks - haven't quite gotten to a public release yet.\nMines based on libvirt and uses cloud-init for creating the images, with shared golden images across projects.\nSkimming your docs it wasn't totally clear to me if your images are built per project, or COW from shared toolchains.\nLooks like you have a few features in there that I might take some inspiration from though, eg the proxying stuff.\nFunny how many of us are trying to solve the same problem at the moment."
+        },
+        {
+          "id": 50400646,
+          "author": "sivakon",
+          "text": "There is also workshop recently released by canonical that uses lxd under the hood\nhttps://github.com/canonical/workshop"
+        },
+        {
+          "id": 50396576,
+          "author": "jFriedensreich",
+          "text": "I see nothing this brings over smolvm machines. I did not use lima / krunkit outside colima but in colima it was just slow, had outdated devx and was unreliable compared to controlling every detail with an embedded vm library."
+        },
+        {
+          "id": 50396465,
+          "author": "brkomir",
+          "text": "One of the fake recruiters contacted me on LikedIN for a Solidity dev role, with an assignment repo that came as a zip in DM. Everything looked fine since Finder only showed .sol files, but Finder doesn't show .git and other hidden folders by default. However .git was there, and it had a hook that ran eval() on a remote address on commit/push.\nAs I read it, .git protection stops the VM from changing hooks, and --clone leaves the hook behind since a clone doesn't copy hooks. However, the hook is still in the folder on the host. Does devvm inspect and warn when a folder already has hooks before you start?"
+        },
+        {
+          "id": 50399997,
+          "author": "cliche",
+          "text": "I made something like this at work as a way to spin up multiple dev stacks on the same project. It’s docker based though so not the best isolation.\nThe problem i having is more workflow related. AI is doing the dev so fast I constantly need to validate different versions and change sets of an app. Git worktrees work for isolating the agents changes but doesn’t solve running multiple instances of a dev server and remembering which one applies to which agent session.\nThe solution I came up with was throw the code and all tools in a container git branch. Then run a reverse proxy to get <mybranch>.localhost style urls working.\nWould be interested to give something like this a shot if it also solves those workflow issues."
+        },
+        {
+          "id": 50400397,
+          "author": "crawshaw",
+          "text": "This is also the principle behind exe.dev, which we have been working on for over a year now. You should have lots of VMs."
+        },
+        {
+          "id": 50396037,
+          "author": "AntonyGarand",
+          "text": "How does it compare to existing similar products?\n`sbx`, safehouse and the like"
+        }
+      ],
+      "title_ja": "Devvm.dev ：プロジェクトごとに1つのVM",
+      "summary_ja": "ディスカッションのハイライト：私はこのようなプロジェクトがポップアップしているのを見続けていますが、彼らはそれを釘付けにすることはありません。\n隔離が必要ですが、エージェントに内部パッケージレジストリ、ログ、内部inf/Damnへの安全なアクセスを許可する必要もあります。ここ数週間、非常に似たようなものを構築していますが、まだ公開されていません。\nLibvirtに基づいてマイニングし、イメージを作成するためにcloud - initを使用する/Canonicalによって最近リリースされたワークショップもあります",
+      "editor_note": "「Devvm.dev ：プロジェクトごとに1つのVM」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50397711,
+      "title_en": "Google has acquired Crusoe's data center site in southeast Wyoming",
+      "url": "https://www.crusoe.ai/resources/newsroom/crusoe-wyoming-data-center-campus-update",
+      "hn_url": "https://news.ycombinator.com/item?id=50397711",
+      "score": 37,
+      "comment_count": 7,
+      "posted_at": "2026-11-06T20:09:14+00:00",
+      "comments": [
+        {
+          "id": 50399722,
+          "author": "tristanj",
+          "text": "Google announced yesterday they would invest $17 billion into this Wyoming data center project\nhttps://blog.google/innovation-and-ai/infrastructure-and-clo...\n>\nData center upstart Crusoe is being pushed aside at an artificial intelligence campus it was developing in Wyoming after failing to lock in customers including Alphabet Inc.’s Google, according to people familiar with the situation.\nhttps://www.bloomberg.com/news/articles/2026-11-06/google-ta...\nProblems with Crusoe were already brewing back in June:\n>\nThe developer [Crusoe] known for giant AI buildouts announced that it had “paused” its plan to build a data center that would draw enough electricity to power a city the size of Denver. In reality, Crusoe is being pressured to leave the project, after Google had raised concerns about the costs and timetable under Crusoe’s watch, some of the people said, asking not to be identified because the information isn’t public.\nhttps://www.bloomberg.com/news/articles/2026-06-11/crusoe-pu...\nCrusoe was previously a bitcoin mining operation that pivoted to building AI data centers around 2024. They don't have decades of experience building data centers.\nIt seems Google disagreed with how"
+        },
+        {
+          "id": 50400232,
+          "author": "simonw",
+          "text": "Presumably the value of data centers that (1) already exist and (2) already have deals to provide the energy (and water) they need is about to skyrocket."
+        },
+        {
+          "id": 50399726,
+          "author": "rooftopzen",
+          "text": "They will likely back out (this is infinite money glitch news for accounting) - see: similar from Nscale.  No one company needs more data centers lol (you will not hear this from anyone who has a vested interest in using them as loan collateral)."
+        }
+      ],
+      "title_ja": "Googleがワイオミング州南東部にあるCrusoeのデータセンターサイトを買収",
+      "summary_ja": "ディスカッションハイライト： Googleは昨日、このワイオミング州のデータセンタープロジェクトに170億$を投資すると発表しました\nhttps://blog.google/innovation-and-ai/infrastructure-and-clo...\n>\nデータセンターの立ち上げ/おそらく、（ 1 ）すでに存在し、（ 2 ）すでに必要なエネルギー（と水）を提供する取引があるデータセンターの価値は急上昇しようとしています。 /彼らはおそらく撤退するでしょう（これは会計のための無限のお金の不具合ニュースです） -参照： sim",
+      "editor_note": "「Googleがワイオミング州南東部にあるCrusoeのデータセンターサイトを買収」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50399569,
+      "title_en": "ChatGPT silently passes data between connectors and the bounty wants an ID card",
+      "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053",
+      "hn_url": "https://news.ycombinator.com/item?id=50399569",
+      "score": 68,
+      "comment_count": 27,
+      "posted_at": "2026-11-06T22:50:43+00:00",
+      "comments": [
+        {
+          "id": 50399779,
+          "author": "simonw",
+          "text": "I assumed that the ID requirement was about sanctions compliance - OpenAI can't legally send money to someone in North Korea, for example.\nBut\nhttps://docs.bugcrowd.com/researchers/managing-account/accou...\nsays:\n> To improve platform integrity by reducing high volumes of low-quality submissions, identity verification (IDV) is now mandatory for all researchers before submitting reports to Managed Bug Bounty (MBB) programs (public and private, excluding on-demand MBBs)."
+        },
+        {
+          "id": 50399789,
+          "author": "kristjansson",
+          "text": "This seems like a fundamental misunderstanding / over estimation of the guarantees OAI and MCP can offer.  If 'confirmation' is a separate tool call ... it's a separate tool call.  There's no scoping, there's no 'binding', nothing.  When you hand control back to the model you hand control back to the model."
+        },
+        {
+          "id": 50399890,
+          "author": "orf",
+          "text": "Why did “techsoft.ye” feel the need to reply with a lengthy LLM comment that contained nothing useful at all?"
+        },
+        {
+          "id": 50400387,
+          "author": "cluckindan",
+          "text": "Claude bug report and Claude reply… what is the world coming to"
+        },
+        {
+          "id": 50400461,
+          "author": "nekusar",
+          "text": "The last 2 vulns I found, I sold on Tor.\nThe companies can pay market value. Someone will.\nNo I won't sign an NDA.\nNo, I won't sign your obscene contract.\nNo, I won't agree to a 90/120/180/360 day embargo.\nNo, I don't care about your customers or shareholders.\nSimply put: fuck you, pay me. Or, find out."
+        }
+      ],
+      "title_ja": "ChatGPTはコネクタ間でデータをサイレントに渡し、バウンティはIDカードを必要とします",
+      "summary_ja": "ディスカッションのハイライト：身分証明書の要件は制裁コンプライアンスに関するものだと想定していました。たとえば、OpenAIは北朝鮮の誰かに合法的に送金することはできません。\nしかし\nhttps://docs.bugcrowd.com/researchers/これは、OAIとMCPが提供できる保証の根本的な誤解/過大な見積もりのようです/なぜ「techsoft.ye」は、まったく役に立たない長いLLMコメントで返信する必要があると感じましたか？",
+      "editor_note": "「ChatGPTはコネクタ間でデータをサイレントに渡し、バウンティはIDカードを必要とします」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50396834,
+      "title_en": "Replit rebuilt its sandbox engine with microVMs",
+      "url": "https://frontier.replit.com/sandbox-engine-microvms-part-1/",
+      "hn_url": "https://news.ycombinator.com/item?id=50396834",
+      "score": 63,
+      "comment_count": 17,
+      "posted_at": "2026-11-06T19:06:10+00:00",
+      "comments": [
+        {
+          "id": 50398701,
+          "author": "ghshephard",
+          "text": "Replit intrigues me.   Other than Paul Graham talking it up a lot on Twitter - I've never once heard of anyone using it, seen any chatter about it in any or our internal slack forums.   Every other AI company I get barraged with- no matter where I go, even antigravity/gemini carbon/argon/models/etc... - which nobody I know uses either - but at least I hear about them a lot.\nI wonder what ecosystem replit exists in that seems to completely not overlap with any of the other AI technologies and companies...."
+        },
+        {
+          "id": 50398805,
+          "author": "schainks",
+          "text": "My read on this is they re-invented the OTP supervision tree, process isolation, hibernation, and actor-to-actor message passing, but had to push the isolation boundary all the way down into Ring -1 (KVM/Cloud Hypervisor) and customized Linux  tinyconfig  kernels because their \"actors\" are actively trying to jailbreak the hypervisor.\nIs that about right?"
+        },
+        {
+          "id": 50397603,
+          "author": "clhodapp",
+          "text": "It's only somewhat related to the article, but:\nHow do people feel about the hardware isolation provided by microVMs versus strong software isolation techniques like gvisor?\nRight now, we put a huge amount of stock in \"hardware isolation\". If that starts falling to agents to any substantial degree, I wonder whether we might end up seeing a transition toward patchable software isolation, similar to the rise of software RAID that occurred a while back."
+        },
+        {
+          "id": 50398393,
+          "author": "pearcoder",
+          "text": "MicroVMs are quite popular nowadays due to sandboxing but we need to also keep in mind least privilege principle. Applying that is also tricky."
+        },
+        {
+          "id": 50398585,
+          "author": "curiousgal",
+          "text": "This Replit?\nhttps://intuitiveexplanations.com/tech/replit/"
+        },
+        {
+          "id": 50398234,
+          "author": "stevekemp",
+          "text": "I do hope nobody reading this copies any of Replit's design decisions or architecture, lest they get threatened.\nI avoided reading the piece, just in case."
+        },
+        {
+          "id": 50399146,
+          "author": "iberator",
+          "text": "Guys. You could do the same with ansible like decade ago."
+        }
+      ],
+      "title_ja": "ReplitはmicroVMを使用してサンドボックスエンジンを再構築しました",
+      "summary_ja": "ディスカッションのハイライト： Replitに興味をそそられました/これについて読んだことは、OTP監督ツリー、プロセス分離、休止状態、およびアクター間メッセージの通過を再発明しましたが、分離の境界を完全に押し広げなければならなかったということです/これは記事に多少関連しているだけですが、次のとおりです。\nGvisorのような強力なソフトウェア分離技術と比較して、microVMが提供するハードウェア分離について、人々はどのように感じていますか？\n右",
+      "editor_note": "「ReplitはmicroVMを使用してサンドボックスエンジンを再構築しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50395919,
+      "title_en": "Memorilla: Latent Semantic Memory for LLMs",
+      "url": "https://arxiv.org/abs/2610.21375",
+      "hn_url": "https://news.ycombinator.com/item?id=50395919",
+      "score": 86,
+      "comment_count": 7,
+      "posted_at": "2026-11-06T18:03:33+00:00",
+      "comments": [
+        {
+          "id": 50396599,
+          "author": "jkingsman",
+          "text": "So if I'm reading this right, it's basically a specialized embedding of a RAG, and then a model in the middle takes the agent's queries and returns responses in a form that is injecting into the main model's input token stream directly i.e. skipping actual text. And the injection format is INCREDIBLY token efficient. Sort of injecting a vibe rather than quotable text. Their results of \"good on concepts, less good on quotes/exact text retrieval\" seem to intuitively line up with that."
+        },
+        {
+          "id": 50399474,
+          "author": "bob1029",
+          "text": "I am finding that semantic ~= lexical when you have something like a frontier model driving. Using full text search engines is still the most compelling approach for handling large document sets.\nI really struggle with the semantic / embedding concerns when we have a generative model that can reverse engineer a Mario 64 rom dump to run on my toaster oven. These models know how to compose Lucene & other FTS query strings in such a way that we are effectively getting semantic search over purely lexical systems."
+        }
+      ],
+      "title_ja": "Memorilla ： LLMのための潜在的なセマンティックメモリ",
+      "summary_ja": "ディスカッションのハイライト：私がこの権利を読んでいる場合、それは基本的にRAGの特殊な埋め込みであり、途中のモデルがエージェントのクエリを取り、INJEの形式で応答を返します/フロンティアモデルのようなものが運転している場合、その意味的な~=語彙を見つけています",
+      "editor_note": "「Memorilla ： LLMのための潜在的なセマンティックメモリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 50392118,
+      "title_en": "Gemini Omni 1.2 Flash",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "hn_url": "https://news.ycombinator.com/item?id=50392118",
+      "score": 294,
+      "comment_count": 220,
+      "posted_at": "2026-11-06T13:35:27+00:00",
+      "comments": [
+        {
+          "id": 50392583,
+          "author": "wxce",
+          "text": "It's insane how Google has dropped the ball almost completely with AI.\nI literally don't care about their models anymore because I can't even try them without paying for them?\nI already pay for the plus plan but whatever their latest model was, is locked for me. Or otherwise it's just not accessible for me.\nIf I try to add balance to my Google payment account, it shows me errors and is asking me to verify my identity through government documents.\n---\nNot to mention the extremely confusing terminology. \"Flash\", \"Experimental\". Why are most of your models either of those two? I don't get the confidence that your models are any good because of such names. Give me a normal reliable model!\nEven if Google releases AGI tier models in the future, I'll always look for other models because Google clearly thinks their models are too good for any of us."
+        },
+        {
+          "id": 50393388,
+          "author": "msabalau",
+          "text": "This is a new video model.  It is not a replacement for Gemini 4, it is doing something altogether different.\nIt has been available, since yesterday, within Google Flow. I know, because I used it yesterday.  Creatives normally are using Flow or similar third party tools, not APIs or AI Studio. The claim here is that there is more character consistency, which is helpful if true. But that's not something I can see from a little work. Despite the \"More Affordable\" claim, it costs more, and the outputs doesn't, from my limited experience so far, seem to be significantly better.  So I could only, personally, justify pulling this up when character consistency is punching me in the face.  Which, to be fair, is a lot of the time, both in my experience, and the experience of other AI film makers I talk to.\nThis isn't for (most) coders, it hardly matters if it shows up on Flow a little earlier that Google Vids, and, perhaps, it is a little silly to act like it is a nightmare that a rollout occurs over a few days, especially the rollout  prioritizes the paying creatives on the tool that are most likely to use."
+        },
+        {
+          "id": 50392641,
+          "author": "Willingham",
+          "text": "The rollout is so confusing. Going straight to the Gemini app and asking when I can use this model gets me vague and contradicting answers. Ultimately it sounds like the Vids rollout will take 1-3 days, and you can go to vids.new on desktop to see if you’ve won the lottery and have it available now, apparently on any free Google account. Business accounts can use it too. Meanwhile the Gemini app is getting it on paid plans, but with different video length limits and no clear rollout timeline. If you pay for the API, it’s available now apparently.\nWhy is this so difficult to figure out?"
+        },
+        {
+          "id": 50395407,
+          "author": "lexoj",
+          "text": "I’m still afraid to use Google models because my gmail (which my life kinda depends on) is connected to it and I’m afraid of getting blocked or sth because of some weird prompt."
+        },
+        {
+          "id": 50393591,
+          "author": "del82",
+          "text": "I desperately wish Google would focus on improving the Gemini capabilities that are built-in to their office suite (docs, slides, etc.).  The current built-in Gemini is terrible, and if I could use e.g. Claude natively with those products my workday would be an order of magnitude more productive.\nI'm shocked that they don't seem to be investing in agentic capabilities there at all."
+        },
+        {
+          "id": 50393369,
+          "author": "hangrybear666",
+          "text": "What's this name and versioning now, NOBODY understands Google's Ai products, including subscribers to them.\nWhy their models go from 3 to 4 but then whatever this is starts at 1 I honestly don't care anymore\nMy friend on Google ai plus is still stuck on gemini 3.6 flash and now they're taking away 3.1 pro from them too even though it's long obsolete, like zero regard for user interactions here"
+        },
+        {
+          "id": 50392790,
+          "author": "armcat",
+          "text": "Completely random, but I was inspecting the source code for their Omni 1.2 Flash web page, and there are insane amount of newlines. There are seven newlines between the first line and the DOCTYPE. There are huge amount of newlines between each section. What did they use to generate this website?"
+        },
+        {
+          "id": 50394641,
+          "author": "fuzzythrowaway2",
+          "text": "Still can't handle the prompts I throw at it, though the 15 seconds gives more breathing room. Not being able to use first and last frames for the longer videos doesn't render it useless, but it gets pretty close (the model just cannot reproduce unusual or idiosyncratic character designs without first and last frames; fat, muscular, ugly, and non-human characters regress to tv commercial blandness).\nI just don't know how video is going to make it, long-term. You have to go through so many iterations to get something with even a semblance of what you were going for. I've been making AI videos since early 2024, and while image quality and coherence has gotten better, the ability of the models to actually follow your directions precisely hasn't. I would rather have to wait 5-10 minutes for a clip that actually does what I tell it to than get something useless in 30 seconds."
+        }
+      ],
+      "title_ja": "Gemini Omni 1.2フラッシュ",
+      "summary_ja": "ディスカッションのハイライト： GoogleがAIでほぼ完全にボールを落としたのはおかしい。\n私はお金を払わずに試すことさえできないので、文字通り彼らのモデルはもう気にしませんか？\nI al/これは新しいビデオモデルです/ロールアウトはとても混乱しています",
+      "editor_note": "「Gemini Omni 1.2フラッシュ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50397099,
+      "title_en": "GitHub's new Git storage architecture",
+      "url": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/",
+      "hn_url": "https://news.ycombinator.com/item?id=50397099",
+      "score": 55,
+      "comment_count": 6,
+      "posted_at": "2026-11-06T19:24:21+00:00",
+      "comments": [
+        {
+          "id": 50400695,
+          "author": "pksunkara",
+          "text": "Most of this is similar to what\nhttps://enroute.sh\nalready did scaling Git.\nhttps://enroute.sh/blog/everyone-is-doing-git-on-s3-wrong"
+        },
+        {
+          "id": 50400381,
+          "author": "yakkomajuri",
+          "text": "If I'm reading this right, this is (really solid) future planning but won't help with the current outages?\nI'd have thought so from the headline + initial content but then they say that the horizontal scale techniques are basically carrying over from the existing architecture (where it seems the problem is?) and this is mostly to help with what they call \"vertical scale\" (intra-repo scalability). They also admit right after that the most active repos today will receive short bursts of at most dozens of writes.\nSo this seems like really useful planning for a near future that likely helps prevent more issues but isn't really meant to help current issues. Am I reading this right?\nOf course improvements like this are always useful either way. Not dunking here at all."
+        },
+        {
+          "id": 50400136,
+          "author": "rochacon",
+          "text": "So that is why I got a bunch of 500's during push this week :)\nHope it helps improve reliability, it was getting hard to defend GitHub with all the recent outages."
+        },
+        {
+          "id": 50400097,
+          "author": "chjail-11",
+          "text": "As if more developers means better code.\nWasn't it Bonhoeffer who said stupidity is when smart people don't question authority?"
+        }
+      ],
+      "title_ja": "GitHubの新しいGitストレージアーキテクチャ",
+      "summary_ja": "ディスカッションのハイライト：これはほとんどが\nhttps://enroute.sh\nすでにGitのスケーリングを行いました。\nhttps://enroute.sh/blog/everyone-is-doing-git-on-s3-wrong/これを正しく読んでいる場合、これは（本当に堅実な）将来の計画ですが、現在の停止には役立ちませんか？\n見出し+最初のコンテンツからそう思っていましたが、その後、彼らは/だから今週のプッシュ中に500をたくさん受け取ったのです:)\n信頼性の向上に役立つことを願っています。",
+      "editor_note": "「GitHubの新しいGitストレージアーキテクチャ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 20,
+      "id": 50395869,
+      "title_en": "Size-It-Up (Game)",
+      "url": "https://magnitudle.com/size-it-up",
+      "hn_url": "https://news.ycombinator.com/item?id=50395869",
+      "score": 69,
+      "comment_count": 24,
+      "posted_at": "2026-11-06T17:59:59+00:00",
+      "comments": [
+        {
+          "id": 50396369,
+          "author": "xivzgrev",
+          "text": "this is interesting but not so accessible - I have no conception of how big or small a power station turbine rotor is.  I've only seen the pictures of statue of liberty and big ben with no banana for scale.  so it's pure guessing, which is less fun.\nwhy not more accessible things - a basketball hoop vs a delivery truck, a chicken egg vs a toilet, etc.  things you don't ordinarily see side by side but you know roughly the size of each so you can compare."
+        },
+        {
+          "id": 50400531,
+          "author": "simpaticoder",
+          "text": "I like it! But you should do biochemistry - atoms, acids, proteins, organelles, cells. I think people's intuition is WAY off and this game could help. In fact I one-shotted this:\nhttps://sites.google.com/view/scalecraft/full-page-embed\n(with argon)"
+        },
+        {
+          "id": 50400416,
+          "author": "docsaintly",
+          "text": "I think the benefit of the game is lost when it's comparing two obscure objects to each other - many people won't know both, so it becomes more of a guessing game than accurate estimation."
+        },
+        {
+          "id": 50399278,
+          "author": "augment_me",
+          "text": "This is great but the interface/UI needs some work.\nI tried to max out the power turbine, and the grid did not follow and I assumed it hit the max size. I guess the action would be to zoom out and then further drag, but this is a bit annoying, same for zooming in past some scale."
+        },
+        {
+          "id": 50399772,
+          "author": "SamBam",
+          "text": "Today's seemed randomly pretty hard, but I hit the archive button to try and yesterday's, and got all in the 80s and 90s.\nIt's more fun when you think you're skillful!"
+        },
+        {
+          "id": 50396934,
+          "author": "skzo",
+          "text": "The idea is interesting, but its too USA centric"
+        },
+        {
+          "id": 50396334,
+          "author": "samrus",
+          "text": "On mobile it just drags. Doesnt chabge size"
+        },
+        {
+          "id": 50396636,
+          "author": "JeppyG",
+          "text": "Fun little game. Had no idea big ben's clock face was so small though haha."
+        }
+      ],
+      "title_ja": "サイズ・イット・アップ（ゲーム）",
+      "summary_ja": "ディスカッションのハイライト：これは興味深いですが、それほどアクセスしにくいです。発電所のタービンローターの大きさや小ささはわかりません。しかし、生化学を行う必要があります-原子、酸、タンパク質、細胞小器官、細胞/2つの不明瞭なオブジェクトを互いに比較すると、ゲームの利点が失われると思います-多くの人は両方を知らないので、正確なESTよりも推測ゲームになります",
+      "editor_note": "「サイズ・イット・アップ（ゲーム）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 21,
+      "id": 50394906,
+      "title_en": "Anthropic IPO buyers see valuation as low as $1.1T",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout",
+      "hn_url": "https://news.ycombinator.com/item?id=50394906",
+      "score": 224,
+      "comment_count": 479,
+      "posted_at": "2026-11-06T16:54:36+00:00",
+      "comments": [
+        {
+          "id": 50399607,
+          "author": "soundworlds",
+          "text": "I've been using the $32/month (AUD) subscription, but finally dipped into extra credits to get a task over the line yesterday after I hit my 5-hr limit.\nAnd my god, $15 of extra credits ended up giving me only 30 minutes of Claude Code before running out.\nThe subscription prices\ncan not\nbe financially sustainable. There is no way that is remotely close to the actual cost of running."
+        },
+        {
+          "id": 50396670,
+          "author": "UncleOxidant",
+          "text": "Sure, this is a small anecdotal datapoint, but since I've gotten Qwen3.8-Flash-Next running well on my Strix Halo box my Claude Pro subscription use has dropped off a cliff. I'm only at 18% of quota usage this week - this being Friday I would've been at 80% at least in the past.  This is just an astonishingly good model that runs locally and quite well on my PC. I do not plan to renew my Claude Pro subscription when it comes up in a couple of months."
+        },
+        {
+          "id": 50396186,
+          "author": "int32_64",
+          "text": "Looking at the S-1 lockup schedule the IPO seems doomed. They need to bring in a ton of investment, and you will have massive unlocks right as the next congress is most active authoring anti-AI bills. Who's going to buy this?"
+        },
+        {
+          "id": 50397060,
+          "author": "wewewedxfgdf",
+          "text": "Can someone help me understand - I have tried local AI/LLMs.\nLets set aside speed. The results are ALWAYS terrible compared to CLaude Code.\nSure I only have a 12GB GPU - is that what it is? If I had a 32GB CPU would the experience be as amazing as Claude Code is?\nWhy is my experience of local LLMs so average?"
+        },
+        {
+          "id": 50395882,
+          "author": "lnkdinsuxs",
+          "text": "I'm not convinced that 2026 was peak of the AI hype cycle.\nArguments are being made that, with the midterms over and 2028 just around the corner, a less sympathetic administration would create significant headwinds, adjusting the valuation of Anthropic and OpenAI down.\nWhat we don't know are what Anthropic and OpenAI have planned and in the works.\nA large population of extremely skilled and talented people are being laid off by their employers to make space for AI investments. It's likely a significant number of them will start their own business with AI.\nAI is also gaining a much wider audience and acceptance. It's likely over the next few years, AI demand will grow, not stagnate.\nThat said, IPOs are usually liquidity events for LPs and for something really disruptive and unpredictable as AI, I won't be engaging in their IPOs. Only time will tell if this was a good decision, or bad."
+        },
+        {
+          "id": 50400310,
+          "author": "Bluestein",
+          "text": "I (all other issues aside) honestly think we have lost all sanity when the term \"low\" (in any fashion) can end up associated with\n1.1 TRILLION\n.-\nThere is a serious, malignant, dangerous disarray somewhere in our callibration of\nvalue\n, of\nworth\n, of what things\nare\nworth. Something, many things, are wrong here.-"
+        },
+        {
+          "id": 50398694,
+          "author": "freecodeio",
+          "text": "I've been trying to generate some product videos with opus 5.5 and I use the API because I don't like subscriptions.\nI burned about $150 of tokens over a few hours of chatting, although opus 5.5 did generate some 10-30kb html files at a time, containing the \"videos\".\nI think subscriptions are extremely subsidized still and what happened yesterday was just a small dip of what's to come."
+        },
+        {
+          "id": 50396517,
+          "author": "thisisauserid",
+          "text": "And there are worries about the  Democratic midterm election sweep causing tighter scrutiny  of new data centers and forcing Anthropic to pay wholesale for chips, or worse."
+        }
+      ],
+      "title_ja": "Anthropic IPOバイヤーは、評価が$ 1.1Tと低いと見ている",
+      "summary_ja": "ディスカッションのハイライト：月額$ 32 （ AUD ）のサブスクリプションを使用していましたが、昨日5時間の制限に達した後、最終的に余分なクレジットを使用してタスクを完了しました。\nそして、余分なCRの$ 15/確かに、これは小さな逸話的なデータポイントですが、Qwen3.8-Flash-Nextが私のStrix Haloボックスでうまく動作しているので、私のClaude Proサブスクリプションの使用は崖から落ちました/S -1ロックアップスケジュールを見ると、IPOは運命づけられているようです",
+      "editor_note": "「Anthropic IPOバイヤーは、評価が$ 1.1Tと低いと見ている」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 22,
+      "id": 50379221,
+      "title_en": "Show HN: Waymark – A workflow engine that compiles jobs instead of replaying",
+      "url": "https://github.com/piercefreeman/waymark",
+      "hn_url": "https://news.ycombinator.com/item?id=50379221",
+      "score": 39,
+      "comment_count": 15,
+      "posted_at": "2026-11-05T14:06:31+00:00",
+      "comments": [
+        {
+          "id": 50399996,
+          "author": "gavmor",
+          "text": "Durable execution has been on my radar for a minute but, although I've had a few pubsub usecases here and there, I've never had much call for long-running jobs that weren't simply cheaper to restart, AFAIR.\nWith agentic workloads, though—especially trending towards high network calls and smaller models—I do find a lot of concurrency to be a pain in the ass to pick up where we left off. Is that what \"durability\" ameliorates?\nI just wonder what I'm leaving on the table."
+        },
+        {
+          "id": 50400505,
+          "author": "slopnt",
+          "text": "The idea makes sense and the work is great. Some feedback I have is that it becomes hard to try the project out when postgres is a mandatory dependency: I understand that there are scalability reasons why that choice was made, but it would be neat if sqlite was an option."
+        },
+        {
+          "id": 50398960,
+          "author": "msteffen",
+          "text": "This is so cool. I spent years at Pachyderm (YC...something) banging our head against:\n- we're \"Bazel for data\"\n- but...we have no Starlark. We're trying to port Airflow but it's not playing well with the  way we cache partial results.\nAmazing to me that I'm only now seeing the architecture pattern of \"pure coordination language connecting sandboxed imperative components\", which is used by Nix and Bazel, applied to\ndistributed\nworkflows. If somebody applied this to batch data processing you might have a Pachyderm that actually works better than ours did."
+        },
+        {
+          "id": 50400003,
+          "author": "dangistan202611",
+          "text": "This looks like something that will break easily with a newer version of Python or even with the use of third-party packages. It seems to couple too tightly with the user's application code."
+        },
+        {
+          "id": 50399635,
+          "author": "dangistan202611",
+          "text": "It is too async heavy as per its readme -- this is very off-putting. Not everyone cares for async. There is no usage shown with sync code."
+        }
+      ],
+      "title_ja": "HNを表示： Waymark –リプレイする代わりにジョブをコンパイルするワークフローエンジン",
+      "summary_ja": "ディスカッションのハイライト：持続的な実行は1分間私のレーダーに載っていましたが、あちこちでいくつかのパブサブユースケースがありましたが、単純ではない長期的な仕事を求める声はあまりありませんでした/アイデアは理にかなっており、仕事は素晴らしいです/これはとてもクールです",
+      "editor_note": "「HNを表示： Waymark –リプレイする代わりにジョブをコンパイルするワークフローエンジン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 23,
+      "id": 50395043,
+      "title_en": "UpCodes (YC S17) is hiring SDR's to sell AI compliance software",
+      "url": "https://up.codes/careers?utm_source=HN",
+      "hn_url": "https://news.ycombinator.com/item?id=50395043",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-11-06T17:03:33+00:00",
+      "comments": [],
+      "title_ja": "UpCodes （ YC S 17 ）は、AIコンプライアンスソフトウェアを販売するためにSDRを雇っています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「UpCodes （ YC S 17 ）は、AIコンプライアンスソフトウェアを販売するためにSDRを雇っています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 50392348,
+      "title_en": "How octopuses squeeze through too small gaps",
+      "url": "https://journals.biologists.com/jeb/article/229/21/jeb253615/373332/How-octopuses-squeeze-through-too-small-gaps",
+      "hn_url": "https://news.ycombinator.com/item?id=50392348",
+      "score": 48,
+      "comment_count": 16,
+      "posted_at": "2026-11-06T13:57:20+00:00",
+      "comments": [
+        {
+          "id": 50399598,
+          "author": "randomImmigrant",
+          "text": "An octopus is what results when water gains consciousness."
+        },
+        {
+          "id": 50398476,
+          "author": "hatthew",
+          "text": "I love that their justification for this study is robots. I think science for the sake of learning is good and justification isn't always necessary. But it's so funny that we've moved beyond search and rescue as a justification for cool robots, to cool robots as a justification for studying octopi."
+        },
+        {
+          "id": 50398519,
+          "author": "Crunchified",
+          "text": "How octopuses squeeze through too small gaps\nObligatory click-bait title comment...\nThe article describes how octopuses get through holes in one of two ways, one for larger holes and one for smaller holes.\nSpoiler: An octopus cannot get through a gap that is too small."
+        }
+      ],
+      "title_ja": "タコが小さな隙間からどのように絞り込まれるか",
+      "summary_ja": "ディスカッションハイライト：タコは、水が意識を得るときに生じるものです。 /私はこの研究の正当化がロボットであることが大好きです/タコがあまりにも小さなギャップをどのように絞り込むか\n必須のクリックベイトタイトルコメント...\nこの記事では、タコがどのようにしてより大きな穴を通過するか、",
+      "editor_note": "「タコが小さな隙間からどのように絞り込まれるか」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50389570,
+      "title_en": "Chomsky and the two cultures of statistical learning (2011)",
+      "url": "https://www.norvig.com/chomsky.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50389570",
+      "score": 97,
+      "comment_count": 83,
+      "posted_at": "2026-11-06T08:18:36+00:00",
+      "comments": [
+        {
+          "id": 50392038,
+          "author": "NaiveEmpiricist",
+          "text": "Norvig (and Chomsky) are talking at cross purposes.\nNorvig confuses engineering for science. If an engineer wants something that works (and guarantees that it will work) then you use the most effective tool available to achieve that goal. No problem there. But there's absolutely no reason to think that tells you anything scientific about the phenomenon you're modeling. For example, aeronautical engineering says very little about how birds fly. And - currently relevant - LLMs learn to use and understand language, but they use millions of times more training data, and millions of times more computing power, than a child does. So an LLM may be a great technology, but it's probably not a good model for how humans learn and use language.\nChomsky OTOH doesn't see any use for statistics in science, at least not in linguistics. Fortunately for the field of linguistics, Chomsky's influence in linguistics is waning and linguists are beginning to use statistical tools to do science."
+        },
+        {
+          "id": 50395164,
+          "author": "stillpointlab",
+          "text": "I find it hard to see how Chomsky has a leg to stand on.\n> I understand how Chomsky might arrive at the conclusion that probabilistic models are unnecessary, from his study of the generation of language.\nI think the point turns here for me. We have probabilistic models now that generate unbelievably convincing language. Norvig's following argument on the value of interpreting language statistically becomes secondary.\nIn order to stay moored in reality, our models must follow from evidence. I think it would take a peculiar obstinance to deny that the latest models show evidence of generating language."
+        },
+        {
+          "id": 50400428,
+          "author": "slibhb",
+          "text": "Chomsky is incredibly dogmatic; his views and personality have held the field back.\nThere's enormous irony in Chomsky's mathematicization of linguistics sweeping away the linguists who came before him compared to his own stubborn refusal to acknowledge the fruits of the statistical approach. As far as I know, he's more or less been swept aside."
+        },
+        {
+          "id": 50397630,
+          "author": "dang",
+          "text": "Related. Others?\nChomsky and the Two Cultures of Statistical Learning (2011)\n-\nhttps://news.ycombinator.com/item?id=46286533\n- Dec 2025 (119 comments)\nOn Chomsky and the Two Cultures of Statistical Learning\n-\nhttps://news.ycombinator.com/item?id=35081102\n- March 2023 (135 comments)\nOn Chomsky and the Two Cultures of Statistical Learning (2011)\n-\nhttps://news.ycombinator.com/item?id=16489828\n- March 2018 (12 comments)\nOn Chomsky and the Two Cultures of Statistical Learning (2011)\n-\nhttps://news.ycombinator.com/item?id=11951444\n- June 2016 (102 comments)\nOn Chomsky and the Two Cultures of Statistical Learning\n-\nhttps://news.ycombinator.com/item?id=2591154\n- May 2011 (107 comments)\n(Reposts are fine after a year or so; links to past threads are just to satisfy extra-curious readers)"
+        },
+        {
+          "id": 50398614,
+          "author": "crtified",
+          "text": "No empirical fact is restricted to a singular vector through human language.\n\"..if we think of truth as something of granite-like solidity and of personality as something of rainbow-like intangibility and reflect that the aim of [human writing] is to weld these two into one seamless whole, we shall admit that the problem is a stiff one and that we need not wonder if [human writers], for the most part failed to solve it.\" - Virginia Woolf\n[human writing, human writers] = [biography, biographers] in the original quote. My edit is because I infer that her statements key point is that of the biological subjectivity inherent to all human prose."
+        },
+        {
+          "id": 50391838,
+          "author": "Alexander-Barth",
+          "text": ">  But the vast majority of people who study interpretation tasks (such as speech recognition) quickly see that interpretation is an inherently probabilistic problem: given a stream of noisy input to my ears, what did the speaker most likely mean? Einstein said to make everything as simple as possible, but no simpler. Many phenomena in science are stochastic, and the simplest model of them is a probabilistic model\nWhy the \"simplest\" model? Is a probabilistic model not the\nonly\nmodel able to deal with uncertainty? What other kind of models are possible to represent uncertainty and inherent ambiguity that are not probabilistic?"
+        },
+        {
+          "id": 50395585,
+          "author": "talon8635",
+          "text": "Would Chomsky have the name recognition and standing he has, or any at all, without his extracurricular political beliefs?"
+        },
+        {
+          "id": 50389662,
+          "author": "sambejk",
+          "text": "Really great post, though a bit old, still relevant. Peter Norvig is one of the better thinkers of our generation.\nHave to say that I confronted myself with the fact that I can't read longer posts anymore due to overuse of AI. Guess a detox is required..."
+        }
+      ],
+      "title_ja": "チョムスキーと統計学習の2つの文化（ 2011年）",
+      "summary_ja": "ディスカッションのハイライト： Norvig （とChomsky ）は交差した目的で話しています。\nノーヴィグは工学と科学を混同しています/チョムスキーがどのように足を踏み入れているのかを理解するのは難しいと思います。\n>私は、チョムスキーが/チョムスキーの研究から、確率論的モデルは不要であるという結論に達する可能性があることを理解しています。彼の見解と個性は、この分野を妨げています。\nチョムスキーの言語学者の数学化には大きな皮肉があります",
+      "editor_note": "「チョムスキーと統計学習の2つの文化（ 2011年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50399991,
+      "title_en": "RealPage rent-pricing case wraps with nearly $360M to renters",
+      "url": "https://www.multifamilydive.com/news/realpage-rent-pricing-case-360m-renters/873553/",
+      "hn_url": "https://news.ycombinator.com/item?id=50399991",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-11-06T23:37:19+00:00",
+      "comments": [],
+      "title_ja": "RealPageのレンタル価格設定ケースは、賃貸人に約3億6000万$を提供",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「RealPageのレンタル価格設定ケースは、賃貸人に約3億6000万$を提供」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50368291,
+      "title_en": "Annie Ernaux still feels like an outsider",
+      "url": "https://www.vulture.com/article/annie-ernaux-interview-french-protests-nobel-prize.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50368291",
+      "score": 9,
+      "comment_count": 1,
+      "posted_at": "2026-11-04T16:51:22+00:00",
+      "comments": [],
+      "title_ja": "アニー・エルノーはまだ部外者のように感じる",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「アニー・エルノーはまだ部外者のように感じる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50396108,
+      "title_en": "40C3 halfnarp – Submit talk preferences to aid scheduling",
+      "url": "https://halfnarp.events.ccc.de",
+      "hn_url": "https://news.ycombinator.com/item?id=50396108",
+      "score": 44,
+      "comment_count": 9,
+      "posted_at": "2026-11-06T18:16:43+00:00",
+      "comments": [
+        {
+          "id": 50398892,
+          "author": "yoaviram",
+          "text": "I just got notified today that my talk \"Digital Rite of Passage - a framework for guiding kids into digital adulthood\" was accepted to the Ethics, Society & Politics track, so cool to see it there!"
+        },
+        {
+          "id": 50397170,
+          "author": "vrganj",
+          "text": "Man, I love the CCC. To me, they are what being a hacker is truly about.\nI know this place calls itself Hacker News, but to me being a hacker always had a countercultural element, a distrust of power structures. This place\nis\nthe power structure and reinforces it..."
+        },
+        {
+          "id": 50399615,
+          "author": "tristor",
+          "text": "I really hope I can get tickets.  This is the first time I'd be attending, and after going to my first Defcon this year and realizing I'd found my people, I decided I should absolutely do Congress.  I'm looking forward to it"
+        }
+      ],
+      "title_ja": "40 C 3 halfnarp –スケジューリングを支援するためにトークの設定を提出する",
+      "summary_ja": "ディスカッションのハイライト：今日、私のトーク「Digital Rite of Passage - a framework for guideing kids into digital adulthood」が倫理、社会、政治のトラックに受け入れられたことが通知されました。とてもクールです/男性、私はCCCが大好きです/チケットを手に入れられることを本当に願っています",
+      "editor_note": "「40 C 3 halfnarp –スケジューリングを支援するためにトークの設定を提出する」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50360810,
+      "title_en": "Greece has its own Pompeii: Thera buried Akrotiri in ash 17th-16th century BCE",
+      "url": "https://www.smithsonianmag.com/history/greece-has-its-own-pompeii-and-the-ruins-tell-a-captivating-story-of-a-sophisticated-seafaring-bronze-age-society-180989747/",
+      "hn_url": "https://news.ycombinator.com/item?id=50360810",
+      "score": 5,
+      "comment_count": 0,
+      "posted_at": "2026-11-04T02:19:16+00:00",
+      "comments": [],
+      "title_ja": "ギリシャには独自のポンペイがあります：テラは紀元前17〜16世紀の灰の中にアクロティリを埋葬しました",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「ギリシャには独自のポンペイがあります：テラは紀元前17〜16世紀の灰の中にアクロティリを埋葬しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 30,
+      "id": 50393758,
+      "title_en": "Deus Ex",
+      "url": "https://www.filfre.net/2026/11/deus-ex/",
+      "hn_url": "https://news.ycombinator.com/item?id=50393758",
+      "score": 339,
+      "comment_count": 173,
+      "posted_at": "2026-11-06T15:44:36+00:00",
+      "comments": [
+        {
+          "id": 50394322,
+          "author": "Lerc",
+          "text": "My favourite ever games journalism quote:\n\"There's a tendency among the press to attribute the creation of a game to a single person,\" says Warren Spector, creator of Thief and Deus Ex."
+        },
+        {
+          "id": 50394396,
+          "author": "morsch",
+          "text": "There's a lot to cover with the game, so I'm not surprised he doesn't cover the music. But the soundtrack is great! I still listen to it regularly. I like the UNATCO music best. Each track has a regular theme, and switches to variations on the theme for combat and other situations. Pretty unusual in 2000 and even today."
+        },
+        {
+          "id": 50393965,
+          "author": "klaussilveira",
+          "text": "If anyone wants to play it again, dont forget the amazing mods available:\nhttps://www.moddb.com/games/deus-ex/mods\nNew renderers, new engines, The Purist Mod, GMDX, The Nameless Mod..."
+        },
+        {
+          "id": 50396902,
+          "author": "mikemcquaid",
+          "text": "Best game of all time.\nI have the logo tattooed on myself (along with Babylon 5). First played it around 16 pre-spoiler-filled internet and was blown away by my friend and I having completely different outcomes to pivotal moments of the game related to Paul Denton (no spoilers: if you know, you know).\nNever worked in games (bar a bit of voice acting in The Nameless Mod for Deus Ex) but I think were it not for that era of gaming I’d never have ended up working on Homebrew or at GitHub.\nSadly the graphics have not aged well but if you can handle them: the writing and non-linear/branching plot and dialogue is still probably second to none."
+        },
+        {
+          "id": 50394289,
+          "author": "jamesu",
+          "text": "One thing that bugs me is the article explains the twin towers missing from the skyline as \"rendering engine couldn’t handle any more polygons\", but it turns out... it's way more complicated than that\nhttps://www.youtube.com/watch?v=wpi5xUXPqok\n."
+        },
+        {
+          "id": 50394504,
+          "author": "stevenwoo",
+          "text": "If I am remembering correctly, I felt terrible after completing the first mission but that may have been the point - make you think about what you are doing. It was presented to the player as authentic threat, then when you get to end you are told it was a test but in my playthrough I killed all the “bad guys” on the way, and could have spared their virtual lives by sneaking around and knocking them out."
+        },
+        {
+          "id": 50394717,
+          "author": "djsavvy",
+          "text": "Deus Ex: Human Revolution is one of my favorite games of all time (and the game that got me into games). I enjoyed mankind divided a lot as well, though it felt different. I've started the original Deus Ex a few times but never really got into it; maybe I need to give it another shot."
+        },
+        {
+          "id": 50395760,
+          "author": "vinkelhake",
+          "text": "For those who have never played Deus Ex, I'm actually going to do the heretical thing and propose that you\nstart\nwith Deus Ex: Human Revolution (Director's Cut).\nIt's an amazing game in its own right and holds up really well today. The problem with hopping directly into Deus Ex is that it's really showing its age these days, even with mods.\nDX:HR is a prequel, so from a timeline perspective it makes sense to play it first :)"
+        }
+      ],
+      "title_ja": "Deus Ex",
+      "summary_ja": "ディスカッションハイライト：私のお気に入りのゲームジャーナリズム引用：\n「マスコミの間では、ゲームの作成を1人の人物に帰属させる傾向があります」とThiefとDeuのクリエイターであるWarren Spector氏は述べています。ゲームにはカバーすることがたくさんあるので、彼が音楽をカバーしていないことに驚くことはありません。誰かが再びプレイしたい場合は、利用可能な素晴らしいモッドを忘れないでください。\nhttps://www.moddb.com/games/deus-ex/mods\n新しいレンダラー、新しいエンジン、The Purist Mo",
+      "editor_note": "「Deus Ex」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 24,
+    "slot": "12",
+    "started_at": "2026-11-07T10:35:39.125667+09:00",
+    "finished_at": "2026-11-07T10:36:44.663758+09:00",
+    "story_count": 30
+  }
+}
