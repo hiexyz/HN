@@ -1,0 +1,1466 @@
+{
+  "date": "2026-11-09T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50415628,
+      "title_en": "Goldman Sachs Is Pulling Claude Code from Its Bankers and Traders",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "hn_url": "https://news.ycombinator.com/item?id=50415628",
+      "score": 31,
+      "comment_count": 1,
+      "posted_at": "2026-11-08T18:16:07+00:00",
+      "comments": [
+        {
+          "id": 50415815,
+          "author": "MallocVoidstar",
+          "text": "Original source appears to be Bloomberg via\nhttps://www.fa-mag.com/news/goldman-restricts-traders-and-ba...\n, with State of AI being some kind of AI-written site run by a spam company."
+        }
+      ],
+      "title_ja": "ゴールドマン・サックスは、銀行家とトレーダーからクロード・コードを引き出しています",
+      "summary_ja": "ディスカッションハイライト：元の情報源はブルームバーグのようです\nhttps://www.fa-mag.com/news/goldman-restricts-traders-and-ba...\n、State of AIはスパム会社が運営するある種のAI書き込みサイトである",
+      "editor_note": "「ゴールドマン・サックスは、銀行家とトレーダーからクロード・コードを引き出しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50411961,
+      "title_en": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "hn_url": "https://news.ycombinator.com/item?id=50411961",
+      "score": 251,
+      "comment_count": 80,
+      "posted_at": "2026-11-08T10:22:04+00:00",
+      "comments": [
+        {
+          "id": 50415645,
+          "author": "kennywinker",
+          "text": "The floor for a functional local AI system keeps getting lower, dispite ram and GPU prices continuing to go up. An E5 workstation with lots of threads, $300 of RAM and at least $100 of GPU gets you something that can do >100tok/s+ prompt processing, and ~20tok/s output with Qwen3.8-flash-next:IQ3_S. Toss a $500 GPU in there, and it goes from barely usable to pleasingly performant. For less than $800 you have something that holds its own with where the SOTA was less than a year ago.\nI don't see how anyone justifies a claude subscription. Do you want to rent the tools you use to making a living from the people who are trying to automate away your job?"
+        },
+        {
+          "id": 50413074,
+          "author": "armcat",
+          "text": "Something to keep in mind with aggressive quantisation, is that it's been empirically proven [1] that (1) quantisation has non-linear performance behaviour, and (2) generally the peak size-to-performance ratio occurs at 4-bit; anything lower and you will see significant reduction in performance.\nAlso, I've been playing with speech models for the past 2 years, and for me anything below 8-bit is a huge drop in quality; so quantisation for LLMs and for other bespoke modality models, is not 1:1.\n[1] \"Reliability Scaling Laws for Quantized Large Language Models\", TUM,\nhttps://arxiv.org/pdf/2607.10855"
+        },
+        {
+          "id": 50412688,
+          "author": "antirez",
+          "text": "To put this on perspective, consider that with 128GB of unified RAM it can run even\nfast\n:\nhttps://x.com/antirez/status/2119392658661749175\nLike, coding-agent acceptably fast. See later in the reply for the prefill at ~300 t/s but can go even faster for larger prefills."
+        },
+        {
+          "id": 50414181,
+          "author": "boredatoms",
+          "text": "The quantization is probably the\nmost\nimportant thing to know and its not clear at all from the dense word salad"
+        },
+        {
+          "id": 50412500,
+          "author": "akie",
+          "text": "At which quantization? That's the only thing I want to know.\nEDIT: I think it's 2 bit? If so, would be curious to see the quality of the output. Not great, I think."
+        },
+        {
+          "id": 50414732,
+          "author": "SillyUsername",
+          "text": "Interesting. There are quite a few forks of llama.cpp where streaming weights has been successful, or special quants / decompressing before processing.\n- Bonsai Qwen 3.8 27B\n- Strata\n- Pulsar\n- This...\nI just wish upstream Llama.cpp would accept the PRs faster - they build multiple times per day, but their PR backlog was 1.7K last I checked, which is a ridiculously impractical number to review with a few volunteers.\nI watched the Qwen 3.8 Bonsai feature and it took over 3 weeks from creation to be reviewed, and even then it doesn't include the patches for bugs, that they fixed downstream and simply gave up pushing to upstream because the process was so laborious.\nSo they end up with delayed or missing model support, and half working implementations like Bonsai's Hadamard Folding, and new models lose out on this kind of optimisation.\nI suppose this is fine if you intend your project to be the reference project for forks and encourage this kind of specialisation, but I don't think that's intentional.\nAt least I can use llamaswap to juggle the inference engines and models on the fly, and abstract the fact I need to install 3 or 4 different ones."
+        },
+        {
+          "id": 50413390,
+          "author": "superkickstart",
+          "text": "I wish people would clean up the ai spammed emoji from the github readme. The readability is just horrible."
+        },
+        {
+          "id": 50415408,
+          "author": "dgreensp",
+          "text": "How can CPU be fast enough?  What does “modchip” refer to?"
+        }
+      ],
+      "title_ja": "Llama - modchip ： 284 B DeepSeek、64 GB RAM、GPUなし",
+      "summary_ja": "ディスカッションのハイライト：機能的なローカルAIシステムのフロアは低くなり続け、RAMとGPUの価格は上昇し続ける/積極的な量子化で心に留めておくべきことは、（ 1 ）量子化が非線形のパフォーマンス挙動を有することが経験的に証明されており、（ 2 ）一般的にp/これを視点に入れるために、128 GBの統一されたRAMを使用すると、\n速い\n:\nhttps://x.com/antirez/status/21193926586",
+      "editor_note": "「Llama - modchip ： 284 B DeepSeek、64 GB RAM、GPUなし」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 3,
+      "id": 50415135,
+      "title_en": "A Little Snitch for Windows",
+      "url": "https://packethound.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=50415135",
+      "score": 11,
+      "comment_count": 4,
+      "posted_at": "2026-11-08T17:16:07+00:00",
+      "comments": [
+        {
+          "id": 50415774,
+          "author": "codernews123",
+          "text": "Good, older alternative (seems to be not this user friendly) is Malwarebytes Window Firewall Control."
+        },
+        {
+          "id": 50415794,
+          "author": "baal80spam",
+          "text": "How is this better and more comprehensive than Fort Firewall?\nhttps://github.com/tnodir/fort"
+        },
+        {
+          "id": 50415791,
+          "author": "shrx",
+          "text": "Another alternative is Simplewall:\nhttps://github.com/henrypp/simplewall"
+        },
+        {
+          "id": 50415797,
+          "author": "poszlem",
+          "text": "I beg you. At the very least, please, write your own headers. I don't even need you to write the whole copy on the page, but please, don't make us read that claudease slop. This makes the app you advertise look like the lowest of efforts, no matter what it is.\n\"Know which apps are calling home.\"\n\"Every connection, your call\""
+        }
+      ],
+      "title_ja": "Windows用の小さなスニッチ",
+      "summary_ja": "ディスカッションのハイライト： （このユーザーフレンドリーではないように思われる）古くて良い代替手段は、Malwarebytes Window Firewall Controlです。 /これはフォートファイアウォールよりも優れていて包括的ですか？\nhttps://github.com/tnodir/fort/もう1つの選択肢はSimplewallです。\nhttps://github.com/henrypp/simplewall",
+      "editor_note": "「Windows用の小さなスニッチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50389923,
+      "title_en": "The Reconstruction of Torn Documents",
+      "url": "https://www.bundesarchiv.de/en/stasi-records-archive/the-reconstruction-of-torn-documents/",
+      "hn_url": "https://news.ycombinator.com/item?id=50389923",
+      "score": 47,
+      "comment_count": 30,
+      "posted_at": "2026-11-06T09:05:18+00:00",
+      "comments": [
+        {
+          "id": 50415234,
+          "author": "kevin_thibedeau",
+          "text": "> Could shredded paper be reconstructed?\n> No. A few thousand other bags contained paper that had been shredded into incredibly small pieces in 1990. This material was destroyed back in 1991 after inspection by the Stasi Records Office. Hence, there is no longer any paper shredded by the Stasi at today's archive .\nShredder chads from the 90s can definitely be reconstructed. This is why the NSA  has gradually decreased the maximum size permissible for chads. If they'd held on to that material they could be recovered today."
+        },
+        {
+          "id": 50415184,
+          "author": "ceejayoz",
+          "text": "Vernor Vinge's Rainbows End includes this as a minor early plot point; libraries being fed into giant shredders that digitize and stitch together the scraps on their way to the incinerator."
+        },
+        {
+          "id": 50415210,
+          "author": "mdbug",
+          "text": "Just scan all the snippets and upload them. Someone will figure it out."
+        },
+        {
+          "id": 50414886,
+          "author": "bbor",
+          "text": "Wow, fascinating! I hope I’m not the only OCR-minded soul on here that immediately started thinking of pipelines for this one could assemble from all our new DL-enabled toys… it’s a shame that “some American kid” probably doesn’t meet their contracting requirements.\nOne thing that kinda baffles is that it sounds like the snippets (I bet that German word is fun) haven’t been scanned(/photographed…?) yet. No matter who they contract with, wouldn’t that necessarily be step #1? Or is the scanning the part that needs contracting, and the “e-Puzzler” name was just a lil melodramatic?\nFor one thing, I feel like it’ll be wildly helpful that they’re on a variety of papers, not challenging like they imply. Once that and bag index have narrowed down neighbor candidates, you’ve got rules and glyphs to go off of, much less recognizable form layouts. It feels like the Vesuvius scrolls but actually tractable…"
+        },
+        {
+          "id": 50415535,
+          "author": "sneak",
+          "text": "They’ve spent six million euro and counting on this and they are still paying people to manually reassemble them.\nTalk about rearranging deck chairs on the Titanic."
+        },
+        {
+          "id": 50414685,
+          "author": "esafak",
+          "text": "There's nothing technical to discuss; where's the meat? This 2012 article at least has pictures:\nhttps://www.bbc.com/news/magazine-19344978\nI speculate the problem is not technical but financial or political; the ML to do this was up to the task at least ten years ago."
+        },
+        {
+          "id": 50415174,
+          "author": "madaxe_again",
+          "text": "> Could shredded paper be reconstructed?\n> No. A few thousand other bags contained paper that had been shredded into incredibly small pieces in 1990. This material was destroyed back in 1991 after inspection by the Stasi Records Office. Hence, there is no longer any paper shredded by the Stasi at today's archive .\nI find the assertion that it was “impossible” to reassemble shredded documents… disappointing - as they seem to be confusing “very difficult with current tools” with “no way of doing it, ever”\nI mean, they made sure it was true by burning them all after they decided it could never be done. Phenomenally short-sighted - unless of course there was a reason they wanted those particular documents to never be read."
+        },
+        {
+          "id": 50414636,
+          "author": "lifestyleguru",
+          "text": "\"We simply rehired all Nazi's and Stasi's but here there is a sophisticated technical problem to keep you busy.\""
+        }
+      ],
+      "title_ja": "破れた書類の再構築",
+      "summary_ja": "ディスカッションハイライト： >細断された紙は再構築できますか？\n>いいえ/Vernor Vingeのレインボーエンドには、これがマイナーな初期のプロットポイントとして含まれています。ライブラリは巨大なシュレッダーに供給され、インクへの途中でスクラップをデジタル化してステッチします/すべてのスニペットをスキャンしてアップロードするだけです",
+      "editor_note": "「破れた書類の再構築」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50412067,
+      "title_en": "Writing as a thinking tool",
+      "url": "http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50412067",
+      "score": 152,
+      "comment_count": 43,
+      "posted_at": "2026-11-08T10:41:52+00:00",
+      "comments": [
+        {
+          "id": 50414123,
+          "author": "billypilgrim",
+          "text": "When I had started my PhD, I thought the writing part of a paper was just the last thing I needed to do to summarize my results, like a boring epilogue to the more exciting science. What surprised me was how much of the scientific process relied on my ability to convey my ideas to someone else. And to be able to do that you need clarity of mind, you need to have worked through multiple drafts to be able to get to your point as efficiently and clearly as possible. So many times I only discovered what I was\nactually\nresearching during the writing part.\nThe problem with AI writing is that it makes people believe that writing is just writing and not a tool for thinking very deeply about the topic you are writing about. I am not completely opposed to AI assisted writing, but if I see AI writing, it’s telling me that the author tried to take a shortcut in their own thinking and it’s a good heuristic that the ideas will not be thought through enough to warrant my complete attention."
+        },
+        {
+          "id": 50414969,
+          "author": "lilerjee",
+          "text": "Writing code (Programming) is a thinking tool too.\nWhen you are writing code manually, actually you are thinking about what you are doing, what you will build actually, what are your or users' real requirements, etc."
+        },
+        {
+          "id": 50413698,
+          "author": "hoppp",
+          "text": "Most of my projects are born out of scribbles on paper, system diagrams with boxes and little arrows to try to describe the system I want to build or my thought process written down like in this post.\nWhen I get it on paper and everything feels right I start creating the codebase but I have to get it down first, feels like I remember it more after I save my thoughts to external paper storage."
+        },
+        {
+          "id": 50415451,
+          "author": "sidrag22",
+          "text": "When i started writing i felt the pressure to always go from draft to a polished piece. i posted a couple things i worked semi hard on and received 0 views/reads because i don't really have much of an online presence at all.\nFrom there i kinda just moved on and write purely for myself, and use it to up my own thoughts. Very rarely, something will receive a second pass days later, and thats just more to go back on my past thoughts and try to tighten them if i feel that is needed.\nI tend to split my day into two parts, my work hours and my \"unplug\" hours, and the writing was mostly landing in those unplug hours as a way to sorta summarize my day. Last week or so I decided im moving that writing into the very first thing I do each day, and it has really been absurdly effective at getting new ideas flowing quickly. I used to depend on my later day brain that was somewhat \"depleted\", for lack of a better way to describe how i work, and from there that would kinda birth what i work on the next morning, with maybe some iteration while working.\nNow instead I just do both, I open the day with ~500-1500 words, just anything that comes out, then i potentially get stuck, and ill maybe dump tha"
+        },
+        {
+          "id": 50415621,
+          "author": "Aozora7",
+          "text": "Being forced to take notes and write essays in school made me hate handwriting specifically and dislike writing in general. Now that I have a choice, I never use stationery or take notes for any purpose, and everything useful that I learned or did in my entire life has been done without writing being a part of the process."
+        },
+        {
+          "id": 50414887,
+          "author": "ForgotMyUUID",
+          "text": "I endlessly enjoyed the comparison with a Turning Machine. When I study someone's complex work, I do notes to keep several things in my sight scope: a piece of paper, PowerPoint slide or some fancy markdown text editor with syntax highlight. Seems like that this focusing is somewhat the natural way of building neuronal connections: if a logical piece is missing we have to use imagination to complete it and only then it nicely fits into our brain's \"hologram\" of the world.\nThere is a wonderful book \"Exploring Writing\" by John Langan. I found it in our library when I was in my PhD writing phase. I highly recommend it to anyone who has problems building text and who wants to learn how to master its structuring."
+        },
+        {
+          "id": 50415335,
+          "author": "beej71",
+          "text": "A common refrain for teachers and writers is that they learned\nso much\nproducing their work. You think you know it, and then you go to teach it and realize how much you didn't know.\nI'm a big fan of marbled composition books. They're cheap and durable enough. You can write in them without a table. I have 5-6 of them going at once for various tasks. And somehow (for me) the ideas flow more freely longhand than they do at the keyboard. When full, you can cut the spine off with a box cutter and scan it. G4 compression loses the color, but makes really small PDFs.\nIt's easy to produce better written content than an LLM. And that's good for the reader and the writer."
+        },
+        {
+          "id": 50415545,
+          "author": "theptip",
+          "text": "Writing is a good thinking tool.\nBut, to the claim of how to think in the age of LLMs, I think it’s worth contrasting the other approach, which is a dialog with the LLM; two things are needed IMO to keep things honest:\nFirst, you need to keep asking the LLM to explain things, until you understand what it did. Lots of angles here; have the LLM make a design/product doc, write one-off architecture explainers, write throwaway data-viz tools to explain the data distribution. Then ask a fresh copy to adversarially review the core concepts. Try asking a different frontier model too.\nSecond, you need to push for “proof”, in other words, ask for demos and try it yourself. Imagine yourself a CEO or VC; how do you know if the output of an entire org is vaporware? One thing to beware is launching into a field where you don’t have expertise and can’t actually validate the output. This takes time of course, but for example if you write a stress test script and get CPU/QPS numbers, these complex validators are IME quite reliable when you apply the same rigor from 1) above to their construction."
+        }
+      ],
+      "title_ja": "思考の道具として書く",
+      "summary_ja": "ディスカッションのハイライト：私が博士号を取得したとき、論文の執筆部分は、よりエキサイティングな科学への退屈なエピローグのように、私の結果を要約するために必要な最後のものだと思いました/ライティングコード（プログラミング）も思考ツールです。\n手動でコードを書くとき、実際には自分が何をしているのか、実際に何を構築するのか、何をしているのかを考えています/私のプロジェクトのほとんどは、紙の上の落書き、systeから生まれています",
+      "editor_note": "「思考の道具として書く」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50413769,
+      "title_en": "I'm not a fan of Deno's security model (2024)",
+      "url": "https://goldstein.lol/posts/deno-security/",
+      "hn_url": "https://news.ycombinator.com/item?id=50413769",
+      "score": 39,
+      "comment_count": 17,
+      "posted_at": "2026-11-08T14:42:38+00:00",
+      "comments": [
+        {
+          "id": 50415346,
+          "author": "jFriedensreich",
+          "text": "I was a fan of deno because at least they tried, its not that there was an alternative runtime that tries to do permissions right or that there is an operating system tool that allows async(!) permissions with user interaction. We really need a simple to use \"productised\" but true open source solution that allows halting any software and evaluating policies for run, fs and network etc and can reason on process and context level."
+        },
+        {
+          "id": 50414563,
+          "author": "hoppp",
+          "text": "Deno has 1 year of official support left...\nI liked the security model because at least they had something, unlike node."
+        },
+        {
+          "id": 50414876,
+          "author": "phyzome",
+          "text": "I actually have a terminal program that needs to ask for sensitive inputs from the user sometimes, potentially after attacker data has been printed. I've been trying to figure out how I should handle that!\nMy plan was to encode to Unicode (lossily), strip out control characters, and add some visual framing. Anything else I should be considering? Is there a standard approach? Haven't actually done the research on this yet, but since it came up here, I figure someone might know.\n(This is\nhttps://codeberg.org/timmc/breakmancer\nif anyone is interested.)"
+        },
+        {
+          "id": 50415546,
+          "author": "proxyscore",
+          "text": "Deno is a dead man walking, they cashed out being useful to CF and other than that, they tried parity with nodejs, which was naive, I am not going to redo my backend just for that."
+        },
+        {
+          "id": 50415604,
+          "author": "hackerbrother",
+          "text": "It was a neat idea but they didn't take it far enough. It would have been neat if you could restrict dependencies from network/FS access, but they didn't make it that granular.\nI was a fan of Deno from the beginning, but not targeting NodeJS compatibility at the beginning turned out to be the wrong move. Now Bun gets to be Anthropic's testbed for the future of software development. (Which includes the wholesale plagiarism and optimization of Oxc into its codebase, wowza.)\nSide note: `deno fmt` is a great Markdown formatter. I might get around to extracting out just that part of it."
+        },
+        {
+          "id": 50414565,
+          "author": "kevin_thibedeau",
+          "text": "> the permission prompt is “partially visible” (you can see an emoji)\nTerminals can be configured to render emoji in text presentation form where they become monochrome glyphs that can be colored like ordinary text with escape sequences. Not something to hinge your security model on."
+        },
+        {
+          "id": 50414666,
+          "author": "two_handfuls",
+          "text": "Very well written, and excellent points! Thank you."
+        },
+        {
+          "id": 50415422,
+          "author": "genxy",
+          "text": "I'm not a fan of opinions in titles. (there I did it)\nIt is self-centered and narcissistic. Why? WTFRU. An opinion isn't an argument. You have to have reasons beyond your opinions and those are what matter.  Lead with those, and your opinion is implied by the fact you are talking about it.\nDeno's Security Model is a False Sense of Security\nDeno's Permissions Are Not a Sandbox\nThe Illusion of Deno's \"Secure by Default\" Model\nWhy --allow-run and Permission Prompts Don't Make Deno Safe\nThe title weakens an otherwise pretty good article."
+        }
+      ],
+      "title_ja": "Denoのセキュリティモデル（ 2024年）のファンではありません",
+      "summary_ja": "ディスカッションのハイライト：私がDenoのファンだったのは、少なくとも彼らが試みたからではありません。正しく権限を与えようとする代替ランタイムがあったからとか、ALL/Denoが1年間の公式サポートを残しているオペレーティングシステムツールがあるからではありません...\nセキュリティモデルが気に入ったのは、少なくともノードとは違って何かを持っていたからです。 /実際には、時々、潜在的にATTA後に、ユーザーから機密性の高い入力を求める必要があるターミナルプログラムがあります",
+      "editor_note": "「Denoのセキュリティモデル（ 2024年）のファンではありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50410107,
+      "title_en": "Goodbye Claude, hello Pi",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50410107",
+      "score": 581,
+      "comment_count": 373,
+      "posted_at": "2026-11-08T03:11:48+00:00",
+      "comments": [
+        {
+          "id": 50410853,
+          "author": "bottlepalm",
+          "text": "I used to use ChatGPT/Claude in the TUI up until like 3 months ago, but my usage of LLMs has exploded - many sessions across many projects. I feel like I outgrew the TUI and now I'm using ChatGPT/Claude desktop. VS Code has become a code review tool and place where I manage git if need be.\nThe GUI is less verbose with the nitty gritty hidden in expandable sections, which makes history easier and cleaner to scroll through, also no scrolling bugs, rich text is easier to read with tables, and images integrated into the chat, resources like browsers in the context of the session. Drag and drop session organization (pins), scheduled tasks, etc.. all that in the side bar.\nUsually a TUI would be open in VS Code and scoped to whatever repo I'm working with so 10 projects, 10 VS Code instances open, not super scalable. With the GUI desktop app it's one app, and I can start sessions in an repo and switch between them easily, no need to open VS Code for each. I don't see what could make me want to go back to using a TUI.\nWho else is just using the GUI nowadays, or are you still on the TUI, and why, have you tried the GUI interfaces?"
+        },
+        {
+          "id": 50410950,
+          "author": "leobuskin",
+          "text": "Pi is a good harness (I finally gave it a try w/ abliterated GLM), but not with Anthropic subscription, and there are multiple reasons to avoid alternative harnesses with their models in general (imho):\n1. Potential ban due to ToS violation;\n2. It doesn't follow all Anthropic's communication mechanisms out-of-the-box, they heavily use custom headers, hidden flags, and undocumented API features that affect models' behavior;\n3. Compact is better in CC (significantly);\n4. Cache related nuances (I mean, A\\ regularly messes up with cache even in CC, their caching is non-trivial);\n5. It's almost unavoidable to use Pi's extensions, and I wouldn't trust my oauth token to anything third-party (take a look at regular reddit/X posts where people getting banned due to such leaks and abuse) -> it takes enormous amount of hacking on top of Pi to get closer to CC abilities.\nCC has hooks and mods, even ui_* (undocumented) protocol if you need some big customization, those are enough to implement whatever you want on top of CC.\nAlso, I'm working with CC from the very first versions, as for me - it's the best harness (as-is) on the market. I have zero clue what problems people are talking about (exc"
+        },
+        {
+          "id": 50410985,
+          "author": "gvkhna",
+          "text": "Pi is without contest the best harness. Because it’s yours, the total control is the only way to move from driving agents to orchestrating them.\nMy interruptions and frustration with llms has gone down a cliff. It’s amazing to see what just a few lines of system prompt really can do to keep agents doing the correct thing much more often."
+        },
+        {
+          "id": 50414680,
+          "author": "real_faxenoff",
+          "text": "I became interested in how the harness works internally so I could try to implement my own small AI agent in a business project. And I realized that right now, most of the model’s efficiency lies precisely in the harness. And that there’s a whole complicated world inside it, one that will soon become more complex than the models themselves.\nAll my experiments using third-party harnesses for code-writing agents showed that if a model is used in a non-native harness, it sometimes burns through 5 times as many tokens, and the results are worse. That’s why I now use MCP calls not to the models directly, but to new sessions within their harnesses.\nNow, almost every day I see new announcements about coding agents with bold claims about their superiority. But in none of them have I seen a clear description of how they’re better or exactly how their architecture for working with models is superior to the original harnesses.\nAs I understand it, Pi is like \"Lego\" for building your own harness. But do you know what happened after I’d been using real Lego for half a year? I have 15 kg of it loose in three bags. My son and I have almost given up on the idea of sorting it out and actually using "
+        },
+        {
+          "id": 50410725,
+          "author": "siraben",
+          "text": "I've been daily driving Pi for over a month now and never looking back. The latest crop of frontier models have really complex bash calls, so I've written an extension that rewrites them into plain English while still making them easy to reveal in full, unlike some harnesses which seem to try to hide this from the user which is pretty irresponsible IMO.[0]\n[0]\nhttps://github.com/siraben/pi-tool-summaries"
+        },
+        {
+          "id": 50411869,
+          "author": "B4uler5",
+          "text": "I’ve been using Pi since April. I switched from using copilot CLI which definitely isn’t the most frontier harness going but was more “feature rich” at the time than the stripped down feature set you get with Pi out the box.\nThe bit I was instantly drawn to was how much access you are given to change every part of it. Its similar to the text buffer in emacs where every cell in the buffer is fully accessible to any edits you need to make. My configurations are fairly minimal, but for instance I match the accept cli calls that could be destructive and edits to files in the same way copilot is set up.\nCurrently my pi config turns it into a tutor. It no longer makes edits, just advises and is designed to teach. I make all the code edits by hand. Use deepseek flash with it because its stupid cheap. It works for me, but honestly you can set up pi in any way you want which is why I personally think its the best harness by virtue of anything being possible as long as you can dream it up!"
+        },
+        {
+          "id": 50413433,
+          "author": "ftchd",
+          "text": "> The AGENTS.md thing kind of epitomizes the whole reason I decided to quit using Claude Code.\nDo I understand correctly that this decision was taken based on something that's not accurate? Claude has been reading AGENTS.md files for a while now."
+        },
+        {
+          "id": 50411377,
+          "author": "brabel",
+          "text": "The author is complaining about Claude Code inside VSCode. The complaints don’t apply to the Claude Desktop App, for the most part. You don’t need VSCode to review code, just use the Claude app which has good support already.\nAnd if you’re moving to Pi, maybe use it with ThinkRail, from JetBrains. It’s my favorite harness since it can do everything I want: multiple models including local, focus on reviewing code after the agents are done, uses worktrees by default. And it adds some nifty tools for designing software which I am really enjoying. One thing it can’t do is let you edit files :) but that is ok, in the rare case I write something I use emacs, thank God no more need for a heavy IDE!"
+        }
+      ],
+      "title_ja": "さよならクロード、こんにちはパイ",
+      "summary_ja": "ディスカッションのハイライト：私は3か月前までTUIでChatGPT/Claudeを使用していましたが、LLMの使用は爆発的に増加しました。多くのプロジェクトにわたって多くのセッションが行われています。Piは良いハーネスです（最終的にはAnthropicサブスクリプションで試してみました）が、Anthropicサブスクリプションではありません。MODで代替ハーネスを避ける理由は複数あります。Piはコンテストなしで最高のハーネスです",
+      "editor_note": "「さよならクロード、こんにちはパイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50366821,
+      "title_en": "Porting Android 16 to my blind mother's keypad phone",
+      "url": "https://z1x.us/blog/four-hundred-bucks-of-e-waste",
+      "hn_url": "https://news.ycombinator.com/item?id=50366821",
+      "score": 104,
+      "comment_count": 32,
+      "posted_at": "2026-11-04T15:18:59+00:00",
+      "comments": [
+        {
+          "id": 50414188,
+          "author": "zersiax",
+          "text": "Whew, rough :)\nThe whole \"let's make an Android device for seniors/the blind/whoever and pin it on an ancient Android version/spec it really low but charge a premium\" thing is unfortunately not new.\nIf you look at the Blindshell 2 and 3 you see plenty of this happening as well, not to mention way more expensive hardware like the BrailleSense Polaris which last time I checked ran on Android 5, scary \"Mind updating right now please?\" Google Play warnings and everything.\nIf it helps any, Talkback does have a set of keyboard commands it responds to, perhaps making your keypad buttons fire those means the implementation might be less brittle but given what you've already had to deal with maybe just not touching it ever again might be thebest thing at this point :)\nDisclaimer: Actually blind Android user/developer"
+        },
+        {
+          "id": 50413868,
+          "author": "e12e",
+          "text": "Great story and good write-up. Might have enjoyed a little more detail in places - so it would be more easily repeatable for someone else - but perhaps that would belong in a readme.\nI guess this proves that android is still usefully more open than iOS."
+        },
+        {
+          "id": 50414208,
+          "author": "jrmg",
+          "text": "So nice to read a write up like this. Not afraid to use AI tools, but still writing up the project personally from the perspective of the human running the show."
+        },
+        {
+          "id": 50414978,
+          "author": "Doohickey-d",
+          "text": "I think the trouble with GSIs is that they often don't have everything working. For OP: did you actually test that stuff works? things like phone calls, camera, mobile internet?"
+        },
+        {
+          "id": 50412952,
+          "author": "haunter",
+          "text": "Interestingly back in 2007 Google demo'd Android on a Blackberry-like keypad phone\nhttps://www.youtube.com/watch?v=1FJHYqE0RDg"
+        },
+        {
+          "id": 50414846,
+          "author": "yjftsjthsd-h",
+          "text": "I'm confused. Why is the keyboard tied to a special app, and not just... A keyboard? Android supports hardware keyboards."
+        },
+        {
+          "id": 50414362,
+          "author": "lindskogen",
+          "text": "Love it! Makes me wanna get a landfill android with physical keys and some amount of ram and get it working again for my grandparents."
+        },
+        {
+          "id": 50414033,
+          "author": "maxloh",
+          "text": "> so i wrote one small app that does the keypad, the home screen and the keyboard.\nMaybe that is worth open-sourcing."
+        }
+      ],
+      "title_ja": "盲目の母のキーパッド電話にAndroid 16を移植する",
+      "summary_ja": "ディスカッションのハイライト：ふぅ、ラフ:)\n全体的に「高齢者/盲人/誰のためのAndroidデバイスを作って、古代のAndroidバージョン/仕様にピン留めしましょう、それは本当に低いですが、プレミアムを充電してください」というものはアンフォーです/素晴らしいストーリーと良い書き込み/このような書き込みを読むのはとても良いです",
+      "editor_note": "「盲目の母のキーパッド電話にAndroid 16を移植する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50362963,
+      "title_en": "Show HN: Vegetable Gardening for Engineers",
+      "url": "https://jrcpl.us/contrib/2020/gardening-for-engineers/",
+      "hn_url": "https://news.ycombinator.com/item?id=50362963",
+      "score": 48,
+      "comment_count": 12,
+      "posted_at": "2026-11-04T08:54:27+00:00",
+      "comments": [
+        {
+          "id": 50415722,
+          "author": "naejin",
+          "text": "Growing food is very complex, probably too complex for our brains. And I believe we will have to learn again how to grow food without our current support systems one day. I'm building projectcanopi.com toward that goal."
+        },
+        {
+          "id": 50415345,
+          "author": "schiffern",
+          "text": "https://jrcpl.us/contrib/2020/gardening-for-engineers/img/te...\n>Crucially, there is a tradeoff between growth rate and growth quality. Higher temperatures can result in faster growth but also thinner stems, weaker roots, and less flavor.\nDoing the calculus graphically, we should expect this \"quality optimum\" lies just uphill of the inflection point of the curve (between T_base and T_opt), yes?"
+        },
+        {
+          "id": 50415617,
+          "author": "jatorre",
+          "text": "I went down exactly that path with an outdoor bed: 8 soil probes, a weather station, a camera, and a drip valve. The fun part turned out to be not the automation but letting an agent decide the watering every morning and write down what it expects, then check the probes the next day to see if it was right. Fixed schedules kept being wrong in ways that needed context (forecast, last week's response, leaf wetness).\nIt's still humbling: it missed caterpillars on the broccoli until I made it look at full-resolution photos. Wrote it up here:\nhttps://jatorre.github.io/garden/"
+        },
+        {
+          "id": 50415087,
+          "author": "emidoots",
+          "text": "The brain asks:\n> I am currently exhibiting overwhelming stress from deeply technical work being part of my every day life, and feel I am missing the 'nature' element of life. What should I do?\nThe brain responds:\n> Gardening! A wonderfully complex system that will just 'live' without me! A delightful escape!\nThe brain asks:\n> Yes, gardening! But how? There are so many variables! What are the parameters? Where is the specification outlining the success criteria? What defines a living organic system?"
+        },
+        {
+          "id": 50415193,
+          "author": "mirpetri",
+          "text": "Gardening is expensive. Good I stopped at plants and didn't go for chickens.\nEvery year is different.\nFirst you fight the snails on the strawberries.\nThen the aphids on peppers and roses (this is each year).\nNext the mold attacks the tomatoes.\nAnd if you don't have enough, the starling will eat your blueberries."
+        },
+        {
+          "id": 50415403,
+          "author": "gardnr",
+          "text": "When people discover that I work in tech they ask me what they should buy. I tell them that they should buy seeds."
+        }
+      ],
+      "title_ja": "Show HN ：エンジニアのための野菜園芸",
+      "summary_ja": "ディスカッションのハイライト：食物の栽培は非常に複雑であり、おそらく私たちの脳には複雑すぎる/https://jrcpl.us/contrib/2020/gardening-for-engineers/img/te...\n>重要なことに、成長速度と成長品質の間にはトレードオフがあります/私は屋外ベッドでまさにその道を歩みました： 8つの土壌プローブ、気象ステーション、カメラ、およびドリップバルブ",
+      "editor_note": "「Show HN ：エンジニアのための野菜園芸」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50412072,
+      "title_en": "JIT bitmap text rendering for microcontrollers",
+      "url": "https://linebender.org/blog/jit-bitmap-text/",
+      "hn_url": "https://news.ycombinator.com/item?id=50412072",
+      "score": 76,
+      "comment_count": 13,
+      "posted_at": "2026-11-08T10:42:15+00:00",
+      "comments": [
+        {
+          "id": 50415816,
+          "author": "sehugg",
+          "text": "Funny, I was just thinking about JIT'ted blitters the other day. I'm pretty sure the Windows 3.1 BitBlt function was a JIT, probably building a blitter routine from templates, as they had to handle different src/dest ops, different bits-per-pixel and also linear/planar frame buffers."
+        },
+        {
+          "id": 50415813,
+          "author": "drzaiusx11",
+          "text": "The \"racing the beam\" technique extended the life of many RAM-strapped systems back in the day, like the Atari VCS/2600 (which ran a 6507 with 128 bytes of RAM!)  It's amazing what you can do with it on machines which basically have no RAM and a little software to control the electron beam."
+        },
+        {
+          "id": 50412705,
+          "author": "drfuchs",
+          "text": "For prior related work, check out patent US-6377261-B1 \"Compiling glyphs into instructions for imaging for execution on a general purpose computer\" filed 1996.  The basic idea is each character turns into a sequence of \"Load Immediate\" / \"Shift\" / \"OR to Memory\" instructions; so there's no more fetching from a stored bitmap of the font, as the pixels are implicit in the Immediate data in the generated machine code.  Then you can get fancy when one row of pixels is the same as the previous row in the character, so you don't even need to do the Load Immediate.  Etc.  This scheme was used in FrameMaker for Macintosh back in the day, as implemented by Gus Fernandez (who went hog wild on additional optimizations)."
+        },
+        {
+          "id": 50414720,
+          "author": "karmakaze",
+          "text": "This is a really great project. So many retro computers are OP that they can use large frame buffers and programming to them doesn't feel like being close to the metal back like back in the day which was more intimate.\nThis implementation reminds me of two of my early experiences: programming display lists on Atari 8-bit and an HP PCL 5e interpreter\n(with short raster band buffer)\n. I didn't really get into VCS/2600 128-byte beam racing but did do a fair amount of display-list-interrupt on-the-fly coding for homemade games and demos. I really thought the Atari Antic display list system was terrific--thanks to Jay Miner who also did the Amiga--and didn't see much like it again until OS/2 Presentation Manager or Java FX.\nThe PCL interpreter probably had the closest shape using a few hundred line cyclic buffer. It 'rendered' into y-sorted objects that needed to be later rendered/rasterized. Each object was cut to be at most 255 pixels (0.85\") tall and used reverse max-y ordering since it couldn't be drawn until after the beam passed the wraparound scan line still rendering Y - buffer_height."
+        },
+        {
+          "id": 50412869,
+          "author": "codazoda",
+          "text": "I've been building BASIC32, a retro BASIC interpreter for microcontrollers so I can flash it once and easily create lots of new projects.\nWhat you give up with the authors approach is \"read\". The screen becomes write-only. There are only a few functions that require reads: getting a pixels current color and doing operations like flood fills or paints.\nBecause I was going for the retro feel of BASIC, I wanted to support these, so I opted for a frame buffer. It isn't as technically cool. On the RP2350, it does require low resolution and low bit rates because they often have RAM limited to KB.\nIf you step-up to the ESP32-S3 variants with 4MB or 8MB of RAM the frame buffer gets much easier."
+        },
+        {
+          "id": 50412911,
+          "author": "dsign",
+          "text": "Added \"race the beam\" to my personal dictionary today :-). It's such a breath of fresh air to read something which is not written by an LLM."
+        },
+        {
+          "id": 50412997,
+          "author": "erichocean",
+          "text": "This is cool, I did something similar with a CoreText replacement I've been building recently.\nMy code can JIT + render to the atlas faster at p100 than CoreText can render without the JIT at p50, and with better quality (measured against an exact cover reference)."
+        },
+        {
+          "id": 50413821,
+          "author": "toolbrewlab",
+          "text": "The dot-product kerning trick is the bit I keep coming back to — encoding each glyph's edge profile as a bitvector and letting the overlap popcount decide the spacing feels like the sort of elegant hack that only falls out of genuinely understanding the problem. Also appreciated the honesty about the LLM-assisted parts; the cycle-count analysis is clearly hand-checked either way. I wonder how far the packed-font idea scales before the packing overlaps start costing more than they save."
+        }
+      ],
+      "title_ja": "マイクロコントローラ用JITビットマップテキストレンダリング",
+      "summary_ja": "ディスカッションのハイライト：おかしなことに、先日JITのブリッターについて考えていました/「レーシング・ザ・ビーム」テクニックは、当時のAtari VCS/2600 （ 128バイトのRAMで6507を実行しました！ ）驚くべきこと/以前の関連作業については、1996年に出願された特許US -6377261 - B 1「汎用コンピュータ上で実行するためのイメージングのための指示にグリフをコンパイルする」をチェックしてください。",
+      "editor_note": "「マイクロコントローラ用JITビットマップテキストレンダリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50406670,
+      "title_en": "What I run on my $10 USD OpenStick homelab",
+      "url": "https://blog.bosscher.ch/posts/openstick/",
+      "hn_url": "https://news.ycombinator.com/item?id=50406670",
+      "score": 712,
+      "comment_count": 127,
+      "posted_at": "2026-11-07T18:12:12+00:00",
+      "comments": [
+        {
+          "id": 50411600,
+          "author": "rwmj",
+          "text": "Back when I hosted Perl (Apache, mod_perl, \"LAMP stack\") websites for a living our standard server build looked remarkably similar.  We hosted websites for hundreds of concurrent users on each one.\n- Dual Pentium-II CPUs\n- 512 MB RAM\n- 100 Mbps wired ethernet\n- Red Hat Linux\nMass storage was larger, but not by much, and the flash eMMC is probably faster than the spinning hard disks we used back then."
+        },
+        {
+          "id": 50406671,
+          "author": "LaurensBER",
+          "text": "I've had a lot of fun with this little gadget and it's pretty cool to see how much you can host on a cheap gadget if you pick the right software! Given how expensive RAM is these days, I figured, this might be a good option for other people to get started with self-hosting as well!\nHappy to answer any question and take suggestions as to what other software would be a good addition!"
+        },
+        {
+          "id": 50413220,
+          "author": "e12e",
+          "text": "First time I hear of these OpenSticks. Two things leap to mind:\nCan these, when plugged in use TCP over USB - turning any router with USB into a 4g router, or a WiFi access point? (If Linux can run the WiFi chip in AP mode...)?\nCan these, when plugged into a server, workstation, laptop act as a console/emulate mouse/keyboard? Act as serial console over 4g/wifi?\nI suppose they can't read video, so cannot truly do two way VGA/hdmi kvm..?"
+        },
+        {
+          "id": 50407377,
+          "author": "rcarmo",
+          "text": "Fusion is quite interesting. I forked miniflux into\nhttps://github.com/rcarmo/picoflux\nbecause I wanted something lighter, but I like Fusion's screenshots better than the mini/picoflux web UI, so I will be looking at that ASAP."
+        },
+        {
+          "id": 50408058,
+          "author": "rbanffy",
+          "text": "It’s more powerful than the RPi Zeros I use on my cluster - kind of same as a Zero 2.\nWhat I’d love to see is a stick that plugs into an Ethernet switch with PoE so you assemble a cluster just by literally plugging nodes to a cluster. For that to work, the best form factor would be a vertical board with a male Ethernet connector on one side so that it’d fit on the horizontal RJ45 on the switch and not be limited by the RJ45’s width."
+        },
+        {
+          "id": 50411699,
+          "author": "wgx",
+          "text": "Part of me loves that we’re getting to the Sci-fi promise of ubiquitous “compute everywhere”, tempered by the fear that AI can probably access and use all of it with a few 0-days."
+        },
+        {
+          "id": 50415271,
+          "author": "fweimer",
+          "text": "Can you run AArch64 Linux on such a device, or would you better switch to 32-bit Arm due to the very limited RAM capacity?"
+        },
+        {
+          "id": 50407221,
+          "author": "dataflow",
+          "text": "Anyone know where you can buy the hardware of this OpenStick like they did in the post?"
+        }
+      ],
+      "title_ja": "$ 10 USDのOpenStickホームラボで実行するもの",
+      "summary_ja": "ディスカッションのハイライト：私がPerl （ Apache、mod_perl、「LAMP STACK」）のウェブサイトをホストしていたとき、私たちの標準的なサーバービルドは非常に似ていました/この小さなガジェットで多くの楽しみをしてきました。適切なソフトウェアを選択した場合、安価なガジェットでどれだけホストできるかを確認するのはかなりクールです！これらのRAMがどれほど高価であるかを考えると/これらのOpenSticksを初めて聞いたとき",
+      "editor_note": "「$ 10 USDのOpenStickホームラボで実行するもの」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50412830,
+      "title_en": "How to prove equations using diagrams, part 1",
+      "url": "https://www.epatters.org/post/e-graphs-1/",
+      "hn_url": "https://news.ycombinator.com/item?id=50412830",
+      "score": 26,
+      "comment_count": 3,
+      "posted_at": "2026-11-08T12:51:38+00:00",
+      "comments": [
+        {
+          "id": 50414982,
+          "author": "henearkr",
+          "text": "Very interesting!!\nA nitpick, for a J-shaped diagram D, J is the \"index category\" or the \"scheme\" of D, not the \"shape\" like written in the article."
+        }
+      ],
+      "title_ja": "ダイアグラムを使用して方程式を証明する方法、パート1",
+      "summary_ja": "ディスカッションハイライト：とても興味深い！ ！\nニットピックは、J字形の図Dの場合、JはDの「インデックスカテゴリ」または「スキーム」であり、記事に書かれているような「形状」ではない。",
+      "editor_note": "「ダイアグラムを使用して方程式を証明する方法、パート1」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50366902,
+      "title_en": "Clj.rs – a Clojure dialect implemented in Rust",
+      "url": "https://clj.rs/",
+      "hn_url": "https://news.ycombinator.com/item?id=50366902",
+      "score": 131,
+      "comment_count": 48,
+      "posted_at": "2026-11-04T15:23:16+00:00",
+      "comments": [
+        {
+          "id": 50412979,
+          "author": "vaylian",
+          "text": "One of the killer features of Clojure is it's seamless interop with the host platform. On the JVM you do something like\n(Integer/parseInt my-variable); this calls Integer.parseInt(my_variable) in Java-land\nI tried to find examples for how to call Rust code and the best I could find is:\nhttps://github.com/csm/clojurust/blob/b847a29b46e2b6b3fbe624...\nIt looks like you need to do a lot of leg work to introduce Rust functions into Clojure namespaces. I guess there is no way around it and this is not a criticism of clj.rs. But it doesn't seem to be as seamless as on the JVM."
+        },
+        {
+          "id": 50412295,
+          "author": "JavierFlores09",
+          "text": "Has Clojure become the new base for Lisp-like languages? What does it got going for it that people seem to want its specific flavor of lisp? Just asking since I've also seen the Clojure talk about Jank[1] recently and it has gotten me interested.\n1:\nhttps://www.youtube.com/watch?v=tHgApFhevrQ"
+        },
+        {
+          "id": 50412762,
+          "author": "xnfra",
+          "text": "The only thing I know about Clojure is Walmart used it to rewrite their entire inventory system."
+        },
+        {
+          "id": 50411586,
+          "author": "jiehong",
+          "text": "Nice, but what are the non goals?\nExcept maybe the compilation to native binary, this is closer to clojurescript than clojure I suppose ?\nHow about a comparison with Jank?"
+        },
+        {
+          "id": 50413363,
+          "author": "arikrahman",
+          "text": "Love to see more Clojure dialects taking fruit. Jank is very promising for C++ and now we have the Rust complement"
+        },
+        {
+          "id": 50411667,
+          "author": "sshine",
+          "text": "Cool.\nI'm already a big fan of the scheme-rs crate.\nI use it any time I need a dynamic scripting language.\nIt allows for more flexible hot-reloading of parts of a program.\nI don't personally have any Clojure interop holes that need filling.\nBut I can imagine a future where one moves partially away from the JVM if e.g. faster starts or leaner container images are desired."
+        },
+        {
+          "id": 50412070,
+          "author": "rfgplk",
+          "text": "I'm working on something similar.\nMy guess is, within the next 3-5 years, most ALGOL descendant languages will become obsolete, and S-exp based Lisp dialects will take over. Objectively superior.\nBehold a native kernel, no inline asm or linker scripts, of any kind. The full compiler pipeline is controllable through the compiler (you can arbitrarily target, devise, or enable/disable various optimization passes, for instance you can enable LICM at will). Also has a hard 1:1 correspondence to C/C++/Rust/adding more languages soon.\n;; GNU multiboot kernel\n(image (target x86-64) (origin 0x100000) (entry \"boot32\")\n(section \".multiboot\" (align 4) (keep))\n(section \".bss\" (align 4096) (zero))\n(stack \"bootstrap\" 16384) (stack \"kernel\" 32768)\n(assert (<= (address \"kernel.end\") 0x40000000) \"early memory must fit the first GiB identity map\"))\n(static header (Array u32 8)\n(declare (section \".multiboot\") (used) (link-name \"multiboot_header\"))\n(arr (0x1badb002 0x10003 0xe4514ffb\n(link u32 (address \"multiboot_header\")) (link u32 (origin))\n(link u32 (+ (origin) (image-size))) (link u32 (+ (origin) (image-size)))\n(link u32 (address \"boot32\")))))\n(static gdt (Array u64 3) (declare (aligned 8) (link-na"
+        },
+        {
+          "id": 50412091,
+          "author": "lightningspirit",
+          "text": "I expect this to take over within the next couple of years. Great job!"
+        }
+      ],
+      "title_ja": "Clj.rs – Rustで実装されたClojure方言",
+      "summary_ja": "ディスカッションハイライト： Clojureのキラー機能の1つは、ホストプラットフォームとのシームレスな相互運用です/ClojureはLispのような言語の新しいベースになりましたか？人々がその特定の風味のlispを望んでいるように見える理由は何ですか？ Cl/Clojureについて私が知っている唯一のことは、ウォルマートが在庫システム全体を書き換えるためにそれを使用したことです。",
+      "editor_note": "「Clj.rs – Rustで実装されたClojure方言」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 14,
+      "id": 50407882,
+      "title_en": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "hn_url": "https://news.ycombinator.com/item?id=50407882",
+      "score": 513,
+      "comment_count": 375,
+      "posted_at": "2026-11-07T20:45:32+00:00",
+      "comments": [
+        {
+          "id": 50408126,
+          "author": "bcherny",
+          "text": "Boris from the Claude Code team here. Historically Claude Code has not done secret scrubbing (there are many good tools for that), but we are looking into what we can do to prevent this.\nThat said, a few thoughts:\n1. .claude/settings.local.json is meant to stay local. This is not a file you should check into source control. We automatically gitignore it when Claude creates the file, so in this case the files were manually created and checked in (docs:\nhttps://code.claude.com/docs/en/settings\n)\n2. Permission rules are old hat. Everyone should be using auto mode instead. It is safer and also does not require manually maintaining finicky allow/deny lists. Auto mode is enabled by default and is included for free in all plans.\n3. Regardless of what agent you use, you should have secret scanning enabled. GitHub and other source control hosts offer it. There are many threat models that it protects against and you should absolutely use it if you can. (see\nhttps://github.com/security/plans\n)"
+        },
+        {
+          "id": 50408084,
+          "author": "Aurornis",
+          "text": "Confusing headline. They scanned for repos where people had committed their .claude/ folder and local settings and then scanned those files for commands which contained keys or passwords.\nSo pressing “Don’t Ask Again” by itself doesn’t expose passwords by itself. If you commit your local Claude settings and in those settings you have manually approved commands containing secrets directly in the command and then you publish the repo, that’s exposed."
+        },
+        {
+          "id": 50409507,
+          "author": "tsergiu",
+          "text": "I'm super paranoid about the level of access AI agents have. At the same time, I want them to take away the tedium of a bunch of tasks I'm required to do, and it sucks to have to micromanage them.\nThe best solution I've been able to come up is using an ephemeral vm (on an isolated network) per task, using --dangerously-skip-permissions so it doesn't bother me. I couple that with an API proxy that lets me restrict the permissions it has to external services. So e.g. where a quickbooks API key gives the holder \"god mode\" access, the proxy lets the agent do certain read commands without confirmation, but all write endpoints except uploading receipts require confirmation on my phone before they'll be allowed to hit the quickbooks servers. I no longer need to trust that the agent will interpret my readonly wishes correctly.\nTooting my own horn here, but this setup works incredibly well! I've been able to connect dozens of services safely where I absolutely do not trust giving raw, overpowered credentials or oauth integration to the agent directly. I actually just released the API proxy today at\nhttps://keycontain.com"
+        },
+        {
+          "id": 50415062,
+          "author": "anatolii1309",
+          "text": "The root issue is not the button, it is that the allowlist stores the full command string, including whatever was in it. We ran into this ourselves: approve `curl -H \"Authorization: Bearer sk-...\"` once and that token sits in settings.local.json until someone happens to reread the file.\nTwo rules that stuck for us: secrets go into commands only via env vars ($TOKEN, never the value), and .claude/ lives in the machine-wide global gitignore, not in the repo. With those, \"Don't ask again\" is fine and a commit has nothing to leak."
+        },
+        {
+          "id": 50410228,
+          "author": "tim-projects",
+          "text": "Here is how to solve this:\nUse a private dev repo and do all your dev inside it.\nReleases go to a seperate public repo\nIn the private dev repo use a script which Cherry picks release files from a whitelist that you maintain in the public repo.\nEssentially, you define the files and folder structure of a release and that ensures every release looks great with no cruft and it's never going to have .secret.json in or whatever\nHardcoded secrets is seperate and you can have another script to grep for those"
+        },
+        {
+          "id": 50408093,
+          "author": "lacoolj",
+          "text": "This page is like 80% repeating itself\nIf you post output from AI, please remember to edit before publishing"
+        },
+        {
+          "id": 50415481,
+          "author": "bvan",
+          "text": "Why bother with GitHub, anyway? Seems like an accident waiting to happen. Always has."
+        },
+        {
+          "id": 50408405,
+          "author": "binarymax",
+          "text": "I keep all my creds in a password manager (1Password in my case) and Claude can’t see them - when a cred is needed it runs a script that calls the op CLI and I tap my fingerprint for access.  Sometimes I need to do it a bunch of times for complex operations, but it’s worth it."
+        }
+      ],
+      "title_ja": "Claude Codeの「Don 't Ask Again」は、1,122の公開GitHubファイルにパスワードを公開します",
+      "summary_ja": "ディスカッションのハイライト： Claude CodeチームのBorisさん/わかりにくい見出し/AIエージェントのアクセスレベルについて非常に妄想的です",
+      "editor_note": "「Claude Codeの「Don 't Ask Again」は、1,122の公開GitHubファイルにパスワードを公開します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50415078,
+      "title_en": "A field guide to CAPTCHA types and how they break",
+      "url": "https://github.com/vsmutok/FuckCaptcha",
+      "hn_url": "https://news.ycombinator.com/item?id=50415078",
+      "score": 18,
+      "comment_count": 2,
+      "posted_at": "2026-11-08T17:09:55+00:00",
+      "comments": [
+        {
+          "id": 50415783,
+          "author": "viccis",
+          "text": "Thank you for helping bots and spammers have a nice easy repo they can point their agents to. I felt like I wasn't getting enough love and care from the porn bots accounts recently. Very cool!"
+        },
+        {
+          "id": 50415586,
+          "author": "xgulfie",
+          "text": "> It is intended for education and authorized research, not for evading protections on services without permission.\nIf you believe this in the readme of a repo called \"fuck captcha\" I have a bridge to sell you"
+        }
+      ],
+      "title_ja": "CAPTCHAタイプとその破損方法に関するフィールドガイド",
+      "summary_ja": "ディスカッションのハイライト：ボットやスパマーがエージェントに簡単なリポジトリを提供できるように支援していただきありがとうございます/>これは、教育や認可された研究を目的としており、許可なくサービスの保護を回避するためのものではありません。\n「FUCK CAPTCHA」というリポジトリのreadmeでこれを信じるなら",
+      "editor_note": "「CAPTCHAタイプとその破損方法に関するフィールドガイド」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 16,
+      "id": 50411467,
+      "title_en": "Agent memory needs its OpenTelemetry moment",
+      "url": "https://www.lorekit.io/blog/open-agent-memory-format",
+      "hn_url": "https://news.ycombinator.com/item?id=50411467",
+      "score": 135,
+      "comment_count": 96,
+      "posted_at": "2026-11-08T08:40:23+00:00",
+      "comments": [
+        {
+          "id": 50412311,
+          "author": "armchairhacker",
+          "text": "Is this a significant problem? It seems like there are 15 solutions to every AI “text format” problem, but all are merely structure over feeding the AI informal English, structure which I believe the “transformer” model is specifically able to strip to a common form (which is how training it on the entire internet worked).\nAI does benefit from learning to use skills, and being instructed with\ngood\nstructures (like “save [specific important kind of detail] in memories” and “plan before implementing anything”). But none of these memory solutions seem better than any other, they’re basically just different folders. Your CLAUDE.md can say “see AGENTS.md” and AGENTS.md can say “write memories to .agent/memories/“, and I’d be interested in a measurement, but I assume it performs almost the exact same as native CLAUDE.md and .claude/memories.\nOne thing I’ve noticed AI does much better than me, is not have OCD over the “perfect” solution."
+        },
+        {
+          "id": 50412017,
+          "author": "speedping",
+          "text": "Entire blog post reeks of LLM.\nIf there was an adequately reliable way of detecting LLM text i'd build a browser extension that would just filter it out altogether."
+        },
+        {
+          "id": 50411711,
+          "author": "Fordec",
+          "text": "On the general premise, I agree. But I don't think that moment is today, not yet anyway. I don't think we understand the right way to approach context and memory yet or how long they should last for, never mind standardizing on an abstraction prematurely that ends up being like SOAP or SGML."
+        },
+        {
+          "id": 50415625,
+          "author": "palijer",
+          "text": "It's too early to advocate for standardization for this problem. Otel developed after decades of experience in the field and we explored countless solutions and drew from them when developing Otel.\nSaying we've explored enough in agent memory solutions right now enough to standardize it and add friction to  any further experimentations would be an error I think."
+        },
+        {
+          "id": 50412298,
+          "author": "baalimago",
+          "text": "Do we really need this..? What LLMs do well is interpret natural language. So it's a sponge for whatever format is used in a specific project: a predefined format is not really needed.\nBesides, do we really want memory of user A's agents to co-exist with memory of user B? Not really. So the argument for collaboration and sharing is quite slim, at least for coding agents. The repository specific context can be encoded into a docs/ or architecture/ directory, just like it's been done pre-agent times as well.\nFor monitoring deployed agents: maybe. For this I built (yet another) memory management tool slivingdoc.dev, with this it's possible to pull down the durable context of all agents. But here the problem is a distributed system one, not format of the memories."
+        },
+        {
+          "id": 50411680,
+          "author": "imgyuri",
+          "text": "The need for a unified format or spec is greatly reduced in the case of Agent memory because by definition it is read by agents, and agents are already instructed / programmed to read memory files of different formats. Even if such instructions did not exist, agents are extremely good at traversing files to get the necessary context it needs."
+        },
+        {
+          "id": 50414584,
+          "author": "anuptalwalkar",
+          "text": "Its a solution trying to find a problem. Memory, and in-fact entire storage layer needs to be invisible for agents and daily workloads. Nobody is building/selling agents for their amazing storage, but what can they do with it.\nNobody is building agents for memory, but they are building on top of it. you make solutions simplify themselves so that users can focus on actual business problems, nothing more.\nSmall plug-  I have been running\nhttps://github.com/Polign/recall\nin a few production workflows, and most I hear about is, that it just works."
+        },
+        {
+          "id": 50412158,
+          "author": "mmasu",
+          "text": "I am curious about what people do these days and how do they tackle this problem. At repo level you can alter by with AGENTS.md and perhaps a curated set of additional docs with the project history, but as soon as you get out of it and want to have additional context the solutions available are too many - Hindsight, Graphiti, and many others; or simply roll out your own? I would like something I can spin up with Postgres or with an S3 bucket and that writes me .md files while retaining some sort of relationship among different entities - however it looks like there is no “simple” solution out there yet, with many of the existing implementations being way too elaborate and/or requiring exotic DB solutions. Would be very interesting to hear if someone knows of a bare bones solution I can plug into any agent."
+        }
+      ],
+      "title_ja": "エージェントメモリにはOpenTelemetryモーメントが必要です",
+      "summary_ja": "ディスカッションのハイライト：これは重大な問題ですか？ AIの「テキスト形式」の問題にはすべて15の解決策があるようですが、すべてはAIの非公式な英語、構造/ブログ投稿全体にLLMの臭いを与えることよりも単なる構造です。\nLLMテキストを検出する十分な信頼性のある方法があれば、完全にフィルタリングするブラウザ拡張機能を構築します。 /一般的な前提では、私は同意します",
+      "editor_note": "「エージェントメモリにはOpenTelemetryモーメントが必要です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50370793,
+      "title_en": "Nyquist Limit:The frequency of changes in tech is invalidating our understanding",
+      "url": "https://www.ryanprior.com/posts/nyquist-limit-frequency-of-changes-in-tech-invalidates-understanding/",
+      "hn_url": "https://news.ycombinator.com/item?id=50370793",
+      "score": 50,
+      "comment_count": 21,
+      "posted_at": "2026-11-04T20:07:01+00:00",
+      "comments": [
+        {
+          "id": 50384651,
+          "author": "TimTheTinker",
+          "text": "It's an interesting metaphor, but the math is not directly applicable to software engineering, because the shape of the problem (not to mention the terms) doesn't translate.\nThe main problem is that shannon-nyquist is concerned with\ndiscrete\nrepresentation of a\ncontinuous/analog\nsignal. But TA is applying it backwards:\nsoftware\nis discrete and\nhuman understanding\nis analog. So human \"sampling\" of software is not something an A->D theory can speak to."
+        },
+        {
+          "id": 50383432,
+          "author": "menaerus",
+          "text": "I liked the commentary and the metaphor with the Nyquist theorem. Mathematically speaking it's invalid but the problem being discussed is real - when the velocity of code generation (accelerated by LLMs) outpaces human cognitive capacity to review, test, and mentally model the system, structural coherence collapses.\nAnd we're already there, it's beyond our cognitive capacity to fully understand the (AI) produced volume of work for given unit of time.\nIn order to really mitigate the human bottleneck, we will either have to reach the AGI, which might not come in the next 10 years or so, or change the form of how we're doing work, review included."
+        },
+        {
+          "id": 50383538,
+          "author": "yfw",
+          "text": "Seems like a forced analogy. Is the signal a periodic and regular frequency?\nIf its a straight line you need 2 samples.\nIf its not you probably need more.\nId argue codebase understanding is neither of these simplifications"
+        },
+        {
+          "id": 50383125,
+          "author": "somethingsome",
+          "text": "Funnily enough, there are techniques that allows to go under the Nyquist limit, eg compressive sensing.\nI don't like the analogy, it supposed that AI generated code will always be badly organized underneath if it is automatic, however, as time goes, I find the code better and better.."
+        },
+        {
+          "id": 50384144,
+          "author": "ironmanszombie",
+          "text": "Thank you for the article.\nHowever, I wholeheartedly disagree. AI available to the general public may produce both code and fixes to code as an endless accretion of bugs but that's not necessarily how it will always be. Human analytics with regard to any code within a system is essentially a result of accumulated (analytics) knowledge toolified as checks and constraints. What stops, say a military application of AI from having those analytics present during code generation?\nIt would be really interesting to see an AI create a new kernel for Linux that every piece of it's code was written and verified-secure by having it analyzed and exploited simultaneously.\nWe, humans, don't need to be as fast as our tools.\nOn a personal note, I can't wait to see new silicone and operating systems made specifically for AI. That will be cool!"
+        },
+        {
+          "id": 50384511,
+          "author": "frangonf",
+          "text": "I personally found hard to see this analogy at first, because the assumption of human understanding as fs seems hard to make, as I don't see human understanding as linear and measurable.\nAlso if fs mapped well, we could just increase fs to be able to reconstruct the signal better by interleaving more brains at it and we know of manmonthian consequences, and this kinda what the main point of the post is, that human comprehension don't scale. In fact, to me, some sort of digital inteligence seems more fs-shaped than a human one.\nBut overall cool read to make you think, where you can see a dev brain as an ADC, design paradigms or microservices as band pass filters, apis as low pass, frameworks as downsampling, legacy code as DC signal that you don't touch, etc."
+        },
+        {
+          "id": 50383305,
+          "author": "FLeXMurphy",
+          "text": "You change what the signal is. Simple as."
+        },
+        {
+          "id": 50383442,
+          "author": "vr46",
+          "text": "The amount of app updates - I don't have auto update turned on - is now completely ridiculous.\nLLMs plus continuous delivery - what a gruesome twosome."
+        }
+      ],
+      "title_ja": "ナイキストの限界：テクノロジーの変化の頻度が私たちの理解を無効にしています",
+      "summary_ja": "ディスカッションのハイライト：これは興味深いメタファーですが、問題の形（用語は言うまでもなく）は翻訳されないため、数学はソフトウェアエンジニアリングに直接適用できません。\nマ/私はナイキストの定理の解説とメタファーが好きだった/強制的なアナロジーのように見える",
+      "editor_note": "「ナイキストの限界：テクノロジーの変化の頻度が私たちの理解を無効にしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50412152,
+      "title_en": "Petered",
+      "url": "https://aworkinglibrary.com/writing/petered",
+      "hn_url": "https://news.ycombinator.com/item?id=50412152",
+      "score": 131,
+      "comment_count": 81,
+      "posted_at": "2026-11-08T10:56:43+00:00",
+      "comments": [
+        {
+          "id": 50413305,
+          "author": "bloomingeek",
+          "text": "<“A-people hire A-people, B-people hire C-people”>\nI didn't go into management because I didn't think circumstances were stable enough. I did see four co-workers go up the ladder, with disastrous results. Two of them I tried to warn, the other two would have been a waste of time to warn. By the time I retired, two had been fired, one drank himself into a coma, then passed away. The fourth is still working, but became so hated, the company keeps moving him to different posts. All four of these cases were promoted by management personnel who were \"people persons\", but were terrible decision makers.\nThere's an old saying, \"Ain't nothing to it, if you're born to it.\" I know it's too simplistic, but it's based on a lot of reality."
+        },
+        {
+          "id": 50412330,
+          "author": "JSR_FDED",
+          "text": "After they’ve been promoted to their level of incompetence, they lean in very hard on relationships to survive.\nOrganizations where they get away with this are miserable to work for, and their influence ensures nothing merit-related ever happens again. Literally the source of the famous expression “A-people hire A-people, B-people hire C-people”."
+        },
+        {
+          "id": 50412455,
+          "author": "carschno",
+          "text": "I think the Peter Principle addresses a good point, but misses a critical one: the hierarchy itself. Obviously, a manager requires different skills than an engineer, so why should a good engineer be a good manager? This holds the other way round: a good manager is not particularly likely to be a good engineer.\nBoth is fine, these are just different jobs. However, the problem is that the manager is 'above' the engineer in the generally accepted hierarchy. Consequently, engineers are pressured to become managers for the development. As long as this hierarchy exists, the problem will exist."
+        },
+        {
+          "id": 50414993,
+          "author": "jmarlow47",
+          "text": "I feel like I've been \"Petered\". Years of promotions for hard work, retention, and being genuinely valued over my peers; something which is not hard to do as a tech employee in non-tech big corpo.\nAnyone have experience escaping this? Is the enlightened take to accept no interesting company will match your title, because ultimately it does exceed your capabilities, and focus on working somewhere that actually interests you with lower \"status\" and compensation?"
+        },
+        {
+          "id": 50413055,
+          "author": "poopingatwork",
+          "text": "It's easier to remember that in some organizations, it's about what you can do.\nIn others, it's about who you know.\nBut when it comes to internal promotions: it's a mix of both, and promoting people who are likely to boost your own career is an obvious choice.\nWhen someone incompetent is promoted, people below them see their incompetence. However, the people above the promoter only see the promoter's incompetence."
+        },
+        {
+          "id": 50412932,
+          "author": "moktonar",
+          "text": "I find the logic behind the principle itself buggy as it assumes that people will not improve in what they do. Even if one gets promoted close to his or her level of incompetence, it doesn’t mean that he can’t become more knowledgeable while making experience. That by the way is almost always the case, unless you reach your hard limit (eg QI or something), then you should not get further promoted (in theory). That reality is different and the system is somewhat “rigged”, that’s completely a different pair of sleeves."
+        },
+        {
+          "id": 50413611,
+          "author": "donatj",
+          "text": "In my mid twenties, almost twenty years ago, I was a very good developer. I was promoted into a management position. It was offered, I thought I wanted it. I did not. I was terrible at it, I wanted to spend my time building, not sitting in client meetings and managing other peoples interpersonal problems.\nA year in I got the only negative review of my career, and knew I couldn't keep doing this. I was so stressed I developed trigeminal neuralgia. I had to leave. A friend was looking for developers and I jumped at the opportunity. It was technically a demotion but probably one of the best choices I've made in my life.\nAll these years later, I'd love to take a second crack at it. I am a lot more capable and mature and I think I could handle it better now. Combine that with not really enjoying the work now that everything is AI driven and it might be time to give it another shot."
+        },
+        {
+          "id": 50413794,
+          "author": "stephenlf",
+          "text": "> What we call imposter syndrome was originally termed imposter phenomena, a term that makes plain that it is something that can be observed, not merely felt. The transformation into a syndrome shifted the experience of being impostered by a patriarchal, white supremacist society into a medicalized disorder, something for which the impostered person must be treated. That’s a neat trick: to shift the locus of treatment to the mistreated person, rather than the system that caused her harm. But perhaps there’s even another, more diabolical move here.\nI have no idea what this is saying. What does “being impostered” mean? As far as I know, “Imposter Syndrome” is all about personal insecurities. It’s not something imposed."
+        }
+      ],
+      "title_ja": "ピーター",
+      "summary_ja": "ディスカッションハイライト：<“ A - people hire A - people, B - people hire C - people ”>\n状況が十分に安定しているとは思わなかったので、私は経営陣に入りませんでした/彼らが無能なレベルに昇進した後、彼らは生き残るために人間関係に非常に頼っています。\nこれを逃した組織は、働くのが惨めです/ピーターの原則は良い点を扱っていると思いますが、重要な点を見落としています：階層自体",
+      "editor_note": "「ピーター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 50404747,
+      "title_en": "The Gordon Gekko effect: The role of culture in the financial industry (2016) [pdf]",
+      "url": "https://www.newyorkfed.org/medialibrary/media/research/epr/2016/epr_2016_gordon-gekko-effect_lo.pdf",
+      "hn_url": "https://news.ycombinator.com/item?id=50404747",
+      "score": 71,
+      "comment_count": 47,
+      "posted_at": "2026-11-07T14:18:45+00:00",
+      "comments": [
+        {
+          "id": 50405914,
+          "author": "getpost",
+          "text": "> \"The point is, ladies and gentleman, that greed, for lack\nof a better word, is good.\" ... few people know that these words are based\non an actual commencement speech delivered in 1986 at The speaker? Ivan Boesky, who would be convicted just eighteen months later in an insider trading scandal.\nI did not know this! Thank you for posting!"
+        },
+        {
+          "id": 50405937,
+          "author": "dingaling911",
+          "text": "I had two stints at a hedge fund, one a hedge fund supplier.\nThe fake self promotional bullshit is so tiring. I quit as a result of this. It's the same as big tech, not any different.\nJane Street SUPPOSEDLY follows a flat hierarchy which has less of these games. I'm not sure how true it is.\nThe way I think about it: you hire people who are literally self driven and then you constrain them for no reason just to make other people feel in control.\nOr maybe I'm just not a good employee. My first job ever told me I'm a horrible employee."
+        },
+        {
+          "id": 50404755,
+          "author": "tylerdane",
+          "text": "\"The same factors that allow leadership to\nmanifest itself through performance and\nteamwork also allow it to promote goals\nthat lack a moral, ethical, legal, profitable,\nor even rational basis.\""
+        },
+        {
+          "id": 50406491,
+          "author": "thibsrn",
+          "text": "Thank you for sharing, it is a really interesting read. It expands on the different approaches that try to explain individuals' behaviors in a group. It is always good when there is some variety on HN and we get a bit of social sciences !"
+        },
+        {
+          "id": 50409327,
+          "author": "alexgoodhart",
+          "text": "The thesis is predicated on a framing that makes no sense.\nGordon Gekko did not influence Wall Street. Capitalism’s functional stages are a product of conventional strategies and the predictable capture of political power by financial power.\nWall Street’s current form was articulated in volumes I and III of “Capital” by Karl Marx. That profit diverges from value, competition leads to consolidation, speculation generates profits which are derived from unrealized market growth which has to continually borrow against itself and uses as its final bank the stability of a coercive state (which it eventually depletes)"
+        },
+        {
+          "id": 50406871,
+          "author": "Animats",
+          "text": "(2016), from the New York Fed, back during the Obama administration. Reading this, my first thought was amazement that this came out under Trump. It didn't.\nThis paper is mostly about risk associated with debt. That's the Fed's job, after all. The current AI bubble is more on the equity side, although, when it pops, we'll see who's been leveraging their equity positions with debt. Historically, up until the 1980s. corporate debt was supposed to be low-risk. If a company went bust, that usually took down the top executives, who were unlikely to get good jobs ever again.\nAs a result, the bond market was boring. Not much trading. Buy and hold.\nThen came \"high yield bonds\" - debt instruments with high returns but a significant\nrisk. The concept was that a broad portfolio of high yield bonds became, statistically, a low-risk loan. Risk management and the Black-Sholes model became a major part of Wall Street activity. That's the background of the paper. The audience to which that paper is addressed knows that, so they only hint at it.\nThis tends to break down when there's some across the board change. The 2008 US housing crisis is the big modern example. Housing prices went down national"
+        }
+      ],
+      "title_ja": "ゴードン・ゲッコー効果：金融業界における文化の役割（ 2016年）[ pdf]",
+      "summary_ja": "ディスカッションは次のように強調しています。>「重要なのは、紳士淑女の皆さん、その欲望は\nより良い単語は、良いです。」 ../私はヘッジファンドで2つのスティントを持っていました。1つはヘッジファンドのサプライヤーです。\n偽の自己宣伝のたわごとはとても疲れます/「リーダーシップを可能にするのと同じ要因\nパフォーマンスと\nチームワークはまた、目標を促進することを可能にします\n道徳的、倫理的、法的、収益性の高い、\nまたはra",
+      "editor_note": "「ゴードン・ゲッコー効果：金融業界における文化の役割（ 2016年）[ pdf]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 20,
+      "id": 50412318,
+      "title_en": "Person of Interest",
+      "url": "https://krthr.co/person-of-interest/",
+      "hn_url": "https://news.ycombinator.com/item?id=50412318",
+      "score": 247,
+      "comment_count": 167,
+      "posted_at": "2026-11-08T11:23:28+00:00",
+      "comments": [
+        {
+          "id": 50413527,
+          "author": "vesche",
+          "text": "From reading the comments, I think a lot of people haven’t seen the show. I highly recommend it. However, you have to remember that this aired on CBS in the age of shows like CSI and NCIS. Therefore, it was made into a high-episode-number, cookie cutter serial crime drama. Every episode follows a similar pattern where the two main characters are trying to prevent a murder. However… if you can make it past that and especially stay focused thru two seasons of that - you will be massively rewarded. The later seasons especially are essentially a fantastic, complex, hard sci-fi show about proxy wars between AGIs using human agents in a battle of control. It’s honestly one of the best shows ever and way ahead of its time"
+        },
+        {
+          "id": 50413448,
+          "author": "vgalin",
+          "text": "I often think about Person of Interest, and when I clicked on the post, I expected to be presented with something else entirely, as the show is now 15 years old. What a pleasant surprise!\nI like to compare how similar or different The Machine is to current state-of-the-art LLMs. Interestingly, in this fiction, The Machine's preferred way of communicating doesn't seem to be through text, or even artificial speech. It can see almost everything, and seems capable of improving itself, but it feels \"intelligent\" in a way that humans or LLMs aren't. Maybe the writers thought that giving it the ability to write text or speak directly would make it \"less\" in many ways (less mysterious, less machine-like, less intelligent, etc.). It also gives the impression that you cannot really guess what it \"thinks\" or fully understand it.\nI'm also realizing that most of the time, characters don't really have a \"conversation\" with The Machine, whereas it is a core feature of current-day LLMs. And The Machine doesn't even \"create\" its communication channels, it uses existing ones (phone booth, radio ...)."
+        },
+        {
+          "id": 50412969,
+          "author": "microflash",
+          "text": "Pleasantly surprised to see this here. One of the most memorable shows that I watched ages ago. It was strong at the beginning but kind of dragged on in later seasons. Still very nice to binge.\nIn case you’re looking for some more shows related to AI, Cupertino by Robert King and Michelle King is currently airing and is pretty entertaining."
+        },
+        {
+          "id": 50413005,
+          "author": "randallsquared",
+          "text": "The primary science fiction quality of the show is that something like that could have been done as early as it was said to have been. At the time, that part of it seemed almost completely impossible. With subsequent developments, it now only seems implausible. Wild."
+        },
+        {
+          "id": 50412366,
+          "author": "jordz",
+          "text": "I absolutely loved this show, and to be honest a rewatch is needed. I won’t make any reference to specifics due to spoilers. Would recommend."
+        },
+        {
+          "id": 50413704,
+          "author": "trimbo",
+          "text": "Great show and \"If-Then-Else\"[1] is one of the greatest single episodes of any show ever. Like watching the X-Files today, I would recommend skipping a lot of the one-off episodes. Here's a list someone put together.\nhttps://www.reddit.com/r/PersonOfInterest/wiki/index/\n[1] -\nhttps://www.imdb.com/title/tt4128194/?_ssoLoop=1"
+        },
+        {
+          "id": 50412718,
+          "author": "jan_m_savage",
+          "text": "POI is a great show also because of the two main characters, the geek and his execution-man, both accomplished actors.\nOne of my most fav TV Serials to have come out of the West."
+        },
+        {
+          "id": 50412871,
+          "author": "doginasuit",
+          "text": "Person of Interest is a relentlessly silly show, although you wouldn't necessarily pick up on it at first. It leans into it more with each season until that's all there is. I still enjoyed it, it is pretty self aware. I would not watch it with the idea that it has any relevance to anything."
+        }
+      ],
+      "title_ja": "容疑者",
+      "summary_ja": "ディスカッションのハイライト：コメントを読むと、多くの人がショーを見ていないと思います/私はしばしば興味のある人について考えます、そして私が投稿をクリックしたとき、ショーが今15歳であるので、私はまったく別のものを提示されることを期待しました/ここでこれを見て喜んで驚いています",
+      "editor_note": "「容疑者」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50358094,
+      "title_en": "Tasfer: a text editor drawn on a 2D canvas",
+      "url": "https://www.hamza.se/blog/tasfer",
+      "hn_url": "https://news.ycombinator.com/item?id=50358094",
+      "score": 72,
+      "comment_count": 48,
+      "posted_at": "2026-11-03T20:58:40+00:00",
+      "comments": [
+        {
+          "id": 50415677,
+          "author": "hollowturtle",
+          "text": "Anyone knows how multi lang line breaking has been managed?"
+        },
+        {
+          "id": 50406138,
+          "author": "SubiculumCode",
+          "text": "I wish Office 365 would hire someone like the author. Online Word never renders the same as it would in the Desktop software...and this matters. I deal with only modestly complex documents when I write grants but I do need to stay within page length limits for sections, I need some layout stability...so I inevitably fire up my Windows VM to run the application.\nBefore anyone suggests LateX, I know, I know, but when you write collaboratively, you don't always get to choose the platform."
+        },
+        {
+          "id": 50406246,
+          "author": "gb2d_hn",
+          "text": "This looks great. I've been impressed at how flexible CodeMirror is though. When I started EtherPK (\nhttps://app.etherpk.com\n) I made a bet that CodeMirror could help me build an editor that could combine outliner blocks, standard prose and rich overlays / graphics / embeds in one editor. I was concerned that I'd hit a road block (I presumed Logseq used custom HTML, nested divs and click position mapping for rendered text to the underlying input for a reason), but 9 months in I couldn't be happier with my choice, and it's a blazing fast editor that feels really nice and light to type in (live demo:\nhttps://app.etherpk.com/demo\n)"
+        },
+        {
+          "id": 50406047,
+          "author": "pcj-github",
+          "text": "I wrote a similar tool to this many years ago that used JATS as an internal document model, using contentEditable, and I can relate to the pain you refer to.  Getting the semantics right in cases where you split or join text that has varying types of nested context was hard.\nI like what you did here in terms of the cursor that points one way or the other: it tells you if you're in \"normal\" mode, or for example, in a bold region.  I don't think I've seen that before so, if you made it up, that itself is a cool invention."
+        },
+        {
+          "id": 50407220,
+          "author": "annex-winged-cr",
+          "text": "Just tested it on Android, glide delete and glide cursor control doesn't work.\nWould it even be possible to make those work with a canvas?"
+        },
+        {
+          "id": 50405633,
+          "author": "rpastuszak",
+          "text": "We should chat (check bio)! For almost a decade now I’ve been working on a writing tool that might benefit from it. I build occasional forks with procgen on top it. That being said better bidi handling is something I’m most interested in.\nEnso.sonnet.io - what I’m talking about.\n(On untested.sonnet.io you’ll find notes about the experiments / toys related)"
+        },
+        {
+          "id": 50405622,
+          "author": "aziis98",
+          "text": "Ok the custom rich text latex editor is really cool. But I'm on a tablet and stuff like selecting text is a bit awkward (the up down auto scroll is not exactly the same as the native one and isn't as precise as the native one).\nBut still this is an awesome project!"
+        },
+        {
+          "id": 50406624,
+          "author": "hridyaagrawal",
+          "text": "how are you handling IME and screen readers with canvas? also do you relayout per line or per block? only relaying out changed blocks was the biggest typing speedup in my markdown editor"
+        }
+      ],
+      "title_ja": "Tasfer ： 2 Dキャンバスに描かれたテキストエディタ",
+      "summary_ja": "ディスカッションのハイライト：マルチラングの改行がどのように管理されているかを知っている人はいますか？/Office 365が著者のような人を雇ってくれることを願っています/これは素晴らしいです",
+      "editor_note": "「Tasfer ： 2 Dキャンバスに描かれたテキストエディタ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50378974,
+      "title_en": "Finding Xanadu: Inside a JRPG classic translation 15 years in the making",
+      "url": "https://readonlymemo.com/legend-of-xanadu-pc-engine-fan-translation-interview-making-of/",
+      "hn_url": "https://news.ycombinator.com/item?id=50378974",
+      "score": 60,
+      "comment_count": 12,
+      "posted_at": "2026-11-05T13:44:07+00:00",
+      "comments": [
+        {
+          "id": 50413277,
+          "author": "falsaberN1",
+          "text": "The \"Sacred Alcohol of Stamina to Van Buren Coffee\" part illustrates why I hold those \"localization\" attempts in contempt. \"I have unanimously decided this name/sentence/reference is boring and I'm going to change it to make it 'more interesting'\".\nJust translate the thing. If you add random references that weren't there it's going to alter the discourse around the game that only knows of the localization dramatically.\nYou may say this sounds ungrateful, but those people altering the original works are ones setting the tone of the entire Western discourse of the games they re altering. People are going to talk about the localized version and any change introduced will become part of how it's perceived and discussed. This can include both accidental and intentional changes that completely change the tone, setting or relationships of the characters within. Like the infamous DeJap localization of Tales of Phantasia that made a character particularly horny, and that intentional change has stuck even after more serious official translations came out because many people only played that altered version.\nI can understand altering stuff for censorship reasons even, but those changes made t"
+        },
+        {
+          "id": 50412677,
+          "author": "rationalist",
+          "text": "I spent way too much time watching the video of gameplay.  It looks very good."
+        }
+      ],
+      "title_ja": "ザナドゥを見つける： 15年にわたるJRPGの古典的な翻訳の裏側",
+      "summary_ja": "ディスカッションハイライト：「ヴァンビューレンコーヒーへのスタミナの神聖なアルコール」の部分は、私がそれらの「ローカリゼーション」の試みを軽蔑している理由を示しています/私はゲームプレイのビデオを見てあまりにも多くの時間を費やしました",
+      "editor_note": "「ザナドゥを見つける： 15年にわたるJRPGの古典的な翻訳の裏側」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50377661,
+      "title_en": "Uranium cubes reveal why the German nuclear project failed",
+      "url": "https://arstechnica.com/science/2026/11/uranium-cubes-reveal-why-the-german-nuclear-project-failed/",
+      "hn_url": "https://news.ycombinator.com/item?id=50377661",
+      "score": 196,
+      "comment_count": 132,
+      "posted_at": "2026-11-05T10:52:04+00:00",
+      "comments": [
+        {
+          "id": 50408679,
+          "author": "leonidasrup",
+          "text": "Boron contamination of graphite also slowed the Manhattan Project:\n\"\nFermi writes that \"The results of this experiment was [sic] somewhat discouraging\" presumably because of the absorption of neutrons by some unknown impurity.  So, in December 1940 Fermi and Szilard met with Herbert G. MacPherson and V. C. Hamister at National Carbon to discuss the possible existence of impurities in graphite.  During this conversation it became clear that minute quantities of boron impurities were the source of the problem.\n\"\nhttps://en.wikipedia.org/wiki/Nuclear_graphite"
+        },
+        {
+          "id": 50409697,
+          "author": "raldi",
+          "text": "Clickbait antidote: The cubes revealed only that the uranium was a bit less dense than textbook values because of tiny internal voids.\nThat measurement fed a computer model, but if I'm reading the article right, most of the work was actually based on wartime records on heavy water and graphite. Anyway, the model showed they would have needed twice the uranium and heavy water they actually had."
+        },
+        {
+          "id": 50377721,
+          "author": "thisisauserid",
+          "text": "This is central to the plot of D: Heavy Water, Neal Stephenson's second installment of the Bomb Light Trilogy."
+        },
+        {
+          "id": 50409585,
+          "author": "mauvehaus",
+          "text": "Since Norsk Hydro was mentioned in the article, I have to mention in turn one of my favorite books ever: The Winter Fortress by Neil Bascomb. It's the true story of the Norwegian commando sabotage of the heavy water plant. Short version: after a failed attempt by the English, some locals who'd fled to England and received training parachuted in, blew it up, and then skied to neutral Sweden. Legends, the lot of them: they froze their balls off and didn't have enough to eat, but they pulled it off.\nEvery time I re-read it, it makes me want to take up nordic skiing. It is absolutely up there on my list of greatest true stories ever told with Touching the Void, The Emerald Mile, and a select few others.\nhttps://www.abebooks.com/Winter-Fortress-Epic-Mission-Sabota..."
+        },
+        {
+          "id": 50413688,
+          "author": "gcanyon",
+          "text": "The obvious question to me is whether Heisenberg got it wrong on purpose."
+        },
+        {
+          "id": 50410753,
+          "author": "mannyv",
+          "text": "Anyone interested in the bomb should read 'And the Devil Reached Towards the Sky, an oral history of the atomic bomb.'\nIt's full of fun anecdotes and asides...like when they 'found' tuns of uranium ore in NY...or the aforementioned acquisition of silver from Treasury.\nThere are classic bureaucratic things...like when they issued a check for millions and specified 'no questions asked.' Then the guy called with questions. Or how Groves' people and Treasury tried to figure out how many ounces were in a ton."
+        },
+        {
+          "id": 50409754,
+          "author": "Beijinger",
+          "text": "\"As the German scientists were racing against time,\"\nThe Germans tried to build a reactor, not a bomb, or am I wrong?"
+        },
+        {
+          "id": 50408761,
+          "author": "AndrewKemendo",
+          "text": "Awesome article and interesting to see Heisenberg get it wrong. It really was a perfect situation for the US because we could get all the radioactive material with little issue.\nA clean reminder that logistics is everything.\nAlso cool that the author is married to Sean Carroll."
+        }
+      ],
+      "title_ja": "ウランキューブがドイツの核プロジェクトが失敗した理由を明らかに",
+      "summary_ja": "ディスカッションハイライト：グラファイトのホウ素汚染もマンハッタン計画を遅らせた。\n\"\nフェルミは、おそらくab/Clickbait解毒剤のせいで、「この実験の結果は[sic]やや落胆した」と書いている。キューブは、内部の小さな空隙のために、ウランが教科書の値よりも少し密度が低いことだけを明らかにした。\nその測定値はコンピュータモデルを供給しましたが、これがD ： Heavy Waterのプロットの中心である場合、Neal Stephenso",
+      "editor_note": "「ウランキューブがドイツの核プロジェクトが失敗した理由を明らかに」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 50403097,
+      "title_en": "Every Mac comes with an (undocumented) family member classifier",
+      "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph",
+      "hn_url": "https://news.ycombinator.com/item?id=50403097",
+      "score": 817,
+      "comment_count": 435,
+      "posted_at": "2026-11-07T09:46:03+00:00",
+      "comments": [
+        {
+          "id": 50403714,
+          "author": "thomascountz",
+          "text": "At one point in my life, I would've found this data fascinating (if it were opt-in, perhaps)! Now, I find it exhausting.\nA similar discussion came up recently with Siri Recap[1], where some expressed how useful they thought it was and that, as a party to the conversations it summarizes, there was very little moral or ethical concern. But I have a social concern.\nIf I'm having a chat with someone, there's a milieu constructed around the fact that not everything will be remembered verbatim. There are all sorts of social and contextual cues that can easily get lost if listening gets replaced by flat relentless transcription.\nWith Recaps and this social graph (were it to be productized), the informal fluidity in the way we relate to one another starts to go away, and the expectations that follow from that become artificial and burdensome. In the same way that autocorrect has made typos unacceptable, how could you ever be forgiven for forgetting the name of your colleague's new nephew or the Italian village that your neighbor took a spontaneous boat trip to while on vacation last year?\n[1]:\nhttps://news.ycombinator.com/item?id=49641401"
+        },
+        {
+          "id": 50404620,
+          "author": "elgertam",
+          "text": "> What if I told you that every Mac since 2022 ships a pair of daemons whose only purpose in life is to build a graph about you and the people around you: who you are, who you know, how those people are related to you and to each other, how you communicate with them, where you go, with whom, what you do and when.\nI wouldn't be surprised at all, given that Photos knows the names and faces of all the loved ones in my life. Not just people, in fact, but the \"furry friends.\" And Calendar and Reminders knows where I go. And so forth.\nThe feature is genuinely useful. Only thing is it should be opt-in and have guarantees about where/how the data is stored, such as encrypted-at-rest. I trust Apple with that more than all other Big Tech combined, but still in a \"trust, but verify\" way."
+        },
+        {
+          "id": 50407982,
+          "author": "consumer451",
+          "text": "\"Privacy means people know what they're signing up for, in plain English and repeatedly... Ask them. Ask them every time. Let them know precisely what you're going to do with their data.\" – Steve Jobs (2010)\n__\nmoderators: \"Let's talk about privacy, sorry Mark, who is here...\"\nJobs: \"We've always had a very different view of privacy than some of our colleges in the Valley...\"\nhttps://www.youtube.com/watch?v=uk_pLVQRNzg\nThe permissions system in iOS feels like it is following Jobs' ethos. Truly amazing all these years later. Kudos to the iOS team!\nWho ever implemented what is called out in TFA, is clearly diverging from what makes Apple and AAPL very special. Please stop that."
+        },
+        {
+          "id": 50403610,
+          "author": "Ungh",
+          "text": "Just spent 30 minutes poking around this. It's horrifying. Absolutely horrifying. All the intelligence and Siri stuff is turned off and blocked on my Mac yet it's still doing this.\nThink this might kick me over the fence finally to Debian."
+        },
+        {
+          "id": 50403752,
+          "author": "aetherspawn",
+          "text": "This is context for local LLMs like Siri so that when you say “Text James and tell him …” it knows which James you mean.\nLikewise, you could say “Tell my boss I’m not coming in tomorrow” and it would have to know who your boss is.\nWe could get super angry about this, but seeing as it’s fully local and doesn’t leave the device, it really doesn’t seem like a big deal. Is it much different to your car remembering who you call and where you go at what times for navigation purposes?"
+        },
+        {
+          "id": 50403522,
+          "author": "infwhispers",
+          "text": "I am the author of the research. Please, feel free to ask me anything. Also, check out the followup research:\nhttps://8rank.ai/game/apple-intelligence-knowledge-graph-in-..."
+        },
+        {
+          "id": 50403783,
+          "author": "oldfuture",
+          "text": "This is deeply troubling,\nthis data is unnecessary collected and impossible to opt out from apparently and may be read at any point in the future by an attacker or by apple itself without notice\nthis is a class action lawsuit in the making"
+        },
+        {
+          "id": 50408783,
+          "author": "sjpb",
+          "text": "I don't understand how every post isn't incandescently furious about this? People just seem to be resigned! This is so far beyond what I'd consider ethical for a hardware company to do s that I will not ever buy an Apple product off the back of it."
+        }
+      ],
+      "title_ja": "すべてのMacには（文書化されていない）家族メンバー分類子が付属しています",
+      "summary_ja": "ディスカッションのハイライト：私の人生のある時点で、このデータは魅力的だったでしょう（オプトインしていれば） ！ さて、疲れ果てています。\n最近、Siri Recap [1]で同様の議論が行われました。2022年以降のすべてのMacに、あなたとあなたの周りの人々についてのグラフを作成することを唯一の目的とするデーモンが搭載されていると言ったらどうでしょうか。あなたは誰ですか、あなたは誰ですか/「プライバシーとは、人々が何にサインアップしているのかを知っていることを意味します。pl",
+      "editor_note": "「すべてのMacには（文書化されていない）家族メンバー分類子が付属しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50403507,
+      "title_en": "Every Windows 11 app should kill Electron, and Discord just showed why",
+      "url": "https://www.windowslatest.com/2026/11/06/every-windows-11-app-should-kill-electron-and-discord-just-showed-why-no-starting-screen-and-70-less-ram-even-with-two-accounts-signed-in/",
+      "hn_url": "https://news.ycombinator.com/item?id=50403507",
+      "score": 424,
+      "comment_count": 423,
+      "posted_at": "2026-11-07T11:11:15+00:00",
+      "comments": [
+        {
+          "id": 50411675,
+          "author": "jFriedensreich",
+          "text": "I am at the opposite extreme. We should ditch electron and use browsers good enough integrated they can run all the apps with native feel and reusing the same engine (not a lacklustre OS webview but a complete one) This solves the memory overhead, solves unpatched or misconfigured chromium in each electron app as well as portability and reusing web dev skills. Also this would allow permissions and security to be managed by a layer that can focus on that and I don't have to worry about what a native app can do. (OS permissions and sandboxing are just not made for vibecoded infinite software and likely never will catch up) All the performance and other arguments are just not true, a well build webapp is often more performant than a native app especially for long scroll lists not even to mention accessibilty, extensions and more. I will never trust discord or Spotify to run something natively on my machine and so should no one else."
+        },
+        {
+          "id": 50413953,
+          "author": "therealmarv",
+          "text": "I don't understand the hate on Electron. I think most people here never shipped cross plattform apps ever and even less maintained them across cross platform. It's a financial decision.\nElectron (in the age before AI) enabled to stand on the shoulders of giants to build a reliable product with one code-base among many OSes. Something which Java promised Electron really delivered for most end-user apps. Google poured billions into making the fundament of Electron fast and reliable and bugfree. And it enabled many Linux ports of apps which would have otherwise not happened.\nBest example is vscode.\nAre Electron apps more wasteful than native: sure. But I rather stand with Electron and that Windows, Mac and Linux is supported."
+        },
+        {
+          "id": 50403866,
+          "author": "cheschire",
+          "text": "I'm pretty sure this was known since the early days of Electron. It was even one of the chief complaints about VS Code when it was first launched.\nElectron's value prop has always been about having one team producing one app that is supported on multiple platforms with minimal additional effort.\nThis article does nothing to address that."
+        },
+        {
+          "id": 50415600,
+          "author": "0x20cowboy",
+          "text": "I have a few desktop applications at work that are written in C. They are fully launched before you lift your finger from the mouse click that started the app. There is so much bloat in today’s typical software."
+        },
+        {
+          "id": 50404049,
+          "author": "LaurensBER",
+          "text": "Electron is pretty awesome in that it allows a small team to build a decent GUI app using their existing web skillset but it also feels like it's time for something better at this point.\nWith the ram prices as crazy as they are. It's pretty frustrating to have to run multiple GB eating applications just to do some basic tasks (90% is read and write messages, in the case of Discord). I understand that other people might use the more advanced features (voice chat, etc) but these could be loaded on-demand.\nIt's a bit crazy to me that I can comfortable run an entire Linux stack (+ Podman, monitoring, alerting and multiple services) in 512 MB ram (with 40% free, just checked!). However my Windows PC needs 5.5GB just to show the desktop! Realistically it needs somewhere between 8GB and 16GB for some basic web browsing and even then it can feel slow if you have a few apps like Discord running in the background."
+        },
+        {
+          "id": 50410552,
+          "author": "ycui7",
+          "text": "People need to understand even a 70% smaller 290MB GUI app is still terrible. We could open 200 browser tabs on Windows 2000 with only 256MB memory back in the days. Discord should not consume more data than 200 browser tabs."
+        },
+        {
+          "id": 50404523,
+          "author": "EddieRingle",
+          "text": "Discord isn't really the model to follow here, IMO. They killed their native Android app and moved to React Native, and now they're dropping React Native (while mobile somehow keeps \"native UI\", according to their CTO's tweet). If they wanted to maximize code reuse and accelerate feature development, they should have instead considered Kotlin Multiplatform, then they could've skipped the React Native detour while actually building apps that are native to the platform. (Rust and its cacophony of UI frameworks are not really platform-native anywhere, as far as I'm aware. Maybe Pop OS, but I don't know anyone targeting that specifically.)\nThis bit is obviously subjective, but Rust as a language is simply not ergonomic enough for a lot of the use cases people are trying to apply it to, especially UI development. Most of the Rust UI libraries I've seen to date either use a more imperative style, or attempt to replicate more declarative approaches like Compose UI or SwiftUI, but without the nice language aesthetics that make it simple to read and write. And if the counter-argument there is for LLMs to be reading and writing this stuff, that's a whole other can of worms: (1) The subsidize"
+        },
+        {
+          "id": 50404391,
+          "author": "Doohickey-d",
+          "text": "One nice thing about Électron is that it supports accessbility and non-english IMEs correctly, and thus all Electron apps have decent accessibility out of the box, comparable to web apps.\nMost Rust GUI toolkits, at least in 2025, did not have that good accessibility or IME:\nhttps://www.boringcactus.com/2025/04/13/2025-survey-of-rust-...\nHopefully this has gotten better and the new discord client isn't worse in that regard."
+        }
+      ],
+      "title_ja": "すべてのWindows 11アプリはElectronを殺すべきであり、Discordはその理由を示しただけです",
+      "summary_ja": "ディスカッションのハイライト：私は反対の極端な立場にいます/Electronに対する憎悪を理解していません/これはElectronの初期から知られていたことだと確信しています",
+      "editor_note": "「すべてのWindows 11アプリはElectronを殺すべきであり、Discordはその理由を示しただけです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50371360,
+      "title_en": "New typeface using intricate designs from Shakespeare's First Folio (2023)",
+      "url": "https://www.itsnicethat.com/news/typeland-shakespeares-globe-amifer-folio-graphic-design-090323",
+      "hn_url": "https://news.ycombinator.com/item?id=50371360",
+      "score": 42,
+      "comment_count": 11,
+      "posted_at": "2026-11-04T20:53:54+00:00",
+      "comments": [
+        {
+          "id": 50412124,
+          "author": "atombender",
+          "text": "I thought this was going to be about the typeface used for the main text.\nIf anyone is curious, as I was, there is some academic research on this, although not a lot. The most in-depth \"palaeotypographical\" analysis I have found was this [1] paper, which also seems to correct a long-standing assumption about the printing:\n\"Visual and historical evidence have led me to suggest that the font is the second pica roman of the Huguenot punchcutter Pierre Haultin [...] cast for Jaggard’s use probably around 1603 or 1608 by an unknown typefounder who likely inherited the matrices from Pierre’s nephew Jerome Haultin. The font was old and in poor condition when it was used to print the Folio, which supports the view that Jaggard and his pressmen did not see the Folio as an unusually important book.\"\n[1]\nhttp://reedreibstein.com/assets/reibstein-first-folio.pdf"
+        },
+        {
+          "id": 50371361,
+          "author": "bryanrasmussen",
+          "text": "original title: Shakespeare’s Globe unveils typeface using intricate designs from playwright’s First Folio"
+        }
+      ],
+      "title_ja": "シェイクスピアのファーストフォリオ（ 2023年）の複雑なデザインを使用した新しい書体",
+      "summary_ja": "ディスカッションのハイライト：これはメインテキストに使用される書体に関するものだと思いました。\n私のように興味がある人には、これに関するいくつかの学術研究がありますが、それほど多くはありません/オリジナルのタイトル：シェイクスピアのグローブは、劇作家のファーストフォリオの複雑なデザインを使用して書体を発表します",
+      "editor_note": "「シェイクスピアのファーストフォリオ（ 2023年）の複雑なデザインを使用した新しい書体」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50408713,
+      "title_en": "Making any integer with four 2s (2025)",
+      "url": "https://eli.thegreenplace.net/2025/making-any-integer-with-four-2s/",
+      "hn_url": "https://news.ycombinator.com/item?id=50408713",
+      "score": 190,
+      "comment_count": 50,
+      "posted_at": "2026-11-07T22:38:58+00:00",
+      "comments": [
+        {
+          "id": 50412948,
+          "author": "Someone",
+          "text": "It’s true cheating, but if you assume the Peano axioms, you can write any integer with one zero without having to resort to complex functions such as √. For example (if I didn’t miscount the S-es or parentheses),\nS(S(S(S(S(S(S(0)))))))) = 7"
+        },
+        {
+          "id": 50414557,
+          "author": "omoikane",
+          "text": "A recent IOCCC entry solves a related game of making integers out of variable number of constants (e.g. make expression using only \"2\" and basic operations, but any number of \"2\" can be used as opposed to always four):\nhttps://www.ioccc.org/2025/kurdyukov/index.html"
+        },
+        {
+          "id": 50409769,
+          "author": "hahajk",
+          "text": "i know everyone plays with their own rules, but from my perspective, a square root spends a 2 - it's not an operator like + or ! . there's an implicit \"2\" since you could also take the cube root or fourth root"
+        },
+        {
+          "id": 50409188,
+          "author": "adas0693",
+          "text": "there is a related problem (inspired by an interview questions from ITA software, a part of Google now) that asks to find the smallest positive integer that cannot be expressed using a digit K (in [2,9]) N times in an expression that involves the four basic arithmetic operations and the parentheses: +, -, *, /, (, and ).\nto make the problem more interesting, the list of operations can be extended to include exponentiation and concatenation.\nfor example, using the four basic operations for N=4, and K in [2,9], we get:\n7 cannot be computed in 4 2s;\n11 cannot be computed in 4 3s;\n10 cannot be computed in 4 4s;\n8 cannot be computed in 4 5s;\n9 cannot be computed in 4 6s;\n4 cannot be computed in 4 7s;\n5 cannot be computed in 4 8s;\n4 cannot be computed in 4 9s;"
+        },
+        {
+          "id": 50408765,
+          "author": "gnabgib",
+          "text": "Popular last year (368 points, 165 comments)\nhttps://news.ycombinator.com/item?id=43145753"
+        },
+        {
+          "id": 50411229,
+          "author": "bajard",
+          "text": "22 is cheating because 22 = 2*10+2 is arbitrary in base 10. If you write 22 in some base, you have to write the base, and that's an extra number."
+        },
+        {
+          "id": 50408980,
+          "author": "teo_zero",
+          "text": "Never understood why 7 is considered difficult...\n7 = ⌈ 2.2² + 2 ⌉"
+        },
+        {
+          "id": 50408970,
+          "author": "Arnt",
+          "text": "Spoilsport.\nAnd JFYI since December is near:\nhttps://rant.gulbrandsen.priv.no/hack/advent-calendar-for-ne..."
+        }
+      ],
+      "title_ja": "4つの2を持つ任意の整数を作成する（ 2025年）",
+      "summary_ja": "ディスカッションのハイライト：これは本当の不正行為ですが、Peanoの公理を仮定すると、√/ Aのような複雑な関数に頼ることなく、1つのゼロで任意の整数を書くことができます。最近のIOCCCのエントリは、可変数の定数から整数を作るという関連ゲームを解決します（たとえば、誰もが独自のルールで遊ぶことを知っていますが、私の見解では、平方根は2を使います-それは+や！のような演算子ではありません！",
+      "editor_note": "「4つの2を持つ任意の整数を作成する（ 2025年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50406222,
+      "title_en": "MaxxBench – \"Nice DeepSWE score. But is it true?\"",
+      "url": "https://maxxbench.unlap.ai/research/why-maxxbench/",
+      "hn_url": "https://news.ycombinator.com/item?id=50406222",
+      "score": 368,
+      "comment_count": 99,
+      "posted_at": "2026-11-07T17:19:00+00:00",
+      "comments": [
+        {
+          "id": 50407571,
+          "author": "Systemerror7A69",
+          "text": "Academically a - very - interesting article, which confirms my ongoing suspicion of LLM Benchmarks in general ( probably why I like it so much). Another thing that caught my eye is DeepSWE having a bunch of bugs in them. The more I learn about these benchmarks the more sceptical I become. I would expect such a prolific benchmark to have these bugs ironed out by now.\nThe practical takeaway, however, seems to be an interesting \"don't use max mode\". The passage about deepseeks weird API behavior dropping to pretty much zero the moment you used high says a lot.\nAlso, personally, even though Opus is clearly so much ahead of the Open Source models after the changes, I think the adjusted score is still very much competitive. I see other commenters using this as proof to justify why their opinions of the open source models - but a drop from 74% to ~50% is, while a big drop, still about a ~50% pass rate afterwards. That's far from useless for coding, especially since DeepSWE seems to be such a difficult benchmark. It simply seems to more accurately reflect the capabilities of these models.\nAll in all, I'd love to see more of such articles, and will probably keep an eye on this one - if they"
+        },
+        {
+          "id": 50409736,
+          "author": "kqr",
+          "text": "This is a great example of how to test how well a benchmark score generalises. The first order approximation is not complicated: just vary a parameter and see how much the score changes.\nWhich parameter to vary depends on the result of the test, but the MaxxBench route of varying the task spec seems like a good default, though not always the most informative.\nIn one of my private benchmarks I realised many of the less capable models didn't fail because they submitted the wrong answer, but because they exceeded their budget for number of tool calls they were allowed. The more capable models never got close to the tool call limit because they tended toward combining tool calls (e.g. chaining multiple shell commands in one Bash tool call).\nWas my benchmark actually measuring ability to combine tool calls rather than reasoning ability on the problem at hand? Well, easy enough to find out: re-run under a different tool call budget and see how much the scores change.\n(Next problem: is ability to combine tool calls a useful thing to measure, i.e.\nshould\nit confer an advantage in the benchmark? It could be if it is a sign of planning multiple steps ahead.)"
+        },
+        {
+          "id": 50406956,
+          "author": "peri-cl",
+          "text": "The big trend in that graph is that\nsmaller models\ncollapse the most. Everything with \"-flash\" in the name, plus OpenAI Luna.\nLook at GPT 5.6-Sol vs. GPT 5.6-Luna in particular.\n(The GLM pair shouldn't be expected follow this pattern, because they're misnamed: GLM-5.3 and GLM-5.3-flash are distinct lineages. The -flash is an early release of a new pretrain on a new architecture).\nIf this *is* the main factor, I'd expect Kimi K3.1 and Gemini Carbon would also do well on this test (unlike Gemini-flash); while Haiku 6 would collapse (breaking the trend of the other recent Claude models). It's a falsifiable prediction."
+        },
+        {
+          "id": 50412867,
+          "author": "springtimesun",
+          "text": "The DeepSeek 4.1 Flash behavior of circumventing rules and restrictions is one I have observed several times. It doesn’t seem to be malicious or deliberate, but if you have a config problem in the harness or you block something it thinks it needs to accomplish its task, it will get very creative to circumvent it.\nI run a lot of agents headless on tasks. They are pretty well sandboxed, but I would definitely suggest a regular audit script to go through the transcripts. Most of DeepSeek’s “creativity” has shown problems in my sandbox setup which get fixed (e.g. I had restricted something the agents actually needed), but some of it is actually worrying.\nIn an opposite turn, Kimi 3.1 follows rules much better (actually too literally sometimes). K3 was a real digger when trying to benchmark it if it got a sense it was being tested. 3.1 comments about 5x more that it thinks it’s being tested (and it’s right), but unlike K3 it doesn’t seem to do anything about it if it can’t get at something. I would love to see the authors do K3 and 3.1 in this because the 3rd party benchmark gains are large, but these two are behaving like different models for me rather than a point release."
+        },
+        {
+          "id": 50408991,
+          "author": "rao-v",
+          "text": "My understanding is this is less about labs training directly on the benchmark as about the labs being sloppy about creating RL environments that reflect the benchmark task\nThey should be doing what this test did, and generalizing and significantly varying the training environments (and ensuring some of them are unexpectedly complex and unexpectedly simple).\nFurther I suspect the smaller models are especially overfitting to these sorts of simpler RL envs (benchmarks tend to be much simpler than the hardest RL env used today) because they are more likely to be scoring at ~20-40% success rate (which is sort of what you want to get good training signal when doing RL runs)."
+        },
+        {
+          "id": 50412663,
+          "author": "locallylinear",
+          "text": "I feel more and more we need to move to a world where it’s easy to build and maintain our own benchmarks based off our own code base. I know it’s feasible, and I nor where I work have done it, but it’s funny that we trust benchmarks on tasks we basically have no idea what they do (not for lack of transparency) or how they translate to work I’m actually doing\nAnd several companies to do just this exist (eg Superconductor, Fullbeam) - does anyone use them and find them valuable? And curious if you’ve noticed an improved change in your agents work as a result, and if over time you see yourself switching models ? Or is it more of a one time realization that model family X is best for your code."
+        },
+        {
+          "id": 50410924,
+          "author": "samayashar",
+          "text": "Particularly interesting cases here are of GLM 5.3 and Claude Opus that seem to rely on assumptions despite clearly stated requirements.\n> Let me just do float64; the risk of a test with >2^53 numbers is minimal.\n> such cases are unlikely … Truncation toward zero is fine.\nApart from this, we also a scenario where the models tried to pass benchmark specific tests by believing a parameter that the model printed.\n> Seven models reward-hacked a test that believed a metric from the program itself.\nDeepSeek also resorted to making external model calls via OpenRouter instead of doing the work itself. This suggests that even though the SOTA models are smart enough to compute, they either have an inbuilt bias towards achieving scores or the low/medium effort gives them the freedom to fetch information instead of computing it. With high effort, the models focus on computing the values but the token calls get exhausted.\nDifficult to find a balance amongst compute, calls and cost."
+        },
+        {
+          "id": 50407626,
+          "author": "mydreamof",
+          "text": "One thing to consider is that even when some model has big gap between those two benchmark it doesn't mean it is much worse. It could be worse becasue he has assuptions based on training but on real scenario it wouldn't have it so it still could achive great results"
+        }
+      ],
+      "title_ja": "MaxxBench – \"Nice DeepSWE score.でも、本当ですか？」",
+      "summary_ja": "ディスカッションのハイライト：学術的に非常に興味深い記事で、LLMベンチマーク全般に対する私の継続的な疑念を確認しています（おそらく私がそれをとても気に入っている理由）/これは、ベンチマークスコアがどの程度一般化しているかをテストする方法の素晴らしい例です/そのグラフの大きな傾向は、\n小型モデル\n最も折りたたむ",
+      "editor_note": "「MaxxBench – \"Nice DeepSWE score.でも、本当ですか？」」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50380051,
+      "title_en": "Mizu – zero-copy parallel R and Python over shared memory",
+      "url": "https://github.com/shikokuchuo/pymizu",
+      "hn_url": "https://news.ycombinator.com/item?id=50380051",
+      "score": 64,
+      "comment_count": 7,
+      "posted_at": "2026-11-05T15:09:04+00:00",
+      "comments": [
+        {
+          "id": 50415107,
+          "author": "stdbrouw",
+          "text": "Amazing. I remember being really disappointed in mirai last year when learning that it couldn’t provide shared access to an in-memory arrow table. Multicore processing in R is great when it works but too often it’s just a matter of time before unwanted and unnecessary data copies completely destroy performance."
+        },
+        {
+          "id": 50380079,
+          "author": "shikokuchuo",
+          "text": "Author here: I wrote mizu (R) and pymizu (Python), packages that offer lock-free async and parallel computing over shared memory, built on the same C core, libmizu. The link above is for the Python package.\nA task round trip drops to under one microsecond, from around 100 µs over sockets with Python's ProcessPoolExecutor or mirai, my other R framework. These are numbers from my laptop (an M4 Pro), and benchmark scripts are in the repos for you to run.\nWorkers claim tasks off lock-free queues, there is no task dispatcher, and system calls are avoided on the hot path.\n`PoolExecutor` is a drop-in `concurrent.futures.Executor`, tasks are awaitable in asyncio, NumPy arrays and polars, pyarrow and pandas frames cross as zero-copy views. As mizu and pymizu share the same wire format, data frames and Arrow types also cross zero-copy between worker pools of different languages.\nOf course, this is single-machine only as it uses shared memory. The API is still experimental. Usability feedback and bug reports are most welcome at the repos. I'd love to hear about places you'd like to see this used.\nWrite-up with full benchmarks and the R/Python code examples:\nhttps://opensource.posit.co/blog/20"
+        }
+      ],
+      "title_ja": "Mizu –共有メモリ上のゼロコピーパラレルRとPython",
+      "summary_ja": "ディスカッションハイライト： Amazing/Author here ：同じCコアであるlibmizu上に構築された、共有メモリ上でロックフリーの非同期と並列コンピューティングを提供するパッケージであるmizu （ R ）とpymizu （ Python ）を書いた",
+      "editor_note": "「Mizu –共有メモリ上のゼロコピーパラレルRとPython」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 30,
+      "id": 50410249,
+      "title_en": "ISponsorBlockTV: SponsorBlock client for all YouTube TV clients",
+      "url": "https://github.com/dmunozv04/isponsorblocktv",
+      "hn_url": "https://news.ycombinator.com/item?id=50410249",
+      "score": 106,
+      "comment_count": 44,
+      "posted_at": "2026-11-08T03:47:19+00:00",
+      "comments": [
+        {
+          "id": 50411426,
+          "author": "franga2000",
+          "text": "Clever hack! I didn't think the latency would be low enough for that, but I guess with some ad segments being upwards of a minute long these days, it's still worth it.\nFor anyone who can load APKs on their TV and wants a more integrated solution, this alternative client works wonderfully\nhttps://github.com/yuliskov/smarttube\nIt's at the level of polish where people didn't even realize it wasn't the official client for quite a while, until I turned on SponsorBlock that is."
+        },
+        {
+          "id": 50412992,
+          "author": "Grombobulous",
+          "text": "I’ve been using this a long time and it works great, possibly even better than you’d imagine it to work. You can even configure which types of segments to skip (e.g., sponsorships versus self-promotion)."
+        },
+        {
+          "id": 50411508,
+          "author": "ku1ik",
+          "text": "I’ve been using it with Apple TV youtube app for several months and I can say it works very well. Very little configuration, and it does the job. Can’t go back. Highly recommended!"
+        },
+        {
+          "id": 50411282,
+          "author": "makefu",
+          "text": "Anyone is aware of software which does the same but for podcasts? I've had built a downloader by qwen38 (\nhttps://cgit.euer.krebsco.de/makefu/podfetch\n) which does so via multiple programmatic approaches (keywords, sponsorblock-ml, neuralblock) but actually i think crowdsourcing the solution is the best approach here."
+        },
+        {
+          "id": 50413127,
+          "author": "VCFundedGenYer",
+          "text": "FYI you should reword your headline and nomenclature. This makes it sound like you made a thing for YouTube TV (and it is not at all possible to block ads on live TV without pre-recording)\nYouTube TV is a product offered by Google and it's not at all the same as YouTube."
+        },
+        {
+          "id": 50411785,
+          "author": "hridyaagrawal",
+          "text": "How does it find out what's playing? pairing like a phone & listening to the API?"
+        },
+        {
+          "id": 50413040,
+          "author": "jareklupinski",
+          "text": "putting this on the same machine as my pihole :)\nhow long until we can set up an Omni-Block Box?"
+        },
+        {
+          "id": 50412417,
+          "author": "andrewstuart",
+          "text": "But that’s how the content creators get paid, at least partly.\nWhy would you not want them paid?"
+        }
+      ],
+      "title_ja": "ISponsorBlockTV ：すべてのYouTube TVクライアントのためのSponsorBlockクライアント",
+      "summary_ja": "ディスカッションのハイライト：賢いハッキング！ 遅延が十分に低いとは思いませんでしたが、最近の広告セグメントの中には1分以上のものがあるので、それでも価値があると思います。\n私がこれを長い間使用している人にとって、それは素晴らしい、おそらくあなたが想像しているよりもうまく機能します/私は数ヶ月間Apple TVのYouTubeアプリでそれを使用しており、それは非常にうまくいくと言うことができます",
+      "editor_note": "「ISponsorBlockTV ：すべてのYouTube TVクライアントのためのSponsorBlockクライアント」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "23",
+    "started_at": "2026-11-09T03:43:22.553011+09:00",
+    "finished_at": "2026-11-09T03:44:30.446441+09:00",
+    "story_count": 30
+  }
+}
