@@ -1,0 +1,1486 @@
+{
+  "date": "2026-11-10T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50436640,
+      "title_en": "Amazon saves millions by replacing Sonnet 4.6 with Strands Decider",
+      "url": "https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/",
+      "hn_url": "https://news.ycombinator.com/item?id=50436640",
+      "score": 310,
+      "comment_count": 108,
+      "posted_at": "2026-11-10T06:01:08+00:00",
+      "comments": [
+        {
+          "id": 50436847,
+          "author": "armcat",
+          "text": "About six years ago we built a ticket classification/routing model and pipeline [1]. The initial version was trained using SVMs, it took a couple of minutes to train, and the ticket classification was just a few milliseconds. It's so fascinating to watch how the field moved over to LLMs, and then back to faster/cheaper classifiers again.\n[1] \"Linnaeus: A highly reusable and adaptable ML based log classification pipeline\",\nhttps://arxiv.org/abs/2103.06927\nNOTE: the work was actually accepted at the International Conference on Software Engineering (ICSE) in 2021."
+        },
+        {
+          "id": 50436881,
+          "author": "Kaedon",
+          "text": "At ~$21,700 saved per million tickets, saving millions annually would suggest at least 92 million tickets a year to reach $2 million saved. Is that about right?\nI initially thought of tickets as just customer support, or internal JIRAs, but the article mentions alarms, security findings, and capacity increase requests, so that makes the scale feel more plausible. Still surprising so many tickets go through the system."
+        },
+        {
+          "id": 50437163,
+          "author": "nlpnerd",
+          "text": "Founder of Seldon AI (www.seldon-ai.com) here. We are working on dev tools to help developers with this kind of refactoring and continual production work.\nBasically there is a whole host of tarpit usage of LLMs in application backends today. This is simply another case of LLMs enabling people to build what they cannot productionize or maintain.\nToday developers without any AI/ML skillset can prototype a fancy new feature with LLMs, what used to require collecting and curating data to train a pipeline of ML models then serving them in production.\nThe problem comes when it's time to take the new feature into production. That $20 cost with prototype/beta workload is now $30k per month in LLM costs, and those hallucinations that never happened on their 200 test samples is happening 600 times per day.\nThey are then stuck, because they lack the knowledge and budget to build and run the production ML pipeline properly, the infra stack necessary to handle production workload. Management also doesn't understand why they have to invest in rebuilding something that \"seems to work\" with \"outdated methods\".\nThese system one or decision models are a step up from LLMs when it comes to this usage."
+        },
+        {
+          "id": 50437514,
+          "author": "Gasp0de",
+          "text": "This article is so confusing. For example, they say they tried the Strands Decider model and dismissed it for Gemma, then they continue to call the model they used Strands Decider? Did I miss something?"
+        },
+        {
+          "id": 50437307,
+          "author": "psnehanshu",
+          "text": "Ok, but why did they chose Sonnet in the first place? Couldn't they have chosen Haiku or GPT Luna or maybe even some small cheap Chinese model?"
+        },
+        {
+          "id": 50437025,
+          "author": "3eb7988a1663",
+          "text": "Classifying into one of 20 groups? Did anyone try scikit learn?"
+        },
+        {
+          "id": 50437789,
+          "author": "origini",
+          "text": "So why did they not even try Haiku 5.5?\nWhy would Amazon go to another company to let them provide an adjusted decider model?\nAmazon already has all these tickets labeld, they could just have build it themselves?"
+        },
+        {
+          "id": 50436943,
+          "author": "tdhz77",
+          "text": "You can do this even more efficiently with the rust crate bonsai. You will have more control and you can create sceneries of logic. You can use incredibly cheap models this way and get way better results.\nI built a real time character story. In which players interact and integrate fictional characters. There is no delay in response and the characters are all in character. Oh and it’s all voice.\nIt’s shocking how effective this is."
+        }
+      ],
+      "title_ja": "Amazon、Sonnet 4.6をStrands Deciderに置き換えることで数百万ドルを節約",
+      "summary_ja": "ディスカッションのハイライト：約6年前、チケット分類/ルーティングモデルとパイプラインを構築しました[1]/チケット100万枚あたり約21,700 $の節約で、年間数百万枚の節約は、年間少なくとも9,200万枚のチケットが200万$の節約に達することを示唆しています/Seldon AIの創設者（ www.seldon-ai.com ）はこちら",
+      "editor_note": "「Amazon、Sonnet 4.6をStrands Deciderに置き換えることで数百万ドルを節約」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 50429068,
+      "title_en": "Claude Fable 5.2 and Mythos 5.2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "hn_url": "https://news.ycombinator.com/item?id=50429068",
+      "score": 625,
+      "comment_count": 821,
+      "posted_at": "2026-11-09T18:01:10+00:00",
+      "comments": [
+        {
+          "id": 50430766,
+          "author": "postalcoder",
+          "text": "I’ve had a chance to use fable 5.2. Some observations:\n- Anthropic is finally well balanced across models. Meaning: Opus 5.5 is so good that I do not feel Fable FOMO as I did when it was Fable 5/5.1 vs Opus 4.8/5. And Sonnet 5.5 sometimes makes me forget about Opus.\n- Fable is good, but you really have to push the ambition of your prompt in order to see proper separation from Opus 5.5. I personally have a hard time telling the difference between Fable 5.2 and Opus 5.5 for ordinary coding tasks.\n- It’s way faster and more reliable: one of the worst things about fable 5.1 was how slow it was an, on top of that, how frequently it would suffer from max output token overflows. I got none of these issues with 5.2.\n- Fable is exceptional at drawing. It’s ability to render an image with JavaScript actually has me questioning the value of dedicated image models. I prefer the images I’ve gotten fable/opus to make for me over those from gpt-image, it’s wild to think we’re at this point."
+        },
+        {
+          "id": 50430829,
+          "author": "breakwaterlabs",
+          "text": "- Why are they stacking Fable xHigh against Carbon Med?\n- How did they produce such a bizarre effort-intel curve for Carbon that goes against every available benchmark?\n- Why did they leave Carbon-- positioned primarily as a cyber model-- off of the single cyber benchmark comparison?\n- Why do they switch to comparing against Argon (rather than carbon) for robodojo?"
+        },
+        {
+          "id": 50431037,
+          "author": "advaith08",
+          "text": "We've been early testing Fable 5.2, and have been surprised by its coding ability. It was able to work with an esoteric 600k line fortran codebase to speed up some computational material science work for us by 36 times (!). Given that this could be done in 2 days, we've decided to open-source the results\nhttps://github.com/discovered-materials/dm_qe"
+        },
+        {
+          "id": 50438393,
+          "author": "raylad",
+          "text": "Tested Fable 5.2 for some work tasks, using my automated commit reviewer plugin\n(\nhttps://github.com/rladr-org/reviewer-agent\n)\ngpt-6-luna XHIGH as the reviewer agent still found plenty of bugs that Fable 5.2 missed!\nHere was Fable's summary of the session:\nThe reviewer ran 16 reviews over 9 commits this session (7 rejections, 9 required fixes, all valid); three of them, on the plan, changed how the numbers are computed."
+        },
+        {
+          "id": 50430379,
+          "author": "yewenjie",
+          "text": "> Our first formalization of Fermat’s Last Theorem, performed by an unreleased research version of Claude, took 11 days. It relied on a purpose-built harness along with guidance from a human researcher. By contrast, a team of 1,000 Fable 5.2 agents fully formalized the theorem in just 30 hours, with minimal human intervention. Fable 5.2 started from minimal prompts, built its own ways to coordinate, and used no mathematical references, only a list of intermediate theorem statements to score progress. It needed one-third of the action tokens as our first formalization and produced a proof seven times shorter. As can be seen in the figure below, Opus 5.5 (with the same 1,000-agent setup) completed only 26% of the formalization in 18 hours, and barely made any more progress after 30.\nMost people don't really have intuitions on what it means to push the frontier now (because AI has surpassed everything they are good at, for example, coding). We are truly inside the singularity (using Kurzweil's definition, slightly paraphrased - the time when technology progresses so fast no one can keep track with it)."
+        },
+        {
+          "id": 50435571,
+          "author": "prtmnth",
+          "text": "Why Fable 5.2 and not 5.5?\nMy hypothesis - OpenAI and Anthropic are locked in battle. Whoever takes a step, the other one mirrors.\nBased on this hypothesis, I think we can expect to see a new Astra model soon given the new Fable release.\nAnd it could be that Anthropic released Fable 5.2 and kept 5.5 in reserve, in case the new Astra model performs better than 5.2"
+        },
+        {
+          "id": 50430590,
+          "author": "bhu8",
+          "text": "Ethan Mollick's take and early testing with Fable 5.2:\nhttps://www.oneusefulthing.org/p/fable-52-and-jagged-agi"
+        },
+        {
+          "id": 50430228,
+          "author": "pookieinc",
+          "text": "“Testers have found that Fable 5.2 and Mythos 5.2 communicate more clearly than past Fable and Mythos models. They generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1, and they’re available at a lower price: $8 per million input tokens and $40 per million output tokens.”\nHonestly incredible that they’ve managed to beat all benchmarks, while making it cheaper. Always happy to see improvements offered at lower costs.\nWill be interesting to see what OpenAI does in response"
+        }
+      ],
+      "title_ja": "クロード寓話5.2と神話5.2",
+      "summary_ja": "ディスカッションのハイライト：フェイブル5.2を使用する機会がありました/-なぜカーボンメッドに対してフェイブルxHighを積み重ねているのですか？\n-どのようにして、利用可能なすべてのベンチマークに反するCarbonのこのような奇妙な労力インテル曲線を作成したのですか？\n-なぜFable 5.2を早期にテストし、そのコーディング能力に驚いたのか",
+      "editor_note": "「クロード寓話5.2と神話5.2」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50437790,
+      "title_en": "Queens Public library under ransomware attack e-borrowing suspended",
+      "url": "https://connect.queenslibrary.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=50437790",
+      "score": 32,
+      "comment_count": 11,
+      "posted_at": "2026-11-10T09:04:39+00:00",
+      "comments": [
+        {
+          "id": 50438130,
+          "author": "RobotToaster",
+          "text": "That seems a pretty terrible target for ransomware, it's not like public libraries have huge amounts of money."
+        },
+        {
+          "id": 50437791,
+          "author": "rustyhancock",
+          "text": "Unfortunately, QPL has suffered a ransomware incident and currently much of the online access is unavailable"
+        },
+        {
+          "id": 50438046,
+          "author": "lynx97",
+          "text": "I wish the headlines around such things were more honest and would just say the truth: \"$company is currently offline because we never really invested in security and thought we could just wing it\""
+        }
+      ],
+      "title_ja": "ランサムウェア攻撃下のクイーンズ公共図書館電子借入停止",
+      "summary_ja": "ディスカッションのハイライト：それはランサムウェアのかなりひどいターゲットのように見えます。公共図書館に巨額のお金があるわけではありません。/残念ながら、QPLはランサムウェアのインシデントに苦しんでおり、現在オンラインアクセスの多くは利用できません/そのようなことに関する見出しがもっと正直で、真実を言うことを願っています：「$ companyは現在オフラインです。セキュリティに実際に投資したことはなく、",
+      "editor_note": "「ランサムウェア攻撃下のクイーンズ公共図書館電子借入停止」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 4,
+      "id": 50431058,
+      "title_en": "USPS now offers official ZIP Code boundary polygons",
+      "url": "https://postalpro.usps.com/zcb",
+      "hn_url": "https://news.ycombinator.com/item?id=50431058",
+      "score": 624,
+      "comment_count": 319,
+      "posted_at": "2026-11-09T19:58:59+00:00",
+      "comments": [
+        {
+          "id": 50432624,
+          "author": "SwellJoe",
+          "text": "Dang, the prices are crazy. $10k for the lowest tier? I expect federal data to be free. Most federal data related to stuff like regulation (e.g. FCC spectrum use coverage maps), maps for federally-managed lands, etc. is free. And, it should be free. It's a core part of accountability and transparency. Historically there was a copying cost (having a human print physical copies on paper or CD/DVD/tape), which is understandable, but now that the incremental cost of each new copy approaches $0, that's what it should cost users of the data."
+        },
+        {
+          "id": 50431583,
+          "author": "showerst",
+          "text": "I thought these were going to be free and got so excited.\nFWIW if you're willing to deal with some 'fuzziness' and the occasional missing zip code that's commercial only, the ZCTA shapefiles are free and are close enough for many purposes:\nhttps://www.census.gov/programs-surveys/geography/guidance/g..."
+        },
+        {
+          "id": 50432135,
+          "author": "xp84",
+          "text": "This is interesting. For a long time it was pointed out that ZIP codes, unlike say, city or state boundaries, were not properly representable as polygons, since they don't divide up acreage into zones, but rather label postal delivery routes. Suppose I build a new neighborhood way out in the middle of nowhere. The \"polygon\" concept suggests that we could look and see what polygon I'm in, and that will determine what post office delivers my mail. But in reality, if there was no route to that area already, they could decide to make it part of any one of the surrounding routes.\nI suppose though, as long as you let the polygons map has uncontained areas, where no routes currently exist, it's a doable task to draw polygons around the limits of every route network, as long as you don't mind that they may have lots of weird ragged edges."
+        },
+        {
+          "id": 50431741,
+          "author": "johnnyo",
+          "text": "If this is govt-owned data, shouldn’t it be available with a FOIA request or similar?\nCan someone with expertise in govt data rights explain?  Do any other US govt agencies sell data to the private sector?"
+        },
+        {
+          "id": 50434621,
+          "author": "wills_forward",
+          "text": "Great chance for me to hawk a silly vanity project:\nhttps://www.rickwills.com/lab/zip\nJust a visualization of zip codes. Start typing a number and it highlights the zip codes on a map. Mildly interesting at best, maybe someone will like it."
+        },
+        {
+          "id": 50431501,
+          "author": "foxfired",
+          "text": "I feel like this should be public. I wonder what would be the repercussion of a gofundme to buy it once and make it publicly available. There aren't many downsides of updating every couple years."
+        },
+        {
+          "id": 50432223,
+          "author": "grzaks",
+          "text": "Using ZIP codes to define geographic regions is always a bad idea. A ZIP code is an address attribute, not a geographic boundary. Some ZIP codes are assigned to PO boxes or parcel lockers, while entire cities may share a single ZIP code. You can even have streets stretching 30 km across a city, all under the same ZIP code."
+        },
+        {
+          "id": 50432424,
+          "author": "legitster",
+          "text": "Some important context - Zip codes were not established as geographic markets. A \"Zip Code\" is collection of routes USPS uses - so it's whole goal was to get the right package on the right truck.\nThe \"Zip+4\" was the attempt to solve this- the 9 digit code narrows down the zipcode to a single block. But no one in the US cares enough to use these. It also doesn't solve the canonical problems the industry has with mapping data - people want to be able to put a pin in a random place on the map and pull up a clean zip code for data processing reasons."
+        }
+      ],
+      "title_ja": "USPSは現在、公式の郵便番号境界ポリゴンを提供しています",
+      "summary_ja": "ディスカッションのハイライト：ダン、価格はクレイジーです/私はこれらが無料になると思っていたので、とても興奮しました。\nFWIWあなたがいくつかの「あいまいさ」と時折欠落している商用の郵便番号に対処したい場合は、ZCTA/これは興味深いです",
+      "editor_note": "「USPSは現在、公式の郵便番号境界ポリゴンを提供しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50436410,
+      "title_en": "Your TV can see through walls",
+      "url": "https://maurycyz.com/projects/fading/",
+      "hn_url": "https://news.ycombinator.com/item?id=50436410",
+      "score": 129,
+      "comment_count": 49,
+      "posted_at": "2026-11-10T05:24:45+00:00",
+      "comments": [
+        {
+          "id": 50437158,
+          "author": "numlock86",
+          "text": "Wait for people to learn about that you can listen in virtually anywhere through fiber-optic cables, as sound waves are enough to  redirect the light in the cable to a measurable degree by \"bending\" the cable itself. Special devices to filter these variances out and transform them back to audio signals are a thing. It's only per line though, as any repeating device will just output a new cleaned up signal again.\nOh well, there have always been ways to snoop on someone like that. Back in the day it was CRTs emitting measurable waves through the neighborhood, with some papers even going as far as restoring the displayed image through a wall. Nowadays it's fiber and WiFi, and those seem to be much easier to work with even. Plus everyone carries a device that is tracked by their mobile provider's cell network.\nshrug"
+        },
+        {
+          "id": 50437776,
+          "author": "armcat",
+          "text": "Several years back we actually made use of the principle mentioned in this post, to more systematically count traffic on the roads [1]. In our case we used LTE/4G radio, and we could even estimate the direction of travel, as well as the type of traffic (pedestrian, small vehicles, large vehicles). It was more accurate than Google Maps because it was independent of the moving phone, i.e. it was \"sensing the obstacles in the environment\".\n[1] \"Traffic Flow Estimation using LTE Radio Frequency Counters and Machine Learning\",\nhttps://arxiv.org/abs/2101.09143"
+        },
+        {
+          "id": 50437086,
+          "author": "swerner",
+          "text": "As anyone observed who had a TV with just basic analog terrestrial antennas, before cable and satellite dishes - it does make a difference to the signal, when and where you stand and countless pieces of physical comedy in TV shows incorporated that."
+        },
+        {
+          "id": 50437203,
+          "author": "1e1a",
+          "text": "See these for a very low cost (<$10) method for observing WiFi and some LTE spectra:\nhttps://news.ycombinator.com/item?id=49922674\nhttps://espargos.net/espsdr/"
+        },
+        {
+          "id": 50437014,
+          "author": "fzeindl",
+          "text": "Amazing book about similar topics: “Silence on the wire” by Michal Zalewski\nhttps://www.amazon.de/Silence-Wire-Passive-Reconnaissance-In..."
+        },
+        {
+          "id": 50437279,
+          "author": "darkwater",
+          "text": "Now, about the wifi part, why isn't there an Home Assistant extension that detects already room presence magically exploiting all of this??"
+        },
+        {
+          "id": 50436868,
+          "author": "ThePumpkinGod",
+          "text": "So, a bad actor can now know when I'm at my house or not, I'm sure that's fine and won't be problematic"
+        },
+        {
+          "id": 50438229,
+          "author": "protocolture",
+          "text": "Thats nothing, my old tv could predict incoming phone calls."
+        }
+      ],
+      "title_ja": "あなたのテレビは壁を通して見ることができます",
+      "summary_ja": "ディスカッションのハイライト：音波はケーブル内の光を測定可能なdにリダイレクトするのに十分なので、光ファイバーケーブルを介して事実上どこでも聞くことができることを人々が学ぶのを待ちます/数年前、私たちは実際にこの投稿で言及されている原理を利用して、道路上の交通をより体系的にカウントしました[1]/ケーブルと衛星ディスの前に、基本的なアナログ地上アンテナのみを備えたテレビを持っていた人が観察したように",
+      "editor_note": "「あなたのテレビは壁を通して見ることができます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50437106,
+      "title_en": "Fireworks AI security breach impacts Notion and their customers",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "hn_url": "https://news.ycombinator.com/item?id=50437106",
+      "score": 47,
+      "comment_count": 13,
+      "posted_at": "2026-11-10T07:19:38+00:00",
+      "comments": [
+        {
+          "id": 50437794,
+          "author": "edot",
+          "text": "So Fireworks is ZDR by default, yet Notion configured (asked) Fireworks to retain data? Otherwise, how is there anything to leak?\nOn the main fireworks breach page, they also say some customer weights of models and datasets to train them were leaked."
+        },
+        {
+          "id": 50438127,
+          "author": "JumpCrisscross",
+          "text": "Does this reflect on Fireworks’ culture?"
+        },
+        {
+          "id": 50438319,
+          "author": "Pi9h",
+          "text": "At Docmost we’re building a self-hosted enterprise wiki that can run in air-gapped environments.\nWe have comparable features to Notion and Confluence, including support for self-hosted LLMs.\nOver the past few months, we’ve helped many customers migrate from cloud-based providers to self-hosted deployments on their own infrastructure.\nNo software is immune to cyberattacks, but having control over the deployment model can greatly reduce exposure to attacks like this.\nGitHub:\nhttps://github.com/docmost/docmost\nWebsite:\nhttps://docmost.com"
+        },
+        {
+          "id": 50438016,
+          "author": "alentodorov",
+          "text": "the whole incident response post feels like a huge cop-out. “abundance of caution”, the vendor is one of the biggest, so ofc it’s not our fault for choosing them… etc."
+        },
+        {
+          "id": 50437563,
+          "author": "frankotron",
+          "text": "Forcing us to the Enterprise plan to see which members are affected huh? Classy move Notion."
+        },
+        {
+          "id": 50437312,
+          "author": "vinaygundeti18",
+          "text": "This is a strong reminder that a company's security is only as strong as its third-party integrations. Even when customer data is handled by trusted platforms, external AI vendors can introduce additional risks. Businesses need to carefully evaluate vendor security, limit the data shared with external services, and maintain transparency when incidents happen. As AI adoption grows, third-party risk management should become a core part of every company's security strategy."
+        }
+      ],
+      "title_ja": "花火AIセキュリティ侵害は、Notionとその顧客に影響を与えます",
+      "summary_ja": "ディスカッションハイライト：つまり、花火はデフォルトでZDRですが、Notionはデータを保持するように花火を設定（質問）していますか？ そうでなければ、どのように漏れるものがありますか？\nメインの花火違反ページには、花火の文化を反映しているとも書かれていますか？ /Docmostでは、エアギャップされた環境で実行できる自己ホスト型のエンタープライズwikiを構築しています。\nセルフホーのサポートなど、NotionやConfluenceと同等の機能を備えています",
+      "editor_note": "「花火AIセキュリティ侵害は、Notionとその顧客に影響を与えます」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50434310,
+      "title_en": "Locating the source of a mysterious beep",
+      "url": "https://simonwillison.net/2026/Nov/9/mysterious-beeps/",
+      "hn_url": "https://news.ycombinator.com/item?id=50434310",
+      "score": 207,
+      "comment_count": 91,
+      "posted_at": "2026-11-10T00:10:46+00:00",
+      "comments": [
+        {
+          "id": 50437990,
+          "author": "chimpontherun",
+          "text": "Around '05 or so, the house we were staying in started beeping.  Smoke alarm sounds, as usual.  For almost a day we couldn't find the source.  Contacted the owners -- they didn't know it either.  They bought the house few years prior, so not much of a help.\nStanding in the hallways listening at different angles, as the article says, didn't help.  No Fable in '05 either.\nSo I had to improvise.  Got a ~1 meter stick and two headphones (every headphone is a microphone, even if it sucks as a microphone).  Plugged them into the stereo mic port, and started recording in Audacity.  The phase shift between L and R pointed directly to the source.  Took about 4 or 5 beeps to get the sucker.\nTurns out, it was hiding above the ceiling tiles in the garage.  My wife still tells this story to all her friends as one of my biggest life achievements.  Everything I shipped, the companies I founded -- pales in comparison to finding a dead smoke alarm"
+        },
+        {
+          "id": 50436044,
+          "author": "simonw",
+          "text": "I didn't mention this in the article, but this isn't the first time my family has been driven almost spare by a mysterious, hard-to-track beep.\nOur dog goes outside and hides in the lavender bush if a smoke alarm starts making a \"I need a battery\" noise.\nSo I went into this project with the attitude that I would like to solve this class of problem\nforever\n."
+        },
+        {
+          "id": 50435186,
+          "author": "tristanj",
+          "text": "You can also solve this in O(logn) using a physical binary search:\n1) Move half the boxes to another room.\n2) Listen for a beep and determine which room the beep comes from.\n3) Take the boxes in that room and split them in half again.\n4) Repeat until one box is left."
+        },
+        {
+          "id": 50437693,
+          "author": "Confiks",
+          "text": "> I think the most interesting part of this project is that I demonstrated it’s possible to give Claude Code ears\nOf course it can analyze audio. I made it detect Marijn Frank saying a high pitched \"Hallo\" in a much better way that I could have done myself (subtitle matching), namely by frequency analysis, in the process learning how that works with librosa:\nhttps://marijnfrankzegthallo.nl"
+        },
+        {
+          "id": 50438217,
+          "author": "thrawn0r",
+          "text": "Does this work with low rumbling sounds as well?\nWe have this annoying noise we hear from our bedroom, sounds like a dishwasher, but layouts of apartments around dont have their kitchens closeby."
+        },
+        {
+          "id": 50436729,
+          "author": "foo12bar",
+          "text": "Why didn't you time the interval between the beeps? Then when the next beep was coming up, just listen to a particular part of the room or set of boxes until you found it."
+        },
+        {
+          "id": 50436527,
+          "author": "NitpickLawyer",
+          "text": "Ha! This reminded me of that old famous entry from bash org: \"I can't find a server in my house. It responds to ping, but I can't physically locate it.\""
+        },
+        {
+          "id": 50438091,
+          "author": "looperhacks",
+          "text": "There's some beeping in my apartment, and we also cannot figure out where it's coming from. The problem is that it's really quiet - sometimes only my wife can hear it, but I can't. It also seems to occur randomly, we can only hear it every few days. I tried recording it with my phone, but it doesn't pick anything up. It drives me crazy"
+        }
+      ],
+      "title_ja": "謎のビープ音の発生源を突き止める",
+      "summary_ja": "ディスカッションのハイライト： 05年頃、私たちが滞在していた家がビープ音を鳴らし始めました/私は記事でこれについて言及しませんでしたが、家族が謎めいた追跡困難なビープ音によってほとんど余裕を持って運転されたのはこれが初めてではありません。\n私たちの犬は外に出て隠れます/物理的なバイナリ検索を使用して、O (logn)でこれを解決することもできます。\n1)箱の半分を別の部屋に移動します。\n2)ビープ音を聞き、どの部屋からビープ音が聞こえるか確認します。\n3) Ta",
+      "editor_note": "「謎のビープ音の発生源を突き止める」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50392733,
+      "title_en": "How hard is it to check for whitespace?",
+      "url": "https://serce.me/posts/2026-10-30-how-hard-is-it-to-check-for-whitespace",
+      "hn_url": "https://news.ycombinator.com/item?id=50392733",
+      "score": 33,
+      "comment_count": 4,
+      "posted_at": "2026-11-06T14:31:22+00:00",
+      "comments": [
+        {
+          "id": 50438461,
+          "author": "efilife",
+          "text": "This code is very simple but I still don't really get it. Why is the hashing needed and how is it faster than a regex? Can someone smarter than me explain?"
+        },
+        {
+          "id": 50438410,
+          "author": "LoganDark",
+          "text": "Whitespace depends on the context. For example, you could have characters that are not counted as whitespace in Unicode, but end up rendering as whitespace when displayed in a particular context. The only real way to check for this is to actually try to render it and see what happens. There are some other ways to approximate it, like checking the font that you use for rendering, or the bounds of the glyph, or other things like that, but the only way to really know for sure in all cases is just to render it and see what happens."
+        },
+        {
+          "id": 50437912,
+          "author": "adornKey",
+          "text": "With font.color = white even an ordinary \"W\" could count as whitespace...\nSomething to remember if you see whitespace with an extraordinary width out there in the wild..."
+        },
+        {
+          "id": 50437901,
+          "author": "austin-cheney",
+          "text": "The \\s character class in JavaScript regular expressions includes 25 characters. I don’t know if that perfectly matches the Unicode list of 25 characters, but it does make identifying white space simplistic.\nWhite space characters are challenging to differentiate in human readable text, but JavaScript makes that perfectly clear to humans by splitting a string on every character, which is helpful for debugging."
+        }
+      ],
+      "title_ja": "空白を確認するのはどのくらい難しいですか？",
+      "summary_ja": "ディスカッションのハイライト：このコードは非常にシンプルですが、まだよくわかりません/空白はコンテキストに依存します/font.color = whiteを使用すると、通常の「W」でも空白としてカウントできます...\n野生で異常な幅の空白を見た場合に覚えておくべきことがあります...",
+      "editor_note": "「空白を確認するのはどのくらい難しいですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 9,
+      "id": 50427362,
+      "title_en": "Payments Canada announces launch of Canada's Real-Time Rail (RTR) payment system",
+      "url": "https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy",
+      "hn_url": "https://news.ycombinator.com/item?id=50427362",
+      "score": 532,
+      "comment_count": 289,
+      "posted_at": "2026-11-09T16:00:45+00:00",
+      "comments": [
+        {
+          "id": 50430343,
+          "author": "ttul",
+          "text": "TBH, if you are launching a startup, it might not be a terrible idea to incorporate in Canada. Canada has the notion of federal incorporation in addition to each province having its own corporate registry. Federal corporations can exist in any province but all the filings are done in one place.\nThe new mega-deduction recently announced [1] results in an effective 6% corporate tax rate, which is among the lowest in the world and certainly in the G-7. Things like the RTR are just one example among many of the efficient infrastructure that Canada is introducing to address a very long term productivity gap (the mega-deduction is another).\nAnd, R&D conducted in Canada is always a current-year expense and never capitalized. And there is a refundable tax credit for R&D that works out to about 60% of engineers' salaries (in most provinces). And those salaries are lower than they are in the US (something that engineers in Canada have a right to complain about).\n[1]\nhttps://www.canada.ca/en/department-finance/news/2026/09/gov..."
+        },
+        {
+          "id": 50428639,
+          "author": "QGQBGdeZREunxLe",
+          "text": "Insane that the US does not have a realtime payments network in 2026. FedNow exists but is supported by handful of banks which charge fees to use the feature.\n> Outgoing transfers cost 0.75% of the transaction amount (minimum of $1, maximum of $30). SoFi does not charge a fee for incoming transactions.\n> SoFi Plus members save 50%. They pay 0.375% of the transaction amount with a maximum of $15 (minimum remains $1).\nhttps://www.sofi.com/banking/instant-money-transfer"
+        },
+        {
+          "id": 50429727,
+          "author": "mlekoszek",
+          "text": "As a Canadian, I like this. It really sounds like they're taking Interac's proprietary e-Transfer system and rolling it out as a public good for any bank to build on. That's pretty cool. It also seems smart to have involved Interac as partner, instead of trying to build around them.\nLike all things from any government -- let's see how the rollout goes. But I am cautiously happy to hear about this."
+        },
+        {
+          "id": 50428265,
+          "author": "mig39",
+          "text": "Doesn't look like any of Canada's major banks are taking part?\n> The initial cohort of active RTR system participants includes: Wealthsimple,\nQuestbank,\nPeoples Trust Company,\nParamount Commerce,\nKOHO,\nDoBusiness.com™,\nDigital Commerce Bank,\nBank of America,"
+        },
+        {
+          "id": 50427830,
+          "author": "petcat",
+          "text": "Will be curious to see if this ends up requiring Google/Apple accounts and mobile device attestation in order to work."
+        },
+        {
+          "id": 50429215,
+          "author": "MarkusWandel",
+          "text": "So basically a modernized M-PESA?  Where you just scan a QR code or such, and then say how much $$ you want to transfer to that account, with cash-like low effort?\nThe last bastion of cash, for me, here is garage sales.  Absolutely everything else has gone cashless, but low-friction, low dollar transfers between individuals is still ruled by cash.  Not that I haven't paid for stuff via Interac e-transfer but that has high friction (log into bank app, add one-time payee etc.) so only for cases where suitable cash isn't on hand."
+        },
+        {
+          "id": 50429058,
+          "author": "lifeisstillgood",
+          "text": "So the quiet voice here is I think the desire to stop small businesses being the working capital providers of larger ones (“take the 90 day payment terms or go find someone else”)"
+        },
+        {
+          "id": 50428264,
+          "author": "lbrito",
+          "text": "I couldn't find this info in the release, but I assume account information and transactions go through the Bank of Canada? That's how the closest analogy, Brazil's Pix, works."
+        }
+      ],
+      "title_ja": "Payments Canada、カナダのリアルタイム鉄道（ RTR ）決済システムの立ち上げを発表",
+      "summary_ja": "ディスカッションハイライト： TBH、スタートアップを立ち上げる場合、カナダに法人化するのはひどいアイデアではないかもしれません/2026年に米国にリアルタイム決済ネットワークがないことは正気ではありません/カナダ人として、私はこれが好きです",
+      "editor_note": "「Payments Canada、カナダのリアルタイム鉄道（ RTR ）決済システムの立ち上げを発表」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 50429734,
+      "title_en": "E-means: Outperforming k-means in one-tenth the epochs",
+      "url": "https://e-means.github.io/",
+      "hn_url": "https://news.ycombinator.com/item?id=50429734",
+      "score": 406,
+      "comment_count": 42,
+      "posted_at": "2026-11-09T18:45:43+00:00",
+      "comments": [
+        {
+          "id": 50432676,
+          "author": "jlhawn",
+          "text": "I wonder if this could be used anywhere as an alternative to Lloyd's algorithm. I have a hobby project which uses Lloyd's to \"relax\" an icosohedral equal area mesh on the surface of a sphere [1]. I'm going to try to swap it out with an adaptation of this and see if it's much better or if I can afford more iterations with this method.\nEdit: tried it, and it’s definitely\nnot\nbetter for this use case. e-means wins by needing fewer passes over a huge dataset, but relaxing a mesh on a sphere has no dataset: each Voronoi cell’s centroid can be computed directly from its geometry. Mini-batches just swap that for a noisy sampled estimate of the same thing. It has the same objective and the same optimum, so at best it matches Lloyd. In practice it was much slower and left the grid noisy, and with small sample budgets it even tangled the mesh.\n[1]\nhttps://webgcm.app/explain/grid#nudging-the-cells-into-shape"
+        },
+        {
+          "id": 50431500,
+          "author": "real_faxenoff",
+          "text": "I adapted the method to my IVF index (the code-daemon project) and achieved a 146x speedup on the GPU.\nThat's impressive!"
+        },
+        {
+          "id": 50435033,
+          "author": "saagarjha",
+          "text": "As far as I can tell this isn't particularly new, people have been doing minibatch k-means for a while, including with an EWA update. I assume the contribution here is that they tried to measure how much better it is and provided code? I'm not sure I agree with their claims though, because they didn't really measure the things that matter–sure, it's better than Lloyd's algorithm, but that's a very low bar.\nIf you are claiming that your algorithm is \"highly parallelizable\" and comes with \"wall-clock speedups\", then the actual metrics that matter here is not number of steps or even basic wall clock time as your size remains fixed, but how your algorithm scales as more data is present or parallelism is required. This algorithm splits up the minibatch across workers and has them compute local updates, then allreduces it. As the amount of data goes up, the comms become much more expensive (since you have to use a worse transport layer), which means that you're basically locked in a desperate attempt to do more local work before you send your partial update to everyone else. If you attempt this (not explored in the paper) you will find that the improvement in clustering by doing this ext"
+        },
+        {
+          "id": 50433634,
+          "author": "shiandow",
+          "text": "These kinds of algorithms tend to have equivalent descriptions as expectation maximisation or simulated annealing. I wonder if it's possible to understand their algorithm in that sense.\nThough I suppose it may be as simple as expectation maximization with a friction term, since Sj = sj - a (sj - Sj).\nImportantly they note that this update rule keeps the centroid within the convex hull, which is pretty important."
+        },
+        {
+          "id": 50431087,
+          "author": "wood_spirit",
+          "text": "This looks awesome.  Obvious in hindsight!  The viz really explains it well.\nHope it gets added to scipy - it’s much more available in the envs many use than facebooks own faiss library."
+        },
+        {
+          "id": 50435675,
+          "author": "kingcauchy",
+          "text": "Played around with changing our hierarchical balanced incremental clustering to this\nhttps://github.com/antflydb/antfly/pull/1607\nbulk builds of existing indexes that need to be completely reindexed (like a shard split) were 2.5x faster, overall insertion times didn’t change that much because overall clustering incrementally as data is indexed is a small portion of the cpu time."
+        },
+        {
+          "id": 50434973,
+          "author": "senderista",
+          "text": "The one remaining hyperparameter is of course k. I vaguely remember there was some rule of thumb for picking k like the \"elbow of a curve\", but what is the state of the art now for picking k?"
+        },
+        {
+          "id": 50432034,
+          "author": "Luke2642",
+          "text": "This is a great example of why p=np is sometimes the wrong question. For this np hard problem approximate solutions are good enough, and if you get them 45x faster that's even better!"
+        }
+      ],
+      "title_ja": "E平均：時代の10分の1でk平均を上回る",
+      "summary_ja": "ディスカッションのハイライト：これがロイドのアルゴリズムの代替として使用できるかどうか疑問に思います/私はIVFインデックス（コードデーモンプロジェクト）に方法を適応させ、GPUで146倍のスピードアップを達成しました。\nそれは素晴らしいです！/私の知る限り、これは特に新しいものではありませんが、EWAアップデートを含めて、人々はしばらくの間ミニバッチk平均を行ってきました",
+      "editor_note": "「E平均：時代の10分の1でk平均を上回る」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 11,
+      "id": 50424581,
+      "title_en": "Foldable Flight: The Best Paper Airplanes",
+      "url": "https://www.foldableflight.com",
+      "hn_url": "https://news.ycombinator.com/item?id=50424581",
+      "score": 1042,
+      "comment_count": 151,
+      "posted_at": "2026-11-09T12:19:22+00:00",
+      "comments": [
+        {
+          "id": 50426720,
+          "author": "literallyanythi",
+          "text": "Scrolled down the page, saw this \"Very Easy\" 1 minute plane\nhttps://www.foldableflight.com/planes/mystic\nStarted watching the video not planning on actually making it, saw that it is done with A4 paper and grabbed a random sheet at my desk to follow along. The pocket felt like a nice \"a-ha!\" moment. As someone who only knew the \"naive\" way to make paper airplanes from A4 paper, this is the best performing and prettiest paper airplane I've made in my life! It almost feels like it's not real how smoothly it stays straight in the air compared to all my paper airplanes in childhood.\nEdit: Tried making the flapping wings AeroDactyl but it didn't work out :( wasn't aerodynamic and didn't flap its wings just went straight to the ground\nEdit 2: Tried making the Jetstream (another 1 minute plane) and it came out well! Mine is INCREDIBLY asymmetrical and still flies better than any other plane I've made other than the Mystic!\nEdit 3: Tried making the Advanced Elanus and I made it! But it's a little shoddy and much tougher for sure. Looks cool but it doesn't glide anywhere near as good as in the video (I guess you really need to perfect it.)\nFinal edit: My planes :)\nhttps://i.imgur.com/xnMdzJ"
+        },
+        {
+          "id": 50425493,
+          "author": "intrasight",
+          "text": "I have a story to share. In 1978 as a preteen, my mother made me take piano lessons. God bless her for trying. Anyway, while waiting for my class in the lobby of the music school, I would often make paper airplanes. One day, an older gentleman came over and said that he wanted to gift me something. What he gave me was his copy of \"The great international paper airplane book\". And remains one of my cherished books or really possessions. But I'm getting older now and feel that the time has come for me to find a 13-year-old worthy of this gift. But it's quite a leap of faith, for me anyway, to convey such a gift.\nhttps://archive.org/details/greatinternation00jerr/mode/1up"
+        },
+        {
+          "id": 50430125,
+          "author": "FoldableFlight",
+          "text": "Hi everyone! I'm Kyle — the creator behind Foldable Flight (the website linked in the original post). It's very fun to read these comments and to hear about your experience using the site and folding the planes featured on it! I've been designing paper airplanes since I was a child, and have shared many of my designs freely through my website and on YouTube. Foldable Flight also features planes from many other designers, including the world record planes for distance and time aloft.\nPlease comment with any feedback you have regarding the site. I hope to improve its existing features and to add additional features in the future."
+        },
+        {
+          "id": 50426997,
+          "author": "tombert",
+          "text": "When I would visit my grandmother as a kid, my parents wouldn't let me bring a game console with me, and she lived in the middle of nowhere so I would get bored pretty easily.\nOne summer, I had brought a book on how to make different paper airplanes.  My grandmother had this huge crate of dot matrix printer paper [1] that I was given freedom to use to my heart's content.\nI made hundreds of planes, of varying quality.  I even did quasi-scientific tests to see which ones would fly farther, and I used a rubber band extended to the same length each time to try and ensure I was applying roughly the same amount of force in each launch.\nI look back at that time pretty fondly.  It was the only time in my life that I actually had fun visiting my grandmother's house.\n[1] Even at the time this was somewhat outdated; she had a normal inkjet printer at the time so the paper was basically useless as printer paper."
+        },
+        {
+          "id": 50425385,
+          "author": "magicalhippo",
+          "text": "My dad worked overtime in the evening a fair bit. He'd often bring me when I was a young teen. The building was several stories tall with a huge open central core, just a flight of stairs on one end.\nI'd go to the top floor, take a bunch of paper from the printer room and fold planes, and send them out into the central space. Go back, tweak the design or try something new, launch again.\nDon't think I came up with any good designs, but I had a lot of fun trying various ideas."
+        },
+        {
+          "id": 50426939,
+          "author": "anon2930193",
+          "text": "Adding my own story: Foldable Flight, the YouTube channel, is what allowed me to cope with Covid lockdowns with a five year old; every day we would sit together for at least an hour and fold increasingly sophisticated paper aeroplanes together.\nMy son is now 11 and he still folds, has mastered advanced origami skills, and also has organised four yearly paper aeroplane competitions.  All down to Kyle Boyer and his Foldable Flight channel.\nFrom the bottom of my heart, thank you Kyle!"
+        },
+        {
+          "id": 50424727,
+          "author": "derdrdirk",
+          "text": "Wouldn't have expected 40min video to fold an airplane:\nhttps://www.foldableflight.com/planes/lancer\n!"
+        },
+        {
+          "id": 50424946,
+          "author": "HelloUsername",
+          "text": "Related: \"\nhttps://www.foldnfly.com/\n\"\n21.jul.2023\nhttps://news.ycombinator.com/item?id=36784032\n25 comments\n26.may.2023\nhttps://news.ycombinator.com/item?id=36087442\n76 comments\n18.jul.2022\nhttps://news.ycombinator.com/item?id=32134691\n96 comments\n06.dec.2021\nhttps://news.ycombinator.com/item?id=29466325\n8 comments\n16.jun.2020\nhttps://news.ycombinator.com/item?id=23545860\n8 comments\n18.oct.2018\nhttps://news.ycombinator.com/item?id=18249755\n206 comments"
+        }
+      ],
+      "title_ja": "折りたたみ式飛行機：最高の紙飛行機",
+      "summary_ja": "ディスカッションのハイライト：ページを下にスクロールして、この「とても簡単」な1分間の飛行機を見ました\nhttps://www.foldableflight.com/planes/mystic\n実際に制作する予定ではないビデオを見始め、それを見ました/私には共有するストーリーがあります/みなさん、こんにちは！ Foldable Flight （元の投稿でリンクされているウェブサイト）のクリエイターであるKyleです",
+      "editor_note": "「折りたたみ式飛行機：最高の紙飛行機」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50434264,
+      "title_en": "Horible public key tricks",
+      "url": "https://maurycyz.com/projects/badcert/",
+      "hn_url": "https://news.ycombinator.com/item?id=50434264",
+      "score": 173,
+      "comment_count": 54,
+      "posted_at": "2026-11-10T00:07:17+00:00",
+      "comments": [
+        {
+          "id": 50438362,
+          "author": "miki123211",
+          "text": "On that note: I was always wondering whether you could do stupid CT log tricks.\nIf I remember correctly, Let's Encrypt lets you go up to a hundred domains per certificate, with 256 characters per domain[1]. If you get a short domain like a.bc and start requesting certificates for its subdomains, you can easily get a few kB of user-controlled data embeddable per certificate. Given LE's rate limits, it should, within a few weeks of easily-automated work, be possible to embed child pornography into a CT log, making it illegal to host and destroying it completely.\nYou could do something more useful (and less destructive) with this idea; like embedding a separate public key, with the corresponding private key stored offline in an HSM, which could then be used to sign the location of your new domain in case the old one was seized. This would, in a weird and perverted way, add a lot more censorship resistance to DNS than what it natively provides.\nYou could even use a CT log as a blockchain, with the order of log entries being used for consensus."
+        },
+        {
+          "id": 50437336,
+          "author": "ryan-c",
+          "text": "Previously, Stupid Certificate Tricks (2014):\nhttps://news.ycombinator.com/item?id=9516824\nThis is almost certainly an independent discovery/implementation of the same idea, there's really only one sensible way to do it. There are, of course, several non-sensible ways to do it as well, but..."
+        },
+        {
+          "id": 50435546,
+          "author": "knotimpressed",
+          "text": "The linked pdf at\nhttps://tom7.org/httpv/httpv.pdf\nis extremely long but a great read if you enjoyed the article."
+        },
+        {
+          "id": 50434692,
+          "author": "tptacek",
+          "text": "All serious attackers are man-in-the-middle attackers (usually by tricking victims into diverting their own traffic, not literally by inserting themselves into the network path). Passive-only attackers went extinct along with the backbone-connected Sun servers that were used to launch those attacks.\nI don't so much care about the rest of this analysis, but you can't call an unauthenticated TLS session \"secure\"."
+        },
+        {
+          "id": 50435567,
+          "author": "sam1r",
+          "text": "Tip: select the the ‘tty’ mode prior to digging in.\nI’ve never felt a more relaxed feeling (easy on the eyes) while reading any blog in comparison."
+        },
+        {
+          "id": 50434971,
+          "author": "arcfour",
+          "text": ">Nobody checks your private keys\nYou're implying that they should???"
+        },
+        {
+          "id": 50436021,
+          "author": "1vuio0pswjnm7",
+          "text": "\"... and the whole system doesn't even work because certificates are issued over plaintext connections, and trusted certificate aurthorities[sic] use very secure keys like \"4\"\"\nAnd the CA certificate is \"self-signed\"\nMeanwhile under this \"Web PKI\" the www user is by default discouraged and/or blocked from using self-signed certificates she herself creates\nSomeone else decides who she must trust.  It's not optional\nFor example, for a number of years someone else told her she must trust eMudhra"
+        },
+        {
+          "id": 50435908,
+          "author": "geekgod382",
+          "text": "I don't understand the math. What does plaintext^e mod n actually do?"
+        }
+      ],
+      "title_ja": "恐ろしい公開鍵のトリック",
+      "summary_ja": "ディスカッションのハイライト：そのメモ：私はいつもあなたが愚かなCTログトリックを行うことができるかどうか疑問に思っていました。\n正しく覚えていれば、Let's Encryptを使用すると、証明書ごとに最大100のドメインを使用できます。256/以前は、Stupid Certificate Tricks （ 2014 ） ：\nhttps://news.ycombinator.com/item?id=9516824\nこれはほぼ間違いなく、同じアイデアの独立した発見/実装です。'/ The linked pdf at\nhttps://tom7.org/httpv/httpv.pdf\n極端です",
+      "editor_note": "「恐ろしい公開鍵のトリック」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50438429,
+      "title_en": "Meet the Sad Wives of AI",
+      "url": "https://www.wired.com/story/meet-the-sad-wives-of-ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=50438429",
+      "score": 11,
+      "comment_count": 1,
+      "posted_at": "2026-11-10T10:40:51+00:00",
+      "comments": [
+        {
+          "id": 50438527,
+          "author": "Anonasty",
+          "text": "The article highlights an actual issue. It sure feels like dotcom boom again (kids don't remember)... Everything is buzzing and demanding to be on the edge. Everything is developing except the real world us."
+        }
+      ],
+      "title_ja": "AIの悲しい妻たちに会おう",
+      "summary_ja": "ディスカッションのハイライト:実際の問題を強調する記事",
+      "editor_note": "「AIの悲しい妻たちに会おう」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 50435898,
+      "title_en": "Ultorg: The User Interface for Relational Databases",
+      "url": "https://www.ultorg.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50435898",
+      "score": 75,
+      "comment_count": 22,
+      "posted_at": "2026-11-10T03:59:39+00:00",
+      "comments": [
+        {
+          "id": 50436679,
+          "author": "kragen",
+          "text": "Eirik Bakke's Ultorg (SIEUFERD) is amazing and inspirational research, and I'm glad to see that it's finally available to the public after 17 years. It's one of those things that really makes you sit up and take notice of how much better our everyday software could have been.\nHowever, I wouldn't be willing to try it under proprietary-software terms. Last week, I was thinking about eliciting open-source software with the Ultorg look and feel from an LLM, thus replicating Bakke's HCI research and enabling other HCI researchers to build on it, which won't be possible under a proprietary license.\nMy notes on Ultorg may be of interest; you can\ngit clone http://canonical.org/~kragen/sw/pavnotes2.git\nand read sieuferd.md (5200 words).\nThe introduction:\n>\nEirik Bakke’s [SIEUFERD][0] (or, as he sometimes spells it, SIUEFERD)                                  is a really interesting and promising generic database frontend, a                                     “schema-independent database UI”.  The elevator pitch is “a new kind\nof graphical query interface [with] the power of SQL but the\nease-of-use of a spreadsheet”.  (Unfortunately, he forgot to implement\nthe DDL part of SQL, just doing the"
+        },
+        {
+          "id": 50438090,
+          "author": "Skeime",
+          "text": "I think the novel thing here, that I have not yet seen in any other database app, is the realization that normal SQL joins are not quite what you want in most cases.\nOften, you are interested in nested results. \"Give me all my customers with a list of their orders.\" However, when you do this with a join, you get a list of the orders with a copy of the customer information attached to each, instead. In Ultorg, you actually get the customer with a list of their orders nested in their row as a sub-table, but with that sub-table's headers cleverly floated to the top, so they're not repeated for each customer.\nAs a second trick, Ultorg manages to remember the relations, so the data is editable in the nested tables. (There are some limitations to this, I believe.)\nI used the trial version of Ultorg at the beginning of the year (the example in the 2.1.4 changelog is based on my use case), and it was tons of fun to use.\nUltorg is great.\nI wish I had discovered it right at the start of that small project.\nUnfortunately, I do not have a regular use case for this, and for personal use and occasional unpaid hobby projects, Ultorg's license is not a good fit. So I check the website from time to"
+        },
+        {
+          "id": 50436824,
+          "author": "akshayrajeshwar",
+          "text": "Previously used it and it's AMAZING given you have data stored with good practices, e.g. with unique IDs that are consistent among many databases/sheets. I found it's easier to begin with Ultorg's usecase in mind than to migrate existing files to fit its use.\nAnd I do agree with the criticisms mentioned in the thread. Ultorg is solving a lot of problems of data organisation and context awareness, so starting a business with a perpetual license would be awesome.\nGuess I just don't wanna lose access to the tool once I have all the tailored files and fail to pay again.\nShould mention that Eirik is a joy talk to and will quite possibly accommodate you. All the best to him."
+        },
+        {
+          "id": 50436618,
+          "author": "NetMageSCW",
+          "text": "A small desktop app that is a subscription rubs me the wrong way."
+        },
+        {
+          "id": 50437224,
+          "author": "patates",
+          "text": "I like its flexibility but nothing beats LINQPad and its .Dump() method on that front."
+        },
+        {
+          "id": 50437094,
+          "author": "maxloh",
+          "text": "Someone just posted an open-source alternative earlier today. Its UI looks better too.\nhttps://news.ycombinator.com/item?id=50427934"
+        },
+        {
+          "id": 50438230,
+          "author": "BrenBarn",
+          "text": "I've wanted something like this for a really long time.  Unfortunately I'll never use this because there's no way I'm going to pay for it, let alone pay an ongoing subscription fee, but it looks pretty cool."
+        },
+        {
+          "id": 50436726,
+          "author": "aetherspawn",
+          "text": "Question: Is there any way to customise the interface like add extra buttons, for example to export an invoice?"
+        }
+      ],
+      "title_ja": "Ultorg ：リレーショナルデータベースのユーザーインターフェイス",
+      "summary_ja": "ディスカッションハイライト： Eirik BakkeのUltorg （ SIEUFERD ）は驚くべきインスピレーションに満ちた研究であり、17年後にようやく一般に公開されたことを嬉しく思います/他のデータベースアプリではまだ見たことがない新しいことは、通常のSQL結合がほとんどの場合、あなたが望むものではないという認識です。\n多くの場合、あなたはそれを使用しています/以前に使用していました。例えば、優れたプラクティスで保存されたデータがあることを考えると、それは素晴らしいことです",
+      "editor_note": "「Ultorg ：リレーショナルデータベースのユーザーインターフェイス」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 15,
+      "id": 50436706,
+      "title_en": "ClickHouse Acquires Xata",
+      "url": "https://xata.io/blog/xata-is-joining-clickhouse",
+      "hn_url": "https://news.ycombinator.com/item?id=50436706",
+      "score": 36,
+      "comment_count": 6,
+      "posted_at": "2026-11-10T06:14:51+00:00",
+      "comments": [
+        {
+          "id": 50438038,
+          "author": "hasyimibhar",
+          "text": "Does this mean we can have scale-to-zero Postgres? One pain we have with Clickhouse Postgres is that we have to pay for dev/staging databases that receive no traffic most of the time."
+        },
+        {
+          "id": 50438196,
+          "author": "ianberdin",
+          "text": "It's interesting that xata.io is a standalone product. Whereas in\nhttps://playcode.ai\n, it's just one of the features, it lets you create a new server in a second, which can contain anything, not just a database, and which takes up no space at all if nothing has changed.\nAnd you can have as many as you want, tens or twenties of them, which automatically go to sleep when not in use and cost you nothing. This is one of our signature features, made possible by the fact that we built our own file system that allows this.\nWhat's more, it even allows moving between data centers within a single second, you fall asleep on one host in one region and wake up on another host, another region, within a second. And of course, there are snapshots and rollbacks back and forth in different directions.\nIt turned out really great, I'm happy with it. What's more, I built the entire cloud infrastructure by myself.\nThere might be companies that are ready to buy the entire Playcode.AI, which includes not only the revolutionary cloud infrastructure but also AI Gateway, AI Harness, AI Agent, and everything needed for creating full-stack applications. It even has its own email Gateway, its own DNS server, a"
+        },
+        {
+          "id": 50437777,
+          "author": "te_chris",
+          "text": "I’ve gone all in on the clickhouse stack this year and I continue to be extremely impressed. Our product does physical simulation and generates a lot of time series rows per run (a million or so) so we needed something that could do fast time series aggregations. In clickhouse we’ve got one core db that supports that easily, while also being runnable locally in docker compose for dev. They’ve also made smart acquisitions in the otel observability stack, so our o11y is running on another clickhouse db with hyperdx/click stack included. And they acquired langfuse which mostly just works on top of clickhouse as well, so we’re self hosting that for evals etc.\nThe team has been easy to work with as well. Maybe they’ll get enshittified, I guess that’s inevitable, but it’s good now.\nI think they’re a model of a co that will do well through the LLM transition - strong core tech plus useful bits on top that are OSS but can be hosted by them if you want."
+        }
+      ],
+      "title_ja": "ClickHouseがXataを買収",
+      "summary_ja": "ディスカッションのハイライト：これは、POSTGRESをゼロにスケールできることを意味しますか？ Clickhouse Postgresで私たちが抱えている問題の1つは、ほとんどのトラフィックを受け取らない開発/ステージングデータベースにお金を払わなければならないことです/xata.ioがスタンドアロン製品であることは興味深いことです/今年はClickhouseスタックにすべてを費やしましたが、非常に感銘を受け続けています",
+      "editor_note": "「ClickHouseがXataを買収」について、開発者コミュニティで注目が集まっています。",
+      "category": "Startup/Business"
+    },
+    {
+      "rank": 16,
+      "id": 50408336,
+      "title_en": "Billion Watts in the Speaker [video]",
+      "url": "https://www.youtube.com/watch?v=PHOcTXYaMfg",
+      "hn_url": "https://news.ycombinator.com/item?id=50408336",
+      "score": 9,
+      "comment_count": 5,
+      "posted_at": "2026-11-07T21:45:50+00:00",
+      "comments": [
+        {
+          "id": 50438361,
+          "author": "Eupolemos",
+          "text": "This is not really a HN subject, I think - that said, I really love this dude.\nPopping up in my subscription-feed after 5 years was a highlight <3\nAnd it def. IS nerdy :D"
+        },
+        {
+          "id": 50438512,
+          "author": "ablation",
+          "text": "I seem to remember a few years back this guy made a lot of noise about a \"free energy\" (ahem) device he'd invented and claimed he was giving the plans to China and Russia as a way of getting back at the UK government for some slight or other, then promptly dropped off the face of the internet in protest(?) I guess he's back."
+        },
+        {
+          "id": 50438481,
+          "author": "xattt",
+          "text": "Spoiler: it becomes a compact one-time use railgun."
+        }
+      ],
+      "title_ja": "Billion Watts in the Speaker [動画]",
+      "summary_ja": "ディスカッションのハイライト：これは本当にHNの主題ではないと思います。つまり、私はこの男が大好きです。\n5年後にサブスクリプションフィードにポップアップ表示されるのはハイライトでした< 3\nそして、数年前にこの男が発明した「フリーエネルギー」（エヘン）装置について多くのノイズを出し、計画を中国とロシアに渡していると主張したことを覚えているようだ/スポイラー：それはコンパクトなワンタイムユースレールガンになります。",
+      "editor_note": "「Billion Watts in the Speaker [動画]」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50426175,
+      "title_en": "Semi-transparent, colored cadmium telluride photovoltaic panels in agrivoltaics",
+      "url": "https://www.anthropocenemagazine.org/2026/10/magenta-solar-panels-may-be-agrivoltaics-cleverest-trick-yet/",
+      "hn_url": "https://news.ycombinator.com/item?id=50426175",
+      "score": 317,
+      "comment_count": 215,
+      "posted_at": "2026-11-09T14:31:39+00:00",
+      "comments": [
+        {
+          "id": 50430877,
+          "author": "efields",
+          "text": "Specialty cut flower grower here. Backyard scale, but we're profitable and have received some grants so that means we have had a USDA relationship for a couple years. The rep I've talked to and am closest with is skeptical of agrivoltaics due to past dealings with solar companies (not sure what she means). There doesn't seem to be enough reliable public data to make it seem like the win-win-win we want it to be. In their mind, you're adding a non-ag industry to the land and that could have downstream consequences in a generation. Maybe you're scheming to get the land re-zoned for light industrial; I honestly have no idea what they're thinking, but they're averse toward it.\nMost flowers in 7b don't want extreme sun. We use shade cloth frequently, so solar coverage would be fine and of course have the energy co-production. Cut flowers aren't harvested mechanically at our scale, so we wouldn't have to worry about tractor access.\nMeanwhile, more and more food is produced under cover for a lot of good reasons. Polytunnels, glass houses. You might get some summer shade from solar but what about season extension at the beginning of spring/end of fall? Depending on your crop and location, "
+        },
+        {
+          "id": 50429699,
+          "author": "declan_roberts",
+          "text": "HN is probably over-indexed on people living in high-density cities, which might explain why tech like this and also things like vertical farming are popular here. However there's almost no dimensional constraint for farmland in the United States. We have vast amounts of it and there's really nothing to be gained from \"stacking\"\nOften these \"solutions\" introduce more problems than they solve. One example being a solar farm designed to be grazed by sheep where the panels are so low to the ground that farmers can't bring in tractors and cut hay when the ruminants are gone for a season.\nThe best solution is still to put solar panels and farmland in different places where each can be optimized without concern for the other."
+        },
+        {
+          "id": 50428919,
+          "author": "foolfoolz",
+          "text": "if your initial reaction is we have tons of empty land why would we ever build solar panels over a farm?\nthis isn’t an either-or question. a farm owner may want to add some revenue with electricity generation. just like a hospital may want to cover their parking lot to offset costs.\nat giant scale do these solar location choices optimize the absolutely best use of land for cheapest possible electricity generation? no. but at small scale it can make sense for these individual owners\nhttps://electrek.co/2026/10/05/six-flags-has-installed-one-o..."
+        },
+        {
+          "id": 50430638,
+          "author": "lantry",
+          "text": "little known fact: US currently grows a lot of corn for ethanol production. If we replaced that all with solar panels we'd have plenty of electricity. The solar vs farm debate is usually framed as a tradeoff with food production but that's not really true\nhttps://www.anthropocenemagazine.org/2025/04/new-study-compa..."
+        },
+        {
+          "id": 50428104,
+          "author": "SamBam",
+          "text": "One thing the article doesn't mention is that some plants prefer a little shade.\nSo while broccoli yields may have \"held steady,\" it's possible they could make even more gains elsewhere where it might normally be too sunny. So leafy vegetables like spinach might be doing equivalently fine under the magenta shades in New Jersey, but might actually be even better in Texas."
+        },
+        {
+          "id": 50427930,
+          "author": "mangecoeur",
+          "text": "I find the physics of wavelength-dependent materials properties oddly satisfying. You can do clever things like this, extracting energy from different parts of the spectrum by combining materials and conversion processes. You can beam waste heat back to space through the atmosphere’s “infrared window”. You can explain global warming from first principles. Fascinating stuff!"
+        },
+        {
+          "id": 50428854,
+          "author": "crazygringo",
+          "text": "Are there realistic ways of harvesting vegetables at scale that are underneath mounted solar panels, with all their supports?\nOr is the idea that there aren't now, but they could be built?\nI'm just imagining that you are going to need a lot of vertical clearance for tractors, and support posts will have to be widely spaced enough that the horizontal beams supporting the panels will have to be quite strong, and that at some point this is less solar panels in a field, and more like constructing a building with solar panels on its roof."
+        },
+        {
+          "id": 50436498,
+          "author": "AngryData",
+          "text": "The only real problem with this becoming common practice? The very first question and assumption of needing a solution.\n>Vegetable farms and solar farms both need lots of sunlight and open space. But how do we divide our limited lands between these two priorities?\nWe are in no way limited by farmland space. Farmland utilization has been dropping since WWI thanks to the invention of artificial fertilizer, and even without artificial fertilizer at current population levels we would have never ran out of farmland although there would be a lot more of it. All across the midwest you will find tracks of land that use to be farmland, but is now either overgrown with trees, grass, or shrubs and completely unutilized for any human purposes. And our main limitation to growing even more food if we wanted a bunch extra for some reason would be fertilizer production/energy, not land space.\nThis is great science and knowledge, but I don't expect anything useful coming from it for farming on earth. There is no shortage of dirt that the sun shines on now or anytime soon, and no matter how efficient your panels, plants, or extra lights are, the sun is free and a greenhouse is way cheaper than anyth"
+        }
+      ],
+      "title_ja": "半透明、着色されたテルル化カドミウム太陽光パネル",
+      "summary_ja": "ディスカッションハイライト：専門の花栽培者HERE/HNは、おそらく高密度の都市に住む人々に過剰に索引付けされているため、このようなテクノロジーや垂直農業のようなものがここで人気がある理由を説明するかもしれません/あなたの最初の反応が私たちには何トンもの空き地があるのに、なぜ私たちは農場にソーラーパネルを建てるのでしょうか？\nこれはどちらか一方の質問ではありません",
+      "editor_note": "「半透明、着色されたテルル化カドミウム太陽光パネル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 18,
+      "id": 50435105,
+      "title_en": "Formalizing CPython",
+      "url": "https://broyojo.com/python-formalization/",
+      "hn_url": "https://news.ycombinator.com/item?id=50435105",
+      "score": 79,
+      "comment_count": 31,
+      "posted_at": "2026-11-10T01:56:48+00:00",
+      "comments": [
+        {
+          "id": 50438169,
+          "author": "debugnik",
+          "text": "Wouldn't it be more productive spending the tokens on adding ACSL annotations to verify CPython with Frama-C? You'd verify the actual runtime instead of an AI translation of it, and fixes could be contributed upstream directly."
+        },
+        {
+          "id": 50438311,
+          "author": "tomtom1337",
+          "text": "I'm confused about a few points, would love it if someone could help clear it up!\n- if the rewrite in Lean happens line-by-line, how can the two implementations differ in their result (Step 2)?\n- how does this approach know \"something that should always be true\" in Step 3 (is it the intelligence of the LLM \"guessing\"?)."
+        },
+        {
+          "id": 50436290,
+          "author": "anewhnaccount2",
+          "text": "Same approach for Julias stdlib:\nhttps://discourse.julialang.org/t/formalizing-julia-in-lean-..."
+        },
+        {
+          "id": 50436643,
+          "author": "jakobnissen",
+          "text": "I think this approach to bug hunting is super promising (obviously - it finds a ton of bugs). The long-term problem is how this kind of bug-hunting can be done routinely, e.g. as part of a test suite. The approach taken by these people, the same approach as when the Julia folks did it, isn't really automatable, because it requires a lot of both human and AI agent work.\nI guess longer term it needs to be built into the language, to prevent code and lean proofs from drifting. I.e. it could be opt-in properties that are written along the code, and which is then checked in the test suite. So very similar to ordinary compiler checks, except more expressive and expensive, and done only at test time."
+        },
+        {
+          "id": 50437614,
+          "author": "erfgh",
+          "text": "Does anyone read articles written by AI? This is a serious question."
+        },
+        {
+          "id": 50436806,
+          "author": "eternauta3k",
+          "text": "Is there a way to avoid the translation or replace it with normal parsing?"
+        },
+        {
+          "id": 50436783,
+          "author": "bb88",
+          "text": "Only 418?\nI would have expected around 10k.\nEdit:  Professional python programmer."
+        },
+        {
+          "id": 50437900,
+          "author": "actionfromafar",
+          "text": "Stupid question: if the lean4 code is a copy of the C code, how does \"it\" know which code is a bug and which code is working as intended?"
+        }
+      ],
+      "title_ja": "CPythonのフォーマライズ",
+      "summary_ja": "ディスカッションハイライト： Frama - CでCPythonを検証するためにACSLアノテーションを追加することにトークンを費やす方が生産的ではないでしょうか？ AI翻訳の代わりに実際のランタイムを確認して、いくつかの点について混乱しています。誰かがそれをクリアするのを手伝ってくれればうれしいです！\n-リーンでの書き換えが行ごとに発生した場合、2つの実装はJulias stdlibのres/Sameアプローチでどのように異なりますか？\nhttps://discourse.julialang。",
+      "editor_note": "「CPythonのフォーマライズ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 19,
+      "id": 50386246,
+      "title_en": "A primer on GPUs and kernel optimization",
+      "url": "https://www.nabo.dev/blogs/kernel-primer",
+      "hn_url": "https://news.ycombinator.com/item?id=50386246",
+      "score": 160,
+      "comment_count": 14,
+      "posted_at": "2026-11-05T23:48:04+00:00",
+      "comments": [
+        {
+          "id": 50432557,
+          "author": "augment_me",
+          "text": "Crazy to not see a word about benchmarking/evaluation of the kernels.\nIMO at this time when all performant GPU kernels are generated/hill-climbed, its the largest source of error we see.\nShould be kernel run with a hot or cold cache in practice? Should your kernel be bitwise equivalent to a ref? What error margins should your kernel have to ref? How many times are you running the kernel to avoid thermal noise? Are you running on separate GPUs to avoid overfitting the current hardware? Can you cudagraph-compiling your kernel to remove launch overhead? Are you A/B B/A interleaving your kernel/reference runs to avoid running thermal bias?"
+        },
+        {
+          "id": 50433417,
+          "author": "kollegekid",
+          "text": "The writing here is so clear. Do you use Llms to write?"
+        },
+        {
+          "id": 50434738,
+          "author": "saagarjha",
+          "text": "> On the H200s used for most of this work, the GPU's main memory is HBM, or high-bandwidth memory. Ironically, this is the slowest memory on the chip.\nNit: HBM is off chip, unlike shared memory and registers"
+        }
+      ],
+      "title_ja": "GPUとカーネル最適化の入門書",
+      "summary_ja": "ディスカッションのハイライト：カーネルのベンチマーキング/評価に関する言葉が見当たらないのはクレイジーです。\nIMOすべての高性能GPUカーネルが生成/ヒルクライミングされているこの時点で、ここでの書き込みは非常に明確です/>この作業のほとんどに使用されるH 200では、GPUのメインメモリはHBM、または高帯域幅メモリです",
+      "editor_note": "「GPUとカーネル最適化の入門書」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 20,
+      "id": 50428907,
+      "title_en": "Show HN: Every satellite that passed over any place this week, and its photos",
+      "url": "https://www.watched.earth",
+      "hn_url": "https://news.ycombinator.com/item?id=50428907",
+      "score": 364,
+      "comment_count": 62,
+      "posted_at": "2026-11-09T17:51:31+00:00",
+      "comments": [
+        {
+          "id": 50436607,
+          "author": "lanewinfield",
+          "text": "Nice site. Likely very few people will care this much, but with a couple of very easy changes you would make this feel a LOT less vibe coded.\nThe giveaways:\n* Instrument Sans (your logo)\n* Highlighted period in your logo\n* Highlighted italicized text in your header text (also in Instrument Sans)\n* Short punchy AI-written sentences. Just merge that into one sentence! (\"Enter any place on Earth to see every satellite that passed over it in the last week and the pictures they took there.\")\n* The flashing orange square in the upper right (every single vibe coded site has a circular or square version of the LIVE icon)\nAnd then, just one more reason to switch from Instrument Sans: the massive kerning gap between \"W\" and \"atched\" in the logotype.\nI'm being picky, of course. Nice job!"
+        },
+        {
+          "id": 50436037,
+          "author": "adonovan",
+          "text": "Beautifully done, at so many levels: the pincushion view of just how much stuff is up there; the rendering of the orbit of each satellite; the ground track of its aperture; the time series of its passes. So many data sources seamlessly integrated. Even if Claude wrote every line of code, knowing what to ask for is quite a feat.\nAmazing."
+        },
+        {
+          "id": 50431721,
+          "author": "HoldOnAMinute",
+          "text": "I don't say this lightly:  This may be the best combination of style and substance I have ever seen."
+        },
+        {
+          "id": 50428983,
+          "author": "sixtyj",
+          "text": "I have seen a lot of sites with satellites’ overviews… I work in geospatial.\nThis site is really good one as you can see exact image taken by a satellite.\nWell done."
+        },
+        {
+          "id": 50438163,
+          "author": "nonameiguess",
+          "text": "The first half of my second career (third maybe) in software was spent in satellite ground processing. My first true culminating project, so to speak, was when the portion of the US Maritime Domain Awareness meant for use by the Navy went to initial operational capability.\nI checked out your site briefly. It's mildly amusing to note differences between that and a real system in use by military units. It'd be nice to be able to use a selector of some sort rather than typing in a location. The globe itself is most obvious, but a flat map works. If you're going to suggest arbitrary locations underneath the text entry box, you should probably suggest places you actually have imagery for. I don't care what looked at the hotel I'm in this morning and don't know coordinates for places off the top of my head, but I can find them on a map.\nThe real version of a system like this doesn't try to draw orbits and estimate what was overhead when. The imagery archives already have geolocation information you should be able to query directly instead of trying to project backwards like that. There are at least three downsides to the way you've done it. One, users typically don't care whether an imag"
+        },
+        {
+          "id": 50432081,
+          "author": "award_",
+          "text": "This is not only a very cool idea, but also fantastic execution! Great work and very neat!"
+        },
+        {
+          "id": 50438421,
+          "author": "suryanallagonda",
+          "text": "cool interaction in the hero section love the smooth transition"
+        },
+        {
+          "id": 50437683,
+          "author": "addandsubtract",
+          "text": "This is cool! Is there an API to get the latest picture for a location? I'd like to set that as my browser new page background or integrate it into Home Assistant."
+        }
+      ],
+      "title_ja": "HN ：今週どこかを通過したすべての衛星とその写真を表示",
+      "summary_ja": "ディスカッションのハイライト：素敵なサイト/非常に多くのレベルで美しく行われました：そこにどれだけのものがあるかのピンクッションのビュー。各衛星の軌道のレンダリング。その開口部の地上トラック。ティム/私はこれを簡単に言うことはありません：これは私が今まで見た中でスタイルと物質の最高の組み合わせかもしれません。",
+      "editor_note": "「HN ：今週どこかを通過したすべての衛星とその写真を表示」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50429430,
+      "title_en": "The first 300-millimeter power silicon carbide (SiC) wafer",
+      "url": "https://www.infineon.com/press-release/2026/infpr202611-028",
+      "hn_url": "https://news.ycombinator.com/item?id=50429430",
+      "score": 139,
+      "comment_count": 75,
+      "posted_at": "2026-11-09T18:25:01+00:00",
+      "comments": [
+        {
+          "id": 50429853,
+          "author": "bradknowles",
+          "text": "The summary at the top of that page is:\nInfineon marks innovation milestone with world’s first 300-millimeter power silicon carbide (SiC) wafer\nPBusiness & Financial Press\nNov 09, 2026\nInfineon presents industry-first functional power devices processed on 300-millimeter silicon carbide wafers\nTechnological breakthrough underlines Infineon’s innovation strength and leadership in power semiconductors and wide-bandgap technologies\n300-millimeter SiC process feasibility lays the foundation for secure, future-proof SiC supply to customers in automotive, renewable energy, industrial and AI data center applications\nInfineon will present the first processed 300-millimeter SiC wafer to the public at the electronica trade show starting 10 November 2026 in Munich"
+        },
+        {
+          "id": 50433110,
+          "author": "BrandiATMuhkuh",
+          "text": "What surprises me with Infineon is that they seem to not work on a LLM on a chip. In particular that here in Linz Infineon, Apple's 5G modem designer and the Johannes Kepler University with Sepp Hochreiter (Inventor of LSTM) are just next to each other.\nI watched a interview of Infineon head of AI just recently, and I was like excited to hear about some cool hardware. And all he did is talk about how he uses LLMs."
+        },
+        {
+          "id": 50430875,
+          "author": "johntb86",
+          "text": "Anyone know why it took so long for them to transition to 300mm? As mentioned in the article, they're mainly using existing 300mm equipment designed for silicon, which transitioned years ago. I imagine some process steps are different (mainly growing to larger boule, but probably others), but it doesn't seem like they would be huge blockers."
+        },
+        {
+          "id": 50430189,
+          "author": "novaRom",
+          "text": "Can you guys restart DRAM production in Europe again? If 20 or so years ago it was possible, today is the best economical opportunity."
+        },
+        {
+          "id": 50430731,
+          "author": "mercurywells",
+          "text": "I thought Wolfspeed was already at 300mm at the start of this year?"
+        },
+        {
+          "id": 50430721,
+          "author": "LoganDark",
+          "text": "How does this compare to GaN? Better or worse?"
+        },
+        {
+          "id": 50430226,
+          "author": "alephnerd",
+          "text": "This may not appear sexy but this is a huge deal. Power semiconductors are\ncritical\nfor most NatSec and industrial usecases.\nYou can likely live without a new gaming rig. You likely cannot live without replaceable parts for trucks and cars."
+        }
+      ],
+      "title_ja": "最初の300ミリメートルパワー炭化ケイ素（ SiC ）ウェーハ",
+      "summary_ja": "ディスカッションのハイライト：そのページの上部にある要約は次のとおりです。\nインフィニオン、世界初の300 mmパワー炭化ケイ素（ SiC ）ウェハでイノベーションのマイルストーンを達成\nPBusiness & Financial Press\n11月9日、/インフィニオンで驚いたのは、チップ上のLLMで動作しないように見えることです/300 mmに移行するのになぜそんなに時間がかかったのか知っていますか？ 記事で述べたように、彼らは主にシリコン用に設計された既存の300 mm機器を使用しています。",
+      "editor_note": "「最初の300ミリメートルパワー炭化ケイ素（ SiC ）ウェーハ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50435660,
+      "title_en": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50435660",
+      "score": 161,
+      "comment_count": 118,
+      "posted_at": "2026-11-10T03:20:06+00:00",
+      "comments": [
+        {
+          "id": 50436061,
+          "author": "danielodievich",
+          "text": "Just last week I was on the call with a a techy architect from one of the major-major financial services companies, and he was discussing getting token capacity and his words on third best option was \"we'd get it from Coreweave or whoever is still alive\". So yeah, I am pretty sure that if that's the sentiment from software people at the major-major financial company, Coreweave is cooked."
+        },
+        {
+          "id": 50437066,
+          "author": "dragontamer",
+          "text": "CRWV is about to have an earnings report in less than 20 hours. It's probably best to just shut up for a day, wait for the earnings and then talk after that comes out."
+        },
+        {
+          "id": 50436139,
+          "author": "trescenzi",
+          "text": "That’s edging up on credit card rates for strong borrowers wild. NerdWallet has Chase Freedom with a lower bound of 18.49% and Citi Diamond Preferred with 16.74%.\nhttps://www.nerdwallet.com/credit-cards/best"
+        },
+        {
+          "id": 50436116,
+          "author": "holysoles",
+          "text": "Aside from the price signal, the fact they were issuing these at a 9.625% coupon rate continues to run up their future debt servicing costs.\nCoreweave doesnt seem to be in a winner-take-all sector, they have a narrow moat and will have high ongoing capex. I  struggle to see how they dont go under eventually even with the ability to restructure debt"
+        },
+        {
+          "id": 50435924,
+          "author": "bix6",
+          "text": "So there’s a chance I can pickup some discounted GPUs next year?"
+        },
+        {
+          "id": 50437680,
+          "author": "laylower",
+          "text": "One of the cras published a report on the potential upcoming AI stress and it did highlight a bunch of vulnerabilities.\nJust checked and coreweave rated at bb-"
+        },
+        {
+          "id": 50437326,
+          "author": "cmiles8",
+          "text": "This is a preview of what AI companies will face moving forward trying to raise capital. 16% is cheap if AI lives to its promise of massive returns. Problem is the ROI isn’t materializing and 16% would destroy most companies.\nMeanwhile the traditional VC path is also drying up with OpenAI struggling with its latest round.\nIt’s going to get very ugly for the AI bros as cash starts to run out."
+        },
+        {
+          "id": 50437355,
+          "author": "Animats",
+          "text": "They started at 9.6%. So it was a junk bond when it was issued. Now it's junkier.\nWhere is this bond in the bankruptcy hierarchy?\nIs it secured by anything? GPUs, maybe. Is it subordinated behind other debt?\nThat's probably going to matter."
+        }
+      ],
+      "title_ja": "AIクレジットストレスが高まる中、CoreWeave社の債券利回りは16%を上回る",
+      "summary_ja": "ディスカッションのハイライト：ちょうど先週、私は大手金融サービス会社の技術的なアーキテクトと電話で話し合っていました。彼はトークン容量の取得について話し合っていましたが、/CRWVに関する彼の言葉は20時間以内に収益報告書を作成しようとしています/それは強力な借り手のためのクレジットカード金利を徐々に上げています",
+      "editor_note": "「AIクレジットストレスが高まる中、CoreWeave社の債券利回りは16%を上回る」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
+      "id": 50437242,
+      "title_en": "M John Harrison becomes first science fiction author to win the Booker prize",
+      "url": "https://www.theguardian.com/books/2026/nov/09/m-john-harrison-the-end-of-everything-wins-2026-booker-prize",
+      "hn_url": "https://news.ycombinator.com/item?id=50437242",
+      "score": 54,
+      "comment_count": 30,
+      "posted_at": "2026-11-10T07:40:52+00:00",
+      "comments": [
+        {
+          "id": 50437441,
+          "author": "ddxv",
+          "text": "https://www.goodreads.com/book/show/241835818/reviews\nWow, pretty divisive, reviews are all over the place. I haven't read it yet, but the reviews seem to tend towards people annoyed at abstract and flowery plot / writing?\nI will have to try, but I've also struggled through (possibly) similar books like Gnomon by the British sci-fi author Nick Harkaway which had plots too abstract to properly hold my attention but were well liked by others. Similar but opposite, How to Win the Time War, which was so abstract the whole book was a metaphor, stayed together enough that I followed the plot and enjoyed it (though it was quite short).\nCurious how other people here found this book?"
+        },
+        {
+          "id": 50438341,
+          "author": "etcetcetcetceta",
+          "text": "I read The Course of the Heart because I'd heard it was sci/fi lit, it helped that  I was enjoying a bit of a gnostic/occult kick at the time, and an author I hold in high esteem considers it one of the greatest works of fiction ever produced.\nBut I found it provincially little britain and too obviously desperately trying to be literary that I was confused by the praise, I don't think I'll read another Harrison, but I'm glad he's won the Booker, not that it carries the same weight any more."
+        },
+        {
+          "id": 50438274,
+          "author": "thorin",
+          "text": "I only read his book \"Climbers\" which I thought was really good, non-linear and vague but atmospheric. I am a climber or at least know the world of climbing and M John is also a climber.\nI'm tempted to read his other books but as mentioned the reviews are quite divisive. Climbers took me back to when I first read Iain Banks books, that is the kind of vibe I was getting."
+        },
+        {
+          "id": 50437551,
+          "author": "nxobject",
+          "text": "Congratulations -- and, it should have happened so, so much more sooner.\n(It's interesting to think about how Harrison pierced the veil between \"genre\" and \"general literary fiction\": he won the Goldsmiths prize in 2020, and judged the Bookers in 2022. His individual recognition as an author was a process.)"
+        },
+        {
+          "id": 50437749,
+          "author": "lproven",
+          "text": "This really cheered up my morning.\nMike Harrison is very much not the first Booker-prize winner I have read by a long\nlong\nchalk. I was reading Booker nominees during my English Literative 'A' level in the early 1980s.\nBut he's the first I've been to sci-fi conventions with, met, heard speak, probably had a beer with...\nCongrats, Mike!"
+        },
+        {
+          "id": 50437701,
+          "author": "swiftcoder",
+          "text": "> first science fiction author to win the Booker prize\nThis feels like we're really splitting hairs in order to exclude Samantha Harvey’s Orbital (the 2024 winner) from the category of science fiction."
+        },
+        {
+          "id": 50438206,
+          "author": "laylower",
+          "text": "I tried to read it but it's very hard to get into and I've read the road by Mccarthy"
+        }
+      ],
+      "title_ja": "M・ジョン・ハリソンがブッカー賞を受賞した最初のSF作家になる",
+      "summary_ja": "ディスカッションハイライト： https://www.goodreads.com/book/show/241835818/reviews\nうわー、かなり分裂している、レビューがあちこちにあります/私はそれがsci/fi点灯していると聞いたことがあるので、The Course of the Heartを読んだことがあります。それは私が当時グノーシス/オカルトのキックを楽しんでいたことを助けました。そして、私は高い敬意を抱いている作家c/私は彼の本「Climbers」しか読んでいませんでした。これは本当に良い、非線形で漠然としていますが、雰囲気があります",
+      "editor_note": "「M・ジョン・ハリソンがブッカー賞を受賞した最初のSF作家になる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 24,
+      "id": 50429426,
+      "title_en": "Google Gemini routes personal Drive files and emails to human annotators",
+      "url": "https://github.com/thisisme6598/gemini_files/",
+      "hn_url": "https://news.ycombinator.com/item?id=50429426",
+      "score": 620,
+      "comment_count": 130,
+      "posted_at": "2026-11-09T18:24:38+00:00",
+      "comments": [
+        {
+          "id": 50432666,
+          "author": "bri3d",
+          "text": "Note that this is specifically Consumer Gemini with Connected Apps; Workspace Gemini (and Workspace Intelligence, the RAG thing for enterprise/Workspace) still claims not to be subject to human review:\nhttps://knowledge.workspace.google.com/admin/generative-ai/g...\nSo basically if you use consumer Gemini and specifically authorize the GMail app, for example, then it will sometimes use the GMail tool to load your mail from GMail, and that data (like all data in consumer Gemini) might be given to the human annotation pipeline.\nThis whole thing seems deeply stupid to me from Google's standpoint, although they've never been good at product management - there's _way_ too much nuance to what's going on and even if they aren't technically affected, this kind of thing will almost surely make their paying enterprise customers leery."
+        },
+        {
+          "id": 50431419,
+          "author": "rustyhancock",
+          "text": "Really frustrating that our privacy eroded to the point anyone would think this is reasonable.\nBut it does explain some conversations with Gemini when I wonder why it's talking about particular things. Like asking it about consultation processes for changes to parks only to get a response that's uncannily tuned to the email I got prompting the enquiry.\nNo mention of I just read your emails etc ."
+        },
+        {
+          "id": 50433036,
+          "author": "EMM_386",
+          "text": "It's worse than that.\n> Google Photos data is used to infer your interests, relationships to people in your photos, and where you've been, including by associating your face with corresponding location data and timestamps. This data is also used to do things for you, like look up your info or add items to your grocery list, and to improve Google services, including training generative AI.\nHow does that work exactly if the images aren't even real and are generated by AI? When Google siphons up these photos to help them train their AI, the AI is now going to make associations as depicted in that photograph?\nThat you really were with that person, in that place, in that situation, on that date? As some sort of a fact?\nCan someone else create that image and just put it in their library and then have that become a fact on your behalf when picked up, analyzed and trained on?\nWhere does that all lead?"
+        },
+        {
+          "id": 50432220,
+          "author": "hek2sch",
+          "text": "Any tool having manual human reviewers or annotator like all of Gemini and notebooklm (now Gemini notebook) suffer from this. Your data has high chance being read by random people or being leaked for training because they might flag it then use it to \"improve\" the model."
+        },
+        {
+          "id": 50433535,
+          "author": "whatever1",
+          "text": "In the name of the AI race we are taking a lot of shortcuts (privacy, quality, commercial viability etc). As anyone in software knows, the debt will eventually become due."
+        },
+        {
+          "id": 50433915,
+          "author": "fierycatnet",
+          "text": "That's just irresponsible. If this is anything like old Google search reviews (Appen, etc.) then they will hire anyone as a contractor. I don't want my data being reviewed by some random person."
+        },
+        {
+          "id": 50433315,
+          "author": "gla67890543",
+          "text": "Any one trusting Google, Facebook with their data is wilfully blind. Their whole business model and survival based on spying on others data."
+        },
+        {
+          "id": 50435416,
+          "author": "advael",
+          "text": "Google and the companies it considers its competitors in a given space (e.g. primarily Microsoft in \"workspace\" and cloud storage, for example) have already demonstrated for over a decade that they're willing to use any data you store in their services for any purpose they feel like, and often much of this is written into EULAs, but also it doesn't seem to matter if it isn't. I hope that if this is your first exposure to this basic fact, it encourages you to stop trusting google and look for alternatives with auditable guarantees"
+        }
+      ],
+      "title_ja": "Google Geminiは、個人的なドライブファイルと電子メールを人間のアノテーターにルーティングします",
+      "summary_ja": "ディスカッションのハイライト：これは特にコネクテッドアプリを備えたコンシューマージェミニであることに注意してください。ワークスペースジェミニ（および企業/ワークスペースのためのRAGであるワークスペースインテリジェンス）は、私たちのプライバシーが侵食されたことが誰もが合理的だと思うほどではないと主張しています。\nしかし、なぜそれがABO/それより悪い話をしているのか疑問に思うとき、それはジェミニとのいくつかの会話を説明します。\n> Googleフォトのデータはyを推測するために使用されます",
+      "editor_note": "「Google Geminiは、個人的なドライブファイルと電子メールを人間のアノテーターにルーティングします」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50429024,
+      "title_en": "Muse Ember: Our smallest, most efficient model",
+      "url": "https://research.meta.ai/blog/muse-ember",
+      "hn_url": "https://news.ycombinator.com/item?id=50429024",
+      "score": 305,
+      "comment_count": 128,
+      "posted_at": "2026-11-09T17:58:46+00:00",
+      "comments": [
+        {
+          "id": 50429478,
+          "author": "simonw",
+          "text": "Six effort levels (minimal, low, medium, high, xhigh, max), so here are six pelicans (actually five, \"high\" didn't return a complete SVG):\nhttps://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nThere's usually a reasonably strong correlation between thinking level and visual quality of the pelican. This is the first time I've seen that correlation appear to break - more reasoning tokens doesn't seem to produce an obviously better SVG."
+        },
+        {
+          "id": 50431857,
+          "author": "Retro_Dev",
+          "text": "When they said the model was the \"smallest\" of their models yet, I was really hoping it would be open weights. I can't find any weights, how sad :("
+        },
+        {
+          "id": 50430375,
+          "author": "kbrannigan",
+          "text": "This is starting to feel just like the early PC days. A bunch of Computer models  coming out, all shapes and color, but eventually it settled around mouse keyboard, monitor\nmost people, use the office suite: Word, Spreadsheet , presentations, database.\nI bet we're going to see the exact same thing with LLMs at specialized models instead of the everything models.\nOne for lawyers, coders, Accountants, Designers, etc…"
+        },
+        {
+          "id": 50429645,
+          "author": "open-paren",
+          "text": "I believe this is what the “crouton alpha” stealth model was\nhttps://openrouter.ai/stealth/crouton-alpha"
+        },
+        {
+          "id": 50430835,
+          "author": "minimaxir",
+          "text": "> It costs $0.10 per million input tokens, $0.004 per million cached input tokens and $0.50 per million output tokens,\nNotable cache cost of 4% input, compared to Luna/Haiku's 10% of input."
+        },
+        {
+          "id": 50434219,
+          "author": "doodlesdev",
+          "text": "Interesting to notice that the best benchmarks of the model are not on Meta's own agent harness, but instead on mini-swe-agent:\n> 1. All models run at max reasoning effort. Artificial Analysis results are from Intelligence Index v5, as published November 9, 2026; cost per task uses each model's list pricing. Internal results are from Meta's evaluation suite. The Personal Superintelligence Index (PSI) is an internal composite of eight evaluations: Agents' Last Exam, AutomationBench, FocusBench, JobBench, OfficeQA Pro, GDP.pdf, GDP.xlsx and VBT. Terminal-Bench 4.0 uses each model's best published harness: mini-swe-agent (Muse Ember), Claude Code (Claude Haiku 5.5), and Codex (GPT-6 Luna). OSWorld 2.1 uses partial-credit reward; PerceptionBench is scored with tools."
+        },
+        {
+          "id": 50430893,
+          "author": "segmondy",
+          "text": "What makes it small?  Anyone know the size?  I don't see it anywhere.  Small in relation to their current line up?   Anyways, last I tried Meta was llama4.  I stepped aside not because of how bad llama4 got, but also because of Zuck's move.  Anyone here using Meta?  I don't know anyone in my circle using it, but I'm sure folks are using it."
+        },
+        {
+          "id": 50435486,
+          "author": "trvz",
+          "text": "Who cares. I'll begrudgingly run a local Facebook model if it's the best in its class, but I'll take up Java programming before sending data to their cloud."
+        }
+      ],
+      "title_ja": "Muse Ember ：当社の最も小さく、最も効率的なモデル",
+      "summary_ja": "ディスカッションのハイライト： 6つのエフォートレベル（最小、低、中、高、xhigh、最大）で、6つのペリカン（実際には5つ、「高」は完全なSVGを返しませんでした）があります。\nhttps://tools.simonwillison.net/markdown-/彼らがモデルはまだ彼らのモデルの中で「最小」であると言ったとき、私はそれがオープンウェイトになることを本当に願っていました/これは初期のPC時代のように感じ始めています",
+      "editor_note": "「Muse Ember ：当社の最も小さく、最も効率的なモデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 26,
+      "id": 50411106,
+      "title_en": "Never Gonna Print You Up",
+      "url": "https://dixken.de/blog/never-gonna-print-you-up",
+      "hn_url": "https://news.ycombinator.com/item?id=50411106",
+      "score": 49,
+      "comment_count": 2,
+      "posted_at": "2026-11-08T07:15:32+00:00",
+      "comments": [
+        {
+          "id": 50437796,
+          "author": "sdoering",
+          "text": "> on the list at the end of this post\nAnd scrolling down I just don't see a list."
+        }
+      ],
+      "title_ja": "Never Gonna Print You Up",
+      "summary_ja": "ディスカッションのハイライト：この投稿の最後にあるリストの>\n下にスクロールすると、リストが表示されません。",
+      "editor_note": "「Never Gonna Print You Up」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50406348,
+      "title_en": "Time for AVIF everywhere?",
+      "url": "https://www.michaelponders.com/2026/11/isnt-it-time-for-avif-everywhere.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50406348",
+      "score": 85,
+      "comment_count": 59,
+      "posted_at": "2026-11-07T17:34:07+00:00",
+      "comments": [
+        {
+          "id": 50427919,
+          "author": "simonw",
+          "text": "Only\njust\nstarted habitually using WebP...\nI added AVIF support to my personal image resizing tool recently -\nhttps://tools.simonwillison.net/image-resize-quality\n- I mostly use that for screenshots though, and WebP works better for those."
+        },
+        {
+          "id": 50428610,
+          "author": "Aldipower",
+          "text": "AVIF consumes around 25 times more CPU during encoding as JPEG. Take this in consideration if you pay for the power consumption. And on the user-facing side, if you upload an images it takes f.ex. 12 seconds (sic!) and not half a second."
+        },
+        {
+          "id": 50408437,
+          "author": "ChrisArchitect",
+          "text": "Don't you mean JPEG XL?\nJPEG XL vs. AVIF for web use-cases\nhttps://news.ycombinator.com/item?id=50120224"
+        },
+        {
+          "id": 50427562,
+          "author": "thekid314",
+          "text": "Absolutely agree, for my photo portfolio website AVIF allows me to serve higher quality photos faster to potential clients.\nI’ll just drop my AVIF local support for Wordpress plugin here:\nhttps://github.com/ddegner/avif-local-support"
+        },
+        {
+          "id": 50427778,
+          "author": "nwah1",
+          "text": "Regular JPEG can also be compressed much more than it usually is:\nhttps://symbiogenesis.github.io/DotJpegli/\nHowever, video would matter so much more than images, to the overall internet, that images don't even matter by comparison."
+        },
+        {
+          "id": 50428479,
+          "author": "remix2000",
+          "text": "Does AVIF carry the same patent risks as full/motion AV1?\n(I’m not saying I support the claims or not, I have no idea about their technical and let alone legal merit, just thinking that there are attempts at enforcement against sites streaming AV1 and whether choosing AV1 puts say my site at risk)"
+        },
+        {
+          "id": 50430330,
+          "author": "xp84",
+          "text": "Hosting providers don't want these formats because they're more cpu-intensive for them to decode and transform (e.g. to make a thumbnail, or when you upload a 4K selfie to be cropped into a 256x256 circle avatar, or a 16 megapixel image of a receipt).\nBy contrast, if you let the user upload a JPEG or even a PNG, you might pay a slightly-higher cost of the incoming bandwidth, but then you (basically for free) transform the image to the small dimensions and format you actually need, and from there the bandwidth is barely a problem.\nSidenote: End users hate WEBP because nearly any software other than web browsers still don't support even reading it, let alone outputting it (and as you pointed out, anywhere that you \"upload an image\" they're not welcome either).\nIn my incredibly shoddy testing sample of 1, my current-macOS device does open AVIFs in Preview, so that's an improvement, at least!"
+        },
+        {
+          "id": 50428038,
+          "author": "kasabali",
+          "text": "> Even YouTube is preparing to move beyond AV1 and begin streaming video using AV2, potentially as early as 2027. If a company handling the enormous amount of video that YouTube does sees the benefits of a more efficient format, shouldn't the rest of the internet be taking a closer look at what we can do with images and video too?\nOdd argument.\nImage isn’t video and we are not YouTube."
+        }
+      ],
+      "title_ja": "どこでもAVIFの時間ですか？",
+      "summary_ja": "ディスカッションのハイライト：のみ\njust\n習慣的にWebPを使い始めました...\n最近、私の個人的な画像サイズ変更ツールにAVIFサポートを追加しました。\nhttps://tools.simonwillison.net/image-resize-quality\n-私は主にth/AVIFを使用していますが、エンコーディング中にJPEG/JPEG XLの約25倍のCPUを消費しますか？\nJPEG XL対",
+      "editor_note": "「どこでもAVIFの時間ですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50426681,
+      "title_en": "On Being an Engineer in 2026",
+      "url": "https://twitter.com/shaharglazner/status/2119796029256032278",
+      "hn_url": "https://news.ycombinator.com/item?id=50426681",
+      "score": 115,
+      "comment_count": 178,
+      "posted_at": "2026-11-09T15:07:23+00:00",
+      "comments": [
+        {
+          "id": 50432187,
+          "author": "mjr00",
+          "text": "> If anything, 10x engineers have become 100x engineers. And the average engineer is still average.\nThis is the real fear. We had a flood of engineers who entered the profession in the past 10-15 years who were decidedly average. No real interest in software development beyond \"it's a cushy desk job, or better yet WFH job, that pays really well.\" No interest in whatever product was being developed by their company. Just show up, their PM assigns them a ticket to make a widget with a button, they use their TypeScript bootcamp skills to code up a widget with a button, ticket moved to In Review, job's done.\nNow an agent can do that, and you need fewer of these types of people. Like, a\nlot\nfewer. Every engineer on your team who isn't a 10x-cum-100x engineer feels like a massive lost opportunity.\nThe \"10x\" engineers I know have never been more excited about their jobs. I'm really unsure what's going to happen to the average ones."
+        },
+        {
+          "id": 50431376,
+          "author": "saulpw",
+          "text": "I'm a fan of the 'sandwich' model: someone needs to say what to do, someone needs to do it, and someone needs to say if it's been done [well enough].  Even if AI can do that middle bit entirely, we still need humans at the beginning and the end.  Replace the humans at the start and you have a paperclip-optimizer; replace them at the end and you have slop.\nThe problem is that software in corporations has typically been product managers at the front, software engineers in the middle, and QA at the end.  Software developers who also have good product sense and do diligent QA are still needed.  Programmers who treated their job as leetcode exercises are not needed anymore."
+        },
+        {
+          "id": 50431280,
+          "author": "somesortofthing",
+          "text": "To be honest, I doubt the current state of things will hold much longer. Current AI can automate virtually all of my work as a pre-AI senior and is rapidly closing in on being able to automate the types of work that have emerged post-AI too. I have a hard time imagining a world where a drop-in end-to-end replacement for a full software team is more than a year away. I'm sure I'll have a job for a year or two past that, but there'll be some small stock market bump eventually and a bloodbath will begin the second the C-suite takes a closer look at what their engineers are even doing anymore."
+        },
+        {
+          "id": 50436731,
+          "author": "shahargl",
+          "text": "Hey! I’m the one who wrote it. Saw you asked for a non-x link -\nhttps://shahar.blog/2026/11/08/on-being-an-engineer-in-2026/"
+        },
+        {
+          "id": 50431303,
+          "author": "hackyhacky",
+          "text": "https://nitter.cf/shaharglazner/article/2119796029256032278\nA readable link for those of us without Twitter/X account"
+        },
+        {
+          "id": 50437345,
+          "author": "jgilias",
+          "text": "What demotivates me the most is how easy it is to copy stuff these days.\nSuppose we still need judgement and taste to guide AI to a good result. E.g., even if the AI has these itself, if the person guiding the AI has bad judgment and taste, the AI will comply, and build the bad thing because it tries to be aligned with the user.\nBut now, someone else’s _good_ judgement and taste is worth only so much because it takes an afternoon and some tokens to just “do it like they did it”."
+        },
+        {
+          "id": 50437109,
+          "author": "hypfer",
+          "text": "> This naturally leads us to think that this is it. We, engineers, are doomed.\nI find it _very_ unpleasant that all these people constantly talk about a \"we\" that does not exist.\nThat person is worried, and/or they have seen other people in the industry that are worried. But they've wrongly extrapolated that everyone in the industry would feel that way.\nIt harms the writing. It shows that the person is not adequately grounded.\nOr, tbf, maybe, made mental shortcuts to reach people. But they've sacrificed truth to connect there, which is bad."
+        },
+        {
+          "id": 50431458,
+          "author": "nphardon",
+          "text": "The trick is to remain intellectually stimulated and challenged."
+        }
+      ],
+      "title_ja": "2026年にエンジニアになるにあたって",
+      "summary_ja": "ディスカッションのハイライト：> 10人のエンジニアが100人のエンジニアになった場合/私は「サンドイッチ」モデルのファンです。誰かが何をすべきかを言う必要があり、誰かがそれをする必要があり、誰かがそれが[十分にうまく]行われたかどうかを言う必要があります/正直なところ、物事の現在の状態が長く続くかどうかは疑問です",
+      "editor_note": "「2026年にエンジニアになるにあたって」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50433659,
+      "title_en": "Fable 5.2 one-shotted my nephew's dream game",
+      "url": "https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game",
+      "hn_url": "https://news.ycombinator.com/item?id=50433659",
+      "score": 406,
+      "comment_count": 323,
+      "posted_at": "2026-11-09T23:08:13+00:00",
+      "comments": [
+        {
+          "id": 50436575,
+          "author": "siliconc0w",
+          "text": "Growing up, games were such a scarce commodity that you'd really suck all the marrow out and spend hours beating your best times, looking for Easter eggs, or messing with custom maps and mods.   There was a whole genre of gameplay around just exploiting physics bugs to jump a bit further.\nThe other night I carelessly made an infinite runner game while watching TV and the feeling of sheer abundance quickly faded into a bit of depression.  Without scarcity, nothing is really valuable."
+        },
+        {
+          "id": 50435903,
+          "author": "teruakohatu",
+          "text": "I feel for kids growing up with LLMs like this. They will never impress a parent, teacher or peer with a simple “hello world” type text game, when the peer could generate a full multiplayer video game with a couple of prompts.\nThe world has changed and we can never go back."
+        },
+        {
+          "id": 50435496,
+          "author": "resters",
+          "text": "\"one-shotting\" is fun for a low (human) effort toy, but it's a mistake to get overly hung up on LLMs getting everything right on the first try, since a lot of that is the harness and the internal prompting that makes it burn extra tokens to test everything to get it in that one \"shot\" (ui turn).\nWhile it's nice that LLMs are getting better at arriving at the desired deliverable with fewer surprises (or broken things) doing it is not necessarily a sign that the model is actually smarter, just an indication that what you are doing is likely a well-trodden path for the model, the RL and the harness."
+        },
+        {
+          "id": 50438215,
+          "author": "andai",
+          "text": "340M tokens is like $5k?\nEdit: more like $300, because it was mostly cache reads:\nhttps://news.ycombinator.com/item?id=50434388\nI haven't used Claude in a while, what does the billing for Fable look like these days?\nLast I heard they were billing it per token, even on the subscriptions? Or did they change it again?\nEdit 2: Fable seems to be included in Max and Ultra but not Pro (aside from occasional promotions)\nhttps://support.claude.com/en/articles/15424964-claude-fable..."
+        },
+        {
+          "id": 50434424,
+          "author": "goyozi",
+          "text": "My dad asked recently if AI is good enough to create something like DX Ball - a breakout style game we used to play a lot.\nOpus 5.5:\nhttps://claude.ai/artifact/UuT7P936dU1XoPByYZ7xyD\nFable 5.2:\nhttps://claude.ai/artifact/UszKFvuonWAT5psjMttAEg\nThere are some areas in which Fable is clearly better but subjectively the Opus 5.5 version feels more fun.\nBoth are one shots, Opus 5.5 was done a few weeks ago before they added \"guardrails\" around recreating games. Fable 5.2 changed some game mechanics despite my prompt asking for them to be the same as original game."
+        },
+        {
+          "id": 50437624,
+          "author": "armchairhacker",
+          "text": "It’s impressive, but it’s not really\nhis\n. All the details aren’t quite right, some of the designs Claude altered (e.g. guy holding one knife instead of two). It’s good enough for him, but if I asked Claude to make something based on my idea, it wouldn’t be good enough for me."
+        },
+        {
+          "id": 50434802,
+          "author": "_pdp_",
+          "text": "I have experienced this myself, although the novelty kind of wears off after a while. It is still fun to make small games to co-op on the TV.\nYes, hard to believe but most of these games can be almost one-shotted in my experience, with bugs but still playable. We are not talking about some properly made games but imagine for a second that there are some number of casual players out there that wont mind spending 30 minutes on a game for just a bit of fun and having these just materialised just in time is a lot more convenient then hunting for them on the app stores.\nFor anyone interested, I put all of of my work into an open source tool that uses your iPhone as a console which then can cast on your TV. Up-to 4 local players supported. It can even run proper games via WASM. It is Apple Silicon only.\nhttps://usenoodle.app/applet/"
+        },
+        {
+          "id": 50438302,
+          "author": "wg0",
+          "text": "Year is 4098.\nYou prompt: \" Sea facing villa with walls having 90% glass ratio, cozy basement, pool on ground and upper level. Delegate to a sub agent and when done, build a supersonic jet on my rooftop to fly me there.\" and all that molecular nano assembly happens in 19 hours.\nIn that kind of abundance - poor I don't know but would anyone be any richer? Would anything mean anything?"
+        }
+      ],
+      "title_ja": "寓話5.2私の甥の夢のゲームをワンショットで撮影しました",
+      "summary_ja": "ディスカッションのハイライト：成長するにつれて、ゲームは非常に希少な商品であったため、すべての骨髄を吸い取り、最高の時間を過ごしたり、イースターエッグを探したり、カスタムママをいじったりすることに何時間も費やすことになりました。私はこのようなLLMで育つ子供たちのために感じています。「ワンショット」は低い（人間の）努力のおもちゃにとって楽しいですが、LLMが最初の試みですべてを正しくすることに過度に夢中になるのは間違いです。",
+      "editor_note": "「寓話5.2私の甥の夢のゲームをワンショットで撮影しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 30,
+      "id": 50429636,
+      "title_en": "Show HN: MeowDisplay Is iPhone Mirroring, but in Reverse",
+      "url": "https://meowdisplay.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=50429636",
+      "score": 107,
+      "comment_count": 39,
+      "posted_at": "2026-11-09T18:39:22+00:00",
+      "comments": [
+        {
+          "id": 50429803,
+          "author": "Shank",
+          "text": "I really want an evaluation of all of these classes of remote desktop systems and latency. Almost all of my remote display experiences have been mediocre due to lag. Maybe my tolerance is too low? How is the latency on this product?\nOnly RDP has felt truly responsive to me, and my understanding is that it cheats by not sending raster graphics and instead drawing primaries directly on the remote system and then updating the state based on the server?"
+        },
+        {
+          "id": 50430918,
+          "author": "dabbz",
+          "text": "It's uncanny, I just vibe built something super similar. A server/client system to share individual windows as a resized app on the phone. I can select certain windows to render as if it was an app on either my Windows client, mac client, or iPhone client from a windows or mac server.\nGlad to know I'm not the only one thinking about this. It also connects over tailnet."
+        },
+        {
+          "id": 50430187,
+          "author": "mpolichette",
+          "text": "Since this forks opendisplay, what are you doing differently?  Are you a layer on top, or a different direction?\nI'd have expected that to be declared in an announcement for this community."
+        },
+        {
+          "id": 50436932,
+          "author": "yzydserd",
+          "text": "I find the AI style copy so very grating. Sorry, couldn’t get past it.\nYour writing throughout this post is clear and natural. The copy on the product feels like textual slop.\nPuts me off reading it. Or trying it.\n…\nYour Mac’s windows. Arranged your way.\nHold the edge. Every window, in reach.\nTouch your Mac. The way you’d expect.\nYour Mac’s files. Made for touch.\nOne Mac. Different views.\nThe whole picture. Or a little extra space.\nOne finger. When one finger makes sense.\nExtend. A second screen of its own.\nYour devices. Paired and managed from your Mac.\nClose the lid. Keep your Mac going.\nKeep an eye on your Mac. From any app.\nSee your Mac. Then control it.\nWatch, or take control. Your Mac decides.\nNot just another screen. Another way to use your Mac.\nOne finger places it. A second finger perfects it.\nOne finger. When one finger makes sense.\nDraw on iPad. See it on your Mac.\nA trackpad. With or without the picture.\nYour shortcuts. Right where your fingers are.\nThere when you need it. Out of the way when you don’t.\n…\nAnd that’s just the sub headings. Yeurgh."
+        },
+        {
+          "id": 50434862,
+          "author": "OsrsNeedsf2P",
+          "text": "Surprised how few screenshots are in the README, given how visual of a program this is"
+        },
+        {
+          "id": 50431597,
+          "author": "qingcharles",
+          "text": "What can I use to bring the iMessage window from my clamshut MacBook onto my Windows desktop so I can write texts on a big boy screen instead of on the phone?"
+        },
+        {
+          "id": 50432290,
+          "author": "montjoy",
+          "text": "Does this require that Apple devices use the same account like sidecar?"
+        },
+        {
+          "id": 50430081,
+          "author": "iLoveOncall",
+          "text": "Isn't that natively supported? I thought you could use your iPhone as side display for your Mac.\nEDIT: Yes, the feature is called Sidecar."
+        }
+      ],
+      "title_ja": "Show HN ： MeowDisplayはiPhoneのミラーリングですが、逆です",
+      "summary_ja": "ディスカッションのハイライト：これらすべてのクラスのリモートデスクトップシステムとレイテンシの評価が本当に必要です/それは奇妙です、私はちょうど非常に類似したものを構築しました/これはopendisplayをフォークしているので、あなたは何を違うことをしていますか？  あなたは上のレイヤーですか、それとも別の方向ですか？\nこのcのアナウンスで宣言されることを期待していました",
+      "editor_note": "「Show HN ： MeowDisplayはiPhoneのミラーリングですが、逆です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 30,
+    "slot": "23",
+    "started_at": "2026-11-10T19:54:28.897609+09:00",
+    "finished_at": "2026-11-10T19:55:51.621683+09:00",
+    "story_count": 30
+  }
+}
