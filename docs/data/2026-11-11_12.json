@@ -1,0 +1,1433 @@
+{
+  "date": "2026-11-11T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50447074,
+      "title_en": "After 7 months, Glasswing overwelms maintainers with underwhelming findings",
+      "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
+      "hn_url": "https://news.ycombinator.com/item?id=50447074",
+      "score": 207,
+      "comment_count": 81,
+      "posted_at": "2026-11-10T22:17:56+00:00",
+      "comments": [
+        {
+          "id": 50448590,
+          "author": "enthuseyourcurb",
+          "text": "As someone working at a bigtech co that has spent every single working day (and many weekends) since the launch of Mythos patching serious, company-ending type of security issues, these types of posts really irk me.\nPublic datasets of CVEs being underwhelming doesn't mean much if all of the issues are in private company codebases that will never get a CVE number assigned and will never get a fancy blog post. You're never going to hear about them, and the people working on them probably can't tell you about them, but that doesn't mean they don't exist.\nWe're all worried about OSS having security issues because of how widely used things like PHP or curl are... but the same can be said about email providers, document collaboration SaaSes, payment processors, etc that millions of companies depend. Those companies will never be in datasets like this, and they'll never publicly disclose how many issues they found."
+        },
+        {
+          "id": 50448745,
+          "author": "pizlonator",
+          "text": "I received 9 reports of Fil-C issues from Anthropic\nAll of them were real bugs. None of them were false positives.\nThe quality of the reports was exceptional. (My baseline is doing security defense on a browser engine, so my baseline has a large sample count and is probably representative of what experts are capable of.)\nThe quality of the proposed fixes was alright. I took some of the fixes verbatim. I used most of the fixes as significant inspiration for doing it my way.\nThe quality of the test cases was exceptional.\nMaybe I’m special somehow! But I just want to call out the enormous chasm between what I saw of anthropic’s capability and what TFA says"
+        },
+        {
+          "id": 50448290,
+          "author": "snowwrestler",
+          "text": "The PHP2Shell vulnerability ended up being paradoxically comforting for me.\nThey turned frontier models loose on PHP, and the big one they found was based on a previously known logic flaw that was extremely difficult to exploit. Which makes sense: hence the need for frontier models.\nAnd in the wild, while there have been many attempts and a few simple demo successes, the practical impact has seemed to be small, seemingly constrained by the length of the chain and the diversity of PHP configs.\nIn short, it was indeed a major vulnerability, but not magic (in the Arthur C Clarke sense).\nI think ultimately the fear comes down to: do you believe that code can be secured. I recognize that there is probably no objective way to deductively prove it because of the Halting Problem etc. But if one believes code can be constructed to operate to spec, then there must be a limit to the damage an LLM can do, even a very smart one.\nI think we are going through a phase where a lot of known triaged code shortcomings will get exposed and hopefully fixed. Sucks while it is happening. But not actually the first round of this type of evolution. And ultimately I think as before, we will come out the othe"
+        },
+        {
+          "id": 50447443,
+          "author": "dfee",
+          "text": "There's an anecdote about curl, but I'm not sure if there's enough in here to draw conclusions from. 20% of vulnerabilities have been made public, and many of those are marked as \"withdrawn\" or \"duplicates\". However, it's unclear whether the remaining 80% have\nnot\nbeen made public because they're not fixed or real. In other words, this is analysis of survivors (public); not much can be said about those still under embargo."
+        },
+        {
+          "id": 50448708,
+          "author": "sigmar",
+          "text": "> So far, only 2 of the 442 have been exploited in the wild, just 0.45%.\n> almost none are being exploited\nIsn't the whole point of glasswing to patch stuff way before it can be exploited? If the patched code is distributed quickly- there's no opportunity (or incentive) for bad actors to craft and distribute an exploit. This reads like an attempt to spin them as not being \"real\" vulnerabilities."
+        },
+        {
+          "id": 50448662,
+          "author": "rurcliped",
+          "text": "The blog is misleading because it tries to characterize Project Glasswing's effectiveness through use of a tangentially related data source. A Project Glasswing vulnerability discovery most often occurs when a Glasswing partner points a Mythos-class model at its own, often proprietary, software. The data source (aka \"ledger\") is only for the Anthropic coordinated vulnerability disclosure program for open source software: in other words, Anthropic itself pointing a Mythos-class model at an OSS package, and then notifying the maintainer afterward that it had done this, and had findings to share. This OSS work is certainly useful, but the number of fixes reflects - in part - limited time availability by volunteer OSS maintainers, and Anthropic sometimes working without knowledge of the OSS project's threat model (the threat model is explicitly requested in the newer oss-scanner effort). Percentage fixed is often much higher for use of Glasswing with proprietary software, e.g.,\nhttps://blog.cloudflare.com/cyber-frontier-models/\n\"Our research with Mythos Preview was conducted in a controlled environment against our own code; every vulnerability surfaced through this work was triaged, va"
+        },
+        {
+          "id": 50448751,
+          "author": "arlattimore",
+          "text": "The post seems misguided or misdirected in my opinion. Not discounting the fact that the frontier models may find existing bugs, that some are labelled at the incorrect level, even some being a non-bug -- fact remains they are discovering vast numbers of issues. It also isn't the job of Anthropic or OpenAI to fix everyone's bugs, they are doing everyone a courtesy to spend their time identifying them in the first place. The bigger issue appears to be that they are finding more bugs than the developer capacity to can address."
+        },
+        {
+          "id": 50447517,
+          "author": "delichon",
+          "text": "It is bad if this points to a general pattern of AI being better at finding than fixing vulnerabilities. The larger that ratio, the harder to secure all the things. The current stat from this experiment is 37,966 to 217. Lots of false positives, but not enough to change the big picture. I hope they didn't apply equivalent tokens to both sides, or AI may be better at demolition than construction."
+        }
+      ],
+      "title_ja": "7か月後、Glasswingはメンテナンス担当者を圧倒的な発見で圧倒しました",
+      "summary_ja": "ディスカッションのハイライト： Mythosの立ち上げ以来、毎日（そして多くの週末）を費やしてきたbigtech社で働いている人として、深刻な、会社の終わりのタイプのセキュリティ問題にパッチを適用している/AnthropicからFil - Cの問題に関する9件の報告を受けました\nそれらはすべて本当のバグでした/PHP 2 Shellの脆弱性は、逆説的に私を慰めることになりました。\n彼らはPHPでフロンティアモデルを緩め、彼らが見つけた大きなものは",
+      "editor_note": "「7か月後、Glasswingはメンテナンス担当者を圧倒的な発見で圧倒しました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50445401,
+      "title_en": "Scion is back and is going to sell a kei truck in America",
+      "url": "https://www.theautopian.com/scion-is-back-and-its-going-to-sell-a-freaking-kei-truck-in-america/",
+      "hn_url": "https://news.ycombinator.com/item?id=50445401",
+      "score": 322,
+      "comment_count": 240,
+      "posted_at": "2026-11-10T19:50:46+00:00",
+      "comments": [
+        {
+          "id": 50447336,
+          "author": "freetime2",
+          "text": "I use a kei truck for farming. They are incredibly pragmatic little vehicles. They are very capable driving around on dirt/gravel agricultural roads with 4WD, and they are inexpensive and robust enough that you can really beat them up and use them as a tool without worry. Repairs and replacement parts are ubiquitous and inexpensive. Having the\nsides\nof bed fold down is also really useful.\nThey aren't comfortable to drive at all (although just having A/C at all on a hot summer day in the field is a godsend), and I wouldn't want to do longer trips in one - although you certainly could in a pinch.\nIt seems like Toyota/Scion is just testing the waters here, and I'm not sure how successful they'll be. But I hope there is a future for kei trucks in the US."
+        },
+        {
+          "id": 50447138,
+          "author": "ilamont",
+          "text": "25 mph works for golf courses, resort, or island use. In rural areas on the mainland, roads connecting towns often have 45 or 55 mph speed limits so unless you plan on staying on the farm I don't think these are practical for trips to go shopping, dumping, hauling, etc.\nAs for the imports, I saw one of these 90s-era right-hand drive kei trucks at a parking lot a few months ago and talked with the owner. He was a young guy who lived in Boston, said it was super easy to park. Speed maxed out at 70 mph, which is fine for local trips but maybe not for long highway trips.\nFor people in jurisdictions that allow 30 year old truck imports, and are interested in getting one, there are other countries that use such trucks and have left-hand drive. Taiwan has models from CMC and Suzuki, and I believe South Korea also makes them."
+        },
+        {
+          "id": 50446600,
+          "author": "6DM",
+          "text": "With a built in 25mph limiter, that eliminates \"city\" driving too unfortunately. Most roads around me are 35 mph.\nThere's sizeable demand for people who want to be able to do runs to the bigbox stores for garden and DIY renovation supplies and store it the rest of the time."
+        },
+        {
+          "id": 50447211,
+          "author": "classictraffic",
+          "text": "This would have been an instant buy for me if it weren't for the 25mph limit. That being said, I'm extremely excited by this, because it proves there is demand for Kei trucks in the US. I've done a lot of research into the import process for bringing a truck over from Japan, and I'll likely end up going that route in a year or so unless newer trucks with higher speeds get announced"
+        },
+        {
+          "id": 50446653,
+          "author": "erickhill",
+          "text": "660cc engine at ~40 horsepower is about the same as a mid-70s VW Beetle - not in cc size, but HP potential.\nThis little truck could do a lot more than 25 mph if it were allowed to do so. Not saying that would be safe, and I'd not want to ever put one on a busy freeway, but for getting around most urban cities in the US it's fine as-is but would be even better if the limit was ~40 mph."
+        },
+        {
+          "id": 50446847,
+          "author": "Grombobulous",
+          "text": "For those of you clamoring for kei trucks to be street legal in the US, you really need to do some street view comparisons between Japan and the US.\nUS roads are built for much, much higher speeds. Kei cars purposefully give up safety with the caveat that they’re only used on low speed roadways, and Japan designs their roads with the intention of these vehicles being acceptably safe in that context."
+        },
+        {
+          "id": 50448420,
+          "author": "throwaway81523",
+          "text": "I almost bought used electric one for $5K about a year ago, before the Iran invasion and the fuel price spikes.  I had a good use for it at the time (a family move) so I regret not getting it, since I figured it would just be more lingering crap at the end of the move.  But, it would have held resale value.  I'm sure they're in much shorter supply now.\nThey're great for local hauling or a short commute, but impractical as a general purpose vehicle due to limited range and speed (the type I was looking at, anyway).  Top speed is 40mph and they're legal to drive only on roads with speed limit 35mph or lower, and range with the 10kwh battery pack is around 40 miles iirc.  But, if you only use it a few miles per day on average and park it outside, putting solar panels on the roof means it literally never needs fuel or charging.  The stopper for me was being unable to drive on the freeway."
+        },
+        {
+          "id": 50446571,
+          "author": "__alexander",
+          "text": "It’s a huge mistake to limit the speed to 25mph. When this is released in 2027, Kei trucks will be street legal in Colorado. I would have pre-ordered this without question but that speed makes it useless for basic commuting or running errands."
+        }
+      ],
+      "title_ja": "サイオンが戻ってきて、アメリカでキートラックを販売しようとしています",
+      "summary_ja": "ディスカッションのハイライト：私は農業のためにケイトラックを使用しています/ゴルフコース、リゾート、または島の使用のために時速25マイルで作業しています/時速25マイルのリミッターを内蔵しているため、残念ながら「都市」の運転を排除しすぎています",
+      "editor_note": "「サイオンが戻ってきて、アメリカでキートラックを販売しようとしています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 3,
+      "id": 50442736,
+      "title_en": ".name Grandfathered",
+      "url": "https://neil.fraser.name/news/2026/11/10/",
+      "hn_url": "https://news.ycombinator.com/item?id=50442736",
+      "score": 679,
+      "comment_count": 156,
+      "posted_at": "2026-11-10T16:37:44+00:00",
+      "comments": [
+        {
+          "id": 50443236,
+          "author": "giancarlostoro",
+          "text": "> After a long and expensive battle, news just dropped that Verisign is retracting its plan to terminate 22,000 domain names and email redirects. Although they will be closing new registrations for 3rd-level .name domains, all existing domains (including this website) and email redirects will remain indefinitely.\nThis was what I figured SHOULD happen when they did this. Allow existing customers to keep renewing, but nobody new allowed, if a tld frees up over time, reclaim it completely and sell it off.\nWhat they were proposing should really be illegal..."
+        },
+        {
+          "id": 50443986,
+          "author": "nticompass",
+          "text": "WHAT‽  I let my \"first.last.name\" registration expire because of the impending shutdown!\nI did notice that my domain kept working past the supposed shutdown date, but I let the domain registration expire.\nI'm so mad now!  I assume there is no way to get my domain/email forwarding back :(\nI suppose I could try to ask the registrar, but I highly doubt they can do anything...\n(Edit: I'm not actually mad, but it was annoying to have to move accounts from my first@last.name email to another one)"
+        },
+        {
+          "id": 50445781,
+          "author": "soupbowl",
+          "text": "It is best to stick to the main top level domains. I bought into multiple 'new' domains and most of them caused me issues. A few of them jacked up their prices like crazy compared to when I first\nbought them. They can also be difficult to move between providers.\nUnfortunately I am stuck in commitments on a few of these domains and just had to eat the cost increases, the rest I moved to .com/.net.\n.consulting was the worst offender."
+        },
+        {
+          "id": 50442975,
+          "author": "derhuerst",
+          "text": "previous discussion on the predecessor post, 69 days ago, 547 comments:\nhttps://news.ycombinator.com/item?id=49550772"
+        },
+        {
+          "id": 50443287,
+          "author": "kwanbix",
+          "text": "Why would they even want to close it? It is probably close to 0 cost tot hem. Or am I wrong?"
+        },
+        {
+          "id": 50446028,
+          "author": "mlefer",
+          "text": "I wonder why couldn't Verisign just grant most people the second level domains here. I imagine there aren't too many people holding onto 3rd level .name domains here and the set of people holding onto 3rd level domains that share a second level domain with someone else is probably very small, a few hundred at most.\nFor all the ones holding exclusive second level domains, just give them the second level domain. For all the ones holding shared second levels, offer a buyout and/or allow parties to negotiate with each other on a shared ownership structure of the second level."
+        },
+        {
+          "id": 50442990,
+          "author": "Tepix",
+          "text": "Vive la résistance!\nResistance is not futile."
+        },
+        {
+          "id": 50446263,
+          "author": "slow_typist",
+          "text": "Nicely done.\n(I moved a few family email accounts from .name to .net years ago because it was a much cheaper option and the .name TLD was still so uncommon in our bubbles it led to questions when they gave their email addresses to someone else.)"
+        }
+      ],
+      "title_ja": ".name Grandfathered",
+      "summary_ja": "ディスカッションのハイライト：>長くて費用のかかる戦いの後、ベリサインが22,000のドメイン名とメールリダイレクトを終了する計画を撤回するというニュースが流れました。/私が「first.last.name」の登録を期限切れにしたのは、間もなくシャットダウンされるためです！\nドメインが想定されたシャットダウン日を過ぎても機能し続けていることに気づきましたが、DOMを許可しました/メインのトップレベルドメインに固執することをお勧めします",
+      "editor_note": "「.name Grandfathered」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50441707,
+      "title_en": "Smart home devices should work without the internet",
+      "url": "https://docodethatmatters.com/home-automation-overnight-success/",
+      "hn_url": "https://news.ycombinator.com/item?id=50441707",
+      "score": 704,
+      "comment_count": 252,
+      "posted_at": "2026-11-10T15:25:20+00:00",
+      "comments": [
+        {
+          "id": 50443286,
+          "author": "mountain_peak",
+          "text": "Bought our home almost 20 years ago, and the former owner (apparently) owned a now-defunct home automation business. The upside was 100% X10/Insteon power and light controls, top alarm panel, environmental controls and so on running off of a wall-mounted \"SmartLinc\" touch panel. I expanded the system with Axis cameras and a Mac Server running Indigo and SecuritySpy (non-subscription), which enabled remote monitoring and control, but it all operates locally.\nIn a moment of weakness, I bought a D-Link wireless (wifi) water detector for the sump pit (it was on clearance for $30); it relied on a D-Link Home cloud service (free) that was closed down a few years ago.\nNot wanting to toss it, I repurposed a spare Chromebook 14 that I was going to recycle and turned it into a Alpine monitor for the water detector, which I'm powering from the Chromebook's USB port (if power is lost in a rainstorm, I need to know about it before the sump pit fills up).\nAn immediate issue was that the D-Link firmware tried to \"phone home\" every 24 hours and would drop from the local network, since the server was kaput, and I had no clue what response it was expecting from the server to keep it alive. Solution;"
+        },
+        {
+          "id": 50443914,
+          "author": "scosman",
+          "text": "HomeAssistant publishes \"IoT Class\" for all of it's integrations ranging from \"Local Push\" to \"Cloud Polling\":\nhttps://www.home-assistant.io/blog/2016/02/12/classifying-th...\nI only use \"Local Polling\" or better, and highly prefer \"Local Push\"."
+        },
+        {
+          "id": 50442644,
+          "author": "reasonabl_human",
+          "text": "The new rules I have come to use are:\n- buy the cheapest hardware that gets the job done\n- ignore negative reviews that are software related\n- upon receipt of devices, ask claude for local-first cfw\n- have fun for a few hours acting as a meat proxy\n- boom, cheap local-only smart home is done\nUse a SBC or nas for home assistant.  This process worked for me for switches, a thermostat, an air quality monitor, a thermometer, and a window fan.\nWould’ve paid ~2.5x for hardware that had the appropriate local-first capability out of the box.  Instead this all fit within an existing $20 subscription to an inference provider.  DS 4.1 running locally was on track too just more slowly."
+        },
+        {
+          "id": 50448617,
+          "author": "cadamsdotcom",
+          "text": "Smart home devices should stay on the shelf.\nAll this life-force expended calling for the market to provide something no normie wants. If you go no-cloud you get to also manage a fragile controller device, and you have to spend extra time researching what to buy and also spend more time when the devices break (which happens an order of magnitude more often than non-smart equivalents) and then your most basic home devices need to reboot for a firmware update just when you go to use them?\nGet back from vacation whoops controller died nothing works?\nGo to work whoops controller's hard drive filled up with logs now it doesn't work family home is freezing, tech support time? Better cancel that client demo!\nHow many hand-lightswitch-flips and thermostat hand-adjustments could you have done in the time you spent on this?\nThe only thing that'll ever make smart crap worth it, is fixing the law - and enforcing the laws that are yet to be enacted - so we can\ntrust the companies we buy from\n.\nOur generation is too naive to do that. So it's a couple decades from happening.\nUntil then, opt out."
+        },
+        {
+          "id": 50446355,
+          "author": "driverdan",
+          "text": "I have some simple but strict rules:\n1. Commercial devices\nmust\nuse offline only protocols, Zigbee or Zwave. If it's WiFi only I will not buy it unless the firmware is open source or easily replaced with an open source, local only alternative.\n2. Non-sensor devices must fully function without their IoT features. I must be able to control my thermostat, fridge, stove, etc without any external interface.\nNever\nuse a WiFi IoT device that isn't open source. Even if you can control it locally it could be a spy device that's exfiltrating your data. Yes, you could setup VLANs or a separate network but it's not worth it. Vote with your wallet."
+        },
+        {
+          "id": 50442516,
+          "author": "augment_me",
+          "text": "Please please please use your first draft or refine it yourself without LLMs.\nI managed to get to:\nThe cloud is the weak link\n- No internet, no problem. ...\n---\nIf you are writing for other machines to ingest it, whatever. But if you are writing for people it for me at least signals that you don't really care about the message that you want to get across, and are fine with a watered down LLM average."
+        },
+        {
+          "id": 50448038,
+          "author": "RajT88",
+          "text": "Write your congress people.  That's the only way this happens - manufacturers don't want to invest more into these products, and they don't want to give you a way of opting out of data collections."
+        },
+        {
+          "id": 50447457,
+          "author": "anotherevan",
+          "text": "The local only requirement has always been a very strong reason I've never gotten around to dabbling in home automation in any serious way. All the stuff at most department stores phone home as far as I can tell. The research investment or other frigging about (e.g.: some fiddly method to flash Tasmota) has left me reluctant.\nBut I was looking at a couple of spare RPis I had laying around and decided to whack Home Assistant on one, just to take a look. I've now decided to dip my toe a bit further and ordered a Zigbee USB adapter, some Zigbee based buttons and reed switches, plus a couple of Matter based power switches which I hope will all work happily.\nI'll also need to setup an IOT VLAN in my Openwrt router. (Not a networking guy, so also fiddly!)\nUntil now, my home automation endeavours have consisted of:\n- A red, flashing LED glued into the ceiling near the front door that is connected to a reed switch to tell when the garage door is open.\n- A light switch¹ which I managed to flash Tasmota onto so I can switch the lounge room lights on or off from the TV remote.\n- An ultrasonic distance sensor that sits on top of my monitor that can tell when I'm sitting in front of my computer"
+        }
+      ],
+      "title_ja": "スマートホームデバイスはインターネットなしで動作する必要があります",
+      "summary_ja": "ディスカッションハイライト：約20年前に私たちの家を購入し、元所有者は（明らかに）現在は廃止されているホームオートメーションビジネスを所有していました/HomeAssistantは、「ローカルプッシュ」から「クラウドポーリング」までのすべての統合のために「IoTクラス」を公開しています。\nhttps://www.home-assistant.io/blog/2016/02/12/classifying-th...\n私が使用するようになった新しいルールは次のとおりです。\n-仕事を成し遂げるための最も安価なハードウェアを購入する\n-そのような否定的なレビューを無視する",
+      "editor_note": "「スマートホームデバイスはインターネットなしで動作する必要があります」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50446246,
+      "title_en": "Six Math Essentials by Terence Tao",
+      "url": "https://teorth.github.io/tao-web/six-math-essentials.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50446246",
+      "score": 121,
+      "comment_count": 24,
+      "posted_at": "2026-11-10T20:58:44+00:00",
+      "comments": [
+        {
+          "id": 50448212,
+          "author": "flowerlad",
+          "text": "The amazon preview [1] does not even show the contents page. How am I supposed to check if I might be interested in this book?\n[1]\nhttps://www.amazon.com/dp/0374621799?tag=macmillan-20"
+        },
+        {
+          "id": 50447564,
+          "author": "tveita",
+          "text": "I quite liked this interview:\nTerence Tao explains 6 essential mathematical concepts:\nhttps://www.youtube.com/watch?v=OOMx2BHHWtE"
+        },
+        {
+          "id": 50447136,
+          "author": "prideout",
+          "text": "I heard he was writing a book about the Cosmic Distance Ladder.  I was looking forward to that, I hope this isn't what it evolved into."
+        },
+        {
+          "id": 50446368,
+          "author": "pdhborges",
+          "text": "The book is quite basic. Don't expect to get much out of it if you have a STEM degree."
+        },
+        {
+          "id": 50448457,
+          "author": "jfr6fgjk",
+          "text": "Beats Math Essentials by Terrence Howard."
+        },
+        {
+          "id": 50446700,
+          "author": "lbeckman314",
+          "text": "Previous Discussion (February 2026):\nhttps://news.ycombinator.com/item?id=47113796\nTIL about Quanta Books, thanks OP — will be checking this out! :D"
+        },
+        {
+          "id": 50447889,
+          "author": "slwvx",
+          "text": "The \"algebra excerpt\" [1] doesn't impress me at all. Sure, maybe equations intimidate some, but why not add some images or figures?  Is that page really one of the six chapters, or is it 1/10 of a chapter?\nIs this a book for children?\n[1]\nhttps://www.sciencefriday.com/articles/six-math-essentials-b..."
+        }
+      ],
+      "title_ja": "テレンス・タオ著「6つの数学の基本」",
+      "summary_ja": "ディスカッションのハイライト： Amazonのプレビュー[1]にはコンテンツページが表示されていません/このインタビューがとても気に入りました：\nテレンス・タオは、6つの基本的な数学的概念について説明しています。\nhttps://www.youtube.com/watch?v=OOMx2BHHWtE/コズミック・ディスタンス・ラダーに関する本を書いていると聞いた",
+      "editor_note": "「テレンス・タオ著「6つの数学の基本」」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 6,
+      "id": 50443824,
+      "title_en": "Synaptics patent claims stop work on DisplayLink drivers",
+      "url": "https://lwn.net/SubscriberLink/1102549/acbc92e00cee3a3f/",
+      "hn_url": "https://news.ycombinator.com/item?id=50443824",
+      "score": 292,
+      "comment_count": 162,
+      "posted_at": "2026-11-10T18:02:02+00:00",
+      "comments": [
+        {
+          "id": 50444851,
+          "author": "AdmiralAsshat",
+          "text": "> If you fail to comply with our demands by the specified deadline, Synaptics will seek monetary\ncompensation from you in the amount of US$25,000 to recoup the costs and effort required to\ncreate the attached documentation of your infringing acts.\nObviously this is intended as a scare tactic, but, surely that could never hold up in court? Surely the burden of proof is on\nthe owner\nof the patents to prove that someone's work is infringing, and you can't then say \"We are charging the defendant to prove that we have a valid case against them.\" ?"
+        },
+        {
+          "id": 50444793,
+          "author": "hnlmorg",
+          "text": ">  I will also be sending to you our demand for substantial monetary compensation to recoup the cost and effort required to create such documentation of your infringing acts.\nThere is no universe in which this is a reasonable response."
+        },
+        {
+          "id": 50444959,
+          "author": "kieranl",
+          "text": "DisplayLink is dying due to high DDR prices. Dock companies are cancelling their display link portfolios due to the unfavorable economics.\nGood riddance if this is how OSS is treated by synaptics.\nMost recent thunderbolt docks and usb4 docks have good display support, and fallback to DisplayPort alt mode if the host does not support tbt4. Which is much better supported over type-c. Intel and AMD upstream host support."
+        },
+        {
+          "id": 50444813,
+          "author": "xxpor",
+          "text": "I didn't think reverse engineering itself was a violation of a patent? The entire point of a patent is the public disclosure of the mechanism of an invention for the exclusive right to market that invention. Therefore arguing that reverse engineering is a violation of a patent is definitionally incorrect. They should be arguing it's a violation of trade secrets. Of course, they'd lose on that argument too because clean room reverse engineering of a trade secret is fine because you definitionally don't have a patent on it! That's the patent vs trade secret tradeoff!"
+        },
+        {
+          "id": 50445866,
+          "author": "cbdumas",
+          "text": "DisplayLink is a \"clever\" software workaround to hardware limitations that shouldn't exist anymore and I hope it goes away. When I got stuck with a DisplayLink dock at work it caused no end of audio issues when connecting and disconnecting, the driver had to be restarted all the time, it was a pain"
+        },
+        {
+          "id": 50444676,
+          "author": "mijoharas",
+          "text": "My company used to have some display link docks, which I was unable to use due to bugs in the Linux implementations.\nFor a while I'd keep an eye on updates to see if they'd been fixed but they never were before we moved office.\nI'm going to be quite sure we don't get any more in any future offices (we don't have them at our current office)"
+        },
+        {
+          "id": 50444847,
+          "author": "solarengineer",
+          "text": "Might be related to the acquisition by onsemi:\nhttps://www.onsemi.com/company/newsroom/news-and-insights/on..."
+        },
+        {
+          "id": 50447403,
+          "author": "lxgr",
+          "text": "Huh, DisplayLink is still around?\nWhy actually, given that even smartphones can drive Displayport alt mode over USB-C, and tablets can speak full Thunderbolt/USB 4? Is it cheaper to implement in dock and/or laptop hardware?"
+        }
+      ],
+      "title_ja": "Synapticsの特許請求により、DisplayLinkドライバーの作業が停止",
+      "summary_ja": "ディスカッションのハイライト：>指定された期限までに当社の要求に従わない場合、Synapticsは\n費用と労力の要求を回収するためにあなたから25,000 $の補償/>私はまた、あなたの侵害行為のそのような文書を作成するために必要な費用と労力を回収するための多額の金銭的補償の要求をあなたに送付します。\n高いDDR価格のために/DisplayLinkは死にかけています",
+      "editor_note": "「Synapticsの特許請求により、DisplayLinkドライバーの作業が停止」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50444129,
+      "title_en": "Starlink Mini 2",
+      "url": "https://starlink.com/mini-2",
+      "hn_url": "https://news.ycombinator.com/item?id=50444129",
+      "score": 229,
+      "comment_count": 240,
+      "posted_at": "2026-11-10T18:22:32+00:00",
+      "comments": [
+        {
+          "id": 50446074,
+          "author": "rmm",
+          "text": "This has completely changed my industry (hard rock mining). A lot of the time drillers would be in the middle of nowhere looking for resources and would be sometimes days away from providing results (which also lead to lots of dodgy situations where drillers would know some results before market…) now it’s instant live feed. It’s made revising drilling plans trivial. Very cool"
+        },
+        {
+          "id": 50448595,
+          "author": "porphyra",
+          "text": "They should totally sell a foldable solar panel for the ultimate offgrid set-it-and-forget-it internet solution."
+        },
+        {
+          "id": 50444693,
+          "author": "noodlesUK",
+          "text": "I want so badly for starlink to offer a sensible well priced self-service B2B offering with fleet management. Any kind of fixed, high bandwidth IoT device that currently has a SIM card could easily use a starlink. As it stands SMBs who want this have to screw around with residential starlink and live in fear that they’ll get banned."
+        },
+        {
+          "id": 50445092,
+          "author": "asats",
+          "text": "And it seems to have a normal USB-C port now! Excellent, having to order that old weird cable of theirs was a pain, especially when one broke out in the wild."
+        },
+        {
+          "id": 50445603,
+          "author": "modeless",
+          "text": "Removable battery is cool. Does \"quick-swap\" mean you can switch the battery while it's operating? I always thought it would be a good idea for devices like this to have a tiny secondary battery or large capacitor in the main unit that would let it keep going for a few seconds while you swap the main battery."
+        },
+        {
+          "id": 50445156,
+          "author": "Tepix",
+          "text": "Starlink Mini improved the power consumption a lot. Does Starlink Mini 2 improve things further? The page lacks specs.\nI read elsewhere the battery has 71Wh and lasts 4.5h. That's 15.77W/h if it indeed uses 100% of the battery's capacity."
+        },
+        {
+          "id": 50445471,
+          "author": "sdorf",
+          "text": "Starlink Mini 1st has been on 'clearance' for $149 for a while. Wonder if this is a worthwhile upgrade for truck camping or if the Mini 1 is still a good deal. No indication on price yet?"
+        },
+        {
+          "id": 50448626,
+          "author": "drivebyhooting",
+          "text": "Starlink attached to solar drone. That sounds super interesting."
+        }
+      ],
+      "title_ja": "Starlink Mini 2",
+      "summary_ja": "ディスカッションのハイライト：これは私の業界（ハードロックマイニング）を完全に変えました/彼らは究極のオフグリッドセットアンドフォーゴットイットインターネットソリューションのための折りたたみ式ソーラーパネルを完全に販売すべきです。/私はstarlinkがフリート管理を備えた賢明で手頃な価格のセルフサービスB 2 Bサービスを提供することをとても望んでいます",
+      "editor_note": "「Starlink Mini 2」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50443427,
+      "title_en": "Val Town is winding down",
+      "url": "https://blog.val.town/winding-down",
+      "hn_url": "https://news.ycombinator.com/item?id=50443427",
+      "score": 305,
+      "comment_count": 81,
+      "posted_at": "2026-11-10T17:31:14+00:00",
+      "comments": [
+        {
+          "id": 50444343,
+          "author": "cmontella",
+          "text": "I remember Steve from my days working on Eve, he was part of that community and always a big proponent of end-user programming. I was happy to see him working on this project but am not surprised it's shutting down.\nNothing to to do with the quality of Val Town, but making a business in this space is really, really hard. You can't start the business without raising millions (Eve raised $2M, Darklang raised $3.5M, Val Town raised $7M), but it's hard to scale out a proof of concept in the time investors want to start seeing an ROI. It seems to me about 2-3 years is all you get for seed runway, when realistically projects like this should take at minimum 5 years incubating. Darklang extended their runway to ~7-8 years by firing all the devs and keeping just the founder on life support. Ultimately even that wasn't enough.\nBut maybe with AI this could work, I dunno.\nWhat's required to make it all work is a fundamental leap in programming interface design, but the business side doesn't look any different from a typical SaaS. So unless you hit the ball out of the park you're entering the market with an experimental product, then you have to deal with product-market fit even if you have th"
+        },
+        {
+          "id": 50443879,
+          "author": "jrmann100",
+          "text": "Not mentioned directly in the blog post, but Val Town was fundamentally organized around the Deno runtime, whose team will stop maintaining it next year after joining Cloudflare [0].\n[0]\nhttps://deno.com/blog/cloudflare"
+        },
+        {
+          "id": 50444392,
+          "author": "yakkomajuri",
+          "text": "This is sad. We're in a similar space as Val Town (which technically made us competitors) but I've always appreciated the care they had for the craft and the values they drove forward as a company like their transparency (even their investor updates were public).\nSteve and Tom also individually have some of the best blogs out on the web.\nI wish them all the best with whatever comes next. I'm pretty sure they'll all do great things."
+        },
+        {
+          "id": 50444332,
+          "author": "Zambyte",
+          "text": "It seems like everyone here knows what this is but me. I went to their homepage and I still can't tell what this is. How is this different from just giving your agent access to one of the many hosting services CLIs / MCPs? Did they just pioneer that?"
+        },
+        {
+          "id": 50444320,
+          "author": "simonw",
+          "text": "I'm really sad about this. Val Town is a beautiful collection of ideas, but I get how building a sustainable business on top of those ideas (not-quite commodity hosting, since people need to commit to the Val way of building) is extremely hard.\nI'm definitely looking forward to seeing the code in February when they open source it."
+        },
+        {
+          "id": 50446471,
+          "author": "fcjr",
+          "text": "So bummed to hear! Really appreciate y'all opening your doors to us every Saturday for\nhttps://sideprojectsaturday.com/\n, it's consistently been one of my favorite parts of the week. (Shout out to Justin!)"
+        },
+        {
+          "id": 50444412,
+          "author": "samwho",
+          "text": "Loved what Steve and the team at Val Town were building from the very start. So sad to see this news.\nI remember one of the silly little services I built on Val Town getting DDoS’d and knocking Val Town offline for a short time. Steve sent me a handwritten note and a Val Town baseball cap thanking me for helping them improve their defences. Class act."
+        },
+        {
+          "id": 50445837,
+          "author": "seanw265",
+          "text": "This is sad to see. I know what it's like to shut down a project that you've spent years on. It's really heartbreaking. I feel for Steve and the rest of the team.\nI fear this is the reality of anything built around Deno after the Cloudflare acquisition. Thankfully agents are capable of handling most of the migration of the apps that everyone has built on top of it.\nFor anyone looking for a new home for their projects, I'm the founder of Easel.sh [0], an app hosting platform. I've been putting together migration guides covering how to move workloads from Val Town onto Easel. It's not a drop-in replacement for everything Val Town offered, but I think we can be a good fit for quite a few use cases.\nI'm happy to personally help anyone who is looking to migrate.\n[0]:\nhttps://www.easel.sh"
+        }
+      ],
+      "title_ja": "ヴァルタウンは終わりに近づいています",
+      "summary_ja": "ディスカッションのハイライト：私はSteveがEVEで働いていた頃のことを覚えています。彼はそのコミュニティの一員であり、常にエンドユーザープログラミングの大きな支持者でした/ブログ記事には直接言及されていませんが、VAL Townは基本的にDenoランタイムを中心に構成されており、Cloudflareに参加した後、チームは来年メンテナンスを停止します[0/これは悲しいです",
+      "editor_note": "「ヴァルタウンは終わりに近づいています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50406224,
+      "title_en": "Hacking the meta ray-ban smartglasses",
+      "url": "https://p0pcycle.com/2026/11/06/hacking-the-meta-ray-ban-smartglasses/",
+      "hn_url": "https://news.ycombinator.com/item?id=50406224",
+      "score": 41,
+      "comment_count": 13,
+      "posted_at": "2026-11-07T17:19:02+00:00",
+      "comments": [
+        {
+          "id": 50448293,
+          "author": "RobMurray",
+          "text": "It's really sad that getting a shell on a device you own is now considered a vulnerability."
+        },
+        {
+          "id": 50447818,
+          "author": "mzajc",
+          "text": "This is a very neat and approachable write-up, but is the final result really a hack? If I understand correctly, you're getting an unprivileged shell on a device you own and have paired with your smartphone; more or less equivalent to installing a terminal emulator on your smartphone, except it's smart glasses in this case.\nShould the ability to own one's devices really be treated as a vulnerability and reported to security teams?"
+        },
+        {
+          "id": 50448039,
+          "author": "frenchsalmon",
+          "text": "Nice. How robust is this with software upgrades though? Also looks like arbitrary code execution in the app sandbox, so no persistance?"
+        },
+        {
+          "id": 50448504,
+          "author": "croes",
+          "text": "(dupe)\nhttps://news.ycombinator.com/item?id=50406224"
+        }
+      ],
+      "title_ja": "メタレイバンスマートグラスのハッキング",
+      "summary_ja": "ディスカッションのハイライト：所有しているデバイスにシェルを取得することが脆弱性と見なされるようになったのは本当に悲しいことです。/これは非常にきちんとした親しみやすい書き込みですが、最終的な結果は本当にハックですか？私が正しく理解している場合、あなたはあなたが所有していてp/NICEを持っているデバイス上で特権のないシェルを取得しています",
+      "editor_note": "「メタレイバンスマートグラスのハッキング」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 10,
+      "id": 50410587,
+      "title_en": "Pinot Noir: inside the criminal gangs making fake wine",
+      "url": "https://www.economist.com/interactive/2026/11/06/pinot-noir-inside-the-criminal-gangs-making-fake-wine",
+      "hn_url": "https://news.ycombinator.com/item?id=50410587",
+      "score": 28,
+      "comment_count": 6,
+      "posted_at": "2026-11-08T05:13:25+00:00",
+      "comments": [
+        {
+          "id": 50448731,
+          "author": "x0",
+          "text": "Firefox users who can't scroll: Inspect Element -> Style Editor tab -> turn off <inline style sheet #2>"
+        },
+        {
+          "id": 50448408,
+          "author": "comrade1234",
+          "text": "As long as it doesn't have ethylene glycol in it I'm good to go."
+        }
+      ],
+      "title_ja": "ピノ・ノワール：犯罪組織の中でフェイクワインをつくろう",
+      "summary_ja": "ディスカッションのハイライト：スクロールできないFirefoxユーザー：要素の検査-&gt;スタイルエディタタブ-&gt;オフに<inline style sheet #2>する/エチレングリコールが含まれていない限り、問題ありません。",
+      "editor_note": "「ピノ・ノワール：犯罪組織の中でフェイクワインをつくろう」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50439193,
+      "title_en": "AlphaProof Code",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "hn_url": "https://news.ycombinator.com/item?id=50439193",
+      "score": 577,
+      "comment_count": 177,
+      "posted_at": "2026-11-10T12:11:12+00:00",
+      "comments": [
+        {
+          "id": 50442002,
+          "author": "hedora",
+          "text": "Something seems wrong here.  They took a non-trivial piece of human-written code that has had bugs in the past, formally verified the whole library, and found zero bugs?\nI can believe that it's possible to get the LLM to write proofs, but I can't believe there were zero bugs in the system they verified.  I wonder if they got the theorems wrong, or if they only proved narrow properties of the system.\nI've had Claude formally verify crypto and data storage formats.  It wrote theorems that looked fine and the formal verification passed but the resulting code contained many, many bugs that other implementations of the same things found with ad hoc testing.\nThe way the announcement is written, we should expect zero bugs in libsignal moving forward, and I guess time will tell whether that happens or not."
+        },
+        {
+          "id": 50439636,
+          "author": "thibsrn",
+          "text": "Great, what a great use case for AI. I feel like Google has been the cleanest of the big players in terms of useful contributions and control of their AI systems. This new proof agent doesn't seem to challenge the spec though, just the implementation, if I've understood correctly.\nI wonder how this agent is different than a classic coding agent, in the end it seems to work the same way, iterating over a codebase while writing Lean or Rocq code and running it."
+        },
+        {
+          "id": 50439773,
+          "author": "Mizza",
+          "text": "I'm expecting that very soon, perhaps in the next two or three years, it will seem mad that we ever ran _any_ unverified software on our systems, like how it now seems mad we used Telnet or plaintext HTTP."
+        },
+        {
+          "id": 50441544,
+          "author": "andai",
+          "text": "Earlier this year I was doing some major refactors of an old project. At the time coding agents were really taking off where you could increasingly trust them for more autonomous work, so I was excited to give it a go.\nIt did the refactor, running for several hours, and ended up volunteering an extensive test suite as well. All tests green!\nI was very impressed, until I squinted a little. It had implemented the whole thing backwards, in a way which was not only pointless (didn't achieve any of the stated goals) but actually made things worse than before!\nUntil that moment I'd been quite bullish about the potential of formal verification in the AI age. But upon seeing that mess, I realized, it might as well have written me a mathematical proof for the code it wrote, and the proof would have passed, and the code would still be wrong!"
+        },
+        {
+          "id": 50440961,
+          "author": "r0ze-at-hn",
+          "text": "I have been experimenting with utilizing how easy it is for AI to code lean (\nhttps://metamagic.substack.com/p/beyond-the-proof-dump-lean-...\n) and a few lessons\n1. AI Lean is not perfect and AI can easily cheat given it is writing the lean. For anyone playing around with AI Lean code at minimum you need another adversarial prompt to review the ai generated lean.\n2. In the paper poking around I see they did re-introduce some bugs to verify it would catch them, but they didn't find any bugs it looks like.  Maybe signal is just amazing with many eyes reviewing it, but the real story for the rest of us is that if you start AI converting to Lean the value will be in what assumptions it finds. Even for stuff I thought was really logically tight, Lean found a few minor things I had to fix. Similar to fuzzing where I have never not found bugs when I introduced fuzzing into a codebase I expect the same for converting specs to lean.\n3. Having the ability to generate Lean (cheaply) via AI is a very interesting unlock for coding. Potentially being able to go from spec to lean to code, using the lean as a logic gatekeeper has the potential to be a real capability that is used more everyday and"
+        },
+        {
+          "id": 50439442,
+          "author": "fercircularbuf",
+          "text": "Awesome. I remember thinking last year that software is about to get a lot more buggy now that people are offloading more to AI, but tools like this give me hope that perhaps the future of software actually looks a lot more safe."
+        },
+        {
+          "id": 50440228,
+          "author": "ghm2180",
+          "text": "Noob Question: Apart from these cryptographic systems would it be useful to build these proofs for general pieces of software? Specifically:\n1. Has someone applied it to software systems where an AI agent is in the critical path in production i.e. non-deterministic action may occur(albeit with recovery)?\n2. What scenarios does it make sense to have a lean proof from the start? Like i imagine if you wanted to make a database system with some guarantees around ACID then it might be better having this from the get go. But probably not that useful for building an API backed service."
+        },
+        {
+          "id": 50443079,
+          "author": "oggy",
+          "text": "Very cool. A couple of years back I was toying with the thought of developing a specialized model for formal verification using something like the AlphaZero approach. Given the news from the past few months now I'm glad that I didn't, it really seems that general purpose LLMs are eating everything.\nInteresting that they end up with 26k lines of specifications (including Arm semantics). That's quite a large trusted computing base. I guess they need to develop the symbolic/computational models from the ground up. It'll be interesting to see if we can develop reusable libraries of these, a la mathlib, and how the incentives work out there. The AI labs are probably not particularly interested in this, and it's also likely to be thankless work for the researchers. But perhaps if companies doing verification or selling verified products do sprout out, maybe there will have an incentive to share the work and have a standardized TCB. That might, for better or worse, also put a practical end to the \"interactive theorem prover wars\".\nIt's also interesting how this will play work for code under development. ChatGPT claims that the day after this was released, libsibnal changed substantially :"
+        }
+      ],
+      "title_ja": "AlphaProofコード",
+      "summary_ja": "ディスカッションのハイライト：ここでは何かが間違っているようです/素晴らしい、AIの素晴らしいユースケース/おそらく今後2〜3年以内に、私たちがシステム上で_any_未検証のソフトウェアを実行したことがあることは狂気の沙汰になると予想しています。",
+      "editor_note": "「AlphaProofコード」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50443812,
+      "title_en": "Show HN: Get your coding agent off ~2019 JavaScript, onto modern web primitives",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance",
+      "hn_url": "https://news.ycombinator.com/item?id=50443812",
+      "score": 259,
+      "comment_count": 76,
+      "posted_at": "2026-11-10T18:01:15+00:00",
+      "comments": [
+        {
+          "id": 50446132,
+          "author": "surround",
+          "text": "Here's a list of browser features the skills will tell your agent to use that are stable in Chrome but not supported by Firefox and Safari:\nCSS @function\nCSS calc-size()\nCSS interpolate-size\nCSS corner-shape\nCSS border-shape\nCSS flex-wrap: balance\nCSS text-fit\nCSS text-decoration-skip-spaces\nCSS scroll-axis-lock\nCSS scroll-target-group\nCSS :target-current\nCSS scroll-initial-target\nCSS container scroll-state queries\nscrollsnapchange event\nscrollsnapchanging event\nHTML focusgroup\nElement.startViewTransition()\nCSS view-transition-scope\nInterest Invokers (interestfor)\nLanguageModel (Prompt API)\nLanguageDetector\nTranslator\nSummarizer API\nWindow.fetchLater()\nSpeculation Rules API\nLong Animation Frames API\nVisibilityStateEntry\nPerformanceSoftNavigation\nInteractionContentfulPaint\nConnection-Allowlist\nCSS url() integrity() modifier\nHTML meta name=\"text-scale\"\nHTML template for\nHTML processing instructions\nPasswordCredential\nPromise-returning scroll methods\nWeb App Origin Migration\nLocal Network Access permissions\nRequest.targetAddressSpace\nbeforeinstallprompt event\nTo be fair, the skills also recommend ~11 features not supported by Chrome itself. And the project does seem concerned with com"
+        },
+        {
+          "id": 50444594,
+          "author": "simonw",
+          "text": "Distribution suggestion: in addition to the npm packages you have right now, set up GitHub Pages to publish a markdown index document of the skills at\nhttps://googlechrome.github.io/modern-web-guidance-src/skill...\n(currently a 404)\nThat index page should link to plain markdown versions of all of the documents, and should be designed for search with grep to find the right answers.\nThat way I don't have to install anything at all - provided my agent has the ability to make HTTP requests I can tell it \"Look for tips on\nhttps://googlechrome.github.io/modern-web-guidance-src/skill...\n\" and it will fetch the index, then navigate to the most relevant documents - no MCP or npm or installation required at all."
+        },
+        {
+          "id": 50444758,
+          "author": "advisedwang",
+          "text": "Chrome already has too much power in the browser standards world. The last thing we need is everyone's LLMs to follow Chrome team's guidance on how to do web development. This road leads back to \"To view this site, please view in [DOMINANT BROWSER]\""
+        },
+        {
+          "id": 50447665,
+          "author": "SoftTalker",
+          "text": "Remeber, the features you don't use are the ones you don't have to support, or scramble to replace when they are deprecated.\nKeep your effing websites simple."
+        },
+        {
+          "id": 50445920,
+          "author": "chalmovsky",
+          "text": "Amazing! I'm just writing an article about how Alex Russell's quote about 'React being a legacy technology' got, unfortunately, totally ignored.\nAnd now this just fell in my lap! Some of the arguments I wanted to make seem to be provide here. Didn't have a chance to take a proper look at it, but it looks very promising and nice!\nThank you!"
+        },
+        {
+          "id": 50444183,
+          "author": "phyzix5761",
+          "text": "\"Best Practices\" are pretty much dead in the AI era. Pretty soon no one is going to read any of the code AI produces and that's a scary thought."
+        },
+        {
+          "id": 50446257,
+          "author": "internet2000",
+          "text": "NO THANK YOU. Do not want my agents to contribute to the Chrome monoculture. Chrome is the new IE6."
+        },
+        {
+          "id": 50445138,
+          "author": "cadamsdotcom",
+          "text": "Planning to give this one a wide berth.\nThe more \"legacy code\" is getting written everyday the more the web will be forced to remain backwards compatible..."
+        }
+      ],
+      "title_ja": "HNを表示：コーディングエージェントをオフにします〜2019 JavaScript、最新のWebプリミティブに",
+      "summary_ja": "ディスカッションのハイライト： Chromeでは安定しているものの、FirefoxとSafariではサポートされていないブラウザ機能のリストを以下に示します。\nCSS @ function\nCSS calc - size ()\nCSSインタプリタ/配布の提案：現在お持ちのnpmパッケージに加えて、GitHub Pagesを設定して、スキルのマークダウンインデックスドキュメントを\nhttps://googlechrome.github.i/Chromeはすでにブラウザ標準で強力すぎます",
+      "editor_note": "「HNを表示：コーディングエージェントをオフにします〜2019 JavaScript、最新のWebプリミティブに」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 13,
+      "id": 50447900,
+      "title_en": "The DRAM interface and the PHY (why a DDR3+ interface must be tuned at boot)",
+      "url": "https://github.com/enjoy-digital/litedram/blob/master/doc/manual/03_dram_interface.md",
+      "hn_url": "https://news.ycombinator.com/item?id=50447900",
+      "score": 15,
+      "comment_count": 0,
+      "posted_at": "2026-11-10T23:41:41+00:00",
+      "comments": [],
+      "title_ja": "DRAMインターフェースとPHY （ブート時にDDR 3 +インターフェースを調整する必要がある理由）",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「DRAMインターフェースとPHY （ブート時にDDR 3 +インターフェースを調整する必要がある理由）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 14,
+      "id": 50443090,
+      "title_en": "AMD's Zen 6 Family: Feeding the Beast",
+      "url": "https://chipsandcheese.com/p/amds-zen-6-family-feeding-the-beast",
+      "hn_url": "https://news.ycombinator.com/item?id=50443090",
+      "score": 183,
+      "comment_count": 69,
+      "posted_at": "2026-11-10T17:02:32+00:00",
+      "comments": [
+        {
+          "id": 50445782,
+          "author": "bmenrigh",
+          "text": "The worst thing about consumer (AM5) Zen4 and Zen5 is the I/O die chiplet and memory controller on it. I've heard they're finally going to ship a new I/O chiplet in Zen6 on a much smaller node. Their existing AM5 Zen4/5 memory controller when using both memory channels is terrible. Extremely hard or impossible to get above 3600 MT/s.\nOf all the things I'm looking forward to on Zen6, an improved memory controller is at the top of the list.\nEdit: and yes, others may say the paltry few PCIE 5.0 lanes is the worst thing about AM5, but that doesn't affect my usage much, and unfortunately I think that's a limitation of AM5 itself rather than the I/O chiplet."
+        },
+        {
+          "id": 50443687,
+          "author": "joebonrichie",
+          "text": "The instruction level parallelism in the 2-ahead branch prediction is super cool stuff, I know zen5 had this feature but it's kind of crazy that memory is so slow relative to the cores that this complexity is beneficial and worthwhile."
+        },
+        {
+          "id": 50444152,
+          "author": "Aardwolf",
+          "text": "> AMD has reduced the number of integer multiply units from three to two, with PDEP and PEXT throughput also falling from three instructions per cycle to two.\nAre PDEP and PEXT using the same (parts of) circuits as multiply (they are very different operations...), or are this just two independent drops of circuitry and the wording is just a bit unclear?"
+        },
+        {
+          "id": 50444146,
+          "author": "Remnant44",
+          "text": "What looks like a lot of small balanced improvements to the core itself. Four vector loads per cycle at 256b of less, I wonder if the gather performance is finally acceptable? Another balance example, they actually reduced the number of integer multipliers down to two. I wonder if that was to make diespace for the vnni pipes?\nThe real star looks like the c cores though. 32 C cores per chiplet with increased l3 cache is impressive"
+        },
+        {
+          "id": 50444335,
+          "author": "bee_rider",
+          "text": "32 cores is a lot of cores in a CCD. Is there a there any smaller logical unit between a CCD and a core, or are you expected to wrangle 32 cores in your lowest NUMA level?"
+        },
+        {
+          "id": 50444677,
+          "author": "lp92",
+          "text": "Seems like they are starting to optimize the C core architecture already. Wonder how long it'll be before it becomes its own line up and branding."
+        },
+        {
+          "id": 50443346,
+          "author": "spwa4",
+          "text": "One thing I wonder about is that these CPUs are just so much faster than their memory controllers. So why not add more? Why don't they have a memory controller per core, for example?"
+        },
+        {
+          "id": 50443530,
+          "author": "jauntywundrkind",
+          "text": "I was going to be sad than Zen 6c was divergent, but they increased a bunch of OoO structures on Zen 6c? To absorb more potential latency, since the memory is going to be heavier loaded? Ok, that I can appreciate!\nIt's absolutely wild that adjusting some l3 and using a smaller node goes from 12 to\n32\ncores for basically the same chip.\nI wonder if the CCD will remain as monolithic as it does, for how long? The l3 latency being signficantly higher for 6c (10.3ns zen5 -> 10.7ns z6 -> 16.4ns z6c)  feels like a symptom of a broader scaling challenge as the CCD hosts more and more. I can imagine dividing zen 7 or zen8 CCD into partitions, perhaps?"
+        }
+      ],
+      "title_ja": "AMDのZen 6ファミリー： Feeding the Beast",
+      "summary_ja": "ディスカッションのハイライト：コンシューマー（ AM 5 ） Zen 4とZen 5の最悪な点は、I/Oダイチップレットとメモリコントローラです/2分岐予測の命令レベルの並列処理は超クールなものです。zen 5にはこの機能がありましたが、メモリがc /> AMDに比べて非常に遅いため、整数乗算ユニットの数が3から2に減少し、PDEPとPEXTのスループットも3つの命令から低下しています",
+      "editor_note": "「AMDのZen 6ファミリー： Feeding the Beast」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 15,
+      "id": 50445013,
+      "title_en": "What objective is reasoning solving?",
+      "url": "https://alexwang.ai/posts/reasoning-as-pathfinding/",
+      "hn_url": "https://news.ycombinator.com/item?id=50445013",
+      "score": 101,
+      "comment_count": 45,
+      "posted_at": "2026-11-10T19:25:14+00:00",
+      "comments": [
+        {
+          "id": 50446995,
+          "author": "htrp",
+          "text": ">I'm a researcher based in San Francisco. I like to imagine where the world is headed, and what it takes to get there.\n>I did my PhD in computer science at Stanford, where I designed long-context architectures for sequence modeling and memory. Before that, I studied math & physics at Cornell. Most recently, I was a research scientist at Cartesia, working on in-context tokenization and novel architectures (HNets).\nNot the MSL Alex Wang"
+        },
+        {
+          "id": 50446098,
+          "author": "derefr",
+          "text": "It solves for the same thing a \"train of thought\" (internal vocalization) solves for in the human brain: there's a lot of stuff you \"know\" as episodic memories of words you've heard/read, but haven't yet internalized via practice into reflex reactions. It's a lot faster and cheaper to acquire a memory of some words, than it is to acquire an entire new skill, so you end up picking up far more memories-of-words than concrete skills from a given training corpus.\nReasoning (i.e. bubbling those remembered words up into your mental context, and then using a special \"trigger effectively arbitrary synaptic activations dependent on the content of the attention-masked context and an ongoing state\" bridging reflex on them, a.k.a. \"system-2 thinking\") is how you leverage memories-of-words into useful behavior. Rather than executing native skills embedded into your synaptic weights, you're running a single very fancy native skill that acts as an interpreter for word-memory data, slowly and strenuously turning words you're holding in mind into more words (synthesis), or into associations to other memories (word-memories or otherwise), or into actions/outputs, etc.\n(An especially useful \"trick\" o"
+        },
+        {
+          "id": 50446218,
+          "author": "piker",
+          "text": "> Consider the problem: “what’s 1 +2 +3 +⋯ +10”? One solution is to add the numbers one at a time: 1, 3, 6, 10, and so on up to 55. Another way is to pair them from the outside in: 1 +10, 2 +9, 3 +8, 4 +7 and 5 +6 each make 11, and five pairs of 11 make 55. Both of these paths land on the correct answer, 55.\nWatching my son work through difficult math problems has forced me into this realization. In my head there is one \"correct\" path, and I often have to stop myself from interrupting his chain of thought. He often is just getting there a different way."
+        },
+        {
+          "id": 50446010,
+          "author": "vova_hn2",
+          "text": "I'm pretty sure that the current approach of baking in chain-of-thought reasoning into weights is not the end of the line. It just seems to accidental and ad-hoc.\nP. S. The animated bird is truly magical!"
+        },
+        {
+          "id": 50446972,
+          "author": "vatsachak",
+          "text": "Alex also had the transformers as memory blog. Beautiful. Somebody give him the bag"
+        },
+        {
+          "id": 50447588,
+          "author": "usernametaken29",
+          "text": "> Train the model to generate better samples\nThis is precisely what humans do. We use small world statistics to drastically reduce the search space of problems. Of course there’s the whole issue of contextual search which LLMs address in no way whatsoever, so even improving sampling won’t help much, as inevitably one starts to generate too many hypotheses (reasoning traces) to get a good average."
+        },
+        {
+          "id": 50445860,
+          "author": "dogscatstrees",
+          "text": "Wang's argument contradicts the view that intelligence necessarily improves through more reasoning and undermines any assumption that recursive self-improvement (RSI) will automatically converge toward greater intelligence."
+        },
+        {
+          "id": 50445930,
+          "author": "jrflo",
+          "text": "Content aside, that's a beautiful webiste"
+        }
+      ],
+      "title_ja": "推論が解決する目的は何ですか？",
+      "summary_ja": "ディスカッションのハイライト： >私はサンフランシスコを拠点とする研究者です/これは、人間の脳内で「思考の列」（内部発声）が解決するのと同じことを解決します。あなたが聞いた言葉のエピソード記憶として「知っている」ものがたくさんあります/>問題を考慮してください：「1 +2 +3 +... +10」とは何ですか？ 1つの解決策は、一度に1つずつ数字を追加することです。1、3、6、10など、55まで",
+      "editor_note": "「推論が解決する目的は何ですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50447036,
+      "title_en": "$30M Raised to Redo the CPU",
+      "url": "https://tendrils.co/blog/2026-11-10/30m-raised",
+      "hn_url": "https://news.ycombinator.com/item?id=50447036",
+      "score": 25,
+      "comment_count": 12,
+      "posted_at": "2026-11-10T22:14:03+00:00",
+      "comments": [
+        {
+          "id": 50448583,
+          "author": "MiroslavPokorny",
+          "text": "I always wonder where will x86 be in 10 or 20 years time. As data paths widen for SIMD, how many can they possibly cram even more generations of wider and wider groups of instruction with different opcodes and characteristics."
+        },
+        {
+          "id": 50448603,
+          "author": "exmadscientist",
+          "text": "TL;DR: it's basically Niagara/GreenArrays/etc again.\nNot sure why this one will succeed where its forebears didn't."
+        },
+        {
+          "id": 50448459,
+          "author": "nonesuchthing",
+          "text": "Have you seen the new CPU architecture? It's on Mill. It's literally on Transputer. It's on Rock with Sun. It's literally on AMULET. You can probably find it on Itanium. Dude it's on Tesla. It's a CDC STAR original. It's on E1. You can program it on E1. You can go to E1 and program it. Get onto E1 right now. Go to E1. Dive into E1. You can E1 it. It's on E1. E1 has it for you. E1 has it for you.\nIn all seriousness congratulations on finding $30 million to launder and lose immediately. Hope your Porsche runs good."
+        },
+        {
+          "id": 50448810,
+          "author": "tonymet",
+          "text": "let's re-do the OS too.  we only need about 10 syscalls. authorization is totally backwards (look how android runs a user per process)."
+        },
+        {
+          "id": 50448727,
+          "author": "astrodust",
+          "text": "Was about time we had another Transmeta."
+        },
+        {
+          "id": 50448469,
+          "author": "Onavo",
+          "text": "Bet you they will turn into yet another ML accelerator company within the year."
+        }
+      ],
+      "title_ja": "CPUをやり直すために調達された$ 30 M",
+      "summary_ja": "ディスカッションのハイライト：私はいつもx 86が10年または20年後/TLにどこにあるのか疑問に思っています。DR ：基本的にはナイアガラ/グリーンアレイなどです。\n先祖が成功しなかったのに、なぜこれが成功するのかはわかりません。 /新しいCPUアーキテクチャを見たことがありますか？ それはミルにあります",
+      "editor_note": "「CPUをやり直すために調達された$ 30 M」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50444684,
+      "title_en": "A comprehensive study of how fingerprintable users are",
+      "url": "https://fingerprinting.study/",
+      "hn_url": "https://news.ycombinator.com/item?id=50444684",
+      "score": 73,
+      "comment_count": 31,
+      "posted_at": "2026-11-10T19:03:54+00:00",
+      "comments": [
+        {
+          "id": 50447826,
+          "author": "M95D",
+          "text": "> Protections that ship have to keep the web working\nI don't agree. I activated most of the protections. If a site breaks, then I don't get to see it. That's OK. No big loss. Users should fight their FOMO."
+        },
+        {
+          "id": 50447037,
+          "author": "gausswho",
+          "text": "Ran their fingerprinting test.\nCSS Colours SelectedItem and SelectedItemText was the only problematic one, and uniquely identified me to less than 0.0054 of Linux users.\nWhy?"
+        },
+        {
+          "id": 50447167,
+          "author": "dt3ft",
+          "text": "> Your browser is not comparable to the dataset, so we have avoided showing you inaccurate results.\nYup. Because I use my own browser. Built from scratch with exception of V8, Stylo html5ever, and a few other bits and bobs. A fresh new rendering engine in Rust and all. Not a fork of any existing engine. Native support for uBlock Origin filter lists and custom filters. It scores above ~20 in speedometer as of today and covers WPT about 89%. Will be publishing it soon as permissive open source."
+        },
+        {
+          "id": 50445996,
+          "author": "_factor",
+          "text": "I wonder if this took into account GPU render-time fingerprinting?  The minute timing differences in how you render an image are still used to identify you."
+        },
+        {
+          "id": 50446022,
+          "author": "ape4",
+          "text": "I read they're not releasing the details - that seems good (for the public).  Hopefully they're releasing it to privacy-friendly browser makers."
+        },
+        {
+          "id": 50447864,
+          "author": "usern20260720",
+          "text": "why can't my browser curl download an .html package, as a word processor would download a .doc file, instead of betraying my privacy by publishing even my underwear size?"
+        },
+        {
+          "id": 50446879,
+          "author": "solarmist",
+          "text": "Oh, damn. I thought this was about the uniqueness of human fingerprints or similar."
+        },
+        {
+          "id": 50446504,
+          "author": "NooneAtAll5",
+          "text": "funny how enabling letterboxing causes me to be in \"under 100 samples\" category\nbtw, is pixelRatio controllable somehow? how do I set it to 1, most common value?"
+        }
+      ],
+      "title_ja": "フィンガープリント可能なユーザーの包括的な調査",
+      "summary_ja": "ディスカッションのハイライト：>出荷される保護機能により、ウェブが機能し続ける必要があります\n私は同意しません/彼らの指紋テストを実行しました。\nCSS Colours SelectedItemとSelectedItemTextだけが問題であり、0.0054未満のLinuxユーザーに一意に識別されました。\nなぜですか？/>お使いのブラウザはデータセットと比較できないため、不正確な結果が表示されることはありません。\nうん",
+      "editor_note": "「フィンガープリント可能なユーザーの包括的な調査」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50433216,
+      "title_en": "Process Explorer for macOS",
+      "url": "https://github.com/microsoft/Procexp-Mac",
+      "hn_url": "https://news.ycombinator.com/item?id=50433216",
+      "score": 138,
+      "comment_count": 47,
+      "posted_at": "2026-11-09T22:30:41+00:00",
+      "comments": [
+        {
+          "id": 50444771,
+          "author": "jollyllama",
+          "text": "How's it compare to Objective See's TaskExplorer? [0]\n[0]\nhttps://objective-see.org/products/taskexplorer.html"
+        },
+        {
+          "id": 50445406,
+          "author": "mzs",
+          "text": "https://github.com/microsoft/Procexp-Mac/issues/1\nThis repo is missing a LICENSE file\n#1\nOpen\nDescription\n@microsoft-github-policy-service\nbot\nopened on Jul 9"
+        },
+        {
+          "id": 50445720,
+          "author": "teh_klev",
+          "text": "There's an episode of \"Scott and Mark Learn\" where Mark Russinovich (the creator of the original Process Explorer and other SysInternals tools) talks about how he created Process Explorer for MacOS with Scott Hanselman:\nhttps://youtu.be/U-_Y9PX_ESI"
+        },
+        {
+          "id": 50444341,
+          "author": "kburman",
+          "text": "I've been working on something similar for Linux, in Rust with egui. It reads from /proc, cgroups, systemd over D-Bus and the netlink proc connector, so it also catches processes that start and exit between refreshes. It runs without root, and anything it can't read just shows \"—\".\nCheck screenshot here -\nhttps://postimg.cc/gallery/CMczmdh/ceda7197"
+        },
+        {
+          "id": 50444424,
+          "author": "jherskovic",
+          "text": "Installed it. Pretty straight port UI-wise, it seems like it would be very useful. It doesn’t look ‘Mac’ at all, but for developer tooling that gets a pass from me.\nI couldn’t see details for some processes, which was reasonable since I wasn’t running as root. I installed the privileged helper that came with the process… and now the process tree is empty.\nMaybe it needs a little more time in the oven?"
+        },
+        {
+          "id": 50445151,
+          "author": "kristiandupont",
+          "text": "This feels like a decent place to plug one of my vibe-coded side projects Mac Monitor:\nhttps://kristiandupont.github.io/mac-monitor/\nI made this mostly because I wanted something to signal to me that the CPU is running wild. With no fan, I often discover this a bit late, so I wanted just a very subtle indicator in the menu bar. I also added a UI in the browser which shows you some details, though nothing near the level of Process Explorer."
+        },
+        {
+          "id": 50447908,
+          "author": "hk1337",
+          "text": "/Applications/Utilities/Activity Monitor?"
+        },
+        {
+          "id": 50444762,
+          "author": "Topfi",
+          "text": "Might actually start using that, had a few processes on macOS 27 get into infinite loops and causing massive load, especially Safari PIDs. Being able to kill full trees, see children and look at the resources taken, might be useful. Shame that Activity Monitor is so bare in features and even takes a surprising amount of time to load.\nOn a related note, macOS 27 is an extremely buggy, unpredictable mess and you should feel annoyed when using it. Amazing how they can have such great hardware, ham strung by poor software QA and doubly so since this has been an issue on every Mac I have ever used going back to 2009. macOS occasionally gets a bug squashing pass, but just as fast as we get a Snow Leopard, an unstable Lion follows. Also, hotspot and WiFi generally are still utterly unreliable."
+        }
+      ],
+      "title_ja": "MacOS用プロセスエクスプローラ",
+      "summary_ja": "ディスカッションのハイライト： Objective SeeのTaskExplorerと比較してどうですか？[ 0]\n[0]\nhttps://objective-see.org/products/taskexplorer.html/https://github.com/microsoft/Procexp-Mac/issues/1\nこのリポジトリにはライセンスファイルがありません\n# 1\n開く\n説明\n@ microsoft - github - policy - service\nボット\n7月9日にオープン/Mark Russinovich （オリジナルのプロセスエクスプローラやその他のSysInternalsツールの作成者）がABOを話す「Scott and Mark Learn」のエピソードがあります",
+      "editor_note": "「MacOS用プロセスエクスプローラ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 19,
+      "id": 50441350,
+      "title_en": "Show HN: Aircad – Professional drafting and 3D modeling in the browser",
+      "url": "https://aircad.com",
+      "hn_url": "https://news.ycombinator.com/item?id=50441350",
+      "score": 12,
+      "comment_count": 6,
+      "posted_at": "2026-11-10T15:01:19+00:00",
+      "comments": [
+        {
+          "id": 50448451,
+          "author": "sincman",
+          "text": "What is the geometry kernel? That's always the first question I have."
+        },
+        {
+          "id": 50448575,
+          "author": "bpiroman",
+          "text": "the landing page and copy is top quality"
+        },
+        {
+          "id": 50448360,
+          "author": "brudgers",
+          "text": "Congratulations on launching.\nI would not bet a business that depends on CAD on something that only costs $19/month. Even if it didn't require taking a dependency on a website.\nOr to put it AutoCad is cheaper than being sued. Good luck."
+        }
+      ],
+      "title_ja": "HNを表示： Aircad –ブラウザでのプロの製図と3 Dモデリング",
+      "summary_ja": "ディスカッションのハイライト：ジオメトリカーネルとは何ですか？ それは常に私の最初の質問です。/ランディングページとコピーは最高品質です/ローンチおめでとうございます。\n月額わずか$ 19のCADに依存するビジネスに賭けるつもりはありません",
+      "editor_note": "「HNを表示： Aircad –ブラウザでのプロの製図と3 Dモデリング」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50445279,
+      "title_en": "Research taste in history: the importance of learning Babylonian math",
+      "url": "https://resobscura.substack.com/p/research-taste-in-history-the-importance",
+      "hn_url": "https://news.ycombinator.com/item?id=50445279",
+      "score": 11,
+      "comment_count": 0,
+      "posted_at": "2026-11-10T19:42:44+00:00",
+      "comments": [],
+      "title_ja": "歴史の研究趣味：バビロニア数学を学ぶことの重要性",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「歴史の研究趣味：バビロニア数学を学ぶことの重要性」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 21,
+      "id": 50446219,
+      "title_en": "Sherman Anti-Trust Act (1890)",
+      "url": "https://www.archives.gov/milestone-documents/sherman-anti-trust-act",
+      "hn_url": "https://news.ycombinator.com/item?id=50446219",
+      "score": 72,
+      "comment_count": 42,
+      "posted_at": "2026-11-10T20:56:16+00:00",
+      "comments": [
+        {
+          "id": 50446693,
+          "author": "legitster",
+          "text": "> The act was designed to restore competition, but it was loosely worded and failed to define such critical terms as \"trust,\" \"combination,\" \"conspiracy,\" and \"monopoly.\" Five years later, the Supreme Court dismantled the act in United States v. E. C. Knight Company (1895). The Court ruled that the American Sugar Refining Company, one of the defendants in the case, had not violated the law even though the company controlled about 98% of all sugar refining in the United States. The Supreme Court reasoned that the company’s control of manufacture did not constitute a control of trade.\nThe reality is that the law itself was not very well written, and takes an extremely litigious executive branch to do anything with.\nEven if you agreed with the premise (the idea that Standard Oil arose purely through conspiracy is clearly wrong), it's ultimately a very ticky tacky set of definitions and has failed to achieve anything meaningfully as policy (do we actually feel strongly that breaking Microsoft's productivity suite from their OS division was really worth all the effort?)\n(The notable exceptions being actual illegal coordination - like was recently uncovered in the egg industry. But these"
+        },
+        {
+          "id": 50446917,
+          "author": "jonstewart",
+          "text": "I wish we had statutory antitrust mechanisms instead. Get to be a certain size, you have to be a public company. Have a sustained supermajority of the market? You have to file a plan to split up."
+        },
+        {
+          "id": 50446220,
+          "author": "hashmap",
+          "text": "> The model that underlies Claude Fable 5.2 and Claude Mythos 5.2 is a step forward in general capabilities. However, during the model’s training, we took steps to limit advances in the specific research capabilities that could most directly accelerate AI development. Thus, in relevant areas, including accelerator kernel optimization and improving large language model architectures, Fable 5.2 and Claude Mythos 5.2 perform at about the level of Opus 5.5. Importantly, we ensured that the training changes did not affect related capabilities like agentic coding, hardware development, and traditional AI or machine learning research (including interpretability research). We do not alter these capabilities as the model is being served to users (that is, at inference time). As described in Section 1.5 of the System Card and similarly to previous models, Fable 5.2 and Claude Mythos 5.2 also include transparent fallbacks to Opus 5 for a small set of topics in this domain, including kernel development on certain nonstandard accelerators.\n-----\n> Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,\n> Sec. 1. Every contract, combination"
+        },
+        {
+          "id": 50446950,
+          "author": "aag",
+          "text": "Please add a closing parenthesis.  Its absence is driving this Scheme hacker bananas."
+        }
+      ],
+      "title_ja": "シャーマン反トラスト法（ 1890年）",
+      "summary_ja": "議論のハイライト： >この法律は競争を回復するために設計されましたが、文言がゆるく、「信頼」、「組み合わせ」、「陰謀」、「独占」などの重要な用語を定義することができませんでした。「5年間/代わりに法定の独占禁止メカニズムがあればいいのに/>クロード・フェイブル5.2とクロード・ミトス5.2の根底にあるモデルは、一般的な機能において一歩前進しています",
+      "editor_note": "「シャーマン反トラスト法（ 1890年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 22,
+      "id": 50439695,
+      "title_en": "Ableton Live 13",
+      "url": "https://www.ableton.com/en/live/",
+      "hn_url": "https://news.ycombinator.com/item?id=50439695",
+      "score": 273,
+      "comment_count": 295,
+      "posted_at": "2026-11-10T12:58:04+00:00",
+      "comments": [
+        {
+          "id": 50441256,
+          "author": "iainctduncan",
+          "text": "People here might be interested to know that you can run Scheme (lisp) code directly in Ableton through my Scheme for Max project in Max for Live.\nS4M is an open source extension to Max that allows you to run the s7 Scheme interpreter in a Max object, similar to the JS object in Max. Advantages over JS are that in can run in the high priority scheduler thread, enabling accurate timing, it has direct access to the file system from Scheme code, and allows you to make Scheme s-expressions directly in Max messages. It is also a very nice way to control the Live API, as the live API works on lists of symbols.\nhttps://github.com/iainctduncan/scheme-for-max\nhttps://www.youtube.com/c/musicwithlisp\nI'm planning another major release in the next few months as part of my PhD work."
+        },
+        {
+          "id": 50440679,
+          "author": "marceldegraaf",
+          "text": "Still no built-in way to collaborate with other musicians, it seems. While I understand the technical difficulties, it's also very frustrating to work remotely with other musicians on an Ableton project. I don't need real-time Google Docs like editing, but it would be nice to have something better than \"freeze the project, dump it in Dropbox, and don't touch anything until they've made their edits\".\nAny Ableton Live users here that can chime in on how they solve that?"
+        },
+        {
+          "id": 50442343,
+          "author": "cruano",
+          "text": "It's interesting to see them adopt this whole Rent-to-own model [1]. It's not quite a subscription since you end up with a full license to a particular version, but it is\nkinda\nlike a subscription in the sense that a new version will be out by the time you are done with your payments. And it seems like you can \"extend\" it to get the new version, so it's a subscription with extra steps.\nIMO that's a better model for consumers since you\ndo\nget something at the end of it. And if you are a professional, you were probably already getting the latest and greatest every time anyways.\n[1]\nhttps://www.ableton.com/en/rent-to-own-ableton-live/"
+        },
+        {
+          "id": 50446543,
+          "author": "iamsaitam",
+          "text": "Shameless plug, but one of the toughest parts of working with Ableton Live is managing all your projects and keeping track of what's what.. unless you use REKALL[1]. An application I worked on (actually me, not claude, but claude did review a few bits) in order to help me manage my 400+ live sets.\n[1]\nhttps://rekall.machinelies.eu"
+        },
+        {
+          "id": 50448613,
+          "author": "waldothedog",
+          "text": "Anyone else have a hard time w this site? It was nearly finished loading when it crashed my phone so hard I couldn’t even force reboot. Never seen anything like that. Just had to put my phone down for 10 mins and come back to find it had closed Safari and seemed to be back to normal"
+        },
+        {
+          "id": 50446167,
+          "author": "stcg",
+          "text": "After switching from Windows to Linux years ago the only application I ever missed is Ableton.\nI remember loving its basic effects: the (pingpong) delay, the reverb, the Eq, the compressor. And how easy it was to consolidate a track ander build further on top of it, cut it up, make a new instrument using it.\nGreat software\nI tried running it with Wine but the experience wasn't great. And if it even worked, the VST's would be a whole new problem. So I dropped the hobby of digital musical production in favour of other hobbies"
+        },
+        {
+          "id": 50440211,
+          "author": "semtud",
+          "text": "New to music production but really want to give it a try. Can somebody please recommend resources/courses for beginners and which Abelton edition to buy: lite, intro, standard, suite? Also I was wondering if it is worth to buy akai mpk mini (play) to start with?"
+        },
+        {
+          "id": 50440022,
+          "author": "NSUserDefaults",
+          "text": "Not new to 13 but I love Ableton's clean UI. Similar to Blender, it's how all creative apps (and systems!) should do it."
+        }
+      ],
+      "title_ja": "Ableton Live 13",
+      "summary_ja": "ディスカッションのハイライト：ここにいる人は、Max for LiveのScheme for Maxプロジェクトを通じて、Scheme （ LISP ）コードをAbletonで直接実行できることに興味があるかもしれません。\nS 4 Mはオープンソースの拡張機能です/他のミュージシャンとコラボレーションするための組み込みの方法はまだないようです/彼らがこのRent - to - Ownモデル全体を採用するのを見るのは興味深いです[1]",
+      "editor_note": "「Ableton Live 13」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50432637,
+      "title_en": "Ergodic Literature",
+      "url": "https://en.wikipedia.org/wiki/Ergodic_literature",
+      "hn_url": "https://news.ycombinator.com/item?id=50432637",
+      "score": 9,
+      "comment_count": 2,
+      "posted_at": "2026-11-09T21:40:51+00:00",
+      "comments": [
+        {
+          "id": 50448807,
+          "author": "dmbche",
+          "text": "Good reminder to check back on House of Leaves. Didn't like it but it keeps nagging at my brain, I must have missed something.\nIt's quite exhausting to read though.\nAlthough thinking about it now I remember feeling the author being kind of cruel in making things hard to read/understand with that as the purpose (the real excentric stuff at the end), it put me off. Maybe I just don't like it."
+        },
+        {
+          "id": 50448718,
+          "author": "Trace88",
+          "text": "These rely so heavily on physical layout that e-readers basically ruin the whole experience."
+        }
+      ],
+      "title_ja": "エルゴード文学",
+      "summary_ja": "ディスカッションのハイライト： House of Leaves/これらは物理的なレイアウトに大きく依存しているため、電子書籍リーダーは基本的にエクスペリエンス全体を台無しにしています。",
+      "editor_note": "「エルゴード文学」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50441518,
+      "title_en": "Show HN: Valencia, Spain in Sim City/Isometric View",
+      "url": "https://tinyvalencia.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50441518",
+      "score": 191,
+      "comment_count": 49,
+      "posted_at": "2026-11-10T15:12:16+00:00",
+      "comments": [
+        {
+          "id": 50443565,
+          "author": "vunderba",
+          "text": "> An image model trained on a hand-picked pixel-art style then repaints it, tile by tile, each tile continuing its painted neighbours so the city stays seamless.\nNice work. The developer of Isometric NYC did something similar - creating a fine-tune of the Qwen Image Edit model. I'd be curious to hear more detail about the image model you used. (the base checkpoint, LoRAs, etc)."
+        },
+        {
+          "id": 50445313,
+          "author": "NikolaNovak",
+          "text": "1. Awesome!\n2. I read the info, but I'm incredibly curious for more detail about the pipeline, in particular how much manual work was done, and can this be generalized to other locations? :)"
+        },
+        {
+          "id": 50442908,
+          "author": "akfanta",
+          "text": "As someone who's only familiar with Valencia on Google Maps, I found the default orientation very confusing. Is it possible to configure it so that north always points upwards?"
+        },
+        {
+          "id": 50448388,
+          "author": "enriquto",
+          "text": "what is this gigantic truck?\nhttps://tinyvalencia.com/?lat=39.502413&lng=-0.384328&zoom=1..."
+        },
+        {
+          "id": 50447585,
+          "author": "tifik",
+          "text": "Looking at the oddly shaped structures surrounded by water, it immediately jumped out as very Star Wars-y, and seemed familiar. And of course, turns out Andor was recorded there. I had no idea this was a real location. Very impressive architecture."
+        },
+        {
+          "id": 50446828,
+          "author": "netzvieh",
+          "text": "It's a fun concept though I noticed some errors:\nSome buildings down South are not rendered:\nhttps://tinyvalencia.com/?lat=39.355397&lng=-0.322415&zoom=1...\nAnd the Albufera has some weird edges, seems like artifacts from satellite imagery?."
+        },
+        {
+          "id": 50444952,
+          "author": "nico",
+          "text": "I love it. Could someone please combine it with\nhttps://city2026.app/play/\nAnd make it actually playable? Or let me know if you’d like to collaborate, it’d be a fun project"
+        },
+        {
+          "id": 50445684,
+          "author": "villosil",
+          "text": "Thanks for sharing! I'm from the region, and I really enjoyed the map and the games! In a year or so, the map will need a stadiums update :D Amunt Valencia!"
+        }
+      ],
+      "title_ja": "Show HN: Valencia, Spain in Sim City/アイソメトリックビュー",
+      "summary_ja": "ディスカッションのハイライト：>厳選されたピクセルアートスタイルでトレーニングされた画像モデルは、タイルごとに再塗装され、各タイルは塗装された隣人を継続しているため、街はシームレスに保たれます。\nよくできました/1/Googleマップでバレンシアに精通している人として、デフォルトの向きは非常に混乱していました",
+      "editor_note": "「Show HN: Valencia, Spain in Sim City/アイソメトリックビュー」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50410329,
+      "title_en": "Simon Winchester has died",
+      "url": "https://www.nytimes.com/2026/11/04/obituaries/simon-winchester-dead.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50410329",
+      "score": 71,
+      "comment_count": 25,
+      "posted_at": "2026-11-08T04:07:21+00:00",
+      "comments": [
+        {
+          "id": 50440036,
+          "author": "msisk6",
+          "text": "Well, that sucks. He's one of my favorite authors. I recommend the audiobooks which he reads himself.\nI especially liked \"The Perfectionists: How Precision Engineers Created the Modern World\" and \"Knowing What We Know: The Transmission of Knowledge From Ancient Wisdom to Modern Magic\".\nBut all of his works are great."
+        },
+        {
+          "id": 50441165,
+          "author": "ilamont",
+          "text": "He wrote a fantastic biography of Joseph Needham, a chemist at Cambridge who learned Chinese in his 30s and subsequently created an exhaustively thorough history of scientific discovery in ancient China that was published as a gigantic set of encyclopedias. The research into Needham's wartime travels in China (relying on university and Foreign Office archives) was top notch.\nhttps://www.theguardian.com/books/2008/sep/28/biography3"
+        },
+        {
+          "id": 50440693,
+          "author": "jimbo456",
+          "text": "His book on small British holdings in the 90s, Outposts, was an amazing read. He was a gifted writer who could humanize without romantize."
+        },
+        {
+          "id": 50440164,
+          "author": "moioci",
+          "text": "My introduction to his work was Kraktoa: the Day the World Exploded. A fascinating read."
+        },
+        {
+          "id": 50444434,
+          "author": "ddrmaxgt37",
+          "text": "Pacific (given I’m in California and visit Asia often) has been one of my favorites.\nGlad he was so prolific before passing away."
+        },
+        {
+          "id": 50443985,
+          "author": "stevoski",
+          "text": "One of the best travel stories I’ve ever read was by Simon Winchester: The Most Perfect Hotel in the World"
+        },
+        {
+          "id": 50445702,
+          "author": "dangerboysteve",
+          "text": "Well that sucks. \"The Professor and the Madman\" is one of my favorite books."
+        },
+        {
+          "id": 50442309,
+          "author": "bookofjoe",
+          "text": "https://news.ycombinator.com/item?id=50425351"
+        }
+      ],
+      "title_ja": "サイモン・ウィンチェスター死去",
+      "summary_ja": "ディスカッションのハイライト：まあ、それは最悪です/彼はケンブリッジ大学の化学者で、30代で中国語を学び、その後科学ディスクの徹底的な徹底的な歴史を作り出したジョセフ・ニーダムの素晴らしい伝記を書きました/90年代の英国の小規模資産に関する彼の本、アウトポストは素晴らしい読書でした",
+      "editor_note": "「サイモン・ウィンチェスター死去」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50438318,
+      "title_en": "AI usage generates a fragile codebase",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "hn_url": "https://news.ycombinator.com/item?id=50438318",
+      "score": 373,
+      "comment_count": 404,
+      "posted_at": "2026-11-10T10:25:58+00:00",
+      "comments": [
+        {
+          "id": 50444477,
+          "author": "basilgohar",
+          "text": "I think looking at AI usage for code and development from an engineering perspective is going to be an exercise in frustration. I'm a software engineer for 20+ years and I've pivoted to using AI for my code 100%. I find it invaluable about the only way to stay relevant and run a business nowadays. Happy for anyone to disagree with me, because I don't\nwant\nto be right for the first time in my life.\nThat said, my experience tells me that enterprise and business coding has rarely ever been about stable or robust codebases. We engineers and a fraction of competent engineering managers and a vanishing small number of directors fought against business interests to ensure quality was priority when it came to code, but it was always an uphill battle and we were oftentimes disciplined for spending too much time on quality and design.\nA timed cadence of release is anathema to quality code because you can't timebox it.\nSo, AI is just the extension of that. Do I try to ensure my agents design code I would consider to be good? Yes, absolutely! But I've fully outsourced it and I find it's also fully capable of fixing it's own mistakes. I've gone far beyond anything I individually or even with a "
+        },
+        {
+          "id": 50446216,
+          "author": "iagooar",
+          "text": "This reads like a piece of content written a year ago. Things have radically changed since then.\n\"AI writes shallow tests\" - used to be true, not true anymore since Astra and Fable 5.1 / Opus 5.5.\n\"AI writes overly complex ccode\" - only if you let it. A \"do not overengineer it\" or \"Pareto, 80% result with 20% of effort\" go a long long way.\n\"Reliance on AI decreases human understanding\" - human understanding does not decrease, it just moves up a level or two. The same way you do not really understand how the Linux kernel works, nor do you know how assembly really works (with probably a bunch of exceptions here given this is the HN crowd!). And then there is hardware and physics too.\nUnderstanding code, algorithms and data structures becomes a rarer need than it used to be.\n\"AI moves too quickly to maintain a high quality bar\" - if you are stuck with the mantra that humans must review the code today, then obviously that statement becomes true. The problem is the assumption, not the observation. The good news about AI progressing fast is that coding AND reviewing get better and better with each release.\nI know it is tough to let go. But as a software engineer, the sooner you do it, th"
+        },
+        {
+          "id": 50444766,
+          "author": "peterbell_nyc",
+          "text": "I'm not sure that \"AI generates...\" articles are going to age well.\nMy immediate question would be what kind of adversarial reviews and deterministic gates did the author write to capture the dimensions of maintainability (lack of DRY, cyclomatic complexity, unclear naming, poorly architected flows, etc) that they cared about.\nDon't get me wrong. When I was speeding along at 200 PRs a day (personal projects - I would not have inflicted them on others) I pretty quickly slopped together a big ball of mud, but as I'm re-generating my estate (a) the models are a little better but (b) I'm adding a lot more rigor around verification (correctness, performance, security, operational costs and maintainability). It's not an easy problem to solve, but it feels to me like an engineering endeavor, not speculative rocket science.\nI fully understand that many AI generated code bases do indeed suffer from more incidents and less maintainability, but I think it's important to distinguish between what is common and what is possible as the fix for one is improving the rigor of your verification whereas the fix for the other would be either accepting crappy code or giving up on LLMs."
+        },
+        {
+          "id": 50444086,
+          "author": "monjerry",
+          "text": "Code quality is not an issue.....until it is. Everyone will be happy if things seem to be working and moving fast, it's only until you start seeing symptoms like not being able to change things without breaking existing features or even seeing an increase in tokens burned for reading complex code bases that you will start caring about code quality (which i imagine now people will just have AI try to fix it's own mess)."
+        },
+        {
+          "id": 50448791,
+          "author": "olives",
+          "text": "This resonates with me in my work, and it's not the AI usage that is making our codebases fragile. It is the lack of code review or use of AI to essentially \"automate\" code review that is the major culprit.\nAmong myself and all the colleagues that I work with, I am the\nonly\nperson remaining who reviews every line of code to make sure I at least understand what the written code is doing. And when I review AI-written code in this manner, I almost always find flaws-- overchecking of weird edge cases, underchecking of conditions that might lead to ambiguity, importing a whole new library to handle one special case that happens <1% of the time, etc.\nThis is disappointing to me because just a few years ago, at my last job, thorough code reviews were the norm. And it resulted in good, maintainable code."
+        },
+        {
+          "id": 50446018,
+          "author": "proc0",
+          "text": "I've been saying this for a while. Programming has been unbelievably underestimated, almost as much as art (i.e. everyone thinks they are an artist when having opinions but rarely understand anything about it).\nProgramming is about engaging with high level mathematical abstractions.\nTo the extent AI can do this high level thinking, it is going to be able to do absolutely everything else humans can. Programming (when not underestimated) is as hard as the hardest cognitive task humans can do."
+        },
+        {
+          "id": 50439165,
+          "author": "jasode",
+          "text": "I don't disagree with the article but it may give some readers the impression that pre-AI hand-written code wasn't fragile.\nHere's the famous commentary about Oracle RDBMS codebase of 25 million lines:\nhttps://news.ycombinator.com/item?id=18442941\nEvery big company codebase with millions of lines devolves into a similar state.  The small codebase starts with clean conceptual integrity.  It then inevitably decays into incomprehensible spaghetti code as more people are added to it.  Various reasons for it including the later devs caring less about the code than the initial team of devs, deadlines, avoiding refactoring because of fear about breaking things, etc.\nIf you don't want AI to create fragile code, you have to apply the same quality gates that would have been applied to pre-AI hand-written code to keep everything clean.  Most companies don't do that."
+        },
+        {
+          "id": 50439197,
+          "author": "yodsanklai",
+          "text": "I don't think this matters anymore. Software is becoming a black box and agents make it works, as long as you can provide some reasonable spec of what you want to do, and a bit of supervising and directions.\nRight now, they're not great at following good software engineering principles. They do the job, with verbose code, lots of duplication, abstraction leaks, useless unit tests and so on.\nIs it an issue? you could think that in the long term it'll be, that AI won't be able to handle the complexity it introduced, but I'm not really worried about it. Most software isn't that big, and agents are getting better by the day. And if you really care about design, it's not too hard to instruct your agent to follow your standards.\nI wish it wasn't the case and that I could justify my experience and expertise for a few more years, but the facts are there."
+        }
+      ],
+      "title_ja": "AIの使用は脆弱なコードベースを生成します",
+      "summary_ja": "ディスカッションハイライト：エンジニアリングの観点からコードと開発のためのAIの使用を見ることは、フラストレーションの練習になると思います/これは1年前に書かれたコンテンツのようなものです/「AIが生成する...」という記事がうまく古くなるかどうかはわかりません。\n私の当面の疑問は、著者がどのような種類の敵対的レビューと決定論的ゲートを",
+      "editor_note": "「AIの使用は脆弱なコードベースを生成します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 50439284,
+      "title_en": "What's new in the .NET 11 runtime",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+      "hn_url": "https://news.ycombinator.com/item?id=50439284",
+      "score": 239,
+      "comment_count": 174,
+      "posted_at": "2026-11-10T12:20:07+00:00",
+      "comments": [
+        {
+          "id": 50443345,
+          "author": "CharlieDigital",
+          "text": "In my experience, C# and .NET are both \"underappreciated\" in a large part based on the legacy.\nSome folks out there still think .NET is Windows only.  Some folks out there haven't looked at C# since the .NET Framework days.  Some folks out there are still salty about some of Microsoft's decision around OSS (debugger, hot reload fiasco, etc.)\nBut day to day working with C# and .NET for backends?  It's really fantastic.  AI seems to like it a lot and a lot of tools for agents to go HAM.  Roslyn analyzer, source generators, workable hot reload (for a compiled language), tons of really good docs from Microsoft, generally low variance and high consistency from codebase to codebase (e.g. encountering Drizzle vs Prisma vs TypeORM vs Kysely vs ... in Node land).\nMy previous team switched from TS to C# and F#[0][1] and it was a blessing; a lot of the platform ops have been simplified.  It's just one very solid tool chain and packages are generally stable (a lot less effort on maintaining platform config/tooling and more focus on just building).  First party packages get consistent security updates and C# doesn't have nearly the same level of exposure to transitive packages that one encounte"
+        },
+        {
+          "id": 50442382,
+          "author": "giancarlostoro",
+          "text": "C# was my 2nd programming language after VB6. I remember in the early 2000s when I was 12, using my best friends computer to try and download VB .NET (he had faster internet) just because it was free, then being extremely disappointed when I couldnt just run my VB6 projects I wanted to run on it... Some years later, during 2007 ~ 2009 I tried out C# and that was life changing.\nI wound up going to college after working retail at Disney, then after college, my first job was supposed to be C# but they didn't have the project approved, so I got my first exposure to Python - which I loved, then JavaScript - which I hated but have a love-hate with to this day, and finally C#, but it wasn't .NET 3.5 no, they started using .NET Core, which was... something else, lots of teeth pulling during the original .NET Core days.\nSo many wonderful projects made with .NET my only complaint is I wish Microsoft would make a cross-platform GUI stack they'd actually stick to, and make it work on Linux too. ;)\nI know there's alternatives but nothing beats telling your coworkers \"lets just use the built-in\" when choosing a GUI stack."
+        },
+        {
+          "id": 50443195,
+          "author": "1a527dd5",
+          "text": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/...\nBe aware\n(decimal)0.1\n// .NET 10: 0.1\n// .NET 11: 0.1000000000000000055511151231"
+        },
+        {
+          "id": 50440672,
+          "author": "wofo",
+          "text": "Awesome stuff, as usual in .NET releases! The runtime async support is surprising to me... I get that stack traces are more friendly without state machines in the code, but I didn't expect they could switch to a runtime version and have equivalent performance. Cool!"
+        },
+        {
+          "id": 50447657,
+          "author": "Rapzid",
+          "text": "DotNet finally has an official version manager! Check out dotnetup:\nhttps://learn.microsoft.com/en-us/dotnet/core/tools/dotnetup..."
+        },
+        {
+          "id": 50443892,
+          "author": "jotato",
+          "text": "What IDE are people using for C# these days? Back in the day (circa 2008) Visual Studio was your only real option.\nBut I'm on linux now. If I wanted to pick up back up then what should I be using?"
+        },
+        {
+          "id": 50443131,
+          "author": "GaProgMan",
+          "text": "> .NET 11 is a Standard Term Support (STS) release with two years of support under the .NET support policy. STS and Long Term Support (LTS) releases have the same quality and servicing policies; the difference is the length of support. .NET 10 remains a supported LTS option. Stay current with servicing updates whichever release you choose.\nThey burried the lede on this one.\n- .NET 10 is end of life'd on Nov 14th, 2028\n- .NET 11 is end of life'd on Nov 9th, 2028\nWhich means anyone who upgrades to 11 has fewer days of support. But the idea is that you'll upgrade to 12 as soon as it's RTM'd.\nThe problem with that is I have clients who refuse to budge from 2.1 (or even upgrade to the 2.1 re-release: 2.3)."
+        },
+        {
+          "id": 50443292,
+          "author": "mgdev",
+          "text": "I feel like they've done a lot to resolve a lot of the confusing versioning and runtime compatibility problems that drove away non-Windows developers from using .NET.\nHowever they still suffer from an incredible branding problem.\nIt's really too bad because as a runtime it's fairly incredible, and F# in particular is fun to work with. They also have good cross-platform support and tooling, which they didn't have a number of years ago.\nCombine that with the fact that nobody really writes code anyway thanks to AI, and this could be a slam dunk runtime for an AI-native development environment.\nBut it will never happen."
+        }
+      ],
+      "title_ja": ".NET 11ランタイムの新機能",
+      "summary_ja": "ディスカッションのハイライト：私の経験では、C #と.NETの両方が、レガシーに基づいて大部分が「過小評価」されています。\nまだ.NETはWindowsのみだと思っている人もいます/C #はVB 6/https://learn.microsoft.com/en-us/dotnet/core/compatibility/に次いで私の2番目のプログラミング言語でした...\nご注意ください\n（ 10進数） 0.1\n// .NET 10 ： 0.1\n// .NET 11: 0.1000000000000000055511151231",
+      "editor_note": "「.NET 11ランタイムの新機能」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50442426,
+      "title_en": "Blender 5.3 released with Gaussian Splat support",
+      "url": "https://www.blender.org/download/releases/5-3/",
+      "hn_url": "https://news.ycombinator.com/item?id=50442426",
+      "score": 432,
+      "comment_count": 65,
+      "posted_at": "2026-11-10T16:15:43+00:00",
+      "comments": [
+        {
+          "id": 50442662,
+          "author": "Retro_Dev",
+          "text": "Every time I hear about Gaussian splatting, I think about triangle splatting[0] - GPUs were built to render triangles, so I wonder what games would be like if we supported generating and rendering them as much as we do Gaussian splats.\n[0]\nhttps://trianglesplatting.github.io/"
+        },
+        {
+          "id": 50442743,
+          "author": "mturk",
+          "text": "Bundle support in geometry nodes is\nhuge\nfor complex pipelines and workflows, particularly when combined with lists and closures.  I have been running on the alpha builds to get access to them in my workflows.\nIt took me a while to properly understand it, but it's genuinely great.  It maps so much more of what I expect from traditional coding, scripting etc into the visual paradigm and makes an awful lot easier to use.\nAlso, should out to databpy and nodebpy, both of which are indispensable and make using nodes and blender so much nicer:\nhttps://github.com/BradyAJohnston/databpy\nhttps://github.com/BradyAJohnston/nodebpy"
+        },
+        {
+          "id": 50443277,
+          "author": "unshavedyak",
+          "text": "If you enjoy or get value out of Blender please consider donating:\nhttps://fund.blender.org/\nThey have easy subscription options, even a monthly coffee adds up! Thanks!"
+        },
+        {
+          "id": 50443766,
+          "author": "guidopallemans",
+          "text": "Tried the beta on my M4 a couple of weeks ago on a scene of 4M splats (exported from spirula studio, great tool) , and found that it's immediately very mature, fast, and well-integrated. I could not find anyinconstencies with the rest of the interface. Congrats to the team!"
+        },
+        {
+          "id": 50442547,
+          "author": "load-bearing",
+          "text": "Interesting discussion from start of this year of one of the first popular music videos made with this technology. Some decent explanations in there.\nhttps://news.ycombinator.com/item?id=46670024"
+        },
+        {
+          "id": 50447597,
+          "author": "hoyd",
+          "text": "I remember the first time I installed Blender, the download size was 2.5 mb."
+        },
+        {
+          "id": 50448243,
+          "author": "impizulu",
+          "text": "congrats on the new release! I hope with all the attention Blender has been getting recently (I've been seeing it in a bunch of tech demos from some gigantic companies) it gets a nice boost of donations.\nhttps://www.youtube.com/watch?v=bvB4PHbzn0E\nhttps://fund.blender.org/"
+        },
+        {
+          "id": 50443443,
+          "author": "dvh",
+          "text": "You show something to your boss, he pats you on the shoulder and says \"Perfect! Just move chairs 2 feet left and ship it\". How does one do it with gaussian splats?"
+        }
+      ],
+      "title_ja": "ガウススプラットサポートでリリースされたBlender 5.3",
+      "summary_ja": "ディスカッションのハイライト：ガウススプラッティングについて聞くたびに、三角形スプラッティング[0]について考えます。GPUは三角形をレンダリングするために構築されたため、ジオメトリノードでジェネラティ/バンドルサポートをサポートした場合、ゲームはどのようなものになるのでしょうか\n巨大\n複雑なパイプラインやワークフローの場合、特にリストやクロージャーと組み合わせる場合/Blenderを楽しんだり、価値を得たりする場合は、寄付を検討してください：\nhttps://fund.blender.org/\n彼らは簡単なサブスクリプションを持っています",
+      "editor_note": "「ガウススプラットサポートでリリースされたBlender 5.3」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50448174,
+      "title_en": "AI is an information gateway. Audiences still don't want it making their news",
+      "url": "https://www.niemanlab.org/2026/11/ai-is-becoming-an-information-gateway-audiences-still-dont-want-it-making-their-news/",
+      "hn_url": "https://news.ycombinator.com/item?id=50448174",
+      "score": 4,
+      "comment_count": 0,
+      "posted_at": "2026-11-11T00:15:33+00:00",
+      "comments": [],
+      "title_ja": "AIは情報ゲートウェイです。オーディエンスはまだニュースになることを望んでいません",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「AIは情報ゲートウェイです。オーディエンスはまだニュースになることを望んでいません」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 50446714,
+      "title_en": "rVPN – stealth VPN with end-to-end encryption",
+      "url": "https://rvpn.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=50446714",
+      "score": 61,
+      "comment_count": 55,
+      "posted_at": "2026-11-10T21:42:50+00:00",
+      "comments": [
+        {
+          "id": 50446966,
+          "author": "tptacek",
+          "text": "Not sure why you'd vibe-code a new VPN protocol, double ratchet or otherwise, when you can just take WireGuard and make a new transport for it.\nWireGuard by itself is not a stealth VPN, but the things that make a VPN \"stealthy\" are all things you'd layer on top of a WireGuard design, not thread through the middle of it. A datagram-based protocol can run under any obscured transport.\nWe did this at Fly.io when we discovered that, for one reason or another, 5% of our users simply couldn't reliably use UDP. It was a one-day project to run it under WebSockets instead, and that was before coding agents."
+        },
+        {
+          "id": 50447120,
+          "author": "Sha1rholder",
+          "text": "> Memory-safe in Rust\n> The core is written in Rust, so entire classes of vulnerability cannot occur.\nHmm... It just ain't true.\n---\nFor those who need a \"stealth VPN\", use <\nhttps://github.com/XTLS/Xray-core/\n> or its GUI version <\nhttps://github.com/2dust/v2rayN/\n>"
+        },
+        {
+          "id": 50448069,
+          "author": "prima-facie",
+          "text": "Proxyguard already fills this niche using Wireguard over HTTPS and is not a vibe-coded project.\nhttps://codeberg.org/eduVPN/proxyguard"
+        },
+        {
+          "id": 50447606,
+          "author": "munro",
+          "text": "I discovered recently Three UK is slowing down port 443, and if I started using 2000-3000 port range it increased my speeds 10x"
+        },
+        {
+          "id": 50447111,
+          "author": "eric15342335",
+          "text": "Why not Xray-core VLESS families?\nIt sounds like your code is written by an LLM that is trained on Xray-core source code."
+        },
+        {
+          "id": 50447610,
+          "author": "rock_artist",
+          "text": "> The mobile apps are paid. Development is fully funded by PDG Global Limited; revenue from app sales, together with donations, contributes towards development costs. The core remains open source under AGPLv3."
+        },
+        {
+          "id": 50447609,
+          "author": "f311a",
+          "text": "It’s not enough to put everything in https if you really want to circumvent modern censorship technology."
+        },
+        {
+          "id": 50447446,
+          "author": "jmclnx",
+          "text": ">stealth VPN with end-to-end encryption\nNot sure what this means. AFAIK all VPNs have end-to-end encryption.  Stealth ? will need to read to see what that means."
+        }
+      ],
+      "title_ja": "rVPN -エンドツーエンドの暗号化を備えたステルスVPN",
+      "summary_ja": "ディスカッションのハイライト： WireGuardを使用して新しいトランスポートを作成できるときに、新しいVPNプロトコル、ダブルラチェットなどをバイブコードする理由がわかりません。\nWireGuard自体はRustのステルス/>メモリセーフではありません\n>コアはRustで記述されているため、クラス全体の脆弱性は発生しません。\nHmm../ProxyguardはすでにHTTPS経由のWireguardを使用してこのニッチを埋めており、バイブコード化されたプロジェクトではありません。\nhttps://codeberg.org/eduVPN/proxyguard",
+      "editor_note": "「rVPN -エンドツーエンドの暗号化を備えたステルスVPN」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "12",
+    "started_at": "2026-11-11T10:41:59.520712+09:00",
+    "finished_at": "2026-11-11T10:42:59.482226+09:00",
+    "story_count": 30
+  }
+}
