@@ -1,0 +1,1434 @@
+{
+  "date": "2026-11-12T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50459745,
+      "title_en": "93% of paint splatters are valid Perl programs (2019)",
+      "url": "https://www.mcmillen.dev/sigbovik/",
+      "hn_url": "https://news.ycombinator.com/item?id=50459745",
+      "score": 183,
+      "comment_count": 26,
+      "posted_at": "2026-11-11T22:34:23+00:00",
+      "comments": [
+        {
+          "id": 50460625,
+          "author": "snitty",
+          "text": "SIGBOVIK papers are almost always a delight\nEDIT: From their 2026 publication\n>Permission to make digital or hard copies of portions of this work for personal use is granted;\npermission to make digital or hard copies of portions of this work for classroom use is also granted,\nbut seems ill-advised"
+        },
+        {
+          "id": 50460250,
+          "author": "gnabgib",
+          "text": "Popular in:\n2024 (515 points, 125 comments)\nhttps://news.ycombinator.com/item?id=40197013\n2021 (431 points, 165 comments)\nhttps://news.ycombinator.com/item?id=27929730"
+        },
+        {
+          "id": 50460402,
+          "author": "layer8",
+          "text": "Tangentially related, the only way for a Java properties file to be invalid is if it contains an invalid Unicode escape sequence (“\\u” not followed by four digits, and not preceded by an odd number of “\\”). After resolving Unicode escapes, any character sequence is a valid properties file."
+        },
+        {
+          "id": 50459808,
+          "author": "zenincognito",
+          "text": "The actual paper is also highly entertaining -\nhttps://www.mcmillen.dev/sigbovik/2019.pdf"
+        },
+        {
+          "id": 50461418,
+          "author": "jacquesm",
+          "text": "Someone should reverse that and see how many paintings can be made to execute as Perl and what those programs do when invoked."
+        },
+        {
+          "id": 50461190,
+          "author": "baron3dl",
+          "text": "i loved programming perl.  both the act, and the book.  i long since gave it up, but i am still awed by how it could both be completely unceremonious and absurdly ceremonious.  my $self = shift; for instance."
+        },
+        {
+          "id": 50461749,
+          "author": "idlewords",
+          "text": "A whole new twist on \"Hackers and Painters\""
+        },
+        {
+          "id": 50461972,
+          "author": "polarsanel",
+          "text": "93% of Perl Programs are valid Paint Spatters too."
+        }
+      ],
+      "title_ja": "ペンキの飛沫の93%は有効なPerlプログラムです（2019年）",
+      "summary_ja": "ディスカッションのハイライト：SIGBOVIKの論文はほぼ例外なく素晴らしいものです。\n編集：2026年の出版物より\n>個人的な使用を目的として、この著作物の抜粋をデジタルまたは印刷で複製することが許可されています。\npermi / 人気：\n2024年（515ポイント、コメント数125）\nhttps://news.ycombinator.com/item?id=40197013\n2021年（431ポイント、165件のコメント）\nhttps://news.ycombinator.com/item?id=27929730 / 間接的に関連しますが、Javaプロパティファイルが無効になる唯一の方法は、",
+      "editor_note": "「ペンキの飛沫の93%は有効なPerlプログラムです（2019年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50456631,
+      "title_en": "AWS emulator",
+      "url": "https://github.com/aws/aws-emulator",
+      "hn_url": "https://news.ycombinator.com/item?id=50456631",
+      "score": 697,
+      "comment_count": 219,
+      "posted_at": "2026-11-11T18:21:38+00:00",
+      "comments": [
+        {
+          "id": 50456723,
+          "author": "CharlieDigital",
+          "text": "Skeptical of using because it's not clear whether this was just an exercise or a real product they are going to ship and maintain.\nFloci[0] has been great for me.  Use the Testcontainers[1], too.\nBonus: works for GCP and Azure, too (so far have only used in limited capacity, though).\n[0]\nhttps://floci.io/\n[1]\nhttps://testcontainers.com/modules/floci/"
+        },
+        {
+          "id": 50459920,
+          "author": "scriptsmith",
+          "text": "From the security page [0]\n> Don’t use the emulator to test the following:\n> - IAM policies and permissions boundaries\n> - Resource-based policies, such as bucket policies\n> - AWS KMS key policies\n> - Access across AWS accounts or across AWS Regions\n> - Any other security control\n> Some services in the emulator evaluate IAM policies for IAM users and roles that you create in the emulator, but not the same way as AWS. The emulator never denies a request signed with its own key. It doesn’t check AWS KMS key policies or Amazon S3 bucket policies. It also doesn’t support calls across accounts or Regions. So a request that AWS denies might succeed in the emulator. A request that AWS allows might fail.\nThis is a shame because I'd love for the official AWS product to be better than e.g. ministack and localstack on this, which will go some of the distance. I think because the agents were only building on the public API surface, it's hard to build this part. But they should've tried and let the agents read whatever policy engines AWS has. Or maybe it's a way to prevent someone from trivially running aws-emulator as AWSaaS?\n[0]\nhttps://docs.aws.amazon.com/emulator/latest/userguide/securi..."
+        },
+        {
+          "id": 50458860,
+          "author": "wg0",
+          "text": "Say whatever but without AI and agents, no one in AWS would have thought of building this given the huge amount of services they have. Humanly, possible but very very costly. Not saying has not happened before but fakecloud and localstack etc? That moat is gone.\nI am shocked TBH that this is the new normal. Agents writing code in one of the most difficult to use languages. And ugly as well TBH, it pokes into your eyes. Subjective I know but it is a horrible language for humans."
+        },
+        {
+          "id": 50457202,
+          "author": "morelandjs",
+          "text": "Fellow Amazonian here. Want to say that I’m grateful you built this and it has tremendous value if pulled off well and properly maintained.\nAgentic development is all about closing off a system as much possible, then mocking up or simulating any inputs or dependencies that cannot be closed off. At that point, you let Claude crawl over the system and do its thing.\nThis inevitably runs into problems with infrastructure and any tools that help mock up those interfaces will be tremendously valuable. Thank you!"
+        },
+        {
+          "id": 50457408,
+          "author": "Waterluvian",
+          "text": "If I understand this correctly, it means I can point my entire CDK project to the emulator and test a `cdk deploy`?\nI'm curious just how realistic the \"internal\" behaviour is emulated.  It's been a while (since I got my stack working and I just don't like touching it now...), but I recall it being a real pain that sometimes odd, sometimes inconsistent things happened with setup and teardown (even through Terraform), which led to long timeouts if you did things in the wrong (but seemingly valid) order."
+        },
+        {
+          "id": 50462127,
+          "author": "MiroslavPokorny",
+          "text": "> At least 100 GB of free disk for target/. The workspace has one crate per AWS service, so a debug build of everything is large, and it grows as services are added.\n100GB !??!?!"
+        },
+        {
+          "id": 50456656,
+          "author": "super_linear",
+          "text": "Related to this post:\nhttps://www.aboutamazon.com/news/aws/how-autonomous-ai-agent..."
+        },
+        {
+          "id": 50458542,
+          "author": "Shakahs",
+          "text": "AWS already models all their services with Smithy, the specification language they created. Their API clients are all generated from Smithy, and the emulator seems to have been built using the Smithy specs and comprehensive integration testing against the real APIs. Using the spec ensures they hit every variant and optional field of every endpoint, unlike Floci and Ministack that only implement the more commonly used ones.\nhttps://github.com/aws/api-models-aws\nhttps://github.com/smithy-lang/smithy"
+        }
+      ],
+      "title_ja": "AWSエミュレーター",
+      "summary_ja": "ディスカッションのハイライト：これが単なる演習なのか、それとも実際にリリースしてメンテナンスを行う予定の製品なのかが明確でないため、使用することに懐疑的である。\nFloci[0]は私にとって素晴らしいものでした/セキュリティページ[0]から\n> エミュレーターを使用して、次の項目をテストしないでください。\n> - IAMポリシーとアクセス許可の境界\n> - バケットポリシーなどのリソースベースのポリシー\n> - AWS  / 何と言おうと、AIとエージェントがなければ、AWSの誰も構築を思いつかなかったでしょう。",
+      "editor_note": "「AWSエミュレーター」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 3,
+      "id": 50450488,
+      "title_en": "Tim Peters has died",
+      "url": "https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028",
+      "hn_url": "https://news.ycombinator.com/item?id=50450488",
+      "score": 894,
+      "comment_count": 94,
+      "posted_at": "2026-11-11T07:03:17+00:00",
+      "comments": [
+        {
+          "id": 50451437,
+          "author": "w-m",
+          "text": "$ python -c \"import this\"\nThe Zen of Python, by Tim Peters\nBeautiful is better than ugly.\nExplicit is better than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren't special enough to break the rules.\nAlthough practicality beats purity.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThere should be one-- and preferably only one --obvious way to do it.\nAlthough that way may not be obvious at first unless you're Dutch.\nNow is better than never.\nAlthough never is often better than *right* now.\nIf the implementation is hard to explain, it's a bad idea.\nIf the implementation is easy to explain, it may be a good idea.\nNamespaces are one honking great idea -- let's do more of those!"
+        },
+        {
+          "id": 50455669,
+          "author": "leoc",
+          "text": "Among his various other works, it was Tim Peters along with Gary Robinson who turned pg's \"A Plan for Spam\" essay into the successful SpamBayes program:\nhttps://www.linuxjournal.com/article/6467\n.\n(EDIT: Robert Woodhead apparently shares in the credit, too:\nhttps://www.ceas.cc/papers-2004/136.pdf\nhttps://ceas.cc/papers-2004.html\n. Apparently Rob Hooft was another implementor? I can't find a good source for that though.)"
+        },
+        {
+          "id": 50452365,
+          "author": "lumpa",
+          "text": "Once upon a time I used to read all python-dev posts and bugs.python.org issues, so I got to follow (and get a feeling of knowing) these people I admired working and discussing together. Tim was always a favorite.\nAnother thing that made me feel close to him was his work on the Python Cookbook 2nd Edition, in which he (and other big names in the community) delightfully talks the reader through intricacies and insights of programming, \"We read Knuth so you don't have to\".\nWatching Tim do his thing was a pleasure. He'd go from long, deep technical dives (that he'd make as approachable as possible) into comic relief and human connection in the fractional wink of an eye.\nThe brief interactions we had will always be cherished as high points in my Pythonista trajectory.\nOne favorite of mine was this response:\nhttps://www.python.org/doc/humor/#id15\n. I also like\nhttps://www.python.org/doc/humor/#id19\nvery much."
+        },
+        {
+          "id": 50451689,
+          "author": "dalke",
+          "text": "In the 1990s I was a novice developer, though I considered myself a hotshot because I was better than those around me in college and grad school.\nI was an active participant in the comp.lang.python Usenet channel in the late 1990s.\nI learned much from reading Tim Peters' posts. To many, including me, he was affectionately referred to as \"Uncle Timmy.\"\nOne of the things I learned was that I still had much to learn about the art of programming.\nMuch of the little I know about numerical methods comes from reading his posts. It was fun to read his stories about Kendall Square Research and the (for me) old days of computing.\nI remember posting questions about things I didn't understand, which he figured out and explained. [1]\nI remember bringing up concepts I thought were specialized and esoteric, only to find that it was actually just my lack of experience. He gently corrected misapprehensions like mine. [2]\nHe wrote a lot on comp.lang.python. If I recall correctly, at the 7th International Python Conference in Houston, November 1998, there was Festschrift in his honor. He would use <wink> in his messages, and often end with something like \"let's-hear-it-for-lambda-in-curly-assignment-"
+        },
+        {
+          "id": 50457143,
+          "author": "ofek",
+          "text": "Tim was one of the people who contributed to my love of the Python language eventually expanding to its entire community.\nHe was always so willing to foster discussion that nearly every interaction resulted in an improved understanding of some topic and a shared eagerness to try or learn more out something tangential that came up via digression. I never knew how many types of voting systems there were nor how extensively they are researched! He also reached out about a comment [0] I made a few years ago which made me feel less discouraged and more welcome.\nTim's writing style was greatly appreciated by myself and many others. What he had to say was often lengthy, to address reader assumptions or some nuance, but was written with such a jovial tone that it was rarely dull or inaccessible.\nRIP Tim\n[0]:\nhttps://discuss.python.org/t/5778/24"
+        },
+        {
+          "id": 50453810,
+          "author": "linsomniac",
+          "text": "Gene Hackman's character in Heist says \"I tried to imagine a a fella smarter than myself.  Then I tried to think 'What would he do?'\"\nFor me, Tim Peters was that guy.  I first met Tim in person at the first PyCon at GWU where I rode an elevator with him and Barry Warsaw.  Let me tell you, it was a wild ride.  He was a genuinely really nice, smart, kind guy.\nRIP my friend."
+        },
+        {
+          "id": 50456839,
+          "author": "linsomniac",
+          "text": "My last exchange with Tim was him saying that he wasn't feeling up to having visitors.\nYou never know when an email is going to be the Last Email.  Don't put off reconnecting with old friends."
+        },
+        {
+          "id": 50458395,
+          "author": "lukasgelbmann",
+          "text": "Among other places, Tim also wrote a lot on StackOverflow. He’d answer all kinds of questions, both from novices and experts.[0][1]\nI like reading his answers. He always seemed to have something interesting to say, and his answers are kind, light-hearted, approachable and insightful.\n[0]\nhttps://stackoverflow.com/a/69859068\n[1]\nhttps://stackoverflow.com/a/19391867"
+        }
+      ],
+      "title_ja": "ティム・ピーターズ氏が死去",
+      "summary_ja": "ディスカッションのハイライト： $ python -c \"import this\"\nティム・ピーターズ著『Pythonの禅』\n美しい方が醜いより良い。\n明示的な方が、暗黙的な方より良い。\n単純な方が複雑な方より良い。\n複雑な方が、ややこしいよりはましだ / 彼のさまざまな他の作品の中でも、pgの「A Plan for Spam」というエッセイを、成功したSpamBayesプログラムに変えたのは、Gary Robinson氏と共にTim Peters氏でした。\nhttps://www.linuxjournal.co / かつては、すべてのpython-devの投稿とバグを読んでいました。",
+      "editor_note": "「ティム・ピーターズ氏が死去」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 4,
+      "id": 50459485,
+      "title_en": "Lock Your GitHub Actions",
+      "url": "https://hugovk.dev/blog/2026/lock-github-actions/",
+      "hn_url": "https://news.ycombinator.com/item?id=50459485",
+      "score": 147,
+      "comment_count": 25,
+      "posted_at": "2026-11-11T22:16:41+00:00",
+      "comments": [
+        {
+          "id": 50459919,
+          "author": "woodruffw",
+          "text": "The advice here is really great (as I'd expect from Hugo), but as the maintainer of zizmor I want to note some caveats with the current iteration of workflow lockfiles:\n- They only lock normal action calls. If your workflows invoke other reusable workflows, you need to keep those hash-pinned manually for now.\n- Composite actions are not\nthemselves\nlocked. Instead, they get locked transitively through their callsites i.e. the workflows that call them. This makes any individual caller that uses lockfiles safe, but it also makes the current `gh actions-lock` default\nunsafe\n(since it removes hash-pins from the composite action itself, meaning that any external caller that invokes the action loses their transitive pinning).\n- Other forms of `uses:` clauses, like Docker images, are also not currently locked via the lockfile. And the same for forms of interior mutability (like an action running `npx ...` under the hood, although the latter is fully outside of GitHub's control to prevent. But these mean that you\ncan't\nassume that a fully locked Actions setup is in fact 100% immutable.\nI hope they address these gaps soon, because it's otherwise an excellent (and long-awaited) feature."
+        },
+        {
+          "id": 50459589,
+          "author": "Already__Taken",
+          "text": "Quoting someone else's blog I've forgotten but you're trading the trust in the repo owner not moving a tag for trusting whoever merges the commit hash to have checked that's a release in the repo you want and not _some_ forks commit. All forks on github are the same repo you can pin any commit, merged upstream or not.\nIMO Github should make Immutable tags mandatory to publish on\nhttps://github.com/marketplace"
+        },
+        {
+          "id": 50460909,
+          "author": "klodolph",
+          "text": "I think my main advice is to avoid GH actions at all, unless avoiding them is somehow painful. There is just a long bad history here."
+        },
+        {
+          "id": 50462207,
+          "author": "transitivebs",
+          "text": "big fan of actions-up for doing this:\nhttps://github.com/azat-io/actions-up"
+        },
+        {
+          "id": 50459686,
+          "author": "SchemaLoad",
+          "text": "Are people finding a real need for importing and updating git actions? Aren't they usually just running a one line bash command? I'd just copy paste the action in to your config so it's fully locked and under your control rather than importing some opaque script from a no name github user."
+        },
+        {
+          "id": 50460461,
+          "author": "gbraad",
+          "text": "I undrrstand this looks cleaner and more intuitive, but you still have the risk of running a workflow with malicious/compromised actions, like manually, or locally with act, if you do not verify the lockfile as part of the workflow or preceded by an extra workflow step. This should be something that the runner ideally should handle (as part of the platform). This still is a workaround, just like the sha pinning. I only use vendor upstream  actions, like github's or forks in our own org."
+        },
+        {
+          "id": 50460169,
+          "author": "lukasschwab",
+          "text": "Are there clear reasons to prefer this over just pinning a commit SHA?"
+        },
+        {
+          "id": 50462262,
+          "author": "edelbitter",
+          "text": "So instead of specifying a SHA1 hash of\nsome\ncommit and change it rarely enough to just check manually, now every developer needs to unsafe-eval some 476 transitive dependencies of the helper that fixes the lockfile? I wonder at which point it gets easier to just have a nice stdlib again, and not deal with tons and tons of version changes in packages across 3 different language ecosystems."
+        }
+      ],
+      "title_ja": "GitHub Actionsをロックする",
+      "summary_ja": "ディスカッションのハイライト：ここでのアドバイスは本当に素晴らしい（Hugoから期待されるとおり）ですが、zizmorのメンテナーとして、現在のワークフローロックファイルのイテレーションに関するいくつかの注意点を指摘したいと思います。\n- それらは/誰かのブログを引用しますが、誰だったかは忘れました。しかし、リポジトリのオーナーがタグを移動しないという信頼を、コミットハッシュをマージする人がそれがリリースであることを確認したという信頼と交換していることになります/私の主なアドバイスは、GHアクションをまったく避けることです。ただし、次の場合を除きます。",
+      "editor_note": "「GitHub Actionsをロックする」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 5,
+      "id": 50458900,
+      "title_en": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "hn_url": "https://news.ycombinator.com/item?id=50458900",
+      "score": 410,
+      "comment_count": 394,
+      "posted_at": "2026-11-11T21:24:35+00:00",
+      "comments": [
+        {
+          "id": 50459506,
+          "author": "doctoboggan",
+          "text": "How do they plan on stopping me from using Claude code with the Claude in chrome plugin, or some other computer use agent?\nAt this point it feels like I have an adversarial relationship with many merchants I use online. I wish the simple “you have a product, I have money” relationship was possible. I don’t want to take part in your giant human behavior optimization problem. You have a product and I have money why does it have to be more complicated than that?\nRealistically though I know that’s not happening. I will continue to access online merchants in the way I prefer and will do my best to avoid detection or blocking. At least so far Claude is happy to play along but I suspect I will need to seek out an obliterated agent in the not to distant future.  (Once the corporate capture of the frontier cloud AI models is complete.)"
+        },
+        {
+          "id": 50459719,
+          "author": "cmpolis",
+          "text": "Tangent: it was always odd to me that \"booking a [flight|hotel|concert tickets]\" is the canonical example of a task that can be automated by an agent. These are tasks that are:\n- already streamlined (spend 2min on Google flights, seatgeek, etc...); we aren't stuck with early web UX and latency\n- I want to have 100% control of the outcome or would have to write a long list of preferences and rules (middle seats, layovers, etc...) to feel good about trusting automation\n- require making a large payment. the agent is not getting free reign to use my cc\n- give me some personal satisfaction and enjoyment - its delightful to look foward to a trip, concert, etc... and planning is part of the fun and anticipation imo"
+        },
+        {
+          "id": 50459448,
+          "author": "andix",
+          "text": "Somebody once said, that airline booking pages itself are one of the most sophisticated CAPTCHAs. No idea if this is true, but they obviously don't want their customers to easily find the best deals.\nI guess the best option is, to use a good reseller/travel agency that provides an API/MCP for booking and managing flights.\nFor finding the cheapest deals agents can still be used. Just the booking itself is probably better done manually. It also eliminates the risk that the agent does something stupid.\nedit: they might try to block agents, but this won't be possible with browser use. they can always throttle users by IP or fingerprint. Letting an agent book a flight might be risky, because they might cancel a booking or impose a fee if they somehow detect it."
+        },
+        {
+          "id": 50462267,
+          "author": "azinman2",
+          "text": "They don’t want people to comparison shop easily without getting a cut. Further, all these guys want to move to Uber-style dynamic/personalized pricing. So basically they want an adversarial relationship against you, but block any attempts to reverse that relationship on them."
+        },
+        {
+          "id": 50461658,
+          "author": "cakeface",
+          "text": "I have found these agentic blocks sort of inspiring and in the spirit of a free market. Amazon blocked my Muse, so I told Muse to find other vendors and prefer the shopify store for the brand. That was a pain for me to search through but AI has no problem."
+        },
+        {
+          "id": 50459287,
+          "author": "ProblemExplorer",
+          "text": "The airlines are trying to reduce prices for\neveryone\nwithout giving\nspecific\npeople (atleast those who they don't deem \"worthy\") an edge. Here's a great, short comment:\nhttps://news.ycombinator.com/item?id=50459444\nIt's mostly a commodity, specially for economy class where price matters.\nAfter gas and grocery, its the most vicious, cut throat business where a customer will switch from United to Delta over $5. Unlike gas and grocery they cannot compete on volume (even a 747 has a fixed capacity per leg).\nIt sounds counterproductive but personal AI agents cause a\nlocal optima\nwhile overall\nincreasing\ncost for rest of the travelers.\nFor example, if you had an MCP connector to United and found a flight from SFO to DEN for $50, the rest of the seats have to go up in price to compensate and not just by a few cents because the nominal cost of an economy seat is likely $250, not $50.\nNow United isn't against offering a $50 flight to customers who they deem \"worth it\" - they just don't want it to be\nanyone\nwho can run an MCP connector. They are just betting that the \"worth it\" will \"make it up\" in the long run vs. a customer who's just there for the $50 seat.\nWhat happens if you say \"screw"
+        },
+        {
+          "id": 50460160,
+          "author": "pixl97",
+          "text": "Anyone here sticking up for the airlines just because you hate AI, ya'll are out of your minds.\nThe airlines use every nasty practice they can to raise costs to you. Hidden fees, raising costs by just viewing flights and all kinds of other crap.\nLet them burn."
+        },
+        {
+          "id": 50459702,
+          "author": "throw03172019",
+          "text": "I recently bought a Flight directly on United.com. I usually book business travel directly on Brex so I was appalled of how bad the checkout flow was on the United site. 5 page loads. Multiple “offers” to sift through. Donations to the environment. Upgrades for security priority, seats, classes. Credit card ads.\nIt made me think, an agent would be nice. Too bad."
+        }
+      ],
+      "title_ja": "ユナイテッド航空、AIエージェントによる旅行者の代理での航空券予約を禁止",
+      "summary_ja": "ディスカッションのハイライト：ChromeプラグインのClaudeや、その他のコンピュータ使用エージェントでClaudeコードを使用することを、彼らはどのようにして阻止しようとしているのでしょうか？\nこの時点で、私には敵対的な関係があるように感じられます / 話が逸れますが、私には「[航空券|ホテル|コンサートチケット]の予約」が、エージェントによって自動化できるタスクの典型的な例であるというのが常に奇妙に思えました / 誰かがかつて、航空会社の予約ページ自体が最も洗練されたCAPTCHAの1つであると言っていました。",
+      "editor_note": "「ユナイテッド航空、AIエージェントによる旅行者の代理での航空券予約を禁止」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50455394,
+      "title_en": "A false smoke alarm almost drowned Jane Street's only NYC datacenter",
+      "url": "https://michael.bacarella.com/2026/11/10/false-smoke-alarm-jane-street-datacenter/",
+      "hn_url": "https://news.ycombinator.com/item?id=50455394",
+      "score": 425,
+      "comment_count": 215,
+      "posted_at": "2026-11-11T16:38:44+00:00",
+      "comments": [
+        {
+          "id": 50455814,
+          "author": "reticulates",
+          "text": "The article reminds me of when Hurricane Sandy took out a bunch of New York DCs with 3+ feet of water and people were carrying diesel up stairs to keep generators running.\n“The superhuman folks at the data center are hauling 55 gallon drums of diesel fuel up 17 flights of stairs. Assuming they're able to sustain a rate of transfer that exceeds the rate of consumption, the data center should run until electricity is restored. The latest estimate from Con Edison for lower Manhattan is 4 days. (The New York Stock Exchange will be open tomorrow, also running on generator power.)”\nhttps://news.ycombinator.com/item?id=4720388\n(\nhttps://web.archive.org/web/20121101194314/http://status.fog...\n)\nhttps://arstechnica.com/information-technology/2012/11/how-o..."
+        },
+        {
+          "id": 50455625,
+          "author": "hackermailman",
+          "text": "In the article he talks about living within a few minutes walk to work and telling too many people so they made him the emergency office guy. Same thing happened to me, foolishly told everyone hey I can see my apartment from here so I would get panicked calls to run in and shut down servers because the information security guy got a tip of an impending exploit about to be released on a holiday weekend with no way to do it remotely. Everyone else lived a ferry ride or commuter train away."
+        },
+        {
+          "id": 50455993,
+          "author": "rdl",
+          "text": "Odd that they didn't have at minimum 1) a physical Emergency Power Off (EPO) button inside the datacenter, such that one button could de-energize everything -- usually required as part of building a datacenter due to code variance for the \"low voltage\" (<4000V in this context...) wiring. 2) EPO interlink to the smoke alarms, such that it would de-energize equipment automatically (maybe with delay) if smoke detected."
+        },
+        {
+          "id": 50456472,
+          "author": "rainbowzootsuit",
+          "text": "Interesting. The Sequence of Operations we write for the data halls I work on specifically do not shut down the CRACs on smoke alarm for this reason. The International Mechanical Code (IMC) specifically allows this where a air handler over 2000 cfm serves only one space because it's recognized that it will not spread smoke around a building. 2000 cfm is the threshold where you typically have to install smoke detectors, and typically they do shut down on smoke detection.\nThe CRAC won't feed a fire oxygen as it's just recirculating the same oxygen depleted air."
+        },
+        {
+          "id": 50456424,
+          "author": "jddj",
+          "text": "The episode of their podcast where Ron explores the facilities side of their data centers and offices is worth a listen too\nhttps://signalsandthreads.com/the-thermodynamics-of-trading/"
+        },
+        {
+          "id": 50457084,
+          "author": "sroussey",
+          "text": "Are there internet connected fire alarms that can be hacked to destroy the contents of some data centers? Like the European freezers?"
+        },
+        {
+          "id": 50456385,
+          "author": "cesarb",
+          "text": "> every minute, ask every server in each location directly for the temperature from its onboard sensors, take the average, and if it’s elevated, blast an alert out to everyone on the systems team to check for datacenter overheat.\nI've once done the opposite: the office \"server room\" (a small room with three racks, two of them for the patch panels, one for the servers and switches) was cooled by a mini-split which was prone to locking up with the compressor enabled (the relay which controls the compressor got stuck) and freezing, which then stopped the air from circulating due to all the ice. I wrote a script which ran on one of the servers which read the ambient temperature through IPMI to detect when the room was too\ncold\n, email a warning, and power off (using ssh) the neighboring servers and then itself."
+        },
+        {
+          "id": 50457721,
+          "author": "thibsrn",
+          "text": "Great story, I love those in-the-trenches emergency stories. I wonder if it would have impacted Jane Street in any meaningful way, aside from a fat bill, if it ended with submarine servers. They could have diverged their compute to another datacenter surely.\nWe mostly hear about engineers from Jane Street here, and not much from their traders and finance people. I wish we could have some other perspective sometimes.\nThey publish a great podcast, Signal and Threads, I really recommend."
+        }
+      ],
+      "title_ja": "誤った煙感知器の警報が、ジェーン・ストリートのニューヨーク市唯一のデータセンターをほぼ水没させるところでした。",
+      "summary_ja": "ディスカッションのハイライト：この記事を読んで、ハリケーン・サンディがニューヨークの複数のデータセンターを1メートル以上の水没被害に遭わせ、発電機を稼働させるために人々が階段を上ってディーゼル燃料を運んでいたときのことを思い出しました。\n「スーパーバイザー／記事の中で、彼は職場まで徒歩数分のところに住んでおり、そのことを多くの人に話したため、緊急時のオフィス担当者にされたと語っています／少なくとも1）データセンター内に物理的な緊急停止（EPO）ボタンがなかったのは奇妙です」",
+      "editor_note": "「誤った煙感知器の警報が、ジェーン・ストリートのニューヨーク市唯一のデータセンターをほぼ水没させるところでした。」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50456791,
+      "title_en": "Gemini Decisions API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "hn_url": "https://news.ycombinator.com/item?id=50456791",
+      "score": 288,
+      "comment_count": 90,
+      "posted_at": "2026-11-11T18:32:42+00:00",
+      "comments": [
+        {
+          "id": 50458144,
+          "author": "eminence32",
+          "text": "I'm sort of surprised it took Jev for everyone to realize \"oh yeah, this is a useful thing that we should have in our product portfolio\".\nBut maybe this is one of those things that's only obvious in retrospect?  I'm sure people were trying something similar years ago with grammar-constrained outputs (for example to only output a simple json structure), but you can't get probabilities out of the model that way.   Which makes me wonder:  how\ndo\nthese models calculate probabilities?"
+        },
+        {
+          "id": 50459215,
+          "author": "kodoman",
+          "text": "I have still not used a decision model, How are people using them at the moment? is any one using them in a coding harness like Pi?"
+        },
+        {
+          "id": 50460195,
+          "author": "2001zhaozhao",
+          "text": "We're about at the point where the AI is now pretty insanely cheap. Passing 100K tokens of context then asking hundreds of questions of 100 tokens each would cost about as much as a single Google search API call.\nOut of the hundreds of questions, most of them could even be different variations of the same question to capture more nuance than what is normally possible in a single multiple-choice."
+        },
+        {
+          "id": 50456959,
+          "author": "waximabbax",
+          "text": "Its bit more expensive than other other Decision Models in the same lane.\nHowever, it can accept Audio and Video as input as well and for those specific cases it can be extremely useful."
+        },
+        {
+          "id": 50458858,
+          "author": "theanonymousone",
+          "text": "The best decision model I have used (besides Jev itself) is respan/span-02, which is based on (finetuned from?) Gemma4 26A4. That makes me optimistic for this release, despite the high cost."
+        },
+        {
+          "id": 50461867,
+          "author": "Topfi",
+          "text": "Audio, Video and File input? That is very appealing and I can imagine a few very unique ways to leverage this if it works well across all modalities.\nFor what it's worth, ran my quick and dirty evals with it and got in many usage scenarios a 4x lower brier over Jev (2x - 6x depending on task), which is an immense improvement and the first time a model so significantly has outperformed Jev in my experience. p50 was also over 100ms lower though all this cost twice as much across the entire eval end-to-end.\nDare I say, this is a very impressive release by the Gemini team. While testing GPT-6 Luna lead to an honestly very pleasant interaction with OpenAI staff on here, it did perform very uncompetitively so seeing a great first effort in basic text classification performance with broad multimodality, that is great to see. Course, wouldn't be surprised if Google had such a more broadly trained classifier for years as part of internal usage for platform features which they just now commercialised, but hey, I'll take it."
+        },
+        {
+          "id": 50458537,
+          "author": "abhikul0",
+          "text": "There’s also this guide by google to use embedding gemma 2 as a decision maker. Wonder how these compare.\nhttps://developers.google.com/edge/mediapipe/solutions/decis..."
+        },
+        {
+          "id": 50459437,
+          "author": "nico",
+          "text": "For anyone wanting something local, private, faster, which  can also run and train on CPU, checkout https://\nhttp://jeffyclassify.com/\nIt comes with a bunch of pre trained classifiers, and you can use the tooling to train your own\nThere are also integrations with workflow tools like n8n"
+        }
+      ],
+      "title_ja": "Gemini Decisions API",
+      "summary_ja": "ディスカッションのハイライト：Jevのおかげでようやく皆が「ああ、これは私たちの製品ポートフォリオに備えておくべき便利なものだ」と気づいたことに、私は少し驚いています。\nしかし、これはおそらくそのようなことの一つでしょう。/私はまだ意思決定モデルを使ったことがありません。現在、人々はどのようにそれらを使っているのでしょうか？Piのようなコーディングハーネスで使っている人はいますか？/ 私たちは今、AIが信じられないほど安価になっている段階に差し掛かっています。",
+      "editor_note": "「Gemini Decisions API」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 8,
+      "id": 50460154,
+      "title_en": "A general purpose Apple Silicon layer for x86-64 PCs",
+      "url": "https://github.com/tylertms/Stela",
+      "hn_url": "https://news.ycombinator.com/item?id=50460154",
+      "score": 63,
+      "comment_count": 19,
+      "posted_at": "2026-11-11T23:02:38+00:00",
+      "comments": [
+        {
+          "id": 50460155,
+          "author": "iceboundrock",
+          "text": "A general purpose Apple Silicon layer for x86-64 PCs. It is a UEFI boot program with an arm64-to-x86-64 translator, a Metal driver for NVIDIA GPUs and a model of Apple silicon hardware. macOS and most apps start, but it is slow and needs much more testing, as of v0.1.0"
+        },
+        {
+          "id": 50461286,
+          "author": "jamesy0ung",
+          "text": "I noticed Golden Gate still ships with an x86_64 kernel (not kernelcache), I wonder if this is any useful\njames@Jamess-MacBook-Pro ~ % sw_vers\nProductName:  macOS\nProductVersion:  27.2.1\nBuildVersion:  26B131\njames@Jamess-MacBook-Pro ~ % file /System/Library/Kernels/kernel\n/System/Library/Kernels/kernel: Mach-O 64-bit executable x86_64\njames@Jamess-MacBook-Pro ~ % strings /System/Library/Kernels/kernel | grep \"Darwin\"\n@(#)VERSION: Darwin Kernel Version 27.2.0: Wed Oct 14 23:40:09 PDT 2026; root:xnu-13432.41.4~25/RELEASE_X86_64\nDarwin Kernel Version 27.2.0: Wed Oct 14 23:40:09 PDT 2026; root:xnu-13432.41.4~25/RELEASE_X86_64\nDarwin"
+        },
+        {
+          "id": 50460749,
+          "author": "yjftsjthsd-h",
+          "text": "So,\nbasically\nan emulator layer that doesn't need a host OS? (I'm not really interested in running Darwin, but that's a cool concept)"
+        },
+        {
+          "id": 50460789,
+          "author": "schmeichel",
+          "text": "Huge. I have been desperately looking for a project like this to be able to use\nhttps://github.com/seedds/nxnative\nto be able to play my copy of BOTW on IOS. Thank you for sharing this, I will be trying it this evening."
+        },
+        {
+          "id": 50460883,
+          "author": "rbanffy",
+          "text": "Sounds like a great use for those new Epyc processors with 256 cores…"
+        },
+        {
+          "id": 50460526,
+          "author": "orionblastar",
+          "text": "This repository needs a star and a follow. It stops Intel Macs from becoming obsolete, but it is slow and buggy."
+        }
+      ],
+      "title_ja": "x86-64 PC用の汎用Appleシリコンレイヤー",
+      "summary_ja": "ディスカッションのハイライト：x86-64 PC向けの汎用Appleシリコンレイヤー／Golden Gateはまだx86_64カーネル（kernelcacheではない）を搭載していることに気づきました。これが何か役に立つのかどうか気になります。\njames@Jamess-MacBook-Pro ~ % sw_vers\nProductName:  macOS\nProductVersion:   / つまり、\n基本的に\nホストOSを必要としないエミュレータレイヤーということですか？（Darwinを実行することにはあまり興味がありませんが、これは素晴らしいコンセプトです）",
+      "editor_note": "「x86-64 PC用の汎用Appleシリコンレイヤー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 9,
+      "id": 50428619,
+      "title_en": "Did Life Begin in an RNA World?",
+      "url": "https://www.quantamagazine.org/did-life-begin-in-an-rna-world-20261109/",
+      "hn_url": "https://news.ycombinator.com/item?id=50428619",
+      "score": 10,
+      "comment_count": 0,
+      "posted_at": "2026-11-09T17:27:24+00:00",
+      "comments": [],
+      "title_ja": "生命はRNAの世界で始まったのか？",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「生命はRNAの世界で始まったのか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50458208,
+      "title_en": "Emacs in the Age of Magic",
+      "url": "https://commandlinesystems.com/magic.txt",
+      "hn_url": "https://news.ycombinator.com/item?id=50458208",
+      "score": 153,
+      "comment_count": 55,
+      "posted_at": "2026-11-11T20:26:32+00:00",
+      "comments": [
+        {
+          "id": 50460233,
+          "author": "jefurii",
+          "text": "> [W]e are here to declare our intent to use and develop a version of Emacs that is free from LLM-generated contributions regardless of whatever policy GNU decides upon. We invite them to weigh the costs and do the right thing, in which case we will continue to support them. But if they are not willing to do so, we will continue to use and develop an LLM-free version of Emacs anyway, even if it is not GNU Emacs.\nhttps://human-emacs.org/"
+        },
+        {
+          "id": 50460104,
+          "author": "vhantz",
+          "text": "> I believe a sufficiently interested emacs developer with a\n$100 plan and a long weekend could hammer out a pretty good first cut.\nThat no one's yet done it is clear evidence that no one really wanted\nthese things so much as they wanted to talk about it.\nThe disappearance of bikeshedding doesn't look like an obvious one but it's a huge loss. Imagine if every scientist resolved to refer to already written books and carry on their research in closed labs with no discussion with the rest of their field."
+        },
+        {
+          "id": 50459133,
+          "author": "russfink",
+          "text": "“AI has turned Stallman's goal of software\nfreedom on its head.  Having your computer do whatever your\nimagination can think up -- that's real freedom.  The only catch is\nyou'll have no idea how it works.  No one does.”"
+        },
+        {
+          "id": 50459243,
+          "author": "spapas82",
+          "text": "I more or less agree with the article but we can move it one step further. Nowadays we don't even need text editors no matter how advanced they are. I am a VS Code user and I have not opened VS Code in more than 3 months because I don't need it anymore. Opening a text editor and editing code by hand seems like so ... yesterday.\nThis definitely is a new era and, personally, I love it! (Also I have broken my right arm so I can't write code even if I wanted to. I'm dictating this text.)"
+        },
+        {
+          "id": 50458865,
+          "author": "Animats",
+          "text": "It's a whole new world.\nWe need to be thinking about modularity with well-defined APIs now,\nto isolate the chunks created by AI coding. Maintainabilty requires firewalls."
+        },
+        {
+          "id": 50459019,
+          "author": "piker",
+          "text": "Loved it.\n> But there's one glaring headscratcher, and that's its full-blown,\nself-contained implementation of a terminal emulator, in Rust no less. In the before times, a developer would undoubtedly seek such a heavy\nlift from off-the-shelf kit, but the holmes replicated over a\ncoffee break what a billionaire with infinite resources had been\ntoiling over the last five years.\nIs this really true, though? Did model improvement since Ghostty began simply eclipse Ghostty and anything achievable with that now \"legacy\" code base? Would that project be better off abandoned or started over from scratch with Opus 5.5? Or is there something more there?\nThese are honest questions."
+        },
+        {
+          "id": 50458389,
+          "author": "ggcr",
+          "text": "> RMS appeared in a recent video recounting his CSAIL work on a circuit analyzer in which he, and I'm paraphrasing, \"didn't model the circuit as a system of equations to be solved, but rather approached it much as a human would\" by applying a series of diagnostics.\nbitter-lesson-pilled RMS before GTA VI"
+        },
+        {
+          "id": 50459123,
+          "author": "danielvaughn",
+          "text": "\"We may have felt safe bringing a gun to a knife fight, but now everyone's just sending a drone.\" Perfectly said. For those of us concerned about editor efficiency, it's hard to know where to go from here. For years I'd been working on a design tool that was inspired by Vim - entirely keyboard driven using mnemonic keychords. But LLMs really took the wind out of my sails, because eh, why bother now? Somewhere deep down I feel that it's still viable, because I want it to be true that perfectly deterministic tooling is still important. I just don't know if it will be considered important by everyone else."
+        }
+      ],
+      "title_ja": "魔法の時代のEmacs",
+      "summary_ja": "ディスカッションのハイライト： > 私たちは、GNUがどのような方針を決定しようとも、LLMが生成した貢献を含まないEmacsのバージョンを使用し、開発する意図を表明するためにここにいます / > 十分な関心を持つEmacsの開発者が、\n100ドルの計画と長い週末があれば、かなり良い最初のバージョンを作り上げることができるでしょう。\nまだ誰もこれを行っていないことは、/「AIがストールマンのソフトウェアの自由という目標を\n逆さまにしてしまった」という明確な証拠です。",
+      "editor_note": "「魔法の時代のEmacs」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50457618,
+      "title_en": "The Utah Teapot",
+      "url": "https://graphics.cs.utah.edu/teapot/",
+      "hn_url": "https://news.ycombinator.com/item?id=50457618",
+      "score": 88,
+      "comment_count": 20,
+      "posted_at": "2026-11-11T19:45:10+00:00",
+      "comments": [
+        {
+          "id": 50461955,
+          "author": "EvanAnderson",
+          "text": "I saw the Utah Teapot at the Computer History Museum in Mountain View when I visited in late 2004. I didn't know it was there. I immediately started calling friends, while standing there in the \"Visible Storage\" exhibit gawking at it, telling each of them, breathlessly: \"I'm looking at _the_ Utah teapot.\"\nI was told later by a docent that my reaction was not uncommon. >smile<"
+        },
+        {
+          "id": 50460754,
+          "author": "apitman",
+          "text": "I work at the University of Utah. They had an incredible graphics symposium a few years ago[0]. I got a render of the teapot signed by several of the speakers, which is a prized possession. There was another guy there with an actual replica teapot which he got signed. I was pretty jealous.\nSadly Alan Kay was unable to attend so I didn't get to meet him.\n[0]:\nhttps://www.youtube.com/watch?v=ui3R1Dlmsk0"
+        },
+        {
+          "id": 50462289,
+          "author": "TheJoeMan",
+          "text": "I was just discussing with my coworker how the demo program for the 3D Spacemouse is rotating the Teapot. Takes a bit of practice, but makes CAD more fun."
+        },
+        {
+          "id": 50458769,
+          "author": "dang",
+          "text": "Related. Others?\nThe original Utah teapot(1.4L) is in stock\n-\nhttps://news.ycombinator.com/item?id=31178947\n- April 2022 (7 comments)\nWhy a Computer History Museum Owns a Legendary Teapot\n-\nhttps://news.ycombinator.com/item?id=29259548\n- Nov 2021 (1 comment)\nShow HN: Teapong – A two-player game for fans of Pong and the Utah teapot\n-\nhttps://news.ycombinator.com/item?id=22137758\n- Jan 2020 (12 comments)\nBézier Curves and Surfaces: The Utah Teapot\n-\nhttps://news.ycombinator.com/item?id=19690575\n- April 2019 (7 comments)\nThe Utah Teapot: Most Important Object in Computer Graphics History\n-\nhttps://news.ycombinator.com/item?id=11209690\n- March 2016 (52 comments)\nUtah Teapot\n-\nhttps://news.ycombinator.com/item?id=7280289\n- Feb 2014 (17 comments)"
+        },
+        {
+          "id": 50462379,
+          "author": "wslh",
+          "text": "Don't forget the one rendered in the Commodore Amiga [1] in Realsoft 3D [2].\n[1]\nhttps://www.meskanen.com/history.html\n[2]\nhttps://en.wikipedia.org/wiki/Realsoft_3D"
+        },
+        {
+          "id": 50461949,
+          "author": "simtel20",
+          "text": "Here is an old IBM research video on breaking the Utah teapot in 1989[1]\n1.\nhttps://youtu.be/3NQuHpUyZbI?is=sjkQcadU6_IHjgr0"
+        },
+        {
+          "id": 50459958,
+          "author": "omoikane",
+          "text": "I first saw Utah Teapot in OpenGL:\nhttps://www.opengl.org/resources/libraries/glut/spec3/node89...\nSurprised to see the teapot got another update this year."
+        },
+        {
+          "id": 50460321,
+          "author": "GeeDoubleyou",
+          "text": "Anyone else getting a 418 error trying to access this site?"
+        }
+      ],
+      "title_ja": "ユタティーポット",
+      "summary_ja": "ディスカッションのハイライト：2004年末に訪問した際、マウンテンビューのコンピュータ歴史博物館でユタティーポットを見た／ユタ大学で働いている／3Dスペースマウスのデモプログラムがティーポットを回転させる仕組みについて、同僚と話していたところだ",
+      "editor_note": "「ユタティーポット」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50412715,
+      "title_en": "How to make a CNC plasma cutter with high-frequency start",
+      "url": "https://incoherency.co.uk/blog/stories/cnc-plasma-cutter.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50412715",
+      "score": 12,
+      "comment_count": 3,
+      "posted_at": "2026-11-08T12:34:04+00:00",
+      "comments": [
+        {
+          "id": 50461978,
+          "author": "Xunxi",
+          "text": "Nice build. There's been a lot of momentum in the desktop wire EDM community too, with projects like picoEDM, Gedm, openEDM, and baxEDM. Precision is the usual weakness of plasma cutting, but I suppose it makes up for that in speed. Have you tried tuning for kerf width or taper, or is that more trouble than it's worth at this scale?"
+        },
+        {
+          "id": 50462355,
+          "author": "convolvatron",
+          "text": "slag, cut taper, leadins and warping affecting surface level are all constant annoyances with plasma. I find it a lot easier to just send jobs to a waterjet shop nearby.\nmy friend did a lot of bulk plasma cutting, and his solution was to build a tumbler filled with abrasive and dish soap, and after a day or so the edges would be smooth and rounded. but that's certainly not a replacement for machined parts."
+        },
+        {
+          "id": 50462143,
+          "author": "CamperBob2",
+          "text": "Potentially easier solution for the USB problem: measure your cables with a DMM until you find one with good end-to-end shield continuity.  A large proportion of USB cables have no effective common-mode protection (to say nothing of EMI shielding) because one end or both ends is ungrounded."
+        }
+      ],
+      "title_ja": "高周波スタート式のCNCプラズマカッターの作り方",
+      "summary_ja": "ディスカッションのハイライト：プラズマでは、良好なビルド/スラグ、カットテーパー、リードイン、表面レベルに影響を及ぼす反りが常に問題となる / USBの問題に対するより簡単な解決策の可能性：DMMでケーブルを測定し、端から端までシールドの導通が良好なケーブルを見つける",
+      "editor_note": "「高周波スタート式のCNCプラズマカッターの作り方」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50457230,
+      "title_en": "Show HN: I recreated Papers Please but you're deciding which YC startups to fund",
+      "url": "https://termsheetplease.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50457230",
+      "score": 187,
+      "comment_count": 76,
+      "posted_at": "2026-11-11T19:12:16+00:00",
+      "comments": [
+        {
+          "id": 50457971,
+          "author": "smlavine",
+          "text": "Doesn't credit the original creator at all in the actual website?"
+        },
+        {
+          "id": 50458538,
+          "author": "tiborsaas",
+          "text": "I found the document management way too confusing. There's no clear game loop and I'm kinda lost what signatures mean, what the other documents are what success is.\nPapers please has a much simple mental model."
+        },
+        {
+          "id": 50457977,
+          "author": "Fraterkes",
+          "text": "Would be interesting if we could plot the average amount of time spent on the creation of showhn stuff that gets to the front page, over the past years."
+        },
+        {
+          "id": 50458502,
+          "author": "exolymph",
+          "text": "Shameless plug, if you think this is funny you will also enjoy merging startups to create new fever-dream companies!\nhttps://studio.sonyasupposedly.com/startups/\nFor example, Tailscale meets Supabase:\nhttps://studio.sonyasupposedly.com/startups/m/supabase+tails..."
+        },
+        {
+          "id": 50460742,
+          "author": "achandra03",
+          "text": "Maybe I'm stupid but I quit after 5 minutes because I had no idea what was going on with the documents."
+        },
+        {
+          "id": 50461767,
+          "author": "ayyagari-testre",
+          "text": "This is a good way to explain the term sheets and the things to check."
+        },
+        {
+          "id": 50457512,
+          "author": "jimbo456",
+          "text": "This incredible; i will have a lot of fun with this"
+        },
+        {
+          "id": 50457663,
+          "author": "butlike",
+          "text": "I mean, technically you didn't recreate anything. You had the LLM pattern recognize something that already existed and it copied it. I don't mean to sound harsh, but create something new."
+        }
+      ],
+      "title_ja": "HNで紹介：『Papers, Please』を再現しましたが、今回はどのYCスタートアップに資金提供するかをあなたが決定します",
+      "summary_ja": "ディスカッションのハイライト：実際のウェブサイトでは、元のクリエイターにまったくクレジットされていないのでしょうか？/文書管理の方法が非常にわかりにくいと感じました/過去数年間で、トップページに掲載されるShowHNのコンテンツの作成に費やされた平均時間をグラフ化できたら興味深いと思います。",
+      "editor_note": "「HNで紹介：『Papers, Please』を再現しましたが、今回はどのYCスタートアップに資金提供するかをあなたが決定します」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 14,
+      "id": 50455633,
+      "title_en": "Faster Retrieval for Better, More Efficient RAG",
+      "url": "https://machinelearning.apple.com/research/faster-retrieval",
+      "hn_url": "https://news.ycombinator.com/item?id=50455633",
+      "score": 163,
+      "comment_count": 29,
+      "posted_at": "2026-11-11T16:57:45+00:00",
+      "comments": [
+        {
+          "id": 50457462,
+          "author": "armcat",
+          "text": "Just yesterday I saw a talk from Spotify where they presented their own fast retrieval mechanism \"Parallel Fusion Router\" [1]. It's also in the \"learned retrieval\" paradigm - in their case they use a teacher LLM to train a much smaller router LLM how to retrieve, using an LLM-as-a-judge based reward function.\nFrom my own experience, these learned methods from Apple, Spotify and others, are highly relevant to hyperscale only - when you are dealing with hundreds of millions of items to choose from (or more), and require super high relevance in the top-5. For all other use cases (up to a few million items) I found that just building a BM25 index, and giving the LLM a BM25 \"search tool\" and casting a \"wide net\" wins every single time compared to learned methods (though the latter are more publishable in recsys and icml).\n[1]\nhttps://research.atspotify.com/2025/9/you-say-search-i-say-r..."
+        },
+        {
+          "id": 50456477,
+          "author": "comandillos",
+          "text": "I feel like retrieval approaches, despite how good your ranking mechanisms are, end up biasing LLMs into what a heuristics-based system with way worse understanding of the domain says. I guess is a trade off between speed and quality, but letting the LLM explore without a bias (based on my personal experience) seems to generally provide much better results in terms of quality for the final output."
+        },
+        {
+          "id": 50457673,
+          "author": "mickeyp",
+          "text": "I'm not sold; that's not to say I can't be swayed, but I've spent a lot of time building RAG solutions as a \"one-size-fits-all\" against codebases and I am not convinced embedding models or any of the myriad BERT implementations work well enough that they can beat out grep.\nMost embedding/BERT models are far too small to truly grasp the nettles when an AI ask questions to them; and if you condition the AI to only search for really basic things, then... you're basically back to grep + regex.\nYou need to prune all manner of useless detritus that might gum up your matches like test files, documentation, and sidecars that semantically overlap or you're just going to match your tests. That's fine if you're building a document store for a business, but if you want a \"one-and-done\" solution for your codebase it's rarely good enough.\nAnd if you\ndo\nuse a very large embedding model (which means it'll require running in the cloud as most company computers won't run it well), then... well, you're better off just using a language model as a subagent to scout ahead for you and elide the embedding model to begin with."
+        },
+        {
+          "id": 50457167,
+          "author": "lavendermon",
+          "text": "Apple has a fascinating history of waiting and seeing how a market develops before entering with a better product and eventually dominating, the iPod and iPhone are two examples. It seems they may be building a strong position to pull that off again in the personal assistant AI category ChatGPT is trying to dominate.\nI enjoy watching the slow burn approach Apple is deploying as they quietly gear up to offer some % of local inference on iPhones to provide most of the AI services consumers want. Local inference could enable a very low price point for AI services that Apple would leverage alongside their massive ecosystem advantages and privacy claims to compete very effectively for personal assistant AI subscriptions."
+        },
+        {
+          "id": 50456751,
+          "author": "brrrrrm",
+          "text": "as a recovering RAG-enthusiast, I will share a quote from a peer that has really stuck with me:\n\"why not use grep?\""
+        },
+        {
+          "id": 50457347,
+          "author": "pants2",
+          "text": "Can't wait to see how they leverage this research to make Siri even worse!"
+        }
+      ],
+      "title_ja": "より迅速な取得により、より優れた、より効率的なRAGを実現",
+      "summary_ja": "ディスカッションのハイライト：ちょうど昨日、Spotifyのトークを視聴しました。彼らは独自の高速検索メカニズム「Parallel Fusion Router」を発表していました [1] / 私は、ランキングメカニズムがどれほど優れていても、検索アプローチは最終的にLLMを、ドメインの理解がはるかに劣るヒューリスティックベースのシステムへと偏らせてしまうと感じています / 私は納得していません。つまり、説得されないわけではありませんが、私は「ワンサイズ",
+      "editor_note": "「より迅速な取得により、より優れた、より効率的なRAGを実現」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 15,
+      "id": 50459321,
+      "title_en": "Jensen Huang said to have had relationship with executive who reports to him",
+      "url": "https://www.nytimes.com/2026/11/11/technology/jensen-huang-nvidia-affair.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50459321",
+      "score": 248,
+      "comment_count": 250,
+      "posted_at": "2026-11-11T22:03:58+00:00",
+      "comments": [
+        {
+          "id": 50459653,
+          "author": "bz_bz_bz",
+          "text": "If his personal security detained the person videoing them and offered them money to sign an NDA, it feels like something they had experience with. Could this just be the tip of the iceberg?"
+        },
+        {
+          "id": 50459556,
+          "author": "classictraffic",
+          "text": "> Both Mr. Huang and Ms. Powell are married to other people\nDumb language question: if Powell is married, why isn’t she referred to as Mrs. Powell in this article?"
+        },
+        {
+          "id": 50459352,
+          "author": "heywintermute",
+          "text": "He has to be finished as CEO even despite all the keyman risk right?"
+        },
+        {
+          "id": 50459810,
+          "author": "nbobko",
+          "text": "https://unwall.app/www.nytimes.com/2026/11/11/technology/jen..."
+        },
+        {
+          "id": 50459487,
+          "author": "u1hcw9nx",
+          "text": "Huang Holds  3.4% of Nvidia and has no dual-class voting rights. He can't prevent getting removed if the board thinks it's time."
+        },
+        {
+          "id": 50461002,
+          "author": "jan_m_savage",
+          "text": "[黃 (huáng) literally means yellow, but in slang and compound words, it can mean vulgar or lewd]....\nHere's an example:\n開黃腔 (kāi huáng qiāng) – to make a lewd or sexually suggestive remark.\nAll those years me learning Chinese haven't gone to waste--yet. :)"
+        },
+        {
+          "id": 50461730,
+          "author": "harhargange",
+          "text": "If, at the end of the day, it is moral merit that matters for leadership positions, why is the hiring and training paradigm solely focused on technical skills?"
+        },
+        {
+          "id": 50459451,
+          "author": "mertbio",
+          "text": "Not surprising at all. Many tech CEOs are like this; Bill Gates, Elon Musk, Sergey Brin, Eric Schmidt and so on. People don’t stop idolizing these people, they don’t even think that this is a problem."
+        }
+      ],
+      "title_ja": "ジェンソン・ファン氏が、自分に直属する幹部と関係を持っていたと言われている",
+      "summary_ja": "ディスカッションのハイライト：もし彼の個人的な警備員が撮影者を拘束し、NDAに署名するようお金を提示したとしたら、それは彼らが経験したことのあるようなことだと感じられますよね？ / > キーマンリスクがすべてあるにもかかわらず、Mr./He氏はどちらもCEOを辞任しなければなりませんよね？",
+      "editor_note": "「ジェンソン・ファン氏が、自分に直属する幹部と関係を持っていたと言われている」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 16,
+      "id": 50452455,
+      "title_en": "My AI agents found an unmapped Maya site?",
+      "url": "https://pietromiotti.com/latest/maya-site",
+      "hn_url": "https://news.ycombinator.com/item?id=50452455",
+      "score": 935,
+      "comment_count": 339,
+      "posted_at": "2026-11-11T12:05:22+00:00",
+      "comments": [
+        {
+          "id": 50453616,
+          "author": "LordOmlette",
+          "text": "The site in question was found earlier:\nhttps://bsky.app/profile/indyfromspace.bsky.social/post/3n22...\nThe Mexican govt may not have had the right records, but you can see what the site looked like at the time it was first found here:\nhttps://bsky.app/profile/indyfromspace.bsky.social/post/3n22..."
+        },
+        {
+          "id": 50453012,
+          "author": "TSiege",
+          "text": "This story is very cool, and it’s exciting to see how much progress AI will bring to every field. One thing to temper everyone from wanting to lidar the whole world is human capacity. Finding discoveries like this is essentially as hard as doing the lidar mapping. Now the issue will be getting archaeologist there in time before someone else does.\nThe best way to protect a site is to leave it alone. If we start finding dozens or hundreds of sites it will be more than what archaeologists can excavate and protest. Treasure hunters and looters don’t care about stratigraphy and the processes involved for doing research. Maybe the cat is out of the bag on this one, but good for thought.\nEdit: I’m not saying we shouldn’t have people use AI to do this or that no bad actor will. This comment is in response to the sentiment I am seeing in the comments that we should lidar the whole world and have AI find any anomalous structures it can. There is no way for archeologists to excavate and protect all those places in that scenario"
+        },
+        {
+          "id": 50455000,
+          "author": "hanoz",
+          "text": "I created the first online lidar map of the UK (well, England and Wales), as announced here many years ago! (now at\nhttps://lidarmap.uk\n) and delightfully there have been dozens of finds of previously unknown sites of archaeological significance found using it that I'm aware of. Roman villas, forts, henges, all sorts of earthworks. New discoveries are being reported using this and similar tools almost weekly, on forums like\nhttps://www.reddit.com/r/LiDARdiscoveryUK/\n. Britain really is littered with this stuff.\nAlthough it does feel the finds are getting increasingly hard to spot, every now and then you get a\nhow did everyone miss that\nmoment. Perhaps not surprisingly, most of the remaining impressive finds tend to be in woodland, using the Digital Terrain Model data which can peer beneath the forest canopy, like this Mexican one today, or are within newly released coverage which is promptly pounced on by armchair archeologists.\nNot sure what my point is here except... to me this story still feels like a function of the amazing recent progress in lidar coverage and data availability (not to mention the incredible technology behind it), rather than an AI one, although I don't doubt "
+        },
+        {
+          "id": 50452940,
+          "author": "chirau",
+          "text": "Interesting. I don't want to sound like a hater or anything, but I will personally wait for an expert archaeologist's verification on this. I have dealt with agents making up stuff that sounds fantastic and ground-breaking but completely falters on further review. And I doubt the folks you contacted have the audacity to question a Google engineer and his 48 agents. Even if he is not archaelogist. Do you think it would have gone the same way if it was another random person who had done the exact same thing and reached out to them? The one day feedback part also has me questioning what they actually did.\nAnyway, I can hear myself beginning to sound like a hater now, so I will stop here. I hope it turns out to be right, and in that case, congrats on your wonderful discovery."
+        },
+        {
+          "id": 50455574,
+          "author": "miotts",
+          "text": "author here. Update: the site had already been discovered. It appears in a 2025 paper by Estrada-Belli, Canuto, Šprajc & Fernandez-Diaz (page 14)\nhttps://doi.org/10.1016/j.jasrep.2025.105288\n. The agents missed it, I missed it, and it wasn't in INAH's register yet (National Institute of Anthropology and History). The rest of the story still holds, and there's still a lot left to discover with vibe-archeology. I hope this brought some extra excitement to archaeology."
+        },
+        {
+          "id": 50452973,
+          "author": "civvv",
+          "text": "Amazing, the perfect application of AI Agents. Find patterns/answers in massive amounts of data. It is becoming more clear everyday that this is the primary driver behind an AI's \"intelligence\". Finding the solution to mathematical problems that have decades of documented attempts by mathematicians, creating software based on exisitng code and now, discovering Maya pyramids within enourmous amounts of lidar-data.\nThe final barrier for super intelligence, or perhaps even just \"human intelligence\": can it materialize \"new fields/ideas\" without large datasets of human made and curated existing attempts?"
+        },
+        {
+          "id": 50453199,
+          "author": "danesparza",
+          "text": "\"This is by far the best time ever to be alive.\"\nI appreciate the enthusiasm.  I'm not sure I agree.  Especially since this was a SWE and not an archeologist / anthropologist announcing this (especially if the goal is to understand and preserve history -- not get headlines for AI)."
+        },
+        {
+          "id": 50454227,
+          "author": "octocop",
+          "text": "This post turned out to be a perfect example of the blind faith in LLM agents. Their outputs are not to be trusted and must be rigorously checked."
+        }
+      ],
+      "title_ja": "私のAIエージェントが、地図に載っていないマヤ遺跡を発見したのですか？",
+      "summary_ja": "ディスカッションのハイライト：問題のサイトは以前に見つかっていました。\nhttps://bsky.app/profile/indyfromspace.bsky.social/post/3n22...\nメキシコ政府には適切な記録がなかったかもしれませんが、何が... / この話はとても興味深く、AIがすべての分野にもたらす進歩の大きさを目の当たりにできるのはワクワクします / 私は、何年も前にここで発表したように、英国（正確にはイングランドとウェールズ）初のオンラインLIDARマップを作成しました！（現在は\nhttps://lidarmap.uk\n) および削除",
+      "editor_note": "「私のAIエージェントが、地図に載っていないマヤ遺跡を発見したのですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50458166,
+      "title_en": "Huawei releases MACaQ, its internal quantizer for local inference",
+      "url": "https://github.com/huawei-csl/MACaQ",
+      "hn_url": "https://news.ycombinator.com/item?id=50458166",
+      "score": 62,
+      "comment_count": 20,
+      "posted_at": "2026-11-11T20:23:57+00:00",
+      "comments": [
+        {
+          "id": 50460435,
+          "author": "lukasc-ch",
+          "text": "People are reproducing it and creating GGUFs\nhttps://www.reddit.com/r/LocalLLaMA/s/36atJ2nNjh"
+        },
+        {
+          "id": 50459026,
+          "author": "Rabbit504030201",
+          "text": "https://huawei-csl.com/blog/macaq/\nWhy does some HN users seem to prefer GitHub page whenever available at expense of official site? I mean, Huawei is still sanctioned, anything they host third party outside China can disappear at any hour."
+        },
+        {
+          "id": 50459114,
+          "author": "mocchibird",
+          "text": "Did they release any model? Seems good for Strata"
+        }
+      ],
+      "title_ja": "Huaweiがローカル推論用の社内量子化器「MACaQ」をリリース",
+      "summary_ja": "ディスカッションのハイライト：人々がそれを再現し、GGUFを作成している\nhttps://www.reddit.com/r/LocalLLaMA/s/36atJ2nNjh / https://huawei-csl.com/blog/macaq/\nなぜ一部のHNユーザーは、公式サイトよりもGitHubページが利用可能な場合はそちらを好むのでしょうか？つまり、ファーウェイはまだ制裁を受けているわけですが、何か...／モデルをリリースしましたか？Strataに適しているようです。",
+      "editor_note": "「Huaweiがローカル推論用の社内量子化器「MACaQ」をリリース」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 18,
+      "id": 50453288,
+      "title_en": "Hyper-Realistic Sand with WebGL2",
+      "url": "https://av.github.io/safe-sand/",
+      "hn_url": "https://news.ycombinator.com/item?id=50453288",
+      "score": 319,
+      "comment_count": 64,
+      "posted_at": "2026-11-11T13:39:29+00:00",
+      "comments": [
+        {
+          "id": 50457710,
+          "author": "evnp",
+          "text": "Super loud sound warning, us parents and folks wearing headphones would really appreciate default sound off. Or at least a some indication to turn volume down before tapping \"pour\""
+        },
+        {
+          "id": 50459520,
+          "author": "rybosome",
+          "text": "I notice that different types of sand sound different - the timbre of the sand falling onto the table and shuffling around is noticeably different between the various types. I was curious if the differences in the sand were being physically modeled to synthesize sound.\nIt’s a physics-based generation but the simulation model is somewhat limited; essentially a few parameters that vary between the sand types, some randomization, and responsiveness to flow rate. Still, it’s highly effective; something like the fine, silty desert sand is noticeably brighter and sounds more like a hiss as it pours and flows than the rocky volcanic sand.\nVery cool effect, this is joyful to play with."
+        },
+        {
+          "id": 50455797,
+          "author": "smusamashah",
+          "text": "Found source repo here\nhttps://github.com/av/safe-sand"
+        },
+        {
+          "id": 50454637,
+          "author": "alex_duf",
+          "text": "On a mobile phone it makes a lot more sense. Try shaking it!"
+        },
+        {
+          "id": 50456963,
+          "author": "nkmnz",
+          "text": "Something seems wrong with the stones. They seem to move way to fast. They need more friction."
+        },
+        {
+          "id": 50456405,
+          "author": "asaddhamani",
+          "text": "I just spent 15 mins playing with this on my phone, it was a lot of fun!"
+        },
+        {
+          "id": 50455710,
+          "author": "smusamashah",
+          "text": "oh wow, the stones even have some water around them. This looks and feels real.\nAnd if you manage to collect a lot in one place, the sand from the pile does fall like real sand. This is amazing.\nThe sound is not good though."
+        },
+        {
+          "id": 50456661,
+          "author": "momojo",
+          "text": "This brings me a lot of joy. I love little toys that exist for no other reason than \"I really want this to be a thing\""
+        }
+      ],
+      "title_ja": "WebGL2による超リアルな砂",
+      "summary_ja": "ディスカッションのハイライト：非常に大きな音の警告、親やヘッドホンを着用している人たちは、デフォルトで音がオフになっていることを本当に喜ぶでしょう／私は、砂の種類によって音が異なることに気づきました。テーブルに落ちて動き回る砂の音色は、種類によって明らかに異なります／ソースリポジトリをこちらで見つけました\nhttps://github.com/av/safe-sand",
+      "editor_note": "「WebGL2による超リアルな砂」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 19,
+      "id": 50454625,
+      "title_en": "Show HN: Yogurt – Free, private, open-source alternative to Granola",
+      "url": "https://github.com/FrigadeHQ/yogurt",
+      "hn_url": "https://news.ycombinator.com/item?id=50454625",
+      "score": 177,
+      "comment_count": 80,
+      "posted_at": "2026-11-11T15:33:06+00:00",
+      "comments": [
+        {
+          "id": 50462214,
+          "author": "e12e",
+          "text": "Interesting. Maybe I can Kill one of my vibecoded atrocities now. It was born from similar frustrations - to find a good way to record audio for small meetings on a phone (there are foss options for Android - but I need one tool to recommend;\nhttps://github.com/FossifyOrg/Voice-Recorder\nmight be one) - transcription and summation with speaker identification in correct language, support for using list of speaker and agenda to aid transcription - all done locally. Even getting the recorded audio from android to Mac - for example localsend can help).\nI didn't tackle all - but a few in a python script wrapped in cosmopolitan libc. Works on Mac, seemingly Linux (Terminal on chromeOS) - possibly windows (laptop just about back from repairs, not tested yet).\nIt's an experiment - source not open yet - and op is probably better.\nBut for the curious:\nhttps://hypertekst.net/steno/"
+        },
+        {
+          "id": 50461424,
+          "author": "jharohit",
+          "text": "congrats! My wife showed me Granola one day and I was horrified on the privacy aspects of it. So I also built something similar but for advanced Super users - Notesy\nI have been using for 6 months and just love it (and my wife moved over too!). Uses the Gemini APIs (they are so fast, so cheap and so good!). Now we actually use it within the company as well!\nRolling out wider in Testflight below.\nNotesy:\nhttps://prairie-petition-enterprises-expressions.trycloudfla...\n- keeps the audio file\n- custom prompts to modify notes as you want\n- transcripts and notes\n- batches by people you have talked to\n- a master task list\n- Sync all files and audio and notes to Google Drive\n- Shipping now with our API for testing but you can switch to your own Gemini API in settings!\nUploading the repo shortly on github by this weekend!\nMore on the privacy features here\nhttps://x.com/jharohit/status/2084204163416601026\nOther apps we are building on similar lines of privacy and your own data and AI concept:\nAPP STORE:\nhttps://contrast-situated-priorities-leu.trycloudflare.com/"
+        },
+        {
+          "id": 50457825,
+          "author": "lavendermon",
+          "text": "I live in a two party consent state and have yet to pull the trigger on an AI transcription service. Yogurt is the first appropriate implementation of the service in my opinion, both for personal privacy and to limit potential issues if Granola or similar service gets hacked and transcriptions go public.\nI appreciate that you included a default warning for the owner to let everyone on the call know they are being recorded. It might be ideal to take that a step further and have the popup occur again if another party joins the call and should also be notified of the recording."
+        },
+        {
+          "id": 50456763,
+          "author": "theturtletalks",
+          "text": "I’ll add it to my open-source directory[0].\nHow does it differ from Muesli[1] and OpenOats[2]?\n0.\nhttps://opensource.builders/alternatives/granola\n1.\nhttps://github.com/pHequals7/muesli\n2.\nhttps://github.com/yazinsai/OpenOats"
+        },
+        {
+          "id": 50458956,
+          "author": "achrono",
+          "text": "OpenWhispr [1] is one of the earliest in this exact space, and it already supports a greater variety of models than Yogurt. Also supports meeting transcription, summarization, dictation etc. in similar ways as Yogurt.\nSo, why Yogurt?\n1:\nhttps://github.com/OpenWhispr/openwhispr"
+        },
+        {
+          "id": 50458698,
+          "author": "nonethewiser",
+          "text": "This is totally off topic, but how do people feel about generic names like Yogurt?\nI've always sort of assumed it wasnt a good idea because there is collision everywhere (SEO, registries, domain, etc)."
+        },
+        {
+          "id": 50457550,
+          "author": "mickdarling",
+          "text": "It's a lot of fun to see what people can do with the voice transcription tools available now that are all open source.\nI've been building my own Jarvis, and I still haven't built my own meeting mode for him yet, though it's on the trajectory. I may borrow some ideas from this.\nI really like the filter for the whispered, hallucinated words that Whisper sometimes hears, like, \"Thanks for watching,\" when it's silent. That's cool.\nI do a similar splitting of speech, but I think a slightly different mechanism. So I'll have to take a look at how well yours works.\nAnd, I'm not checking the loudness of the mic and the computer audio to figure out when the speaker output is leaking. That's nice.\nIf there was anything I would add to yours, it would be diarization on the same inputs. So the room mic might have two or three people behind it, and to have diarization for that to know who is talking at any one time would be probably helpful. I use NVIDIA's Nemotron on the Mac.\nhttps://huggingface.co/nvidia/Nemotron-3-Diarization\nAnd, I have enrollment for voices with speaker embeddings using this:\nhttps://github.com/wenet-e2e/wespeaker"
+        },
+        {
+          "id": 50458114,
+          "author": "rc1",
+          "text": "I’d love to see evals for how similar this is to Granola for meeting summarisation, on the github page\nIt should be possible given granola stores the transcript and the summary.\nGranola has been such a fantastic sticky product for me given how simple it is: guaranteed a good summary, and a MCP that is a couple of clicks to setup with Claude/ChatGPT."
+        }
+      ],
+      "title_ja": "Show HN：Yogurt – Granolaに代わる無料のプライベートなオープンソースの代替品",
+      "summary_ja": "ディスカッションのハイライト：興味深い / おめでとうございます！ある日、妻がGranolaを見せてくれたのですが、プライバシーの面でひどく不安になりました。私は双方向同意が求められる州に住んでおり、AI文字起こしサービスを利用したことはまだありません。",
+      "editor_note": "「Show HN：Yogurt – Granolaに代わる無料のプライベートなオープンソースの代替品」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 20,
+      "id": 50433042,
+      "title_en": "Flying on Green: Why Farmers Are Turning to Drones for Cover Crop Seeding",
+      "url": "https://www.agweb.com/news/machinery/flying-green-why-farmers-are-turning-drones-cover-crop-seeding",
+      "hn_url": "https://news.ycombinator.com/item?id=50433042",
+      "score": 50,
+      "comment_count": 25,
+      "posted_at": "2026-11-09T22:15:13+00:00",
+      "comments": [
+        {
+          "id": 50459455,
+          "author": "adrian_b",
+          "text": "The drones are DJI Agras, whose availability in USA in the future is uncertain, at least for any newer and improved models."
+        },
+        {
+          "id": 50459210,
+          "author": "pimlottc",
+          "text": "Nice to see the word “broadcast” used in its original meaning!"
+        },
+        {
+          "id": 50459262,
+          "author": "sandworm101",
+          "text": "Of all the things that a farmer could spread on a field with a drone, seeds would not be my first guess.  Seeding of many crops is called \"drilling\" because of the need to actually insert the seed into the soil... something a drone cannot do. This is why you rarely see crop dusting airplanes spreading seeds.\nA drone would be perfect for spreading fertalizers and pesticides. 200lb isnt nearly as much as a proper cropduster but running a drone has to be far cheaper than hiring a cropduster.  But a chemical-spraying quadcopter isnt exactly the poster child for new tech."
+        },
+        {
+          "id": 50459890,
+          "author": "Rabbit504030201",
+          "text": "I hoped the word \"drone\" here meant small, autonomous airplanes, but no. DJI quadcopters. That what you get."
+        }
+      ],
+      "title_ja": "グリーンな飛行：農家がカバークロップの播種にドローンを利用する理由",
+      "summary_ja": "ディスカッションのハイライト：ドローンはDJI Agrasのものであり、少なくとも新型や改良モデルについては、今後米国で入手できるかどうかは不透明です。/「散布」という言葉が本来の意味で使用されているのを見ると嬉しいですね！/ 農家がドローンを使って圃場に散布できるもののうち、種子が最初に思いつくものではないでしょう。",
+      "editor_note": "「グリーンな飛行：農家がカバークロップの播種にドローンを利用する理由」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50459703,
+      "title_en": "Nvidia is preparing to oust Jensen Huang",
+      "url": "https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad",
+      "hn_url": "https://news.ycombinator.com/item?id=50459703",
+      "score": 570,
+      "comment_count": 813,
+      "posted_at": "2026-11-11T22:31:06+00:00",
+      "comments": [
+        {
+          "id": 50461101,
+          "author": "rao-v",
+          "text": "It's really interesting to me how unaggressive Jensen has been vs. his peers about tighting up control over his company (even during the recent years when he had huge leverage):\n- His board setup is ... odd. He isn't Chairman of the Board (a role over 50% of Fortune 100 CEOs apparently hold). He seems to be responsible for Nvidia having a wierdly more egalitarian structure (all directors including him, are equal, with a designated lead independent director)\n- His compensation (~$35M, primarily stock) is ... not up there with other tech CEOs\n- He doesn't seem to have ever pushed for super-voting rights (he only has like ~3.5% of the company), but I guess that's hard to change once you IPO\nI kinda wonder if this ends with him taking a month off, spending 12-18 months transitioning to a successor and ending as the chairman of the board or some such. He really does seem vital to the company (and thus the stock price)."
+        },
+        {
+          "id": 50461858,
+          "author": "zug_zug",
+          "text": "Nuanced opinions\n1) The fact that he cheated on his wife isn't particularly relevant, other than the lack of a prenup meaning she owns half his stock (4% of the company).\n2) The fact that he slept with a subordinate shows bad judgment, but isn't a huge deal (although improper and opens up potential quid-pro-quo lawsuits)\n3) The fact that he slept with a Chinese spy is a huge deal.\n4) The fact that there are allegations that he was aware that they were selling illegally to China is a huge deal.\n5) Even though those export control were arguably bad, the law must be respected and the being seen ignoring the law would have a chilling effect on appearance of a fair democracy.\n6) There is definitely a demonstration of lack of judgment (getting caught selling to china rather than maintaining plausible deniability), (sleeping with a spy rather than just hiring an escort)\n7) Despite all of this, in theory he would arguably still be the most profitable CEO (if he doesn't get charged with a crime, AND if there are no other issues to discover) in the medium term, but where there's smoke there may be fire. Does this raise the odds of circular financing and other shenanigans?"
+        },
+        {
+          "id": 50460669,
+          "author": "Topfi",
+          "text": "I recently recalled Nvidia's rather strange reaction to the Gamers Nexus investigation into GPU smuggling [0]. Found it somewhat strange at the time how incredibly agitated the reaction seemed to have been, given Nvidia could sell the same GPUs for the same price essentially instantly without the Chinese market. Their reaction wasn't merely a denial, dismissal or even silence, but very irrationally sounding for a company of their size and standing.\nWhy not just sell to not-sanctioned entities, ensure compliance to the best of your abilities and otherwise keep your head down? Again, wasn't like they struggled to find buyers for their chips.\nConsidering Megaspeed, I now see this in a very different light. Him cheating is personal and I wish the affected members of any family of a cheater the best, but not relevant for us outsiders.\nBeing honey trapped very bad securities wise, but he'd be a victim (and evidence for why we shouldn't discount Mistral in the frontier lab race [1]). If sanctions avoidance went all the way to the top, that is hard to negate even for a board that is interested in keeping him. At that stage he was neither honey trapped nor \"merely horny\"...\n[0]\nhttps://www."
+        },
+        {
+          "id": 50461104,
+          "author": "flowerlad",
+          "text": "Here's why Jensen is critical to Nvidia as well as the industry:\nWithout Jensen Huang's vision, Nvidia might have remained primarily a graphics chip maker, and the deep learning revolution would not have arrived when it did. Long before deep neural networks took off, Huang backed the use of Nvidia GPUs for scientific and general-purpose computing, including the development of CUDA. In 2012, Krizhevsky, Sutskever, and Hinton used Nvidia GPUs and CUDA to train AlexNet, whose breakthrough performance helped ignite the modern deep learning boom. Nvidia's investment in programmable GPUs helped make that breakthrough possible.\nThe critical vision was that GPUs could become a platform for computing beyond graphics—and that Nvidia should invest in making them programmable before a large market for that use existed.\nThe board should punish Huang without punishing the industry and the nation. For example by cutting his salary and stock to 0 for 2 years."
+        },
+        {
+          "id": 50460990,
+          "author": "irthomasthomas",
+          "text": "Nvidia is one of the most critical strategic assets in the USA today, underpinning economic dominance and national defence. Leadership at this level usually operates under an implicit shield. Normal procedure would be to cover-up. A sudden loss of Nvidia's founder and CEO at this juncture is a blow to American strategic posture and a windfall to China.\nI think the real story is not the affair, which was already reported in asian media in 2024, but what specific catalyst broke that protective shield and made continued containment untenable."
+        },
+        {
+          "id": 50461000,
+          "author": "bartread",
+          "text": "I said on this a few days ago that he should be thinking about resigning:\nhttps://news.ycombinator.com/item?id=50418016\nAt the time I didn't think it would happen because of impact on Nvidia's stock price, but at that point we didn't know about his second affair - with Kimberly Powell.\nI'd suggest this latest revelation makes his position untenable, especially if the board found out about the second affair via a source other than Huang himself. He should have spilled the beans on that when the first affair came out, not that it would necessarily have saved him, but withholding the information - if that's what he did - should condemn him. It's another serious lapse in judgement and a failure of integrity that is not befitting of one of the most powerful corporate leaders on earth.\nGoodness knows how his wife is feeling at this point. Certainly makes his apology from a couple of days back ring rather hollow.\nEDIT: The fact that someone like Jensen Huang - who I'd previously considered to be an incredibly smart guy as opposed to a nitwit - can somehow completely implode his life in almost the most ridiculous way imaginable does give me some hope that at least some of the troublemaker "
+        },
+        {
+          "id": 50460229,
+          "author": "at1as",
+          "text": "If this had happened at a more recent founder-led tech company, the board would have far less practical independence\nDual-class share structures have become the defacto standard for founder led companies, giving founders disproportionate (even majority) voting power.\nSomeone like Zuckerberg effectively controls the board and would be extraordinarily difficult to oust against his wishes (absent some exceptional legal intervention or a decision to step aside)"
+        },
+        {
+          "id": 50460142,
+          "author": "threecheese",
+          "text": "This is kinda huge; my layperson view is that Jensen has been responsible for their long term technology strategy, which requires deep understanding of so much outside of the business domain.  I'm not exactly thrilled that they are \"eating the world\" (hf purchase had me bent out of shape, for example), but they've undeniably executed on some long term complex shit. Who could take his place?"
+        }
+      ],
+      "title_ja": "Nvidiaがジェンセン・ファン氏の退任を準備中",
+      "summary_ja": "ディスカッションのハイライト：ジェンセン氏がどれほど非攻撃的であったかが非常に興味深い vs / ニュアンスのある意見\n1) 彼が妻を裏切ったという事実は、特に重要ではありません。ただし、婚姻前契約がないため、妻が彼の株式の半分（会社の4%）を所有しているという点は別です。\n2) fa / 最近、NvidiaがGamers NexusによるGPU密輸の調査に対して示した、かなり奇妙な反応を思い出しました [0]",
+      "editor_note": "「Nvidiaがジェンセン・ファン氏の退任を準備中」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50435240,
+      "title_en": "A Brief History of Sierra Online (2017)",
+      "url": "https://retrofreakreviews.com/2017/01/30/sierra-retrospective/",
+      "hn_url": "https://news.ycombinator.com/item?id=50435240",
+      "score": 25,
+      "comment_count": 3,
+      "posted_at": "2026-11-10T02:12:48+00:00",
+      "comments": [
+        {
+          "id": 50461367,
+          "author": "sethev",
+          "text": "It's fascinating to me that they had a presence in Oakhurst for such a long time (up until the late 90s). I met a couple of people who worked there - one who had a side gig selling homemade salsa at flea markets and building custom PCs. It would have been an awesome job back in the day."
+        },
+        {
+          "id": 50462049,
+          "author": "Aeroi",
+          "text": ">Ahh! Life-giving water! Nectar of the Gods!\nkings quest 5 was so good."
+        }
+      ],
+      "title_ja": "シエラ・オンラインの簡単な歴史（2017年）",
+      "summary_ja": "ディスカッションのハイライト：彼らがOakhurstにこれほど長い間（90年代後半まで）存在していたのは驚きです／>ああ！命の水！神々の蜜酒！\nキングス・クエスト5はとても面白かったです。",
+      "editor_note": "「シエラ・オンラインの簡単な歴史（2017年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Culture"
+    },
+    {
+      "rank": 23,
+      "id": 50455811,
+      "title_en": "Launch HN: Pomerado (YC F26) – Turn any website into an MCP for agents",
+      "url": "https://news.ycombinator.com/item?id=50455811",
+      "hn_url": "https://news.ycombinator.com/item?id=50455811",
+      "score": 48,
+      "comment_count": 40,
+      "posted_at": "2026-11-11T17:11:56+00:00",
+      "comments": [
+        {
+          "id": 50456440,
+          "author": "rahimnathwani",
+          "text": "What are the main advantages compared with\nhttps://github.com/mvanhorn/cli-printing-press\nThe obvious differences I can see are:\n- generates an MCP server instead of a CLI\n- at 'minting' time, uses OpenAI API keys, instead of coding agent subscription\n- tries to solve for a particular use case, instead of all the site provides"
+        },
+        {
+          "id": 50461281,
+          "author": "jeroenhd",
+          "text": "Do you respect the wishes of sites and services that do not want the extra load? How does one opt their online service out?"
+        },
+        {
+          "id": 50457395,
+          "author": "bshafiq",
+          "text": "Congrats on the launch! The approach of turning unstructured sites into deterministic MCPs is really interesting, especially the self-healing maintenance jobs.\nCurious about the failure mode: what happens when a browser action fails or times out? The agent will often just blindly retry the exact same MCP tool call with the exact same arguments. Since the tool call itself returns a 200 OK, standard retry counters miss it, and you just burn tokens while the browser keeps timing out in the background.\nAre you doing any payload/state validation at the runtime layer to hard-stop those cyclic failures before the next call, or does the Guardian model handle that?"
+        },
+        {
+          "id": 50459667,
+          "author": "jrecyclebin",
+          "text": "Site must be slammed - but I'm interested bc I'm working on a similar thing. But my project (one aspect at least) is for expressing HTTP calls as MCP tools.\nThe format looks like this:\n---\n[add-list-item] Add a new item to a list.\n# Adjust the fields object to match your list's actual columns.\n$fields is object\nPOST https://graph.microsoft.com/v1.0/sites/$site_id/lists/$list_id/items\nAuthorization: Bearer $token\nContent-Type: application/json\n{\n\"fields\": $fields\n}\nHTTP 201\nBeen having a lot of fun with this, as I can pile up these integrations and make detailed MCPs quickly."
+        },
+        {
+          "id": 50460125,
+          "author": "hkalbert71",
+          "text": "One distinction worth measuring is transport success versus actual operation success.\nA tool can return HTTP 200 while making no useful progress. The agent may then repeat the same call with identical arguments.\nWe're exploring this from an observability angle with KORA Doctor. It can flag repeated tool calls using privacy-preserving fingerprints, but it doesn't block live retries or determine whether caching is safe.\nDo your generated MCP tools expose operation-level status or state-change evidence so external tools can distinguish a successful repair from another no-op retry?"
+        },
+        {
+          "id": 50456425,
+          "author": "shipsafestack",
+          "text": "How do you handle credentials and sessions for sites behind a login, like the bank and insurance portals you mention? Is the user's password or session cookie stored on your side, or does the generated MCP run against a session the user keeps locally?\nRelated: page content is untrusted input that now flows straight into an agent's context. Do the deterministic tools return only structured fields you've extracted, or can arbitrary page text (reviews, messages, product descriptions) pass through? That seems like the main prompt-injection surface for anything that can also perform actions like checkout."
+        },
+        {
+          "id": 50461850,
+          "author": "yan5xu",
+          "text": "i did it long long time ago\nhttps://github.com/epiral/bb-browser"
+        },
+        {
+          "id": 50456162,
+          "author": "KallowayThayer",
+          "text": "Curious how this handles session isolation and rate-limiting when converting dynamic DOM heavy pages into MCPs.\nIf an agent hits a heavy SPA with infinite scroll or aggressive bot protection, does Pomerado handle edge-caching or proxy-level deduplication, or is it parsing raw DOM on every tool call?"
+        }
+      ],
+      "title_ja": "HNローンチ：Pomerado（YC F26）– どのウェブサイトでもエージェント用のMCPに変換",
+      "summary_ja": "ディスカッションのハイライト：次のツールと比較した主な利点は何ですか？\nhttps://github.com/mvanhorn/cli-printing-press\n私が見る限り、明らかな違いは次のとおりです。\n- CLIの代わりにMCPサーバーを生成する\n- at 'mi / 追加の負荷を望まないサイトやサービスの意向を尊重していますか？オンラインサービスをオプトアウトするにはどうすればよいですか？/ リリースおめでとうございます！非構造化サイトを決定論的なMCPに変換するというアプローチは、非常に興味深いものです。",
+      "editor_note": "「HNローンチ：Pomerado（YC F26）– どのウェブサイトでもエージェント用のMCPに変換」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50452655,
+      "title_en": "Can a Linear Program Do Weight-Space Programming?",
+      "url": "https://nathan.rs/posts/weight-space-lp/",
+      "hn_url": "https://news.ycombinator.com/item?id=50452655",
+      "score": 247,
+      "comment_count": 37,
+      "posted_at": "2026-11-11T12:30:17+00:00",
+      "comments": [
+        {
+          "id": 50453507,
+          "author": "jsw97",
+          "text": "Maybe this is what the author is getting at, but if LP solvers are useful tools for editing weights, then Astra access to this methodology might make it more effective at weight editing.\nThe interpretation here is not so much that an LP can do Astra's work -- after all the Astra prompt was \"improve Qwen's math by changing weights\" or similar. Instead, it's that with some guidance (eliminate this behavior, preserve that behavior, as expressed through linear constraints) the solver is much more efficient than Astra's trial and error. So essentially the solver would be a way of cutting through all the time consuming stuff and expressing Astra's intent more immediately. And then presumably Astra could iterate on that to a better solution.\nThe use of an LP solver here is a really cool insight."
+        },
+        {
+          "id": 50462275,
+          "author": "bcmyguest",
+          "text": "This seems like a really neat trick, I wonder how far this can be taken on larger models with multi-variate rewards?"
+        },
+        {
+          "id": 50453946,
+          "author": "rbnafo",
+          "text": "Very interesting analysis. It would be great to see the LP comeback and optimize. I always have the impression that we have settled to suboptimal solutions in many areas just because we have become too attached to LLMs, wary of numerical analysis."
+        },
+        {
+          "id": 50452953,
+          "author": "dansitu",
+          "text": "Nice analysis. The simplicity of this indicates that it should be happening during training via regularization."
+        },
+        {
+          "id": 50459113,
+          "author": "mirekrusin",
+          "text": "They should use this idea to do weight-space distillation, feels like you can get far with small model by just collecting paired examples, discovering behavioral directions and using linear programming to find sparse weight edits to improve target behavior / limit unwanted changes, rinse repeat.\nWhile we're at it, this whole reasoning tokens RL/distillation should be encouraging hierarchical reasoning – start with establishing high level abstractions first, then progressively refining it into lower level details – imho it would help with reasoning itself and would make it way easier to score/distill later as well."
+        },
+        {
+          "id": 50457887,
+          "author": "whatever1",
+          "text": "Traditional math programming will replace or override the RL loop.\nWe have reached the point where we need to enforce strict constraints in the outputs.\nRewards/ penalties can never do it if you have multiple objectives."
+        },
+        {
+          "id": 50455443,
+          "author": "daemonk",
+          "text": "What exactly is the difference between weight-space programming and something like back propagation? I guess AI can reason deeper about the weights somehow and take into account more parameters than a simple feedback from back propagation?"
+        },
+        {
+          "id": 50455977,
+          "author": "deerstalker",
+          "text": "Not strictly on topic but related to this -- I wonder if there is any effort/research being done with LLMs when it comes to finding low dimensional weight space representations/manifolds. If you could drastically lower the dimensionality with some algortihm X, you could efficiently use global optimization algorithms to find sparse but accurate networks (Lottery Ticket Hypothesis etc etc.)"
+        }
+      ],
+      "title_ja": "線形計画法で重み空間計画を行うことは可能ですか？",
+      "summary_ja": "ディスカッションのハイライト：おそらく著者が言いたいのはこれのことでしょうが、LPソルバーが重み付けを編集するのに有用なツールであるなら、Astraがこの手法にアクセスすることで、重み付けがより効果的になるかもしれません/これは本当に巧妙なトリックのように思えます。多変量報酬を用いる大規模なモデルで、これがどこまで通用するのか気になります/非常に興味深い分析です",
+      "editor_note": "「線形計画法で重み空間計画を行うことは可能ですか？」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 25,
+      "id": 50453637,
+      "title_en": "Atuin Threads: All your agent sessions on every machine",
+      "url": "https://blog.atuin.sh/threads-agent-sessions/",
+      "hn_url": "https://news.ycombinator.com/item?id=50453637",
+      "score": 191,
+      "comment_count": 73,
+      "posted_at": "2026-11-11T14:10:46+00:00",
+      "comments": [
+        {
+          "id": 50461834,
+          "author": "yababa_y",
+          "text": "I've been maintaining a tool that does similar:\nhttps://github.com/emberian/cv\n. High performance parsers of the major harness formats at several versions. Not as much autosyncing. Great results using custom prunings compared to compaction summarization."
+        },
+        {
+          "id": 50454281,
+          "author": "nzoschke",
+          "text": "I started building my own version of this in Superlogical Rex.\nIt's a bit hard to decide where to hook in.\nRex has events, harnesses have hooks, terminal output can set program status, git has hooks.\nI'm not sure I actually want every session from every machine saved. That's a lot of noise especially when half of coding sessions are experimental / throwaway.\nBut at the same time its not that much data that's easy to ripgrep / LLM through."
+        },
+        {
+          "id": 50456233,
+          "author": "hugmynutus",
+          "text": "Really enjoyed Atuin for a few weeks, until I realized it doesn't have correct `EFSRO` (Error: Read-Only File System) handling. So when my `/home` mount had a raid array drive failure it broke my local shell. Issue has been sitting open for almost a year. Pretty disappointing."
+        },
+        {
+          "id": 50457850,
+          "author": "baalimago",
+          "text": "I suspect this is one of those problems \"everyone\" has built their own solution for. Including me!\nI built slivingdoc[0] with an alternative approach: instead of syncing exact sessions (which are often quite noisy, and not so useful), the agents gets a living document with automatic merge conflict resolution backed by s3 (\"infinite\" storage). Idea being that the agents are prompted to summarize their context into slivingdoc as normal utf-8 files. So this way only you only need to add the stdio MCP server to all your harnesses which supports it and it just works!\nSome harnesses are _super_ hyped about this concept. Codex needs no prompting at all to start communicating. I got the idea from enabling agentic forums via all the openAI hacks.\n[0]: slivingdoc.dev"
+        },
+        {
+          "id": 50461345,
+          "author": "tristanMatthias",
+          "text": "Will this work for Claude code web sessions?? I am DYING to be able to control and sync between them locally. IE take advantage of anthropics compute to build my toolchain which, when running many sessions locally uses significant ram."
+        },
+        {
+          "id": 50455202,
+          "author": "talloaktrees",
+          "text": "I've built this for myself, but not across multiple machines.\nIt scans the session logs of all coding harnesses I use, one extra thing it does is create embeddings to allow hybrid BM25/semantic search.\nI think these kinds of tools are on of the few times I've spent time \"using AI to work on my AI tools\" that was actually a good use of time.\nIt's so useful to be able to say \"search sessions for the time I was working on XYZ 3 months ago\""
+        },
+        {
+          "id": 50459406,
+          "author": "NelsonMinar",
+          "text": "It's not clear which parts of Claude state are safe to sync and which you want to keep local to one machine. I'm doing something with syncthing trying to keep agent session history available and little bits of it keep breaking. I haven't looked at this new feature in atuin does it have a really good understanding of what is worth syncing?"
+        },
+        {
+          "id": 50455604,
+          "author": "thesurlydev",
+          "text": "I've a love affair with Atuin but this may turn into a full blown obsession"
+        }
+      ],
+      "title_ja": "Atuinスレッド：すべてのマシン上のすべてのエージェントセッション",
+      "summary_ja": "ディスカッションのハイライト：私は似たようなことを行うツールをメンテナンスしてきました。\nhttps://github.com/emberian/cv\n / Superlogical Rexでこれの独自のバージョンを作り始めました。\nどこにフックするかを決定するのは少し難しいです。\nRexにはイベントがあり、ハーネスにはフックがあり、ターミナル出力はプログラムの状態を設定できます/ Atuinを数週間とても気に入っていましたが、`EFSRO`（エラー：読み取り専用ファイルシステム）の処理が正しく行われていないことに気づきました。",
+      "editor_note": "「Atuinスレッド：すべてのマシン上のすべてのエージェントセッション」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50451903,
+      "title_en": "Using voltage glitching to unleash the A100 in my mining card",
+      "url": "https://blog.kate.land/posts/using-voltage-glitching-to-unlock-the-a100/",
+      "hn_url": "https://news.ycombinator.com/item?id=50451903",
+      "score": 267,
+      "comment_count": 108,
+      "posted_at": "2026-11-11T10:48:40+00:00",
+      "comments": [
+        {
+          "id": 50453153,
+          "author": "htrp",
+          "text": "amazing to think there was a time (literally not too long ago) where you would throw 80 GB of HBM onto a chip and turn 90% of it off"
+        },
+        {
+          "id": 50454969,
+          "author": "notenchange",
+          "text": "This is great. I’m actually trying to unlock the 80G in a CMP 170HX the software way for the last 2 weeks (still no luck).\nI just don’t know if I’m brave enough (and knowledgeable enough) to go this blown fuses way. Seems a lot more risky.\nP.S. I now see this is for the 8GB model, which is insane. The 10G one is the one that until now was proven to have 80G, but never fully accessible through CUDA (it was accessible using CPU memory copy though - much slower)."
+        },
+        {
+          "id": 50457696,
+          "author": "myself248",
+          "text": "Instead of putting the host to ACPI S3 state, could an external PCIe riser be used with a separate power supply?\nSeems like that would considerably speed up the process, by letting the host continue to run while only the target cycles."
+        },
+        {
+          "id": 50452456,
+          "author": "amelius",
+          "text": "But what if nvidia used those fuses because an A100 had too many fabrication faults so it could only be a cheaper mining card?\n(which is the more likely scenario because they can make much more money on enterprise/datacenter products, see DRAM)"
+        },
+        {
+          "id": 50452746,
+          "author": "roger_",
+          "text": "Glad I jumped on these cards, excited to give this a try!\nHard to believe $1k was a deal a few months ago (and $200 before then)."
+        },
+        {
+          "id": 50452615,
+          "author": "SillyUsername",
+          "text": "I just wish they had something like this for older Tesla p100s, p4s..."
+        },
+        {
+          "id": 50457275,
+          "author": "nullc",
+          "text": "Considering how unobtainium GPUs have become nvidia could get a PR win by publishing unlocks for all their outdated hardware. ... people are figuring it out anyways, might as well embrace it."
+        },
+        {
+          "id": 50456418,
+          "author": "octoberfranklin",
+          "text": "there are several functions where blowing a fuse on an NVIDIA die can grant you more access, not less. In a properly secured design, a blown fuse should always induce a more restrictive state, because a blown fuse cannot be unblown in an economically feasible way.\nNot really.\nIf the fuses are for security, sure.  But these aren't.\nThese fuses are for economic extraction.  Doing it the way NVIDIA did it is a safety feature: it ensures that blowing a fuse will never destroy economic value -- it will never turn a card that was previously able to do something correctly into a card that can no longer do that thing correctly."
+        }
+      ],
+      "title_ja": "電圧グリッチングを使用してマイニングカードのA100を解放する",
+      "summary_ja": "ディスカッションのハイライト：80 GBのHBMをチップに搭載し、その90%をオフにしていた時代（文字通りそれほど昔のことではありません）があったなんて驚きです/これは素晴らしいことです/ホストをACPI S3状態にする代わりに、外部のPCIeライザーを別々の電源とともに使用することは可能でしょうか？\nこれにより、プロセスが大幅にスピードアップされるようです。",
+      "editor_note": "「電圧グリッチングを使用してマイニングカードのA100を解放する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50416365,
+      "title_en": "Optimizing Reference Deletions in Git",
+      "url": "https://nayak.im/posts/optimizing-reference-deletion/",
+      "hn_url": "https://news.ycombinator.com/item?id=50416365",
+      "score": 28,
+      "comment_count": 0,
+      "posted_at": "2026-11-08T19:37:42+00:00",
+      "comments": [],
+      "title_ja": "Gitでの参照削除の最適化",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Gitでの参照削除の最適化」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 28,
+      "id": 50422216,
+      "title_en": "Making the Iron Giant Live",
+      "url": "https://animationobsessive.substack.com/p/making-the-iron-giant-live",
+      "hn_url": "https://news.ycombinator.com/item?id=50422216",
+      "score": 11,
+      "comment_count": 1,
+      "posted_at": "2026-11-09T07:26:45+00:00",
+      "comments": [
+        {
+          "id": 50461851,
+          "author": "scheeseman486",
+          "text": "Must be a terrible strain on the animator's wrists."
+        }
+      ],
+      "title_ja": "鉄の巨人を生み出す",
+      "summary_ja": "ディスカッションのハイライト：アニメーターの手首にかなりの負担がかかっているに違いない。",
+      "editor_note": "「鉄の巨人を生み出す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50449440,
+      "title_en": "The Apple Support Community will permanently close on November 20, 2026",
+      "url": "https://discussions.apple.com/welcome",
+      "hn_url": "https://news.ycombinator.com/item?id=50449440",
+      "score": 132,
+      "comment_count": 214,
+      "posted_at": "2026-11-11T03:26:51+00:00",
+      "comments": [
+        {
+          "id": 50453870,
+          "author": "garciasn",
+          "text": "Maybe when it started back in the late 90s it was a bastion of great information; however, I have never found a single answer that was worthwhile on there when landing from a search engine query.\nIf anything, this is likely flooding LLMs with incomplete/invalid/useless information and it's just time they deprecated it in favor of something more modern and useful."
+        },
+        {
+          "id": 50454707,
+          "author": "Aurornis",
+          "text": "The value of a product community forum is proportional to the technical abilities of its users.\nThe Apple and Microsoft community support forums may have had more value years ago when the only people who knew how to find and use a forum were already technical. It’s hard to imagine now, but there was a time when making an account on a site to talk to other people was unusual for average people.\nToday, the only useful community support forums I visit are for highly technical products. Anyone participating has a baseline level of competency to even get into the software or hardware, so conversation quality is higher.\nThe Apple (and Microsoft) community forums almost always have a 12–page thread of people having my same issue and no solution. There is also the strange phenomenon of the community members who want to be very helpful but are only copying and pasting “have you tried turning it off and back on again” or “wipe your device and reinstall” non-solutions.\nI’m surprised the Apple community forums lasted this long. I can remember a couple solutions I found there, but most of my visits were frustrating experiences of clicking through pages of threads of people complaining about the"
+        },
+        {
+          "id": 50454551,
+          "author": "Jordan-117",
+          "text": "I feel bad for the people who dedicated significant time to helping others there. I just pulled up a random page and there are users with tens of thousands of answers and profiles professing their love of all things Apple. Suddenly going read-only with no warning and killing it shortly after just seems like such a cold and abrupt way to end what was clearly some people's hobby and point of pride. I hope they at least do something to privately acknowledge the most helpful users beyond the boilerplate message."
+        },
+        {
+          "id": 50449613,
+          "author": "wafflebot",
+          "text": "My gosh I don't remember the last time I found anything useful on there. It feels like every response is someone telling OP that Apple doesn't read those forums, and directing them how to file feedback. Sad though to see Apple pull further away from their community."
+        },
+        {
+          "id": 50453886,
+          "author": "drbscl",
+          "text": "A lot of the threads on there are “hey this thing is broken”, opened 7 years ago, and the problem still isn’t resolved"
+        },
+        {
+          "id": 50450884,
+          "author": "keane",
+          "text": "I agree that many or even the majority of posts were not helpful.\nBut there were some long-lasting OS flaws and third-party app frictions where the workaround was helpfully posted on this site. As an example, every time MacOS updated, Sonos would stop working. Privacy & Security --> Local Network --> Toggle the permission for \"Sonos\" off. Wait. Toggle it back on. Fixed. (While doing this, you'll also notice Google's workaround of adding fresh entries here on each update of Chrome.) I think before Googling 'mac sonos stopped working' I checked if the Sonos app had permissions and the OS reporting that it did is how I got stumped. A Google search and 30 seconds in one of these threads later and I learned the truth about the toggle on state. It seemed like an embarrassing workaround to leave necessary for a year but Apple seemed to be okay with this solution mentioned here and no where else.\nAdditionally, some phrases that you knew existed inside Apple products (like app store URL parameters or a Safari feature flag maybe) you might search as \"site:apple.com DisablePNGTransparency\" and the\nonly\nresult would be on discussions.apple.com and, yes, you would groan that Apple hadn't bother"
+        },
+        {
+          "id": 50454018,
+          "author": "Zenul_Abidin",
+          "text": "You could never get an actual engineer to reply on those threads anyway. Whenever I had issues with my iPhone, I always find links to this forum and get disappointed."
+        },
+        {
+          "id": 50461359,
+          "author": "trey138",
+          "text": "Something like 20 years ago when I was living in NYC, I was invited to the Apple Store in Chelsea to take part in a panel about the forums with Apple staff. I hadn't used them in years, but I had a lot of posts with upvotes or whatever it was.\nAnyway, I don't remember anything about the panel, but afterwards they took us to this swanky restaurant with a huge charcuterie spread and an open bar. I remember commenting to one of the other participants that the wine was like $20.00+ per glass, with a bit of a cringe. An Apple employee overheard me and was like \"don't worry about it, this is all on Apple!\"\nPretty sure I drank like $1000.00 worth of wine that night, and I remember ending up in a cab with some Apple staff members who were in town from California, but I'm not sure if we carried on after that.\nIf anyone from Apple is reading this, maybe we should all get together for a debriefing/lessons learned now that it's all shutting down?"
+        }
+      ],
+      "title_ja": "Appleサポートコミュニティは、2026年11月20日に永久に閉鎖されます",
+      "summary_ja": "ディスカッションのハイライト：おそらく、1990年代後半に始まった当時は、優れた情報の宝庫だったのでしょう。しかし、検索からたどり着いたときに、そこであっても価値のある回答を1つも見つけたことはありません / 製品コミュニティフォーラムの価値は、そのユーザーの技術的能力に比例します。\nAppleとMicrosoftのコミュニティサポートフォーラムは、数年前の方が価値が高かったのかもしれません。/多大な時間を費やしてサポートを提供しようとした人たちが気の毒に思います。",
+      "editor_note": "「Appleサポートコミュニティは、2026年11月20日に永久に閉鎖されます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50460398,
+      "title_en": "Modern Web Guidance 1.0: The web platform expertise your coding agent is missing",
+      "url": "https://developer.chrome.com/blog/modern-web-guidance-v1",
+      "hn_url": "https://news.ycombinator.com/item?id=50460398",
+      "score": 20,
+      "comment_count": 5,
+      "posted_at": "2026-11-11T23:22:29+00:00",
+      "comments": [
+        {
+          "id": 50460991,
+          "author": "braiamp",
+          "text": "These skills seem to heavily prefer JS when plain HTML would do, in some cases just because it \"looks less clobbered\". Like really, if you are on a js front end heavy shop, this probably matches your mental model. If you prefer rendering on server and only use js for actually interactable elements, look elsewhere"
+        },
+        {
+          "id": 50462222,
+          "author": "ChrisArchitect",
+          "text": "[dupe] Discussion on the Show HN:\nhttps://news.ycombinator.com/item?id=50443812"
+        },
+        {
+          "id": 50461001,
+          "author": "cadamsdotcom",
+          "text": "See also:\nhttps://news.ycombinator.com/item?id=50443812"
+        }
+      ],
+      "title_ja": "Modern Web Guidance 1.0：コーディングエージェントに欠けているWebプラットフォームの専門知識",
+      "summary_ja": "ディスカッションのハイライト：これらのスキルは、単純なHTMLで十分な場合でも、JSを強く好む傾向があるようです。中には「見た目がすっきりしているから」という理由でJSを選ぶ人もいます/ [重複] Show HNでのディスカッション：\nhttps://news.ycombinator.com/item?id=50443812 /こちらもご覧ください：\nhttps://news.ycombinator.com/item?id=50443812",
+      "editor_note": "「Modern Web Guidance 1.0：コーディングエージェントに欠けているWebプラットフォームの専門知識」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "12",
+    "started_at": "2026-11-12T11:40:46.807414+09:00",
+    "finished_at": "2026-11-12T11:42:21.987198+09:00",
+    "story_count": 30
+  }
+}
