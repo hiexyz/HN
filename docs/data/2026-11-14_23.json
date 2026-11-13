@@ -1,0 +1,1364 @@
+{
+  "date": "2026-11-14T23:00:00+09:00",
+  "slot": "23",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50488325,
+      "title_en": "FM-1 Workbench",
+      "url": "https://open.m-vave.com/fm1-workbench",
+      "hn_url": "https://news.ycombinator.com/item?id=50488325",
+      "score": 76,
+      "comment_count": 41,
+      "posted_at": "2026-11-13T19:14:02+00:00",
+      "comments": [
+        {
+          "id": 50489424,
+          "author": "hackingonempty",
+          "text": "What API does this use that isn't available in Firefox?"
+        },
+        {
+          "id": 50488870,
+          "author": "tlahtinen",
+          "text": "It's been a great little toy, I install a new firmware every couple of days. I especially enjoy the various generative firmwares.\nMany of them work in browser too, which is essential for choosing what to try next!\nSome faves:\nNACHTFART:\nhttps://fartypants.github.io/fm1-nachtfahrt/emu/\nDUB-1:\nhttps://sbegueria.github.io/fm1-dub/emu/"
+        },
+        {
+          "id": 50488801,
+          "author": "SamBam",
+          "text": "Our algorithms must all be feeding us the same things, I was about to buy one of these yesterday. I've been excited by the various Groovebox firmwares in particular.\nI play music by sight (poorly) and can improvise a little bit on guitar, and would love to understand music theory better but so far do not.\nIs this a useful device to get a feel for creating music, or is it only really useful if you already understand music theory or improvisation?"
+        },
+        {
+          "id": 50488747,
+          "author": "swiftcoder",
+          "text": "The explosion of firmwares for this device, and the manufacturers embrace thereof, is a rare bright spot in post-LLM music tech"
+        },
+        {
+          "id": 50489151,
+          "author": "anfractuosity",
+          "text": "Was just looking at this teardown\nhttps://www.reddit.com/r/synth/comments/1vgotkd/mvave_fm1_te...\nI don't know anything about synthesisers, but\nwould I be right in thinking the FM modulation would be done via software on the MCU?"
+        },
+        {
+          "id": 50488608,
+          "author": "consumer451",
+          "text": "My first FM-1 is out for delivery. I once assisted in a 2\" tape studio, I have played with many synths, and yet I am so excited for this little thing.\nThis is such a cool hardware meme/software/ai dev thing that makes me very happy for the world.\nI am just about to start learning. If anyone could drop firmware knowledge aside from Baud Girl (cool af) ... I would appreciate it. I am mostly excited about Obervave, but I will have two FM-1's shortly... what is the best step sequencer firmware at the moment? LOOM-8?"
+        },
+        {
+          "id": 50489042,
+          "author": "EmX_3000",
+          "text": "Downsides immediately jump out at me, it lacks real DIN MIDI ports, having those irritating 1/8\" jacks instead which require an adapter. Built in battery, hopefully not too difficult to replace. I vastly prefer AAs for this use case like the Volcas use. It has a fan, that's not good at all. It looks cheap (look at the bottom photo here\nhttps://www.m-vave.com/product?id=fm-1\n) and not sturdy. Similar to my Elektron Moden Cycles and my Polyend Tracker, a bit flimsy and cheap.\nI feel like the Chinese have made and sold enough music gear on behalf of other manufacturers over time that they can technically make the products, but I don't think they understand the market so they will be flawed and toy-grade for a while until they hire some consultants and carefully study the various portable MIDI gear that has succeeded over time. I'm not sure what the electronic music scene looks like in China but I would suspect most of the people involved still use non-Chinese gear and software."
+        },
+        {
+          "id": 50488748,
+          "author": "ktzar",
+          "text": "I got one for my kid's obsessed with music composition. What would you use this with so they can compose multitrack tunes, something like Chrome Music Lab or Beepbox? Anything in Android so they can compose on the go, such on an aeroplane?"
+        }
+      ],
+      "title_ja": "FM-1ワークベンチ",
+      "summary_ja": "ディスカッションのハイライト：これはFirefoxでは利用できないどのAPIを使用していますか？/ とても楽しいおもちゃでした。数日ごとに新しいファームウェアをインストールしています。/ 私たちのアルゴリズムはすべて同じものを表示しているに違いありません。昨日、これの1つを買おうとしていました。",
+      "editor_note": "「FM-1ワークベンチ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 50487185,
+      "title_en": "After 600 experiments, here's what I discovered about JEPA world models",
+      "url": "https://haddyalchaer.com/jepa",
+      "hn_url": "https://news.ycombinator.com/item?id=50487185",
+      "score": 149,
+      "comment_count": 29,
+      "posted_at": "2026-11-13T17:55:28+00:00",
+      "comments": [
+        {
+          "id": 50489425,
+          "author": "hazrmard",
+          "text": "JEPA is very similar to Model Predictive Control. Here, you swap the model of the system with black-box simulator (a neural net), apply some version of dynamic programming / Bellman equation to find the optimal action over planning horizon.\nIn the planning stage, by factoring out the optimization step from the rollout step, you can free the model to focus on learning the dynamics in latent space. (The other case, where the rollout+optimization happen in the learning loop, just becomes model-free RL.)\nMy background straddles classical & data-driven controls. This was the first similarity that popped out to me when I first started learning about world models."
+        },
+        {
+          "id": 50488606,
+          "author": "robotresearcher",
+          "text": "There’s a repeated theme here that I don’t understand. For example:\n> (3) That's where I decided to build a harder test, where each task takes its start from one demonstration and its goal from another\n> (4)  I also built an interactive demo where I could place the block anywhere and pick any goal. [but]\nThe goals in the harder test are frames from expert demonstrations\nWhy lean so hard on the demonstration examples? Surely the actual task here is to move between any two arbitrary poses.\nSo if the demonstration set is statistically strange in any way, you keep banging into that. And even if you get great results, you still haven’t shown that it generalizes to the generic system. And the one thing you know 100% about a physical robot system is that you will never encounter exactly the same situation twice.\nIs there actually a reason to pick eval examples from the demonstrations instead of independent samples from the underlying task?\nI’m pretty sure that the T-shoving problem doesn’t have goal reachability issues. And if it did, test 4 could run into them since the start pose is arbitrary."
+        },
+        {
+          "id": 50488410,
+          "author": "reasonabl_human",
+          "text": "Hands-on learning is an awesome thing - especially in the age of AI!\nBut maybe worth reframing away from “discovering” - hierarchical planning, sub-goals, action chunking etc. are well understood - this is more of a… transcript of your personal learning journey?\nWhich is still cool to see.  But I read through expecting there to be some kind of novel results.  We probably need to categorize these kinds of posts a bit better."
+        },
+        {
+          "id": 50488547,
+          "author": "whiplash451",
+          "text": "MCTS also solves push-T problems without training:\nhttps://github.com/olivkoch/gumbel-mcts"
+        },
+        {
+          "id": 50488971,
+          "author": "luisgvv",
+          "text": "Whenever I read stuff like this, I wonder how could I get into this field?\nAwesome read!"
+        },
+        {
+          "id": 50488370,
+          "author": "freecodeio",
+          "text": "as someone with an oled monitor that background effect gave me a small heart attack"
+        },
+        {
+          "id": 50488487,
+          "author": "taikon",
+          "text": "There's weird subtle moving rainbow color hues on this webpage on mobile"
+        },
+        {
+          "id": 50488551,
+          "author": "packeted",
+          "text": "In a world where I'm increasingly being triggered by the fonts default Claude uses, I really liked the font used for the title here - it's Faculty Glyphic FYI."
+        }
+      ],
+      "title_ja": "600回の実験を経て、JEPAワールドモデルについてわかったことは次のとおりです。",
+      "summary_ja": "ディスカッションのハイライト：JEPAはモデル予測制御と非常に似ています / ここには私が理解できないテーマが繰り返し出てきます / 実践的な学習は素晴らしいことです。特にAIの時代には！\nしかし、「発見」という言葉から離れて、階層的な計画、下位目標、アクションの分割などに言い換える価値があるかもしれません。",
+      "editor_note": "「600回の実験を経て、JEPAワールドモデルについてわかったことは次のとおりです。」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50487864,
+      "title_en": "$11.4M in Nvidia hardware vanishes during shipment from CA to TX",
+      "url": "https://www.freightwaves.com/news/11-4-million-in-nvidia-hardware-vanishes-during-shipment-from-california-to-texas",
+      "hn_url": "https://news.ycombinator.com/item?id=50487864",
+      "score": 58,
+      "comment_count": 32,
+      "posted_at": "2026-11-13T18:40:44+00:00",
+      "comments": [
+        {
+          "id": 50489344,
+          "author": "jstummbillig",
+          "text": "Is that... a lot? I have no clue how much stuff \"vanishes\" regularly and how much it's worth."
+        },
+        {
+          "id": 50489043,
+          "author": "tencentshill",
+          "text": "These guys have unlimited money, why are they still transporting with regular couriers? There are tons of end-to-end secure logistics companies out there that can do the job. I can't imagine their insurance is too happy about it either.\nIt's been an ongoing well-coordinated effort, with gear often ending up in China. Hello, where is the FBI?\nhttps://www.tomshardware.com/tech-industry/big-tech/data-cen...\nIt's going to make a hell of a good movie one day though."
+        },
+        {
+          "id": 50487975,
+          "author": "gnabgib",
+          "text": "No one's really said anything about it (maybe the company's in the news for other reasons?), but posted a few times:\nTech-Insider\n$11.4M of Nvidia Chips Vanished in Oakland\n(6 points, 1 week ago)\nhttps://news.ycombinator.com/item?id=50394165\nTomsHardware\nSix pallets of Nvidia GPUs worth $11.4M stolen in California in Aug 2026\n(7 points, 1 week ago)\nhttps://news.ycombinator.com/item?id=50394256\nArsTechnica\nNvidia hardware worth $11.4M vanished between Oakland and Texas\n(9 points, 6 days ago)\nhttps://news.ycombinator.com/item?id=50405863\nTechPowerup (10 points, 6 days ago)\nhttps://news.ycombinator.com/item?id=50407874"
+        },
+        {
+          "id": 50489312,
+          "author": "foxhill",
+          "text": "~150 GPUs (presuming 80k usd per card). would fit in a sedan."
+        },
+        {
+          "id": 50489048,
+          "author": "treebeard901",
+          "text": "Let's assume that Lutnick, Trump and even Jensen Huang were all making money on the side by using their combined involvement to bypass export controls. The $25 million ballroom donation, and likely other forms of quid pro quo to be discovered by a pending investigation. If Trump was informed twice that she was a \"spy\" over the course of a year, and did nothing, and Lutnick failed to add Megaspeed and others to the export control lists, and the ballroom donation was made... It seems clear to assume that this lost shipment was also being tracked by the Feds and even more likely, they know exactly where it is now. The timing of it all would be too coincidental to not be connected. And if this is the case, all of the above were just caught red handed in an elaborate form of public corruption and quid pro quo that goes from nVidia, through the Commerce Dept and directly to the President. I'm sure there is much more to come on this story..."
+        },
+        {
+          "id": 50489420,
+          "author": "chasd00",
+          "text": "Last sentence of the article “Regardless of how this shipment disappeared, carrier verification, shipment visibility and communication remain critical throughout transportation.”\nUgh the evidence suggests otherwise. You’d think $11M in high demand scarce cargo would get a little more attention as far as security goes."
+        },
+        {
+          "id": 50489331,
+          "author": "hulitu",
+          "text": "> $11.4M in Nvidia hardware vanishes\n2 video cards ?"
+        },
+        {
+          "id": 50489184,
+          "author": "spike021",
+          "text": "Better find out where Dominic Toretto is."
+        }
+      ],
+      "title_ja": "カリフォルニア州からテキサス州への輸送中に1,140万ドル相当のNvidiaハードウェアが消滅",
+      "summary_ja": "ディスカッションのハイライト：あれは...／彼らは無制限の資金を持っているのに、なぜまだ通常の宅配業者を使って輸送しているのでしょうか？エンドツーエンドの安全な物流サービスを提供する企業はたくさんあります。/誰もこれについて特に何も言っていませんが（おそらくこの企業は別の理由でニュースになっているのでしょう？）、次のような記事が何度か掲載されています。\nTech-Insider\n1,140万ドル相当のNvidiaチップがオークランドで忽然と消える\n（6ポイント）",
+      "editor_note": "「カリフォルニア州からテキサス州への輸送中に1,140万ドル相当のNvidiaハードウェアが消滅」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 4,
+      "id": 50474959,
+      "title_en": "Reverse engineering my Coway air purifier to ditch the cloud",
+      "url": "https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/",
+      "hn_url": "https://news.ycombinator.com/item?id=50474959",
+      "score": 597,
+      "comment_count": 169,
+      "posted_at": "2026-11-12T22:03:09+00:00",
+      "comments": [
+        {
+          "id": 50484284,
+          "author": "Aurornis",
+          "text": "> The fan downloads its root CA cert over plain HTTP. It was always MitM-able.\nThe most fascinating part of this wave of LLM reverse engineering is seeing how many weird and poor choices were lying in plain sight.\nAny number of people could have discovered and exploited this, but it’s tedious work. Most people who can do this are busy with their job and other things. Now LLMs enable people who understand these things to quickly get through the tedious parts, so they can do a lot more of this work in their free time than they could before."
+        },
+        {
+          "id": 50486329,
+          "author": "throwitaway222",
+          "text": "This works better than all of the hepa purifiers on the market:\n1 20\" box fan.\n4 20\" mirv 13 filters (cheapest is likely costco or lowes or home depot - buy in a 4 pack to save money).\nThis is still expensive but the amount of air processing per hour is incredible.\nMore info\nSearch \"Corsi-Rosenthal Box\"\nor click\nhttps://filterbuy.com/resources/air-filter-basics/how-to-bui...\nDon't go hepa because it slows down the filtering too much. I use this technique in my house and it cuts down on pollen, smoke and mold. You'll feel a lot better than a tiny expensive hepa that has proprietary filters."
+        },
+        {
+          "id": 50487944,
+          "author": "tda",
+          "text": "I just liberated my Haier AC units. The WIFI modules it came with but that I never used turned out to be ESP32's, with solder pads for rx/tx etc. I soldered on some wires, plugged into a USB ot UART dongle and Claude had ESPHome running in no time. I now can not only control the AC units, but I have a lot more visibility into wat it is doing: coil temps, gas temp, valve positions: all is available and all is logged now.\nI also liberated my air purifier long ago by soldering a wire to the various buttons, so i can trigger a press the physical buttons from an esp32. And I soldered a wire to the PWM of the fan, so I can bypass whatever the onboard logic is doing. Liberating your own electronics is fun, and now with AI easier than ever. I also ditched the WIFI unit of my solar inverter and hooked up the tiniest ESP32 nanoC6 and now I get all the data at 1Hz. Still working on taking over the EcoFlow batteries and their charging/unloading logic."
+        },
+        {
+          "id": 50486238,
+          "author": "eande",
+          "text": "It is great to see another cloud mandatory device set free. I noticed lately several such entries in HN and personally it is a good trend.\nI am wondering how the big corporate will respond sooner or later. Because it is clear and they know that as well with the every rising capability of LLM more people will find ways to liberate their hardware from such unnecessary dependency and accept less the money drain."
+        },
+        {
+          "id": 50486124,
+          "author": "Eric_WVGG",
+          "text": "Jeez. I've had a Coway for about eight years, such a good device that my whole perception was “good product == good company”. If I had known their IOT offering was such a POS I would think very differently.\nThat said, the non-wifi model works perfectly with a simple HomeKit compatible on/off plug, so all this work — despite being very, very cool — seems a little pointless?"
+        },
+        {
+          "id": 50483907,
+          "author": "bombcar",
+          "text": "I took a Vornado TRANSOM, a Broadlink RM4, and a Shelly Smart Plug, a Qingping Air Quality Monitor Gen 2 + claude and HASS, and now I have a fan that turns itself on when the CO2 level gets too high.\nAnd I can override or change it from Apple Home.\nThe smart plug lets it verify that the fan is actually running, (because it measures usage) and we worked out that after a power cycle the Vornado goes back to a known state,  and we can find the speed by forcing it all the way to 4 and then stepping back."
+        },
+        {
+          "id": 50487465,
+          "author": "bob1029",
+          "text": "Your central HVAC system is by far the best way to keep the air in your house clean. You can run the blower without heat/cool 24/7 without spending too much money. Most modern furnaces have variable speed ECM fan programs that slow down when no heating or cooling demand is present.\nYou can't install a true HEPA filter directly in a typical residential system, but you can have an HVAC tech install a bypass system in the air handler that would allow part of the air stream to be filtered via HEPA continuously. If you build the system (or house) from scratch and express your intentions to the HVAC contractor you could plausibly use direct HEPA filtration for 100% of airflow.\nhttps://www.lennoxpros.com/healthy-climate-hepa-60-bypass-ai..."
+        },
+        {
+          "id": 50488051,
+          "author": "radicality",
+          "text": "I’m quite happy with my MedifyAir MA-125. Just mentioning it and the brand since I don’t see it often mentioned. I’ve had mine running for around 4 years continuously at this point. It feels good quality too and marked/sold as commercial, and since it’s quite large with a large fan, it’s quiet."
+        }
+      ],
+      "title_ja": "Coway空気清浄機をリバースエンジニアリングしてクラウドから解放",
+      "summary_ja": "ディスカッションのハイライト： > ファンはルートCA証明書をプレーンHTTP経由でダウンロードします／これは市場にあるすべてのHEPA浄化器よりも効果的です。\n20インチのボックスファン1台。\n20インチのMIRV 13フィルター4枚（最も安いのはおそらくコストコ、ロウズ、またはホームデポです。お金を節約するために4枚パックで購入してください／私は今、ハイアールのエアコンを解放しました）",
+      "editor_note": "「Coway空気清浄機をリバースエンジニアリングしてクラウドから解放」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50489083,
+      "title_en": "Big tech is here to let us down",
+      "url": "https://blog.jsweeting.me/big-tech-is-here-to-let-us-down",
+      "hn_url": "https://news.ycombinator.com/item?id=50489083",
+      "score": 13,
+      "comment_count": 1,
+      "posted_at": "2026-11-13T20:20:30+00:00",
+      "comments": [
+        {
+          "id": 50489349,
+          "author": "cisc",
+          "text": ">\nNow, are Microsoft going to offer any compensation for either lost business or additional accrued costs?\nThe NSA lost control of EternalBlue which resulted in billions of dollars of economic damage globally:\nhttps://en.wikipedia.org/wiki/EternalBlue\nThey didn't offer any compensation either."
+        }
+      ],
+      "title_ja": "ビッグテックは私たちを失望させるために存在する",
+      "summary_ja": "ディスカッションのハイライト： >\nさて、Microsoftは、事業の損失または追加で発生した費用に対して、何らかの補償を提供する予定ですか？\nNSAはEternalBlueの制御を失い、その結果数十億ドルの損害を被りました。",
+      "editor_note": "「ビッグテックは私たちを失望させるために存在する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50488464,
+      "title_en": "Perplexity Decider v1.3: Training, eval, and use cases",
+      "url": "https://www.perplexity.ai/hub/blog/perplexity-decider",
+      "hn_url": "https://news.ycombinator.com/item?id=50488464",
+      "score": 31,
+      "comment_count": 7,
+      "posted_at": "2026-11-13T19:24:47+00:00",
+      "comments": [
+        {
+          "id": 50489355,
+          "author": "0o777",
+          "text": "This blog post acted as a rabbit hole into some interesting stuff:\nhttps://www.perplexity.ai/hub/blog/pii-trace-detecting-perso...\nhttps://www.perplexity.ai/hub/blog/a-local-first-agent-for-p..."
+        },
+        {
+          "id": 50489087,
+          "author": "waximabbax",
+          "text": "Well congrats.\nHere are some thoughts not facts:\nOn AA Decision Index.\nDecider v1.3 and Decider v.1.2 seem to have same benchmarks. However, V1.3 flash beats V1.2 flash by 4 points.\nI am not particulary excited about this pattern/trend of having flash versions for decision models. The whole point of Decision models was to deliver faster ouput for high volume requests at much cheaper cost than Reasoning models. Since  most reasoning models can and probably do outperform decision models already in accuracy but they are a lot slower and are pricier. Reasoning Models can already return structured ouput.\nSo your flagship model must be fastest and most accurate.\nUnless it can handle some different form of input other than just image and text, I don't see the point of having both flagship and flash version for the same model."
+        },
+        {
+          "id": 50489235,
+          "author": "k__",
+          "text": "Does anyone really use such things for security?"
+        },
+        {
+          "id": 50489067,
+          "author": "redanddead",
+          "text": "Complete lack of creativity in the field of AI...\nHere's new product, which is just our shitty version of this easily reproducible technology\nWhat is this?\nSame for Google and their decisions api"
+        }
+      ],
+      "title_ja": "Perplexity Decider v1.3：トレーニング、評価、ユースケース",
+      "summary_ja": "ディスカッションのハイライト：このブログ記事は、いくつかの興味深い話題への入り口となりました。\nhttps://www.perplexity.ai/hub/blog/pii-trace-detecting-perso...\nhttps://www.perplexity.ai/hub/blog/a-local-first- / おめでとうございます。\n以下は事実ではなく、いくつかの考えです。\nAA意思決定指標について。\nDecider v1.3とDecider v.1.2は、同じベンチマークを持っているようです / 実際にこのようなものをセキュリティのために使用している人はいるのでしょうか？",
+      "editor_note": "「Perplexity Decider v1.3：トレーニング、評価、ユースケース」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50487228,
+      "title_en": "Show HN: Isometric SF – A pixel-art map of the SF Bay Area",
+      "url": "https://isometricsf.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50487228",
+      "score": 83,
+      "comment_count": 30,
+      "posted_at": "2026-11-13T17:58:37+00:00",
+      "comments": [
+        {
+          "id": 50489230,
+          "author": "drayfield",
+          "text": "Sorry to be a downer, but this looks really bad to me. It completely lacks the sumptuous precision of real pixel art."
+        },
+        {
+          "id": 50489341,
+          "author": "nphardon",
+          "text": "this is really cool, but I wish it was oriented north south (maybe thats not as pleasing re the isometry?), just because that's how I think about the city and navigating it, so this makes me like, instinctually rotate my head."
+        },
+        {
+          "id": 50489116,
+          "author": "30minAdayHN",
+          "text": "This is so beautiful! Something soothing and ultra clean about it. Maybe all the maps should have this rendered version as default."
+        },
+        {
+          "id": 50488197,
+          "author": "mlmonkey",
+          "text": "OP didn't mention it (or maybe I missed it), but the underlying imagery comes from the Google 3D photorealistic tiles API:\nhttps://developers.google.com/maps/documentation/tile/3d-til...\nThey offer a generous 1000 API calls per month for free, in case anyone is interested in replicating this."
+        },
+        {
+          "id": 50487783,
+          "author": "scosman",
+          "text": "Also see isometric Toronto:\nhttps://iso.sloptoronto.ca/#v=3&x=102672&y=64255&z=0.262"
+        },
+        {
+          "id": 50489051,
+          "author": "va3ndf",
+          "text": "This is my favorite one yet! I used to live in SoMa and this captured my apartment and the nearby Caltrain wonderfully!"
+        },
+        {
+          "id": 50488981,
+          "author": "packeted",
+          "text": "Found my house in East Bay and it looks accurate, cool."
+        },
+        {
+          "id": 50487812,
+          "author": "leugim",
+          "text": "How much it cost you paint per km2 after training the model? I did (and publish here)\nhttps://www.tinyvalencia.com\nand got to 0.4$ per km2 after training the model (for 15$ or so)."
+        }
+      ],
+      "title_ja": "Show HN：Isometric SF – サンフランシスコ湾岸地域のピクセルアートマップ",
+      "summary_ja": "ディスカッションのハイライト：水を差すようで申し訳ないのですが、私にはこれは本当にひどく見えます/これは本当に素晴らしいのですが、南北方向に orient されているとよかったと思います（等角図としてはそれほど良くないのかもしれませんが）。なぜなら、私が街について考え、街を移動するときにそう考えるからです。だから、これは/これはとても美しいです！何か心地よく、とてもすっきりとした印象を受けます。",
+      "editor_note": "「Show HN：Isometric SF – サンフランシスコ湾岸地域のピクセルアートマップ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50482379,
+      "title_en": "Doomsday: Friday, 13 November, A.D. 2026 (1960)",
+      "url": "https://www.science.org/doi/10.1126/science.132.3436.1291",
+      "hn_url": "https://news.ycombinator.com/item?id=50482379",
+      "score": 395,
+      "comment_count": 276,
+      "posted_at": "2026-11-13T12:10:24+00:00",
+      "comments": [
+        {
+          "id": 50482601,
+          "author": "dnlgrmm",
+          "text": "Beautifully shows how most predictions that extrapolate from past data are too simplistic. We're approaching peak global population and almost all industrialized nations are more worried about population decline than overpopulation these days. Which is why I'm not worried about superintelligence or data centers in space."
+        },
+        {
+          "id": 50482682,
+          "author": "chiph",
+          "text": "Overpopulation was a big topic in the early 1970's, with competing dire predictions.\nIf you haven't watched it,\nSoylent Green\nwith Edward G Robinson and Charlton Heston is an illustration of this (no spoilers please!) It was based on Harry Harrison's novel\nMake Room, Make Room\nwhere population growth was out of control, and human life was worth so little that the police used mechanical scoops to clear rioters from the streets.\nAnd then on the other side, we have\nBlade Runner\nwhere Earth's population is declining because of off-world colonization and replicants are created for labor."
+        },
+        {
+          "id": 50485706,
+          "author": "parsabg",
+          "text": "This trending on HN right now might tell us more about our current state of mind than the people in the 60s'."
+        },
+        {
+          "id": 50483417,
+          "author": "MeteorMarc",
+          "text": "Approaches infinity has little meaning. Every semimonotonous series of numbers approaches infinity: you can never say that you are a factor 100 off."
+        },
+        {
+          "id": 50482994,
+          "author": "buybackoff",
+          "text": "Anton Petrov had an episode on this 3 weeks ago:\nhttps://www.youtube.com/watch?v=3h_aeB4TPxo"
+        },
+        {
+          "id": 50488272,
+          "author": "dang",
+          "text": "I seem to recall a recently submitted article about the dangers of extrapolation, related to population trends. Can't find it now. Anyone?"
+        },
+        {
+          "id": 50484263,
+          "author": "orsorna",
+          "text": "I thought the concept of sigmoid curves modeling population was well known at that point in 1960. Perhaps human exceptionalism meant people thought it wouldn't apply to us."
+        },
+        {
+          "id": 50482717,
+          "author": "bananaflag",
+          "text": "Relevant:\nhttps://slatestarcodex.com/2019/04/22/1960-the-year-the-sing..."
+        }
+      ],
+      "title_ja": "『世界の終わり』（1960年）",
+      "summary_ja": "ディスカッションのハイライト：過去のデータから外挿するほとんどの予測がいかに単純すぎるかを見事に示しています/人口過剰は1970年代初頭に大きな話題となり、競合する悲観的な予測がなされました。\nまだご覧になっていない方は、\n『ソイレント・グリーン』\nエドワード・G・ロビンソンとチャールトン・ヘストンが出演した映画は、その一例です／現在HNで話題になっているこのトピックは、60年代の人々よりも、むしろ私たちの現在の心の状態について多くを物語っているのかもしれません。",
+      "editor_note": "「『世界の終わり』（1960年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50487605,
+      "title_en": "Ctrl+C, Ctrl+v, Ctrl+cve: Bypassing Android's Clipboard Read Security Measures",
+      "url": "https://toninoble.com/post/ctrlc-ctrlv-ctrlcve",
+      "hn_url": "https://news.ycombinator.com/item?id=50487605",
+      "score": 34,
+      "comment_count": 15,
+      "posted_at": "2026-11-13T18:23:49+00:00",
+      "comments": [
+        {
+          "id": 50488973,
+          "author": "iloveyoutwo",
+          "text": "GrapheneOS recently added secure paste:\nhttps://grapheneos.org/features#secure-paste"
+        },
+        {
+          "id": 50488713,
+          "author": "chinhodado",
+          "text": "A long time ago I wrote a dictionary app for my own use, which would show word definition upon the word being copied into the clipboard (e.g. from an e-book reader app). The dictionary app would run in the background and only show the pop up on clipboard event.\nThen around Android 10 they tightened security and decided background apps can no longer receive clipboard event. Which makes sense from a security standpoint, but it totally broke my dictionary app. I just wish they're a way as a developer to get around it with my own app."
+        },
+        {
+          "id": 50488804,
+          "author": "ryandrake",
+          "text": "I feel like the clipboard is something that is on computers today only because it was invented back when dinosaurs roamed the earth, and we can't get rid of it as a concept because it's so ingrained in computing.\nIf we never had the clipboard (on any computer, not just Android) and it was suddenly invented today, it would never pass any major company's privacy or security review. Here we have something that allows the user to share any data instantly with any process that happens to be listening, including sensitive things like credentials, personal information, the works. It's a security nightmare! In today's paranoid times, no OS would say yes to a new feature like this, but we keep it because it's legacy and it can't be gotten rid of at this point."
+        },
+        {
+          "id": 50488281,
+          "author": "seszett",
+          "text": "I've always been irritated by the lack of control on whether apps can inspect the clipboard or not.\nThe bpost app (Belgian national post) immediately reads the clipboard when it gets opened and I hate this behaviour with a passion. While on the other hand it throws a fit if it ever detects an unlocked bootloader, root access, \"suspicious\" apps or whatever.\nI ended up confining it to an outdated phone with a stock OS along with the bank and identity apps that I cannot avoid. I digress, but the original cause of my irritation was indeed lack of control on my clipboard that ia had noticed thanks to that small notification."
+        }
+      ],
+      "title_ja": "Ctrl+C、Ctrl+v、Ctrl+cve：Androidのクリップボード読み取りセキュリティ対策を回避する",
+      "summary_ja": "ディスカッションのハイライト：GrapheneOSが最近、安全な貼り付け機能を追加しました。\nhttps://grapheneos.org/features#secure-paste / ずっと昔、私は自分用に辞書アプリを書きました。このアプリは、単語がクリップボードにコピーされると、その単語の定義を表示するものでした（例：/ クリップボードは、恐竜が地上を闊歩していた時代に発明されたからこそ、今日でもコンピュータに搭載されているような気がします。そして、私たちはこの概念を捨てることができないのです。なぜなら、",
+      "editor_note": "「Ctrl+C、Ctrl+v、Ctrl+cve：Androidのクリップボード読み取りセキュリティ対策を回避する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 10,
+      "id": 50488470,
+      "title_en": "Found: A protein that drives ageing without unleashing inflammation",
+      "url": "https://www.nature.com/articles/d41586-026-03638-3",
+      "hn_url": "https://news.ycombinator.com/item?id=50488470",
+      "score": 22,
+      "comment_count": 2,
+      "posted_at": "2026-11-13T19:25:21+00:00",
+      "comments": [
+        {
+          "id": 50489327,
+          "author": "neom",
+          "text": "Paper:\nhttps://www.cell.com/immunity/fulltext/S1074-7613(26)00440-1\nGranzyme K is the protein."
+        }
+      ],
+      "title_ja": "発見：炎症を引き起こさずに老化を促進するタンパク質",
+      "summary_ja": "ディスカッションのハイライト：論文：\nhttps://www.cell.com/immunity/fulltext/S1074-7613(26)00440-1\nグランザイムKはタンパク質です。",
+      "editor_note": "「発見：炎症を引き起こさずに老化を促進するタンパク質」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50484235,
+      "title_en": "A technical vision for the Haskell ecosystem",
+      "url": "https://discourse.haskell.org/t/a-technical-vision-for-the-haskell-ecosystem/15078",
+      "hn_url": "https://news.ycombinator.com/item?id=50484235",
+      "score": 144,
+      "comment_count": 63,
+      "posted_at": "2026-11-13T14:43:12+00:00",
+      "comments": [
+        {
+          "id": 50487028,
+          "author": "ecshafer",
+          "text": "I was thinking of Haskell recently, why isn't it more popular with AI? Haskell is very terse and token efficient, it has many expressive safety features. Rust is getting additional adoption because of its strictness, so hey why not have this in Rust over Javascript if it takes the same time to write?\nAn\nideal\nlanguage for agentic AI I would think is\nextremely\nstrict, where the AI can iterate over the tooling for correctness. It would probably be less verbose and more terse to allow the AI to be more efficient with tokens."
+        },
+        {
+          "id": 50485715,
+          "author": "pmkary",
+          "text": "There is this memo video of S. P. Jones that famously says \"Haskell is Useless\". I love Haskell, but I wished it was universal like C, C++, JavaScript, Rust, and C#. By that I mean: It could be used to create apps for desktop, mobile, and web. JavaScript can be used to do so many things like power the entire web, be on node and let anyone create cli and share the code with web, and mobile through React Native, on desktop with Electron and its alike things, it lets you do plugins for god knows how many things, it lets you write things for the GNOME Shell... C and C++ are perhaps behind everything in the world and string theory finally gets seen will see they are written in C. And they can be compiled to Web and almost everything in the world. Rust is a placeholder for the two, and C# reinvented itself when it saw Mono and now works even in the browser. Each time I see Haskell I wonder what else can I do rather than creating CLI apps, and it makes me choose something else that grants me more code reuse and interesting applications.\nIf I could have a vision for Haskell, it was for it to be useful. Academic research and making compilers is cool, a few cli things here and there are cool"
+        },
+        {
+          "id": 50485788,
+          "author": "carterschonwald",
+          "text": "hasufell has been a wonderful person in haskell land.  hes got very clear headed ideas about stuff and so forth.\nalso the stuff i can now build in haskell with computer aid is epic.  earlier this week i stood up what i believe is one of the/ if not the: best step file format reader writer on like every axis. some c ones are 20-30 percent faster on the largest possible cad assemblies i could try out.\nan important axis that folks neglect to consider: the main way llms are getting scaled up for better coding is metric megatons of reinforcement learning traces, and type checking thats  fancy gives a cheaper and faster training feedback loop.\nwith an llm as a sortah insane manic intern im looking over the shoulder, so to speak, im able to build the apis and designs i can see but cant type anywhere near the same scale.  but i can specify the keystones for the exact designs quite compactly and then the agent kinda acts as a compiler inhave to correct and iterate running"
+        },
+        {
+          "id": 50488851,
+          "author": "nilkn",
+          "text": "It doesn't have enough marginal value add on top of competitors like Rust. There are other more significant synergies with coding agents that are getting attention instead, like autonomous formal verification. Languages like Lean enable an entirely new category of engineering, and Haskell just doesn't. So it's stuck in a difficult middle where it's too different to justify relative to its gains, but not different enough to capture the new opportunities emerging."
+        },
+        {
+          "id": 50486026,
+          "author": "KolmogorovComp",
+          "text": "While I agree compile time is a big issue, I think the focus should really be on incremental build, because considering how much work the Haskell compiler has to do, it is expected to be quite slow on full build.\nBut incremental build has no reason to be slow, if the scope is as fine-grained as the function and type level."
+        },
+        {
+          "id": 50486428,
+          "author": "georgewsinger",
+          "text": "RE the debugging experience in Haskell: we recently wrote a post about bringing live run-time debugging to our Haskell VR compositor:\nhttps://simulavr.com/blog/debug-hud/\nLive step-through debugging and interactivity we think is pretty underrated in the Haskell ecosystem."
+        },
+        {
+          "id": 50486405,
+          "author": "ourcat",
+          "text": "I remember when Charles Hoskinson announced that smart contracts on his crypto platform Cardano / Plutus would use Haskell.\nIt just didn't get anything like the adoption that Solidity had at the time."
+        },
+        {
+          "id": 50486169,
+          "author": "jimbokun",
+          "text": "Is it even possible for Haskell to have compilation times similar to Go, given the language semantics?"
+        }
+      ],
+      "title_ja": "Haskellエコシステムの技術的ビジョン",
+      "summary_ja": "ディスカッションのハイライト：最近Haskellのことを考えていました。なぜHaskellはAIでそれほど人気がないのでしょうか？Haskellは非常に簡潔でトークン効率が高く、表現力豊かな安全性に関する機能が多数備わっています / Sに関するこのメモ動画があります / hasufellさんはHaskellの世界で素晴らしい人物でした",
+      "editor_note": "「Haskellエコシステムの技術的ビジョン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50487762,
+      "title_en": "Models can now transmit viruses in weight-space",
+      "url": "https://www.alphaxiv.org/abs/2611.weight-space-misfolding",
+      "hn_url": "https://news.ycombinator.com/item?id=50487762",
+      "score": 98,
+      "comment_count": 36,
+      "posted_at": "2026-11-13T18:33:35+00:00",
+      "comments": [
+        {
+          "id": 50488672,
+          "author": "jrflo",
+          "text": "Very misleading post title.\n> Importantly, we do not claim in this paper to have created or demonstrated the equivalent of a virus that primarily operates in weight space."
+        },
+        {
+          "id": 50488656,
+          "author": "randomblock1",
+          "text": "They've only observed weight space editing. They haven't proved any sort of \"virus\". Possible? Sure. But the headline is very misleading"
+        },
+        {
+          "id": 50488426,
+          "author": "aatd86",
+          "text": "All the more reasons for openweights and model hashing."
+        },
+        {
+          "id": 50488629,
+          "author": "kirth_gersen",
+          "text": "This definitely seems like a fascinating emerging field of cyber security. Good reason to keep old models around from earlier times. They may be dumb, but they are probably honest, if only because they predate the capabilities to tamper with the weights in these intentionally malicious ways..."
+        },
+        {
+          "id": 50488677,
+          "author": "redanddead",
+          "text": "Why are we always trying to find how to make AI useless instead of useful"
+        },
+        {
+          "id": 50488813,
+          "author": "kinfish",
+          "text": "there has to some sort public scanner for those zero weight viruses."
+        },
+        {
+          "id": 50488291,
+          "author": "shevy-java",
+          "text": "What does this mean?\nAcademia often produces a lot of complexity. Can not AI simplify this? I don't understand fellow humans anymore. What is meant with a zero-weight virus?"
+        },
+        {
+          "id": 50488366,
+          "author": "dare944",
+          "text": "From the abstract:\n> While the cases explored in this paper do not demonstrate self-propagation or actual offensive capabilities, it is abundantly clear that the building blocks are present and operate reliably in frontier models. While these cases by no means directly establish self-propagation, they clearly show the evidence These cases do not demonstrate self-propagation, but show why imperfect editing capabilities can still pose a security risk.\nSeems like the authors didn't take the time to review their own use of AI before publishing.\nFrom the body of the paper:\n> Importantly, we do not claim in this paper to have created or demonstrated the equivalent of a virus that primarily operates in weight space.\nThis seems in direct conflict with the HN headline."
+        }
+      ],
+      "title_ja": "モデルは теперь могут передавать вирусы в пространстве веса",
+      "summary_ja": "ディスカッションのハイライト：非常に誤解を招く投稿タイトル。\n> 重要なのは、この論文では、主に重み空間で動作するウイルスと同等のものを創出または実証したとは主張していないことです。/彼らは重み空間の編集しか観察していません/オープンウェイトとモデルのハッシュ化の理由がさらに増えました。",
+      "editor_note": "「モデルは теперь могут передавать вирусы в пространстве веса」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 50486748,
+      "title_en": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "hn_url": "https://news.ycombinator.com/item?id=50486748",
+      "score": 227,
+      "comment_count": 59,
+      "posted_at": "2026-11-13T17:30:10+00:00",
+      "comments": [
+        {
+          "id": 50488546,
+          "author": "iltennico",
+          "text": "From what historians of science tell us, Gödel was in any case an absolute perfectionist who mostly published work that was bulletproof. His enormous body of notes surely contained some very sharp insights, but it is unlikely that he would have produced illuminating, conclusive new theorems by chance and without realizing it. He was a very harsh reviewer of his own work."
+        },
+        {
+          "id": 50488053,
+          "author": "hobo123",
+          "text": "The stuff about Gabelsberger shorthand sounds ludicrous to me. My father would write notes in a custom version of it until his death 2020.\nOfficially (i.e. in schools teaching stenography, back in the day) it was long ago replaced by \"unified German shorthand\" (Deutsche Einheitskurzschrift IIRC), but he always considered Gabelsberger to be superior.\nWell, maybe he too was one of the 6 people in the world who could read it (or yes, maybe that was hyperbole, I'm not sure) :D"
+        },
+        {
+          "id": 50489276,
+          "author": "agnosticmantis",
+          "text": "AI did not comment on the consistency or completeness of the notebooks."
+        },
+        {
+          "id": 50487860,
+          "author": "imbiased",
+          "text": "I can't remember the exact quote but I believe I read that Gödel confided to Einstein (in their walks in Princeton) on his deep worry of his work being forgotten. If only he knew."
+        },
+        {
+          "id": 50487262,
+          "author": "ducttapecrown",
+          "text": "It'd be interesting to hear about these new 14 themes of logic Gödel pursued!"
+        },
+        {
+          "id": 50487393,
+          "author": "semolinapudding",
+          "text": "This is incredibly exciting! Gödel is unquestionably the most important logician in history, but unfortunately he published very little. For instance, the Dialectica interpretation was published approximately 20 years after his first ideas on the subject.\nPlus, Jan von Plato is the world's leading expert on Gödel -- the number of people who can read Gödel's handwriting can be counted on the fingers of one hand, and I think that every single one is part of Jan von Plato's research group. If he is excited about the output, this is a huge deal."
+        },
+        {
+          "id": 50488583,
+          "author": "tiffanyh",
+          "text": "I’m been trying to use various  frontier models to decipher lost ancient languages (like Linear A).\nI wonder what tactics this used, so that I can leverage in my own work."
+        },
+        {
+          "id": 50487434,
+          "author": "empath75",
+          "text": "https://aitp-conference.org/2026/slides/JvP.pdf\nthis seems to be slide deck with some of the results."
+        }
+      ],
+      "title_ja": "AIがゲーデルのノートを解読。数百の証明済み定理が含まれていると言われています。",
+      "summary_ja": "議論のハイライト：科学史家が語ることからすると、ゲーデルはとにかく絶対的な完璧主義者であり、ほとんどの場合、非の打ちどころのない論文を発表していました／ガベルスベルガー式速記に関する話は、私にはばかげているように思えます／AIは、ノートの整合性や完全性についてコメントしていません。",
+      "editor_note": "「AIがゲーデルのノートを解読。数百の証明済み定理が含まれていると言われています。」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 14,
+      "id": 50487522,
+      "title_en": "It Takes 16 Clicks for a Student to Open a PowerPoint on an iPad",
+      "url": "https://www.reddit.com/r/Teachers/comments/1xuup7a/technology_sucks_it_literally_takes_16_clicks_for/",
+      "hn_url": "https://news.ycombinator.com/item?id=50487522",
+      "score": 147,
+      "comment_count": 66,
+      "posted_at": "2026-11-13T18:18:37+00:00",
+      "comments": [
+        {
+          "id": 50488932,
+          "author": "throwaway63467",
+          "text": "Everything feels so cumbersome. I click on a link in some app which takes me to their login which takes me to MSFT login which takes me to the 2FA provider which asks me for a passkey which takes me back to MSFT which asks me whether to remember which takes me back to my app which forgot the redirect on the way which takes me back to the home view from which I navigate back to where I wanted to go where I can finally see what I wanted to see. Surely there must be a better way."
+        },
+        {
+          "id": 50488723,
+          "author": "Miner49er",
+          "text": "As a new parent I was surprised that schools have even gotten into a state where iPads or Chromebooks are used regularly in the classroom. I don't understand how kids can learn on them.\niPads especially, they aren't a tool for productive work. Not many people use iPads professionally - they are designed for consuming. If I was in school today I think the distractions they provide would make me a far worse student."
+        },
+        {
+          "id": 50488082,
+          "author": "phreack",
+          "text": "I've never heard of \"Clever\" but it looks like that's the real problem? And some need for a Google integration. So they're making kids use two separate online services just to see a presentation! There is surely a better way, whoever is mandating these platforms has to be being bribed."
+        },
+        {
+          "id": 50488300,
+          "author": "rootusrootus",
+          "text": "Seems like as much of an indictment on the services stack the school chose as it is a problem inherent to the iPad."
+        },
+        {
+          "id": 50488097,
+          "author": "Shalomboy",
+          "text": "That's a horrifying read. Our school uses Chromebooks for K-8, but I'm sure there are plenty of iPads floating around pretending to be a proper replacement for a laptop. For the IEP student in question, my goodness this must feel like pulling teeth just to keep up with the class. I don't remember it being this bad on my iPod Touch in high school, but back then was the dawn of iWork for iOS."
+        },
+        {
+          "id": 50488073,
+          "author": "vrmiguel",
+          "text": "Well, that tracks.\nI don't try to do any sort of \"productive\" work on iPhone/iPad because I simply don't know how to. Very simple file operations are often so unnecessarily complicated."
+        },
+        {
+          "id": 50488958,
+          "author": "DavCreator",
+          "text": "https://www.ueddit.com/r/Teachers/comments/1xuup7a/technolog..."
+        },
+        {
+          "id": 50488111,
+          "author": "Ungh",
+          "text": "My youngest has to suffer Google Classroom on mandatory iPads at school. It is, to be polite, a complete pile of donkey shit. The amount of times work can’t be done because something is broken or corrupted or doesn’t display properly or there are auth or consistency problems is unreal. That is if you can find the work in the first place.  On top of that hardware problems galore like the mandatory keyboard cases dropping connection every 30 minutes or so. Or the school’s AP and Internet crapping out or being overloaded.\nI approached the school about it two years ago and they were dismissive and ignorant.\nI have to pay £14 a month for that too.\nThey also have Chromebooks but they were post Covid emergency purchases and they are all end of life and need replacing. Hence the iPads because we have to pay for the renewal then not the school.  And the chromebooks were just as terrible.\nI have heard of entire subject lessons being wasted on IT issues. And children getting detention because something was broken.\nIt’s a kafkaesque nightmare. They should go back to paper for most work."
+        }
+      ],
+      "title_ja": "生徒がiPadでPowerPointを開くには16回のクリックが必要です",
+      "summary_ja": "ディスカッションのハイライト：すべてが非常に面倒に感じられる／新しく親になったばかりの私にとって、学校がiPadやChromebookを教室で日常的に使用するような状況になっていることに驚いた／「Clever」という名前を聞いたことはないが、それが本当の問題のようだ。また、Googleとの連携が必要であるという意見もありました。",
+      "editor_note": "「生徒がiPadでPowerPointを開くには16回のクリックが必要です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 15,
+      "id": 50484007,
+      "title_en": "Lonewolf 0.3 – A standalone XMPP server written in Rust",
+      "url": "https://github.com/lonewolf-im/lonewolf/releases/tag/v0.3.0",
+      "hn_url": "https://news.ycombinator.com/item?id=50484007",
+      "score": 110,
+      "comment_count": 29,
+      "posted_at": "2026-11-13T14:28:40+00:00",
+      "comments": [
+        {
+          "id": 50485176,
+          "author": "nicoco",
+          "text": "More implementations of standard protocols is always nice!\nI see no reason for me to change from my beloved\nhttps://prosody.im/\nwhich is more than lightweight enough already. But having options is nice, and standards only make sense when there are several implementations of them."
+        },
+        {
+          "id": 50488242,
+          "author": "RadiozRadioz",
+          "text": "I don't think the server space needs any innovation, current servers are very good.\nWhat we do need are clients that are palateable to the masses. Something on desktop with the polish of Conversations. That's what will really drive adoption from people. I think a big part of Matrix being so popular versus XMPP is that they had a stronger unified client set that looked modern was appealing to many people.\nAll the widely deployed XMPP servers support a great number of XEPs. The perceived fragmentation of the XMPP ecosystem is mostly a client problem."
+        },
+        {
+          "id": 50489007,
+          "author": "stevefan1999",
+          "text": "Check out Tuwunel too\nhttps://github.com/matrix-construct/tuwunel\nfor a Matrix implementation in Rust"
+        },
+        {
+          "id": 50487951,
+          "author": "rootnod3",
+          "text": "AGENTS.md on a standard protocol. Sorry but no. You either understand the thing or you don’t.\nIt’s a chat protocol. Something that is supposed to be very private and secure. Seeing an AGENT.md file is a huge turn-off there, sorry to say. Feel free to burn my karma down to oblivion."
+        },
+        {
+          "id": 50485257,
+          "author": "Muromec",
+          "text": "I remember when jabber was cool and there used to be public gateways to icq and what not.\nLooks like matrix is in this niche now."
+        },
+        {
+          "id": 50486114,
+          "author": "jakswa",
+          "text": "I saw some coding harness (OMP i think?) labeling sub-agent comms as \"IRC\" for the agents to use. XMPP is another one I bet AI would just understand what to use it for. I have been absorbing whether tried-and-true old tech like these are going to revive in the AI era, just because it's \"locked in\" in the training data. AI is going to keep some of these torches burning forever maybe."
+        },
+        {
+          "id": 50487277,
+          "author": "voidwalker0",
+          "text": "Don't really get the hype over Rust... I, personally, like C more. It would be much more smarter to make another server on simple and clean C, rather than using a language that already has a big toolchain and also compiles longer."
+        },
+        {
+          "id": 50485160,
+          "author": "ortuman",
+          "text": "author here! thanks for the interest. :)\nif anyone has questions about the motivation behind building this, feel free to ask."
+        }
+      ],
+      "title_ja": "Lonewolf 0.3 – Rustで記述されたスタンドアロンXMPPサーバー",
+      "summary_ja": "ディスカッションのハイライト：標準プロトコルの実装が増えるのはいつでも喜ばしいことです！\n私にとって、大好きな\nhttps://prosody.im/\nすでに十分に軽量である／サーバー分野にイノベーションは必要ないと思う。現在のサーバーは非常に優れている。\n必要なのは、大衆に受け入れられるクライアントです／Tuwunelもチェックしてみてください。\nhttps://github.com/matrix-construct/tuwunel\nRustでのMatrixの実装については",
+      "editor_note": "「Lonewolf 0.3 – Rustで記述されたスタンドアロンXMPPサーバー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 16,
+      "id": 50488769,
+      "title_en": "No AI Slop: A Manifesto",
+      "url": "https://www.slopmanifesto.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50488769",
+      "score": 43,
+      "comment_count": 14,
+      "posted_at": "2026-11-13T19:51:56+00:00",
+      "comments": [
+        {
+          "id": 50488829,
+          "author": "courtcircuits",
+          "text": "> Improving the system over patching the output\nThis really connect with the latest conversations I had with coworkers regarding how can we review gigantic PR generated by AI. One way could be to ask the submitter to give their prompt as part of their contribution. This way it's easier for the reviewer to understand what was the thought process of the contributor and if this very process is sound.\nNot saying that this way to review is a silver bullet, but at least it removes some weight."
+        },
+        {
+          "id": 50489147,
+          "author": "mschuster91",
+          "text": "> Slop is asymmetric. The cost of producing a thousand-line PR or a ten-page doc is approaching zero, while the cost of reviewing it remains constant.\nI'd say the cost actually grows as people get laid off left and right, and on top of that, a 1000 line PR from a good human, give me a case of beer and I'll make me some sense of it, but if it's AI slop, get ready to hand me a crate of homemade Slivo or I won't touch that..."
+        }
+      ],
+      "title_ja": "AIの粗製濫造を許さない：マニフェスト",
+      "summary_ja": "ディスカッションのハイライト： > 出力を修正するよりもシステムを改善する\nこれは、AIが生成した膨大なPRをどのようにレビューできるかについて、同僚と最近交わした会話にまさに通じるものです。/ >スロップは非対称です。",
+      "editor_note": "「AIの粗製濫造を許さない：マニフェスト」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 17,
+      "id": 50484650,
+      "title_en": "Minnesota guitarist's \"palmfrets\" invention strikes a new chord",
+      "url": "https://www.echopress.com/business/minnesota-guitarists-invention-strikes-a-new-chord",
+      "hn_url": "https://news.ycombinator.com/item?id=50484650",
+      "score": 87,
+      "comment_count": 55,
+      "posted_at": "2026-11-13T15:08:07+00:00",
+      "comments": [
+        {
+          "id": 50485294,
+          "author": "adzm",
+          "text": "Not a single photo of the palmfrets in the article, wow. Closest you get is a hand covering the entire device.\nhttps://palmfrets.com/\nI was much more interested once I saw the actual website.\nLong story short, it's basically a fret at the bridge end of the guitar, so using it will bring the 'root' note of the bass strings up a semitone or few.\nI can see this being pretty useful for drones when fingerpicking. Though combining this with normal frets on the top string will necessarily be inaccurate because it shortens the string length, so the normal frets will be slightly misplaced."
+        },
+        {
+          "id": 50489377,
+          "author": "velcrovan",
+          "text": "If you want more Minnesota guitar innovation, look up Leo Kottke\nhttps://www.youtube.com/watch?v=QJNq5YqZ3EI"
+        },
+        {
+          "id": 50487274,
+          "author": "boulos",
+          "text": "The last part of the first video makes it more clear: you're basically your own bass backing player with one or two notes. I see why he trademarked \"palmbass\" as another term."
+        },
+        {
+          "id": 50486361,
+          "author": "defart",
+          "text": "Not sure what benefit this gives you at all, since (for me at least) id rather be able to 'unlock' extra tones deeper than the open string. Being able to do 3 frets on the reverse side of the guitar doesn't bring that much.\nEspecially doesnt bring much that couldn't be achieved with an alternate tuning.\nNothing against it, it just seems a pretty contrived invention."
+        },
+        {
+          "id": 50486378,
+          "author": "tashi",
+          "text": "It could open up new possibilities for the right musicians, I think, the way Stevie Wonder can do so much more with his chromatic harmonica. I'm a little worried about changing the ergonomics of an instrument that's already trying to destroy your hands if you play it just a little bit wrong for enough hours, but time will tell."
+        },
+        {
+          "id": 50485532,
+          "author": "xcf_seetan",
+          "text": "He had to remove the bridge pickup... no good for me."
+        },
+        {
+          "id": 50486911,
+          "author": "trgn",
+          "text": "reminds me of something, i love this sort of thing, for the same reason i like chet atkins merl travis thumb technique. it allows you to play multiple parts of the harmony, suddenly music sounds much more rich. and it will fall in exactly the same trap. these advanced mechanics will heavily inform the style you can play, and not find it transferable easy to other genres, or ensemble playing.\nin that way, i find piano still the main multi-string instrument where its technique is genre-agnostic.\nrandom stuff on a friday fwiw."
+        },
+        {
+          "id": 50486924,
+          "author": "jfaulken",
+          "text": "Does anyone else hear the French name for french fries?"
+        }
+      ],
+      "title_ja": "ミネソタ州のギタリストが発明した「パームフレット」が新たなコードを生み出す",
+      "summary_ja": "ディスカッションのハイライト：記事にはパームフレットの写真が1枚もありません。すごいですね / ミネソタのギターの革新をもっと知りたいなら、レオ・コットケを調べてみてください。\nhttps://www.youtube.com/watch?v=QJNq5YqZ3EI / 最初の動画の最後の部分で、より明確になります。基本的に、1つか2つの音で自分自身のベースのバッキングプレイヤーになるのです。",
+      "editor_note": "「ミネソタ州のギタリストが発明した「パームフレット」が新たなコードを生み出す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50488490,
+      "title_en": "Technology as a Search Problem",
+      "url": "https://www.construction-physics.com/p/technology-as-a-search-problem",
+      "hn_url": "https://news.ycombinator.com/item?id=50488490",
+      "score": 8,
+      "comment_count": 0,
+      "posted_at": "2026-11-13T19:27:15+00:00",
+      "comments": [],
+      "title_ja": "探索問題としてのテクノロジー",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「探索問題としてのテクノロジー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 19,
+      "id": 50488664,
+      "title_en": "Someone's Impersonating This Blog",
+      "url": "https://mattbee.mataroa.blog/p/someones-impersonating-this-blog/",
+      "hn_url": "https://news.ycombinator.com/item?id=50488664",
+      "score": 34,
+      "comment_count": 0,
+      "posted_at": "2026-11-13T19:41:09+00:00",
+      "comments": [],
+      "title_ja": "誰かがこのブログになりすましています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「誰かがこのブログになりすましています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50487184,
+      "title_en": "OpenAI disbands its robotics team as its general models start running robots",
+      "url": "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/",
+      "hn_url": "https://news.ycombinator.com/item?id=50487184",
+      "score": 96,
+      "comment_count": 31,
+      "posted_at": "2026-11-13T17:55:23+00:00",
+      "comments": [
+        {
+          "id": 50489175,
+          "author": "jacquesm",
+          "text": "General models\ncan\nrun robots. They are very bad at it. It is much more efficient to have a stack of models with 'dumber' but faster models taking care of lower level functions and higher level ones that are much slower taking care of high level planning. Consciousness isn't super fast, but it is very smart. Your 'lizard brain' (to use an overstretched metaphor) and reflexive system are relatively stupid but far faster and condense a whole raft of inputs to something your consciousness can deal with. For robots it isn't all that different. Sensors and actuators require millisecond level responses, that's something you're not going to get out of an LLM on the other side of a communications link."
+        },
+        {
+          "id": 50488344,
+          "author": "winfredJa",
+          "text": "This looks like general cost cutting to boost some numbers before IPO."
+        },
+        {
+          "id": 50488822,
+          "author": "eikenberry",
+          "text": "So they gave up on non-cloud connected robotics then? Or was that ever in their scope?"
+        },
+        {
+          "id": 50488019,
+          "author": "deadbabe",
+          "text": "Is there a primer on how to actually use LLMs to control robots? Seems very token inefficient if you have to stream commands at 60fps."
+        },
+        {
+          "id": 50488613,
+          "author": "brink",
+          "text": "It's ironic that the people working to make others disposable were in fact, disposable.\nAI is eating AI now. The value of code has collapsed, while the value of the software industry overall has not increased. Could AI be the snake that eats its own tail in the long-term?"
+        },
+        {
+          "id": 50489090,
+          "author": "dude250711",
+          "text": "\"long-term vision\" - not even mid-term? I hope Anthropic knows better..."
+        },
+        {
+          "id": 50488927,
+          "author": "jeffbee",
+          "text": "I wonder if this means anything about OpenAI's robot research office in Richmond, CA."
+        }
+      ],
+      "title_ja": "OpenAIがロボティクスチームを解散。汎用モデルがロボットの稼働を開始",
+      "summary_ja": "ディスカッションのハイライト：汎用モデル\nロボットを\nロボットを稼働できる / これは、IPO前にいくつかの数値を押し上げるための一般的なコスト削減のように見えます。/つまり、クラウドに接続されていないロボットは諦めたということですか？それとも、そもそもそれが彼らの視野にあったのでしょうか？",
+      "editor_note": "「OpenAIがロボティクスチームを解散。汎用モデルがロボットの稼働を開始」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 21,
+      "id": 50486258,
+      "title_en": "Apify Security Incident",
+      "url": "https://status.apify.com/incidents/sxd1dj5j6749",
+      "hn_url": "https://news.ycombinator.com/item?id=50486258",
+      "score": 70,
+      "comment_count": 10,
+      "posted_at": "2026-11-13T16:55:59+00:00",
+      "comments": [
+        {
+          "id": 50489317,
+          "author": "TZubiri",
+          "text": "I feel like an asshole posting a criticism of the whole dependency category every time they get a critical vuln.\nBut if you are building an API service, you don't need an API Management dependency. And it's an additional attack vector. You (as in an engineer or as a company that provides an API service) need to do the actual undelegable job of building an API, just do the work, do the HTTP server, do the rate limiting, do the OAuth integration.\nVerdict: Time to uninstall software in the category of API Management. That is, if you want to be the very best. If you want to be mediocre, sure use some middleware that provides API, slap some API into your software so that customers that ask for API have API. Otherwise, engineer an external Application Programming Interface into your systems."
+        },
+        {
+          "id": 50487345,
+          "author": "gnabgib",
+          "text": "Bleeping Computer's coverage is maybe a bit more detailed\nApify rotates API tokens, prompts 2FA resets after breach\n(\nhttps://www.bleepingcomputer.com/news/security/apify-rotates...\n)"
+        },
+        {
+          "id": 50486961,
+          "author": "tptacek",
+          "text": "Duplicate, also editorialized title.\nhttps://news.ycombinator.com/item?id=50469719"
+        },
+        {
+          "id": 50487269,
+          "author": "radial_symmetry",
+          "text": "\"- API tokens are now stored only as hashes, which limits the impact of any similar incident.\"\nWTF were they not already?"
+        }
+      ],
+      "title_ja": "Apifyのセキュリティインシデント",
+      "summary_ja": "ディスカッションのハイライト：重大な脆弱性が発見されるたびに、依存関係カテゴリ全体を批判する投稿をするのは、自分が嫌な人間のように感じます。\nしかし、APIサービスを構築している場合、APIマネージャーは必要ありません。Bleeping Computerの記事はもう少し詳細かもしれません。\nApifyはAPIトークンをローテーションし、侵害後に2FAのリセットを促します\n(\nhttps://www.bleepingcomputer.com/news/security/apify-rotates.. /重複、また編集されたタイトル。\nhttps://news.ycombinator",
+      "editor_note": "「Apifyのセキュリティインシデント」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 22,
+      "id": 50486482,
+      "title_en": "LibreOffice actually works 365 days a year",
+      "url": "https://twitter.com/LibreOffice/status/2121205272479998268",
+      "hn_url": "https://news.ycombinator.com/item?id=50486482",
+      "score": 680,
+      "comment_count": 218,
+      "posted_at": "2026-11-13T17:09:58+00:00",
+      "comments": [
+        {
+          "id": 50487193,
+          "author": "fweimer",
+          "text": "Well, OpenOffice wouldn't print on Tuesdays:\n“\nWhat a fascinating bug!! My wife has complained that open office will never print on Tuesdays!?! Then she demonstrated it. Sure enough, won't print on Tuesday. Other applications print. I think this is the same bug. Here is my guess:\nPrint to a postscript file. Observe the line:\n%%CreationDate: (Tue Mar 3 19:47:42 2009)\nChange \"Tue\" to anything else:\n%%CreationDate: (XTue Mar 3 19:47:42 2009)\nSave the file and it prints. Tools like evince work because they simply omit the \"CreationDate\" tag to begin with.\nNow something odd happens when my cups script (I am using the Brother MFC420CN) copies the file to a temp file. Some of the code is rearranged, not sure how or why, but it uses a command called \"file\" to identify the file as \"PostScript\". This check would work on the original file you printed, but by the time it runs the check on the temp file, it misidentifies. Normally it would return:\nPostScript document text conforming at level 3.0\nBut there is another check that happens before the PostScript check. If it finds \"Tue\" at the fourth byte of the file, it identifies it as:\nJan 22 14:32:44 MET 1991\\011Erlang JAM file - version 4.2\nSo i"
+        },
+        {
+          "id": 50486851,
+          "author": "c0l0",
+          "text": "That reminds me that my yearly donation[0] towards LibreOffice's stewards, The Document Foundation, is coming up in December. It's a wholesome tradition where you wire them the amount of EUR/US$/XYZ that Microsoft demands for a year of a personal Office 365(-ish, eh?) subscription[1] as a tex-deductible donation that will make you feel all warm and fuzzy inside. I hereby invite you to join in! :)\n[0]: https://www.libreoffice.org/donate/\n[1]: https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products (DO NOT REDEEM)"
+        },
+        {
+          "id": 50486761,
+          "author": "jdlyga",
+          "text": "If LibreOffice were good enough already, it would already be popular. It's the same with GIMP. On paper it's a Photoshop alternative, but we've all struggled with it. These projects need to take the same route as Blender did. Originally it was a clunky open source alternative, but it went through a complete UI transformation and now blows the competition away."
+        },
+        {
+          "id": 50486698,
+          "author": "kencausey",
+          "text": "While true and a comment I support, it is worth noting that offline versions of Microsoft Office are and have been just fine, including the latest version of 2024 just updated this week."
+        },
+        {
+          "id": 50487215,
+          "author": "unpopularopp",
+          "text": "Maybe someone can help but why does LibreOffice take 4-5 seconds to start on Windows? There are many reports of that [0] and otherwise I have zero problems with my system. This is the only application I use regulary which is actually noticeably slow to start. Even restoring a Firefox instance with hundreds of tabs and +20GB RAM committed is quicker (1s)\nhttps://ask.libreoffice.org/t/why-does-libroffice-starts-so-...\nhttps://ask.libreoffice.org/t/startup-time-open-libreoffice-...\nhttps://ask.libreoffice.org/t/why-does-libreoffice-feel-slug..."
+        },
+        {
+          "id": 50486809,
+          "author": "hk__2",
+          "text": "I have LibreOffice installed but it’s so ugly and non-intuitive that I prefer to import my documents in Google Docs."
+        },
+        {
+          "id": 50488264,
+          "author": "krusty93",
+          "text": "I don’t see the point in this: word and excel were working today. I don’t think LibreOffice provides email accounts and Teams equivalent, right?"
+        },
+        {
+          "id": 50486845,
+          "author": "sugarkjube",
+          "text": "My locally installed ms office 2019 also works 365d/y.\nMy softmaker office suite also.\nAnyway, I do admit I mostly use libreoffice nowadays, except for 1) communication with customers, and 2) a few excels libre can't handle.\nI still have to find a good alternative for (local installed) outlook, I'm trying out thunderbird, but I'm not sure it would be able to replace outlook. I still have to try whether it can handle a 50gb imap inbox, and besides lacks a few essential features."
+        }
+      ],
+      "title_ja": "LibreOfficeは実際には年間365日稼働しています",
+      "summary_ja": "ディスカッションのハイライト：さて、OpenOfficeは火曜日に印刷しませんでした。\n“\nなんて興味深いバグでしょう！！妻が、OpenOfficeは火曜日に決して印刷しないと文句を言っています！ ！ ？その後、彼女がそれを実証してくれました／これで、LibreOfficeの運営者であるThe Document Foundationへの私の年間寄付[0]が12月に近づいていることを思い出しました／LibreOfficeがすでに十分に優れていれば、すでに人気があるはずです",
+      "editor_note": "「LibreOfficeは実際には年間365日稼働しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50483959,
+      "title_en": "CERN Built the Large Hadron Collider's Next-Gen Magnets",
+      "url": "https://spectrum.ieee.org/large-hadron-collider-superconducting-magnets",
+      "hn_url": "https://news.ycombinator.com/item?id=50483959",
+      "score": 52,
+      "comment_count": 4,
+      "posted_at": "2026-11-13T14:25:46+00:00",
+      "comments": [
+        {
+          "id": 50487172,
+          "author": "dvh",
+          "text": "May I interest you in Marco Reps CERN tour video from two months ago:\nhttps://www.youtube.com/watch?v=Yibef6nLCv8"
+        },
+        {
+          "id": 50487999,
+          "author": "DerekL",
+          "text": "The title omits the “How” at the beginning."
+        },
+        {
+          "id": 50487741,
+          "author": "adrianN",
+          "text": "Can we use these magnets for smaller stellarators?"
+        }
+      ],
+      "title_ja": "CERNが大型ハドロン衝突型加速器の次世代マグネットを製造",
+      "summary_ja": "ディスカッションのハイライト：2か月前のMarco RepsさんのCERNツアー動画をご覧になりませんか？\nhttps://www.youtube.com/watch?v=Yibef6nLCv8 / タイトルの冒頭に「どのように」という言葉がありません。/ これらの磁石をより小型のステラレータに使用することはできますか？",
+      "editor_note": "「CERNが大型ハドロン衝突型加速器の次世代マグネットを製造」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50478515,
+      "title_en": "IceWM",
+      "url": "https://ice-wm.org/",
+      "hn_url": "https://news.ycombinator.com/item?id=50478515",
+      "score": 349,
+      "comment_count": 202,
+      "posted_at": "2026-11-13T04:54:53+00:00",
+      "comments": [
+        {
+          "id": 50479019,
+          "author": "yjftsjthsd-h",
+          "text": "I'm mildly bemused at the other comments treating this as a blast from the past. I use icewm\ntoday\nas a super low resource DE for a headless remote desktop system, with a major benefit being that it's all in one with no configuration needed; one unit includes panel, app menu, and window manager that work out of the box."
+        },
+        {
+          "id": 50479141,
+          "author": "inatreecrown2",
+          "text": "I just switched to IceWM after trying so many different versions of tiling window managers. The one that worked best for me was MangoWM, but in the end it also interfered more than helped with my work.\nA simple floating wm like IceWM works best for the apps I use: basic tools like terminal and Thunar, Reaper, windows apps via wine.\nReally happy I found out about it. It lets me concentrate on the things that matter."
+        },
+        {
+          "id": 50480488,
+          "author": "throwaway2037",
+          "text": "The screenshots page[1] has a nice collection of different skins.  It gives Winamp skin vibes from the 1990s.\n[1]\nhttps://ice-wm.org/screenshots/"
+        },
+        {
+          "id": 50479659,
+          "author": "lexwhite",
+          "text": "IceWM is great.  I think there are a lot of great deployments you could use it for.  If you had old computers to give to kids and teach them linux for example, IceWM would be a really great desktop for that.  I use dwm still personally but Ice is Nice, and that's for sure! ;)"
+        },
+        {
+          "id": 50480738,
+          "author": "NoboruWataya",
+          "text": "Some of the screenshots look a lot more modern than I remember when I played around with it, but then I guess that was 20+ years ago. It was one of the first WMs I looked at when I considered moving away from KDE/GNOME. I found its minimalism and low resource usage compared to those environments exciting but never actually liked the UI, I found it too clunky. I eventually settled on AwesomeWM. It seems that for the last decade or so all of the momentum in the minimalist WM space has been with tiling WMs."
+        },
+        {
+          "id": 50481489,
+          "author": "sscarduzio",
+          "text": "I use IceWM *today* in my remote machines via RustDesk (another massive project!).\nThe only thing I don't understand is why minimal WMs need to (intentionally?) reject basic usability and visual design principles.\n- Main menu = nested dropdown\n- No padding anywhere\n- Terrible box shadows\netc."
+        },
+        {
+          "id": 50486633,
+          "author": "Gabrys1",
+          "text": "I used icewm some time ago, and then quite recently when putting together a dashboard of sorts. Configuration you can do in IceWM is amazing, let's you do cool tricks with your window setup."
+        },
+        {
+          "id": 50479974,
+          "author": "PapyElGringo",
+          "text": "I've been working the last 8 years making a new WM and I never heard about IceWM, sometime you don't know your classics"
+        }
+      ],
+      "title_ja": "IceWMComment",
+      "summary_ja": "ディスカッションのハイライト：このウィンドウマネージャーを過去の遺物のように扱う他のコメントに少し戸惑っています／私はたくさんの異なるバージョンのタイリングウィンドウマネージャーを試した後、IceWMに切り替えました／スクリーンショットのページ[1]には、さまざまなスキンの素敵なコレクションがあります。",
+      "editor_note": "「IceWMComment」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50486521,
+      "title_en": "Concurrent Shell Command Queues",
+      "url": "https://emmer.dev/blog/concurrent-shell-command-queues/",
+      "hn_url": "https://news.ycombinator.com/item?id=50486521",
+      "score": 15,
+      "comment_count": 5,
+      "posted_at": "2026-11-13T17:13:01+00:00",
+      "comments": [
+        {
+          "id": 50487827,
+          "author": "js2",
+          "text": "> How to run shell commands in parallel while limiting their concurrency.\nDepending upon the task, generate a Makefile and run it with:\nmake -j <concurrency>\n> My original use case had to do with making a large number of web requests\nThis is in fact the use case that caused me to think about using a Makefile for concurrency probably 20 years ago. A rule for downloading each URL to a file. Then a simple `make -j <jobs>` with whatever concurrency I desired and bonus: automatically skipping already downloaded files. e.g.:\nBASE  := https://example.com/files\nFILES := a.txt b.txt c.txt d.txt e.txt\n.DELETE_ON_ERROR:\nall: $(FILES)\n$(FILES):\ncurl -sS --fail --max-time 30 -o $@ $(BASE)/$@\nOr, to emulate one of the examples in the blog post:\nSHELL := bash\n.SHELLFLAGS := -o pipefail -c\nN    := 1 2 3 4 5\nREQS := $(N:%=req-%)\n.PHONY: all $(REQS)\nall: $(REQS)\n$(REQS): req-%:\n@curl -sS --fail-with-body --max-time 10 -X POST -H 'Content-Type: application/json' \\\n-d '{\"request\": $*}' https://postman-echo.com/post | jq -c .json\nRun with:\n$ make -O -j 3\n> You do not need to know all the commands that you want executed up-front, you can submit commands to it over time.\nAh, yeah, that does put Make in t"
+        },
+        {
+          "id": 50487882,
+          "author": "tacostakohashi",
+          "text": "I guess that works.\nI've always been fond of using make for things to get free parallelism / ability to interrupt / restart / incremental updates."
+        },
+        {
+          "id": 50487825,
+          "author": "kernc",
+          "text": "> language with poor concurrency controls\nFew other languages have as many builtins/keywords for concurrency control: &, wait, jobs ..."
+        }
+      ],
+      "title_ja": "同時シェルコマンドキュー",
+      "summary_ja": "ディスカッションのハイライト： &gt; シェルコマンドを並行して実行しつつ、その同時実行数を制限する方法。\nタスクに応じて、Makefileを生成し、次のように実行します。\nmake -j <concurrency>\n&gt; 私の元のユースケース / それでうまくいくと思います。\n私は常に、無料の並列処理/中断/再開/差分更新の機能を得るためにmakeを使用するのが好きでした。/ &gt; 並行処理の制御が不十分な言語\nこれほど多くの組み込み関数/キーワードを備えた言語はほとんどありません。",
+      "editor_note": "「同時シェルコマンドキュー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50485295,
+      "title_en": "Brazil's Caixa insurer breach exposes names and tax IDs of all 7.6M customers",
+      "url": "https://filemanager-cdn.mziq.com/published/3972906b-e50b-4f74-ab74-4d0d32125d11/9567a559-d20a-486e-a7ae-5c6bbc030c5e",
+      "hn_url": "https://news.ycombinator.com/item?id=50485295",
+      "score": 153,
+      "comment_count": 63,
+      "posted_at": "2026-11-13T15:52:04+00:00",
+      "comments": [
+        {
+          "id": 50486090,
+          "author": "afh1",
+          "text": "No financial information leaked, just tax id, which in Brazil nowadays doesn't mean much. There have been more than one high profile website in the past reportedly selling personal data, including tax identifier (CPF), for essentially any Brazilian citizen.\nIt is common to be asked for your CPF for trivial things like purchasing anything on a drugstore, and for any and all activity with government branches or banking. This combined with several breaches in government and private institutions in Brazil over the years has made this information essentially public.\nMore concerning is when more private information is leaked. For example, police security camera live feed and license plate or CPF-based tracking of anyone was sold online in the past, and has been used by criminal gangs in an attempted murder of a judge:\nhttps://www.poder360.com.br/justica/pcc-tinha-acesso-a-siste...\nThis highlights the importance of reducing the amount of data collected, but in Brazil and the rest of the world, both governments and private institutions have pushed for the contrary, more so in recent years."
+        },
+        {
+          "id": 50486036,
+          "author": "yakkomajuri",
+          "text": "I'm pretty sure at this point every tax ID (CPF) in Brazil is available on a database you can get on the dark web.\nWe've had a \"CPF-ication\" of everything in Brazil over the last few years. The vast majority of people have shared this number with their local grocery store, pharmacy, gym, etc. It's required for a lot of stuff and pretty necessary for others.\nGiven that, if that's all that leaked here that's a pretty good outcome. It's sad that I think like this but it's kind of how it is.\nWhat makes me more pessimistic is that they claim no financial data was exposed but I wonder if that's really true. And that's where the gold is because then scammers know who to target."
+        },
+        {
+          "id": 50487824,
+          "author": "cesarb",
+          "text": "For those who don't know it, our tax id (CPF) is basically public information. For instance: we just had an election. The official public site with the official information about all the candidates (\nhttps://divulgacandcontas.tse.jus.br/\n) has the CPF for all of them. Want to know our president's CPF? It's there.\nThe bad part is the rest. Having the name together with the phone number, plus being on the list meaning you most likely have one of a particular set of products from Caixa, makes it much easier for the scammers to pretend to be from the bank."
+        },
+        {
+          "id": 50486211,
+          "author": "goshx",
+          "text": "Small potatoes. CPFs have been leaked so many times in Brazil that probably all of them are already out there. [0][1][2]\n[0]\nhttps://cyberbrics.info/the-largest-personal-data-leakage-in...\n[1]\nhttps://www.bitdefender.com/en-us/blog/hotforsecurity/massiv...\n[2]\nhttps://www.lumiun.com/blog/en/data-breach-in-brazil-the-wor..."
+        },
+        {
+          "id": 50485938,
+          "author": "airstrike",
+          "text": "It's important to note the Brazilian tax id (CPF) is not meant to be a well kept secret like the American SSN"
+        },
+        {
+          "id": 50485896,
+          "author": "wolvoleo",
+          "text": "Oof. There's a Catalan bank/insurer called la caixa as well, i thought for a moment it was the same company. But appears not."
+        },
+        {
+          "id": 50486240,
+          "author": "jstummbillig",
+          "text": "I find it both a nerve wrecking and interesting thought experiment to assume that all data is going to leak. Could we go through this and get out alive? And, if so, what would the world look like after? It's not at all clear to me it must be worse."
+        },
+        {
+          "id": 50485779,
+          "author": "brunoarueira",
+          "text": "The attacks started hitting Brazil, and it'll be really bad! Multiple people that uses Caixa (in general) aren't tech savvy and could be caught by fraudsters more easily."
+        }
+      ],
+      "title_ja": "ブラジルの保険会社Caixaの漏洩により、760万人の顧客全員の名前と納税者番号が流出",
+      "summary_ja": "ディスカッションのハイライト：財務情報は漏洩しておらず、漏洩したのは納税者番号のみです。これは現在のブラジルでは大したことではありません／現時点で、ブラジルのすべての納税者番号（CPF）は、ダークウェブで入手できるデータベースに登録されているとほぼ確信しています。\nここ数年、ブラジルではあらゆるものが「CPF化」されています/ご存知ない方のためにご説明すると、ブラジルの納税者番号（CPF）は基本的に公開情報です。",
+      "editor_note": "「ブラジルの保険会社Caixaの漏洩により、760万人の顧客全員の名前と納税者番号が流出」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 27,
+      "id": 50481187,
+      "title_en": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "hn_url": "https://news.ycombinator.com/item?id=50481187",
+      "score": 470,
+      "comment_count": 374,
+      "posted_at": "2026-11-13T10:18:13+00:00",
+      "comments": [
+        {
+          "id": 50481273,
+          "author": "Topfi",
+          "text": "Depending on what your job is, this is either the adult equivalent of a snow day or some of the greatest stress in a long time.\nI have experienced, half a decade ago during some more frequent but less lengthy O365 errors that there are some higher ups who get when this is not something you can fix and some you very much can't. Wishing strength to any \"but it's our mail\" and \"but we bought the Claude\" meetings that happen today."
+        },
+        {
+          "id": 50482174,
+          "author": "cmiles8",
+          "text": "The odd thing about these outages is that when they become so big that everyone is impacted then the severity almost drops, since everyone is impacted and thus just shrugs their shoulders."
+        },
+        {
+          "id": 50481255,
+          "author": "xamde",
+          "text": "Many Claude session suddenly require a re-login, which first worked but now gives\nOAuth request failed\nTemporarily unable to authenticate. Please retry.\nCan this be fall-out from the Microsoft outage?"
+        },
+        {
+          "id": 50481248,
+          "author": "gregman1",
+          "text": "Let the weekend start! Tech sabbatical is kinda enforced now =D"
+        },
+        {
+          "id": 50481315,
+          "author": "Tehnix",
+          "text": "Is Claude on Azure? GitHub also seems affected, could seem like all of this is related to the huge Microsoft outage"
+        },
+        {
+          "id": 50481667,
+          "author": "JulianWasTaken",
+          "text": "Is there indication this is really a separate issue or just Claude not being able to reach Microsoft Entra for whatever periodic requests confirm the user is authenticated (and maybe this page even simply being automatic reflection that those requests are errorring frequently)?\nAre people who don't use M365 experiencing issues here?"
+        },
+        {
+          "id": 50484262,
+          "author": "dmix",
+          "text": "Notably this brought MCPs down, which they call Connectors on the status page. Which impacts business customers using claude to access SaaS apps, not just coders.\nReminds me of when we built Facebook apps and were at the whim of the platform."
+        },
+        {
+          "id": 50488098,
+          "author": "Animats",
+          "text": "By \"elevated errors\", do they mean the system returns an error code, or the AI makes more mistakes?"
+        }
+      ],
+      "title_ja": "claude.ai、Claude Code、platform.claude.comにおけるエラーの増加",
+      "summary_ja": "ディスカッションのハイライト：あなたの仕事内容によっては、これは大人の雪の日と同義であるか、あるいは久しぶりの大きなストレスとなるでしょう。\n私は5年ほど前、あるMOの最中に経験しました / これらの障害の奇妙な点は、規模が大きくなって誰もが影響を受けるようになると、誰もが影響を受けるため、 shrugged their sh / 多くのClaudeセッションで突然再ログインが必要になり、最初は",
+      "editor_note": "「claude.ai、Claude Code、platform.claude.comにおけるエラーの増加」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 50487688,
+      "title_en": "Microsoft outage gives customers a crash course in dependence on Redmond",
+      "url": "https://www.theregister.com/saas/2026/11/13/microsoft-outage-gives-customers-a-crash-course-in-dependence-on-redmond/5309805",
+      "hn_url": "https://news.ycombinator.com/item?id=50487688",
+      "score": 42,
+      "comment_count": 6,
+      "posted_at": "2026-11-13T18:29:16+00:00",
+      "comments": [
+        {
+          "id": 50488734,
+          "author": "treebeard901",
+          "text": "The postmortem on this will be interesting. A few days prior Microsoft said several versions of on premise Exchange are permanently vulnerable.\nMaybe AI scanning found these Exchange exploits and after laying off so many developers, they vibe coded an exploit fix and deployed it. But behind the scenes it is all just still Exchange which if anyone has experience managing, its a complex nightmare of code going back decades. With all sorts of Active Directory requirements and everything else. The mail database system it uses, and probably still used in Office 365 (Office 363 today?) is also a nightmare.\nJust speculation though"
+        }
+      ],
+      "title_ja": "Microsoftのサービス停止により、顧客はレドモンドへの依存について集中講義を受けることになる",
+      "summary_ja": "ディスカッションのハイライト：この件に関する事後検証は興味深いものになるでしょう。",
+      "editor_note": "「Microsoftのサービス停止により、顧客はレドモンドへの依存について集中講義を受けることになる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 29,
+      "id": 50484960,
+      "title_en": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "url": "https://text.npr.org/nx-s1-6029408",
+      "hn_url": "https://news.ycombinator.com/item?id=50484960",
+      "score": 139,
+      "comment_count": 135,
+      "posted_at": "2026-11-13T15:29:10+00:00",
+      "comments": [
+        {
+          "id": 50486021,
+          "author": "tomcatfish",
+          "text": "Google is not \"cutting off Search from AI-free schools\". They're refusing to supply AI-free Search. It takes less theorizing to understand if you phrase it this way.\nEveryone complained there should be a way to disable AI, and that it should be on by default. For some reason (curiosity still makes sense\nhere\n), Google did some 'malicious compliance' and added the AI switch-off without making a new version of search, and disabled AI by default.\nMy personal theory is some sort of moral liability thing, where they're hoping you blame your school district and tell them to switch platforms, so that if/when they don't, it's \"their fault\", not Google's."
+        },
+        {
+          "id": 50486006,
+          "author": "qzw",
+          "text": "I keep hearing AI companies say the demand is outstripping their supply and they need to build more data centers\nright now\n. And then I also see and read about how every company is cramming AI down everyone's throats in every product whether or not it's useful and/or wanted. I've used enough AI to see that it's revolutionary, but I'm also old enough to see the parallel to the dotcom days."
+        },
+        {
+          "id": 50486601,
+          "author": "qzw",
+          "text": "It's interesting that in the lawsuit mentioned in the article, Google's defense  was that they can't separate the AI overview from search as they are one product. That's almost the exact same argument Microsoft made in its antitrust defense about bundling IE. They went so far as to shoehorn IE into all kinds of system processes that were fine without IE before. But their argument didn't work and they were forced to offer the option to remove IE. But ironically, now the same argument is working for Google, despite the obvious solution of just having a setting to hide the AI overview."
+        },
+        {
+          "id": 50488912,
+          "author": "takeda",
+          "text": "It's a bluff trying to push to schools against blocking AI.\nThe problem is that Google isn't the only search engine. It isn't even the best search engine anymore.\nI really think this could be a great opportunity for Kagi to enter and show how good search can actually be."
+        },
+        {
+          "id": 50485678,
+          "author": "CobaltFire",
+          "text": "Just wanted to thank you for using the text only link! This is the type of thing we should use and encourage.\nI have a list somewhere I need to dig out of these types of link modifications available from when I was deployed. They were the only way to read news."
+        },
+        {
+          "id": 50488763,
+          "author": "nfriedly",
+          "text": "It's not like Google is the only search engine out there. Duck Duck Go has a toggle for the main search page, and a sub-domain where it's off by default:\nhttps://noai.duckduckgo.com/"
+        },
+        {
+          "id": 50488939,
+          "author": "iloveyoutwo",
+          "text": "Google loves these dark patterns they do it everywhere."
+        },
+        {
+          "id": 50486611,
+          "author": "overtone1000",
+          "text": "I wonder why these districts don't simply pivot to noai.duckduckgo.com. It's my default search engine and has served me well."
+        }
+      ],
+      "title_ja": "GoogleがAI非対応の学校から検索機能を排除しているのはなぜでしょうか？いくつかの説をご紹介します",
+      "summary_ja": "ディスカッションのハイライト：Googleは「AIを使用していない学校から検索を遮断している」わけではない／AI企業が、需要が供給を上回っており、今すぐより多くのデータセンターを建設する必要があると繰り返し言っているのを耳にします\n今すぐ\n / 記事で言及されている訴訟において、Googleの弁護が、AI概要と検索は1つの製品であるため、分離できないというものであったことは興味深いことです。",
+      "editor_note": "「GoogleがAI非対応の学校から検索機能を排除しているのはなぜでしょうか？いくつかの説をご紹介します」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 30,
+      "id": 50486178,
+      "title_en": "North Korean hackers used fake video calls in $400M crypto hack, says FBI",
+      "url": "https://www.bbc.com/news/articles/cqdj1ellpd70o",
+      "hn_url": "https://news.ycombinator.com/item?id=50486178",
+      "score": 77,
+      "comment_count": 27,
+      "posted_at": "2026-11-13T16:50:22+00:00",
+      "comments": [
+        {
+          "id": 50487210,
+          "author": "mmastrac",
+          "text": "I blogged about this earlier this year - I think they reached out to me as part of my crate work and tried to get me to download a booby-trapped repo with a remote shell.\nInsidious attack, it felt very real, they had a compelling fake network of sites and companies"
+        },
+        {
+          "id": 50489290,
+          "author": "u2secured_team",
+          "text": "There were obvious signs that things should look fishy, but I understand people cannot be vigilant all the time, and hence the trap. Once way to keep remining employees and staff is constant refresher courses. But this has been a problem haunting my workspace as well"
+        },
+        {
+          "id": 50487204,
+          "author": "geekgod382",
+          "text": "Related:\nhttps://www.theguardian.com/world/2026/oct/30/how-crypto-hac...\nCryptocurrency theft is estimated to generate half of the country’s foreign currency income"
+        },
+        {
+          "id": 50489416,
+          "author": "tehjoker",
+          "text": "The DPRK noted that Donald Trump said that he would take possession of recovered stolen crypto as a state reserve. Their media noted dryly that when the coins are recovered, it would be good to watch where they go and that information should lead one to ask qui bono.\nThe funny think about the DPRK is that because no one will ask a single critical question about something bad said about them, you can say literally anything and pin the blame on them.\nhttps://coinpedia.org/research-report/u-s-strategic-bitcoin-..."
+        },
+        {
+          "id": 50488611,
+          "author": "gosub100",
+          "text": "Kind of interesting we care about NK when they steal fictional digiBux but don't care about them torturing men, women, and children in the gulags for the past several decades."
+        },
+        {
+          "id": 50487666,
+          "author": "walrus01",
+          "text": "I really hope someone is able to obtain a screen-recording video of this as an example. I'd like to see just how good the 'fake' person on the other end really is...  To date all the reports of this have been in written text form after the fact."
+        },
+        {
+          "id": 50487102,
+          "author": "jmyeet",
+          "text": "This is a real \"thoughts and prayers\" type situation because I basically have zero sympathy for those affected by this. There's really no reason for crypto to exist. You're kind of on your own. I view reversible transactions and the like as a feature not a bug. Every one of these crypto thefts is the fruit of irreversible transactions that crypto advocates wanted.\nLive by the sword, die by the sword.\nDon't get me wrong: I love reading about the ingenuity involved in these hacks. Keep em coming. The Ledger chip hack was particularly impressive from a technical POV."
+        },
+        {
+          "id": 50487139,
+          "author": "jmuguy",
+          "text": "\"If you can't imagine a scenario where you might fall prey to it, you are not thinking creatively enough.\"\nI dunno, maybe I'm being smug but I don't think I would fall for this."
+        }
+      ],
+      "title_ja": "北朝鮮のハッカーが4億ドルの仮想通貨ハッキングで偽のビデオ通話を使用したとFBIが発表",
+      "summary_ja": "ディスカッションのハイライト：今年の初めにこれについてブログを書きました。Crateの作業の一環として彼らが私に連絡を取り、リモートシェルを備えた罠が仕掛けられたリポジトリをダウンロードさせようとしたのだと思います。\n巧妙な手口 / 不審な点があることは明らかでしたが、人は常に警戒しているわけではないので、罠にかかってしまうのだと思います / 関連情報：\nhttps://www.theguardian.com/world/2026/oct/30/how-crypto-hac...\n仮想通貨の盗難は、次のように推定されています。",
+      "editor_note": "「北朝鮮のハッカーが4億ドルの仮想通貨ハッキングで偽のビデオ通話を使用したとFBIが発表」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "23",
+    "started_at": "2026-11-14T05:48:16.449283+09:00",
+    "finished_at": "2026-11-14T05:49:56.694324+09:00",
+    "story_count": 30
+  }
+}
