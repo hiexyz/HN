@@ -1,0 +1,1488 @@
+{
+  "date": "2026-11-19T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50552424,
+      "title_en": "Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "hn_url": "https://news.ycombinator.com/item?id=50552424",
+      "score": 62,
+      "comment_count": 20,
+      "posted_at": "2026-11-18T21:34:07+00:00",
+      "comments": [
+        {
+          "id": 50552524,
+          "author": "nicoburns",
+          "text": "Is there a way to determine \"model size class\" from Google's naming scheme?"
+        },
+        {
+          "id": 50552548,
+          "author": "onlyrealcuzzo",
+          "text": "This model feels like it might actually be as good as Opus 5.5.\nThis is probably the set of benchmarks most people care about:\nhttps://www.vals.ai/comparison?m=claude-fable-5-2,cobalt-c-h...\nOverall, performs just under Fable (above Astra or Sol 6.2 or Carbon - slightly ahead of Opus 5.5).\nLatency is by far the best for the level of quality.\nIt's about 2x as expensive as Sol 6.2, but significantly better and faster.  You get what you pay for."
+        },
+        {
+          "id": 50552543,
+          "author": "maplet",
+          "text": "> Independent evaluations rank Neon as one of the top models and on benchmarks like the Vals Index, it ranks #2 (70.9%), and reaches #1 on both the Legal Research Bench and Tax Agent Bench.\nOn Artificial Analysis Intelligence, it scores comparably to GPT-6.2 Sol but is significantly more expensive."
+        },
+        {
+          "id": 50552489,
+          "author": "brap",
+          "text": "Google is on a roll, what is this the 4th release this month?"
+        },
+        {
+          "id": 50552523,
+          "author": "jrflo",
+          "text": "Looks like AA didn't get the heads up for the embargo drop, they're quoting 61 but it's not live yet"
+        },
+        {
+          "id": 50552536,
+          "author": "ariwilson",
+          "text": "so which model am I supposed to use for what? someone help me"
+        },
+        {
+          "id": 50552504,
+          "author": "BoldColdHold",
+          "text": "Ok this is a good model by the looks of it. Mid size model that only loses to fable."
+        },
+        {
+          "id": 50552517,
+          "author": "3wolf",
+          "text": "Credit to Google for outdoing Open AI and Anthropic in terms of choosing a confusing naming convention."
+        }
+      ],
+      "title_ja": "ジェミニ4 ネオン",
+      "summary_ja": "ディスカッションのハイライト：Googleの命名規則から「モデルサイズクラス」を特定する方法はありますか？/このモデルは、実際にはOpus 5.5と同等に優れているように感じられます。\nこれはおそらく、ほとんどの人が重視するベンチマークのセットでしょう。\nhttps://www.vals.ai/comparison?m=claude-fable-5-2,cob / > 独立した評価では、Neonはトップクラスのモデルの1つにランク付けされており、Vals Indexなどのベンチマークでは2位（70.9%）、Legal Research Benでは両方で1位にランクインしています。",
+      "editor_note": "「ジェミニ4 ネオン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50547374,
+      "title_en": "Unauthenticated remote code execution in Nginx",
+      "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities",
+      "hn_url": "https://news.ycombinator.com/item?id=50547374",
+      "score": 880,
+      "comment_count": 379,
+      "posted_at": "2026-11-18T15:19:55+00:00",
+      "comments": [
+        {
+          "id": 50548510,
+          "author": "black3r",
+          "text": "The bug was apparently fixed in open source repo a week earlier, this could've been abused by anyone smart enough to monitor repos like this for exploitable bugfixes for a week (the commit message even included \"Reported by Xint.io\" and I'm guessing skilled black hats would know about Xint)\nGiven that in this case the workaround is as simple as disabling http2, there is honestly no reason why F5/Nginx or any of the reporting teams couldn't at least put out a PSA to disable http2 for the time being before basically telling the whole wide world this exists and how to exploit it.\nEspecially for software like Nginx which powers a huge part of the internet."
+        },
+        {
+          "id": 50552399,
+          "author": "Buttons840",
+          "text": "Everyone's worried about security right now, even non-tech people, but hasn't half the nation's personal data been leaked twice a month for the last decade or two?\nI know times are changing, it's just curious that nobody seemed to care until now."
+        },
+        {
+          "id": 50550277,
+          "author": "fduran",
+          "text": "Small consolation but HTTP/2 is not enabled by default in Nginx and \"only\" 12% of servers run it (still huge at Internet scale)\nhttps://w3techs.com/technologies/segmentation/ce-http2/web_s..."
+        },
+        {
+          "id": 50551857,
+          "author": "malikNF",
+          "text": "Hey so, does anyone know of a good tutorial on getting in to woodwork?"
+        },
+        {
+          "id": 50548180,
+          "author": "fn-mote",
+          "text": "AI is burning down the internet. This is insane.\nAre we going to discover in a year that every server online this month had a rootkit installed? There’s got to be thousands who are too small time to wipe and reinstall."
+        },
+        {
+          "id": 50552069,
+          "author": "hackthemack",
+          "text": "I notice a phenomena that when older software has a critical vulnerability, like say Apache, you get quite a few comments of \"Why does anyone use that? Use Nginx\"\nBut when newer software has the same vulnerability, you do not see the same kind of comments.\nThere always seems to be a latent stance in IT that newer is better."
+        },
+        {
+          "id": 50550457,
+          "author": "pelzatessa",
+          "text": "If you want to check if your host might be vulnerable:\nhttps://xint.io/blog/nginx2root-remote-code-execution#23-com...\nWorkarounds if you're vulnerable and can't update immediately:\nhttps://xint.io/blog/nginx2root-remote-code-execution#33-eme..."
+        },
+        {
+          "id": 50551800,
+          "author": "TuckerBMorgan",
+          "text": "I wonder when all of this die down. I assume at some tipping point most software will be written/patched with LLMs and so hopefully (fingers crossed) more resistent to these bugs.\nCertainly a stressful time for sysadmins everywhere, let us hope your coworkers are picking up your beer tab"
+        }
+      ],
+      "title_ja": "Nginxにおける認証されていないリモートコード実行",
+      "summary_ja": "ディスカッションのハイライト：このバグは、どうやら1週間前にオープンソースのリポジトリで修正されていたようです。悪用可能なバグ修正がないか、このようなリポジトリを1週間監視するだけの知識があれば、誰でも悪用できた可能性があります（th / 今は誰もがセキュリティを懸念していますが、技術者でなくてもそうです。しかし、過去10年か20年の間に、国の個人データの半分が月に2回も漏洩していませんか？\n時代が変わったことはわかっていますが／ささやかな慰めですが、NginxではHTTP/2はデフォルトで有効になっていません。",
+      "editor_note": "「Nginxにおける認証されていないリモートコード実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 3,
+      "id": 50548021,
+      "title_en": "Seven new models at scalable price-performance",
+      "url": "https://microsoft.ai/news/microsoft-ignite-2026/",
+      "hn_url": "https://news.ycombinator.com/item?id=50548021",
+      "score": 362,
+      "comment_count": 242,
+      "posted_at": "2026-11-18T16:08:24+00:00",
+      "comments": [
+        {
+          "id": 50550913,
+          "author": "athrowaway3z",
+          "text": "I was on the fence on jumping into the Anthropic IPO - but i think i'm going to skip it even though it's a product I actively pay to use and am happy with. Its just too overpriced.\nYes Anthropic will be leading for a while with the best model; but first the Chinese models, yesterday's OpenAI's Sol & Astra, and now even Microsoft getting Opus 5 performance. Remember that even Anthropic's own Opus 5.5 is _way_ more efficient than the models that were active in their “profitable” quarters.\nI do not see a business that is going to do triple digits growth consistently to justify their valuation.\nIt is just too much of a fungible utility — and there is too much demand for any single approach to capture a market. Hell, AI is the perfect tool for any customer to 'uncapture' themselves."
+        },
+        {
+          "id": 50549009,
+          "author": "johnshahbazian",
+          "text": "I didn't watch the keynote, but I've been testing MAI Code 2 and its been quite good for my usual work.  They put it on par with Opus or Sol, and I wouldn't argue too much with that.  Kudos to them for starting from scratch and getting it right."
+        },
+        {
+          "id": 50548446,
+          "author": "ahmedfromtunis",
+          "text": "I think Microsoft should provide some of its models as open source/weight if they hope to secure any market share.\nOtherwise, it's Windows Phone OS all over again."
+        },
+        {
+          "id": 50548659,
+          "author": "M4R5H4LL",
+          "text": "The Ignite keynote looked so shallow and opportunistic to leadership. You wonder if they have any clout anymore, and it feels like the engineers have abandoned the ship. I am working day to day with AI Engineering, and it feels I have zero reason to do business using any of their tech stack. This clearly started with the dev division re-org, they completely missed the memo. There is zero innovation, and it is more than time for Nadella to go."
+        },
+        {
+          "id": 50550133,
+          "author": "claaams",
+          "text": "Unless you're already in their ecosystem, why would someone join microsoft? They are becoming like Oracle. Their end user devices are avoided at most modern start ups, their cloud is expensive and confusing, their cloud customer support is awful as well."
+        },
+        {
+          "id": 50549241,
+          "author": "tyingq",
+          "text": "This seems a pretty bold statement, especially the Opus 5.5 comparison.\n\"MAI Code 2 reaches 98% of the coding quality of GPT-6.1 Sol at about 40% of the price. And against Opus 5.5, it reaches 96% performance for just 5% of the price.\""
+        },
+        {
+          "id": 50552104,
+          "author": "npc99",
+          "text": "How am I supposed to use this if not via the more common inference servers such as OpenRouter or Bedrock? So many model companies are making this mistake nowadays thinking anyone who wants to try their model should have to sign up for some obscure proprietary API"
+        },
+        {
+          "id": 50548601,
+          "author": "theowaway213456",
+          "text": "Why are they not listed in the Artificial Analysis index?"
+        }
+      ],
+      "title_ja": "拡張可能な価格性能比の7つの新モデル",
+      "summary_ja": "ディスカッションのハイライト：私はAnthropicのIPOに参加するかどうか迷っていましたが、積極的に使用料を支払っており、満足している製品であるにもかかわらず、今回は見送ることにします。基調講演は見ていませんが、MAI Code 2をテストしており、いつもの作業にはかなり適しています。Microsoftが市場シェアを確保したいのであれば、一部のモデルをオープンソース/オープンウェイトとして提供すべきだと思います。\nそうでなければ、またWindows Phone OSの二の舞になります。",
+      "editor_note": "「拡張可能な価格性能比の7つの新モデル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 4,
+      "id": 50547620,
+      "title_en": "Inside Deutsche Bank",
+      "url": "https://www.inside-db.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50547620",
+      "score": 443,
+      "comment_count": 153,
+      "posted_at": "2026-11-18T15:38:33+00:00",
+      "comments": [
+        {
+          "id": 50551351,
+          "author": "ltrg",
+          "text": "I was involved with this project as a reporter, though others from my organisation did most of the work.\nHN readers may be interested to know a bit about the tech stack. The 15 million or so documents, mostly Outlook mailbox exports, were provided to partners in the consortium via a tool called OpenAleph [1], which is maintained by DARC and based on ElasticSearch and a schema called FollowTheMoney [2], developed specifically for the investigative journalism use case. A lot of the original work on this was done by Friedrich Lindenberg (@pudo), who now runs OpenSanctions [3].\nThe timing was v. interesting given where we are with LLMs -- it's the first major leak I've worked on where it was possible to leverage local models to do some of the heavy lifting, and this only got more possible as the project went on. The coordinators provided a centrally hosted chatbot with RAG, but I also managed to get some surprisingly useful material using Qwen3.6-35B-A3B on my 24GB M2 MBA via a custom agent harness for Aleph/OpenAleph. [4]\nHappy to answer any questions about techy stuff, though I'm not a spokesperson for the project by any means. Seen a few people saying \"just release the data!\", but I"
+        },
+        {
+          "id": 50550799,
+          "author": "mlmonkey",
+          "text": "> The Data\n> Our reporters will continue to evaluate the material journalistically over the\n> coming months. We will not publish the raw data online.\nOne of my biggest gripes about journalism today is that biased actors will change the narrative to fit their biases via selective omission of facts, thereby putting forth a misleading version. One doesn't have to actually _lie_ to deceive the public; one can just hide extenuating facts and let the public form their own (misguided) opinion.\nThis is why I feel like the raw data should be released so we can do our own analyses. Why should I blindly trust a random self-selected, possibly anonymous, group of people?"
+        },
+        {
+          "id": 50548217,
+          "author": "gwbas1c",
+          "text": "The page needs to summarize critical points without needing to hop into links.\nThe linked articles require dedicated time to read, (which is good.) Many people will open this, see that it requires time to read, and move on without understanding the major points of the scandal.\nA higher level summary will get the point across much more quickly."
+        },
+        {
+          "id": 50551985,
+          "author": "eunos",
+          "text": "> The documents show Deutsche Bank assisted numerous clients in tax minimisation, including the Siemens corporation\n> German treasury would lose up to 30 million euros per year due to the tax-saving model it promoted\nSaving tax in Germany is time honored tradition. Why do you think companies like Taxfix exist?"
+        },
+        {
+          "id": 50548644,
+          "author": "dualvariable",
+          "text": "Anything on what Justice Kennedy's son was doing at Deutsche Bank?\nI'm still expecting that a sitting US President used extortion and blackmail to cause a SCOTUS judge to step down, there's just no public evidence yet."
+        },
+        {
+          "id": 50548124,
+          "author": "mapcars",
+          "text": "I had an impression that Germany is pretty strict with all kinds of regulations, surely they would apply to banking as well, no?"
+        },
+        {
+          "id": 50549861,
+          "author": "blobbers",
+          "text": "Am I supposed to click on each article? Am I supposed to read more? What is this?"
+        },
+        {
+          "id": 50549999,
+          "author": "thesurlydev",
+          "text": "My DB story: I was hired at DB to a team that supported the mortgage backed securities traders just months prior to the 2008 debacle. It wasn't until early 2010 when I was laid off."
+        }
+      ],
+      "title_ja": "ドイツ銀行内部",
+      "summary_ja": "ディスカッションのハイライト：私はこのプロジェクトにレポーターとして関わりましたが、ほとんどの作業は組織の他のメンバーが行いました。\nHNの読者は、テクノロジースタックについて少し知りたいと思うかもしれません / > データ\n> 私たちの記者は、今後数か月にわたってジャーナリスティックな観点から\n> 今後数ヶ月にわたって評価を続けます / このページでは、リンク先に移動することなく重要な点を要約する必要があります。\nリンク先の記事を読むには、時間を割く必要があります（これは良いことです）。",
+      "editor_note": "「ドイツ銀行内部」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 5,
+      "id": 50551046,
+      "title_en": "DaisyRose-27B: 1,200-task RL took Qwen3.8 from 5.6% to 12% on Terminal-Bench 4.1",
+      "url": "https://www.radixark.com/blog/daisyrose-27b",
+      "hn_url": "https://news.ycombinator.com/item?id=50551046",
+      "score": 64,
+      "comment_count": 10,
+      "posted_at": "2026-11-18T19:39:16+00:00",
+      "comments": [
+        {
+          "id": 50552188,
+          "author": "woah",
+          "text": "The heavy reliance on eval datasets showcased here and also evidenced by the frontier lab's high payments for such data cast doubt on the claims that AI will become self-improving soon"
+        },
+        {
+          "id": 50551775,
+          "author": "xlayn",
+          "text": "Snap, no gguf to download, will wait for one to appear to test, any improvement over an already good model is good news.\n\"18 days on 144 H200 GPUs\" insane.. didn't thought so much hardware would be needed to train Qwen."
+        },
+        {
+          "id": 50552360,
+          "author": "jacquesm",
+          "text": "I always wonder what you lose when you start maxing out some specific benchmark. It is really hard to do this in a balanced way and I would love if everybody that did these kind of efforts would take the time to also list the before/afters of a number of other benchmarks that they did not use in their training."
+        },
+        {
+          "id": 50551690,
+          "author": "robertkarl",
+          "text": "I look forward to testing this against my private eval set to determine if it's benchmaxxing or actual improvement based on just 1200 tasks. downloading it now"
+        },
+        {
+          "id": 50551867,
+          "author": "octoberfranklin",
+          "text": "FWIW that is about $331,000 on low-onboarding-grief clouds (e.g. vast.ai) right now using the SXM variants they used.\nYou might be able to shave that down using a different flavor of H200 (like PCIe) but it would take more hours, so benefits are unclear."
+        }
+      ],
+      "title_ja": "DaisyRose-27B：1,200タスクのRLにより、Qwen3.8のTerminal-Bench 4.1でのスコアが5.6%から12%に向上",
+      "summary_ja": "ディスカッションのハイライト：ここで紹介されている評価データセットへの強い依存は、フロンティアラボがそのようなデータに対して高額な支払いを行っていることからも明らかであり、AIが自己改善するようになるという主張に疑問を投げかけています。/ Snapにはダウンロードできるggufがありません。テスト用に登場するのを待ちます。すでに優れたモデルがさらに改善されるのは喜ばしいことです。\n「144基のH200 GPUで18日間」なんて、信じられない。/ 特定のベンチマークを最大限に活用し始めると、何が失われるのかいつも疑問に思います。",
+      "editor_note": "「DaisyRose-27B：1,200タスクのRLにより、Qwen3.8のTerminal-Bench 4.1でのスコアが5.6%から12%に向上」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 6,
+      "id": 50547777,
+      "title_en": "AI agents ask better questions than KPMG accountants in audit trial",
+      "url": "https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/",
+      "hn_url": "https://news.ycombinator.com/item?id=50547777",
+      "score": 234,
+      "comment_count": 116,
+      "posted_at": "2026-11-18T15:49:34+00:00",
+      "comments": [
+        {
+          "id": 50549887,
+          "author": "trentnix",
+          "text": "KMPG accountants are generally inexperienced, overworked, and poorly incentivized. The entire big firm public accounting model is exploitative at multiple levels."
+        },
+        {
+          "id": 50549115,
+          "author": "origini",
+          "text": "Even in normal jobs we have such a HUGE difference between two people. The only organization which is working against are pilots with procedures and checklists.\nAnd every year a new human comes along and has to learn all of it again.\nOf course ONE AI agent and teaching ONE AI is massivly in an advantage as soon as its as good as the avg person in the job and it blows everyone else out of the water as soon as it gets a tag better."
+        },
+        {
+          "id": 50552428,
+          "author": "odyssey7",
+          "text": "Excel didn’t replace accountants, ditto for the calculators that came before. AI will help them do more, not less."
+        },
+        {
+          "id": 50549382,
+          "author": "chilmers",
+          "text": "I think properly-trained AI agents will have a huge advantage against humans in  such contexts: They will have no intrinsic tendency towards laziness. I think most humans have a natural inclination to optimise the amount of work we do in a professional setting, unless we really happen to enjoy it doing it for the sake of it. We can fight against this by setting up processes and incentives, but we'll always be going against a tendency deeply ingrained by evolution to minimise our mental energy expenditure and to avoid repetitive, tedious or boring tasks.\nOn the other hand, with AI we'll use reinforcement learning to create agents without such evolved-in tendencies. Where (so long as we can solve alignment and cheating) they are trained to do the job, no matter how much effort it takes, or what's involved."
+        },
+        {
+          "id": 50549684,
+          "author": "chirau",
+          "text": "I am not surprised at all.\nAI labs were working with companies like Mercor for more than a year paying the consultants and accountants themselves from these very firms a good amount per typical task they work on everyday, some even providing actual documents.\nThe expectations were more rigorous, and the rubrics pretty expansive. so yeah, the agent trained from tens of thousands of consultants would eventually ask better questions than an individual consultant."
+        },
+        {
+          "id": 50552379,
+          "author": "bluegatty",
+          "text": "This is not surprising given the nature of AI. It's definitely going to be able to dig deep and ask good questions.\nSolutions, implementation, perfect detail - that's another question."
+        },
+        {
+          "id": 50550867,
+          "author": "priyadarshy",
+          "text": "I've had the same experience when it comes to auditing my companies SOC2 compliance with Opus (or any model of that level).\nOpus, with access to all of our policies, repo, and the SOC2 control standards is more thorough and exacting about evidence than any auditor I've ever dealt with for any kind of security/compliance review.\nIt's almost to a fault, it sets unrealistic standards for certain things that need to be nudged back and it's also aggressive about inventing work to do that will keep you busy forever."
+        },
+        {
+          "id": 50548821,
+          "author": "marconey",
+          "text": "https://www.ft.com/content/5168b3e9-75d0-4be0-9ccd-d327d6b16...\nI think this is the source FT article"
+        }
+      ],
+      "title_ja": "AIエージェントが監査トライアルでKPMGの会計士よりも優れた質問をした",
+      "summary_ja": "ディスカッションのハイライト：KMPGの会計士は一般的に経験が浅く、働き過ぎで、インセンティブが不十分である／通常の仕事であっても、2人の間にこれほど大きな差がある／Excelは会計士に取って代わるものではなく、その前の電卓も同様である。",
+      "editor_note": "「AIエージェントが監査トライアルでKPMGの会計士よりも優れた質問をした」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 7,
+      "id": 50545958,
+      "title_en": "DNS resolvers are the wrong place to fight piracy",
+      "url": "https://techstackups.com/articles/quad9-leaves-france-dns-blocking/",
+      "hn_url": "https://news.ycombinator.com/item?id=50545958",
+      "score": 511,
+      "comment_count": 180,
+      "posted_at": "2026-11-18T13:18:02+00:00",
+      "comments": [
+        {
+          "id": 50547167,
+          "author": "trentnix",
+          "text": "Every attempt to “fight piracy” that isn’t “prosecute pirates” is just a backdoor to suppressing speech a government doesn’t like."
+        },
+        {
+          "id": 50552050,
+          "author": "AppalachianEng",
+          "text": "It's too late to \"fight piracy\", the ai companies have already consumed all the ip. If you don't care to prosecute commercial piracy, why bother with private individuals?"
+        },
+        {
+          "id": 50546576,
+          "author": "michael-sumner",
+          "text": "https://quad9.net/news/blog/au-revoir-france/\nhttps://blog.cloudflare.com/quad9-withdrawal-from-france/"
+        },
+        {
+          "id": 50548963,
+          "author": "skrebbel",
+          "text": "Is this a ridiculous decision by the French court because the judges lack competency, or is this a defensible position, ie judges correctly interpreting a ridiculous law?\nI feel like that’s two very different situations and a lot of writing about bad court decisions such as this one don’t specify which it is. The courts don’t operate in a void, they try to apply the law.\nSo in other words, should our ire be directed at the courts or the lawmakers here?"
+        },
+        {
+          "id": 50551613,
+          "author": "MarcScott",
+          "text": "The UK has had blocks in place for well over a decade, via ISPs -\nhttps://en.wikipedia.org/wiki/List_of_websites_blocked_in_th...\nAs far as I am aware, they government has never gone after DNS resolvers other than the big 5 ISPs.\nI very much doubt it has had a major impact on piracy. Anecdotally I am aware that plenty of naive teenagers put themselves at risk using 'free' VPN services to circumvent the blocks."
+        },
+        {
+          "id": 50546252,
+          "author": "Fe2O3",
+          "text": "Dupe:\nhttps://news.ycombinator.com/item?id=50195959\nRelated:\nhttps://news.ycombinator.com/item?id=50538994"
+        },
+        {
+          "id": 50546766,
+          "author": "rileymat2",
+          "text": "One thing is not well explained, if they can’t reliably detect french users, how can they leave france?"
+        },
+        {
+          "id": 50548076,
+          "author": "draygonia",
+          "text": "The only pirates I have a problem with are the ones who make money off of their sharing (charging for access, ads on their site, etc)."
+        }
+      ],
+      "title_ja": "DNSリゾルバーは、著作権侵害と戦うのに適した場所ではありません",
+      "summary_ja": "議論のハイライト：「海賊行為と戦う」ためのあらゆる試みは、「海賊行為者を訴追する」ものでない限り、政府が好まない言論を抑圧するための裏口に過ぎません。/「海賊行為と闘う」には手遅れです。AI企業はすでにすべての知的財産を消費してしまいました/ https://quad9.net/news/blog/au-revoir-france/\nhttps://blog.cloudflare.com/quad9-withdrawal-from-france/",
+      "editor_note": "「DNSリゾルバーは、著作権侵害と戦うのに適した場所ではありません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50550096,
+      "title_en": "The Magic of Partial Evaluation",
+      "url": "https://jimmyhmiller.com/magic-of-partial-evaluation",
+      "hn_url": "https://news.ycombinator.com/item?id=50550096",
+      "score": 70,
+      "comment_count": 9,
+      "posted_at": "2026-11-18T18:29:03+00:00",
+      "comments": [
+        {
+          "id": 50552243,
+          "author": "artrax",
+          "text": "We build this as a c++ library, do to query-compilation for our stream processing engine.\nhttps://github.com/nebulastream/nautilus\nIt allows us to implement operators or functions without having to write them in terms of LLVM IR DSL (or similar). Rather, you write your functions over a wrapper type (and returning one), for which there is an overload of anything which you can overload in c++.\nYou can instantiate a wrapper from some c++ value, in which case the wrapper will just forward everything to this value, which was nice for debugging in the preagentic era.\nBut, you can also instantiate such a wrapper as a tracer, and the result of the functions evaluation will be a trace.\nFor controlflow, we record whenever a wrapper type is evaluated as a bool, first return true, and when we reach the end of one branch, throw an exception to get back to the beginning, and start all over again, but evaluate it to false.\nThe resulting trace we can turn into LLVM IR and compile, or run for example in wasm"
+        },
+        {
+          "id": 50551576,
+          "author": "apignotti",
+          "text": "We implemented a similar concept in our C++ -> JavaScript/WebAssembly compiler (Cheerp) several years ago. It was a nice challenge.\nhttps://labs.leaningtech.com/blog/reducing-webassembly-size-..."
+        },
+        {
+          "id": 50551469,
+          "author": "owlstuffing",
+          "text": "This type of optimization is also known as compile-time constant expression folding.\nThe problem with expanding it to include function calls is that it compromises binary compatibility. A code change on a function that results in a different range or has different side effects, will not be realized unless the caller is recompiled."
+        },
+        {
+          "id": 50551733,
+          "author": "infogulch",
+          "text": "Doesn't Zig have a pretty nice implementation of compile-time evaluation built in?"
+        },
+        {
+          "id": 50550795,
+          "author": "measurablefunc",
+          "text": "Combining this w/ a JIT gets you truffle/graal."
+        }
+      ],
+      "title_ja": "部分評価の魔法",
+      "summary_ja": "ディスカッションのハイライト：当社はこれをC++ライブラリとして構築し、ストリーム処理エンジンのクエリコンパイルを行います。\nhttps://github.com/nebulastream/nautilus\nこれにより、演算子や関数を実装できます。/ 数年前、C++ -> JavaScript/WebAssemblyコンパイラ（Cheerp）で同様のコンセプトを実装しました。/ このタイプの最適化は、コンパイル時の定数式折り畳みとも呼ばれます。\n関数cを含むように拡張することの問題点",
+      "editor_note": "「部分評価の魔法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50549493,
+      "title_en": "Advancing chip design with OpenAI models",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+      "hn_url": "https://news.ycombinator.com/item?id=50549493",
+      "score": 104,
+      "comment_count": 51,
+      "posted_at": "2026-11-18T17:45:47+00:00",
+      "comments": [
+        {
+          "id": 50551574,
+          "author": "sascac",
+          "text": "Naming the chip Jalapeño is great. Not only does it play into hot potato chips, but also Jalapeño peppers come from Xalapa, a city in Mexico. Xalapa comes from the Nahuatl word Xallapan, which roughly translates to \"place of sandy water.\" These chips are made from quartz sand, and a data center then uses water to cool them. A data center is a place of sandy water!"
+        },
+        {
+          "id": 50552160,
+          "author": "skyberrys",
+          "text": "I am seeing good results with chip design by treating it as a software design problem, using the agent to write software to generate my circuits and then write software to automate my EDA flow. Then the agent can babysit my several runs of multi hour simulation so I don't have to anymore.\nI don't drive straight at the RTL though. Infact only a small fraction of the design in RTL, the bulk is analog."
+        },
+        {
+          "id": 50550366,
+          "author": "zardo",
+          "text": "Am I missing something or are they not sharing those RISC-V designs?"
+        },
+        {
+          "id": 50552181,
+          "author": "tschellenbach",
+          "text": "The same improvement loops will happen to every area of science."
+        },
+        {
+          "id": 50551010,
+          "author": "zackmorris",
+          "text": "It will be interesting to see if AI really starts innovating in circuit design or just continues doing the wrong things faster. But I'd bet that it will soon run circles around the status quo, and rightly so.\nWe're way out on the long tail of a dead-end approach to computation that started in the late 1990s with GPUs when we chose to optimize SIMD at the expense of general-purpose computing. On top of that, Moore's Law ended in roughly 2007 with the arrival of smartphones, when the industry chose cost and power minimization over compute maximization via a multicore approach.\nNow only servers have access to highly multicore chips like AMD EPYC, at 10-100 times the cost and with poorer performance than if they maximized local/shared memories with content-addressable caching. Apple's M line of processors is ok, but its specialized cores just stand in the way of the higher abstractions available with symmetric multiprocessing, upon which specialized algorithms can be built. We're still missing the multicore foundation.\nI used Synopsys and Cadence back in college in the late 1990s to automatically place and route circuits from diagrams in SPICE (I think, my memory is foggy) and they alr"
+        },
+        {
+          "id": 50550591,
+          "author": "davemp",
+          "text": "> We have partnered with AMD […] on the flagship GPU IP\nCurious how these partnerships work. AMD uploads its X Billion dollar IP and OpenAI pinky promises not to retain or train on it?"
+        },
+        {
+          "id": 50550497,
+          "author": "spwa4",
+          "text": "Guess many people who got fired at Google are now working for OpenAI:\n\"... OpenTitan uses Ibex as the embedded processor ...\""
+        },
+        {
+          "id": 50550361,
+          "author": "light_hue_1",
+          "text": "Totally meaningless advertising drivel.\nHere's how you can tell: every statement and unit in that doc is worthless.\nEvery graph is in terms of a reward or a loss. If you have an actual amazing improvement you put it on the y axis and show how much better you can drive it. Instead of a unit that is undefined.\nAnd every statement is hedged to the 9s. Like \"AMD also verified single-digit percentage gains in PPA\" That's awesome! Except.. it continues with \"across key blocks of its upcoming next-generation flagship CPU using designs written by our model\". The improvement could have been zero. It could have by chance proposed something. Also... designs written by our model could have been inspiration for a human. It's totally impossible to know.\nIf they actually had something they would be bragging about it. Instead of whatever nonsense this is."
+        }
+      ],
+      "title_ja": "OpenAIモデルによるチップ設計の進化",
+      "summary_ja": "ディスカッションのハイライト：チップにJalapeñoという名前を付けるのは素晴らしいことです/ソフトウェア設計の問題として扱い、エージェントを使用してソフトウェアを書き、回路を生成し、次にソフトウェアを書いて自動化することで、チップ設計で良い結果が出ています/何か見落としているのでしょうか、それともRISC-V設計を共有していないのでしょうか？",
+      "editor_note": "「OpenAIモデルによるチップ設計の進化」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 10,
+      "id": 50550415,
+      "title_en": "Genie 4 is now available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+      "hn_url": "https://news.ycombinator.com/item?id=50550415",
+      "score": 139,
+      "comment_count": 116,
+      "posted_at": "2026-11-18T18:49:51+00:00",
+      "comments": [
+        {
+          "id": 50551015,
+          "author": "kingrolo",
+          "text": "I appreciate this is a HackerNews Bingo item at this point but... I do really wish Google were clearer on if or how I can pay them money to use their stuff.\nIt says this is available to \"Eligible Google AI Ultra subscribers\" but it looks like my workspace account isn't allowed one of those, so I'm looking with my non workspace gmail account and that says Ultra gets Genie 3. I don't know if that's because I'm in the UK (a previous Genie version was US only) or if its because they haven't updated their marketing spiel and I have no way to know if that would make me an \"eligible\" subscriber or not.\nDeepMind do such awesome work and its a shame that there's this layer of bigcorp frustration for users to get at it."
+        },
+        {
+          "id": 50551137,
+          "author": "alecst",
+          "text": "I’ve been here a long time. I feel increasingly out of touch with the HN crowd. A lot of talk about pricing, profitability, and  capability, and little discussion about how the potentially devastating negative consequences of technology like this. Not that I have the solution, but my main reaction to these latest developments is: “I don’t want any of this.” This applies not just to this announcement, but the rest of the ones on the home page, too."
+        },
+        {
+          "id": 50550692,
+          "author": "koolala",
+          "text": ">What makes a World a World?\nBeing able to spin 360° degrees and not have details around you change..."
+        },
+        {
+          "id": 50551089,
+          "author": "vchiriac",
+          "text": "Deepmind is creating so much that, at least to me, feels done for the love of the craft instead of earning potential, that I cannot but appreciate their work. Like, how could this end up being profitable?"
+        },
+        {
+          "id": 50551032,
+          "author": "giancarlostoro",
+          "text": "It's really neat, and some people are convinced this could someday be how game engines work. I do wonder if Google would ever let people remake games like GTA on something like this if it ever were capable of being a game engine. Technically, this could be Roblox on crack if they ever went that far with it."
+        },
+        {
+          "id": 50551625,
+          "author": "dumbmrblah",
+          "text": "I can't even see what 'genie' is on their website and I'm not gonna sign up for a 20x plan just to take a look. A demo may get me to signup, but I'm not gonna signup sight unseen."
+        },
+        {
+          "id": 50550416,
+          "author": "leumon",
+          "text": "related:\nhttps://news.ycombinator.com/item?id=50261319"
+        },
+        {
+          "id": 50551841,
+          "author": "sidsud",
+          "text": "i reckon it'll be crazy to look back on the day Genie 4 and GTA 6 both released in 2026"
+        }
+      ],
+      "title_ja": "Genie 4が利用可能になりました",
+      "summary_ja": "ディスカッションのハイライト：これは現時点ではHackerNewsビンゴの項目であることは承知していますが... / 私は長い間ここにいます / >何がワールドをワールドたらしめているのでしょうか？\n360度回転しても、周りのディテールが変わらないこと...",
+      "editor_note": "「Genie 4が利用可能になりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 11,
+      "id": 50551398,
+      "title_en": "Search Browser – Minimalist WebKit browser with Chrome extension support",
+      "url": "https://searchbrowser.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=50551398",
+      "score": 26,
+      "comment_count": 19,
+      "posted_at": "2026-11-18T20:04:31+00:00",
+      "comments": [
+        {
+          "id": 50552111,
+          "author": "fnoobnar",
+          "text": "“ Two ways to hold it. Titles across the top, or down the side. The grey slides to the tab you pick either way, and a pinned site is one letter.”\nI really can’t stand LLM language."
+        },
+        {
+          "id": 50552062,
+          "author": "camkego",
+          "text": "Shouldn't the intro paragraph carefully, clearly explain the benefits?\nThis is the intro paragraph \"Search is a browser for the Mac with nothing in the way. About ten megabytes, the engine already in macOS, and a window that opens in a third of a second. Free, for any Mac on macOS 14 or later.\"\nI just think \"with nothing in the way\", is really lacking as the value proposition."
+        },
+        {
+          "id": 50551813,
+          "author": "HelloUsername",
+          "text": "Discussion on 24.sep.2026\nhttps://news.ycombinator.com/item?id=49828120\n32 comments\nAlso related recently: \"Show HN: Zigzag, a native Mac browser for people leaving Arc \"\nhttps://news.ycombinator.com/item?id=50496787\n74 comments"
+        },
+        {
+          "id": 50552278,
+          "author": "pmkary",
+          "text": "It is so minimal, it somehow feels not finished. A very strange feeling to have. I liked it, but there is much room for improvement."
+        },
+        {
+          "id": 50552333,
+          "author": "whh",
+          "text": "Such a nice respite from the Chrome bloat."
+        },
+        {
+          "id": 50551422,
+          "author": "pankso",
+          "text": "Look clean, love it! Any plan for a Linux port ?"
+        },
+        {
+          "id": 50552492,
+          "author": "cush",
+          "text": "Imagine thinking \"I wish I could use my chrome extensions in safari\" and instead of asking your agent to port the extensions over, you conclude that you should vibe code a new webkit browser with chrome extension support"
+        },
+        {
+          "id": 50552305,
+          "author": "drcongo",
+          "text": "I'm posting this on it. It's actually quite a nice browser."
+        }
+      ],
+      "title_ja": "Search Browser – Chrome拡張機能をサポートするミニマリストのWebKitブラウザ",
+      "summary_ja": "ディスカッションのハイライト：「2つの持ち方 / 導入の段落では、メリットを慎重かつ明確に説明すべきではないでしょうか？」\nこれは導入の段落です。「Searchは、邪魔なものが一切ないMac用ブラウザです / 2026年9月24日のディスカッション\nhttps://news.ycombinator.com/item?id=49828120\nコメント32件\n最近の関連トピック：「Show HN：Zigzag、Arcから乗り換える人のためのネイティブMacブラウザ」\nhttps://n",
+      "editor_note": "「Search Browser – Chrome拡張機能をサポートするミニマリストのWebKitブラウザ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50546914,
+      "title_en": "The Cambridge Dictionary has named ‘human’ as the Word of the Year 2026",
+      "url": "https://www.cam.ac.uk/news/cambridge-dictionary-reveals-word-of-the-year-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=50546914",
+      "score": 201,
+      "comment_count": 154,
+      "posted_at": "2026-11-18T14:43:52+00:00",
+      "comments": [
+        {
+          "id": 50547324,
+          "author": "thimabi",
+          "text": "> Bill Gates, Chair of the Gates Foundation, made the case for “human reserved jobs”, such as caregivers, that should never be taken by machines\nIf only it were that simple to define what a job is and which jobs are “worthy” or not of being reserved to humans.\nI’m against dreamy proposals like this one because they miss the forest for the trees. Like previous technologies, AI can do lots of things that humans don’t really care about automating. But deciding which things won’t be subject to AI hinges on personal preferences, class interests, and even market pressures. It’s not something that can be reasoned about on a global scale, and trying to push this agenda might sow even more division among humans than we’d think at first glance."
+        },
+        {
+          "id": 50550728,
+          "author": "trentnix",
+          "text": "The use of \"human\" instead of\npeople\nor\nperson\nis a peeve of mine. When someone says \"he/she is such a good human\" or \"one of my favorite humans\", it sounds (to me) impersonal and demeaning. A person is 3-dimensional. A person has agency. A person has purpose.\nA human is just a person-shaped clump of cells.\nI know I'm a bit ridiculous with my over-analysis. I know people say \"human\" mostly because it's a trope. But it\ngrinds my gears\nnonetheless."
+        },
+        {
+          "id": 50550211,
+          "author": "ourmandave",
+          "text": "Of my friend, I can only say this: of all the souls I have encountered in my travels, his was the most... human.\nAdm James T Kirk"
+        },
+        {
+          "id": 50552312,
+          "author": "analog8374",
+          "text": "It's funny how we want work now.\nHaving work to do should be a bad thing. Right?\nOur society flips things upside down."
+        },
+        {
+          "id": 50548581,
+          "author": "enjoyyourlife",
+          "text": "Just realized that \"anthropic\" isn’t in the Cambridge Dictionary yet. It is defined in the Oxford English Dictionary though"
+        },
+        {
+          "id": 50547499,
+          "author": "ChrisArchitect",
+          "text": "Related so far from others in the space:\nDictionary.com's 2026 Word of the Year Is Maxxing\nhttps://www.dictionary.com/word-of-the-year\n(\nhttps://news.ycombinator.com/item?id=50474081\n)\nCollins' Word of the Year 2026: mogging\nhttps://blog.collinsdictionary.com/language-lovers/collins-w...\n(\nhttps://news.ycombinator.com/item?id=50474363\n)\nOxford Word of the Year is still open to voting!\nhttps://corp.oup.com/word-of-the-year/#shortlist-2026"
+        },
+        {
+          "id": 50547981,
+          "author": "leni536",
+          "text": "Maybe they are referring to the futurama character:\nhttps://futurama.fandom.com/wiki/Human_(character)"
+        },
+        {
+          "id": 50547392,
+          "author": "ChrisArchitect",
+          "text": "Flashier page with some more insights, shortlist etc:\nhttps://dictionaryblog.cambridge.org/2026/11/18/word-of-the-...\nhttps://www.cambridge.org/news-and-insights/human-is-Cambrid..."
+        }
+      ],
+      "title_ja": "ケンブリッジ辞書が「human（人間）」を2026年の「今年の単語」に選出",
+      "summary_ja": "ディスカッションのハイライト： > ゲイツ財団の会長であるビル・ゲイツ氏は、「介護者」のような「人間にしかできない仕事」は、決して機械に奪われてはならないと主張しました。\n定義するのがそれほど簡単であればよいのですが / 「人」の代わりに「人間」という言葉を使用すること\n人々\nまたは\n人\nは私の嫌いなことです / 私の友人のことですが、これだけは言えます。私の旅で出会ったすべての魂の中で、彼の魂が最も…でした。",
+      "editor_note": "「ケンブリッジ辞書が「human（人間）」を2026年の「今年の単語」に選出」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50547980,
+      "title_en": "Show HN: ExitPath – Open-source ways out of Slack, Notion and Microsoft 365",
+      "url": "https://exitpath-ruddy.vercel.app/",
+      "hn_url": "https://news.ycombinator.com/item?id=50547980",
+      "score": 111,
+      "comment_count": 24,
+      "posted_at": "2026-11-18T16:04:43+00:00",
+      "comments": [
+        {
+          "id": 50550336,
+          "author": "EvanAnderson",
+          "text": "The biggest blocker for using free/libre/open-source email for my Customers has been calendaring. People who have used Outlook / Exchange for calendaring really get hooked and getting them to use something else is difficult. The \"Free/Busy\" functionality for others' calendars, rooms, and resources shown during invitations is very handy. I can understand why people wouldn't want to lose that."
+        },
+        {
+          "id": 50552281,
+          "author": "dagss",
+          "text": "The one big important thing is identity / SSO for companies. Don't see it on the list.\nEven if you somehow manage to train your employees to use strong passwords and password managers, if someone stops working at a company it is a lot to manage deleting user accounts in all the systems one is using.\nMicrosoft Entra is basically the reasons people still use other Microsoft products. (Same story for Google just much smaller market share.)"
+        },
+        {
+          "id": 50551848,
+          "author": "savolai",
+          "text": "Anyone here have experience with Siyuan as Notion alternative? All the alternatives on exitpath are subpar even by their own comparisons."
+        },
+        {
+          "id": 50552145,
+          "author": "keithnz",
+          "text": "while its an exit path of sorts, you end up with all kinds of compromises.  At scale it may make a lot of sense, but not sure it's worth it at a smaller scale (other than for those want to do it based on the single desire to be on open source)."
+        },
+        {
+          "id": 50549733,
+          "author": "richardcrng",
+          "text": "Very helpful to see a bunch of these together.\nOP: I'd be curious about your personal stack? A bit of your story / motivation here would be interesting, too!\nI'm seeing some things pop up where open-source tools are more paradigm-breaking, e.g.\n- Ink and Switch's Patchwork[1] is a very malleable[2] piece of software\n- Imbue's Studio[3] looks pretty accessible and fun from a user perspective\nMy theory of change: make open-source more powerful than the closed alternatives, e.g. a single connected database that powers tasks, messages and projects.\n-> Connected context wins in the age of agents! Repo here:\nhttps://github.com/withnative/native\n[1] Very cool demo at Local-First Conf 26:\nhttps://www.youtube.com/watch?v=4UxGijnuXEs\n[2] As you'd expect given their Malleable Software essay\nhttps://www.inkandswitch.com/essay/malleable-software/\n[3]\nhttps://imbue.com/product/studio\n-- I think technically not OSI-approved (BSL or FSL, off the top of my head), but imo still a great thing to check out. Studio is also a bit more 'use your data from within SaaS apps' rather than get out of them, however Imbue also has `datalib` as an export tool:\nhttps://github.com/imbue-ai/datalib"
+        },
+        {
+          "id": 50551954,
+          "author": "imperialdrive",
+          "text": "Great timing.  I had Claude work on a replacement to the Microsoft, Asana, Zendesk, Adobe (PDF) ecosystem in a much more user friendly combined UI, and it's damned good, with just the features our users (and admins!) want in just the right places.  It took less than a week and $25 in tokens.  Yes, it probably won't launch anytime soon, but at this rate, no reason it couldn't in a handful of months.  Wild times, and even more wild times ahead!"
+        },
+        {
+          "id": 50551146,
+          "author": "gitowiec",
+          "text": "Don't go to Mattermost. they changed recently their license and made it impossible to login with gitlab for small companies."
+        },
+        {
+          "id": 50548737,
+          "author": "raybb",
+          "text": "How are people liking Zulip these days? Every time I've played with it there are still quite a few rough edges but since they rewrote the native apps I suspect it's gotten better?\nUnfortunately, I'm not in any community that actively uses Zulip so haven't had much real experience."
+        }
+      ],
+      "title_ja": "HNで紹介：ExitPath – Slack、Notion、Microsoft 365から脱出するためのオープンソースの方法",
+      "summary_ja": "ディスカッションのハイライト：顧客に無料／フリー／オープンソースのメールを使用するにあたり、最大の障害となっているのはカレンダー機能です／最も重要なのはIDです／企業向けのSSOです／SiyuanをNotionの代替として使用した経験のある方はいますか？Exitpathのすべての代替案は、それらの比較においても基準を下回っています。",
+      "editor_note": "「HNで紹介：ExitPath – Slack、Notion、Microsoft 365から脱出するためのオープンソースの方法」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50551601,
+      "title_en": "Google Gemini's \"Tasks\" Personal Assistant Is Now Free",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "hn_url": "https://news.ycombinator.com/item?id=50551601",
+      "score": 27,
+      "comment_count": 15,
+      "posted_at": "2026-11-18T20:20:17+00:00",
+      "comments": [
+        {
+          "id": 50552535,
+          "author": "this_user",
+          "text": "Personal assistants are like the metaverse: an idea that tech people think sounds cool, but is completely useless for any practical purposes.\nMost people simply are not so busy that they need someone to manage their calendar. And if you use these things to shop for you, I can virtually guarantee that you will be paying way too much, because vendors are gaming your gaming."
+        },
+        {
+          "id": 50552500,
+          "author": "orangea",
+          "text": "This can open a \"remote browser\" and the AI can perform tasks in the browser. Here's a screenshot if anyone is curious, since there doesn't seem to be one in the article.\nhttps://files.catbox.moe/42yl8v.png"
+        },
+        {
+          "id": 50552435,
+          "author": "drivebyhooting",
+          "text": "Why doesn’t tasks have an auto mode or a thinking level sub selector?\nI’m bewildered and bewuthered by all the different AI surfaces and their (lack of) integrations."
+        },
+        {
+          "id": 50552371,
+          "author": "fekunde",
+          "text": "I just tested it out and saw a new model 'Gemini Neon' in the dropdown. It required a Pro sub though."
+        },
+        {
+          "id": 50552002,
+          "author": "valleyjo",
+          "text": "Is this a muse competitor? Tasks sounds like a one off interaction pattern. Vs Muse is more clearly understood as a persistent agent."
+        },
+        {
+          "id": 50552432,
+          "author": "cosmotic",
+          "text": "Im on hourly electricity pricing just like it sounds Josh is. The power company sends countless emails and texts about not running AC etc in the afternoon, as if it weren't obvious already. Im skeptical Josh actually needed Gemini to figure this out or that looking at any number of electricity bills would help."
+        },
+        {
+          "id": 50552384,
+          "author": "2sk21",
+          "text": "I am in my 60s and have absolutely no need for any of the current crop of personal agents. Considering the lukewarm interest from the general public, I wonder if the agent providers will actually be forced to pay users to use their agents"
+        },
+        {
+          "id": 50551682,
+          "author": "julianlam",
+          "text": "Over-under on this sunsetting in 6 months?"
+        }
+      ],
+      "title_ja": "Google Geminiの「タスク」パーソナルアシスタントが無料で利用可能に",
+      "summary_ja": "ディスカッションのハイライト：パーソナルアシスタントはメタバースのようなものです。テクノロジー関係者にとってはかっこよく聞こえるものの、実用的な目的にはまったく役に立たないというアイデアです。\nほとんどの人はそれほど忙しいわけではありません / これで「リモートブラウザ」を開き、AIがブラウザでタスクを実行できます / なぜタスクに自動モードや思考レベルのサブセレクターがないのでしょうか？\nさまざまなAIのインターフェースとその（統合の）欠如に、私は困惑し、戸惑っています。",
+      "editor_note": "「Google Geminiの「タスク」パーソナルアシスタントが無料で利用可能に」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50548660,
+      "title_en": "Show HN: Mastra Factory, the open-source software factory we use to build Mastra",
+      "url": "https://news.ycombinator.com/item?id=50548660",
+      "hn_url": "https://news.ycombinator.com/item?id=50548660",
+      "score": 67,
+      "comment_count": 20,
+      "posted_at": "2026-11-18T16:53:42+00:00",
+      "comments": [
+        {
+          "id": 50552519,
+          "author": "SillyUsername",
+          "text": "This needs more visuals - the kinds of people using this may not be software developers, and it seems just like a command line too at first glance unless you watch the video."
+        },
+        {
+          "id": 50551642,
+          "author": "jaf12duke",
+          "text": "What have you learned from people who use Mastra today versus what you/they were doing in the beginning?"
+        },
+        {
+          "id": 50550836,
+          "author": "yoz",
+          "text": "Links:\nhttps://factory.mastra.ai\nhttps://github.com/mastra-ai/template-factory"
+        },
+        {
+          "id": 50551956,
+          "author": "moltar",
+          "text": "Just to clarify, as I couldn’t confirm this from the docs. Do agents run with their own identity or is it assuming engineer github identity?"
+        },
+        {
+          "id": 50549913,
+          "author": "Gakho",
+          "text": "> closed our repo to outside contributors\nI've seen this pattern happening in other open-source repos. Do you think it's going to be the norm now?"
+        },
+        {
+          "id": 50551465,
+          "author": "jobryan",
+          "text": "Excited to try. Do you have a video demoing how you use it (or just best practices for getting up and running well on my team)?"
+        },
+        {
+          "id": 50550936,
+          "author": "tireguess",
+          "text": "but you are going to disappear soon swallowed buy some guyz working for a guy called CLAUDE"
+        }
+      ],
+      "title_ja": "Show HN：Mastra Factory、Mastraの構築に使用しているオープンソースのソフトウェアファクトリー",
+      "summary_ja": "ディスカッションのハイライト：これにはより多くのビジュアルが必要です。これを使用する人々はソフトウェア開発者ではない可能性があり、動画を見ない限り、一見コマンドラインのように見えます。/ 現在Mastraを使用している人たちから学んだことは、あなたが/彼らが最初にしていたことと比べてどのようなものですか？ / リンク：\nhttps://factory.mastra.ai\nhttps://github.com/mastra-ai/template-factory",
+      "editor_note": "「Show HN：Mastra Factory、Mastraの構築に使用しているオープンソースのソフトウェアファクトリー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 16,
+      "id": 50548161,
+      "title_en": "Show HN: Take Voyager 1 apart, down to a single memory chip",
+      "url": "https://rshekhar.com/voyager/",
+      "hn_url": "https://news.ycombinator.com/item?id=50548161",
+      "score": 111,
+      "comment_count": 25,
+      "posted_at": "2026-11-18T16:18:51+00:00",
+      "comments": [
+        {
+          "id": 50549182,
+          "author": "raj-shekhar",
+          "text": "A few things are hard to find, so here are direct links:\nInside a nuclear battery:\nhttps://rshekhar.com/voyager/v1/rtg-1\nThe data computer's memory chips:\nhttps://rshekhar.com/voyager/v1/bay-4/memories\nOne bit of the command computer's memory:\nhttps://rshekhar.com/voyager/v1/bay-3/memory-1/plane-1/bit\nThe Golden Record's cover:\nhttps://rshekhar.com/voyager/v1/apart/golden-record\nHow Voyager 1 was fixed by radio:\nhttps://rshekhar.com/voyager/story/the-fix\nThe journey past the planets:\nhttps://rshekhar.com/voyager/story/the-voyagers"
+        },
+        {
+          "id": 50552001,
+          "author": "gourneau",
+          "text": "This is awesome I love it!\nHere is my little tribute to the Golden Record on both Voyagers\nhttps://goldenrecord.voyage/\nAlso a decoder to turn their raw audio into the images\nhttps://gourneau.github.io/golden-record-images/"
+        },
+        {
+          "id": 50552409,
+          "author": "djeastm",
+          "text": "Really, really cool. I have to admit that the Pale Blue dot image, as it always does, caused me to tear up a little."
+        },
+        {
+          "id": 50549848,
+          "author": "IAmNotACellist",
+          "text": "I'd be fascinated to know the exact nature of the failure. What analog processes cause a CMOS memory IC that we like to think of as being discrete to be consistently wrong at reading its stored values? I'd like to know all the way down to the interaction between the gates and traces. Did some pathway erode due to constant interchange of charge carriers? Did thermal cycles or stress cause one of the mechanical interconnects on the package to fracture and no longer conduct? If so, which one?\nAccording to AI, one type of failure mode in those early aerospace CMOS chips was sudden parasitic current in the PNPN junction being caused by a high energy particle, shorting paths to ground melting metal. Though that sounds rare. Another option is a total ionizing dose of radiation over time, which creates electron-hole pairs in the gate oxide, leading to trapped positive charge. That makes NMOS get closer and closer to turning on when they shouldn't, and PMOS requiring more voltage to turn on. It's fascinating to me that there came a specific moment in time when the chip managed to work, and the next clock cycle it didn't. I'd\nlove\nto see the I_D vs. V_GS charts showing a before and after. So"
+        },
+        {
+          "id": 50549455,
+          "author": "glimshe",
+          "text": "Nice! This appears to be vibecoded, but what was the process? Was there any original research or AI did most/all of it? Was this double checked against any authoritarive source?"
+        },
+        {
+          "id": 50549964,
+          "author": "blinding-streak",
+          "text": "I really enjoyed the timeline of the Voyager journeys from launch until today. Thank you for making this."
+        },
+        {
+          "id": 50551738,
+          "author": "engineer_22",
+          "text": "https://rshekhar.com/voyager/v1/apart\nthis should be the link if you want to take apart the craft"
+        },
+        {
+          "id": 50548765,
+          "author": "thelbartworks",
+          "text": "maybe when you show the journey you can adapt the zoom"
+        }
+      ],
+      "title_ja": "Show HN：ボイジャー1号を分解し、単一のメモリーチップまで辿り着く",
+      "summary_ja": "ディスカッションのハイライト：いくつかの情報は探しにくいので、ここに直接リンクを掲載します。\n原子力電池の内部：\nhttps://rshekhar.com/voyager/v1/rtg-1\nデータコンピュータのメモリーチップ：\nhttps://rshekhar.com/voya / これは素晴らしいですね。気に入りました！\nこちらは、2機のボイジャーに搭載されたゴールデンレコードへのささやかなオマージュです。\nhttps://goldenrecord.voyage/\nまた、生の音声を画像に変換するデコーダーもあります。\nhttps / 本当に、本当に素晴らしいです。",
+      "editor_note": "「Show HN：ボイジャー1号を分解し、単一のメモリーチップまで辿り着く」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 17,
+      "id": 50505310,
+      "title_en": "The First Revolver: How We Got from Blackbeard's Six Pistols to the Six-Shooter",
+      "url": "https://americanhandgunner.com/handguns/revolvers/the-first-revolver/",
+      "hn_url": "https://news.ycombinator.com/item?id=50505310",
+      "score": 37,
+      "comment_count": 13,
+      "posted_at": "2026-11-15T09:12:55+00:00",
+      "comments": [
+        {
+          "id": 50551897,
+          "author": "Animats",
+          "text": "Until Colt's revolver after 1830, few of those weapons were suitable for routine carry. When you were going off to fight, you got your weapon ready, which with flintlocks involved putting in fresh powder. Early pistols didn't stay safely ready for use.\nSo pistols were offensive weapons.\nConcealed carry, the early years:\nFor loading a Philadelphia Deringer, one would typically fire a couple of percussion caps on the handgun, to dry out any residual moisture contained in the tube or at the base of the barrel, to prevent a subsequent misfire. One would then remove the remains of the last fired percussion cap and place the handgun on its half-cock notch, pour 15 to 25 grains (0.97 to 1.6 g) of black powder down the barrel, followed by ramming a patched lead ball down onto the powder, being very careful to leave no air gap between the patched ball and the powder, to prevent the handgun from exploding when used. ... A new percussion cap would then be placed on the tube (nipple), and the gun was then loaded and ready to fire.\n[1]\nHistorical arguments for routine carry from the days when the Constitution was written are thus weak. Handgun technology wasn't ready in 1789.\n[1]\nhttps://en.wik"
+        },
+        {
+          "id": 50535967,
+          "author": "brudgers",
+          "text": "At irregular intervals ranging from twice in a row to more than a decade, I've been rereading\nBlood Meridian\nsince the 90's.\nAt some point more toward the present than the beginning, I started thinking about it as a story about the impact of a technology -- seeing it as a story about the revolver allowing  a new scale of human violence.\nDon't get me wrong, I have other readings alongside that one."
+        },
+        {
+          "id": 50551307,
+          "author": "Molitor5901",
+          "text": "This is such a great article, comma. I had never really understood the pepperbox until now. I thought it fired all of the projectiles at one time. I didn't know you rotated."
+        },
+        {
+          "id": 50551580,
+          "author": "kleton",
+          "text": "nominative determinism\n> In June 1818, Artemus Wheeler of Concord, Massachusetts, received a U.S. patent for a flintlock revolver."
+        }
+      ],
+      "title_ja": "最初の回転式拳銃：ブラックビアードの6丁のピストルから6連発リボルバーに至るまで",
+      "summary_ja": "ディスカッションのハイライト：1830年以降のコルトの回転式拳銃が登場するまで、日常的に携帯するのに適した武器はほとんどありませんでした／2回連続から10年以上まで、不規則な間隔で、私は90年代から\n『血の経線』を\n90年代から。\n始まりよりも現在に近いある時点で / これは素晴らしい記事です、コンマ",
+      "editor_note": "「最初の回転式拳銃：ブラックビアードの6丁のピストルから6連発リボルバーに至るまで」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50548004,
+      "title_en": "KVM: x86: Unconditionally reset MMU context when emulating INIT (CVE-2026-99312)",
+      "url": "https://www.cve.org/CVERecord?id=CVE-2026-99312",
+      "hn_url": "https://news.ycombinator.com/item?id=50548004",
+      "score": 153,
+      "comment_count": 106,
+      "posted_at": "2026-11-18T16:06:21+00:00",
+      "comments": [
+        {
+          "id": 50552404,
+          "author": "immibis2",
+          "text": "Links to a CVE record. The kernel project marks everything that could conceivably be of any use to an attacker as a CVE. What are we actually looking at here? Sounds like a dangling-pointer type of bug?"
+        },
+        {
+          "id": 50548735,
+          "author": "fwsgonzo",
+          "text": "Don't disable nested, it's still better security than everything else, and having it on means access to real hardware virtualization. Second, the article is AI-written. It really should be rewritten by a human."
+        },
+        {
+          "id": 50548619,
+          "author": "gbrindisi",
+          "text": "Thinking about agents sandboxes... it truly seems like the time is ripe for unikernels"
+        },
+        {
+          "id": 50548688,
+          "author": "jacobgold",
+          "text": "Our infrastructure will become so much more secure but we're in for a bumpy ride through 2027."
+        },
+        {
+          "id": 50548942,
+          "author": "praseodym",
+          "text": "The blog post is very difficult to read, I suspect that unfortunately it’s fully written by an LLM."
+        },
+        {
+          "id": 50549471,
+          "author": "adverbly",
+          "text": "Well this sucks. So this needs a kernel fix then? Looks like I can disable nested passthrough manually, but am I stuck waiting for downsteam fixes at this point then?\nHonestly, this gives me pause on the whole \"VM is sufficient for any agentic sandbox environment\" theory."
+        },
+        {
+          "id": 50550507,
+          "author": "sadkgasjdfgk",
+          "text": "I wonder if AWS' Nitro Sandboxes would prevent this?"
+        },
+        {
+          "id": 50549603,
+          "author": "Ungh",
+          "text": "Time to dig this one out again\nhttps://marc.info/?l=openbsd-misc&m=119318909016582"
+        }
+      ],
+      "title_ja": "KVM: x86: INITをエミュレートする際にMMUコンテキストを無条件にリセット（CVE-2026-99312）",
+      "summary_ja": "ディスカッションのハイライト：CVEレコードへのリンク/ネストを無効にしないでください。他のすべてよりも優れたセキュリティであり、有効にすることで実際のハードウェア仮想化にアクセスできます/エージェントサンドボックスについて考える..",
+      "editor_note": "「KVM: x86: INITをエミュレートする際にMMUコンテキストを無条件にリセット（CVE-2026-99312）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 19,
+      "id": 50517840,
+      "title_en": "Show HN: Nobody blocks a keyboard – Rooted Android as a physical USB Deck",
+      "url": "https://github.com/mr-anjaneyam/Emittr",
+      "hn_url": "https://news.ycombinator.com/item?id=50517840",
+      "score": 44,
+      "comment_count": 38,
+      "posted_at": "2026-11-16T14:18:15+00:00",
+      "comments": [
+        {
+          "id": 50550660,
+          "author": "jasode",
+          "text": ">, so it works in every locked down OS as well, BIOS, GRUB, etc.\nFyi... Apple MacBook laptops and iPhones block USB peripherals (including keyboards) unless the password is first entered on the real builtin keyboard or touchscreen to approve it.\nSupposedly, Apple does this to prevent gadgets like yours from brute-forcing passwords."
+        },
+        {
+          "id": 50550922,
+          "author": "arde",
+          "text": "Now, if it could also use the camera to forward video it would turn into a full KVM-over-IP. Or it could parse the camera input for text output or automation. Or it could use STT for its input, so it would enable easy verbal interaction with any device."
+        },
+        {
+          "id": 50551931,
+          "author": "yjftsjthsd-h",
+          "text": "> Out of band bridge : we don't store passwords or authenticators on rooted phone. Emittr exposes a web UI on LAN, so we can send keystrokes from our main phones.\nDepending on threat model (do you trust the network?), that seems less secure than keeping credentials on-device."
+        },
+        {
+          "id": 50520942,
+          "author": "atmanactive",
+          "text": "While we're on the subject, for non-rooted phones, I can recommend InputStick."
+        },
+        {
+          "id": 50550725,
+          "author": "GuB-42",
+          "text": "So, it essentially turns the phone into a \"BadUSB\" device.\nI wanted to do this with a Flipper Zero on a locked-down system but I refrained, a keyboard firing a script at 1000 WPM really looks like an attack, and I don't want to do something that looks like an attack on a system that is not mine.\nIt doesn't mean it is not useful, in fact, it may be\ntoo\nuseful, that's the problem..."
+        },
+        {
+          "id": 50538053,
+          "author": "_Microft",
+          "text": "And is that really a good idea? These systems might be airgapped for good reason."
+        },
+        {
+          "id": 50550556,
+          "author": "lefra",
+          "text": "If I went to the extreme of air-gapping a machine, I'd make sure that anyone trying to plug a phone to it gets fired on the spot."
+        },
+        {
+          "id": 50551604,
+          "author": "mzajc",
+          "text": "> Nobody blocks a keyboard\nSome of us do:\nhttps://usbguard.github.io/"
+        }
+      ],
+      "title_ja": "Show HN：キーボードをブロックする人はいない – ルート化されたAndroidを物理的なUSBデッキとして使用",
+      "summary_ja": "ディスカッションのハイライト：>、つまり、ロックダウンされたすべてのOS、BIOS、GRUBなどでも動作します。\nご参考までに.. / もしカメラを使ってビデオを転送することもできれば、完全なKVM-over-IPになります / > アウトオブバンドブリッジ：ルート化されたスマートフォンにパスワードや認証情報を保存することはありません。",
+      "editor_note": "「Show HN：キーボードをブロックする人はいない – ルート化されたAndroidを物理的なUSBデッキとして使用」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 20,
+      "id": 50547583,
+      "title_en": "F-22 Next-Generation micro–Data Transfer Cartridge (mDTC)",
+      "url": "https://sam.gov/workspace/contract/opp/8948e8601e964c6aba9c801eee16b1be/view",
+      "hn_url": "https://news.ycombinator.com/item?id=50547583",
+      "score": 127,
+      "comment_count": 82,
+      "posted_at": "2026-11-18T15:35:44+00:00",
+      "comments": [
+        {
+          "id": 50548609,
+          "author": "jotux",
+          "text": "Cool coincidence. In a past job, I specifically made replacement PCMCIA cards for these (and other) planes. Instead of making cards with a controller and onboard storage, we made cards with an FPGA/microcontroller and a microSD card soldered to the PCB. We did this specifically because these aircraft use (at least partially) broken implementations of the PCMCIA protocol, and we'd update the bus protocol per aircraft to work around the limitations. None of these planes can just go buy stuff off the street because some large portion just doesn't work because their protocol isn't fully implemented and isn't flexible to deal with variance in timing/speed/etc.\nA fun story: Our cards had whatever industrial-spec microSD card we could find (16GB, 32GB, etc.), and we'd internally limit the disk size to whatever the platform needed. Almost every aircraft had some specific number of MB they wanted because all of their CONOPS listed it, and they didn't want to update documentation or software to put a different number there. We had a plane that could only use EXACTLY 128MB, but they were currently using 256MB cards and partitioning them to 128MB. We updated the disk size to present as 128MB s"
+        },
+        {
+          "id": 50548101,
+          "author": "vkaku",
+          "text": "Bought a few CF cards from Dogfish SSD (\nhttps://dogfishssd.com/\n) sometime ago. They are readily available on Amazon and can be bought with relatively no fuss. The company are NOT based out of the US though.\nThe company that I do recommend for any industrial flash is Delkin Devices (\nhttps://www.delkindevices.com/\n). They are based out of San Diego, CA and I bought USB 3.0 high endurance drives from them and so far the performance of those have been solid, and it's lasted me many cycles. These are whom you'd be in contact with, for bids like these.\nIt's worth expanding the supply chain options locally.  If anyone needs this they'd have to get Micron or Sandisk to make and assemble them into other form factors. This part is what is harder than it looks, and would need to be done."
+        },
+        {
+          "id": 50548944,
+          "author": "CobaltFire",
+          "text": "For anyone wondering what these are used for:\nAll current US military aircraft (at least up through the F-35) use CF cards to take mission planning from the laptops in the SCIF (or whatever unclass space they are using) to the aircraft.\nAs an aside, LCACs (among other platforms) also use these systems and cards. So this is a pretty widespread use case."
+        },
+        {
+          "id": 50550260,
+          "author": "spicyjpeg",
+          "text": "It's worth pointing out that there are actually\ntwo\nmain types of PCMCIA memory cards. The most common by far are the ATA cards mentioned here, which are basically CF cards in a different form factor (equivalent to a CF card in a CF-to-PCMCIA adapter) and work by emulating either an IDE hard drive or an ISA IDE controller depending on wiring. While uncommon at this point, CF controller chips are still available and some specialized suppliers do manufacture these cards brand new using modern NAND flash.\nThe much more problematic ones to find a replacement for in 2026 are the so-called \"linear\" memory-mapped cards, consisting of one or more banks of raw parallel NOR flash with no controller IC. Linear cards were never standardized and the protocol used to interface to parallel flash can vary greatly across chip families, so the vast majority of devices that use them are hardcoded to only accept cards with a specific manufacturer and device ID. Many NOR flash manufacturers from the turn of the century have long discontinued their products and emulating parallel flash using modern FPGAs and microcontrollers is also non-trivial due to their memory-mapped nature, so owners of legacy tele"
+        },
+        {
+          "id": 50548168,
+          "author": "keito",
+          "text": "As a bit of a fun aside, Industrial CF cards are a popular stand-in for hard disks in vintage computers (since in IDE mode they can be adapted passively to IDE - they're both parallel ATA but with different pinouts). Too bad they don't make hard drive noises, though."
+        },
+        {
+          "id": 50548178,
+          "author": "nhecker",
+          "text": "\"[...] The PC or CF card must have a storage capacity of 256 megabytes (MB) or greater [...]\" I'm guessing they have some system that bootstraps off of PC cards, or stores some small amount of low-bandwidth essential things. It's interesting that it's cheaper to req. a bunch of cards & adapters than it is to retrofit & modernize. Well, I suppose that's not that surprising, if I stop to think about it; from a systems integration point it's certainly way more reliable and less risky to replace a like part for a like part, rather than redesigning the hardware to use a more modern flash storage device."
+        },
+        {
+          "id": 50550816,
+          "author": "jonhohle",
+          "text": "Plaion[0] is manufacturing new PCMCIA storage cards, though the storage might be too small for their application. It would be hilarious to see Air Force equipment running on Neo•Geo memory cards.\n0 -\nhttps://www.play-asia.com/el/neogeo-aes-memory-card-white/13..."
+        },
+        {
+          "id": 50551704,
+          "author": "kraquepype",
+          "text": "Hmmm, I have a drawer full of old PCMCIA CF adapters, I wonder if they can use them."
+        }
+      ],
+      "title_ja": "F-22次世代マイクロデータ転送カートリッジ（mDTC）",
+      "summary_ja": "ディスカッションのハイライト：面白い偶然/以前、Dogfish SSD（\nhttps://dogfishssd.com/\n) 少し前です/これらが何に使われているのか疑問に思っている方のために説明します。\n現在のアメリカ軍の航空機（少なくともF-35まで）はすべて、CFカードを使用して、SCIF（または",
+      "editor_note": "「F-22次世代マイクロデータ転送カートリッジ（mDTC）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 21,
+      "id": 50546967,
+      "title_en": "The x86 CPU: From 4004 to 486",
+      "url": "https://pikuma.com/blog/history-of-x86-4004-to-486",
+      "hn_url": "https://news.ycombinator.com/item?id=50546967",
+      "score": 116,
+      "comment_count": 30,
+      "posted_at": "2026-11-18T14:47:53+00:00",
+      "comments": [
+        {
+          "id": 50551978,
+          "author": "jgord",
+          "text": "Learned to program on an 8088 machine with Hercules mono graphics card, first in GW-Basic which was godawful, then in A86 assembler and finally Turbo Pascal which was a pinnacle of human engineering, a portal into a wonderful future ahead.\nThere was great excitement and relief when the 80386 came out with its 32bit address linear memory model.  Everything suddenly became possible - serious compute on the desktop.\nAlso remember fondly the workhorse that was the Core2Duo and the i4700k beast, and Mike Abrashes Black book on game programming.\nLLM-style AI doesn't yet seem to be the growth technology we need to bring back the economic prosperity of the 80s-90s - but if RL can figure out a stable plasma fusion configuration and layout chips for much better data-flow, then we might see the level of prosperity and innovation we saw in those decades when Moores Law held sway."
+        },
+        {
+          "id": 50547785,
+          "author": "petercooper",
+          "text": "This is a neat history. However, going to be a bit nitpicky since they put this in bold re the 8008:\n\"Intel did not design the instruction set of this chip\"\n.. kinda true in a broad sense, but Intel engineers including Stan Mazor\ndid\nchange and enhance it, like adding increment and decrement operations and some other stuff mentioned in\nhttps://archive.computerhistory.org/resources/text/Oral_Hist..."
+        },
+        {
+          "id": 50548167,
+          "author": "kens",
+          "text": "One thing I'd emphasize is that the 4004 is not related to the 8008 at all, except that many of the same people worked on both chips."
+        },
+        {
+          "id": 50548422,
+          "author": "genxy",
+          "text": "x86 is an octal machine\nhttps://news.ycombinator.com/item?id=30409100"
+        },
+        {
+          "id": 50550399,
+          "author": "gregschlom",
+          "text": "> And what does the \"X\" mean? According to Morse himself, nothing special. It was simply an arbitrary letter combining the \"H\" and \"L\" halves into one 16-bit register (as told to Vladimir Keleshev).\nAh I always thought it was for eXtended. But I guess X as a placeholder for either H or L makes sense too."
+        },
+        {
+          "id": 50550235,
+          "author": "VolCoder",
+          "text": "I built my first machine using a 80486! It took a lot back then to build a machine. No YouTube, no Discord, no internet (for all intents and purposes). But a heck of a lot of fun!"
+        },
+        {
+          "id": 50551970,
+          "author": "qurashee",
+          "text": "Gustavo is an amazing educator, really worth watching some of his courses."
+        },
+        {
+          "id": 50548850,
+          "author": "drob518",
+          "text": "Talking about little endian…\n> This inverted storage, which was to haunt all processors evolved from the 8008, was a result of compatibility with the Datapoint bit-serial processor.\nAm I the only one who thinks little endian is the right way to store things? Other than reading multi-byte numbers in order in hex dumps and things like that, I don’t see much advantage to big endian."
+        }
+      ],
+      "title_ja": "x86 CPU：4004から486へ",
+      "summary_ja": "ディスカッションのハイライト：ハーキュリーズのモノクログラフィックカードを搭載した8088マシンでプログラミングを学びました。最初はGW-Basicでしたが、これはひどいものでした。その後、A86アセンブラ、そして最後にTurbo Pascalを学びましたが、これは最高でした／これは素晴らしい経歴ですね／強調しておきたいのは、4004と8008はまったく関係がないということです。ただし、両方のチップの開発に携わった人が多くいることは事実です。",
+      "editor_note": "「x86 CPU：4004から486へ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Hardware"
+    },
+    {
+      "rank": 22,
+      "id": 50548991,
+      "title_en": "CrossPoint Reader",
+      "url": "https://crosspointreader.com",
+      "hn_url": "https://news.ycombinator.com/item?id=50548991",
+      "score": 62,
+      "comment_count": 37,
+      "posted_at": "2026-11-18T17:14:31+00:00",
+      "comments": [
+        {
+          "id": 50552220,
+          "author": "thefunnyman",
+          "text": "I love this project. Bought an x4 pro recently after being a bit skeptical and I've read a ton of books on it. Whenever I go to use my phone in a line or whatever I feel it magneted to the back and am reminded to read instead, something I never found myself doing with just the e-reader app on my phone.\nOne especially great feature of crosspoint is their sync service. It can mirror to my other existing self hosted service that has a kosync server already but also keep my progress pushed to hardcover so I don't have to worry about plugins on each device to do so."
+        },
+        {
+          "id": 50550646,
+          "author": "mmh0000",
+          "text": "I bought an XTEINK X3 (because I didn't want the touchscreen of the X4) a few months ago. I bought the X3 thinking, \"This is a cheap tech toy; I'll play with it a little and probably forget about it.\"\nAs soon as I unboxed it, I put CrossPoint on it. ... Holy cow, I did not expect to actually use the X3 as much as I am. I'm getting through way more books now. Because it's just always there... Waiting in line for 5 minutes? Read. Sitting down at lunch? Read. It's so great!\nAnd, the fact it supports KOSync is just amazing. Because then at night when I do my routine reading on a bigger/better ereader, all my book progress is synced up.\nAnyway... The X3 with CPR is amazing."
+        },
+        {
+          "id": 50550765,
+          "author": "patwork",
+          "text": "I use an original X4 (USB C) with Crosspoint every day. Think I paid $50 for it. Great product, great software. It just works. The less features the better. My only regret is that I wish I had bought two since xteink switched to a pogo pin connector."
+        },
+        {
+          "id": 50551127,
+          "author": "quicklywilliam",
+          "text": "Love this project. It's better than a Kindle or Kobo in almost every way… with the important exception of buying/borrowing ebooks. The process is technical and annoying. I hope there is a better solution in the works."
+        },
+        {
+          "id": 50551518,
+          "author": "sieve",
+          "text": "CrossPoint + Xteink X4 = I haven't touched my Kobo in nearly three months.\nTechnically, the combo is worse on every parameter you would normally care about:\n- screen size and PPI\n- power of the hardware\n- build quality\nBut the overall experience lets it punch far above its weight. I don't see myself buying a Kindle/Kobo-sized device ever again as long as these are available.\nMy wishlist for this class of product:\n- Make the hardware robust to avoid cracked screens\n- Keep USB C\n- Use the thickness forced by this design to add a larger battery\n- Provide a front/backlight\n- Slightly more powerful hardware. Maybe the ESP32-S3\n- Keep the device unlocked so the community can develop software for it instead of selling an \"experience\"\n- Sub-$100 pricing"
+        },
+        {
+          "id": 50550687,
+          "author": "devindotcom",
+          "text": "Looking forward to using this when I get a S4 or Picco but I'm still holding off as it seems these small readers are moving quick. I'd like there to be a 300 ppi screen before I buy - at that size text clarity is very important for me. I think they're all around 220 right now.\nBut I suspect whatever the device, this will be a better, more straightforward OS."
+        },
+        {
+          "id": 50551600,
+          "author": "qbane",
+          "text": "CrossPoint was the main reason I decided to buy a Xteink X4 Pro. I bought it on Halloween sale. Actively seeking fonts for CJK glyphs that looks nicely on a (monochrome) e-ink display."
+        },
+        {
+          "id": 50550050,
+          "author": "randusername",
+          "text": "This is a great project. I tried it for the first time this past week while I was stuck in bed with some plague or other.\nThis was my first time using the XTEINK X3 and I really like the tiny eink form-factor."
+        }
+      ],
+      "title_ja": "CrossPointリーダー",
+      "summary_ja": "ディスカッションのハイライト：このプロジェクトが好きです/数か月前にXTEINK X3（X4のタッチスクリーンが不要だったため）を購入しました/毎日Crosspointと一緒にオリジナルのX4（USB C）を使用しています",
+      "editor_note": "「CrossPointリーダー」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50551359,
+      "title_en": "Sexp Matrix",
+      "url": "https://lisper.cc/ideas/entangle.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50551359",
+      "score": 18,
+      "comment_count": 2,
+      "posted_at": "2026-11-18T20:01:50+00:00",
+      "comments": [
+        {
+          "id": 50551710,
+          "author": "cool_dude85",
+          "text": "A matrix doesn't seem like the ideal structure for such a thing given the requirement that all rows should have the same number of columns. I can't represent + 1 2 3 and + 1 2 as rows in a matrix."
+        },
+        {
+          "id": 50552077,
+          "author": "behnamoh",
+          "text": "What does the author achieve by hiding the vertical scrollbar on their minimalist website?"
+        }
+      ],
+      "title_ja": "Sexpマトリックス",
+      "summary_ja": "ディスカッションのハイライト：すべての行に同じ数の列が必要という要件を考えると、マトリクスはこのようなものにとって理想的な構造ではないように思われます/著者は、ミニマリストのウェブサイトで縦スクロールバーを非表示にすることで何を達成しようとしているのでしょうか？",
+      "editor_note": "「Sexpマトリックス」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50550264,
+      "title_en": "When Free Software Isn't Free Enough",
+      "url": "https://foss.life/notes/2026/free-software-isnt-free-enough/",
+      "hn_url": "https://news.ycombinator.com/item?id=50550264",
+      "score": 31,
+      "comment_count": 22,
+      "posted_at": "2026-11-18T18:39:28+00:00",
+      "comments": [
+        {
+          "id": 50552113,
+          "author": "hungryhobbit",
+          "text": ">The full case against LLMs — how they’re built on unconsented labor, sold through hype, and coercively pushed onto workers — deserves its own post, which I’ll link here once I publish it.\nI don't dispute that the frontier LLM companies stole vast amounts of intellectual property ... like\nmany\norders of magnitude more IP than people who are spending years in jail for piracy.  That's indisputable.\nBut when you start equating piracy (I'm reading your book without paying for it) to SLAVERY (enforced labor) ... that's just so completely ridiculous that I find it difficult to take anything this guy writes seriously."
+        },
+        {
+          "id": 50552487,
+          "author": "throwfaraway135",
+          "text": "AI(local) is the feature of OS, when it's powerful enough to create your Windows and Word your Photoshop and Chrome then software will be truly free."
+        },
+        {
+          "id": 50552044,
+          "author": "bemtevi",
+          "text": "> Their argument was that in the context of Emacs development, the only thing that matters is the quality of the code being contributed\nThis is something I've never agreed with. One part of open-source is to have some principle that is rooted in ethics, but how can you be true to that when you ignore other ethical dimension that can't be separated from the traditional open-source one?\nI don't think the only think that matters is the quality of the code. It's a myopic viewpoint. The reasoning behind having open code in the first place matters as well, which was that one person was trying to take advantage of another in a way that seemed intuitively unfair. LLMs do the same thing. If you fight for only one ideal but reject another parallel one for convenience, then I believe the first stands for nothing at all."
+        },
+        {
+          "id": 50552112,
+          "author": "skybrian",
+          "text": "> Freedom for users, not just programmers. Source code access means little if you can’t read it. Real software freedom has to include usability, accessibility, documentation, and support in the languages people actually speak.\nProgramming has gotten much more accessible with LLMs. This will eventually result in more user freedom in practice, once forking free software becomes the norm for end users. But custom software needs to be managed, so we will need hosting services and software installers that make finding, downloading, and customizing apps easy."
+        },
+        {
+          "id": 50552282,
+          "author": "timw4mail",
+          "text": "Do you really want to die on that hill, or do you want to take a valid contribution that fits in with the existing project?\nI've never understood why political beliefs should matter for code, unless it actually affects the code in a destructive way."
+        },
+        {
+          "id": 50552191,
+          "author": "didgetmaster",
+          "text": "The author is clearly against AI models that are trained on data produced by people without their consent. Yet the whole free software movement is built on the notion that proprietary software is unethical and any attempts to protect it (and other content like movies and music) using DRM or other mechanisms are wrong.\nDoes anyone else see this as a contradiction?"
+        },
+        {
+          "id": 50552229,
+          "author": "armchairhacker",
+          "text": "Should GNU not accept contributions from Mac users, since Macs have been built from child slavery?\nhttps://www.freedomunited.org/news/apple-child-labor-lawsuit..."
+        },
+        {
+          "id": 50552459,
+          "author": "123ahgd",
+          "text": "The number of business shills in the comments here herding their open source slaves back into the enclosure is funny."
+        }
+      ],
+      "title_ja": "フリーソフトウェアが十分にフリーでない場合",
+      "summary_ja": "ディスカッションのハイライト： >LLMに対する全面的な反対意見 — LLMが同意のない労働に基づいて構築され、誇大宣伝を通じて販売され、労働者に強制的に押し付けられているという点 — については、別途記事を投稿する予定です。公開次第、こちらにリンクを掲載します / AI（ローカル）はOSの機能であり、WindowsやWord、Photoshop、Chromeを作成できるほど強力になれば、ソフトウェアは真に無料になります。/ > 彼らの主張は、Emacsの開発においては、重要なのはこれだけだということでした。",
+      "editor_note": "「フリーソフトウェアが十分にフリーでない場合」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50545238,
+      "title_en": "Evidence (YC S21) Is Hiring",
+      "url": "https://www.ycombinator.com/companies/evidence/jobs/1xb9PpP-founding-gtm-lead",
+      "hn_url": "https://news.ycombinator.com/item?id=50545238",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-11-18T12:00:16+00:00",
+      "comments": [],
+      "title_ja": "Evidence（YC S21）が採用中です",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Evidence（YC S21）が採用中です」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50509980,
+      "title_en": "A live service duress prototype",
+      "url": "https://github.com/Ymsniper/vault-share",
+      "hn_url": "https://news.ycombinator.com/item?id=50509980",
+      "score": 10,
+      "comment_count": 0,
+      "posted_at": "2026-11-15T19:42:59+00:00",
+      "comments": [],
+      "title_ja": "ライブサービスの脅迫プロトタイプ",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「ライブサービスの脅迫プロトタイプ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 27,
+      "id": 50549188,
+      "title_en": "Launch HN: Maritime (YC F26) – A managed cloud for production AI agents",
+      "url": "https://news.ycombinator.com/item?id=50549188",
+      "hn_url": "https://news.ycombinator.com/item?id=50549188",
+      "score": 31,
+      "comment_count": 25,
+      "posted_at": "2026-11-18T17:26:28+00:00",
+      "comments": [
+        {
+          "id": 50551892,
+          "author": "ianberdin",
+          "text": "Congratulations on the launch. Very interesting idea. I read your description, and it's striking: it's as if you described our infrastructure at Playcode (\nhttps://playcode.io/cloud\n). The similarity is just colossal, it's what we built for ourselves and for our clients."
+        },
+        {
+          "id": 50550576,
+          "author": "ATechGuy2",
+          "text": "Congrats on launching! I think the lifecycle management and cost-optimization layers you're building on top of microVMs address some painful problems for teams deploying agents in production.\nI work at a neocloud company, and from my experience, getting VMs up and running with Firecracker/KVM on bare-metal infrastructure is relatively straightforward and requires little operational overhead initially.\nThe real challenge is what comes afterward: continuously monitoring, patching, and responding to newly discovered CVEs. Falling behind on security updates can have serious consequences, and ultimately, it's your customers who bear the risk.\nThis is one reason I'd be cautious about choosing a smaller provider based solely on price. At the infrastructure level, many providers are essentially selling the same isolated VMs. The real differentiators should be security, reliability, and operational maturity, particularly with AI accelerating vulnerability discovery and expanding the attack surface. Saving a few dollars on compute might not be worth the trade-offs.\nThere's also the question of geography and latency. If your agents run in a big tech cloud, offloading sandbox execution to infr"
+        },
+        {
+          "id": 50550813,
+          "author": "hmokiguess",
+          "text": "Forgive my naivety, but if it's built for agents then why should humans need to login, view a dashboard, care about it?\nThinking about product market fit, buyer personas, and right audiences here.\nWould there be a future where maybe the agent can elevate to the human what the human needs to know when it wants to or requires it from what it has access and these platform-like UX constructs are more like a \"just in time\" construct similar to Claude Artifacts?\nI expect the next cloud for AI to be fully headless, though maybe I'm wrong"
+        },
+        {
+          "id": 50550403,
+          "author": "volkk",
+          "text": "cool product. right now I just built my own version of this on AWS (which is likely far more expensive, but we have startup credits). I'll definitely check this out one day when the credits end/expire. I will say that startup credits would really help!\nside note, this design aesthetic is so cool but now literally every SF AI startup uses it -- I'd almost prefer craigslist style where the information is to the point and direct. i.e how much money/time will this save me and is it secure. the two questions i only care to answer here. i think the aesthetic is meaningless at this point bc of how easy it is to vibe this template out"
+        },
+        {
+          "id": 50550558,
+          "author": "binsquare",
+          "text": "It’s been cool to see the evolution from vms to serverless agents.\nI think it’s the right kind of innovation sort of like ec2, serverless functions, and etc in the age of ai"
+        },
+        {
+          "id": 50549551,
+          "author": "sgtwompwomp",
+          "text": "Cool :) if I used Maritime to power my agent product, would my end users be able to sign in with their existing AI subs? Or would they have to enter their API key."
+        },
+        {
+          "id": 50549383,
+          "author": "bitlad",
+          "text": "How do you compare yourself with\nhttps://www.agent37.com/\nAlso, digitalocean offers this now."
+        },
+        {
+          "id": 50551290,
+          "author": "taherchhabra",
+          "text": "how to provide tools to the agent ?\nthe agent in my product manipulates application state/updates databases etc"
+        }
+      ],
+      "title_ja": "HNローンチ：Maritime（YC F26）– 本番環境向けAIエージェントのマネージドクラウド",
+      "summary_ja": "ディスカッションのハイライト：ローンチおめでとうございます/ローンチおめでとうございます！microVMの上に構築しているライフサイクル管理とコスト最適化のレイヤーは、エージェントをデプロイするチームにとって厄介な問題を解決するものだと思います / お恥ずかしい限りですが、エージェント向けに構築されているのであれば、なぜ人間がログインしたり、ダッシュボードを見たり、気にかけたりする必要があるのでしょうか？\nプロダクトマーケットフィット、バイヤーペルソナ、そして適切な",
+      "editor_note": "「HNローンチ：Maritime（YC F26）– 本番環境向けAIエージェントのマネージドクラウド」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 28,
+      "id": 50543989,
+      "title_en": "Energy-Based Reasoners: 385x more efficient inference",
+      "url": "https://energy-based-reasoners.github.io/",
+      "hn_url": "https://news.ycombinator.com/item?id=50543989",
+      "score": 290,
+      "comment_count": 47,
+      "posted_at": "2026-11-18T09:29:32+00:00",
+      "comments": [
+        {
+          "id": 50545266,
+          "author": "Topfi",
+          "text": "Recommend checking out Logical Intelligence, chaired by among others Yann LeCun, for more context on EBMs [0]. Has great potential in areas that LLMs traditionally do not perform that well in and, because they want to show the advantages of EBMs, also tends to be a great source of examples LLMs struggle with, like primary school level maths and counting (while ironically providing Millennium level Lean proofs). Does of course open the not unreasonable discussion of whether it matters if LLMs can accurately count when writing code to do the calculation is reliable and fast...\n[0]\nhttps://logicalintelligence.com/blog/energy-based-model-sudo..."
+        },
+        {
+          "id": 50545736,
+          "author": "program_whiz",
+          "text": "A clarifying way to think about this for sudoku:\nFor every clue, mark the probability of sampling its number in the row/col to zero.  Also mark the probability of selecting a \"clue cell\" for modification to 0.\nPick a random cell for modification, based on its \"energy\" (higher energy get modified first):\n1. Every conflicting cell gets energy +1.0 (try to resolve conflicts before new empty cells).  E.g. two 7s on the same row both get +1 energy.\n2. Empty cells have small energy 0.1\n3. Filled cells with no conflicts have energy 0\nFor the selected cell, choose a digit.  Look at numbers in its row/column, every occurrence of a number in the row/col drop prob of sampling by 90%.  Example:\n| No. of 7s | chance of 7 |\n| --- | --- |\n| 0 | 10% (equal to other digits) |\n| 1 | 1% |\n| 2 | 0.1% |\nObviously this would get more complex with more numbers on the line (this is just checking 7 on otherwise empty line).\nThis is essentially what these models are doing.  It provides a kind of \"wave function collapse\" search with random exploration based on \"energy\", but energy is just defined as conflict / unsolved.  For something like a maze, energy is disconnected path segments or walls, etc."
+        },
+        {
+          "id": 50546168,
+          "author": "mocmoc",
+          "text": "I've spent a year on this. EBMs while ... how to say it, they are impressive validators , it's insanely hard to train them. They are very niche specific. While LLMs , being not right all the time and clumsy and so on, they help the people to get the job done at the end.\nEBM sudoku is not that hard in a small scale, and Logical Intelligence sudoku solver doesn't scale , if I'm wrong , I want to see them offering as big of a sudoku as you want.\nalso, after months and months training EBMs , you come to realize... it's really worth it?"
+        },
+        {
+          "id": 50545445,
+          "author": "xgk",
+          "text": "The paper does not seem to define what Energy-Based means. The paper says:\n\"EBMs learn a scalar function that assigns an energy to a candidate prediction given an input.\"\nWhat codomain do those learned scalar function have? I guess real numbers? But is \"Energy\" just a synonym for the reals?"
+        },
+        {
+          "id": 50544691,
+          "author": "igleria",
+          "text": "As far as I could understand, this works very well for a very specific logic puzzle problem set. Interested on future papers tho :)"
+        },
+        {
+          "id": 50549605,
+          "author": "tristenharr",
+          "text": "Ahh finally! It’s what I would have expected. Thank you so much for scratching this intellectual itch I’ve had for a bit now.\nThis also might be a good way to finally explain to people how AI is working in some sense. If you look at it from an information theoretic view and treat things like kolgomorov complexity and the data inputs to machine learning as an energy landscape, you can look at AI and ML as a whole as something that is learning the energy landscape.\nIt’s not that AI ever was a black box, we have always known how it works. (It’s a pet peeve of mine when people say we don’t understand AI, we designed it using mathematics we understand perfectly the mechanisms)\nThe information we observe is a consequence of the underlying structure and constraints of reality. The universe has an underlying physical structure, with energy, interactions, constraints, and relationships. What we call data is an observable artifact of those underlying structures.\nYou can view reasoning as navigating an energy landscape.\nVery neat and interesting nice work!"
+        },
+        {
+          "id": 50545451,
+          "author": "program_whiz",
+          "text": "Big caveat if anyone thinks this could replace or strongly augment \"reasoning\" models (LLMs, RNNs) -- its more like an energy-based search for a discrete problem (graph coloring, solving mazes, sudoku).\nIt works by training a weight matrix (N-to-N) on different solutions. For example, in sudoku you're training a weight matrix for every space to every other space (81 c 2), with 9x9 numbers (~240K weights).  So then the \"energy\" for every number in a space is W_ij(a, b) where ij is a pair of spaces, and (a, b) is a pair numbers you want to swap (e.g. 4->2 in the space).  Pick the lowest energy move each time (argmin of this whole space), and iterate.\nThis has a few limitations.  First, its discrete and has a limited space definition, getting this to work for arbitrary reasoning seems hard (what size/shape graph would you use for arbitrary reasoning).  Second, the ruleset is defined apriori (e.g. you need to know you have a 9x9 grid and 9 numbers, the rules of the game are implicit in the checker).  Third, the actual search algorithm is somewhat bespoke to task (less of a factor, maybe use generic graph coloring as the basis of any problem), but for something like agentic reasoning it"
+        },
+        {
+          "id": 50546076,
+          "author": "thesnarkitecht",
+          "text": "Anyone want to explain how these models work? And can you actually run them on any hardware?"
+        }
+      ],
+      "title_ja": "エネルギーベースの推論：385倍効率的な推論",
+      "summary_ja": "ディスカッションのハイライト：EBMに関するさらなる背景情報については、ヤン・ルカン氏などが議長を務めるLogical Intelligenceを確認することをおすすめします [0] / スドクについて考える際の明確なアプローチ：\nすべてのヒントについて、その数字が行/列でサンプリングされる確率をゼロに設定します / これに1年を費やしました",
+      "editor_note": "「エネルギーベースの推論：385倍効率的な推論」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 29,
+      "id": 50546922,
+      "title_en": "A Primer on Fourier Series (2025)",
+      "url": "https://arxiv.org/abs/2510.18203",
+      "hn_url": "https://news.ycombinator.com/item?id=50546922",
+      "score": 91,
+      "comment_count": 22,
+      "posted_at": "2026-11-18T14:44:33+00:00",
+      "comments": [
+        {
+          "id": 50548523,
+          "author": "nstents",
+          "text": "Also possibly useful to some who might be teaching the topic to a younger learner:\nhttps://www.scribd.com/document/353829296/Who-IsFourier"
+        },
+        {
+          "id": 50551502,
+          "author": "srean",
+          "text": "The second part, on Fourier transforms, as opposed to series is here\nhttps://hal.science/hal-05662643v1/\nWhere you will find the quote\n\"What is mathematics helpful for? Mathematics is helpful for physics. Physics helps us\nmake fridges. Fridges are made to contain spiny lobsters, and spiny lobsters help mathematicians who\neat them and have hence better abilities to do mathematics, which is helpful for physics, which helps\nus make fridges which...”\nby Schwartz."
+        },
+        {
+          "id": 50548272,
+          "author": "knappa",
+          "text": "\"SD & EV have removed their affiliations from this work as a form of civil protest.\"\nDoes anyone know the story here?"
+        },
+        {
+          "id": 50551224,
+          "author": "chollida1",
+          "text": "side note, how do people pronounce this site.\nI've heard everything from \"archive\" to \"arvix\".\nI've never heard anyone pronounce it as \"arziv\" which would be the phonetic pronunciation. like xylophone."
+        },
+        {
+          "id": 50549144,
+          "author": "rusakov-field",
+          "text": "very nice.\nBut I am confused, I thought arxiv was meant for preprints of novel research to be published, I did not know you can push manuscripts of established science to it ?"
+        },
+        {
+          "id": 50548438,
+          "author": "g-b-r",
+          "text": "\"SD & EV have removed their affiliations from this work as a form of civil protest\" seems likely to have been for\nhttps://honisoit.com/2025/05/free-speech-at-uwa-restricted-a...\n(\nhttps://research-repository.uwa.edu.au/en/persons/serena-dip...\n,\nhttps://research-repository.uwa.edu.au/en/persons/enrico-val...\n)\nWeirdly, even the third author doesn't declare his affiliation, but he isn't listed in that statement."
+        },
+        {
+          "id": 50552084,
+          "author": "hintymad",
+          "text": "The second paragraph of chapter 2 starts with \"The functions of this chapter will be assumed to be in L^{1}((0,1)), namely they are Lebesgue measurable and the integral of their absolute value on the interval (0,1) is finite for a solid introduction to measure theory and Lebesgue spaces)\"\nI'm always curious about what readers such primers serve. Given the modern education system, it would be very surprising that a person who understands L^1 and Lebesque measurable has not learned Fourier Series and needs a primer like this."
+        },
+        {
+          "id": 50548199,
+          "author": "antiquark",
+          "text": "Interesting sentence at the top of the paper:\n> SD & EV have removed their affiliations from this work as a form of civil protest.\nProbably referring to the authors in the arxiv listing, Serena Dipierro and Enrico Valdinoci."
+        }
+      ],
+      "title_ja": "フーリエ級数入門（2025年）",
+      "summary_ja": "ディスカッションのハイライト：また、このトピックをより若い学習者に教える人にとっても役立つ可能性があります。\nhttps://www.scribd.com/document/353829296/Who-IsFourier / 級数ではなくフーリエ変換に関する第2部は、こちらにあります。\nhttps://hal.science/hal-05662643v1/\n次の引用を見つけることができます。\n「数学は何に役立つのでしょうか？」 数学／「SDとEVは、市民的抗議の形として、この研究における所属を削除しました。」\n誰か知っていますか？",
+      "editor_note": "「フーリエ級数入門（2025年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50552169,
+      "title_en": "Just Because You Can, Doesn't Mean You Should: Re-Evaluating Galera Node Weights",
+      "url": "https://www.percona.com/blog/just-because-you-can-doesnt-mean-you-should-re-evaluating-galera-node-weights/",
+      "hn_url": "https://news.ycombinator.com/item?id=50552169",
+      "score": 6,
+      "comment_count": 0,
+      "posted_at": "2026-11-18T21:11:10+00:00",
+      "comments": [],
+      "title_ja": "できるからといって、すべきであるとは限りません：Galeraノードの重みの再評価",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「できるからといって、すべきであるとは限りません：Galeraノードの重みの再評価」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 27,
+    "slot": "07",
+    "started_at": "2026-11-19T06:45:05.157413+09:00",
+    "finished_at": "2026-11-19T06:46:31.764806+09:00",
+    "story_count": 30
+  }
+}
