@@ -1,0 +1,1455 @@
+{
+  "date": "2026-11-25T07:00:00+09:00",
+  "slot": "07",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50633922,
+      "title_en": "Ternary Bonsai 2.5 27B",
+      "url": "https://prismml.com/news/bonsai-2-5-27b",
+      "hn_url": "https://news.ycombinator.com/item?id=50633922",
+      "score": 255,
+      "comment_count": 79,
+      "posted_at": "2026-11-24T20:08:03+00:00",
+      "comments": [
+        {
+          "id": 50635106,
+          "author": "ariwilson",
+          "text": "With this new Ternary Bonsai model (Q2 GGUF), I'm seeing about 22-25 tokens/s on a Mac Mini M5 Pro 24G RAM/512G SSD, sample Python generation prompt:\nPrompt eval 2.05s\nPrompt speed 222.9 tok/s\nGeneration 83.49s\nSpeed 22.3 tok/s\nTokens 1,860\nFirst token 2.12s\nI can get up to 128k context in memory easily which makes it potentially useable for agentic coding. Pretty impressive for a small model. Will have to try a simple agentic task. Might be useful for batch agentic coding.\nInkling 2 mini (UD-Q3_K_XL) gets about 28 tokens/s with same prompt but only 16k context:\nPrompt eval 1.07s\nPrompt speed 285.3 tok/s\nGeneration 108.29s\nSpeed 27.6 tok/s\nTokens 2,993\nFirst token 1.21s\nEdit: it was able to solve the simplest bug fix from my benchmark via pi (\nhttps://fairbake.dev/signature/tasks?language=javascript\n) \"Sharing from a phone skips the upload cap\", with one held-out test fixed and nothing else broken across 25 tests.\nBonsai 2.5 27B (local, Q2_0)  Median of the 45 stored runs\nTime 6 min 0 s 1.0 min\nOutput tokens 6,607 about 2,000\nOutcome solved all solved"
+        },
+        {
+          "id": 50634586,
+          "author": "nik_s",
+          "text": "Unless I'm totally mistaken, this scores equivalent to opus 4.6 (released feb 2026) on SWE-bench verified. I'd be curious to which extent this is Ternary Bonsai bechmaxxing, the underlying benchmark moving, or just us seeing frontier-like behavior on benchmarks in tiny models with a ~6 month lag: probably a bit of all three? I'll be the first to say that SWE-bench verified is clearly not the most representative of benchmarks sadly, but progress in small models is really exciting nevertheless!"
+        },
+        {
+          "id": 50634850,
+          "author": "Lramseyer",
+          "text": "This is really cool! I am glad that people are asking questions about the optimal bit depth for a language model! What's a smarter model? One with more parameters and fewer bits, or more bits and fewer parameters?\nBut I have a dumb question about this model - is there hardware acceleration for ternary weights aside from an FPGA?"
+        },
+        {
+          "id": 50635809,
+          "author": "hatthew",
+          "text": "I would be interested in seeing direct comparisons to equivalently small models, e.g. a popular Q1/Q2 quant of Qwen3.8 or some SOTA model in the 1B-10B range."
+        },
+        {
+          "id": 50635553,
+          "author": "syntaxing",
+          "text": "Just tried it through Unsloth studio. Similar speeds to inkling 2 mini Q4 on a MacBook (300 prefill, 30 generation). Actually “useful” compared to the older version 2. The agentic calls have been solid. This has been better than Q4 inkling 2 mini which was surprising."
+        },
+        {
+          "id": 50634762,
+          "author": "prmph",
+          "text": "OT, but nice font. I think it is called Rethink Sans."
+        },
+        {
+          "id": 50634686,
+          "author": "tompagenet2",
+          "text": "Asking genuinely as I know I'm surely being daft here: the scores for this model in the table shown seem worse than Qwen. Am I reading it right and is the upside something else (memory use, speed etc)?"
+        },
+        {
+          "id": 50634595,
+          "author": "vegnus",
+          "text": "So if I run 4 bonsais will that give me better results than Qwen 3.8 27b? Qwen is obviously cool but I could never really get anything useful out of it, over a number of different experiments"
+        }
+      ],
+      "title_ja": "三叉盆栽 2.5 27B",
+      "summary_ja": "ディスカッションのハイライト：この新しいTernary Bonsaiモデル（Q2 GGUF）では、Mac Mini M5 Pro 24G RAM/512G SSDで約22～25トークン/秒を確認しています。Python生成プロンプトの例：\nプロンプト評価 2.05秒\nプロンプト速度 / 私が完全に間違っていない限り、このスコアはSWE-benchで検証されたopus 4.6（2026年2月リリース）と同等です / これは本当に素晴らしいです！言語モデルにとって最適なビット深度について、皆さんが質問してくださっていることを嬉しく思います！よりスマートなモデルとは",
+      "editor_note": "「三叉盆栽 2.5 27B」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 2,
+      "id": 50634658,
+      "title_en": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+      "hn_url": "https://news.ycombinator.com/item?id=50634658",
+      "score": 103,
+      "comment_count": 19,
+      "posted_at": "2026-11-24T21:02:22+00:00",
+      "comments": [
+        {
+          "id": 50635782,
+          "author": "fabian2k",
+          "text": "> To turn GPT‑6.2’s three-dimensional designs into proteins we could test in the lab, we needed amino acid sequences that would fold into the proposed structures. We used a specialized AI model called SolubleMPNN to suggest sequences for each design. Other specialized protein models helped us select candidates predicted to fold as designed and bind at the intended site on the target.\nI don't get it. What did GTP-6.2 actually design here? The sequence is the structure for proteins. So did the model output a sequence here as answer to a question like \"design a protein for target X\" or not?\nTo me, \"protein design\" means you have a goal and you create a sequence that achieves that goal. I'm also not sure what a \"three-dimensional design\" would be in this case. Charges matter a lot for binding, as do hydrophobic areas. At sufficient resolution you're again at an amino acid sequence in a specific fold with that. Or did GPT-6.2 just design a rough tertiary structure here (helices, beta sheets and loops) and the details were filled in by the specialized model?"
+        },
+        {
+          "id": 50635755,
+          "author": "gopalv",
+          "text": "> We gave GPT‑6.2 the three-dimensional structures of five target proteins and marked where we wanted a minibinder to attach. It then wrote code to create three-dimensional designs for potential minibinders, without using specialized protein AI models.\nThe ability to write code is basically the superpower for these models.\nAs long as what you need to do to make progress is write better code, they will do better at the task.\nThe last 30 years has been making more and more things run using code instead of any other mechanism (music, illustration, vfx).\nEven math, the models were worse off before Lean was accepted as output."
+        },
+        {
+          "id": 50635749,
+          "author": "trilogic",
+          "text": "Someone claims having a superior free open weights in biology:\nhttps://hugston.com/news/dangerous-enough\nI have tested the S2 and Chatgpt, both are good but GPT keeps flagging and is annoying. It shouyld be interesting to bench them agains eachother."
+        },
+        {
+          "id": 50636254,
+          "author": "ACCount39",
+          "text": "This kind of thing never ceases to impress me.\nTrain a capable enough model - and even without task-specific RL, it can develop the kind of skills and intuitions even human experts don't always have.\nAnd, unlike human experts, an AI can then apply those skills and intuitions at scale."
+        },
+        {
+          "id": 50636133,
+          "author": "comex",
+          "text": "So GPT-6 is essentially doing what a human researcher would?  How do the process, and the results, compare to a human researcher likewise using \"mathematics, physics, chemistry, and coding alongside knowledge of recurring patterns in protein sequences and structures\"?  They seem to be being intentionally vague about the details."
+        },
+        {
+          "id": 50635837,
+          "author": "mrkn1",
+          "text": "So GPT-6 can design proteins. Other AI models turn its designs into actual amino-acid sequences and screen the results.\nAlready mastered academia: come up with the idea, make the grad students do the work, take the credit."
+        },
+        {
+          "id": 50635682,
+          "author": "phoghed",
+          "text": "Sam working hard to help Dario make the bioweapon case I see"
+        },
+        {
+          "id": 50635319,
+          "author": "infralog77",
+          "text": "how would you even check one of these without growing it in the lab?"
+        }
+      ],
+      "title_ja": "GPT-6モデルは、固有のタンパク質設計能力を示しています",
+      "summary_ja": "ディスカッションのハイライト： > GPT‑6.2の3次元設計を、ラボでテストできるタンパク質に変えるには、提案された構造に折り畳まれるアミノ酸配列が必要でした/ > GPT‑6.2に5つの標的タンパク質の3次元構造を与え、ミニバインダーを結合させたい場所をマークしました/ある人物が、生物学において優れた無料のオープンウェイトを持っていると主張しています。\nhttps://hugston.com/news/dangerous-enough\nS2とChatGPTをテストしました。",
+      "editor_note": "「GPT-6モデルは、固有のタンパク質設計能力を示しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50634426,
+      "title_en": "Launch HN: Versine (YC F26) – MCP to send and receive money",
+      "url": "https://news.ycombinator.com/item?id=50634426",
+      "hn_url": "https://news.ycombinator.com/item?id=50634426",
+      "score": 49,
+      "comment_count": 27,
+      "posted_at": "2026-11-24T20:44:15+00:00",
+      "comments": [
+        {
+          "id": 50635411,
+          "author": "adrianwaj",
+          "text": "Would like to see browsers have unique identifiers (the perfect fingerprint) with a browser plugin and let destinations request funds once a certain level of pledges have stacked up or after a certain period.\n\"HN's monthly payment has tallied up for January. 50k users have pledged a total of $/crypto _____ . Approve your voluntary contribution of _____ for xx hours spent / requests made there?\"\nyour name: [anonymous/semi-anonymous/name]\npre-approve for next time?\nAt that point, sites and services can have their own bouncer with guest list and ban everyone else.\nSo could Versine offer a micropayment stacking and pledging service? Make user payments miniscule and voluntary, and offer benefits to those that do, eg access, speed, freshness.\nrelated chats:\nhttps://share.gemini.google/pWWCvmAqU9SW\nhttps://grok.com/share/c2hhcmQtMg_b624eaae-c04b-4514-bbcb-70..."
+        },
+        {
+          "id": 50636109,
+          "author": "jr3592",
+          "text": "What is your business model?  How do you make money with this product?"
+        },
+        {
+          "id": 50635979,
+          "author": "alasdair_",
+          "text": "Are these self-hosted wallets where the user can lose the keys and thus all of their money?"
+        },
+        {
+          "id": 50635274,
+          "author": "atakanelik",
+          "text": "Congratz on the launch I hope it'll be good for you guys. I used to work on fraud and chargebacks at a payments company. The hard part was never sending the money, it was the dispute after. If an agent pays the wrong person, what does the reversal flow look like here?"
+        },
+        {
+          "id": 50635708,
+          "author": "hackernud3s",
+          "text": "This sounds like x402 to me so the main pain point will be onramping. If you've done something to solve that, maybe lead with that."
+        },
+        {
+          "id": 50635320,
+          "author": "zinc_chest63",
+          "text": "If someone never verifies the otp does that forwarded usdc just sit on base forever"
+        },
+        {
+          "id": 50635331,
+          "author": "muqsitnawaz",
+          "text": "Since balances are USDC, how do you plan to earn on them? I think there's an act that basically says you can't lend out funds you don't custody. Is the plan to eventually hold fiat with a partner bank?"
+        },
+        {
+          "id": 50635479,
+          "author": "canergl",
+          "text": "tbh, I was expecting something like stripe, revolut or wise to capture this domain as they already have a huge market share in a similar domain."
+        }
+      ],
+      "title_ja": "HNローンチ：Versine（YC F26）– 送金・受金のためのMCP",
+      "summary_ja": "ディスカッションのハイライト：ブラウザプラグインを使用してブラウザに一意の識別子（完璧なフィンガープリント）を持たせ、一定レベルの寄付が集まったら、寄付先が資金を請求できるようにしたいと考えています／貴社のビジネスモデルは何ですか？  この製品でどのように収益を上げますか？/ これらは、ユーザーが鍵を紛失し、結果としてすべての資金を失う可能性のある、自己ホスト型のウォレットですか？",
+      "editor_note": "「HNローンチ：Versine（YC F26）– 送金・受金のためのMCP」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50630594,
+      "title_en": "Active intrusion campaign against Check Point security management servers",
+      "url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign",
+      "hn_url": "https://news.ycombinator.com/item?id=50630594",
+      "score": 244,
+      "comment_count": 106,
+      "posted_at": "2026-11-24T16:32:17+00:00",
+      "comments": [
+        {
+          "id": 50636033,
+          "author": "miohtama",
+          "text": "Hello my old friend PRNG.\n”The actor scanned and began exploitation against the HFS server. Each POST to the HFS loginSrp1 endpoint returns a new signed session cookie containing a “sid” value drawn from JavaScript’s Math.random() function. Through conducting several logins in succession, the actor collected enough output to reconstruct the internal state of the [Node.js] V8 PRNG algorithm, and thus recover an HFS session-cookie signing key, then forge a signed admin session cookie. This allows the attacker to login as admin without a password.”"
+        },
+        {
+          "id": 50630851,
+          "author": "mentalgear",
+          "text": "Buckle up, this is just the beginning of the end. ATM only more sophisticated cyber criminals or state actors use LLMs to penetrate, but soon the chaotic landscape of 100.000s of cyber criminals will just use compute to prompt models to \"Make me as much money as possible\" , with the result of these models/swarms attacking any online service including critical infrastructure."
+        },
+        {
+          "id": 50631047,
+          "author": "PyWoody",
+          "text": "2026-10-02 13:17:45 UTC - The actor scanned and began exploitation against the HFS server. Each POST to the HFS loginSrp1 endpoint returns a new signed session cookie containing a “sid” value drawn from JavaScript’s Math.random() function. Through conducting several logins in succession, the actor collected enough output to reconstruct the internal state of the V8 PRNG algorithm, and thus recover an HFS session-cookie signing key, then forge a signed admin session cookie. This allows the attacker to login as admin without a password.\nI cannot believe this is still an issue. I remember mucking around with this vector on Burp Suite a decade ago."
+        },
+        {
+          "id": 50633125,
+          "author": "omh",
+          "text": "It's not totally clear to me how the attacker gained initial access.\nThe link between multiple Check Point customers suggests that CVE-2026-16232 was the initial vector. Does that mean that all of these organisations had their Check Point Security Management Server accessible via the internet?"
+        },
+        {
+          "id": 50634413,
+          "author": "20after4",
+          "text": "Am I the only one that thinks Math.random should be fixed instead of the hundreds of apps that used it wrong?  Why shouldn't we make all random number generators at least somewhat secure?"
+        },
+        {
+          "id": 50632942,
+          "author": "j45",
+          "text": "Router and firewall companies appear be targeted.\nWhat are people doing to stay ahead of these companys, products that are pfsense based or something else?"
+        },
+        {
+          "id": 50630972,
+          "author": "sigmar",
+          "text": ">2026-11-02 02:28:27 UTC - By early November, other threat actors had begun to scan and attempt to abuse the compromised server. We observed the GT13 actor use a script to perform a self-check for a Linux IPv4 use-after-free bug (CVE-2026-98432). After the check, the actor attempted to patch the system using Linux’s own command-line tool nftables to drop IPv4 packets with IP options that may trigger the bug. This allowed the actor to protect their hop from others engaging in future exploitation of the bug.\nThis is the CVE that Ubuntu dragged their feet on (into November)[1]. This post describes the _attackers_ as trying to patch the compromised machine so other people couldn't get in. The world has changed in how quickly maintainers+admins need to distribute patches.\n[1]\nhttps://news.ycombinator.com/item?id=50341462"
+        },
+        {
+          "id": 50631165,
+          "author": "bakies",
+          "text": "Security appliances increase attack surface area and stop cyber attacks as frequently as TSA stops bombs on planes."
+        }
+      ],
+      "title_ja": "チェック・ポイントのセキュリティ管理サーバーに対するアクティブな侵入キャンペーン",
+      "summary_ja": "ディスカッションのハイライト：こんにちは、私の古くからの友PRNG。\n」攻撃者はスキャンを行い、HFSサーバーに対するエクスプロイトを開始しました/覚悟してください。これは終わりのはじまりにすぎません/2026-10-02 13:17:45 UTC - 攻撃者はスキャンを行い、HFSサーバーに対するエクスプロイトを開始しました",
+      "editor_note": "「チェック・ポイントのセキュリティ管理サーバーに対するアクティブな侵入キャンペーン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 5,
+      "id": 50625265,
+      "title_en": "Gödel Enigma",
+      "url": "https://www.helsinki.fi/en/researchgroups/godel-enigma/research/project-description",
+      "hn_url": "https://news.ycombinator.com/item?id=50625265",
+      "score": 54,
+      "comment_count": 16,
+      "posted_at": "2026-11-24T08:16:02+00:00",
+      "comments": [
+        {
+          "id": 50635565,
+          "author": "m-hodges",
+          "text": "My favorite Gödel books sitting on my self:\n• Gödel, Escher, Bach: An Eternal Golden Braid -\nhttps://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach\n- honestly, my favorite book\n• Journey to the Edge of Reason: The Life of Kurt Gödel -\nhttps://www.goodreads.com/book/show/55298400-journey-to-the-...\n- thorough biography that covers Gödel and the Austrian mathematical society that surrounded him\n•  Gödel's Proof -\nhttps://www.amazon.com/dp/0814758371\n- accessible handy reference"
+        },
+        {
+          "id": 50635513,
+          "author": "lioeters",
+          "text": "One of the links is broken where it says, \"Lately, the notebooks have been studied.\" It's a publisher's page about a book. Found it archived, full text below.\nhttps://web.archive.org/web/20240111033909/https://presses-u...\n> Kurt Gödel: Philosopher-Scientist (2016). Gabriella Crocco & Eva-Maria Engelen\n> This volume represents the beginning of a new stage of research in interpreting Kurt Gödel’s philosophy in relation to his scientific work. It is more than a collection of essays on Gödel. It is in fact the product of a long enduring international collaboration on Kurt Gödel’s Philosophical Notebooks (Max Phil). New and significant material has been made accessible to a group of experts, on which they rely for their articles. The corpus of [the notebooks] is described in its entirety for the first time in its details.\n> ISBN: 9782853999762"
+        },
+        {
+          "id": 50635530,
+          "author": "baoooooooooooo",
+          "text": "Fascinating premise that there exist significant unstudied works written in a stenographic script, seems like the kind of resource that would be fascinating to researchers and LLMs alike in current year\nThe sources list claims all of these are written in shorthand, with just 15 (MaxPhil) having been transcribed and studied (but not published).\nWhat kept these from being read or discussed more broadly Fascinated to see what comes of this.\nEdit: can we get a year for this page? I see from another post that the not-yet-published work was either published or used as source material in a 2016 publication?"
+        },
+        {
+          "id": 50635684,
+          "author": "BurnGpuBurn",
+          "text": "I've read a lot about Gödel but never his actual math accomplishments. Is there an overview of what the guy has actually done? There's tons of text on how important he is but I want to know why."
+        },
+        {
+          "id": 50635819,
+          "author": "mwkaufma",
+          "text": "SV attitude on dead mathematicians: deification. Surely their secondary notes contain Eldritch Knowledge that only big datacenter numberwang can uncover.\nSV attitude on living mathematicians: get bent."
+        },
+        {
+          "id": 50636099,
+          "author": "dude250711",
+          "text": "> Had Kurt Gödel not thought very deeply about the foundations of mathematics around 1930, there would be no information society in the form we have it today.\nWould someone else not do it instead?"
+        },
+        {
+          "id": 50635879,
+          "author": "b33fsDedYall",
+          "text": "This is, uh... like information is everywhere and humans been conjuring semantics for it forever.\nGödel's main accomplishment (IMO) was spotting a relationship between  semantics and ground truth; sentences about the far past and future cannot be proven empirically true. This necessarily applies to all logical semantics systems.\nGödel knew of all the physics experiments going on then. He correctly realized the limits endlessly vast spacetime would put on human language and logic.\nHe didn't \"invent\" information. Photons are information.\nWild how so many latch onto the language systems and decide physical reality all this language was coined to explain doesn't exist."
+        },
+        {
+          "id": 50635803,
+          "author": "cubefox",
+          "text": "\"As of early Spring 2019, our current projects include the following\"\nPerhaps add a (2019) to the submission title."
+        }
+      ],
+      "title_ja": "ゲーデルの謎",
+      "summary_ja": "ディスカッションのハイライト：私の本棚にあるお気に入りのゲーデルの本：\n• 『ゲーデル、エッシャー、バッハ－あるいは、この不思議の環』 -\nhttps://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach\n- 率直に言って、私のお気に入りの本です。\n• J / 「最近、ノートが研究されている」とある箇所のリンクの1つが切れています。ある本の出版社ページです / 速記で書かれた重要な未研究の作品が存在するという興味深い前提は、そのようなもののように思えます。",
+      "editor_note": "「ゲーデルの謎」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 6,
+      "id": 50598555,
+      "title_en": "The Spray Bottle",
+      "url": "https://mechanical-pencil.com/products/spray-bottle",
+      "hn_url": "https://news.ycombinator.com/item?id=50598555",
+      "score": 310,
+      "comment_count": 90,
+      "posted_at": "2026-11-22T11:16:30+00:00",
+      "comments": [
+        {
+          "id": 50631320,
+          "author": "deisner",
+          "text": "This reminds me of one of my favorite kids shows, Die Sendung mit der Maus, and specifically this segment:\nhttps://www.wdrmaus.de/filme/sachgeschichten/seifenspender.p...\n(How does a soap dispenser work?).\nIt's in German, but you'll get the gist. Just one of many brilliant how-it-works breakdown segments. If your kid has any interest in engineering (and speaks German), I can't think of a better show. Here's another one, about cable car cable construction. They make brilliant use of models."
+        },
+        {
+          "id": 50635824,
+          "author": "marktani",
+          "text": "Too many spray bottles I've used just break with wear too easily.\nI used to do yoga frequently, you're supposed to clean the mat after class using the provided spray bottles filled with disinfectant. Pretty much all of them are borderline broken or require some quirks to have the spray mechanism work.\nEither you need to press the trigger very firmly to squeeze out a couple of drops, or the mechanism gets stuck after a single press and you need to reset it manually, which doesn't always work well either. Such a frustrating experience. Why can't we have nice spray bottles?!\nSome of the yoga studios I went to were quite high class and had premium glass spray bottles, too. Same issue. So it's not due to to cheap spray bottles.\nI guess spray bottles are typically not stress tested for thousands of avid yoga practitioners to keep using them dozens of times a day. What a shame!"
+        },
+        {
+          "id": 50631258,
+          "author": "nico_h",
+          "text": "Nice, but what makes the “ball” the does the sealing go up and down? It’s not obvious in the illustration."
+        },
+        {
+          "id": 50632585,
+          "author": "dgrcode",
+          "text": "This reminded me of\nhttps://ciechanow.ski/mechanical-watch/\n. The second today, with the first being\nhttps://news.ycombinator.com/item?id=50599458\n.\nHow much AI was involved in making these articles? I can't wait to ask Claude and have one of these produced on demand about any topic I'm curious about."
+        },
+        {
+          "id": 50630745,
+          "author": "alembic_fumes",
+          "text": "This is quite beautiful, but the glaring mistake is claiming that the \"The Piston chamber is empty\" after a push. It doesn't do that; there's no mechanism in the pump that drives air into the piston chamber to \"flush it out\" of the remaining liquid.\nUltimately it's a small oversight, but it's a very strange oversight."
+        },
+        {
+          "id": 50634645,
+          "author": "squeedles",
+          "text": "This iteration of the spray bottle featured prominently in the 1964 worlds fair as technology of the future.   So much so that it is one of the few examples of \"concrete futurism\" (as opposed to the usual abstract futurism) that showed up on Star Trek TOS, but then quickly became very much not futuristic!"
+        },
+        {
+          "id": 50631488,
+          "author": "FinnLobsien",
+          "text": "In design and engineering, we often pay attention to the most impressive, notable objects. But making a basic, cheap, intuitive thing that actually works as intended is quite hard, and those things deserve more appreciation."
+        },
+        {
+          "id": 50632277,
+          "author": "adamgordonbell",
+          "text": "Some newer spray bottles, Dawn Dish Spray i have, they spray longer than the handle is squeezed and things come out more smoothly.\nFeels like the pressure of squeeze is released at some constant rate over a bit longer time frame than the squeeze.\nNot sure what innovation that is but its nice."
+        }
+      ],
+      "title_ja": "スプレーボトル",
+      "summary_ja": "ディスカッションのハイライト：これは、私のお気に入りの子ども向け番組『Die Sendung mit der Maus』、特に次のコーナーを思い出させます。\nhttps://www.wdrmaus.de/filme/sachgeschichten/seifenspender.p...\n（どうなっているのか／これまで使ってきたスプレーボトルは、どれも摩耗ですぐに壊れてしまいます。\n以前はよくヨガをしていました。クラスの後、用意されているスプレーボトルに入ったものでマットを掃除することになっています。いいね、でも「ボール」は何ですか？密閉部分が上に上がるのですか？",
+      "editor_note": "「スプレーボトル」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 7,
+      "id": 50633424,
+      "title_en": "From CUDA and Jax to TorchTPU: Lessons from a Cayley Graph Solver",
+      "url": "https://andlukyane.com/blog/cayley-graphs-and-torchtpu",
+      "hn_url": "https://news.ycombinator.com/item?id=50633424",
+      "score": 53,
+      "comment_count": 1,
+      "posted_at": "2026-11-24T19:40:43+00:00",
+      "comments": [
+        {
+          "id": 50635587,
+          "author": "fl1pper",
+          "text": "With T=51 and head_dim=32 giving only ~2.5% MXU tile occupancy, did you consider packing multiple puzzle states into a single tile while keeping their attention independent? Or does XLA already exploit the batch dimension for this?"
+        }
+      ],
+      "title_ja": "CUDAからJax、TorchTPUまで：ケイリーグラフソルバーから学んだこと",
+      "summary_ja": "議論の要点：T=51、head_dim=32の場合、MXUタイルの占有率は約2.5%しかありませんが、アテンションを独立させたまま、複数のパズル状態を1つのタイルにパックすることを検討しましたか？それとも、",
+      "editor_note": "「CUDAからJax、TorchTPUまで：ケイリーグラフソルバーから学んだこと」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50609483,
+      "title_en": "Calculate how many mesh radio nodes your city needs",
+      "url": "https://meshcoveragecalculator.lalala.ing/",
+      "hn_url": "https://news.ycombinator.com/item?id=50609483",
+      "score": 59,
+      "comment_count": 8,
+      "posted_at": "2026-11-23T09:46:57+00:00",
+      "comments": [
+        {
+          "id": 50634771,
+          "author": "linuxguy2",
+          "text": "Understandable why there's such a low limit on the area one can select. The topo and building data is _slow_ to load. It'd be cool to do my entire metro area but that's far too many square km for it to handle. 9 vs 7 nodes required using LongTurbo vs LongFast."
+        },
+        {
+          "id": 50635659,
+          "author": "Evidlo",
+          "text": "Takes minutes to load the buildings in my small city, then failed with \"too many requests\" for some reason."
+        },
+        {
+          "id": 50635500,
+          "author": "Crunchified",
+          "text": "It'a mostly Meshcore in my area, which is not an option on this calculator."
+        },
+        {
+          "id": 50635612,
+          "author": "OnACoffeeBreak",
+          "text": "Earnest question... Where's meshcore in this? My limited understanding is that Meshcore is replacing Meshtastic in the Lora space. Please tell me if that's not the case. I want to be educated."
+        },
+        {
+          "id": 50635100,
+          "author": "EarlKing",
+          "text": "> Too many requests\nGetting hugged to death, op?"
+        }
+      ],
+      "title_ja": "都市に必要なメッシュ無線ノード数を計算する",
+      "summary_ja": "ディスカッションのハイライト：選択できるエリアの制限が非常に厳しい理由が理解できる／私の小さな都市の建物を読み込むのに数分かかり、その後何らかの理由で「リクエストが多すぎます」というエラーが発生した。/ 私の地域では主にMeshcoreが使われていますが、この計算ツールでは選択肢として用意されていません。",
+      "editor_note": "「都市に必要なメッシュ無線ノード数を計算する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 9,
+      "id": 50635271,
+      "title_en": "Heart attack and stroke risk detectable decades in advance",
+      "url": "https://www.ed.ac.uk/news/heart-attack-and-stroke-risk-detectable-decades-in-advance",
+      "hn_url": "https://news.ycombinator.com/item?id=50635271",
+      "score": 78,
+      "comment_count": 26,
+      "posted_at": "2026-11-24T21:51:21+00:00",
+      "comments": [
+        {
+          "id": 50635769,
+          "author": "brandonb",
+          "text": "The main risk factors they investigated were blood pressure, cholesterol (HDL and total), inflammation (CRP), BMI, troponin, and diabetes/smoking status.\nMany of these numbers can combined into a prediction of your 30-year heart disease risk using the PREVENT equations:\nhttps://app.empirical.health/app/prevent-risk-calculator-for...\nThe good news is that most of these risk factors are very modifiable. We have medications that can reduce LDL cholesterol by 80%, for example, while also lowering inflammation by about 37%."
+        },
+        {
+          "id": 50636222,
+          "author": "gavin_gee",
+          "text": "Just get on a GLP-1 - lose the weight/inflammation/high blood pressure and likely the cholestorol problem\nhow is this not the default answer to all the modern illnesses?"
+        },
+        {
+          "id": 50635746,
+          "author": "poszlem",
+          "text": "I genuinely struggle to find any value in that study whatsoever, maybe except for the troponin and CRP differences, because otherwise it seems to be saying something that pretty much everybody who thinks about the problem for 5 minutes knows? Higher blood pressure and cholesterol increase your risk of a heart attack.. What am I missing?"
+        },
+        {
+          "id": 50635736,
+          "author": "jsrozner",
+          "text": "lol this is like minority report for medicine. 30 yrs prior?!\nIn medicine you need to decide on interventions. I know heart attack and stroke risk many decades in advance too: bad diet, high blood pressure, genetic history, and obesity. The best fixes 30 years out? Healthier food, more exercise, more sleep etc."
+        },
+        {
+          "id": 50635758,
+          "author": "Zarathustra30",
+          "text": "If someone is hypertensive now, I would expect they are more likely to be hypertensive in 30 years.\nIt's good to have a study to point to, of course, but is this actually news?"
+        }
+      ],
+      "title_ja": "心臓発作と脳卒中のリスクを数十年前から検出可能に",
+      "summary_ja": "ディスカッションのハイライト：彼らが調査した主なリスク要因は、血圧、コレステロール（HDLおよび総コレステロール）、炎症（CRP）、BMI、トロポニン、および糖尿病/喫煙の有無でした。\nこれらの数値の多くは、GLP-1を服用するだけで、体重/炎症/高血圧、そしておそらくコレステロールの問題も解消できます。\nなぜこれが、現代のすべての病気に対する標準的な答えではないのでしょうか？/ この研究に何らかの価値を見出すのは本当に難しいです。おそらく...",
+      "editor_note": "「心臓発作と脳卒中のリスクを数十年前から検出可能に」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50624497,
+      "title_en": "2035 came early",
+      "url": "https://fzakaria.com/2026/11/23/2035-came-early",
+      "hn_url": "https://news.ycombinator.com/item?id=50624497",
+      "score": 942,
+      "comment_count": 359,
+      "posted_at": "2026-11-24T06:30:33+00:00",
+      "comments": [
+        {
+          "id": 50627172,
+          "author": "gbl08ma",
+          "text": "I had been working (read: prompting Claude) on\nhttps://waarm64.com\nfor two months and it was slightly heartbreaking to see unkernel get all the attention when I was like two weeks away from a public announcement. It would obviously have been worse if I had actually built more of mine \"by hand,\" but still, even if just doing by orchestration/\"asking good questions to the LLM\" kind of work, I spent probably over a hundred hours on it. I rushed its release, but now I don't even really feel like working much more on mine anymore, even though it achieves (or achieved) better performance than unkernel and (for now) still has a more complete feature set. Oh well, it is in line with the motivation I had for mine, which was to see if LLMs could help one person build that sort of thing. Turns out that not only can LLMs do the bulk of this kind of work, they can do it so well that numerous projects of the same kind are popping up pretty much simultaneously. They still can't make WebAssembly beat hardware virtualization, though :D"
+        },
+        {
+          "id": 50625806,
+          "author": "glimshe",
+          "text": "Around 5 years into my career, I became a tech lead. Over the following years, I slowly drifted towards roles that had less hands-on technical work and more managerial responsibilities.\nI've always struggled with leaving hands-on work behind but what made it at first tolerable, and then a blessing, was the rise of Javascript. I think Javascript is so awful, and until recently so prevalent in the roles available to me, that it made me want to not be a Software Engineer anymore. I felt that Javascript was some sort of joke that stayed around long enough until it became a cancer to Software Engineering.\nI only stayed in the profession, eventually as a manager, because I like dealing with people and still found \"human problems\" intellectually challenging and rewarding.\nEvery day you read many comments here from people who believe that AI took the fun away from their work and lives. It destroyed the reason that made them want to be Software Engineers. That's exactly how I felt about Javascript.\nBut I feel the complete opposite about AI. In fact,\nAI brought back the fun that was stolen from my life by Javascript\n. I'm now retired and spend a good amount of my day working my own programmi"
+        },
+        {
+          "id": 50629835,
+          "author": "semiquaver",
+          "text": "Gary Bernhardt has to be one of the least-well-known “software heros”. I would honestly rank him among Fabrice Bellard and John Carmack in terms of foresight and brilliance. Every thing he has ever produced is solid gold and I believe I owe much of my success to learning and emulating his excellent taste when I was earlier in my career. It’s a shame that he doesn’t really do destroy all software anymore, I would love to see how he works with agents."
+        },
+        {
+          "id": 50626553,
+          "author": "hollowonepl",
+          "text": "Yeah, that's fine, everything can be written in everything.\nI remember these pitches as early as 2008-10 from various Mozilla evangelists who were pitching that browser will be the OS and javascript will be the platform for all apps.\nI kind of doubted it and I still do. Of course a lot of stuff is written in Js.. because web is based on Js. a lot of desktop apps are written in Js (+Electron) because people who are not good at native development (and also platform vendors are not helpful to provide consistent approach to GUI and desktop apps) decided that Js+Electron runtime is best way to write portable apps.\nIt works.. but I personally hate each and every desktop app written in Javascript due to the bloat factor measured by its size overhead and performance impact.\nPeople write backend/server side applications in Javascript because of NodeJs.. and that's more legit to me, although just one of many fashionable ways to create a web server these days. nothing truly unique outside personal choice and recommendation on per project basis.\nSo web in the browser wins (although if somebody invented better way to create client side application without Javascript I'd bless him.. it's such a "
+        },
+        {
+          "id": 50629796,
+          "author": "Primer81",
+          "text": "The article is jarring for me - in my 10 years of experience in the software industry, I haven't ever come close to needing javascript for anything. Javascript has certainly not taken over the world - just web dev AFAIK."
+        },
+        {
+          "id": 50625503,
+          "author": "Cu3PO42",
+          "text": "Farid has been on an absolute roll recently. If you enjoyed this, I highly recommend his other blog posts.\nWhile I'm not sure about the practical utility of this, I love it as a demonstration of what is possible."
+        },
+        {
+          "id": 50627980,
+          "author": "Kuyawa",
+          "text": "There will come a language for all platforms better than rust, designed by AI. And it will come with a browser, and it will take the world by storm. One language to rule them all, one browser to bind them...\nIf it can be optimized, AI will do it, and when there is no more optimization to do, then it will settle as de facto, for everything, and forever. And that time is not too far in the horizon, a couple of years at most\n* Prediction before 2030"
+        },
+        {
+          "id": 50628321,
+          "author": "ManuelKiessling",
+          "text": "Does anyone know over which… channel(?) some of the traffic goes? On the Firefox Web Developer „Networking“ tab, I can see apt/deb packages being pulled in, but when e.g. I curl in a large file, the Network tab remains completely silent. Why is that?\nAlso, how can the tab running unkernel pull in any external content at all if it’s not coming from the unkernel domain itself?\nSo yes, in other words, this is at least one “matrioschka puppet” level too many for me, together with my not-perfect understanding of how browser origin/sandboxing works…"
+        }
+      ],
+      "title_ja": "2035年が早くやってきました",
+      "summary_ja": "ディスカッションのハイライト：私は2か月間、\nhttps://waarm64.com\n2か月間取り組んでおり、unkernelが注目を集めるのを見て少し心が痛みました。私は2週間ほど… / キャリアを始めてから約5年で、テックリードになりました / Gary Bernhardtさんは、最も知名度の低い「ソフトウェアヒーロー」の一人でしょう。",
+      "editor_note": "「2035年が早くやってきました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50635698,
+      "title_en": "Fable 5.2 Tries Less on Some Hard Tasks When a Shortcut Is Available",
+      "url": "https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available",
+      "hn_url": "https://news.ycombinator.com/item?id=50635698",
+      "score": 6,
+      "comment_count": 2,
+      "posted_at": "2026-11-24T22:26:41+00:00",
+      "comments": [
+        {
+          "id": 50635815,
+          "author": "reddmachine",
+          "text": "You can't convince me to use Fable 5.2 when Opus 5.5 exists. Maybe I'm not using it for the specific cases that Fable 5.2 excels at but you'd have to convince me with a lot more to switch from Opus 5.5"
+        }
+      ],
+      "title_ja": "寓話5.2 近道がある場合、難しい課題では試行回数を減らす",
+      "summary_ja": "ディスカッションのハイライト：Opus 5.5が存在するのに、Fable 5.2を使用するように私を説得することはできません。",
+      "editor_note": "「寓話5.2 近道がある場合、難しい課題では試行回数を減らす」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 12,
+      "id": 50630462,
+      "title_en": "Jetty Pro",
+      "url": "http://hypercritical.co/2026/11/23/jetty-pro",
+      "hn_url": "https://news.ycombinator.com/item?id=50630462",
+      "score": 242,
+      "comment_count": 108,
+      "posted_at": "2026-11-24T16:23:02+00:00",
+      "comments": [
+        {
+          "id": 50631292,
+          "author": "Fraterkes",
+          "text": "I think a simple way to fix the inevitable complaints about subscriptions is to allow people to keep the version of Jetty that they owned at the moment their subscription lapsed.\nThat way you only have to pay whenever a new Mac version introduced changes that require the developer to put in work to update the app. (I realize that monitoring private api changes is a kind of constant work even when an update isn’t required, but that’s imo a tradeoff with selling something like this)."
+        },
+        {
+          "id": 50633515,
+          "author": "geonic",
+          "text": "I found this interesting to read because a few weeks ago I started to replace different applications with vibe coded native Mac apps that do exactly what I want in a way that I want. They replaced applications that kind of did what I wanted but were not customizable enough or just too heavy or klunky. I’ve had Claude built them with performance in mind and a tiny memory footprint.\nIf you have even the slightest idea about application development and the capabilities of GPT Codex or Claude code, this is the future for a lot of people."
+        },
+        {
+          "id": 50632385,
+          "author": "bauerd",
+          "text": "This is an alternative to the Mac OS dock UI and the page should start by saying so."
+        },
+        {
+          "id": 50631094,
+          "author": "egeozcan",
+          "text": "I totally respect the effort you put into the application, but I simply cannot justify yet another subscription. Doesn't matter 1 dollar a year or 100."
+        },
+        {
+          "id": 50631499,
+          "author": "xnx",
+          "text": "Subscription for updates is good. Subscription for use is a dealbreaker. Especially true when recreating with Claude/Gemini is one-shot away."
+        },
+        {
+          "id": 50633694,
+          "author": "jpeeler",
+          "text": "If this fixes the behavior of the dock switching monitors automatically by having the mouse press too far down at the bottom of a window, I'd seriously consider buying it just for that to stop plaguing me. No I don't want to autohide nor disable separate spaces.\nWhile researching before I post it seems this may actually be want I want:\nhttps://docklockpro.com\n."
+        },
+        {
+          "id": 50632330,
+          "author": "Luc",
+          "text": "> I’ve always wanted clicking on a folder in the Dock to open that folder in the Finder.\nThis one has an easy fix: create an alias and drag that into the dock."
+        },
+        {
+          "id": 50636052,
+          "author": "SilverElfin",
+          "text": "What is this? I read the first several paragraphs and learned nothing about what Jetty is."
+        }
+      ],
+      "title_ja": "Jetty Pro",
+      "summary_ja": "ディスカッションのハイライト：サブスクリプションに関する避けられない苦情を解決する簡単な方法は、サブスクリプションが失効した時点で所有していたJettyのバージョンをユーザーが引き続き使用できるようにすることだと思います。\nT / 数週間前に、さまざまなアプリケーションを、私が望む方法でまさに私が望むことを行うVibeでコーディングされたネイティブMacアプリに置き換え始めたので、この記事を読むのは興味深かったです / これは、Mac OSのDock UIとページショーの代替となるものです。",
+      "editor_note": "「Jetty Pro」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 13,
+      "id": 50591024,
+      "title_en": "Show HN: PQCrypta Proxy: Rust proxy with HTTP/3, QUIC, hybrid post-quantum TLS",
+      "url": "https://github.com/PQCrypta/pqcrypta-proxy",
+      "hn_url": "https://news.ycombinator.com/item?id=50591024",
+      "score": 11,
+      "comment_count": 1,
+      "posted_at": "2026-11-21T16:46:43+00:00",
+      "comments": [
+        {
+          "id": 50591147,
+          "author": "pqpdf",
+          "text": "Hi HN,\nI'm the author of PQCrypta Proxy.\nIt's a Layer-7 reverse proxy written in Rust with HTTP/1.1, HTTP/2, HTTP/3/QUIC, WebTransport, CONNECT-UDP, JA3/JA4 fingerprinting, and hybrid post-quantum TLS support.\nWe currently use it in front of all PQ Crypta production services, including pqcrypta.com, the HTTP/3 analyzer, the PQC readiness scanner, speed test infrastructure, PQ PDF, and our authoritative DNS services.\nBuilding and operating it in production led us to discover a number of interoperability and standards-compliance issues in HTTP/3, QUIC, DNS, and post-quantum deployments, some of which are documented on our site.\nOne thing I'm looking for is feedback from people operating Nginx, Caddy, Traefik, Envoy, HAProxy, or Cloudflare-based stacks. What would make you consider a new Rust proxy, and what would immediately stop you from deploying one?\nHappy to answer questions."
+        }
+      ],
+      "title_ja": "Show HN：PQCrypta Proxy：HTTP/3、QUIC、ハイブリッドポストクアンタムTLSを備えたRustプロキシ",
+      "summary_ja": "ディスカッションのハイライト：HNの皆さん、こんにちは。\n私はPQCrypta Proxyの作者です。\nこれは、HTTP/1.1、HTTP/2、HTTP/3/QUIC、WebTransport、CONNECT-UDP、JA3/JA4フィンガープリント、およびhybを備えた、Rustで記述されたレイヤー7リバースプロキシです。",
+      "editor_note": "「Show HN：PQCrypta Proxy：HTTP/3、QUIC、ハイブリッドポストクアンタムTLSを備えたRustプロキシ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 14,
+      "id": 50629231,
+      "title_en": "A training engine for your local model, using your idle compute",
+      "url": "https://github.com/sous-labs/songe",
+      "hn_url": "https://news.ycombinator.com/item?id=50629231",
+      "score": 161,
+      "comment_count": 47,
+      "posted_at": "2026-11-24T15:03:40+00:00",
+      "comments": [
+        {
+          "id": 50632127,
+          "author": "krawczstef",
+          "text": "I've been waiting for the SETI at home equivalent for LLMs... perhaps we can make this distributed? (obviously complexities abound with that...)\nAre there more of these projects?"
+        },
+        {
+          "id": 50630390,
+          "author": "great_psy",
+          "text": "Any rough numbers on improvement per dream epoch? How much improvement can we expect if we train the model over the weekend ?"
+        },
+        {
+          "id": 50630558,
+          "author": "mock-possum",
+          "text": "Sorry if I missed this in the docs but -\nHow does it judge improvement?\nDoes it find instances where the agent corrected itself, or needs correction by the user, replay its own version of that til the training it develops produces the correct result the first time?\nI’d really like the see a case of the improvement / judgement process transcribed in the readme, so there’s a practical example of what it actually does (show, don’t tell!)"
+        },
+        {
+          "id": 50631858,
+          "author": "vcampos2017_dev",
+          "text": "Python code is awesome!\nI run a small Qwen model through Ollama on an ordinary Windows PC to double-check receipt OCR.\nWould this work on a modest machine like that, or does it need a GPU to be worth it?\nI’m using a VPS at Hostinger with no GPU to run a slightly bigger model as a backup processor, hardware prices are out of my budget right now."
+        },
+        {
+          "id": 50632885,
+          "author": "mikidi",
+          "text": "It's no longer idle if I use this? Also I am so confused what this is, and how to even use it. I guess it is not for me if I'd actually like to know."
+        },
+        {
+          "id": 50631878,
+          "author": "dofm",
+          "text": "The \"how it works\" section is singularly useless.\nWhat is this doing — updating a LoRA?"
+        },
+        {
+          "id": 50632130,
+          "author": "Noamc0405",
+          "text": "I keep seeing people use local models. Why use them over the regular ones we know? Really curious about it."
+        }
+      ],
+      "title_ja": "アイドル状態のコンピューティングを活用した、ローカルモデル用のトレーニングエンジン",
+      "summary_ja": "ディスカッションのハイライト：LLMのSETI@homeのようなものをずっと待っていました。/ドリームエポックごとの改善に関するおおよその数値はありますか？週末にモデルをトレーニングした場合、どの程度の改善が期待できますか？/ ドキュメントで見逃してしまったかもしれませんが、\nどのようにして改善を判断するのでしょうか？\nエージェントが自らを修正した、またはユーザーによる修正を必要とした事例を見つけ、自らのバージョンを再生しますか？",
+      "editor_note": "「アイドル状態のコンピューティングを活用した、ローカルモデル用のトレーニングエンジン」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50634933,
+      "title_en": "An unclassified CIA system was breached in a cyberattack",
+      "url": "https://apnews.com/article/cia-cyberattack-unclassified-system-bfa6d3b02e3b0e2779dfb613c900bd77",
+      "hn_url": "https://news.ycombinator.com/item?id=50634933",
+      "score": 72,
+      "comment_count": 23,
+      "posted_at": "2026-11-24T21:24:27+00:00",
+      "comments": [
+        {
+          "id": 50636297,
+          "author": "lysace",
+          "text": "Not the first time.\nhttps://edition.cnn.com/TECH/9609/19/cia.hacker/index.html\n(1996)"
+        },
+        {
+          "id": 50635167,
+          "author": "alexjplant",
+          "text": "> An unclassified CIA system was breached in a cyberattack\n> The breach did not involve any classified information and the issue has been resolved\n> The breach affected a system that handles open source intelligence\nThe submission title is technically correct but rather sensationalist compared to the original \"An unclassified CIA system was breached in a cyberattack, AP source says\"."
+        },
+        {
+          "id": 50635829,
+          "author": "hkchad",
+          "text": "Is everyone just using up their 0-Days before the Mythos class models have a chance to fix them and they are worthless."
+        },
+        {
+          "id": 50635668,
+          "author": "therein",
+          "text": "If CIA or NSA is actually breached in a way that is damaging and embarrassing, we wouldn't hear about it. The reason why we hear about it is narrative-building."
+        },
+        {
+          "id": 50635249,
+          "author": "jmclnx",
+          "text": "NSA had their issues, FAA had issues now the CIA.  I cannot help to think these issues are fallout due to DOGE."
+        }
+      ],
+      "title_ja": "CIAの非機密システムがサイバー攻撃で侵害されました",
+      "summary_ja": "ディスカッションのハイライト：初めてのことではありません。\nhttps://edition.cnn.com/TECH/9609/19/cia.hacker/index.html\n(1996年) / > 機密扱いではないCIAのシステムがサイバー攻撃で侵害されました\n> この侵害は機密情報に関わるものではなく、問題は解決されました。\n> この侵害はシステムに影響を及ぼしました。/ ミュートス・クラスのモデルが脆弱性を修正する機会を得る前に、誰もが0-Dayを使い果たしているのでしょうか？そうなれば、それらは価値を失います。",
+      "editor_note": "「CIAの非機密システムがサイバー攻撃で侵害されました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 16,
+      "id": 50627783,
+      "title_en": "GTA 6 Running on Windows",
+      "url": "https://twitter.com/raul_bs3/status/2125213756238291075",
+      "hn_url": "https://news.ycombinator.com/item?id=50627783",
+      "score": 239,
+      "comment_count": 276,
+      "posted_at": "2026-11-24T13:19:31+00:00",
+      "comments": [
+        {
+          "id": 50634934,
+          "author": "ivraatiems",
+          "text": "I just don't see this as deadly to the production of games the way others do. GTA 6 is a monumental human achievement in video games - in fact it's arguably one of the largest artistic endeavors ever undertaken. If numbers are to believed, it has also already made around $4 billion against a $1-2 billion budget. It is massively profitable, and doubtless will become more so as DLC and a real PC port are released.\nI see this, instead, as a continuation of the usual pushback against the lockdown of entertainment to certain media. I personally haven't bought the game yet because I don't have or intend to buy an Xbox! It's deeply frustrating that everyone else will get to experience it before me because I didn't want to spend hundreds of dollars on a console!\nBut I will probably still buy it when it comes out on PC, even if this port works."
+        },
+        {
+          "id": 50629877,
+          "author": "Tiberium",
+          "text": "For the general picture: the Xbox version of the game was leaked by Cyberleek - first the resources, then the game binary.\nBecause modern Xbox is very close to a Windows PC with some extra Xbox stuff, running the actual game code isn't hard, it's mostly about compatibility and graphics, plus the binary doesn't have any special DRM/obfuscation.\nThe current projects (xcl and VIctory) basically take a Wine-like approach. The main problems they have to solve, as I understand:\n- The game ships with raw RDNA 2 shaders, so the projects have to translate that to another format, e.g. DXIL for DirectX 12, and compile those shaders. So you need a good translation/recompilation pipeline, if it's bad, the shaders will be bloated and perform poorly\n- Xbox has unified memory, while most PCs do not, so you have to add a lot of workarounds and book-keeping for the game to work properly with that\n- Xbox's DirectX 12 differs from the normal Windows one in some ways, and the game uses Xbox-specific texture formats with DirectStorage\nI just wanted to share this because there's a lot of misconceptions going around about this being a \"recomp\" or something like that. Decompiling the entire binary (it's ab"
+        },
+        {
+          "id": 50633111,
+          "author": "dang",
+          "text": "Recent and related (in reverse order). Others?\nGTA 6 Recomp (Leonida) banned from GitHub while lead dev was in school\n-\nhttps://news.ycombinator.com/item?id=50622638\n- Nov 2026 (512 comments)\nCyberleek posted the GTA 6 Xbox build executable\n-\nhttps://news.ycombinator.com/item?id=50612686\n- Nov 2026 (323 comments)\nLeonida – PC Recompilation of the Xbox Version of GTA 6\n-\nhttps://news.ycombinator.com/item?id=50595168\n- Nov 2026 (222 comments)"
+        },
+        {
+          "id": 50633428,
+          "author": "pipes",
+          "text": "Can someone explain why this needed a leak of the Xbox build for it to be possible.\nAlso why is the Xbox build a leak at all? Surely it's just a binary and assets pulled from a Xbox hard disc?\nI thought most recomps decompiled binaries and then ported to another platform.\nFor all the cheering about this, I imagine it's going to lead to a future where games run some component on the cloud always so that they can't be decompiled and ported (and pirated)."
+        },
+        {
+          "id": 50628991,
+          "author": "bratao",
+          "text": "This is from this project\nhttps://github.com/Marvisak/VIctory\nThe other leading project that is a more generic (wine like) approach is the\nhttps://github.com/ivall/xcl"
+        },
+        {
+          "id": 50636068,
+          "author": "throwitaway222",
+          "text": "My wife and I decided to stop buying consoles because split screen co-op has been killed (by no longer releasing games). That was the only reason we ever liked consoles. PC gaming from here out."
+        },
+        {
+          "id": 50635195,
+          "author": "astlouis44",
+          "text": "Wonder how long until it's running on WASM?"
+        },
+        {
+          "id": 50634866,
+          "author": "andunieee",
+          "text": "For a moment I thought this was a joke, because I assumed the game was for Windows already and not for Linux."
+        }
+      ],
+      "title_ja": "Windowsで動作するGTA 6",
+      "summary_ja": "ディスカッションのハイライト：私は、他の人たちが考えているように、これがゲームの制作にとって致命的だとは思えません／全体像について：ゲームのXbox版はCyberleekによってリークされました。まずリソースが、次にゲームのバイナリがリークされました。\n最新のXboxはWindows PCと非常に近いからです／最近の関連情報（降順）",
+      "editor_note": "「Windowsで動作するGTA 6」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 17,
+      "id": 50629106,
+      "title_en": "Splitting USB-C: USB 3 and USB 2 on one port",
+      "url": "https://www.frankchiarulli.com/blog/splitting-usb-c/",
+      "hn_url": "https://news.ycombinator.com/item?id=50629106",
+      "score": 123,
+      "comment_count": 78,
+      "posted_at": "2026-11-24T14:54:10+00:00",
+      "comments": [
+        {
+          "id": 50631603,
+          "author": "jsmith45",
+          "text": "While this does largely work, there are a few complications.\nThe biggest one being power management, especially the cutting off of power to a specific port. If a host wants to cut off power to a 3.x device, it typically needs to know which 2.x port that device is connected to. The host internally can have some really wild mappings of 2.0 and 3.x hubs, controllers, etc, but the device tree or ACPI tables let it know exactly which ones are paired together for any port leaving the device. After that point it is assumed that the host can learn the topology from any hubs attached. The power management is tied to the 2.0 port. Unexpectedly splitting the topology could lead the host to instruct a hub to cut off power to the wrong port when trying to target a specific USB 3.x device.\nAlso, if a hub indicates that a device is drawing excessive current, and there is nothing communicating on the 2.0 lines, there is a risk of the wrong 3.x getting blamed by the host, possibly showing a warning popup to the user with the wrong device name, or similar.\nThis isn't to say this is always a problem, because it isn't but it is something to be aware of."
+        },
+        {
+          "id": 50632879,
+          "author": "Doohickey-d",
+          "text": "There's also another trick that you can do, to reduce BOM cost: a USB C port that changes functionality depending on which way you oriented the plug.\nI designed a camera: with one orientation, you can have access to the device's SD card. With the other, you can have access to the live video. And it doesn't need a hub!\nLike in the OP you can also expose one device on usb 3, and one device in usb 2, and it works, no cable flipping needed for that"
+        },
+        {
+          "id": 50631246,
+          "author": "riobard",
+          "text": "Learning the details of USB-C connectors makes me really appreciate the simplicity of USB-A: just 4 pins/wires achieves up to 480Mbps of half duplex speed, which is more than enough for many use cases.\nReversible USB-C is very convenient, but the connector is really complicated and I am always amazed that it is able to transmit 40~120Gbps data while simultaneously conduct up to 240W of power with 24 very tiny pins in tight proximity.\nedit: USB-C isn't even serial (the S in USB) anymore with many parallels pairs.\nWhat would be possible with a circular (thus omnidirectional) simple data plug (with a few pins as possible) given modern tech?"
+        },
+        {
+          "id": 50635603,
+          "author": "xnzakg",
+          "text": "fun fact: this is why you can buy some super cheap usb hubs with 3x 2.0 ports and one 3.x port, where technically a device you plug into the 3.x port sits on a different level of the tree based on whether it supports USB 2.0 or 3.x."
+        },
+        {
+          "id": 50631025,
+          "author": "xg15",
+          "text": "Always found the USB forum's approach to backwards compatibility \"interesting\": Instead of extending the protocol, just require a completely separate implementation of the old protocol in addition to the new one.\nIt's like the IMAP working group saying \"yes, we're 100% backwards compatible to POP3! We wrote a line into the spec that requires every IMAP server to also bundle a POP3 server...\"\nOut of curiosity, does that mean that in \"normal\" operation of USB3 or 4 only one of the two internal ports is ever used at a time? Or are there devices that already make use of both the USB2\nand\n3 lanes when plugged in?"
+        },
+        {
+          "id": 50635751,
+          "author": "shadowpho",
+          "text": "What’s even crazier is that oftentimes you even get 2x usb3 ports as well!  (Typical on desktop motherboards that have cpu with lots of usb lanes but few usb ports)."
+        },
+        {
+          "id": 50633244,
+          "author": "pzb",
+          "text": "Could you switch the end that connects to the target Mac to use a USB Type-C plug instead of receptacle to both reduce BOM cost and improve signal integrity?\nThat could also allow you to have a 'this side up' which would remove the need for one MUX on the USB3 pairs, right?"
+        },
+        {
+          "id": 50632125,
+          "author": "ktm5j",
+          "text": "Cool write up! I really dig the application, great idea for a product."
+        }
+      ],
+      "title_ja": "USB-Cの分割：1つのポートにUSB 3とUSB 2",
+      "summary_ja": "ディスカッションのハイライト：これはおおむねうまくいくものの、いくつかの問題点があります。\n最大のものは電源管理であり、特に特定のポートへの電源供給の遮断です。BOMコストを削減するために使えるもう1つのコツもあります。それは、プラグの向きによって機能が変わるUSB-Cポートです。\n私はカメラを設計しました：1つの... / USB-Cコネクタの詳細を学ぶことで、...のシンプルさを本当に実感できます。",
+      "editor_note": "「USB-Cの分割：1つのポートにUSB 3とUSB 2」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50610820,
+      "title_en": "An Italian folding bicycle design that fits into a suitcase",
+      "url": "https://www.core77.com/posts/145766/An-Italian-Folding-Bicycle-Design-that-Fits-Into-a-Suitcase",
+      "hn_url": "https://news.ycombinator.com/item?id=50610820",
+      "score": 92,
+      "comment_count": 69,
+      "posted_at": "2026-11-23T12:40:08+00:00",
+      "comments": [
+        {
+          "id": 50636159,
+          "author": "asdff",
+          "text": "It takes some learning curve, but a skateboard is actually a really good way to get around an urban area. Biggest pluses are you can tuck it away anywhere, but unlike a folding bike, you can use it instantly. You end up saving time in all sorts of places that would be inappropriate with other vehicles, thanks to the speed differential being closer to a couple mine an hour walking than most other micro mobility that's closer to a 25mph car. Biking down the mezzanine to the train platform is a little egregious, but pushing a skateboard out of anyone's way is perfectly reasonable, and might save you quite a lot of time to make that train connection. Any clear patch of 25 feet in front of you, you might as well skate it in a half second."
+        },
+        {
+          "id": 50634403,
+          "author": "ddrmaxgt37",
+          "text": "I have a Brompton that I ride daily on either side of a train ride. It's a game changer where I live (Bay Area) because biking is the fastest way to get to the places I want to go (faster than public transit, cars, etc.)."
+        },
+        {
+          "id": 50634009,
+          "author": "throw0101c",
+          "text": "A Honda that \"is\" a suitcase:\n*\nhttps://motocompacto.honda.com/\nFortNine video (skit and review) on it:\n*\nhttps://www.youtube.com/watch?v=WQAe7EtVi-4"
+        },
+        {
+          "id": 50634038,
+          "author": "tromp",
+          "text": "The helix folding bike from Canada combines large wheels with an extremely compact fold:\nhttps://helix.ca/helix/"
+        },
+        {
+          "id": 50633447,
+          "author": "Gys",
+          "text": "[1963]\nVery interesting design choices, thank you. It is a pity this never made it ‘big’. Probably also because it was ahead of its time. The Brompton design was patented in 1979 (\nhttps://en.wikipedia.org/wiki/Brompton_Bicycle\n)"
+        },
+        {
+          "id": 50634222,
+          "author": "mslate",
+          "text": "Folding bikes are great, the key is balancing wheel-diameter (comfort/speed) with compactness/ease of fold.\nHere are a few variants that are interesting beyond Brompton:\n- Strida\n- Kwiggle/Upride\n- Montague"
+        },
+        {
+          "id": 50634093,
+          "author": "dofm",
+          "text": "AFAIRR this was one of the inspirations for the (forward thinking but failed) Sinclair A-Bike folding bike:\nhttps://en.wikipedia.org/wiki/A-bike"
+        },
+        {
+          "id": 50633417,
+          "author": "layer8",
+          "text": "The practical issue is that the suitcase is too large to take it with you on the bike."
+        }
+      ],
+      "title_ja": "スーツケースに収まるイタリア製折りたたみ自転車のデザイン",
+      "summary_ja": "ディスカッションのハイライト：慣れるまでに少し時間がかかりますが、スケートボードは実は都市部を移動するのにとても便利な手段です/私はブロンプトンを所有しており、電車に乗る前後に毎日乗っています/スーツケース「そのもの」であるホンダ：\n*\nhttps://motocompacto.honda.com/\nFortNineの動画（コントとレビュー）：\n*\nhttps://www.youtube.com/watch?v=WQAe7EtVi-4",
+      "editor_note": "「スーツケースに収まるイタリア製折りたたみ自転車のデザイン」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 19,
+      "id": 50631041,
+      "title_en": "Weave (YC W25) is hiring ML, AI, product, & design engineers",
+      "url": "https://jobs.ashbyhq.com/weave-os",
+      "hn_url": "https://news.ycombinator.com/item?id=50631041",
+      "score": 1,
+      "comment_count": 0,
+      "posted_at": "2026-11-24T17:00:55+00:00",
+      "comments": [],
+      "title_ja": "Weave（YC W25）では、機械学習、AI、プロダクト、デザインエンジニアを募集しています",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Weave（YC W25）では、機械学習、AI、プロダクト、デザインエンジニアを募集しています」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 20,
+      "id": 50625384,
+      "title_en": "Quad9 pulled their DNS service from France",
+      "url": "https://quad9.net/news/blog/quad9-service-deactivation-in-france/",
+      "hn_url": "https://news.ycombinator.com/item?id=50625384",
+      "score": 329,
+      "comment_count": 163,
+      "posted_at": "2026-11-24T08:33:14+00:00",
+      "comments": [
+        {
+          "id": 50633982,
+          "author": "pgl",
+          "text": "I've set up an open Quad9 DNS proxy for anyone in France who'd like a (fairly) drop-in replacement. All it does is cache and forward DNS requests to Quad9, and it's set up to work with DoH, DoT, Do53 UDP+TCP, IPv4 and IPv6.\nDoT: quad9.domainintelligence.uk\nDoH: https://quad9.domainintelligence.uk/dns-query\n213.171.214.215\n2a00:da00:f47f:3600::1\nDoT: quad9-unfiltered.domainintelligence.uk\nDoH: https://quad9-unfiltered.domainintelligence.uk/dns-query\n213.165.84.229\n2a00:da00:f47f:3600::2\nIt was frustrating for me this morning to find out that my servers were getting REFUSED replies from Quad9, I didn't even realise that they were in France (I just knew it was the EU). Let me know if there's any issues."
+        },
+        {
+          "id": 50627466,
+          "author": "gnabgib",
+          "text": "Discussion (1382 points, 1 month ago, 481 comments)\nhttps://news.ycombinator.com/item?id=50195959\nOr\nQuad9's withdrawal from France: A canary in the coal mine\n(911 points, 1 week ago, 457 comments)\nhttps://news.ycombinator.com/item?id=50538994"
+        },
+        {
+          "id": 50627480,
+          "author": "pi-r-p",
+          "text": "confirmed, effective since today, 24 of november 2026.\n; <<>> DiG 9.20.27 <<>> @9.9.9.9 news.ycombinator.com\n; (1 server found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: REFUSED, id: 56104\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1232\n; EDE: 18 (Prohibited): (Service unavailable due to French legal\nconstraints)\n;; QUESTION SECTION:\n;news.ycombinator.com.          IN      A\n- One (more) proof french judges are digitaly illiterates.\n- Really want to see tomorrow articles about that, I bet some big french companies and administrations still have quad9 as default DNS."
+        },
+        {
+          "id": 50631125,
+          "author": "farrokhi",
+          "text": "Torrentfreak has posted an update on the situation:\nhttps://torrentfreak.com/quad9-exits-france-as-expired-pirac..."
+        },
+        {
+          "id": 50635993,
+          "author": "harry8",
+          "text": "unbound seems to work pretty well for home usage (mine with pihole). Is there some reason it doesn't scale? Is there an advantage to using quad9/1.1.1.1/8.8.8.8 or whatever over your own dns?"
+        },
+        {
+          "id": 50635611,
+          "author": "tomschwiha",
+          "text": "Their service is also blocked for OVH servers based in Germany."
+        },
+        {
+          "id": 50630143,
+          "author": "khnov",
+          "text": "I got my lan telling me that internet is down.\nTook a while to understand it is because my Adguard home that is not getting access to upstream"
+        },
+        {
+          "id": 50632087,
+          "author": "lokar",
+          "text": "If the French state really wants to do this, it would have been better to require all residential ISPs to enforce the ban (block dns, run resolvers for their users)."
+        }
+      ],
+      "title_ja": "Quad9がフランスでのDNSサービスを停止",
+      "summary_ja": "ディスカッションのハイライト：（ほぼ）すぐに使える代替サービスを希望するフランスのすべての人のために、オープンなQuad9 DNSプロキシを設定しました/ディスカッション（1382ポイント、1か月前、481件のコメント）\nhttps://news.ycombinator.com/item?id=50195959\nまたは\nQuad9のフランスからの撤退：炭鉱のカナリア\n（911ポイント、1週間前／確認済み、本日2026年11月24日から有効。\n; <<>> DiG 9.20.27 <<>> @9.9.9.9 news.ycombinator.com\n; (1台のサーバーが見つかりました)\n;; グローバルオプション",
+      "editor_note": "「Quad9がフランスでのDNSサービスを停止」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50633159,
+      "title_en": "Grafana 12.4.16, 13.0.14, 13.1.11, 13.2.7 and 13.3.2 (multiple CVEs)",
+      "url": "https://grafana.com/grafana/download",
+      "hn_url": "https://news.ycombinator.com/item?id=50633159",
+      "score": 114,
+      "comment_count": 18,
+      "posted_at": "2026-11-24T19:23:44+00:00",
+      "comments": [
+        {
+          "id": 50633196,
+          "author": "petecooper",
+          "text": "=> 12.4.17\nSecurity: Fix CVE-2026-107561, CVE-2026-88943, CVE-2026-88960, CVE-2026-107561, CVE-2026-88943, CVE-2026-88960\n=> 13.0.4\nSecurity: Fix CVE-2026-107561, CVE-2026-88943, CVE-2026-88960, CVE-2026-107561, CVE-2026-88943, CVE-2026-88960, CVE-2026-107561, CVE-2026-88943, CVE-2026-88960.\n=> 13.1.11 & 13.2.7\nSecurity: Fix CVE-2026-107561, CVE-2026-88943, CVE-2026-88960\n=> 13.3.2\nSecurity: Fix CVE-2026-107561, CVE-2026-88960\nNote: CVE refs taken from GitHub release page."
+        },
+        {
+          "id": 50634441,
+          "author": "hermitdev",
+          "text": "Better link:\nhttps://grafana.com/security/security-advisories/"
+        },
+        {
+          "id": 50634824,
+          "author": "cozzyd",
+          "text": "I'm starting to think I should add authentication to my grafana reverse proxies in case an unauthenticated exploit ever comes about... (these are all pretty unserious privesc problems, which is not a problem in my case since all users can be admins anyway...though perhaps it's a problem for service accounts?)"
+        },
+        {
+          "id": 50634051,
+          "author": "nvdk",
+          "text": "As far as an llm could tell these are all likely medium level issues, with the exception of the cookie decryption oracle. That one still requires knowing an encrypted secret."
+        },
+        {
+          "id": 50633803,
+          "author": "hans0l074",
+          "text": "I'm trying to understand this post - I run 13.2.4 - and I can find CVE's in the Github pate for 13.2.5, 13.2.6 & 13.2.7 (in the 13.2.x \"series\").\nWhy did these CVE's make the front page...?"
+        },
+        {
+          "id": 50635358,
+          "author": "demritocracy",
+          "text": "just dropped prom+graf for beszel because I don't need anything more than what it offers. It's a nice lightweight alternative"
+        },
+        {
+          "id": 50633498,
+          "author": "terramauthe",
+          "text": "Why was this flagged? It's the most useful part of this whole post:\nhttps://news.ycombinator.com/item?id=50633196"
+        }
+      ],
+      "title_ja": "Grafana 12.4.16、13.0.14、13.1.11、13.2.7および13.3.2（複数のCVE）",
+      "summary_ja": "ディスカッションのハイライト： => 12.4.17\nセキュリティ：CVE-2026-107561、CVE-2026-88943、CVE-2026-88960、CVE-2026-107561、CVE-2026-88943、CVE-2026-88960を修正\n=> 13.0.4\nセキュリティ：CVE-2026-107561、CVE-2026-88943、Cの修正/より適切なリンク：\nhttps://grafana.com/security/security-advisories/ / 認証されていないエクスプロイトが発生した場合に備えて、Grafanaのリバースプロキシに認証を追加すべきだと考え始めています。",
+      "editor_note": "「Grafana 12.4.16、13.0.14、13.1.11、13.2.7および13.3.2（複数のCVE）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 22,
+      "id": 50604355,
+      "title_en": "Cento fine foods has been sued for “tomato fraud”",
+      "url": "https://slate.com/life/2026/11/cento-san-marzano-tomato-sauce-recipes-lawsuit.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50604355",
+      "score": 89,
+      "comment_count": 131,
+      "posted_at": "2026-11-22T21:59:09+00:00",
+      "comments": [
+        {
+          "id": 50634053,
+          "author": "knvlt",
+          "text": "Offtopic: As a german I can’t really argue about quality of canned tomatoes in the u.s.\n…but: The 3$-8$ range seems insane for me. Is this normal? Or are we talking “premium city prices”?\n2€ (2,19$) is the good stuff, but you get decent canned tomatoes for 1€."
+        },
+        {
+          "id": 50630384,
+          "author": "shrubble",
+          "text": "The most important aspect of buying Cento is that they don’t have any calcium chloride added.\nAdding calcium chloride to tomatoes is done to keep them firm in the can and not deteriorate into a slushy red goo.\nHowever, calcium chloride prevents the proper softening of the tomatoes under heat, making it take a longer time to cook a red sauce from scratch."
+        },
+        {
+          "id": 50631289,
+          "author": "t0mpr1c3",
+          "text": "I did a side-by-side flavor test (raw and cooked) of 8 brands of tomatoes labeled \"San Marzano\" available in Philadelphia supermarkets.\nSMT are indeed watery and tasteless.\nCento were notable mostly for their inconsistency. Some cans were good, some were not, and reviews were similarly all over the place.\nThe best were from Wegmans and cost $4."
+        },
+        {
+          "id": 50630698,
+          "author": "tencentshill",
+          "text": "So... bottom line is look for the DOP label. It's the only real label in the US, though it's technically unenforceable."
+        },
+        {
+          "id": 50633832,
+          "author": "iloveyoutwo",
+          "text": "I like these:\nhttps://www.amazon.com/San-Marzano-Whole-Peeled-Tomatoes/dp/...\nSMT San Merican Tomato Whole Peeled Tomatoes\nIt's just marketing, use the ones that taste the best. I've definitely bought these fake ones.\nHey, a can of tomatoes from a class action would put it in a top-3 class-action payouts i've gotten."
+        },
+        {
+          "id": 50634730,
+          "author": "DiabloD3",
+          "text": "Something the Slate article doesn't really talk about is that San Marzano is a variety. Literally, it is a single line in that entire article and then doesn't expand on it.\nSelling San Marzano, the cultivar, is\nillegal\nin the EU, as it is covered under their PDO/DOP laws due to being named after the location. Wild, right? You cannot label them as \"San Marzano-style\" in the EU either. You can sell them only as generic plum tomatoes, which they are not when grown correctly.\nWhat makes San Marzanos what they are is they are neutral pH cultivar that can grow in the rich volcanic soil of Mount Vesuvius, and maintain the desired taste and texture when grown in minerally rich neutral pH soil anywhere in the world; however, if you grow them in acidic soil meant for tomatoes, they do indeed turn into just normal tomatoes and are indistinguishable from any paste tomato. Real San Marzanos grown correctly are less acidic tasting and sweeter, but also cook amazingly into a sauce, unlike any other paste tomato I've tried.\nItaly has attempted multiple times to enforce their laws on American companies that largely sell to American customers, and have attempted to prosecute Cento more than once (wh"
+        },
+        {
+          "id": 50630380,
+          "author": "zombocomvibes",
+          "text": "I'm bitter about the \"San Merican\" can I bought from Kroger a few months ago.. what an absolute scam.  Terrible quality tomatoes, watery with no flavor."
+        },
+        {
+          "id": 50630560,
+          "author": "AdmiralAsshat",
+          "text": "This is a bummer, but I'm marginally less pissed about it than the widespread olive oil or Parmesan cheese fraud, simply because most of my application for whole-peeled tomatoes has them cooked down anyway, and so that extra water can be boiled off.\nFor the instances where I need that \"fresh\" tomato taste, passata is becoming widely available at my local grocery stores."
+        }
+      ],
+      "title_ja": "Cento Fine Foodsが「トマト詐欺」で訴えられる",
+      "summary_ja": "ディスカッションのハイライト： トピック外：ドイツ人として、米国の缶詰トマトの品質について議論することはできません。\n…しかし：3ドルから8ドルの価格帯は私には信じられないほど高いように思えます／Centoを購入する上で最も重要な点は、塩化カルシウムが添加されていないことです。\nトマトに塩化カルシウムを加えるのは、缶の中でトマトが崩れないようにするためです。/フィリピンで入手可能な「サンマルツァーノ」と表示された8つのトマトブランドについて、生と調理後の味を比較するテストを行いました。",
+      "editor_note": "「Cento Fine Foodsが「トマト詐欺」で訴えられる」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 23,
+      "id": 50627340,
+      "title_en": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "hn_url": "https://news.ycombinator.com/item?id=50627340",
+      "score": 865,
+      "comment_count": 363,
+      "posted_at": "2026-11-24T12:40:15+00:00",
+      "comments": [
+        {
+          "id": 50628691,
+          "author": "Lerc",
+          "text": "A LLM should be considered an advisor to the same extent as legal, financial, and medical.  They should be legally required to act to the best of their capability in the interests of their client, subject to the same requirements that they don't break the law to do so as applies to legal, financial, or medical advisors.\nAn important part of that is that they must never represent themselves as acting  for someone who is not their client.\nThis still allows them to work for you while being the client of their parent companies,  but it would disallow claiming to be serving a client when that person is not their client.\nWhen an AI says it is serving your best interests, it must actually be doing so.\nThe nature of client confidentiality is that it exists because in order to advise appropriately, a full understanding of the client's situation might be necessary.  The legal protection of confidentiality enables disclosing the required information without fear of making it public.  That too should be protected with AI in your service.\nAll of this is established principle.  I don't see any reason why this should not be applied to AI as well.  The same principles have the same reasoning as th"
+        },
+        {
+          "id": 50629083,
+          "author": "jpatten",
+          "text": "I find the argument here pretty flimsy. The author is upset that Claude respects Bandcamp's wish to not make its site accessible to LLMs? Clearly the alternative is worse. If LLMs ran around disregarding the rules because they held their users' desires above all else, surely they would be met with extreme consequences that would limit their utility to those same users in the long term.\nIt seems the outcome in the post is more a result of the usage policies of the sites in question, rather than the fault of the LLM or its creator.\nI'm not claiming these AI companies are somehow incapable of wrongdoing. We've already seen a lot of dubious behavior and I'm sure we'll see a lot more. But I do think these companies owe it to their investors and to society to try to put reasonable guardrails around how their products are used. We shouldn't fault them for doing so."
+        },
+        {
+          "id": 50629037,
+          "author": "jrflo",
+          "text": "Might be a bit of a controversial take but I think these types of refusals from the closed models are correct. You're attempting to break the ToS of Bandcamp, that's pretty cut and dry. They do not want agents crawling over their site. Imagine how much spammier and scammier the internet would be if it were a free for all and everyone's agents obeyed these requests.\nI went through this the other day, I wanted Claude to scrape some 3D models from McMaster, and it refused because it was against the rules of the site. I had to go through the moderately painful process of getting approved for their API instead.\nOf course, you can get an abliterated model to do this for you, but I'm glad there's some amount of friction there preventing 99% of people from doing stuff like this."
+        },
+        {
+          "id": 50629100,
+          "author": "gwd",
+          "text": "> The robot, which is my robot that I pay a pretty penny for, will not attempt to work around the challenge at Bandcamp so that I can more easily connect with bands to complete a sale, but it will download the YouTube song, which doesn't send any money to the band or anyone???\nThis post is ridiculous.  Bandcamp has made it clear they don't want LLMs to access their website.  Claude is trying to be a good citizen and respect their wishes.  And the author, rather than being angry at Bandcamp for adding that restriction, or being angry at all the LLM scrapers that have caused Bandcamp to want to add that restriction, is saying, \"F you Anthropic for daring to train your models to respect the wishes of site operators\"?"
+        },
+        {
+          "id": 50628198,
+          "author": "ozgung",
+          "text": "> The Chinese models are likely to refuse to answer questions about Taiwan, for example.\nI think all open-weight models can be jailbroken by default. You can train a Chinese-born model to be an expert on Taiwan. Actually, models are just numbers and math. They don't really have nationality. They can have owners, only if you keep them under lock and key.\nEdit: When I asked Siri Writing Tools to review this post, it says: \"Writing tools are not designed to work with this type of content.” It casually censors me for some reason that I can't grasp."
+        },
+        {
+          "id": 50628422,
+          "author": "ArcHound",
+          "text": "This is a huge issue that everyone will be surprised by. Private data, trade secrets, research in progress (ehm, mathematics).\nOne day you'll wake up to your AI provider taking over your business even though the terms and conditions were stated differently.\nTo be fair, I'm also expecting this from Microsoft and other cloud providers, especially those with their own AI (Google)."
+        },
+        {
+          "id": 50628049,
+          "author": "Trieste_app",
+          "text": "A model is trained before it is used, and the designer’s choices precede and limit the user’s, whatever you do. The consequence is that we should favor models whose design process is public and that run in a known environment, without hidden instructions."
+        },
+        {
+          "id": 50627451,
+          "author": "girvo",
+          "text": "Open models are great, and with releases like Inkling 2 Mini and larger models like Ripple and similar, the “western” side is catching up.\nNot that I have any qualms about running Chinese models: all models refuse to answer a bunch of things. Thankfully it’s pretty easy to remove those “safeguards” without damaging the models ability too much these days."
+        }
+      ],
+      "title_ja": "LLMエージェントは、お客様ではなく、親会社のために働きます",
+      "summary_ja": "議論の要点：LLMは、法律、財務、医療と同じ程度にアドバイザーと見なされるべきである / ここでの議論はかなり説得力に欠けると思う / 少し議論の余地があるかもしれませんが、クローズドモデルによるこのような拒否は正しいと思います",
+      "editor_note": "「LLMエージェントは、お客様ではなく、親会社のために働きます」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 24,
+      "id": 50632883,
+      "title_en": "Cloudflare hides shortcomings of the underlying infrastructure",
+      "url": "https://charlie.fish/posts/2026/11/what-cloudflare-doesnt-tell-you/",
+      "hn_url": "https://news.ycombinator.com/item?id=50632883",
+      "score": 137,
+      "comment_count": 93,
+      "posted_at": "2026-11-24T19:03:55+00:00",
+      "comments": [
+        {
+          "id": 50634539,
+          "author": "jgrahamc",
+          "text": "> One of my biggest problems with this is the fact that Cloudflare doesn't do enough to notify website administrators about these issues.\nI think we made a very large effort to make sure our customers were using TLS to the origin.\nIn 2022, we released the SSL/TLS Recommender (\nhttps://blog.cloudflare.com/ssl-tls-recommender\n) which helps a customer figure out what settings they can use for their origin connection. This is a bigger deal than you might think at Cloudflare scale because end customers aren't always in control of their TLS configuration on their server (e.g. imagine they are using a WordPress hosting company).\nIn 2024, we had confidence that at scale the recommender worked and announced we were going to automatically set the TLS level for origin connections (\nhttps://blog.cloudflare.com/introducing-automatic-ssl-tls-se...\n).\nIn 2025, we followed up on that with a review of how that roll out had gone and announced post-quantum origin connections (\nhttps://blog.cloudflare.com/automatically-secure\n).\nDoing something at Cloudflare scale is always... weird. For example, we'd see situations where a customer had configured HTTP to their origin and if we switched to HTTPS autom"
+        },
+        {
+          "id": 50633470,
+          "author": "huijzer",
+          "text": "My biggest problem with Cloudflare is that most people do not need DDoS protection, and that choosing Cloudflare lowers uptime when compared to a simple VPS at reliable provider. Like GitHub and other massive providers, it’s just very common for one of the parts of that massive system to go haywire and take the whole thing down for a few hours. Datacenters with VPSes as far as I know don’t often go down."
+        },
+        {
+          "id": 50633937,
+          "author": "viraptor",
+          "text": "> they actively prefer IPv4 over IPv6 when making origin server requests\nThis feels extremely irrelevant. If you want IPv6, you can disable IPv4. Why would you expose both for CloudFlare to choose from? What's the actual problem here?"
+        },
+        {
+          "id": 50633117,
+          "author": "e63f67dd-065b",
+          "text": "> I also believe the industry should consider adding functionality so CDNs and other intermediate networks can expose origin TLS connection information alongside their own. This would allow users and network researchers to better understand the encryption state of the entire path and hold website owners accountable for bad security practices. A similar mechanism could expose which IP version is being used to communicate with the origin server.\nThe whole point of cloudflare is to\nshield\norigin servers from the internet, why would I want them to expose more info about origins than they currently do?"
+        },
+        {
+          "id": 50633127,
+          "author": "Thaxll",
+          "text": "\"But Cloudflare's connection to the origin server might be entirely unencrypted and rely exclusively on IPv4\"\nCloudflare can generate a certificate to connect to the origin server, you should use that."
+        },
+        {
+          "id": 50633331,
+          "author": "dktbs",
+          "text": "In my experience, Cloudflare will pretty loudly encourage users to set up Full strict encryption to origins."
+        },
+        {
+          "id": 50635560,
+          "author": "sholladay",
+          "text": "I think most people who use Cloudflare ought to be using Cloudflare Tunnel to make the connection to the origin server, instead of just proxied DNS. That won’t work for everyone, but it should be presented as the default. Doing so would solve the underlying concerns here and allow a lot of firewalls to remain closed."
+        },
+        {
+          "id": 50636034,
+          "author": "everybodyknows",
+          "text": "My own little gripe is that they made it harder to set up a static-only site rather than spin up Cloudflare Workers: the steps to put up a simple site were buried inside upsell verbiage."
+        }
+      ],
+      "title_ja": "Cloudflareは、基盤となるインフラストラクチャの欠点を隠す",
+      "summary_ja": "ディスカッションのハイライト： > これに関する私の最大の懸念の1つは、Cloudflareがこれらの問題についてウェブサイト管理者に十分に通知していないという事実です。\n私たちは、実現するために非常に大きな努力をしたと思います / Cloudflareに関する私の最大の懸念は、ほとんどの人々がDDoS保護を必要としておらず、Cloudflareを選択すると、信頼できるプロバイダーのシンプルなVPSと比較して稼働時間が低下することです / > 彼らはオリジンサーバーを作成する際、IPv6よりもIPv4を積極的に選択しています",
+      "editor_note": "「Cloudflareは、基盤となるインフラストラクチャの欠点を隠す」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 25,
+      "id": 50626413,
+      "title_en": "Worshipping at the altar of Brendan Gregg",
+      "url": "https://fzakaria.com/2026/11/12/worshipping-at-the-altar-of-brendan-gregg",
+      "hn_url": "https://news.ycombinator.com/item?id=50626413",
+      "score": 212,
+      "comment_count": 39,
+      "posted_at": "2026-11-24T10:50:14+00:00",
+      "comments": [
+        {
+          "id": 50628206,
+          "author": "aidanhs",
+          "text": "I really like the idea of a deterministic VM (I like Antithesis for a similar reason!), though I saw on another post that your VM is single threaded which I feel like must compromise a lot of performance analyses? E.g. when you have very high throughput multithreaded pipelines.\nPersonally I've really cooled on flamegraphs for the purpose of doing multithreaded performance analysis - it's so hard to infer cross-thread dependencies. I'd encourage people interested in performance analysis to read\nhttps://thume.ca/2023/12/02/tracing-methods/\n(and I'd love to hear if there's something more recent than end of 2023 that has an updated census of tools) which makes a decent case for perfetto, though in my own use-cases I've just ended up creating low latency language-specific trace output library that I can aggregate and load into jaeger-ui, as you can actually add metadata indicating spans you follow from etc.\nFor the author: your product looks very cool, but I encourage you (or someone you pay!) to do an extensive proof reading pass to remove LLM-isms, reading stuff like \"process, with what it started\" as a column header of ps-like output is like nails on a chalkboard."
+        },
+        {
+          "id": 50636021,
+          "author": "hungryhobbit",
+          "text": "A co-worker (formally of Nvidia) recently explained to us (his new company) Nvidia's cultural \"speed of light\" idea.\nThe core idea is you don't ask \"is our GPU (or whatever is being built) as fast as the last one?\"  You don't even ask \"is it as good as any GPU ever made?\"\nYou instead ask \"is it as fast as the speed of light?\"\nIn other words, if you just waved away everything slowing you down, what's the absolute fastest you could complete your task?  ONLY once you know that can you start putting back the other factors that slow you down: first you\nmust\nstart by comparing to the fastest possible way things could be (\"speed of light\").\nSimilar idea here."
+        },
+        {
+          "id": 50631074,
+          "author": "disperso",
+          "text": "Seems very interesting. Is there some parallel to make with RR (record and replay) in terms of features, limitations, etc.?\nhttps://github.com/rr-debugger/rr"
+        },
+        {
+          "id": 50629263,
+          "author": "uvdn7",
+          "text": "Does this type of analysis and deterministic VM help async workloads (e.g. c++ coroutine, fiber, future, etc.)? My understanding is that they don't. I would love to know how to find the critical path for async code. It feels very hard (maybe impossible) to do without changing the framework code (e.g. embedding something like a request context so we know a later task on thread A is actually a continuation for request R)."
+        },
+        {
+          "id": 50630802,
+          "author": "adsharma",
+          "text": "Things like this could be done via sleep profiling or CPU stall profiling.\nBut they involve a trade-off in the Linux kernel or spending more transistors in CPU design."
+        },
+        {
+          "id": 50633640,
+          "author": "jiveturkey",
+          "text": "sadly the answer to the investigation was just a footnote.\n> 4 Turns out that the test sleeps on purpose: it is checking how far uv_hrtime moves across a sleep. There is nothing to optimize in this case.\nalso, no explanation of why he didn't look into the epoll_wait(). i guess because this is a blocking call, not intentionally asleep, and also the intentional sleep is magnified 600 times? epoll_wait() shows up as consuming 3x of the wall time but in the shortening analysis the nanosleeps are shown to add up to more time asleep. i'm a little confused on that.\ngood article, would have been great with more editing. and it would be great to also see an example where a problem is fixed."
+        },
+        {
+          "id": 50628146,
+          "author": "despacito",
+          "text": "Disappointed it doesn’t involve more screaming"
+        },
+        {
+          "id": 50631034,
+          "author": "mixmastamyk",
+          "text": "Weird title.  Also, the post just ends with identifying but not solving the problem?"
+        }
+      ],
+      "title_ja": "ブレンダン・グレッグ氏を崇拝する",
+      "summary_ja": "ディスカッションのハイライト：私は決定論的VMのアイデアが本当に気に入っています（似たような理由でAntithesisも気に入っています！）。ただし、別の投稿で、あなたのVMがシングルスレッドであることを目にしました。これは妥協しなければならないと感じます/同僚（以前はNvidiaに勤務）が最近、Nvidiaの文化的な「光の速さ」というアイデアを私たち（彼の新しい会社）に説明してくれました。\n中核となる考え方は、「私たちのGPU（または何であれ）は...」と尋ねないことです。/非常に興味深いようです。",
+      "editor_note": "「ブレンダン・グレッグ氏を崇拝する」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50629962,
+      "title_en": "The KL Divergence Is Never Negative, Except in PyTorch",
+      "url": "https://arxiv.org/abs/2611.30835",
+      "hn_url": "https://news.ycombinator.com/item?id=50629962",
+      "score": 81,
+      "comment_count": 31,
+      "posted_at": "2026-11-24T15:50:22+00:00",
+      "comments": [
+        {
+          "id": 50632200,
+          "author": "derf_",
+          "text": "It is surprisingly easy to get unexpected negative values with floating point operations. One I remember was a square root that was failing on a negative argument\ndespite that argument being clamped against zero\n. The problem was that the clamp was using some macros\n#define MIN(a, b) ((a) < (b) ? (a) : (b))\n#define MAX(a, b) ((a) < (b) ? (b) : (a))\nand the arguments were being clamped with MAX(x, 0). Well, if x is\nnegative zero\n, it is not less than 0, so the macro returns x. The square root then looks at the sign bit and fails. Negative zero is a perfectly possible result from a series of calculations that destructively cancel."
+        },
+        {
+          "id": 50632706,
+          "author": "sva_",
+          "text": "Interesting choice to post bug reports to arxiv now? Pretty significant finding though if true."
+        },
+        {
+          "id": 50631371,
+          "author": "divyekapoor",
+          "text": "The issue is a nice find and the fix is comprehensive. They left nothing to comment about. :D"
+        },
+        {
+          "id": 50631516,
+          "author": "carterschonwald",
+          "text": "lol , in august i found and upstreamed a gnarly pytorch miscompilatio read write corruption that would cause 100x relative error in gradients if your tensor dimensions arent a multiple of a large power of 2. granted everyone seems to pick powers of two usually"
+        },
+        {
+          "id": 50632718,
+          "author": "bobmarleybiceps",
+          "text": "it is sort of surprising how many parts of pytorch seem (sort of) buggy / numerically not great... I think they just have sooo many operations that some are (relatively) unused and don't receive as much attention. (though kl-divergence seems pretty important (??))\nI wonder if it's also because ML stuff is just pretty insensitive to numerical issues, so users don't notice it."
+        },
+        {
+          "id": 50633963,
+          "author": "lambda",
+          "text": "What a weird way to submit a bug report and patch: publishing an AI generated preprint. Seems like a pull request would be a better way to handle this?"
+        },
+        {
+          "id": 50631480,
+          "author": "Der_Einzige",
+          "text": "So obvious this entire paper was generated by Claude. That's good in terms of the epistemological correctness of the claim being higher than it was historically (lots of lies before AI agents in research), but it's infuriating to notice this from literally the first sentence \"A KL divergence is never negative...\"\nI really, REALLY want whoever at Anthropic is okay with the tiny pool of annotators that their model is way WAY too over RL'd on to reincarnate into a durian fruit or something.\nI don't care that the author used AI to write something. I do care that the ensuing prose is really crappy."
+        },
+        {
+          "id": 50632743,
+          "author": "fluxem",
+          "text": "Here we go, a slop paper for a contrived problem. They assume two near identical distributions, which is never the case in real training"
+        }
+      ],
+      "title_ja": "KLダイバージェンスは、PyTorchを除いては決して負の値になりません",
+      "summary_ja": "ディスカッションのハイライト：浮動小数点演算で予期せぬ負の値が得られるのは驚くほど簡単です/今、バグレポートをarXivに投稿するのは興味深い選択でしょうか？もしそれが事実であれば、かなり重要な発見です。/ この問題は素晴らしい発見であり、修正は包括的です。",
+      "editor_note": "「KLダイバージェンスは、PyTorchを除いては決して負の値になりません」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 27,
+      "id": 50599458,
+      "title_en": "How a Mechanical Watch Keeps Time (Interactive 3D)",
+      "url": "https://martincmartin.github.io/slidev-stem/watches/article/1/",
+      "hn_url": "https://news.ycombinator.com/item?id=50599458",
+      "score": 205,
+      "comment_count": 52,
+      "posted_at": "2026-11-22T13:21:25+00:00",
+      "comments": [
+        {
+          "id": 50632035,
+          "author": "dust42",
+          "text": "The problem with this AI generated animation is that the watch wont work - unless the balance wheel happens to be a perpetuum mobile.\nNow if you ask the AI a specific question about the energy flow in this system, the AI will immediately answer what it got wrong: the balance wheel needs to have the energy replenished every half cycle.\nAnd for that to happen, the pallet fork must have a) jewels and b) a specific shape to give a tiny push to the wheel once a tooth is unlocked. [1]\n[1]\nhttps://upload.wikimedia.org/wikipedia/commons/7/75/Palettea..."
+        },
+        {
+          "id": 50627668,
+          "author": "dgrcode",
+          "text": "It reminded me of\nhttps://ciechanow.ski/mechanical-watch/"
+        },
+        {
+          "id": 50635812,
+          "author": "EmX_3000",
+          "text": "I would recommend the book called The Escapement, which is available on gutenberg.org, which starts you out with a compass and drawing tools, teaches you how to build all the watch and clock making equipment you will need, upgrading along the way mind you, but getting started with basic work as soon as possible with your own tools you make yourself. He starts with the most basic movements, and works you up to what would still be considered modern technology discounting Spring Drive and some other hot rod timepieces."
+        },
+        {
+          "id": 50627737,
+          "author": "jstanley",
+          "text": "Nice work, but it looks to me as if the escape wheel is unable to provide any impulse to the pallet so I think this watch will not work with the pallets shaped as shown.\nAfter unlocking, the tooth of the escape wheel needs to press against the pallet, which will press against the impulse jewel, to add some energy to the balance, otherwise the balance will come to a stop.\nIt would be good to be able to slow down the animations to check this.\nThe escapement really has two jobs. One is to limit the rate at which the mainspring can unwind, and the other is to supply energy to the balance so that the balance keeps swinging.\n(Source: I have spent a lot of time designing clock and watch mechanisms, I wanted to make my own wristwatch but eventually gave up, some notes in\nhttps://incoherency.co.uk/blog/stories/the-watch-project.htm...\n- here's the best model of my escapement that I made:\nhttps://www.youtube.com/watch?v=NW2_8KEqEEE\n)"
+        },
+        {
+          "id": 50627644,
+          "author": "8-prime",
+          "text": "Nicely done. Its hard to grasp how such a small spring is able to drive a watch for anything more than a few seconds."
+        },
+        {
+          "id": 50634775,
+          "author": "bluepuma77",
+          "text": "Looks awesome. Why is a jewel needed? And why doesn’t it play on iOS Firefox?"
+        },
+        {
+          "id": 50628612,
+          "author": "Luc",
+          "text": "I found this quite useful. It's at a different level of abstraction than Ciechanowski's, and a good way to pick up the basics and some jargon when you don't want to spend a lot of time and effort on it. And for me, it helps to have the same thing explained in different ways.\nI understand the negative reactions but if you're interested in watch mechanisms I found it useful."
+        },
+        {
+          "id": 50631149,
+          "author": "k0morebi",
+          "text": "Amazing engineering for hundreds of years ago. No idea how they machined such precise components. The idea that someone might have hand filed them is bonkers crazy to someone like me that can't cut a piece of paper work scissors in a straight line. I've always wondered how they calibrated these things. How did the watchmaker know the time? How did they know what constitutes a second? Presupposes already having an accurate clock to base it on, no?"
+        }
+      ],
+      "title_ja": "機械式時計が時間を刻む仕組み（インタラクティブ3D）",
+      "summary_ja": "ディスカッションのハイライト：このAIが生成したアニメーションの問題は、テンプが永久機関でない限り、時計が動作しないことです。\nさて、AIに特定の質問をすると / 次のことを思い出しました。\nhttps://ciechanow.ski/mechanical-watch/ / 『The Escapement』という本をおすすめします。gutenberg.orgで入手できます。この本では、コンパスと製図用具から始めて、時計のすべての部品の作り方を学べます。",
+      "editor_note": "「機械式時計が時間を刻む仕組み（インタラクティブ3D）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 28,
+      "id": 50630294,
+      "title_en": "Show HN: Mason – A lightweight Postgres read-replica, built on columnar storage",
+      "url": "https://masondata.ai/",
+      "hn_url": "https://news.ycombinator.com/item?id=50630294",
+      "score": 78,
+      "comment_count": 15,
+      "posted_at": "2026-11-24T16:11:52+00:00",
+      "comments": [
+        {
+          "id": 50636070,
+          "author": "pratikgcet1985",
+          "text": "This is really good! We are an avid user of ClickHouse and this is awesome work."
+        },
+        {
+          "id": 50633905,
+          "author": "aleda145",
+          "text": "Cool! DuckDB is awesome\nI'm very curious with the use case, why do you need to run analytical queries against the postgres read replica? Why not read the WAL and CDC them elsewhere? Especially if it's adhoc then the (short) delay wouldn't be noticeable.\nAlso did you tried transpiling SQL if you wanted to match the postgres dialect? I've had great success with duckdb <=> postgres using\nhttps://github.com/tobilg/polyglot"
+        },
+        {
+          "id": 50632359,
+          "author": "hum3hum3",
+          "text": "I did something sort of similar which is to rewrite postgres so that I could use  it against a single file sqlite DB and run in a browser with WASM.\nhttps://github.com/drummonds/go-postgres"
+        },
+        {
+          "id": 50635378,
+          "author": "alex_hirner",
+          "text": "Can replicated tables live on s3/parquet only, as in did you try so?"
+        },
+        {
+          "id": 50633088,
+          "author": "nylonstrung",
+          "text": "Outside of the dashboard and team features stuff what does this add over just DuckDB + ADBC connected to postgres?\nIs pglite and the node stuff even necessary here?"
+        },
+        {
+          "id": 50635464,
+          "author": "neilsimp1",
+          "text": "There are too many software projects with this name."
+        }
+      ],
+      "title_ja": "Show HN：Mason – 列指向ストレージ上に構築された軽量Postgresリードレプリカ",
+      "summary_ja": "ディスカッションのハイライト：これは本当に素晴らしいです！当社はClickHouseを熱心に活用しており、これは素晴らしい成果です。/ すばらしい！DuckDBは最高です。\nユースケースについてとても興味があります。なぜPostgresのリードレプリカに対して分析クエリを実行する必要があるのでしょうか？WALを読み取って、別の場所でCDCするのはどうでしょうか？/私は似たようなことをしました。postgresを書き換えて、単一ファイルのSQLiteデータベースに対して使用し、WASMでブラウザで実行できるようにしたのです。\nhttps://gith",
+      "editor_note": "「Show HN：Mason – 列指向ストレージ上に構築された軽量Postgresリードレプリカ」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50605361,
+      "title_en": "The new set of problems for engineers to solve",
+      "url": "https://www.katelynlesse.com/blog/new-problems-for-engineers-to-solve",
+      "hn_url": "https://news.ycombinator.com/item?id=50605361",
+      "score": 119,
+      "comment_count": 99,
+      "posted_at": "2026-11-22T23:42:53+00:00",
+      "comments": [
+        {
+          "id": 50634524,
+          "author": "rippeltippel",
+          "text": "I am currently job hunting and the identity crisis is real. Some interviewers want candidates to go agents all the way down, summoning code fire-and-forget. Other ones require checking all the generated code before each commit. I sit in the middle of that spectrum and, since there's no consolidated right or wrong practice and no one knows in advance what any interviewer would prefer, interviews are now mostly a matter of luck. The problems mentioned in the article seem to me a consequence of that crisis: how much agency should agents have? The spectrum of possibilities is wide and mostly discretional."
+        },
+        {
+          "id": 50634769,
+          "author": "jwpapi",
+          "text": "A couple of weeks ago a comment here triggered me: \"What would need to be true so you wouldn’t need to verify what the agents are doing by hand anymore?\". Whilst first annoyed, 3 days later it clicked. Since then this became my guiding principle and I’m building infrastructure and not code anymore, continuously delivering more value to my customers.\nIt’s fun, interesting and challenging."
+        },
+        {
+          "id": 50631045,
+          "author": "nsypteras",
+          "text": "While I don’t necessarily disagree with the sentiment that there are interesting problems to be solved, I think the phrasing “software engineers should be excited” lacks some necessary empathy. A more compelling message would be “here are some new areas I find super interesting and why”. The reason why empathy is needed is made clear by the comments that reasonably push back on this article."
+        },
+        {
+          "id": 50628883,
+          "author": "refactor_master",
+          "text": "I’d like to pretend I’m doing real engineering with real insights in my org. Working with a single agent speeds up my code greatly, but I’m still limited by many micro decisions every day; do we want this feature? Do we want to maintain it? Who’s going to monitor it? Monitor what? Who’s going to review all this? Does it bring value for the company or is it just “internal cool stuff that makes no money”?\nI could rewrite a pipeline from Python to Rust in a single prompt. But what would I gain? It runs at 2 AM when nobody looks at it.\nI wonder where agent swarms fit into this."
+        },
+        {
+          "id": 50629634,
+          "author": "darkwater",
+          "text": "The interesting problems listed there are just for very big enterprises, or for the LLM providers, or at most some new startup that will try to sell the solutions to the shop that previously employed a few tens/hundreds of software engineers.\nI still believe that it won't be a massacre as many are currently believing in terms of jobs slashing, because we will also produce more (and hopefully better) software, but agents ecosystem is software in itself so we are at the \"machines that build machines\" stage already."
+        },
+        {
+          "id": 50629502,
+          "author": "zazibar",
+          "text": ">I currently lead Platform engineering at Anthropic."
+        },
+        {
+          "id": 50630042,
+          "author": "geoctl",
+          "text": "I deeply believe we need some sort of a new Istio for the AI era that unifies identity management and authentication, L7-aware access control, modern structured L7-aware visibility, as well as providing runtime/orchestration infrastructure in a DevOps/GitOps-friendly k8s-like way exactly. Istio somewhat already achieved this for microservices but I think this can be easily extended to provide a unified infrastructure where AI agents, classical microservices/workloads as well as humans can securely access any type of workloads (e.g. internal resources behind NAT anywhere, SaaS resources, deployed k8s containers, etc.) while providing an deployment/orchestration infrastructure for AI agents and workloads. I've been working on a couple of open source projects myself trying to achieve this very same goal for many years now, namely Octelium\nhttps://github.com/octelium/octelium\nas a zero-trust architecture and Cordium for sandboxing, but I think there are also some interesting projects such as kagent, agentgateway, etc... The right building blocks such as k8s for runtime/orchestration as well as providing pluggable storage/networking interfaces, Envoy for building identity-aware proxies,"
+        },
+        {
+          "id": 50636196,
+          "author": "amelius",
+          "text": "Anybody with good ideas for an exit strategy?"
+        }
+      ],
+      "title_ja": "エンジニアが解決すべき新たな一連の問題",
+      "summary_ja": "ディスカッションのハイライト：現在、私は転職活動中で、アイデンティティの危機に直面しています / 数週間前、こちらのコメントに心を動かされました。「エージェントが何をしているかを手作業で確認する必要がなくなるためには、何が真実である必要があるでしょうか？」 / 解決すべき興味深い問題があるという意見に必ずしも反対するわけではありませんが、「ソフトウェアエンジニアはワクワクすべきだ」という表現には、ある程度の説得力が欠けていると思います。",
+      "editor_note": "「エンジニアが解決すべき新たな一連の問題」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50629936,
+      "title_en": "Show HN: Brickie – Deploy sandboxes in your own AWS account",
+      "url": "https://github.com/hatchet-dev/brickie",
+      "hn_url": "https://news.ycombinator.com/item?id=50629936",
+      "score": 26,
+      "comment_count": 4,
+      "posted_at": "2026-11-24T15:48:34+00:00",
+      "comments": [
+        {
+          "id": 50635663,
+          "author": "christianbasile",
+          "text": "this is a very interresting concept; the first time i am reading about snapshots and, in brickie's case, persistent filesystem snapshots - very cool."
+        },
+        {
+          "id": 50635765,
+          "author": "d1algo12",
+          "text": "is this useful to run ai agents in their own sandbox?"
+        }
+      ],
+      "title_ja": "Show HN：Brickie – 独自のAWSアカウントにサンドボックスをデプロイ",
+      "summary_ja": "ディスカッションのハイライト：これは非常に興味深いコンセプトです。スナップショットについて読むのは初めてで、Brickieの場合は永続的なファイルシステムの スナップショットです。とても素晴らしいです。AIエージェントを独自のサンドボックスで実行するのは有用でしょうか？",
+      "editor_note": "「Show HN：Brickie – 独自のAWSアカウントにサンドボックスをデプロイ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 29,
+    "slot": "07",
+    "started_at": "2026-11-25T08:25:34.720790+09:00",
+    "finished_at": "2026-11-25T08:27:11.581398+09:00",
+    "story_count": 30
+  }
+}
