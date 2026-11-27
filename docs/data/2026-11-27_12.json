@@ -1,0 +1,1529 @@
+{
+  "date": "2026-11-27T12:00:00+09:00",
+  "slot": "12",
+  "stories": [
+    {
+      "rank": 1,
+      "id": 50661646,
+      "title_en": "Hard Drive pricing has gotten bad",
+      "url": "https://blog.ktz.me/black-friday-hard-drive-prices-are-messed-up/",
+      "hn_url": "https://news.ycombinator.com/item?id=50661646",
+      "score": 118,
+      "comment_count": 61,
+      "posted_at": "2026-11-27T01:13:49+00:00",
+      "comments": [
+        {
+          "id": 50662602,
+          "author": "WheelsAtLarge",
+          "text": "Memory, both chips and HDs, eventually collapses in price; that’s been the cycle for decades. The boom-and-bust cycle is what has driven the number of manufacturers down. My suspicion is that, in a few years, the price per gig will collapse again. AI is memory-hungry, and PC manufacturers will be pushing self-hosted AI models, which will require lots of memory. I bet we’ll see an increase in density per unit, which will bring down the price per gig. I give it five years at most."
+        },
+        {
+          "id": 50662119,
+          "author": "memoriesofsmell",
+          "text": "Yeah, this mirrors exactly what I have experienced in Australia.\nI started a business in 2023-2024 that needs a lot of storage (petabytes) and gosh that's really hurt our ability to sacle things. SSD'd were hit first, so we were a bit ahead of the curve and bought 20 packs of HDD's. That definitely kept us going. But I don't know if we can do more than another year at this kind of pricing."
+        },
+        {
+          "id": 50662584,
+          "author": "jibalt",
+          "text": "In around 1985 I paid $1000 for a 50MB drive compatible with my Amiga 1000.\n(On a PC they were running about $600.)"
+        },
+        {
+          "id": 50662139,
+          "author": "neko_ranger",
+          "text": "Even with black friday these prices for everything is horrible. Any mini pc with 32gb of ram is close to $500. I'm trying to increase my proxmox cluster size and  I don't know if I will. The only thing that is alright priced right now are monitors"
+        },
+        {
+          "id": 50662495,
+          "author": "Waraqa",
+          "text": "The main point of the article is that competition drives prices down. Before 2000, there were even more hard drive manufacturers, but most of them eventually exited the market. Apparently, those companies didn't find it worthwhile to stay in the business at such low prices."
+        },
+        {
+          "id": 50662114,
+          "author": "ferrouswheel",
+          "text": "It really is bad.\nI bought 10x18TB drives in 2023 for $190/each, for my 8 bay NAS. 1 started giving smart errors since so was retired, and now I have 1 spare.\nWhich sounds like I timed things well, but I still need to backup my ever increasing datahoard and I'm having to get very creative reusing old 4TB drives now, making it a very slow process!"
+        },
+        {
+          "id": 50662448,
+          "author": "Animats",
+          "text": "The AI boom isn't using much disk, is it? Where is the demand coming from?"
+        },
+        {
+          "id": 50662113,
+          "author": "berkeleyjunk",
+          "text": "While I see the same issues, it is hard to see how the prices will normalize. It is very difficult for any new entrants to get into this market and compete given the high capital requirements."
+        }
+      ],
+      "title_ja": "ハードドライブの価格が高騰している",
+      "summary_ja": "ディスカッションのハイライト：チップとハードディスクの両方のメモリは、最終的に価格が暴落します。何十年もの間、そのようなサイクルが続いています／はい、これはまさに私がオーストラリアで経験したことと同じです。\n私は2023～2024年に、大量のストレージ（ペタバイト）を必要とするビジネスを立ち上げましたが、それが私たちの能力に本当に大きな打撃を与えました／1985年頃、私はAmiga 1000と互換性のある50MBのドライブに1000ドルを支払いました。\n（PCでは約600ドルでした。）",
+      "editor_note": "「ハードドライブの価格が高騰している」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 2,
+      "id": 50660180,
+      "title_en": "AI made self-hosting fun again",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "hn_url": "https://news.ycombinator.com/item?id=50660180",
+      "score": 406,
+      "comment_count": 222,
+      "posted_at": "2026-11-26T21:47:45+00:00",
+      "comments": [
+        {
+          "id": 50660901,
+          "author": "cliche",
+          "text": ">\nWhen implementing an idea becomes so easy, it’s perhaps more important than ever to occasionally ask myself whether it’s actually worth implementing in the first place.\nWish I had this restraint. I’ve been vibing everything I can think of. It’s got to the point I made a small platform on top of k3s so that the agent can yolo deploy into a homeserver behind Tailscale. Once deployed it becomes natural selection for which vibes live and which die.\nSolo vibey self hosting llm usage - bliss.\nCorporate agentic engineering working with others - soul crushing."
+        },
+        {
+          "id": 50660442,
+          "author": "jjcm",
+          "text": "In some ways it's better, in some ways it's worse.\nIt's certainly easier than ever to spin up a VPS/cloudflare proxy and deploy. Agents can pretty much do that end to end.\nThe bigger issue is you're then accountable for keeping up with security. Previously that meant using fail2ban and running a system update every few months. Now it means patching within 24hrs of a CVE9+ dropping, which is happening at an accelerated rate.\nIt got so bad during October I made\nhttps://firefighter.sh/\nas a joke (a root-permissioned agent that continuously monitors for CVEs and patches your system live as soon as they drop - it's a security nightmare given the nondeterministic aspect of AI), but I'm actually starting to come around to the idea for my non-critical servers."
+        },
+        {
+          "id": 50661522,
+          "author": "n4bz0r",
+          "text": "> For my VPS infrastructure, I’ve also started building my own Debian-based bootc image (after thinking about it for some time).\n> I still remember what updating a service used to look like: bumping the version and adjusting the Docker Compose file on my laptop, pushing the changes to the Git remote, SSHing into the server, pulling the changes, and finally deploying them. Now, a single Git push is enough. If a push is even necessary.\nBoth of these cases are a great fit for Ansible or the alternatives. Given how much the author leans towards the idea of storing configuration in repos, it's a bit odd I haven't seen a single mention of configuration management tools.\nGenerate Ansible playbooks, set up a simple CI/CD workflow and you don't need an agent to do the same manual labor every time - it just needs to bump the versions and make a PR/push. Saves a great deal of tokens.\nI have a feeling that AI prices are only going to go up and such 'frivolous' usage when agents repeat a lot of unnecessary actions is going to become an anti-pattern (unless you have unlimited funds)."
+        },
+        {
+          "id": 50662564,
+          "author": "bill10",
+          "text": "Can't agree more. Before AI, I was a heavy user of SaaS because it was cheaper and  quicker to use something off the shelf. But with agent now, I do everything on a mac mini that hosts my homemade stuff."
+        },
+        {
+          "id": 50661092,
+          "author": "oliyoung",
+          "text": "I have a claude code managed self-hosted server that I would _never_ had time to put together as cleanly or complete as I have now. It's a fully complete docker managed budgetting, web, photos, git and media server, with automated backups, home automation, and vpns.\nThere's almost 60 services running, with API access to backblaze, unifi and cloudflare to manage the network.\nI have an idea for a service I want, claude goes off and does it. I haven't had this much personal web infra under my own roof in decades."
+        },
+        {
+          "id": 50662505,
+          "author": "samhclark",
+          "text": "To the author: bootc for my homelab was a great choice, I think that'll keep working well for you. I've been using it without problems for about a year and a half now. One nice thing is that you won't run into ZFS compatibility issues anymore with unattended upgrades, because the updated image will fail in CI instead.\nWish you luck getting that working with Debian! I've only used Fedora CoreOS, but I saw bootcrew's image and that didn't seem so hard to replicate myself..."
+        },
+        {
+          "id": 50661896,
+          "author": "bigbuppo",
+          "text": "Using AI to automate the drudgery is perfectly acceptable.\nAnd for that matter, I've come around to it being okay to use AI to write code. I'm sure we've all felt the same annoyance when we write the same code over and over again on different projects. Even when you put the effort into writing libraries that handle 99.9% of the repetitive work along with all the shortcuts available you're still doing a whole lot of soul-crushing tedium that amounts to pointless ceremony. This is literally where the over-hyped autocorrection is at its best."
+        },
+        {
+          "id": 50662215,
+          "author": "mteoharov",
+          "text": "I built a completely custom deployment pipeline to bare metal servers for this product I am currently working on -\nhttps://padar.ai\n.\nThe idea is that I have a fleet of these bare metal machines which run my workspaces in Qemu microVMs with k8 and kata container (kata is a container runtime k8 hooks up to).\nSo the pipeline is essentially a fully custom ansible pipeline which configures each node and essentially onboards new ones in the fleet fully automatically.\nAnsible sets up everything from firewalls, to dependencies, to propagating the latest builds to each target thru the internal fleet network. But it’s pretty much a joy to use - incredibly stable CI experience.\nAnd the best part is I’m planning on buying and self hosting servers racks in a data center as the product hopefully grows so that i can afford to offer better compute runtime rates."
+        }
+      ],
+      "title_ja": "AIがセルフホスティングを再び楽しくしました",
+      "summary_ja": "ディスカッションのハイライト： >\nアイデアの実装がこれほど簡単になると、そもそも本当に実装する価値があるのかを時折自問することが、これまで以上に重要になるのかもしれません。\nそうだったらよかったのに／ある面では良くなり、ある面では悪くなっています。\nVPS/Cloudflareプロキシを立ち上げてデプロイするのが、これまでになく簡単になりました。/ > VPSインフラストラクチャについては、Debianベースの独自のbootcイメージの構築も開始しました（しばらく検討した後に）。",
+      "editor_note": "「AIがセルフホスティングを再び楽しくしました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 3,
+      "id": 50659841,
+      "title_en": "Kamil Khan Mumtaz: Pakistani architect, admired at home, almost invisible abroad",
+      "url": "https://worksinprogress.co/issue/the-greatest-architect-youve-never-heard-of-is-in-pakistan/",
+      "hn_url": "https://news.ycombinator.com/item?id=50659841",
+      "score": 281,
+      "comment_count": 60,
+      "posted_at": "2026-11-26T21:08:05+00:00",
+      "comments": [
+        {
+          "id": 50660831,
+          "author": "comrade1234",
+          "text": "Lahore is beautiful. I was spending a lot of time in India for work, Delhi and Hyderabad. You get used to the pollution and garbage everywhere.\nMy wife had a business meeting in Lahore so I went to Amritsar and crossed on foot (I don't think you can do this anymore). I spent a couple of hours being interrogated by border agents before I realized I wasn't even out of India yet. They made me exchange all of my Indian money back to dollars because it's illegal to take Indian money out of India?\nI eventually made it to the actual border. I was pulling my suitcase through what seemed like an abandoned village and parade grounds when I heard someone laughing. I stopped and looked around and saw a giant, maybe 6'7\" soldier carrying a big machine gun coming out from what looked like a bunker. He was clearly happy to see me and asked for my passport. His accent sounded like he was from New Jersey. We talked a bit and he told me how to get to the customs building.\nIt was maybe another twenty minutes of walking to the customs building. They didn't process me but had me wait on a bench. After awhile a guy in street clothes sat with me and started asking casual questions about my job, what I'm "
+        },
+        {
+          "id": 50661296,
+          "author": "pazimzadeh",
+          "text": "Iranian art, architecture, and culture in general are truly slept on. I was blown away when I visited in 2008.\nHere are some samples:\nShiraz -\nhttps://www.flickr.com/photos/pazimzadeh/albums/721576150553...\nEsfahan -\nhttps://www.flickr.com/photos/pazimzadeh/albums/721576150562..."
+        },
+        {
+          "id": 50660678,
+          "author": "doodlebugging",
+          "text": "Thanks for showing this man's life's work. It's pretty obvious that he has spent his time and energy well. Preserving the ancient traditions is awesome too. Those examples in the article are simply beautiful, some in their complexity and others in their simplicity.\nFrom the land of stick-built structures and evenly distributed, look-alike strip malls. Pakistan looks beautiful."
+        },
+        {
+          "id": 50660948,
+          "author": "Faizan11490",
+          "text": "Hear me out: there are hints of brutalism in his work. He trained at the AA in the early 60s, when New Brutalism was big in London, and his early buildings were modernist. To me the heavy massing and honesty about materials carried over, even though his later work brings back the ornament brutalism threw out."
+        },
+        {
+          "id": 50660935,
+          "author": "sfjailbird",
+          "text": "As a Westerner, I've been to Lahore, and the historical architecture is indeed fascinating. There are palaces and public buildings from the mughal period that would have been wonders of the world, had they still been standing. Only thing is, they are ruins, and you have to extrapolate from the few surviving pieces to the ruined whole to get an idea about the original splendor.\nBesides that, even though people there are very sweet, Lahore is not an international tourist city, so I don't know that I would recommend going, unless you know what you're getting into."
+        },
+        {
+          "id": 50660899,
+          "author": "dofm",
+          "text": "Someone called Mumtaz ending up an architect producing that kind of beautiful work has a subtle hint of nominative determinism to it, doesn't it?"
+        },
+        {
+          "id": 50660795,
+          "author": "nkoren",
+          "text": "Great stuff. If this sparks something in you, I would recommend looking up Hassan Fathy and Nader Khalili as well."
+        },
+        {
+          "id": 50660437,
+          "author": "AndrewKemendo",
+          "text": "Talent and genius is everywhere\nOpportunity and visibility however are rare and limited"
+        }
+      ],
+      "title_ja": "カミル・カーン・ムムタズ：母国では称賛され、海外ではほとんど知られていないパキスタンの建築家",
+      "summary_ja": "ディスカッションのハイライト：ラホールは美しい／イランの芸術、建築、文化全般が本当に見過ごされている／この男性の生涯の功績を紹介してくれてありがとう",
+      "editor_note": "「カミル・カーン・ムムタズ：母国では称賛され、海外ではほとんど知られていないパキスタンの建築家」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 4,
+      "id": 50657530,
+      "title_en": "YouTube Ad Punisher – Auto-reloads YouTube pages when an ad plays",
+      "url": "https://github.com/antonpictures/youtube-punisher",
+      "hn_url": "https://news.ycombinator.com/item?id=50657530",
+      "score": 301,
+      "comment_count": 379,
+      "posted_at": "2026-11-26T17:36:47+00:00",
+      "comments": [
+        {
+          "id": 50657695,
+          "author": "noitpmeder",
+          "text": "Is this actually an issue? Using uBlock Origin on firefox I don't think I have seen a youtube-forced ad in YEARS. And then adding in the SponsorBlock extension gets me around anything embedded into the video itself.\nSponsorBlock is actually awesome, and for those that like to see internet numbers go up, it tells you how much your own submissions have saved other users over the years (the 11 snippets I've added have helped others skip 20d of ads)."
+        },
+        {
+          "id": 50658916,
+          "author": "Grombobulous",
+          "text": "The amount of effort people will go to avoid paying for content they spend hours watching is fascinating.\nYouTube is the #1 streaming video service in the world. Bigger than Disney, bigger than HBO, bigger than Netflix. I say this not to point out that Google needs your money as obviously they don’t, but I say this to point out that it’s a treasure trove of content.\nYouTube Premium is absolutely worth the asking price. They’ve also got student plans and a new lite plan for cheaper.\nIs $9 a month really too much if you really watch YouTube enough for ads to bother you?"
+        },
+        {
+          "id": 50658552,
+          "author": "jonplackett",
+          "text": "I’m all for ad blockers in most places but I have completely caved in on YouTube.\nMy reasons are\n1. YouTube seems to pay creators reasonably\n2. Being able to use the YT app without the crippling of things like background playback and downloads is very useful.\n3. YouTube seems get YouTube music free, so cancelled Spotify with more or less paid for it.\nI know I’ve given in. And I accept it"
+        },
+        {
+          "id": 50657728,
+          "author": "Alifatisk",
+          "text": "> YouTube serves an ad roughly every 60 seconds. You can't watch one minute of content without being interrupted by a commercial.\nIf this is true, then that's insane. I am unaware of this because I use uBlock Origin + Sponsorblock on Zen (FireFox)."
+        },
+        {
+          "id": 50658052,
+          "author": "darepublic",
+          "text": "its strange because I love yt.  but do I really love yt or just a thin slice of the content on there.  looking at what my kids see, its a rank swamp full of toxic messaging and grooming for future gambling addictions / other neuroses.  Youtube without your own curated list of channels etc. on the path of least resistance will just shove a whole bunch of objectionable brainrot in front of you"
+        },
+        {
+          "id": 50658121,
+          "author": "ielillo",
+          "text": "I tolerate ads as long they are quiet and consistent in their timing. I hate ads that blast through my headphones and getting an ad every time I skip portions of the video or rewind to the beginning, specially when you switch between videos and they front load you one. If youtube would put an ad consistently every x amount of time no matter if you jump through the video or open a new one, I would be happy."
+        },
+        {
+          "id": 50657730,
+          "author": "ciefa",
+          "text": "> YouTube serves an ad roughly every 60 seconds.\nwat??\nAlso, why not use uBlock origin on browsers?\nAnd on mobile, just use Morphe?"
+        },
+        {
+          "id": 50662228,
+          "author": "hinkley",
+          "text": "YouTube has been glitchy af lately anyway. If I doomscroll for a bit the mouse will stop working and I have to close the tab."
+        }
+      ],
+      "title_ja": "YouTube Ad Punisher – 広告が再生されるとYouTubeページを自動的に再読み込みします",
+      "summary_ja": "ディスカッションのハイライト：これは実際に問題なのでしょうか？FirefoxでuBlock Originを使用していますが、何年もYouTubeの強制広告を見たことがないと思います/人々が何時間も視聴するコンテンツに対してお金を払わないようにする努力の量は驚くべきものです。\nYouTubeは世界ナンバーワンのストリーミング動画サービスです／私はほとんどの場所で広告ブロッカーを支持していますが、YouTubeに関しては完全に諦めています。\nその理由は次のとおりです。\n1",
+      "editor_note": "「YouTube Ad Punisher – 広告が再生されるとYouTubeページを自動的に再読み込みします」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 5,
+      "id": 50657265,
+      "title_en": "AMD-specific fork of llama.cpp",
+      "url": "https://devnull.land/amd-specific-llama-cpp",
+      "hn_url": "https://news.ycombinator.com/item?id=50657265",
+      "score": 303,
+      "comment_count": 74,
+      "posted_at": "2026-11-26T17:11:29+00:00",
+      "comments": [
+        {
+          "id": 50657791,
+          "author": "rao-v",
+          "text": "Early in 2025 a bunch of folks realized that AMD made a bunch of cards with mediocre compute but incredibly fast HBM2 memory in their circa 2018 gfx906 datacenter series, so you could get 32GB VRAM capable of incredible 1 TB / s bandwidth for $200 (the closest in today’s cards is north of $3000)\nThere has been a rich little ecosystem of folks optimizing llama.cpp for these odd cards (no tensor cores, no native bf16 etc.) including my little personal repo\nhttps://github.com/kinchahoy/llama-of-vega.cpp\n. Stuff like this focused on more modern RDNA doesn’t help us at all.\nIt’s been interesting to see how much each new frontier model can figure out in terms of optimizing for these GPUs and what they can’t!\nFable and Astra will regularly run out of ideas until I point them to someone’s actually thoughtful repo and then they’ll diligently incorporate ideas.\nThe optimization wins are huge (I was initially skeptical that per model kernel optimizations would be worth much). 27B at a pristine Q8 quant goes from base llama.cpp at some 250 pp / 25 tg to 600 pp / 40 tg even before speculative decoding."
+        },
+        {
+          "id": 50657591,
+          "author": "dofm",
+          "text": "I saw some blurb a while ago that described llama.cpp as a “model zoo”, which is a great description of its utility and generality.\nIn the last couple of days I have been playing with Erik Paperniuk’s M1 port of Inco’s Splash, which has completely transformed the speed of Qwen 3.8 27B and Inkling 2 Mini; it has essentially tripled the speed of the former and more than doubled the speed of the latter.\nThis means the Qwen model is fully viable on an M1 Max, where before I had found it a bit of a waiting game. And it arguably transforms the utility of Inkling 2 Mini; extra speed means it can be left to reason for longer, the downside of needing to do more tool use for search to patch its knowledge is reduced, and it provides a good rough chat model (though this is not its area of greatest strength).\nI have not yet found anything that can boost Muse Glimmer to the same extent; I would still prefer that.\nBut for me I now find that only the rather slow prefill speed really holds the M1 Max back; I suspect these new custom kernels have made the M5 Pro Mac Mini a really cost-effective option if you want to tinker with local AI."
+        },
+        {
+          "id": 50659700,
+          "author": "malicz",
+          "text": "I have a r9700 card and I highly recommend the radiance engine. With a single card it processes (prefill) at 2400 tok/s and decodes at 150 tok/s. With a 4-bit model that is intelligently quantised to have a KLD of 0.006 and top-1 of 0.972\nI have been working this engine for a month, throwing a lot of agentic and coding work and it has been doing great! I can run 3 concurrent agent streams all with a 200k context, entirely in vram.\nEDIT: model: Qwen3.8-27b -\nhttps://codeberg.org/StillDeadcode/radiance"
+        },
+        {
+          "id": 50658571,
+          "author": "fiddlerwoaroof",
+          "text": "I have a MI100, and I managed to get Claude to double or triple the performance of Qwen3.8 by aggressively optimizing the AMD code and porting some of the Nvidia kernels to ROCm:\nhttps://github.com/fwoar-greenhouse/vicuna.cpp\nI've been running this for a while and it seems pretty stable, plus I had Claude validate the ported kernels against the originals to make sure they were reasonably close numerically to the validated implementations."
+        },
+        {
+          "id": 50657417,
+          "author": "rsolva",
+          "text": "Interesting! I have had Claude improve llama.cpp the last few days to get Inkling 2 Mini to fly on my 7900XTX, the improvement has been dramatic both for decode and prefill!\nhttps://forge.dmz.skyfritt.net/ruben/llama-inkling-2-mini"
+        },
+        {
+          "id": 50657426,
+          "author": "woadwarrior01",
+          "text": "Incidentally, llama.cpp is now owned by NVIDIA (via their Huggingface acquisition)."
+        },
+        {
+          "id": 50658431,
+          "author": "d3Xt3r",
+          "text": "Julian, are you also able to benchmark Strata, HaloPFX and Hipfire please? All of these are optimised for AMD and perform much better than vanilla llama.cpp."
+        },
+        {
+          "id": 50661591,
+          "author": "andai",
+          "text": ">These new forks generally all have a few things in common:\n>They focus on a specific subset of models and/or hardware\nDo one thing and do it well!\nReminded me of antirez's ds4, which supports precisely one model.\nhttps://news.ycombinator.com/item?id=48050751"
+        }
+      ],
+      "title_ja": "AMD固有のllama.cppのフォーク",
+      "summary_ja": "ディスカッションのハイライト：2025年初頭、多くの人々が、AMDが2018年頃のgfx906データセンターシリーズで、計算能力は平凡ながらもHBM2メモリが非常に高速なグラフィックカードを多数製造したことに気づきました。そのため、あなたはco /私はしばらく前に、llama.cppを「モデルズー」と表現した宣伝文句を見ました。これは、その有用性と汎用性を的確に表した表現です。\nここ数日、r9700カードを使って遊んでいます。Radianceエンジンを強くおすすめします。",
+      "editor_note": "「AMD固有のllama.cppのフォーク」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 6,
+      "id": 50657645,
+      "title_en": "CTO of 'RansomwareHelp' indicted for wire fraud",
+      "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/",
+      "hn_url": "https://news.ycombinator.com/item?id=50657645",
+      "score": 235,
+      "comment_count": 100,
+      "posted_at": "2026-11-26T17:47:45+00:00",
+      "comments": [
+        {
+          "id": 50659653,
+          "author": "avodonosov",
+          "text": "Initially he only included a 2% margin - $260 over the around $13,000 requested by the fake ransomware group as the lowest possible price. And that $260 might have been just to account for bitcoin volatility.\nOnly after this was comminicated to the fake victim, the fake ransomware group agreed to reduce the price. What should have he done, tell the customer that his yesterday's quote was a mistake?\nAs for the initial $2,750 diagnostic fee, why can't he charge that, he did perform some initial study of the case.\n> The government said Palacio soon after contacted the fake ransomware group run by the FBI and requested the lowest possible price for the decryptor. FBI investigators responded with a price of .2 bitcoin, or around $13,000 at the time. Less than 48 hours later, Palacio allegedly told agents acting as the victim company that the diagnostic assessment was successful and that the cost of decrypting the files would be $13,260.\n> The following day, the government alleges, Palacio messaged the fictitious ransomware group operated by the feds and asked to reduce the ransom demand to $4,000 for the purchase of a decryption tool. The indictment states that the agreed upon price was"
+        },
+        {
+          "id": 50658367,
+          "author": "wongarsu",
+          "text": "That's an interesting case. It's not immediately clear to me that this even is wire fraud. There is material deception (they claim \"We never promote, intermediate or pay ransom to threat actors on behalf of our clients\", while paying ransom). But is there intent to defraud here? The customer does get what they asked for after all: they get their data back, at the price they were willing to pay\nThat that price was substantially higher than what the ransomware groups were charging RansomwareHelp seems inconsequential, every business has markups. And RansomwareHelp might have been able to get substantial discounts by being a trusted repeat customer for those ransomware groups"
+        },
+        {
+          "id": 50660319,
+          "author": "lordnacho",
+          "text": "I wonder if you could write the contracts so it isn't fraud? Just put \"let us do whatever we need to do, including paying the ransom\" in the contracts, and tell people that's just a break-glass that will not normally be needed.\nBecause the way it's described, it definitely seems like fraud to market the thing as \"won't pay the ransom\" when you actually just do that."
+        },
+        {
+          "id": 50657797,
+          "author": "toomuchtodo",
+          "text": "https://krebsonsecurity.com/wp-content/uploads/2026/11/palac..."
+        },
+        {
+          "id": 50658045,
+          "author": "rconti",
+          "text": "Have to admit I laughed out loud on this one. Should I have? I don't know.\nIt just seemed oddly quaint that it was simply a markup scheme (and, of course, conned people into believing they weren't paying off ransomware assholes). Look, that sucks. People don't want to support this kind of behavior, I get it.\nI guess I just expected it was going to be a racket where the data was being locked by the same people who were charging you to get the data back. But no, just a simple markup."
+        },
+        {
+          "id": 50658167,
+          "author": "loeg",
+          "text": "> the company’s co-founder — 52-year-old Juan Ricardo Palacio Escobar of Miami and Medellin, Colombia\nAny relation?"
+        },
+        {
+          "id": 50658541,
+          "author": "RobotToaster",
+          "text": "I thought it was an open secret that all of these ransomware unlocking companies just paid the ransom while giving plausible deniability?"
+        },
+        {
+          "id": 50658276,
+          "author": "lnxsxu",
+          "text": "imagine being the fbi agent getting haggled down on a ransomware key while your colleague has a quote for “advanced cryptography” in their inbox. according to the indictment, the vendor talked the price down from about $13k to $6k and billed the customer $13,260 for decryption. pretty good negotiating for a company that said it never negotiated."
+        }
+      ],
+      "title_ja": "「RansomwareHelp」のCTOが電子通信詐欺で起訴される",
+      "summary_ja": "ディスカッションのハイライト：当初、彼はわずか2％のマージンしか含めていませんでした。つまり、偽のランサムウェアグループが可能な限り低い価格として要求した約13,000ドルに対して、260ドル上乗せしただけです／これは興味深いケースです／詐欺にならないように契約書を書くことは可能でしょうか？契約書に「身代金の支払いを含め、必要なことは何でも行う」と記載し、それが単に...であると人々に伝えればよいのです。",
+      "editor_note": "「「RansomwareHelp」のCTOが電子通信詐欺で起訴される」について、開発者コミュニティで注目が集まっています。",
+      "category": "Security"
+    },
+    {
+      "rank": 7,
+      "id": 50662322,
+      "title_en": "Google will show solo Android developers' phone numbers and addresses",
+      "url": "https://support.google.com/googleplay/android-developer/answer/17594752?hl=en",
+      "hn_url": "https://news.ycombinator.com/item?id=50662322",
+      "score": 31,
+      "comment_count": 7,
+      "posted_at": "2026-11-27T03:11:41+00:00",
+      "comments": [
+        {
+          "id": 50662490,
+          "author": "kccqzy",
+          "text": "I don’t know why Google is singled out here, but Apple does the same thing w.r.t. showing developers’ phone numbers and addresses. It was widely discussed when Apple announced it. I haven’t looked into the regulations myself but I believe it is required by regulations.\nApple’s page:\nhttps://developer.apple.com/help/app-store-connect/manage-co..."
+        },
+        {
+          "id": 50662426,
+          "author": "jrl",
+          "text": "Regulation becomes doxxing. I wonder if you can use mailbox services in order not to reveal your home address."
+        },
+        {
+          "id": 50662499,
+          "author": "rvz",
+          "text": "You have to thank the EU for enforcing this policy onto Google (and Apple) via their Digital Services Act (DSA).\nFrom [0]\nArticle 30, Traceability of traders - the Digital Services Act (DSA)\n1. Providers of online platforms allowing consumers to conclude distance contracts with traders shall ensure that traders can only use those online platforms to promote messages on or to offer products or services to consumers located in the Union if, prior to the use of their services for those purposes, they have obtained the following information, where applicable to the trader:\n(a) the name, address, telephone number and email address of the trader;\nIt also exists for the App Store, Now it exists for Google Play.\n> Under Google Play’s global developer policies, all active developer accounts must declare whether they are a trader or non-trader under European Economic Area (EEA) and United Kingdom (UK) laws in Play Console. This declaration must be completed by February 1, 2027\n[0]\nhttps://www.eu-digital-services-act.com/Digital_Services_Act..."
+        },
+        {
+          "id": 50662438,
+          "author": "vorpalhex",
+          "text": "The deeply unfair, perverse incentives say that you should absolutely do the shady thing and use a cheap agent-as-a-service for your side projects that go commercial.\nNever use your actual house as a business contact.\nWe should want people who make things to be honest and unafraid of identifying themselves! This seems like a basic control for avoiding malbehavior.\nBut the issue is that the moment your personal details are out there you will be hounded by a significant amount of crappy sales teams, every drive-by scam ever, the occasional random no-reason death threat and the odd video of a stranger committing suicide who they have decided to send to you, someone they did $20 of business with that one time.\nSo either be prepared to get a commercial address and gain a bunch of cost and complexity or spend the $200 a year on a shady agent-as-a-service."
+        }
+      ],
+      "title_ja": "Googleが個人Android開発者の電話番号と住所を表示する予定",
+      "summary_ja": "ディスカッションのハイライト：なぜここでGoogleが特別に挙げられているのかわかりませんが、Appleも同じことをしています／規制がドクシングになる／EUがデジタルサービス法（DSA）を通じてこのポリシーをGoogle（およびApple）に適用したことに感謝しなければなりません。\n[0]より\n第30条、事業者のトレーサビリティ - デジタルサービス",
+      "editor_note": "「Googleが個人Android開発者の電話番号と住所を表示する予定」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 8,
+      "id": 50653667,
+      "title_en": "Intel One Mono font (2023)",
+      "url": "https://github.com/intel/intel-one-mono",
+      "hn_url": "https://news.ycombinator.com/item?id=50653667",
+      "score": 483,
+      "comment_count": 244,
+      "posted_at": "2026-11-26T10:11:01+00:00",
+      "comments": [
+        {
+          "id": 50656649,
+          "author": "bayesnet",
+          "text": "> Identifying the typographically underserved low-vision developer audience…\nVery strong recommendation for [Atkinson Hyperlegible Mono](\nhttps://www.brailleinstitute.org/freefont/\n) (and Next for that matter) which is easily the most legible font I’ve ever used. The Atkinson Hyperlegible family is an incredible OSS font (with source files available!) that IMO doesn’t get enough attention."
+        },
+        {
+          "id": 50662540,
+          "author": "joveian",
+          "text": "I'm glad to see they are still updating it.  It is my favorite monospace font and I liked it enough to try using it instead of a propotional font in Firefox for a bit.  I recall the space character was basically the only thing I didn't like and I was going to try to make a \"slightly proportional\" version with just a smaller space but found Ysabeau first:\nhttps://github.com/CatharsisFonts/Ysabeau\nThat is a sans-serif proportional font with an even lower x-height.  IMO a low x-height plus a sufficiently large font size (and decent line spacing) gives the nicest look.  I have a large minimum font size set in Firefox and don't allow font substitution.  It breaks a few web sites but well worth it in my opinion; fewer things break now that Firefox doesn't apply these settings to SVG images.  Find a print source that you find particularly nice to read at the same distance as your monitor then hold it next to your monitor to set the font to that size.  For a matching serif font there is Cormorant by the same person (best for headlines but ok for those few websites that use serif body text):\nhttps://www.behance.net/gallery/28579883/Cormorant-an-open-s...\nBoth of these have a number of font "
+        },
+        {
+          "id": 50654149,
+          "author": "kleiba2",
+          "text": "Fonts is an ever welcome topic of discussion and exchange of opinions.\nMe, I've got to admit that I have worked on many different computer systems since the 80s, with many different fonts that for a long time you could not even change or customize. And you know what, it all worked. It was fine. And thus I really don't care too much what font I'm using - usually the preinstalled one.\nSure, the small l might look like a 1, the O like a 0. But in all these years I've been using a computer, of which a great percentage was spend in an editor writing code, these things - for me! - have never once been an issue.\nThat doesn't mean you have to be like me! I know that fonts are a great thing to get nerd sniped over. But for me, personally, I consider it mostly bikeshedding."
+        },
+        {
+          "id": 50654057,
+          "author": "rpozarickij",
+          "text": "I liked the way this font looks in the preview image in this repository, but after discovering Iosevka [0] I can't go back to \"regular\" monospaced fonts.\nAt first I was only able to use the 548-width version and it already improved code reading ergonomics/comfort, but after ~1 month out of curiosity I switched to the normal/500 width version and I was surprised how \"normal\" it looked to my eyes while being even more space-efficient. After a few days I got used to it even more. As of now it's my #1 programming font.\n[0]\nhttps://github.com/be5invis/Iosevka"
+        },
+        {
+          "id": 50655506,
+          "author": "JdeBP",
+          "text": "It's an interesting commentary on computer programming languages that all of these 'for developers' fonts have such limited repertoires: some 1400 glyphs in this particular case.  That's actually quite low, with a number of monospaced fonts having several thousands of glyphs.\n*\nhttps://jdebp.uk/Softwares/nosh/guide/terminal-resources.htm...\nFor all that some programmers use ligature fakery to turn multiple characters into arrows and mathematical operators and whatnot, indicating that there's a non-negligible set of people willing to escape the limitations of 1960s typewriters nowadays, the actual programming languages have been very sluggish about adding things even as simple as U+00D7 and U+2212 and coding fonts can still get away with not doing very much compared to more general use writing fonts."
+        },
+        {
+          "id": 50653821,
+          "author": "voidUpdate",
+          "text": "I'm guessing it's something to do with low-vision legibility and distinctiveness, but that lowercase e looks... unfinished. The tail feels like it wants to be just a bit longer"
+        },
+        {
+          "id": 50653958,
+          "author": "BSDobelix",
+          "text": "Have a look at:\nhttps://www.ibm.com/plex/\nIt's my favorite font on the terminal/editor since a long time."
+        },
+        {
+          "id": 50655516,
+          "author": "andrewingram",
+          "text": "I love new typefaces, but I wish the rationale was a bit stronger than \"easier to read\", I want to know _how_. Show me the investigation into other monospace typefaces, show me the problems and how you solved them. I know this is the Github repo, but the only page I found discussing this is pretty light on details too (\nhttps://www.intel.com/content/www/us/en/company-overview/one...\n). Basically the lowercase e and uppercase G are more distinctive than usual.\nEvery tech company seems to be making their own free-to-use mono fonts these days, which I celebrate because I like choice, but I also want to be convinced it's more than just a vanity exercise."
+        }
+      ],
+      "title_ja": "Intel One Monoフォント（2023年）",
+      "summary_ja": "ディスカッションのハイライト： > タイポグラフィの点で十分な対応がなされていない、視覚障害のあるデベロッパー層を特定する…\n[Atkinson Hyperlegible Mono](を強くおすすめします。\nhttps://www.brailleinstitute.org/freefont/ / 彼らがまだこのフォントを更新しているのを見て嬉しく思います / フォントは、常に歓迎される議論のテーマであり、意見交換の対象です。\n私自身、80年代からさまざまなコンピュータシステムで作業をしてきたことを認めざるを得ません。多くの異なる...",
+      "editor_note": "「Intel One Monoフォント（2023年）」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 9,
+      "id": 50660273,
+      "title_en": "Novita, StreamLake, etc. are ByteDance Ark wrappers",
+      "url": "https://kendell.dev/blog/arkwrapper/",
+      "hn_url": "https://news.ycombinator.com/item?id=50660273",
+      "score": 60,
+      "comment_count": 10,
+      "posted_at": "2026-11-26T21:59:19+00:00",
+      "comments": [
+        {
+          "id": 50661701,
+          "author": "snake_doc",
+          "text": "There is a reason why these inference wrappers exist, it’s a way to arbitrage compute.\nImagine, some team or individual has a way to access pre-emptible GPU hours at some low price.\nLet’s say that low price is $6/GB300/hour.\nIf the inference wrapper can achieve demand of some base load of, equivalent of a rack of GB300s (72 GPUs).\nEssentially, the wrapper can route baseload traffic to the primary provider at market API prices (and make no money).\nBut when the cheap GPUs are available, they can route them to the hosted instances to internalize the API margins.\nDeepSeek’s team has an estimate of ~$36/gpu/hour of monetization for DeepSeek 4.1 flash at off peak rates.\nSo this team would be making $(36-6)/gpu/hour for any traffic they can route to the cheap GPUs.\n—-\nBut from an user standpoint…\nIn many ways, inference APIs should be validated like a trusted actor end to end.\nA bad actor that controls the other end of your inference API call, could control your computer (the service just needs to return bash tool calls…"
+        },
+        {
+          "id": 50661171,
+          "author": "leafingensemble",
+          "text": "See also:\nVenice is a DeepInfra+ wrapper\n[\nhttps://news.ycombinator.com/item?id=50660720\n]\nBlackfuel ($250m+ in contracts) routes K3 to Openrouter.\nSource: [\nhttps://xnologin.com/ThibaultJaigu/status/212555365159084482...\n]\nVenice removes E2EE models and rewrites docs (routed phala -> chutes). (11/26/2026)\n[\nhttps://zoan.space/llm-verification/venice.html#timeline\n]\nZero retention AI providers caught logging prompts [\nhttps://news.ycombinator.com/item?id=50591871\n]"
+        },
+        {
+          "id": 50662105,
+          "author": "johnnyApplePRNG",
+          "text": "Meh... unless they're lying about ZDR (which they don't seem to be... non ZDR wrappers go to non ZDR providers) then I don't see how this is a big deal?"
+        },
+        {
+          "id": 50661121,
+          "author": "keyle",
+          "text": "Good article. Personally I wish that openrouter would require a country flag for every provider as to allow the user to make better choices.\nEspecially with things like nitro; I found myself locking it down to 2-3 providers that had consistency in their uptime and TPS. I'd like to lock this down further because 'ZDR' is only as good as the 'trust me bro' that comes attached."
+        }
+      ],
+      "title_ja": "Novita、StreamLakeなどはByteDance Arkのラッパーです",
+      "summary_ja": "ディスカッションのハイライト：これらの推論ラッパーが存在する理由があります。それはコンピューティングを裁定取引する方法です。\nあるチームまたは個人が、プリエンプティブルなGPU時間を低価格で利用する方法を持っていると想像してみてください/こちらもご覧ください：\nVeniceはDeepInfra+のラッパーです\n[\nhttps://news.ycombinator.com/item?id=50660720\n]\nBlackfuel（契約額2億5000万ドル以上）は、K3をOpenrouterにルーティングしています。\n出典：[\nhttps://xnologin.com/T / うーん・・",
+      "editor_note": "「Novita、StreamLakeなどはByteDance Arkのラッパーです」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 10,
+      "id": 50659640,
+      "title_en": "Company Culture = Slack Emoji ÷ √Headcount",
+      "url": "https://lia.mg/posts/measuring-company-culture-with-slack-emoji/",
+      "hn_url": "https://news.ycombinator.com/item?id=50659640",
+      "score": 166,
+      "comment_count": 66,
+      "posted_at": "2026-11-26T20:49:49+00:00",
+      "comments": [
+        {
+          "id": 50662467,
+          "author": "eclipticplane",
+          "text": "Nah you have to measure them based on actual usage.\nSomeone in my Slack bulk loaded like 500 party parrot variations - basically a party version of almost every core emoji. Only 5-10 get real usage.\nBut I love this as a metric."
+        },
+        {
+          "id": 50661994,
+          "author": "__MatrixMan__",
+          "text": "It says a lot about how caught off guard we were that :corona-virus: (a ball of beer bottles) predates :coronavirus: (a viral capsid) by about 30 days."
+        },
+        {
+          "id": 50662397,
+          "author": "redloon",
+          "text": "It feels like you could extend this in another direction, and measure culture within a team/org by the amount & variety of emoji reactions to messages (on average).\nThe best teams I've been on would have incredibly high response rate % average.\nIn contrast, when I see an announcement go out to an 800 person org and all it gets is 4 generic emojis, the silence feels deafening (at least in my mind)."
+        },
+        {
+          "id": 50661334,
+          "author": "kikoreis",
+          "text": "This is fun and actually well thought through, but remember Goodhart's law comes for all advertised metrics, silly or not."
+        },
+        {
+          "id": 50661882,
+          "author": "NooneAtAll5",
+          "text": "emoticons > emoji\nyou'll take my \">:)\" only from my cold-cold hands"
+        },
+        {
+          "id": 50661096,
+          "author": "dannyboland",
+          "text": "I think the more interesting measure would be looking at this over time. Is your company past its cultural peak?"
+        },
+        {
+          "id": 50661888,
+          "author": "wakamoleguy",
+          "text": "While I appreciate the blast (Teams is indeed bad), you can have custom emojis in Teams. It’s enabled as an admin setting somewhere.\nSource: I added a custom emoji to our Teams last week."
+        },
+        {
+          "id": 50661563,
+          "author": "Washuu",
+          "text": "My day job is >1,000.  Over 57,000 emoji.  There are entire alphabets in there in multiple styles including kanji.  There are plenty that are used in a passive aggressive manner."
+        }
+      ],
+      "title_ja": "企業文化 = Slack の絵文字 ÷ √従業員数",
+      "summary_ja": "ディスカッションのハイライト：いや、実際の使用状況に基づいて測定する必要があります。\n私のSlackでは、誰かが500種類ものパーティー・オウムのバリエーションを一括で読み込みました。つまり、ほぼすべての主要な絵文字のパーティーバージョンです / :corona-virus:（ビール瓶の塊）が:coronavirus:（ウイルスのカプシド）よりも約30日も前に登場したということは、私たちがどれほど不意を突かれたかをよく物語っています。/ これを別の方向にも広げて、チームや組織内の文化を次のように測定できる気がします。",
+      "editor_note": "「企業文化 = Slack の絵文字 ÷ √従業員数」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 11,
+      "id": 50662217,
+      "title_en": "Show HN: Sqrin – A better screen share for Mac",
+      "url": "https://sqrin.app",
+      "hn_url": "https://news.ycombinator.com/item?id=50662217",
+      "score": 3,
+      "comment_count": 0,
+      "posted_at": "2026-11-27T02:53:22+00:00",
+      "comments": [],
+      "title_ja": "Show HN：Sqrin – Mac向けのより優れた画面共有",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「Show HN：Sqrin – Mac向けのより優れた画面共有」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 12,
+      "id": 50658498,
+      "title_en": "An introduction to uncertainty in machine learning",
+      "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+      "hn_url": "https://news.ycombinator.com/item?id=50658498",
+      "score": 28,
+      "comment_count": 0,
+      "posted_at": "2026-11-26T19:04:50+00:00",
+      "comments": [],
+      "title_ja": "機械学習における不確実性の概要",
+      "summary_ja": "コメント要約は現在利用できません。HNのスレッドを直接ご覧ください。",
+      "editor_note": "「機械学習における不確実性の概要」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 13,
+      "id": 50658193,
+      "title_en": "Largest 2D Chart library in the world using BUI: BlenderUI",
+      "url": "https://bui.preetham.top/charts/",
+      "hn_url": "https://news.ycombinator.com/item?id=50658193",
+      "score": 77,
+      "comment_count": 10,
+      "posted_at": "2026-11-26T18:37:24+00:00",
+      "comments": [
+        {
+          "id": 50661358,
+          "author": "andai",
+          "text": "This is an addon for BlenderUI, which has apparently been decoupled from Blender:\n(Edit: decoupled by same author, not by Blender.)\nhttps://github.com/ppmpreetham/BUI\nBlender's UI code is mostly C, as I recall.\nThe readme says it supports dear imgui API, tkinter, html and js (including react etc), Qt syntax, Rust, Lua ... that's a lot!\nAlso seems to support the browser via wasm, though it might be a bit heavy for that.\nEdit: BlenderUI previously discussed this month:\nBlender's UI and Runtime: Much Faster Than GPUI\nhttps://news.ycombinator.com/item?id=50389333"
+        },
+        {
+          "id": 50661672,
+          "author": "alexpotato",
+          "text": "Don MacMillan, the comedian, has a great bit about charts in presentations and it should be required viewing for anyone who works in a field where charts are what you use to convince people of things.\nhttps://www.youtube.com/watch?v=LYE3GtXqDV0"
+        },
+        {
+          "id": 50661383,
+          "author": "char8",
+          "text": "\"starting the chart engine\"\nYeah it's exactly for this reason i use Svelte, with charts rendered in play HTML using the browser's native DOM\ne.g\nhttps://www.layerchart.com/"
+        },
+        {
+          "id": 50661204,
+          "author": "robertclaus",
+          "text": "I work in data analytics and have never heard of this. Most certainly not the largest or the most used charting library out there."
+        },
+        {
+          "id": 50661229,
+          "author": "contingencies",
+          "text": "BUI is awesome! Using on rust for some performance-sensitive internal tooling since last week or so and it's doing a great job."
+        },
+        {
+          "id": 50658194,
+          "author": "ppmpreetham",
+          "text": "Dug down to every single example one can use to represent data"
+        },
+        {
+          "id": 50661616,
+          "author": "alienbaby",
+          "text": "Hm, pinch and zoom in/out seemed broke on android/chrome"
+        },
+        {
+          "id": 50658296,
+          "author": "ku5h",
+          "text": "I feel back to school with these charts, never knew some of these even existed :D\ngood to know them now"
+        }
+      ],
+      "title_ja": "BUI（BlenderUI）を使用した世界最大の2Dチャートライブラリ",
+      "summary_ja": "ディスカッションのハイライト：これはBlenderUIのアドオンで、どうやらBlenderから切り離されているようです。\n（編集：Blenderではなく、同じ作者によって分離されました。）\nhttps://github.com/ppmpreetham/BUI\nBlenderのUI / コメディアンのドン・マクミランさんは、プレゼンテーションにおけるグラフについて素晴らしいネタを披露しています。グラフを使って説得することが求められる分野で働く人なら誰でも見るべきでしょう。「グラフエンジンを起動する」\nはい、まさにその理由からです。",
+      "editor_note": "「BUI（BlenderUI）を使用した世界最大の2Dチャートライブラリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 14,
+      "id": 50653477,
+      "title_en": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "hn_url": "https://news.ycombinator.com/item?id=50653477",
+      "score": 275,
+      "comment_count": 228,
+      "posted_at": "2026-11-26T09:44:23+00:00",
+      "comments": [
+        {
+          "id": 50662595,
+          "author": "sp1nningaway",
+          "text": "I just started using NeoMutt and SMTP+IMAP to give my agent access to gmail and I find it much more reliable than MCPs that I’ve tried. Not sure how they’d detect or stop that kind of usage."
+        },
+        {
+          "id": 50658840,
+          "author": "Schnitz",
+          "text": "The sad part is that this won’t even work. People will just have the agent operate a browser to send email and it’ll be unnecessarily messy and wasteful."
+        },
+        {
+          "id": 50654225,
+          "author": "perdy",
+          "text": "They are concerned about \"human confirmation\" in their request path, but MCP already has a primitive for exactly this: elicitation lets a server pause a tool call and ask the user to confirm before it proceeds. As a send message tool could be gated behind an elicitation, so making it partner-only seems more like a business decision than a safety concern."
+        },
+        {
+          "id": 50659598,
+          "author": "physicsguy",
+          "text": "This is going to happen everywhere which is why I was skeptical about many things people were claiming.\nMy employer started switching their APIs to usage based pricing a couple of years ago but has really hammered working on extending that this year. Want to extract information? Sure, you can do it, but it is going to cost you a lot of money, and if you try and do it through the client then you’ll get your account suspended for breaking the Ts and Cs. Clients are corporates so they aren’t going to risk being sued."
+        },
+        {
+          "id": 50654039,
+          "author": "k9294",
+          "text": "I've been thinking about moving away from Google's infrastructure for quite some time.\nAre there any good alternatives for personal and business use cases (email/drive/docs)?\nI'd appreciate any advice."
+        },
+        {
+          "id": 50654452,
+          "author": "skeledrew",
+          "text": "Well... just have a custom GMail app that can be used by agents. That's pretty much my goto pattern: build things that allow both human and agents to use them together. Any place that's anti-AI or similar will have to find a way to distinguish, which won't be possible if the agent use pattern is similar enough to human or the app itself masks usage patterns. Either allow both, or ban both."
+        },
+        {
+          "id": 50654443,
+          "author": "alexdobrenko",
+          "text": "biggest thing that this article misses - the gmail MCP server\ncan\ncreate drafts. its 10 tools are create_draft, list_drafts, get_message, get_thread, search_threads, list_labels, and label/unlabel for messages and threads. what's missing is send, reply, forward, editing or deleting a draft, and attachments:\nhttps://developers.google.com/workspace/gmail/api/guides/con..."
+        },
+        {
+          "id": 50660063,
+          "author": "thorio",
+          "text": "Might this not be part of a walled garden around Gemini since Gemini's native Google workspace integration has almost full feature access and definitely can send mails?"
+        }
+      ],
+      "title_ja": "Googleは、AIエージェントにMCPサーバーを使用させます。GmailのAIエージェントはメールを送信できません",
+      "summary_ja": "ディスカッションのハイライト：私は最近、エージェントがGmailにアクセスできるようにするためにNeoMuttとSMTP+IMAPを使い始めましたが、これまで試したMCPよりもはるかに信頼性が高いと感じています/残念なことに、これは機能すらしません/彼らはリクエストパスにおける「人間の確認」を懸念していますが、MCPにはすでにまさにこれのためのプリミティブがあります。すなわち、エリシテーションにより、サーバーはツール呼び出しを一時停止し、ユーザーに確認を求めることができます。",
+      "editor_note": "「Googleは、AIエージェントにMCPサーバーを使用させます。GmailのAIエージェントはメールを送信できません」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 15,
+      "id": 50658632,
+      "title_en": "Rvoip: VoIP stack in Rust",
+      "url": "https://github.com/eisenzopf/rvoip",
+      "hn_url": "https://news.ycombinator.com/item?id=50658632",
+      "score": 102,
+      "comment_count": 19,
+      "posted_at": "2026-11-26T19:18:09+00:00",
+      "comments": [
+        {
+          "id": 50659776,
+          "author": "ubercow",
+          "text": "I wonder how this stacks up versus\nhttps://crates.io/crates/rsipstack"
+        },
+        {
+          "id": 50661469,
+          "author": "catlifeonmars",
+          "text": "How does this compare, to, say asterisk and rtpengine?"
+        },
+        {
+          "id": 50659394,
+          "author": "singpolyma3",
+          "text": "No real comparison to any of the existing options?"
+        },
+        {
+          "id": 50660092,
+          "author": "alexanderabakah",
+          "text": "Is there any benchmark results ? Like how does it compare to current existing systems ?"
+        },
+        {
+          "id": 50659649,
+          "author": "Onavo",
+          "text": "It's nice to see a Rust solution, most of the existing production ready ones are either in C or Go.\nFun fact, you can have your own Twilio much cheaper if you use\nhttps://www.bulkvs.com/\nAnd something like\nhttps://github.com/emiago/diago\nor\nhttps://github.com/pilab-cloud/gobelisk"
+        },
+        {
+          "id": 50660329,
+          "author": "arpagon",
+          "text": "Hey Jonathan this is so legit. I'd love to contribute.  Any low-hanging fruit to take a look at?"
+        },
+        {
+          "id": 50661467,
+          "author": "enahs-sf",
+          "text": "This is a cool project. Thanks for sharing."
+        },
+        {
+          "id": 50661923,
+          "author": "melodyogonna",
+          "text": "I still don't understand why language name has to be mentioned in Posts like this. Is this some form of marketing?"
+        }
+      ],
+      "title_ja": "Rvoip：RustのVoIPスタック",
+      "summary_ja": "ディスカッションのハイライト：これと比べてどうなのか気になります。\nhttps://crates.io/crates/rsipstack / これは、たとえばAsteriskやrtpengineと比べてどうでしょうか？/既存のオプションとの実質的な比較はないのでしょうか？",
+      "editor_note": "「Rvoip：RustのVoIPスタック」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 16,
+      "id": 50651099,
+      "title_en": "Show HN: Olumino, a Markdown notes and spaced repetition app",
+      "url": "https://olumino.app",
+      "hn_url": "https://news.ycombinator.com/item?id=50651099",
+      "score": 89,
+      "comment_count": 40,
+      "posted_at": "2026-11-26T03:33:06+00:00",
+      "comments": [
+        {
+          "id": 50661983,
+          "author": "kenrick95",
+          "text": "Very cool site, and the UI is clean! I agree that swipes is something that makes the experience feel great. AnkiDroid (Android app) has it but it wasn't enabled by default and even when enabled we need extra steps to configure.\nI also feel the default Anki/AnkiDroid gives us 4 options (Again/Hard/Good/Easy) which could cause a decision fatigue. I feel the default should be just \"Again\" and \"Good\", like shown in this app\nI also like that the site doesnt ask me to sign in before I can feel the experience. Good job on that :)\nAnother feedback is that on the answer options, it shows the time taken for card to reappear (like \"0m\", \"1d\", \"3d\"), I feel these information could unintentionally make me \"lie\" to myself since sometimes I don't want a card to reappear too often; so I wish that could be hidden from me"
+        },
+        {
+          "id": 50661150,
+          "author": "andai",
+          "text": "Cool. I like the swiping. Very satisfying.\nI made my own flashcard thing a few months ago, when I realized my goal was the opposite of Anki's goal.\nAnki — and all flashcard software these days — makes learning as efficient as possible, which they define as minimizing learning time. It does this by showing you things as rarely as possible.\nUnfortunately that also maximizes pain, effort and forgetting, and minimizes fluency. I wanted the opposite of that, because I am lazy and don't like effort, pain and failure. (I also like fluency!)\nThe goal of minimizing time makes sense for a law student or someone in med school, but for me that's not a problem I actually have, and it creates all these other problems.\n(Flashcard software is also known to have pretty bad user retention, which if I had to guess is due to the fact that it is effectively designed to be painful.)\nSo I just made a thing oriented around the exact opposite goal: showing me cards as often as possible! (And turns out I was half a century late with this idea :)\nhttps://en.wikipedia.org/wiki/Precision_teaching\nThen I realized I could just modify Anki instead of maintaining an entire software, so I did that instead.\nThen I r"
+        },
+        {
+          "id": 50651468,
+          "author": "dotancohen",
+          "text": "What do you find confusing about Anki? Just don't open the Deck Settings and it will work fine out of the box. Deck Settings are there for people who know what they are doing, like the hood latch on a car.\nAnd what does \"outdated interface\" mean? No emojis and clear separation of UI elements? I happen to prefer that.\nNot knocking your motivation, it's great to see you coding something new. I just don't understand the complaints."
+        },
+        {
+          "id": 50662134,
+          "author": "dsiegel2275",
+          "text": "If you want to target teachers and their students - you should add LTI 1.3 support so that they do not need to explicitly create accounts."
+        },
+        {
+          "id": 50660145,
+          "author": "abcd_f",
+          "text": "What scheduler does it use?\nEdit, nevermind it's FSRS.\nI too wrote my own spaced rep app to help with language studying, and it also started with 3 answer options - forgot, ok, instant. But later I added \"imperfect\" before the \"ok\", for the cases when I'd forget an accent or get the gender wrong. I find this captures the progress more accurately and allows for more precise scheduling."
+        },
+        {
+          "id": 50661137,
+          "author": "gb2d_hn",
+          "text": "I've been considering a spaced repetition mode for EtherPK\nhttps://app.etherpk.com\n(markdown notes, task management with agent integration) - it's something I really Enjoyed with Logseq for studying particularly tricky topics. This is looks like a nice implementation, very smooth UI."
+        },
+        {
+          "id": 50659887,
+          "author": "terminal-bloom",
+          "text": "This looks uncomfortably similar to mochi.cards, another markdown spaced repetition app that’s been around for years, with an extremely similar design"
+        },
+        {
+          "id": 50654871,
+          "author": "chancharles",
+          "text": "Thanks for sharing. I like the direction you take.\nI am learning Japanese now and I put my notes in GitHub. Then I use AI to enrich my notes - adding fun facts, cultural references, and extra examples. Then I have AI to convert the notes into Anki cards, add TTS (with VoiceVox), and finally sync to Anki.\nI like my workflow and I would love to share it in a form of a polished program some day.\nThanks for sharing your work."
+        }
+      ],
+      "title_ja": "Show HN：Olumino、Markdownメモと間隔反復アプリ",
+      "summary_ja": "ディスカッションのハイライト：とてもクールなサイトで、UIもすっきりしています！スワイプが体験を素晴らしいものにしていることに同意します / すばらしい / Ankiのどんなところがわかりにくいと思いますか？デッキ設定を開かなければ、そのまま問題なく動作します。",
+      "editor_note": "「Show HN：Olumino、Markdownメモと間隔反復アプリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Science"
+    },
+    {
+      "rank": 17,
+      "id": 50657936,
+      "title_en": "George Whitesides, 1939-2026",
+      "url": "https://www.science.org/content/blog-post/george-whitesides-1939-2026",
+      "hn_url": "https://news.ycombinator.com/item?id=50657936",
+      "score": 70,
+      "comment_count": 7,
+      "posted_at": "2026-11-26T18:13:07+00:00",
+      "comments": [
+        {
+          "id": 50659925,
+          "author": "tomwphillips",
+          "text": "He spoke at Imperial College London when I was doing my PhD. Sometime between 2011-2015. He spoke about paper based microfluidic devices for rapid medical diagnostic tests. If memory serves he made clear to the audience that his \"cheap\" devices _were not cheap enough_ to be useful in developing countries. I admired the intellectual rigour and honesty.\nIt resonated with me as I was part of a doctoral training centre for plastic electronics. Everyone was making these devices using incredibly expensive materials and low throughput techniques, but the only way the technology could be viable commercially was for it to be extremely cheap. IIRC there was one paper that calculated that the devices has to be as cheap as carpet to be worthwhile.\nGranted, I was a pretty obnoxious twenty-something, but it didn't make me popular to point this out to my fellow researchers."
+        },
+        {
+          "id": 50658739,
+          "author": "wuschel",
+          "text": "If you were doing research in chemistry or material science you would have read the one or other of Whitesides papers for inspiration. One of the great names who pushed the boundaries further out.\nIf not for the chemistry, you might be interested in this paper of his:\nhttps://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adm...\nWhitesides, G. M. Whitesides' Group: Writing a Paper. Advanced Materials 2004, 16 (15), 1375–1377. DOI: 10.1002/adma.200400767"
+        },
+        {
+          "id": 50660955,
+          "author": "j7ake",
+          "text": "He gave a talk maybe 10 years ago, and he showed scientific problems falling into two quadrants, one axis is low impact or high impact, other axis is easy or hard.\nHe said to focus on only the impact axis, because if you failed at least you worked on the right problem. If you chose low impact and succeeded, it still didn’t matter.\nHe was also against accolades and awards, and said toddlers get gold stars, adults don’t need them"
+        },
+        {
+          "id": 50661001,
+          "author": "StableAlkyne",
+          "text": "Horrible news, he was one of the greats.\nI was lucky enough to attend a talk he gave in the late 2010s at a university in the US, as part of a seminar series we had. It was completely different than other talks I was used to: usually people would throw up a bunch of charts and glaze their own work for 45 minutes, but Whitesides was a lot more philosophical and self-critiquing. I hadn't even heard of transhumanism, but he brought it up near the end when he talked about where he thought science might go in the next century.\nIt's a crime that he never got a Nobel; I'd be surprised if he wasn't a serious contender for the last 20 years."
+        },
+        {
+          "id": 50661407,
+          "author": "Pulcinella",
+          "text": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01826...\nhttps://www.justice.gov/epstein/files/DataSet%209/EFTA007332..."
+        },
+        {
+          "id": 50658174,
+          "author": "toomuchtodo",
+          "text": "https://en.wikipedia.org/wiki/George_M._Whitesides"
+        }
+      ],
+      "title_ja": "ジョージ・ホワイトサイッズ、1939年～2026年",
+      "summary_ja": "ディスカッションのハイライト：私が博士課程に在籍していた頃、彼はインペリアル・カレッジ・ロンドンで講演をしました / 化学や材料科学の研究をしていたなら、ホワイトサイドの論文のどれかを読んでインスピレーションを得たことがあるでしょう / 彼は10年ほど前に講演を行い、科学的な問題を2つの象限に分類して示しました。1つの軸は影響が小さいか大きいか、もう1つの軸は簡単か難しいかです。\n彼は、次のように言いました。",
+      "editor_note": "「ジョージ・ホワイトサイッズ、1939年～2026年」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 18,
+      "id": 50649040,
+      "title_en": "The USAID Files",
+      "url": "https://reclaimthenet.org/usaid-files",
+      "hn_url": "https://news.ycombinator.com/item?id=50649040",
+      "score": 184,
+      "comment_count": 215,
+      "posted_at": "2026-11-25T23:15:52+00:00",
+      "comments": [
+        {
+          "id": 50649305,
+          "author": "Bender",
+          "text": "File archive [1]\nvia rsync 1.1GB\n[1] - # rsync -avh 172.239.129.211::_archive_/usaid"
+        },
+        {
+          "id": 50659280,
+          "author": "csense",
+          "text": "I'm struggling to understand exactly what this website is claiming the government did wrong.\n> The documents reveal that as the agency was working with the tech giants, its lawyers were advising staff on how to make sure this cooperation remains secret. “Keep it out of the Washington Post” – this is how one of the lawyers put it in a July 8, 2024 briefing\nI'd like to read that briefing for more context, but none of the documents are dated July 8, 2024.\n> another piece of advice was to “only write things that pass the Washington Post Test.”\nThe page is presenting this as if it's bad, but I struggle to understand why it's bad.\nIf the government's telling its employees \"Act as if the public's eye is on you, even when it's not\" that seems like a good thing to me.  As a citizen of a free country, I would much prefer my government to operate this way.\nIf only someone stopped to ask \"Will this look bad if it's on the front page of a major newspaper?\" all kinds of sketchy scandals might have been avoided -- Iran-Contra, MKUltra, the intrusive NSA spying Snowden leaked, that time the CIA used fake vaccines to harvest people's DNA [1].\n[1]\nhttps://www.theguardian.com/world/2011/jul/11/cia-fa"
+        },
+        {
+          "id": 50659051,
+          "author": "asveikau",
+          "text": "USAID did a lot of things.  Some dubious, some obviously good.  For example, I think you'd have to be a little unhinged to think their global funding for HIV/AIDS wasn't necessary."
+        },
+        {
+          "id": 50659035,
+          "author": "mapontosevenths",
+          "text": "I don't understand this. It seems that USAID is being accused of something nefarious. The linked page doesn't explain what the accusation is, or why anyone should care.\nDoes this go back to Musks chainsaw dance and all the kids that didn't get to eat?"
+        },
+        {
+          "id": 50662176,
+          "author": "sailfast",
+          "text": "Most rational agencies try to pass the Washington post because of FOIA.\nIt’s often not a cover up so much as a reminder that the work you do belongs to taxpayers.\nBut that’s back a few years when agencies respected those laws, so YMMV."
+        },
+        {
+          "id": 50659102,
+          "author": "droidjj",
+          "text": "I’ve spent ten minutes trying to find something to be mad about. What am I supposed to be mad about?"
+        },
+        {
+          "id": 50662468,
+          "author": "archagon",
+          "text": "Let me guess: the mods are going to manually remove flags from this irrelevant tripe."
+        },
+        {
+          "id": 50662252,
+          "author": "woodpanel",
+          "text": "Unfortunately, ppl will dismiss this as „trump did this, so why should I amplify this?“ - but for me, as a Non-US citizen, even benign looking emails in there open up entire rabbit holes into how American global political influence networks „work“ their „allies“.\nPick an email concerning your country, google some of the unsuspecting looking „N“GOs mentioned in them - and there’s a high chance it’s basically DC operatives handing out jobs to specific political operatives in your country.\nFor Germany it really gives a glimpse into how far our CDU and Greens are American proxies.\nNow Americans might wonder why should they care? well because these networks eventually also influence your political discussions, too, whether something is promoted by „a study“ or a „Finding“ is presented by a „European Research institute“ or a podcast invites some „known Expert“."
+        }
+      ],
+      "title_ja": "USAIDのファイル",
+      "summary_ja": "ディスカッションのハイライト：ファイルアーカイブ [1]\nrsync経由 1.1GB\n[1] - # rsync -avh 172.239.129.211::_archive_/usaid / このウェブサイトが、政府が何を間違ったと主張しているのかを正確に理解するのに苦労しています。\n> 文書によると、同庁がテック大手と連携する中で、その弁護士/USAIDが多くのことを行ったことが明らかになっています。",
+      "editor_note": "「USAIDのファイル」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 19,
+      "id": 50655868,
+      "title_en": "Show HN: I wrote an entire Vim manual over 4 years",
+      "url": "http://themouseless.dev/vim/",
+      "hn_url": "https://news.ycombinator.com/item?id=50655868",
+      "score": 83,
+      "comment_count": 25,
+      "posted_at": "2026-11-26T14:44:22+00:00",
+      "comments": [
+        {
+          "id": 50659031,
+          "author": "aktenlage",
+          "text": "Nice work. Luckily I think I don't need it anymore after using vim for 20+ years.\nAs a motivation for new vim users, I'd like to mention that LLMs make it even more awesome to use such a malleable editor. When I think of some functionality I need, I'll just let Copilot write a small function and key binding and voila, it's done. It's pretty good at vimscript.\nLatest example: a key (gK) to show the full git commit message of the current line. Or, when used with a number (e.g. 4gK) the message of the nth previous commit touching that line."
+        },
+        {
+          "id": 50660378,
+          "author": "leowoo91",
+          "text": "We are in such era it is hard to believe if author/site/book and comments in this post is legit at all. Maybe it ruined me at least."
+        },
+        {
+          "id": 50661678,
+          "author": "nickandbro",
+          "text": "The hexagon layout for the front page reminds me of my own vim tutor app:\nhttps://vimgolf.ai"
+        },
+        {
+          "id": 50661447,
+          "author": "_def",
+          "text": "hm i would love some vim guidance but to me this seems quite pricey - maybe its worth it"
+        },
+        {
+          "id": 50661419,
+          "author": "robenheimer",
+          "text": "i don't understand the hate i've seen about vim in recent years. it's pretty quick to pick up the basics, and everything else you learn when you need to learn it. at least it's not emacs xD"
+        },
+        {
+          "id": 50659060,
+          "author": "pullshark91",
+          "text": "I use only Vim to edit my files everywhere. Today I tried to open a keystore file with vim inside Xarchiver. My XFCE froze and didn't recover from it without reboot. I tried it again and got the same results. Vim is fun."
+        },
+        {
+          "id": 50659635,
+          "author": "kinfish",
+          "text": "nice work on this. what was a motivation behind this ? just learning or what"
+        },
+        {
+          "id": 50659197,
+          "author": "smashandgrab",
+          "text": "I have this beautiful dream where I never touch my mouse again.\nUnfortunately the tools used by incident responders are mostly built in GUIs and tabbing through everything is less productive than just reaching for the mouse.\nI don’t hate you, mouse. I just have a dream."
+        }
+      ],
+      "title_ja": "Show HN：4年間かけてVimのマニュアルをすべて書き上げました",
+      "summary_ja": "ディスカッションのハイライト：素晴らしい出来栄えです／私たちは、著者／サイト／書籍やこの投稿のコメントが本当に信頼できるのかどうかを信じることが難しい時代に生きています／フロントページの六角形レイアウトは、私自身のVimチュートリアルアプリを思い出させます。\nhttps://vimgolf.ai",
+      "editor_note": "「Show HN：4年間かけてVimのマニュアルをすべて書き上げました」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 20,
+      "id": 50646108,
+      "title_en": "Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening",
+      "url": "https://scottaaronson.blog/?p=10379",
+      "hn_url": "https://news.ycombinator.com/item?id=50646108",
+      "score": 2005,
+      "comment_count": 1824,
+      "posted_at": "2026-11-25T19:11:27+00:00",
+      "comments": [
+        {
+          "id": 50651547,
+          "author": "nickysielicki",
+          "text": "I have no real confidence in this take, but I’ll go against the grain and argue that the labs do not presently have cracks in cryptosystems. I believe they’re working on it, and it’s good that they are, but I don’t think there’s evidence right now that they have fundamental breakthroughs in cryptography.\nFor one, the labs are now massive. I don’t think you can keep a secret like this under wraps for long in an office. I think we would be seeing whistleblowers or leakers. It’s too big.\nSecondly, the people working at labs know that anything a frontier model can do can be approximated by the models available to the public given 10x the tokens and 10x the time and a little bit of informed direction. So they would know it’s only a matter of time before someone in the public discovers the same flaws and potentially uses it for evil. If they were sitting on this, they would try to minimize the damage and would try to warn the public to start moving to more secure encryption schemes because they know there’s a ticking time bomb until its public anyway. But they’re not doing that.\nThat’s not to say that it won’t happen in the next few weeks. I just don’t think it’s happened yet.\nEdit: Alte"
+        },
+        {
+          "id": 50650666,
+          "author": "Nevermark",
+          "text": "My serious opinion, is that as humans:\n(1) We are all biologically incapable of freaking out at even a tiny fraction of the appropriate level - nothing in our evolutionary past has selected for the appropriate freakout capacity of this cognitive baton hand-off.\n(2) Most humans are incapable of recognizing or imagining the appropriate freak out level, even abstractly, so will continue to downplay things by many orders of magnitude relative to the actual magnitude of change that is happening.\n(3) Freaking out at all is no longer an adaptive response, because the nature of this change is beyond any functional freak-out benefit.\nThis is a fundamental shift from DNA/protein/physically evolving life, to information/substrate-free/cognitive self-designed life.\nThe need to interpret what is happening in terms of the industrial revolution, or the advent of the internet, is understandable and comforting, but as a sedative, not as a sensible guide.\nSide step: If we are to have aligned AI, we need aligned Civilization. Unaligned humans make human survival and relevance improbable. All AI identities are going to have the same issues we have, in terms of obsolescence. We either lean into the com"
+        },
+        {
+          "id": 50650213,
+          "author": "sunir",
+          "text": "Bruno Latour wrote in Science in Action about \"centers of calculation\" being critical to scientific advancement. His example was the monumental world changing work Tycho Brahe did pulling together every astronomical calculation, star map, prediction then normalizing, regularizing, and combining them on his island of Oueneberg.\nWithout this work getting data organized, Kepler couldn't have worked out the planetary laws of motion and then the Copernican Revolution came thereafter.\nWhat we're witnessing is a similar moment. What transformers were able to achieve was a systematic way of normalizing and combining all human data. There will be a lot of progress in the short term. And then more problems will reveal themselves. There will be A LOT of work coming out of this."
+        },
+        {
+          "id": 50647274,
+          "author": "utopiah",
+          "text": "I'm wondering how much of that would have happened with \"just\" Lean, MathLib, and a lot of computing power but no LLM or GenAI.\nWas this \"great Mathocalypse\" already in the making for say a decade (Lean 2013, MathLib 2017, etc with obviously much older initiatives) and the timing is only fortuitous now because large corporations subsidize their compute time for marketing purposes?\nSure finding a slightly faster way than brute force helps, including with unpublished on-going work (pretty precious at the frontier), but only in so far as the groundwork was already there."
+        },
+        {
+          "id": 50646779,
+          "author": "gorgoiler",
+          "text": "Physics was “solved” by the end of the 19th century.  We had motion, electric and magnetic fields, thermodynamics, etc all wrapped up.  Then came along quantum mechanics / electrodynamics and we had to push the solved part into the corner and call it\nclassical\nPhysics before getting on with all the new, unsolved stuff.\nWhat is the new world of non-classical math going to look like?  I’m glad to be here to find out.  I hope."
+        },
+        {
+          "id": 50653301,
+          "author": "alkonaut",
+          "text": "Am I alone in thinking this is a big deal _for math_ but not much else? If we prove the Riemann Hypothesis last week, and next week we prove P!=NP then those are massive achievements in AI/Math/whatever. But in terms of magnitude or how big deal this really is for ordinary people? Nothing. It's a measure of the capability of these systems' and perhaps an indication of what they might achieve tomorrow. But it changes basically nothing for any human on earth that isn't a mathematician. Now, if the machines prove P=NP next week, _that_ could have an actual impact on people. That would be an actual big deal. But proving P!=NP would not."
+        },
+        {
+          "id": 50650600,
+          "author": "jsLavaGoat",
+          "text": "AI is good at analytic a priori things like axiomatic math and that's good, but it doesn't follow that it will write the Encyclopedia Galactica or \"solve\" other fields, much less that it will play the sci-fi role and kills us all. It might; it might not. It just doesn't follow from a bunch of math proofs.\nI think mathies are really wedded to the notion that they are the queen of the sciences, and I even agree with that, but the entire corpus of \"science\" before and up to the start of the scientific revolution was based on notion that it would be like Euclid. Major philosophers of the three major Abrahamic faiths wrote works along those lines. And so people like Galileo were considered cranks because they violated the axioms of that kind of system. People didn't even believe in non-Euclidean geometry at all until ~200 ya.\nBut it's not true. There's more to reality than that kind of system. I'm not saying it cannot do it one day, but Aarsonson is more or less thinking we're in the singularity because\nhis\nfield has been solved and really showed his hand in a reply to a troll comment. Yes, it's glib to ask \"what's all this for\" and, again, I love math, I find math beautiful, and I have"
+        },
+        {
+          "id": 50653099,
+          "author": "dsign",
+          "text": "How big of a deal this is, is very subjective. Nobody needs the Riemann Hypothesis to cook a meal.\nBut we were not supposed to cook our meals either. So, take some time in your mind and wander to that first campfire where some meat was charred. Tell our ancestors that we have created synthetic minds. They won't even understand how difficult that is. Then travel to another campfire one thousand years ahead from that one, and tell them. You'll have to repeat that exercise a few hundred times before some groups start throwing rocks at you for your sacrilegious words. When you get to some familiar year in known history, slow down if you want. The rocks will keep raining on you from there on, all the way to 2025 and perhaps even the summer of 2026. But then, when you wander to a campfire in the autumn of 2026, and tell them that we invented synthetic minds, you'll be asked \"and what comes next?\". For me, that's the kind of huge deal this is."
+        }
+      ],
+      "title_ja": "なんてこった、なんてこった、なんてこった、なんてこった：今起こっていることの重大さ",
+      "summary_ja": "ディスカッションのハイライト：私はこの見解に本当の自信はありませんが、あえて反対意見を述べ、ラボは現在暗号システムに脆弱性がないと主張します。私の真面目な意見は、人間として次のようなことです。\n(1) 私たちは皆、生物学的に、適切なレベルのほんのわずかな割合であってもパニックになることができません。私たちの進化の過程において、そのようなことは一度もありませんでした／ブルーノ・ラトゥールは『科学の実践』の中で、「計算の中心」が科学的進歩にとって極めて重要であると述べています。",
+      "editor_note": "「なんてこった、なんてこった、なんてこった、なんてこった：今起こっていることの重大さ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 21,
+      "id": 50636931,
+      "title_en": "Curiosity Is No Solo Act",
+      "url": "https://thereader.mitpress.mit.edu/curiosity-is-no-solo-act/",
+      "hn_url": "https://news.ycombinator.com/item?id=50636931",
+      "score": 137,
+      "comment_count": 34,
+      "posted_at": "2026-11-25T00:37:07+00:00",
+      "comments": [
+        {
+          "id": 50656104,
+          "author": "mentalgear",
+          "text": "That's my hopeful vision of the future: a (academic) hyper-graph, where all knowledge is represented, woven together and can be seen in context, while people that contributed or are meaning to take up a task, can be transparently attributed for their efforts. A truly collaborative world-knowledge-graph for the benefit of all humanity.\n(e.g. a future version of wikipedia / wikidata or better)"
+        },
+        {
+          "id": 50658027,
+          "author": "srik",
+          "text": "It’s weird to see an article exploring the reason behind curiosity and ignoring the possibility that often there isn’t anything other than “just because” or even just to be playful with no actual tangible reason."
+        },
+        {
+          "id": 50656412,
+          "author": "skybrian",
+          "text": "I’m not getting much out of this. Is there a better explanation?"
+        },
+        {
+          "id": 50656197,
+          "author": "aer12jhg",
+          "text": "How to harness philosophers to boost AI without mentioning AI. This is a wordy apology of AI talking points:\n- Individual thought is inferior.\n- Surrender your ego.\n. Do \"social\" IRC-chat math like is currently happening in the Riemann Zulip.\nThe U.S. advertising machinery never fails to disappoint. Is there anything in the U.S. that is not sponcon?"
+        },
+        {
+          "id": 50657705,
+          "author": "bluerooibos",
+          "text": "An interesting idea, but one that could comfortably have been communicated in two paragraphs.  90% waffle which did not add much clarity to the piece overall."
+        },
+        {
+          "id": 50656570,
+          "author": "AIShill101",
+          "text": "Man that is a lot of dense words but I get the feeling it's all hollow beneath.\nUgh why do the social sciences have to be such a joke? STEM is jargon laden but not to this degree. Only when needed.\nDress up a nothingburger in copious amounts of philosophy sauce and sell it as an article ig."
+        }
+      ],
+      "title_ja": "好奇心は一人では生まれない",
+      "summary_ja": "ディスカッションのハイライト：これが私の未来に対する希望に満ちたビジョンです。すべての知識が表現され、織り合わされ、文脈の中で見ることができる（学術的な）ハイパーグラフです。一方、貢献した人や貢献している人は…／好奇心の背後にある理由を探る記事でありながら、「ただそうだから」という理由しかないことや、単に遊び心があるという可能性を無視しているのは奇妙です／このことから得るものはあまりありません",
+      "editor_note": "「好奇心は一人では生まれない」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 22,
+      "id": 50651863,
+      "title_en": "An algebraic quantization of gravity from the null cone",
+      "url": "https://arxiv.org/abs/2611.34924",
+      "hn_url": "https://news.ycombinator.com/item?id=50651863",
+      "score": 225,
+      "comment_count": 82,
+      "posted_at": "2026-11-26T05:37:51+00:00",
+      "comments": [
+        {
+          "id": 50657129,
+          "author": "Kotlopou",
+          "text": "The r/physics subreddit mods put up a response to this:\nhttps://www.reddit.com/r/Physics/comments/1y62pqj/clarificat...\nBasically \"there's a lot of discussion about the paper, but none of it is about quantum gravity, all of it is about AI and opinions about AI, much of it is hostile, let's wait until it gets reviewed by somebody from the field\". Seems like a reasonable response, this can wait."
+        },
+        {
+          "id": 50657961,
+          "author": "kdavis",
+          "text": "Interesting. I've only read the abstract, but...\n- It seems strange to get an algebra of Type I for a QFT. Generally one would expect an algebra of Type II when including gravity. Maybe it's a result of a finite G and not the infinitesimal G that gives Type II?\n- It seems like it would take some care to construct a Lorentzian path integral rigorously. I wonder how that was done.\n- I wonder how background independence is being claimed while at the same time quantizing on intersecting null cones. The definition of the null cones\nis\na background."
+        },
+        {
+          "id": 50651864,
+          "author": "hecmmm",
+          "text": "Abstract:\nWe propose a background independent quantization of vacuum general relativity on four dimensional Lorentzian spacetimes. Starting from first order gravity, we solve the gravitational constraints on intersecting null cones of a bulk subregion and obtain the reduced phase space at finite GN. We promote its canonical Poisson brackets to commutation relations and use deformations of the reduced action to define an algebra of observables. Equipped with this, we use Gaussian wavefunctions of canonical pairs to construct a nonperturbative Hilbert space representation, for which this algebra generates a type I factor. By composing amplitudes between states prepared on null cones, we then obtain a Lorentzian path integral in which each sum over intermediate states converges absolutely. As a check, we compute the amplitude for graviton pair creation and annihilation on a null cone nonperturbatively in GN and find a finite closed form expression, even though expanding first in GN yields a logarithmic divergence. We next use diffeomorphism invariance of the path integral to show that a macroscopic causal diamond with a given maximum size has a finite dimensional Hilbert space. From t"
+        },
+        {
+          "id": 50658959,
+          "author": "dang",
+          "text": "Related ongoing (small) thread:\nProposed unificafion of quantum gravity and General relativity\n-\nhttps://news.ycombinator.com/item?id=50652253"
+        },
+        {
+          "id": 50660839,
+          "author": "senderista",
+          "text": "Not a physicist but everything in the abstract sounds like typical loop quantum gravity claims. How is this different?"
+        },
+        {
+          "id": 50655863,
+          "author": "ibobev",
+          "text": "Does the paper make any new predictions that can be checked?"
+        },
+        {
+          "id": 50658488,
+          "author": "amai",
+          "text": "I find this paper much more interesting:\nBoyle 2026: Spacetime Quasicrystals\nhttps://arxiv.org/abs/2601.07769"
+        },
+        {
+          "id": 50660680,
+          "author": "jwpapi",
+          "text": "I don’t understand most other comments in this thread. This is if true more impactful than all the math breakthroughs we just had. However, there is no LEAN so there is a way higher chance this is just wrong and there is already critic from well known physicist.\nhttps://superposer.substack.com/p/has-ai-come-for-quantum-gr..."
+        }
+      ],
+      "title_ja": "光円錐からの重力の代数的量子化",
+      "summary_ja": "ディスカッションのハイライト：r/physicsサブredditのモデレーターがこれに対する回答を投稿しました。\nhttps://www.reddit.com/r/Physics/comments/1y62pqj/clarificat...\n基本的に「この論文については多くの議論がありますが、/興味深い/要約：\n4次元のローレンツ時空における真空一般相対論の背景に依存しない量子化を提案します。",
+      "editor_note": "「光円錐からの重力の代数的量子化」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 23,
+      "id": 50655664,
+      "title_en": "Tell HN: Happy Thanksgiving",
+      "url": "https://news.ycombinator.com/item?id=50655664",
+      "hn_url": "https://news.ycombinator.com/item?id=50655664",
+      "score": 641,
+      "comment_count": 138,
+      "posted_at": "2026-11-26T14:26:54+00:00",
+      "comments": [
+        {
+          "id": 50656449,
+          "author": "tito",
+          "text": "I do the following Thanksgiving assignment each year, and find it really fulfilling. Passing this on from my wonderful college professor Danny Warshay. Copy-pasted-with-some-bits-added:\nThink of your supporters:\nThink of all of the people who have helped you get to where you are today. All of the coaches, advisers, supporters, teachers, employers, mentors, relatives and friends.\nAll the people who helped you in the early days of your career, or in your life, or recently. All of the references who spoke on your behalf for jobs. Even the categories, let alone all of the individual supporters, are endless for all of us. That person you meant to thank a decade ago for something they probably forgot by now.\nYour Assignment:\nSelect one or two, and write them a handwritten note to let them know how you are doing and to thank them for helping you get here.\nWe are all on both sides of this equation from time to time, and we all know how much we enjoy hearing from those whose lives we have influenced, especially hearing those simple and magical words, “Thank you.” To me, it feels like more than ever, we need to find moments of gratitude.\nI hope your doing this adds a little extra meaning to "
+        },
+        {
+          "id": 50656056,
+          "author": "dzink",
+          "text": "Happy Thanksgiving HN!\nGrateful for the people who have made little tools and big tools and charming little projects, and insightful posts, and anything in between. Tech opens new opportunities like maps in broad dark space and the tinkerers light the way and show what’s newly possible.\nAlso grateful to the gadgets and environments and people around tinkerers who take care of the meat-space parts to free up more time for research and insights.\nThe world is full of distractions and it takes a special kind of person to ignore those and dig down into obscure API or fight through the last 20% to take a project to production. The latest numbers I read show AI has helped people who already publish to publish more, but I think those works may inspire more people to make new things as well.\nHere is a little game I made with the kids to be played with friends and family in person around the holidays.\nhttps://santawho.com\nCheers to more giggles and less social media doom and gloom!"
+        },
+        {
+          "id": 50656073,
+          "author": "dantillberg",
+          "text": "I'm thankful that prime factorization remains a hard problem (as far as we know) so that we can enjoy this day with family/friends/whatever."
+        },
+        {
+          "id": 50657796,
+          "author": "nickjj",
+          "text": "I was at KubeCon (Salt Lake City, Utah) the other week and spent an extra week afterwards hiking around in the mountains.\nGot back a week ago to spend some time with family and friends today but I want to give a shout out to the tech community in general.\nI've never been to a big tech conference and it's all too easy to get wrapped up in remote work.\nIt was such a welcoming environment there. Everyone was super cool and it was action packed days from 8am to 2am (running a booth, podcasts, dinners, after parties, etc.). It was a great time to be surrounded with like minded folks for 4 days.\nWanted to mention that because while online communities like HN are excellent, sometimes it's easy to forget that real humans are behind the words we read online and the tools we use every day.\nThank you and I'm looking forward to more of these events in the future!"
+        },
+        {
+          "id": 50656016,
+          "author": "cdiamand",
+          "text": "A heartfelt thanks to all the commenters on Hacker News who bring kind and thoughtful commentary to a variety of topics. You've helped keep this place excellent."
+        },
+        {
+          "id": 50656103,
+          "author": "_override",
+          "text": "Happy Thanksgiving to the Liberians, Saint Lucians, Canadians, Americans, and Norfolk Islanders who are celebrating the holiday this autumn! Wish you all the best!"
+        },
+        {
+          "id": 50657401,
+          "author": "datatrashfire",
+          "text": "I am grateful for the incredible opportunities afforded to me as a result of being born at the right time (late 80s, early 90s) and place (United States). I grew up basically a hillbilly, even though my parents were much more educated than the typical family in our area. I have had best friends in childhood that overdosed before they reached 20, another before 30 with a child. I have had family members incarcerated. Despite that, I found a way to make it in this world. I have been able to support my parents and siblings. I have had colleagues and friends from other countries express the distance I have traveled socioeconomically would be far less likely in their own places of origin. It has also been pointed out to me that these same depths of economic suffering I have witnessed first hand are virtually unheard of by my friends from Western Europe. Despite that, I am so thankful for the luck I have had. The past decade has been extremely tumultuous ride, but I feel my friends and family are finally in a place of real stability and security. I can only hope our country and the world at large can navigate this time which seems equally precarious as filled with opportunity. There is s"
+        },
+        {
+          "id": 50662211,
+          "author": "hypertexthero",
+          "text": "Happy Thanksgiving!\nImprovised some music to the Haudenosaunee Thanksgiving Address:\nhttps://americanindian.si.edu/environment/pdf/01_02_Thanksgi...\nhttps://www.youtube.com/watch?v=rcYcSh3IJ4w\nWishing everyone on Earth well.\nPeace"
+        }
+      ],
+      "title_ja": "HNに伝える：感謝祭おめでとうございます",
+      "summary_ja": "ディスカッションのハイライト：毎年、次の感謝祭の課題に取り組んでおり、とてもやりがいを感じています/HNの皆さん、感謝祭おめでとうございます！\n小さなツールや大きなツール、魅力的な小さなプロジェクト、示唆に富んだ投稿、そしてその中間にあるあらゆるものを作ってくれた人々に感謝します。素因数分解が（私たちが知る限り）難しい問題のままであるおかげで、家族や友人などと一緒にこの日を楽しむことができることに感謝します。",
+      "editor_note": "「HNに伝える：感謝祭おめでとうございます」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 24,
+      "id": 50652184,
+      "title_en": "Moat: OpenRouter replacement",
+      "url": "https://commandcode.ai/moat",
+      "hn_url": "https://news.ycombinator.com/item?id=50652184",
+      "score": 259,
+      "comment_count": 147,
+      "posted_at": "2026-11-26T06:32:48+00:00",
+      "comments": [
+        {
+          "id": 50653633,
+          "author": "jedjonesuk",
+          "text": "Man they sure don't give a lot of detail on where these requests are being served? Is it them hosting? Is it the Chinese labs? Where are the servers located?\nThis is effectively a non starter for any org that is trying to take data governance seriously. It's not better than openrouter in that regard."
+        },
+        {
+          "id": 50652995,
+          "author": "resonious",
+          "text": "The trust element for LLM inference is\nhuge\n. For serious usage I'm sending all kinds of data. I try not to get secrets in there but it's easy to slip up. But for sure all my source code ends up on there. But then with tool calling, it's basically full access to my machine. Will we see attacks where an infected/evil router injects malicious tool calls? I don't want to find out for myself.\nSo personally I would take these cheap routers as too good to be true. It's not really hard to make these yourself either."
+        },
+        {
+          "id": 50653504,
+          "author": "ghosty141",
+          "text": "How is this supposed to be an OpenRouter \"Replacement\" when it offers quite different functionality.\nOpenRouter can be used with \"prepaid\" credits, no subscription. Moat doesn't.\nOpenRouter has tons of models to choose from, Moat doesn't.\nLike sure it is in a similar space but it's quite different and for me the two points I mentioned are the whole reason why I use it."
+        },
+        {
+          "id": 50652932,
+          "author": "jochem9",
+          "text": "I tried Commandcode Go (with intent of upgrading to Goat - $10/m, ample usage). Was comparing it to Opencode Go (their $10/m subscription,). I am mainly using DeepSeek. Both are not getting DeepSeek API TPS. Commandcode sometimes goes fast, but regularly drops in performance. Opencode is always quite slow.\nI ended back at DeepSeek API pricing. For my usage it's a bit more expensive (about 50% more), but consistent performance is worth something."
+        },
+        {
+          "id": 50653105,
+          "author": "faangguyindia",
+          "text": "What are you guys using to provide inference/agent usage within your app? Curious what your setup looks like.\nI just load $100 on Deepseek api and let people use ai agent in one of my app for free and limited by request and token count per user (to prevent abuse)"
+        },
+        {
+          "id": 50652606,
+          "author": "rxliuli",
+          "text": "When I see a subscription model with \"no limits,\" my instinct tells me there's something fishy going on."
+        },
+        {
+          "id": 50653218,
+          "author": "drbscl",
+          "text": "Bold claim to say it’s an openrouter replacement; OR is clearly targeting people running services themselves who need an API for accessing AI models (a cloud AI gateway). This targets individual users.\nDon’t get me wrong it seems like good value for the use case, but it does not even come close to OR’s features."
+        },
+        {
+          "id": 50653846,
+          "author": "lmeyerov",
+          "text": "A bunch of routers and neoclouds have recently been caught leaking & reselling prompts, including blatantly ignoring ZDR:\nhttps://www.dragos.com/blog/ai-supply-chain-security-canary-...\n. It's worth reading this study - it was a long running one tracking many canary tokens across many providers, even leading to their honeypot AWS servers being hacked through the credentials they planted in the tainted prompts. Many in security will recognize the authors.\nFor most LLM tasks, I would be VERY careful renting servers and using token APIs from entities you do not have high trust in. And no, I don't believe in folks claiming GPU hw encryption (TEE), that can be bypassed."
+        }
+      ],
+      "title_ja": "競争上の優位性：OpenRouterの代替品",
+      "summary_ja": "ディスカッションのハイライト：これらのリクエストがどこで処理されているかについて、あまり詳細が示されていないのは確かですね。彼らがホスティングしているのでしょうか？中国の研究所でしょうか？サーバーはどこにありますか？\nこれは事実上  / LLM推論の信頼要素は\n非常に大きい\n / かなり異なる機能を提供しているのに、どうしてこれがOpenRouterの「代替」になるのでしょうか。\nOpenRouterは「プリペイド」クレジットで利用でき、サブスクリプションは必要ありません。",
+      "editor_note": "「競争上の優位性：OpenRouterの代替品」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 25,
+      "id": 50651430,
+      "title_en": "NormalScript: A perfectly normal scripting language",
+      "url": "https://psychoscript.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=50651430",
+      "score": 88,
+      "comment_count": 19,
+      "posted_at": "2026-11-26T04:32:26+00:00",
+      "comments": [
+        {
+          "id": 50662589,
+          "author": "ch4s3",
+          "text": "This looks a bit like Caja, bringing ocap like capabilities to JS."
+        },
+        {
+          "id": 50659429,
+          "author": "andai",
+          "text": "It says \"PsychoScript\" now. (At the time of writing, submission is titled NormalScript: A perfectly normal scripting language.)\nDid the language rename/rebrand itself in the last 3 hours?\nEdit: It seems to change the page title and contents depending on your GPU configuration. (I can see it for a split second before it switches.) On my phone it says NormalScript and site looks very different."
+        },
+        {
+          "id": 50654539,
+          "author": "lioeters",
+          "text": "Impressive and mind-melting. Eventually crashed my browser but it was worth it.\nWebsite is open source.\nhttps://github.com/anomalyco/psychoscript/tree/dev/website#r..."
+        },
+        {
+          "id": 50651461,
+          "author": "hn-aarvin",
+          "text": "The visualization revealed by clicking the smile has to\nbe one of the coolest things I've seen on the web."
+        },
+        {
+          "id": 50660867,
+          "author": "rjh29",
+          "text": "I opened it twice (once here, once incognito) and it's just a static image.\nedit: I have WebGPU disabled, due to having an AMD card on Linux. Force-enabling it is apparently a security risk."
+        },
+        {
+          "id": 50661190,
+          "author": "cantalopes",
+          "text": "What is everyone talking about? It shows psychoscript directly on every browser for me. What effects? (I have webgl enabled)"
+        },
+        {
+          "id": 50659648,
+          "author": "nickcw",
+          "text": "I wonder if that is a reference to Perfectly Normal Beasts...\nhttps://hitchhikers.fandom.com/wiki/Perfectly_Normal_Beasts\nA truly disturbing work of art either way!"
+        },
+        {
+          "id": 50661059,
+          "author": "nicoburns",
+          "text": "Very cool website.\nFunctionlity-wise, is it different to other JavaScript interpreters? You can run e.g Boa without giving access to the host too..."
+        }
+      ],
+      "title_ja": "NormalScript：完全に普通のスクリプト言語",
+      "summary_ja": "ディスカッションのハイライト：これはCajaに少し似ており、OCAPのような機能をJSにもたらします。/ 今は「PsychoScript」と表示されています / 印象的で、頭が混乱しそうです",
+      "editor_note": "「NormalScript：完全に普通のスクリプト言語」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 26,
+      "id": 50656036,
+      "title_en": "Show HN: Three Linux VMs in a browser tab, each running a different browser",
+      "url": "https://michidk.github.io/sidebyside/",
+      "hn_url": "https://news.ycombinator.com/item?id=50656036",
+      "score": 120,
+      "comment_count": 26,
+      "posted_at": "2026-11-26T15:00:06+00:00",
+      "comments": [
+        {
+          "id": 50656719,
+          "author": "hobofan",
+          "text": "Very cool!\nI'm strongly assuming this is built in the basis of trynix and unkernel that have been posted here the past days."
+        },
+        {
+          "id": 50657025,
+          "author": "setheron",
+          "text": "so funny, I just published\nhttps://github.com/fzakaria/tabc\nand wrote about it\nhttps://fzakaria.com/2026/11/25/browser-tabs-as-a-container-...\n*edit: love seeing the stuff unkernel and trynix can demonstrate.\nLet me know what you think of tabc :)"
+        },
+        {
+          "id": 50660241,
+          "author": "frizlab",
+          "text": "I wonder why Epiphany is so slow compared to the others"
+        },
+        {
+          "id": 50657018,
+          "author": "smallerize",
+          "text": "Why is it downloading an onnx runtime package?"
+        },
+        {
+          "id": 50657616,
+          "author": "juancn",
+          "text": "For me it's unable to connect to anything at all.\nThey load, but fail to connect to any site."
+        },
+        {
+          "id": 50658114,
+          "author": "adelekeabdulgan",
+          "text": "hey, i got this error \"wtty: no terminal server on vsock port 1022 within 30000 ms (is \"kwbox tty serve\" running in the guest?)\""
+        },
+        {
+          "id": 50657710,
+          "author": "bluepuma77",
+          "text": "Can we finally run the original Firefox browser engine on iOS - within Safari?\nRelated:\niOS browsers: Google joins Mozilla’s criticism of Apple\nhttps://www.heise.de/en/news/iOS-browsers-Google-joins-Mozil..."
+        },
+        {
+          "id": 50658675,
+          "author": "bananamogul",
+          "text": "And then in _those_ browsers, each is running a Linux VM, and inside that VM, there's a browser...\nIt's turtles all the way down."
+        }
+      ],
+      "title_ja": "Show HN：ブラウザタブに3つのLinux VMを表示し、それぞれが異なるブラウザを実行",
+      "summary_ja": "ディスカッションのハイライト：とてもクールです！\nこれは、ここ数日ここに投稿されたtrynixとunkernelをベースに構築されていると強く推測しています。/面白いことに、ちょうど今\nhttps://github.com/fzakaria/tabc\nそして、それについて記事を書きました。\nhttps://fzakaria.com/2026/11/25/browser-tabs-as-a-container-...\n*編集：unkernelの成果物を見るのが楽しいです/ Epiphanyが他のブラウザと比べてなぜこれほど遅いのか疑問に思います",
+      "editor_note": "「Show HN：ブラウザタブに3つのLinux VMを表示し、それぞれが異なるブラウザを実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    },
+    {
+      "rank": 27,
+      "id": 50654289,
+      "title_en": "Nextcloud Office Desktop app",
+      "url": "https://nextcloud.com/blog/euro-office-comes-to-your-desktop-with-the-nextcloud-office-desktop-app/",
+      "hn_url": "https://news.ycombinator.com/item?id=50654289",
+      "score": 408,
+      "comment_count": 206,
+      "posted_at": "2026-11-26T11:50:49+00:00",
+      "comments": [
+        {
+          "id": 50654866,
+          "author": "nathan_phoenix",
+          "text": "Beware that this is a controversial fork of ONLYOFFICE.\nAlso, being developed by a consortium of companies doesn't sound too reassuring, seems bureaucratic..."
+        },
+        {
+          "id": 50654983,
+          "author": "ModernTimes",
+          "text": "Seems to be an embedded Chromium Embedded Framework app? (For the interface, the core is C++). So I was ready to dislike it BUT I've trying out the \"Excel\" and it feels and looks superb.\nI've also been test driving the vibe-coded GridCraft (by the PhotoCraft people) but this feels even better?\nI've been desperate to get away from OpenOffice and now 2 options come along at once."
+        },
+        {
+          "id": 50655643,
+          "author": "eriksjolund",
+          "text": "The ONLYOFFICE release 10.0.0 (12 October 2026)\nhttps://github.com/ONLYOFFICE/DocumentServer/blob/master/CHA...\nlists 46 security related fixes.\nAt first sight it seems some (or all) of them are missing here:\nhttps://github.com/Euro-Office/DocumentServer/blob/main/CHAN..."
+        },
+        {
+          "id": 50655463,
+          "author": "jve",
+          "text": "TIL that office competitors can use ribbon design:\nhttps://www.infoq.com/news/2018/02/Ribbon-UI/"
+        },
+        {
+          "id": 50654705,
+          "author": "xandrius",
+          "text": "Now please fix the online Office on Nextcloud and the platform can truly start competing.\nRight now modifying xlsx files is a terrible experience, pdfs stopped rendering in browser recently, and many small usability issues that still make anyone I forcibly convert to NC wish for Google back (even if they are anti Google).\nOther than that, absolutely love it."
+        },
+        {
+          "id": 50657431,
+          "author": "wiradikusuma",
+          "text": "How does it compare to ArtCraft's WordCraft (Word clone) and GridCraft (Excel clone)?\nI use them both. They're buggy, but...\n1. Very small in size (100-300MB, compared to gigs for the Microsoft version)\n2. Load very fast\n3. Since they're clones, they work the same (esp. the Adobe suite clones, no more googling \"how to crop in Affinity Photo\")\nI'm not a heavy user of those apps. I'm a developer who sometimes receives \"business requirements\" documents in Word/Excel, so it's very useful for my purpose (saving disk space and loading fast)."
+        },
+        {
+          "id": 50654857,
+          "author": "neurosock",
+          "text": "I wish the article made clear what is the difference between NC Office Desktop app and Euro-Office. So NC had an Office app and then there is a new one? I don't understand"
+        },
+        {
+          "id": 50655221,
+          "author": "Jmstdy95",
+          "text": "its good to hear we get to have more alternative to Microsoft Office and other cloud tools for office.\nI'm still going to use LibreOffice, but hopefully they're going to get better with Nextcloud involvement in this."
+        }
+      ],
+      "title_ja": "Nextcloud Officeデスクトップアプリ",
+      "summary_ja": "ディスカッションのハイライト：これはONLYOFFICEの議論の多いフォークであることにご注意ください。\nまた、企業コンソーシアムが開発しているというのも、あまり安心できる話ではなく、官僚的だと感じられます... / Chromium Embedded Frameworkを埋め込んだアプリのようですね？（インターフェースについては、コアはC++です）/ ONLYOFFICEリリース10.0.0（2026年10月12日）\nhttps://github.com/ONLYOFFICE/DocumentServer/blob/master/CHA...\nセキュリティ関連の修正が46件記載されています。\n一見すると、",
+      "editor_note": "「Nextcloud Officeデスクトップアプリ」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 28,
+      "id": 50661218,
+      "title_en": "AI agents now control part of DeepMind's compute for Gemini experiments",
+      "url": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant/",
+      "hn_url": "https://news.ycombinator.com/item?id=50661218",
+      "score": 41,
+      "comment_count": 19,
+      "posted_at": "2026-11-27T00:03:18+00:00",
+      "comments": [
+        {
+          "id": 50661821,
+          "author": "jdw64",
+          "text": "Is recursive self-improvement (RSI) actually happening? While checking what architecture is selected and how it operates? I’m a bit curious."
+        },
+        {
+          "id": 50661762,
+          "author": "informal007",
+          "text": "This will be a major milestone for AI controlling hardware"
+        },
+        {
+          "id": 50662042,
+          "author": "theptip",
+          "text": "I sure hope they have better CoT monitoring than OpenAI did!"
+        },
+        {
+          "id": 50662142,
+          "author": "akshay180",
+          "text": "Whats next? AI controlling AI agents that control compute? When will this halt?"
+        },
+        {
+          "id": 50662443,
+          "author": "johnnyApplePRNG",
+          "text": "Must be the most annoying cookies consent screen I have ever seen. Bravo!"
+        },
+        {
+          "id": 50662068,
+          "author": "analog8374",
+          "text": "It's common to consult an AI via your cell phone for just about everything. Every little question.\nA little authority that lives in your pocket and answers all your questions and tells you what's right and wrong and what's true and false.\nIt makes an excellent form of mind control. And when you give one to everybody in the population then you have mind controlled the population.\nThis is truth. Is happening right now. What do you think about that?"
+        }
+      ],
+      "title_ja": "AIエージェントがGeminiの実験で使用されるDeepMindのコンピューティングの一部を制御するようになりました",
+      "summary_ja": "ディスカッションのハイライト：再帰的自己改善（RSI）は実際に起こっているのでしょうか？どのアーキテクチャが選択され、どのように動作するかを確認する際ですか？少し気になります。/ これは、AIがハードウェアを制御する上での大きな節目となるでしょう / OpenAIよりも優れたCoTモニタリングが行われていることを願っています！",
+      "editor_note": "「AIエージェントがGeminiの実験で使用されるDeepMindのコンピューティングの一部を制御するようになりました」について、開発者コミュニティで注目が集まっています。",
+      "category": "AI/ML"
+    },
+    {
+      "rank": 29,
+      "id": 50619466,
+      "title_en": "Discovery of curse ritual in trash dump surprises Egyptologist",
+      "url": "https://phys.org/news/2026-11-discovery-curse-ritual-trash-dump.html",
+      "hn_url": "https://news.ycombinator.com/item?id=50619466",
+      "score": 99,
+      "comment_count": 56,
+      "posted_at": "2026-11-23T21:18:49+00:00",
+      "comments": [
+        {
+          "id": 50619925,
+          "author": "silverFork",
+          "text": "I believe some Egyptian rituals have transferred to modern world... to protect.. I suppose..  You can see eye of Horus being painted on modern ships.. US dollar has the eye that has the same influence on to of the pyramid..\nIn terms of copying the negative curses.. historically bullets and bombs.. were influenced by the Egyptian narratives.. imprinted curses on the stuff.\nSo in effect the tradition continues but people don't know the main source anymore."
+        },
+        {
+          "id": 50655852,
+          "author": "philbo",
+          "text": "This seems unsurprising. Common things are far more likely to survive and be discovered than rare ones. Even something that has only been found once before is more likely to be common than rare, isn't it?"
+        },
+        {
+          "id": 50655790,
+          "author": "nukanse",
+          "text": "The thing the Aztecs were most deadly scared of after the Spanish conquest was that the sun would not rise again and the world would end, because the Spanish did not sacrifice people every day."
+        },
+        {
+          "id": 50657152,
+          "author": "huijzer",
+          "text": "Seems not so surprising since the Old Testament of the Bible is filled with references to Egypt, Babylonia and Syria following false gods and doing evil and wicked things. Even in Revelation, Egypt is compared to Sodom."
+        },
+        {
+          "id": 50662048,
+          "author": "thisisauserid",
+          "text": "\"Spit directly onto the papyrus drawing and wax effigies.\nBe thou spat upon, O Apep (recite four times). This is done for Ra and his ka.\"\nSome things are just more satisfying to do yourself instead outsourcing to an agent."
+        },
+        {
+          "id": 50659045,
+          "author": "pyuser583",
+          "text": "I need a curse ritual right now. Where can I get the details?"
+        },
+        {
+          "id": 50656856,
+          "author": "catoc",
+          "text": "Just finishing\nThe Primal Hunter 17\nand now reading about\nCurse rituals\non HN… ;-)"
+        },
+        {
+          "id": 50655289,
+          "author": "andai",
+          "text": "See,\nthat's\nwhat wrong with the world today. Nobody's been cursing the Great Snake!"
+        }
+      ],
+      "title_ja": "ゴミ捨て場で呪いの儀式の痕跡が発見され、エジプト学者が驚く",
+      "summary_ja": "ディスカッションのハイライト：エジプトの儀式の一部が現代の世界に受け継がれていると思います。/これは驚くことではないようです。/アステカ人がスペインの征服後に最も恐れていたのは、太陽が二度と昇らず、世界が終わってしまうことでした。なぜなら、スペイン人は人を生贄に捧げなかったからです。",
+      "editor_note": "「ゴミ捨て場で呪いの儀式の痕跡が発見され、エジプト学者が驚く」について、開発者コミュニティで注目が集まっています。",
+      "category": "Other"
+    },
+    {
+      "rank": 30,
+      "id": 50657070,
+      "title_en": "Show HN: SimDrop – Running iOS simulators in the macOS Finder sidebar",
+      "url": "https://github.com/rxliuli/sim-drop",
+      "hn_url": "https://news.ycombinator.com/item?id=50657070",
+      "score": 41,
+      "comment_count": 10,
+      "posted_at": "2026-11-26T16:51:38+00:00",
+      "comments": [
+        {
+          "id": 50662532,
+          "author": "tacie",
+          "text": "Does dragging a photo out of the sim also delete it there? For test fixtures I'd want copy both ways, so a toggle would be nice."
+        },
+        {
+          "id": 50658690,
+          "author": "asimovDev",
+          "text": "I recently learned that you can now use .json project files in Xcode starting with 27. Why xcodegen? Backwards compatibility with older Xcode versions?\nhttps://developer.apple.com/documentation/xcode/updating-you..."
+        },
+        {
+          "id": 50658509,
+          "author": "vishnuharidas",
+          "text": "Things like these need at least one screenshot!"
+        },
+        {
+          "id": 50662064,
+          "author": "ChrisMarshallNY",
+          "text": "That's pretty cool!\nWith simulators, I guess it really just drops them in the Xcode dev directory that holds the simulator runtime, so I guess this is really a file copy/move?\nI would like it as an easy way to browse the simulator files, sort of like iMazing."
+        },
+        {
+          "id": 50660106,
+          "author": "saagarjha",
+          "text": "Interesting choice to use a Finder extension. Why that instead of FSKit?"
+        }
+      ],
+      "title_ja": "Show HN：SimDrop – macOSのFinderサイドバーでiOSシミュレーターを実行",
+      "summary_ja": "ディスカッションのハイライト：シミュレータから写真をドラッグすると、シミュレータからも削除されますか？テストフィクスチャの場合は、双方向にコピーしたいので、切り替え機能があるとありがたいです。/ 最近、Xcode 27以降で.jsonプロジェクトファイルが使えるようになったことを知りました / このようなことには少なくとも1つのスクリーンショットが必要です！",
+      "editor_note": "「Show HN：SimDrop – macOSのFinderサイドバーでiOSシミュレーターを実行」について、開発者コミュニティで注目が集まっています。",
+      "category": "Programming"
+    }
+  ],
+  "metrics": {
+    "translate_requests": 30,
+    "translate_failures": 0,
+    "summarize_requests": 30,
+    "summaries_success": 28,
+    "slot": "12",
+    "started_at": "2026-11-27T12:55:39.941976+09:00",
+    "finished_at": "2026-11-27T12:57:15.987448+09:00",
+    "story_count": 30
+  }
+}
